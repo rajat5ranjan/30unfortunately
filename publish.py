@@ -209,9 +209,13 @@ def cmd_next(args: argparse.Namespace) -> int:
     # Read vetoes immediately before publishing. Actions cannot receive a
     # webhook, but this job runs seconds before the post goes out, so polling
     # here makes the veto window real-time rather than a scheduled sweep.
-    for pid in notify.commands():
-        print("veto: %s" % ("skipped %s" % pid if store.skip(conn, pid)
-                            else "%s was not queued" % pid))
+    done = []
+    for uid, ids in notify.fetch_commands():
+        for pid in ids:
+            print("veto: %s" % ("skipped %s" % pid if store.skip(conn, pid)
+                                else "%s was not queued" % pid))
+        done.append(uid)
+    notify.mark_done(done)      # only after the skips are committed
 
     row = store.next_queued(conn)
     if not row:

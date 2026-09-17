@@ -36,6 +36,11 @@ IMAP_HOST = os.environ.get("IMAP_HOST", "imap.gmail.com")
 
 SKIP_RE = re.compile(r"\b(?:skip|/skip)\s+((?:[a-z][0-9]{3}[\s,]*)+)", re.I)
 
+# Written into the notification body. Deliberately not a real id: the mail is
+# sent to the same inbox it is read from, so anything parseable here would veto
+# the post the message is announcing.
+REPLY_HINT = "To stop one, reply to this email with:  skip <id>   (e.g. skip g0XX)"
+
 
 def _creds():
     envfile.load()
@@ -75,32 +80,65 @@ def _body_text(msg) -> str:
     return ""
 
 
-def commands() -> List[str]:
-    """Post ids vetoed in unread replies. Marks them read so they apply once."""
+def fetch_commands(include_seen: bool = False) -> List[tuple]:
+    """Read vetoes WITHOUT consuming them: [(uid, [ids])].
+
+    Deliberately does not mark anything read. The caller applies the skips,
+    commits, and only then calls mark_done(). If the job dies in between, the
+    reply stays unread and is retried next run — a veto that was silently
+    dropped would publish a post you asked it not to.
+    """
     addr, pw, _ = _creds()
     if not (addr and pw):
         return []
-    ids = []
+    out = []
     try:
         m = imaplib.IMAP4_SSL(IMAP_HOST, timeout=45)
         m.login(addr, pw)
         m.select("INBOX")
-        # only replies to our own notifications, not the whole inbox
-        typ, data = m.search(None, '(UNSEEN SUBJECT "30unfortunately")')
+        # only replies to our own notifications, never the rest of the inbox
+        # Subject must start "Re:" — the notification is sent to yourself, so
+        # it lands in the same inbox and its own instruction line would
+        # otherwise parse as a command against the post it is announcing.
+        scope = "" if include_seen else "UNSEEN "
+        typ, data = m.search(None, '(%sSUBJECT "Re: 30unfortunately")' % scope)
         for num in (data[0].split() if typ == "OK" else []):
-            typ, raw = m.fetch(num, "(RFC822)")
+            typ, raw = m.fetch(num, "(BODY.PEEK[])")     # PEEK: does not set \Seen
             if typ != "OK":
                 continue
             text = _body_text(email.message_from_bytes(raw[0][1]))
-            # only the reply, not the quoted original below it
+            # only what was typed, not the quoted original beneath it
             text = re.split(r"\n\s*(?:>|On .*wrote:)", text)[0]
+            ids = []
             for match in SKIP_RE.findall(text):
-                ids.extend(re.findall(r"[a-z][0-9]{3}", match, re.I))
-            m.store(num, "+FLAGS", "\\Seen")
+                ids.extend(i.lower() for i in re.findall(r"[a-z][0-9]{3}", match, re.I))
+            if ids:
+                out.append((num, list(dict.fromkeys(ids))))
         m.logout()
     except Exception as e:
         print("notify: could not read replies (%s)" % e, file=sys.stderr)
-    return [i.lower() for i in dict.fromkeys(ids)]
+    return out
+
+
+def mark_done(uids: List[bytes]) -> None:
+    """Advance the cursor, once the skips are safely in the database."""
+    addr, pw, _ = _creds()
+    if not (addr and pw) or not uids:
+        return
+    try:
+        m = imaplib.IMAP4_SSL(IMAP_HOST, timeout=45)
+        m.login(addr, pw)
+        m.select("INBOX")
+        for uid in uids:
+            m.store(uid, "+FLAGS", "\\Seen")
+        m.logout()
+    except Exception as e:
+        print("notify: could not mark replies read (%s)" % e, file=sys.stderr)
+
+
+def commands() -> List[str]:
+    """Read-only view, for inspection. Consumes nothing."""
+    return [i for _, ids in fetch_commands() for i in ids]
 
 
 if __name__ == "__main__":
