@@ -20,6 +20,7 @@ import argparse
 import json
 import os
 import sys
+import time
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -82,6 +83,31 @@ def get(path: str, token: str, **params: Any) -> Dict[str, Any]:
 def post(path: str, token: str, **params: Any) -> Dict[str, Any]:
     params["access_token"] = token
     return _request("POST", "%s/%s/%s" % (GRAPH, API_VERSION, path.lstrip("/")), params)
+
+
+def wait_for_container(container_id: str, token: str, label: str,
+                       timeout: int = 180, interval: int = 5) -> None:
+    """Block until a media container is FINISHED.
+
+    Container creation is asynchronous: Meta downloads the image from its public
+    URL and processes it in the background. Calling media_publish before every
+    container reports FINISHED fails with 'Media ID is not available' (9007 /
+    2207027). Locally the round-trip latency usually hides this; on a CI runner
+    it does not.
+    """
+    deadline = time.time() + timeout
+    status = "UNKNOWN"
+    while time.time() < deadline:
+        r = get(container_id, token, fields="status_code,status")
+        status = r.get("status_code", "UNKNOWN")
+        if status == "FINISHED":
+            return
+        if status in ("ERROR", "EXPIRED"):
+            raise GraphError("%s %s: %s — %s"
+                             % (label, container_id, status, r.get("status", "")))
+        time.sleep(interval)
+    raise GraphError("%s %s still %s after %ds"
+                     % (label, container_id, status, timeout))
 
 
 def url_is_live(url: str) -> bool:
@@ -208,11 +234,15 @@ def cmd_next(args: argparse.Namespace) -> int:
         for u in urls:
             r = post("%s/media" % ig_id, token, image_url=u, is_carousel_item="true")
             children.append(r["id"])
-            print("  container %s" % r["id"])
+            print("  container %s" % r["id"], end=" ", flush=True)
+            wait_for_container(r["id"], token, "slide")
+            print("FINISHED")
 
         parent = post("%s/media" % ig_id, token, media_type="CAROUSEL",
                       children=",".join(children), caption=caption)
-        print("  carousel  %s" % parent["id"])
+        print("  carousel  %s" % parent["id"], end=" ", flush=True)
+        wait_for_container(parent["id"], token, "carousel")
+        print("FINISHED")
 
         pub = post("%s/media_publish" % ig_id, token, creation_id=parent["id"])
         media_id = pub["id"]
