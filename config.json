@@ -1,11 +1,11 @@
 {
   "model": "gemini-3.5-flash",
   "temperature": 1.0,
-  "posts_per_trend": 2,
+  "posts_per_trend": 3,
   "few_shot_count": 8,
   "novelty_threshold": 0.72,
   "structure_enforce_from": 20,
-  "_note": "Pinned, not '-latest': a moving alias would change the voice mid-experiment. Newest Flash models are also the most contended and 503 most often.",
+  "_note": "Pinned model, not '-latest': a moving alias would change the voice mid-experiment. posts_per_trend 3 so one run yields ~10-12 candidates and --auto 6 is still the top half \u2014 see generate.yml for the backlog arithmetic.",
   "pages_base_url": "https://rajat5ranjan.github.io/30unfortunately",
   "font": "fonts/BricolageGrotesque.ttf",
   "font_weight": "ExtraBold",

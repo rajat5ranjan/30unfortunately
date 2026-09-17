@@ -3,12 +3,11 @@ name: publish
 # 08:40 and 19:40 IST. Deliberately off the hour: GitHub runs scheduled
 # workflows best-effort and queues them under load, which peaks at :00.
 on:
-  # PARKED until the first manual publish succeeds. Uncomment the two cron lines
-  # to go live; they fire at 08:40 and 19:40 IST. Deliberately off the hour:
-  # GitHub queues scheduled runs under load, and load peaks at :00.
-  # schedule:
-  #   - cron: "10 3 * * *"
-  #   - cron: "10 14 * * *"
+  # 08:40 and 19:40 IST. Deliberately off the hour: GitHub queues scheduled runs
+  # under load, and load peaks at :00.
+  schedule:
+    - cron: "10 3 * * *"
+    - cron: "10 14 * * *"
   workflow_dispatch:
 
 permissions:

@@ -117,7 +117,7 @@ account's own structure-overuse stats back to the model each run.
 ```
 06:15 IST  generate.yml   ONLY if fewer than 4 posts are queued:
                           trends -> generate -> judge ranks -> auto-approve
-                          top 2 -> render -> queue -> email you the list
+                          top 6 -> render -> queue -> email you the list
 08:40      publish.yml    read email replies -> publish next -> insights
 19:40      publish.yml    the second post
 every 21d  refresh-token  keeps the 60-day token alive
@@ -127,9 +127,11 @@ every 21d  refresh-token  keeps the 60-day token alive
 automatically and ships. You get an email listing what is about to go out; to
 stop one, reply `skip g005`. Do nothing and it publishes.
 
-Generation is backlog-driven, not daily. One run yields three or four days of
-posts, and calling Gemini every morning to build a pile that is never used only
-burns free-tier quota.
+Generation is backlog-driven, and the arithmetic has to work or the gate never
+trips. Publishing consumes 2/day, so a run that approves 2 leaves the queue
+empty every morning, satisfies min-backlog every time, and calls Gemini daily —
+the opposite of the intent. Approving 6 per run gives roughly one call every two
+or three days and a 2-6 post cushion if Gemini is unavailable.
 
 The veto is read by `publish.py` seconds before posting. Actions cannot receive
 a webhook, but the publish job already runs at exactly the moment a veto
