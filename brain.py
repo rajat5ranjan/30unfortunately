@@ -22,6 +22,7 @@ from datetime import datetime, timezone
 from typing import Any, Dict, List, Optional, Tuple
 
 import yaml
+from html import escape as html_escape
 
 import envfile
 
@@ -360,12 +361,83 @@ def cmd_summary() -> int:
     return 0
 
 
+CAND_CSS = """
+*{box-sizing:border-box}body{margin:0;background:#E7E2D6;color:#15140F;padding:40px;
+font-family:'Bricolage Grotesque',system-ui,sans-serif}
+h1{font-size:32px;letter-spacing:-1px;margin:0 0 4px}
+p.sub{margin:0 0 26px;color:#5E5849;font-size:14px}
+a.back{color:#D8451F;font-weight:700;text-decoration:none}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:22px}
+.c{background:#FBF9F4;border-radius:12px;padding:16px;box-shadow:0 3px 12px rgba(21,20,15,.1)}
+.n{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.num{background:#D8451F;color:#FBF9F4;font-weight:700;font-size:15px;
+border-radius:8px;padding:3px 11px}
+.tag{font-size:10px;letter-spacing:.8px;color:#6E675A;font-weight:700}
+.slides{display:flex;gap:6px}
+.s{flex:1;border-radius:5px;padding:11px 10px;font-size:11.5px;font-weight:700;
+line-height:1.34;white-space:pre-line;min-height:118px}
+.s.paper{background:#F2EEE4}
+.s.ink{background:#15140F;color:#F2EEE4}
+.angle{font-size:11.5px;color:#6E675A;line-height:1.45;margin-top:11px}
+.cap{font-size:11px;color:#3A3629;margin-top:7px;font-style:italic}
+"""
+
+
+def cmd_html() -> int:
+    """Put today's candidates on the Pages site next to the contact sheet.
+
+    Rendered as CSS boxes rather than PNGs — same paper/paper/ink rhythm the
+    cards use, so the shape of a post is legible, at a few KB instead of 1.7MB
+    a day in a repo that also serves its own images.
+    """
+    files = sorted(glob.glob(os.path.join(CANDIDATE_DIR, "*.json")))
+    if not files:
+        print("no candidates"); return 0
+    blob = json.load(open(files[-1]))
+    acc = blob.get("accepted", [])
+
+    cards = []
+    for i, p in enumerate(acc, 1):
+        last = len(p["slides"]) - 1
+        slides = "".join(
+            '<div class="s %s">%s</div>' % ("ink" if n == last else "paper",
+                                            html_escape(sl))
+            for n, sl in enumerate(p["slides"]))
+        cards.append(
+            '<div class="c"><div class="n"><span class="num">%d</span>'
+            '<span class="tag">%s &middot; %s &middot; SATIRE %s%s</span></div>'
+            '<div class="slides">%s</div>'
+            '<div class="angle">%s</div><div class="cap">%s</div></div>'
+            % (i, p["trigger"].upper(), p["structure"], p["satire_level"],
+               " &middot; HINGLISH" if p.get("hinglish") else "",
+               slides, html_escape(p["angle"]), html_escape(p["caption"])))
+
+    doc = ('<!doctype html><html lang="en"><head><meta charset="utf-8">'
+           '<meta name="viewport" content="width=device-width,initial-scale=1">'
+           '<title>Candidates</title><link rel="stylesheet" href="https://fonts.googleapis.com/'
+           'css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700&display=swap">'
+           '<style>%s</style></head><body><h1>Today&rsquo;s candidates</h1>'
+           '<p class="sub">%s &middot; %d to choose from &middot; approve one from '
+           'Actions &rarr; approve &rarr; Run workflow &nbsp;&middot;&nbsp; '
+           '<a class="back" href="./">published &amp; queued posts &rarr;</a></p>'
+           '<div class="grid">%s</div></body></html>'
+           % (CAND_CSS, blob.get("generated_at", ""), len(acc), "".join(cards)))
+
+    out = os.path.join(ROOT, "docs", "candidates.html")
+    with open(out, "w") as f:
+        f.write(doc)
+    print("wrote %s (%d candidates)" % (os.path.relpath(out, ROOT), len(acc)))
+    return 0
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--trends", default=os.path.join(ROOT, "content", "trends.json"))
     ap.add_argument("--n", type=int, default=None, help="posts per usable trend")
     ap.add_argument("--dry-run", action="store_true", help="print the prompt, call nothing")
     ap.add_argument("--check", action="store_true", help="run gates over approved posts")
+    ap.add_argument("--html", action="store_true",
+                    help="write docs/candidates.html for the Pages site")
     ap.add_argument("--summary", action="store_true",
                     help="markdown digest of the latest candidates")
     ap.add_argument("--approve", type=int, metavar="N",
@@ -379,6 +451,8 @@ def main():
 
     if args.check:
         sys.exit(cmd_check(brand, cfg))
+    if args.html:
+        sys.exit(cmd_html())
     if args.summary:
         sys.exit(cmd_summary())
     if args.approve:

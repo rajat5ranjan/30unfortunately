@@ -279,6 +279,8 @@ p.sub{margin:0 0 28px;color:#5E5849;font-size:14px}
 .meta{font-size:11px;color:#6E675A;margin-top:10px;line-height:1.5}
 .meta b{color:#D8451F}
 a{color:#15140F}
+.nav{display:inline-block;margin-bottom:22px;background:#D8451F;color:#FBF9F4;
+text-decoration:none;font-weight:700;font-size:13px;padding:9px 15px;border-radius:9px}
 """
 
 
@@ -322,7 +324,9 @@ def write_contact_sheet(posts: List[Dict[str, Any]], handle: str) -> None:
         '<style>%s</style></head><body>'
         '<h1>Thirty Unfortunately</h1>'
         '<p class="sub">%d posts rendered &middot; %s &middot; these files are what '
-        'Meta pulls at publish time</p><div class="grid">%s</div></body></html>'
+        'Meta pulls at publish time</p>'
+        '<a class="nav" href="candidates.html">Today&rsquo;s candidates &rarr;</a>'
+        '<div class="grid">%s</div></body></html>'
         % (handle, SHEET_CSS, len(posts), handle, "".join(cards)))
     with open(os.path.join(ROOT, "docs", "index.html"), "w") as f:
         f.write(html)
