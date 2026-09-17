@@ -1,27 +1,42 @@
 {
-  "_note": "Manual for now. trend_agent.py replaces this in Phase 5. Pulled 2026-09-17.",
+  "_note": "written by trend_agent.py — do not hand-edit",
   "pulled_at": "2026-09-17",
   "trends": [
     {
-      "trend": "18% GST will apply to the Merchant Discount Rate on UPI transactions above Rs 2,000 from 15 Oct 2026. Person-to-person UPI stays free.",
-      "source": "https://www.onmanorama.com/news/india/2026/09/17/gst-of-18-per-cent-to-apply-on-mdr-for-upi-payments-above-2-000-what-this-means.html",
-      "note": "Already used in p001 — generate a DIFFERENT angle or discard."
+      "trend": "Uber CEO Hints Plans To Reduce Ride Prices After Terminating 3,300 Jobs",
+      "source": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPaVhybXVmVWVpaVZrcGQ0SzNqOFUyUmwzWnJxU1JPWFMtM1hFMjNaNGxoQkliZlpuN1V2QXpKR3p0Q1g5NGlHdUJDTXJkNUJoYWU4Q1J0Z3dkYzNRZXk0UG42NHQ2RlgzZm0wSVVqWThFcmlNWW9vYWlXNlNJNFB6bGdNb2ozcGZDVlh3Mk1wQ0JYX2JTWGRzRHZoMUpFaEpfY0hQcFJ1djZDYTdnSl9uN0JR0gG6AUFVX3lxTFA1M2VzbWVpT1QyU2JLaW9vMWFGeDhGdkdBaGRHbnQ1a3ZvcmJQT1ZmNENoeTNkRkxOZkRMeGh4SWZoZzlOSDRwNzBYYmFUbzkzX0RuZUZoNnlrVnV1cElFTzRTSkJzZDFKQXRvdUJDUUd4VXptSWJCa1VTLXprZzJQY2FzQUM1X0tiQVp4bmJKZVh2a1d1bXhhaWZ1UkJCUzdaOXI0Y1pqUEg5ZzJLalkxQUtTRjJOMUpxQQ?oc=5",
+      "note": "triggers: daily, money, work",
+      "_published": "2026-09-15T13:31:45+00:00"
     },
     {
-      "trend": "The rupee strengthened to a two-month high against the US dollar, supported by dollar inflows and RBI intervention.",
-      "source": "https://blitzindiamedia.com/news/india-latest-news-september-2026/"
+      "trend": "UPI MDR: Ministry Addresses Concerns Over Cash Transactions And Inflation",
+      "source": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQbVFmdnBxQXFtWFR6RnNhOFBLRWt2SHBBSGpQNk9aWGxhNG1mcGZ0SVhBSjF1YmliVGpYdlFISEJjYklhNFdlb2g4WXpodUgydGt5eHJ1YkNVXy1RN21LMm0yWV91RHV2TFJhQVVZZV9mQ1ZCNkgtSkh2TWpFYzdEOWR3LUcxeTUtajd6TEtqNTVUVi1vcWJ5aEQ1WVVaWW1WVU9GN2xQTU9WYkdTWkJidW0xb9IBtgFBVV95cUxOZGdOd3d3ZGF4Ny0wX3lMeGMzT2lKdTFmRnNPU09weWNfdldnaEJwaEJQbmZIbFk5NVJjUkhpRm0xT3NmTkx3TVliRG5hejNfWnlFQnY1X3hQd1pjWFBiQ3pvTkJFYVhQV1k2WXgyVXAtTEV6Yko1VHNrNXRZdkR0dnBPdlhVMTIzel9MbW12aTlWU2lqOWlNSTBQcENUSlVkSjhlSDVvSlpndlh1WUZ2QUlQTl9ZZw?oc=5",
+      "note": "triggers: home, money",
+      "_published": "2026-09-17T12:55:29+00:00"
     },
     {
-      "trend": "Bengaluru offices are short of desks after shrinking their footprint during the work-from-home years, now that staff are mandated back five days a week.",
-      "source": "https://www.bangalorefurnishedoffice.com/managed-office-space-bangalore-rto-2026/"
+      "trend": "Housing prices rise 7% across 50 cities in Q1 FY27: NHB",
+      "source": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPNXNHTEg4Um9wQ05VeXJKc1RVdnFvcFoyUUtNVnF3c1VnVkpZLWJtRW1BWk96eFZWVnUtTDMxY1pNel92cGVfcFBkTmhMVG4xXzVQVmxhSUJTMGc0OE16WWhyLUlBQ0dXTHU4RmUwbG1YNzloRmVoZWZMVmhocFZVbzY1Z0RJQUQxNDBKU0F4aDd5ZHR2cXc4eDRRcFdlUXhYbi1JTGd3WmpaZw?oc=5",
+      "note": "triggers: home, money",
+      "_published": "2026-09-15T17:54:46+00:00"
     },
     {
-      "trend": "Furniture and appliance rental plans from around Rs 2,699/month are growing across Indian metros against Rs 3-4 lakh setup costs.",
-      "source": "https://www.globenewswire.com/news-release/2026/08/08/3341437/0/en/furniture-and-appliance-rentals-gain-ground-across-delhi-noida-pune-mumbai-hyderabad-bangalore-and-chennai-in-2026-as-3-lakh-4-lakh-setup-costs-face-2-699month-plans-including-ren.html"
+      "trend": "More than 19,000 housing pockets have rooftop solar systems, benefits 9 lakh households",
+      "source": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxPU2xsVUdTUnFBMXh6Z3d5ellTWE1QS1ZDN2M3UVlSZzZoM19SWUpWNC1tbm5BbEszM0lFS2R3YUpKbi00eExnTGw5T2xKTkJhRjZtaXA2SnhiUGZNRFZjZjNQNXVta3NEYy1OLWoyTGE1ekpuOWM1WFQ3bXhvdEZPZTNJQjBSWlRJNDdqVGVSMm82UnN0MjhfYjFSUXhCX0VlbXp3a1prM3E5SmhJOFdLYXFuRjNxRnpwZ2FlblhpZHFpUEl2eHBpdHhwMDZ5Zm02OXJjRkN0UTZ6T21lTVNnZ0NiQWVPaGZM0gHuAUFVX3lxTFBBSS05dVE1c2V3elBHREdpZFg1UFhRSlFXbmtSdFpiOVhmRDh5U1ZWNi1UN0hyQlZiVl9CVWpPTFIyTldDSlZ6Y2haalJPc3FSZVh3cU5ZOThqQjgzay1EQ19pbi04TUUxLW9zamFfWlZTTnQ4a3dTblp1WGMtVGlOMGNtWGNXQWpRaHhWWW16Q0lFWGowNFVQcFgyNDZrdzNFZWJkenZncTk2TnhiRVhlY3Jjc3hqMmNGcWNsNTF0MDlQU2hiZUs1bC16cFVhNVozU3gwUUh6Rlgyc3pJWnl1M0Q1VFJKNmZZSVJfYkE?oc=5",
+      "note": "triggers: daily, home",
+      "_published": "2026-09-15T04:49:00+00:00"
     },
     {
-      "trend": "GST 2.0 collapsed the old five slabs into mainly two, 5% and 18%, with essentials including dairy and 33 lifesaving drugs at nil.",
-      "source": "https://cleartax.in/s/gst-rates"
+      "trend": "India’s Housing Price Index steady in Q1 despite higher inflation",
+      "source": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQd0FSZ1h2VGt6d3RnQmdENGdSQ2ItclZoRU9zbGI0TW94UDdTUXFMUG1NS0dkd3R6UjFvajhyaFVKSmJtSGNwUGNqeUtqN3FzNk1rcVZjdjk1N09TeDdIdjMyLW9Fd2NNYTBKaS1veDM2Ny1PWFAxbDEzUDh4eEtQaUJlY2dTVU9DZVF4MWFDNjU4d3ZWbUd3REloc1hpc0Y0YUY4MXN3?oc=5",
+      "note": "triggers: home, money",
+      "_published": "2026-09-16T20:33:21+00:00"
+    },
+    {
+      "trend": "Shock, anxiety, job gone just before wedding, Oracle employees share thoughts after layoffs",
+      "source": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxNamlraG9iQ0pTZlpiZ1lvYUdqOGZSWmpfN1I4b0Z6RmpWR1FCaHlLb3VVbnM4aWlIcWJyYjlOU2t4R21GWkU1SmxfQzBiZUlJNkk3YmtMRUc4SUZjcHRGTFFtQzVCZk9pQVZtdXhWaDZuQzhKN0hHeGtpN194c2JTMXJja2oyemdXNXZaZ3FpNEtBa0J0c29RdEg3QnZBcVFKRWNLWlVyZjlYRWtWVS1pQnhQakh4REU0UTdLeGxOOC0yUnE5RzA4WjFRTnFPN3NpajlYN19UQzVJcEhoWnE1Tks5ONIB6AFBVV95cUxQT3ZKZlZ5MGROYW5teFoxVUlSdkxKdnVQcXZScl9tMzNpREIzdXNTejN4YlFreGJVSHl5eWZZNTJpeVpEYU81ZDV6VmVRWXhuSHk5Q09TT255U2xYVHJxWGdtR19ueWYwZ2ZzbWc2dU53Nm9vYnYwYk4wNk1Kc2JoZUJXNk9lWDFhSGZ5QktZZmRhSVpfMVozRHNrX2k2OGlCRmlqUGFvM18yRHR6XzVzU1VVYXBacXZ4eWRxQ0JpdHR1QUUzVkJ4elJ6cW1WWE00UWpkOC1xclF5LXBpTERVT1dUR3BDazFf?oc=5",
+      "note": "triggers: culture, work",
+      "_published": "2026-09-15T09:21:57+00:00"
     }
   ]
 }
