@@ -94,6 +94,20 @@ def mark_failed(conn: sqlite3.Connection, post_id: str, error: str) -> None:
     conn.commit()
 
 
+def skip(conn: sqlite3.Connection, post_id: str) -> bool:
+    """Veto a queued post. Kept as a row, not deleted: what was rejected and why
+    is training data for the ranking weights once performance data exists."""
+    cur = conn.execute(
+        "UPDATE posts SET status='skipped' WHERE id=? AND status='queued'", (post_id,))
+    conn.commit()
+    return cur.rowcount > 0
+
+
+def queued(conn: sqlite3.Connection) -> List[sqlite3.Row]:
+    return conn.execute(
+        "SELECT * FROM posts WHERE status='queued' ORDER BY queued_at, id").fetchall()
+
+
 def published(conn: sqlite3.Connection) -> List[sqlite3.Row]:
     return conn.execute(
         "SELECT * FROM posts WHERE status='published' ORDER BY published_at DESC"

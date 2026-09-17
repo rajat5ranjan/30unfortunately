@@ -115,14 +115,37 @@ account's own structure-overuse stats back to the model each run.
 ## The daily loop
 
 ```
-06:15 IST  generate.yml   trend_agent -> brain -> candidates + job summary
-  you      approve.yml    Actions -> approve -> type a number  (phone, ~20s)
-08:40      publish.yml    queue -> carousel -> insights -> commit state
+06:15 IST  generate.yml   ONLY if fewer than 4 posts are queued:
+                          trends -> generate -> judge ranks -> auto-approve
+                          top 2 -> render -> queue -> email you the list
+08:40      publish.yml    read email replies -> publish next -> insights
 19:40      publish.yml    the second post
 every 21d  refresh-token  keeps the 60-day token alive
 ```
 
-The only human step is picking a number. Everything else is committed state
+**There is no approval step.** The best-ranked candidate is queued
+automatically and ships. You get an email listing what is about to go out; to
+stop one, reply `skip g005`. Do nothing and it publishes.
+
+Generation is backlog-driven, not daily. One run yields three or four days of
+posts, and calling Gemini every morning to build a pile that is never used only
+burns free-tier quota.
+
+The veto is read by `publish.py` seconds before posting. Actions cannot receive
+a webhook, but the publish job already runs at exactly the moment a veto
+matters, so polling there makes the window real-time and costs nothing.
+
+### Ranking
+
+A second, separate LLM call grades each candidate 1-5 on share_trigger,
+specificity, surprise and voice — asking the writer to grade its own work in the
+same breath returns uniformly high marks. Repetition penalties are applied in
+code afterwards, because a judge looking at one batch cannot see that the
+account has published four escalating lists this week.
+
+**These weights are guesses.** LLM self-scoring correlates weakly with what
+actually gets shared. At n>=30 published posts, refit `RANK_WEIGHTS` against
+real shares/reach rather than trusting the judge. Everything else is committed state
 moving between jobs: `content/trends.json`, `content/candidates/`,
 `content/approved/`, `docs/media/` and `posts.db` all travel through git,
 because runners are ephemeral and git is the only storage this design has.

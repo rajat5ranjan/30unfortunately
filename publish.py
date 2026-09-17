@@ -27,6 +27,7 @@ import urllib.request
 from typing import Any, Dict, List, Optional
 
 import envfile
+import notify
 import store
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -204,6 +205,14 @@ def cmd_queue(args: argparse.Namespace) -> int:
 
 def cmd_next(args: argparse.Namespace) -> int:
     conn = store.connect()
+
+    # Read vetoes immediately before publishing. Actions cannot receive a
+    # webhook, but this job runs seconds before the post goes out, so polling
+    # here makes the veto window real-time rather than a scheduled sweep.
+    for pid in notify.commands():
+        print("veto: %s" % ("skipped %s" % pid if store.skip(conn, pid)
+                            else "%s was not queued" % pid))
+
     row = store.next_queued(conn)
     if not row:
         print("queue is empty")
@@ -259,6 +268,26 @@ def cmd_next(args: argparse.Namespace) -> int:
     except GraphError as e:
         store.mark_failed(conn, row["id"], str(e))
         sys.exit("publish failed: %s" % e)
+
+
+def cmd_skip(args: argparse.Namespace) -> int:
+    conn = store.connect()
+    for pid in args.ids:
+        print("skipped %s" % pid if store.skip(conn, pid)
+              else "%s was not queued — nothing to skip" % pid)
+    print("queue now: %s" % store.counts(conn))
+    return 0
+
+
+def cmd_queue_list(args: argparse.Namespace) -> int:
+    conn = store.connect()
+    rows = store.queued(conn)
+    if not rows:
+        print("queue is empty")
+        return 0
+    for r in rows:
+        print("%-6s %s" % (r["id"], json.loads(r["slides"])[0][:70]))
+    return 0
 
 
 def cmd_insights(args: argparse.Namespace) -> int:
@@ -342,6 +371,11 @@ def main() -> None:
     n.set_defaults(fn=cmd_next)
 
     sub.add_parser("insights").set_defaults(fn=cmd_insights)
+    sub.add_parser("list").set_defaults(fn=cmd_queue_list)
+
+    sk = sub.add_parser("skip")
+    sk.add_argument("ids", nargs="+", help="post ids to remove from the queue")
+    sk.set_defaults(fn=cmd_skip)
 
     r = sub.add_parser("refresh-token")
     r.add_argument("--write", action="store_true", help="update .env in place")

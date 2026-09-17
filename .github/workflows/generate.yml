@@ -1,11 +1,17 @@
 name: generate
 
-# 06:15 IST — trends pulled and candidates written before you are awake, so the
-# only human step of the day is picking one.
+# 06:15 IST. Generation is backlog-driven, not daily: one run yields enough for
+# three or four days, and calling Gemini every morning to produce a pile that is
+# never used just burns free-tier quota.
 on:
   schedule:
     - cron: "45 0 * * *"
   workflow_dispatch:
+    inputs:
+      force:
+        description: "Generate even if the backlog is healthy"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -21,28 +27,53 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - run: pip install -q google-genai PyYAML
+      - run: pip install -q google-genai PyYAML Pillow
 
       - name: Pull trends
         run: python3 trend_agent.py
 
-      - name: Generate candidates
+      - name: Generate, rank, auto-approve the best two
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        run: python3 brain.py
-
-      - name: Publish the digest
         run: |
+          set -euo pipefail
+          BACKLOG="--min-backlog ${{ inputs.force && '0' || '4' }}"
+          python3 brain.py $BACKLOG --auto 2 | tee /tmp/gen.log
+
+      - name: Render and queue whatever was approved
+        run: |
+          set -euo pipefail
+          NEW=$(git ls-files --others --exclude-standard content/approved || true)
+          if [ -z "$NEW" ]; then echo "nothing new approved"; exit 0; fi
+          for f in $NEW; do
+            python3 render.py --from "$f"
+            python3 publish.py queue --src "$f"
+          done
           python3 brain.py --summary >> "$GITHUB_STEP_SUMMARY"
           python3 brain.py --html
 
-      # Candidates are text only. Rendering all of them daily would add ~1.7MB
-      # of PNGs a day to a repo that also serves them — roughly 150MB over the
-      # 90-day experiment. Only the approved post gets rendered.
-      - name: Commit trends and candidates
+      - name: Commit
         run: |
           git config user.name  "30unfortunately-bot"
           git config user.email "rajat5ranjan@users.noreply.github.com"
-          git add content/trends.json content/candidates docs/candidates.html
-          git diff --staged --quiet || git commit -m "candidates: $(date -u +%Y-%m-%d)"
+          git add content docs posts.db
+          git diff --staged --quiet || git commit -m "queue: $(date -u +%Y-%m-%d)"
           git push
+
+      # The veto window: you are notified, you do nothing, it ships. Reply
+      # "skip g005" to that email and publish.py drops it seconds before posting.
+      - name: Email the queue
+        env:
+          NOTIFY_EMAIL: ${{ secrets.NOTIFY_EMAIL }}
+          NOTIFY_EMAIL_PASSWORD: ${{ secrets.NOTIFY_EMAIL_PASSWORD }}
+          NOTIFY_TO: ${{ secrets.NOTIFY_TO }}
+        run: |
+          set -euo pipefail
+          QUEUE=$(python3 publish.py list)
+          [ "$QUEUE" = "queue is empty" ] && exit 0
+          python3 notify.py send "30unfortunately — queued $(date -u +%Y-%m-%d)" \
+            "$(printf '%s\n\n%s\n\n%s\n\n%s\n' \
+              "These go live at the next slots unless you stop them." \
+              "$QUEUE" \
+              "To stop one, just reply to this email with: skip g005" \
+              "Full text: https://rajat5ranjan.github.io/30unfortunately/candidates.html")"

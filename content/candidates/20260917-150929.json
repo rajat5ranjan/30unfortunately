@@ -1,0 +1,163 @@
+{
+  "generated_at": "20260917-150929",
+  "model": "gemini-3.5-flash",
+  "accepted": [
+    {
+      "trend": "Baby Care Quick-Commerce Startup Kiddo, Raises Pre-seed Round of 12.5 Cr Led by Campus Fund",
+      "context": "New urban parents rely heavily on quick commerce because they have no extended family support nearby in the metro city.",
+      "angle": "Having a child converts emergency parenting into an expensive series of 10-minute delivery notifications.",
+      "slides": [
+        "A newborn converts your phone into a life-support system.",
+        "02:15 AM — Diapers (Pack of 30) — ₹899\n02:16 AM — Night delivery fee — ₹25\n02:17 AM — High demand surge — ₹15\n02:18 AM — Rain handling charge — ₹20",
+        "The delivery partner arrives at 2:28 AM.\n\nYour baby is now venture-funded."
+      ],
+      "caption": "The village it takes to raise a child has been replaced by a 10-minute delivery app. 🍼 #parenting #quickcommerce #startup",
+      "trigger": "parents",
+      "structure": "receipt",
+      "satire_level": 3,
+      "hinglish": false,
+      "source": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQTUttQXFKdnFxTF9mQUdGNW9aV1l2dnBJZEdpRDJ2YmxMdUJwbjg2blN3eXdiYWFWTnE2M2d2NjZZcng0NUxORTM1c1hscG9XbVJGNGdvX3E5VmNKYnp0dmRwZGduQUxfRTh3TFNYaXdaSVZwS0Q0UThPTFkyTE81MHJpVU9JdXZZNlRKdjNsRFNyTVBMM2Vzc1FHRGhCeXk2OXdaWkNEd1RUNXAyNlpVclB6ZF9VMUhVRkRhZlhhYUdIZERlcE1wVmprcUVjZFBs?oc=5",
+      "created_at": "2026-09-17",
+      "status": "draft",
+      "_score": 40,
+      "_judge": "An incredibly sharp observation of quick-commerce dependency that will immediately find its way into parental WhatsApp groups.",
+      "_detail": {
+        "share_trigger": 5,
+        "surprise": 4,
+        "specificity": 5,
+        "voice": 5
+      },
+      "_penalty": 3
+    },
+    {
+      "trend": "Indian Office Leasing Shifts to Connectivity and Air Quality",
+      "context": "Corporates are using state-of-the-art building specifications to pressure remote workers back into physical commutes.",
+      "angle": "Your employer is offering you basic survival standards as an office perk.",
+      "slides": [
+        "Your HR has a new reason for you to come back to the desk.",
+        "In 2021: \"Work from anywhere. Your peace of mind is our priority.\"\nIn 2023: \"In-person collaboration creates corporate synergy.\"\nIn 2026: \"Our office air has a PM2.5 rating of under 10.\"",
+        "You commute through a toxic grey cloud for two hours.\n\nTo breathe their air."
+      ],
+      "caption": "Return to office because the oxygen is company property. 💨 #corporate #delhipollution #rto",
+      "trigger": "corporate",
+      "structure": "then_now",
+      "satire_level": 4,
+      "hinglish": false,
+      "source": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxQVlctaFl2VkFBUFMyLTAyQ01Tc2g1Y3BNMlBrOGRyWi1RNUl6YUxic3ctWnQ3RVNyZ1dOZ2dpbkVHVDV2TGNUdEd2Z1prbTN5cWtRTlhXOGF6Z3A0dERTZXlWSWZUQ0drbWx1VXAtQ2R2NjBDYXRQYndmemszME50TGVzYmo5MktjaE05allhYkJrWUN6RTZ2cVR3MkZYS1E4VVc1WG4yc3NhTU1tRWdhcEVQQ1FPekRsbWl4c1FNUnduT3JSOFRsSk91NHhtS0pVRDFn?oc=5",
+      "created_at": "2026-09-17",
+      "status": "draft",
+      "_score": 36,
+      "_judge": "The turn to air quality as a corporate retention metric is brilliant, but projecting it to 2026 delays the horror of a reality that is already here.",
+      "_detail": {
+        "share_trigger": 4,
+        "surprise": 5,
+        "specificity": 4,
+        "voice": 5
+      },
+      "_penalty": 4
+    },
+    {
+      "trend": "UPI MDR For Capital Markets: Why A Tiny Fee Could Test India’s Zero-brokerage Model",
+      "context": "Urban 30-somethings who started investing during the pandemic are realizing the era of free, gamified trading is officially closing.",
+      "angle": "Every financial app that made investing feel like a harmless swipe-to-buy video game is slowly turning on the meter.",
+      "slides": [
+        "Your mutual fund app is no longer a video game.",
+        "2020: Zero brokerage.\n2022: Account maintenance charges.\n2024: Platform fee on every SIP.\n2026: A small UPI tax just to move your own money.",
+        "The market is up.\n\nYour net gain is now three rupees."
+      ],
+      "caption": "Nothing is free. It was just a free trial that lasted four years. 💸 #investment #upi #adulthood",
+      "trigger": "upi",
+      "structure": "escalating_list",
+      "satire_level": 4,
+      "hinglish": false,
+      "source": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNWFBqcFZrNzRkZ3k1TkFYVTkxZ25qdVlhRXQ0SmoyaFJnVlRabkpsT0NWMXFJSEVxOXR3QTRxU3M2YW5ITWwwMVVNeHBDNW9SVWxXbnhLQ3I2a0FrV0hadThQMWl0OGRja1F2dTdGc1BjallObENya05FR0tPUmZ0M0kybEpOa0kzRkMtTDMzV080RXZrMmJNRWxwVkk0cWpBMFdVVjBmaVZJMWpSTU5vZnl1SDVGMzM2Wm1DWE9B0gHLAUFVX3lxTFBzMjB5VF94bDZfWTBVakFsUnZ2LW5YTmJnXzRtMklEQlAyWkNMYm1MVm5DSGs2OXZDVGlGckg3eHlGYlhFbUZFRFVoNWNRVDRiR0ZnTFF0Z0xJWnZyUGRTTlJBU01tTXYybFF2bmFrYkdHS2w5cFpJV1hNbWVCdHVEakk0ZVphWEFTa0swYlVNVllOSlVoV0JPbHJRemh2eVhsY1BieDhiV1dkYVlOSzNzRXdnWHd5TGwxVTFyWDFCOXJTdkkycm9fY1Yw?oc=5",
+      "created_at": "2026-09-17",
+      "status": "draft",
+      "_score": 22,
+      "_judge": "Using a future year like 2026 softens the blow of what should feel like an immediate, present-day robbery.",
+      "_detail": {
+        "share_trigger": 4,
+        "surprise": 3,
+        "specificity": 4,
+        "voice": 4
+      },
+      "_penalty": 12
+    },
+    {
+      "trend": "Rent A Garba Partner For Navratri: Bizarre Viral Post Offers Packages Starting At ₹1,000",
+      "context": "Festivals in modern Indian metro cities have been commercialized down to the level of transactional companionship.",
+      "angle": "Even cultural participation is now a subscription service with hourly billing.",
+      "slides": [
+        "The word \"partner\" has been updated by the gig economy.",
+        "At 18: Someone you stared at across the housing society pandal.\nAt 25: Someone who swiped right on your bio in September.\nAt 30: A contractor with a ₹1,000 hourly rate and a strict no-touch policy.",
+        "The song ends at midnight.\n\nThe service window closes at 12:05."
+      ],
+      "caption": "Please rate your festive experience on a scale of 1 to 5 stars. 🪔 #navratri #garba #festivals",
+      "trigger": "festivals",
+      "structure": "definition_drift",
+      "satire_level": 3,
+      "hinglish": false,
+      "source": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxPc3dnaEZjU3hIU0lkQWhScGxCdnRwSW9xeEF6N1R6X3IycmgyLXhnU0phWG96MjFhTFNBMVBFdkh3QzRzUEEyTEdSdEFfYkhwNlNIU0ZOa1U0MmkzcG9CX1dvRkY0WlJ4OV9ydmUtSmNta1c4RGlJZ0JKOTFiT3JERVlWX3Z0eWQ5YmQ2WklyY19ZYy00eWVGTG9uTURod2loYjFGZndzdUgwSUs0Q2pYbjJKenYycUVYMEV5akFZQzVRYlZBcG5iN1FWZkJaMjQwUlEwTFBOVDJpNWFMRlMzUVkyd0ZUSkpfaGfSAe8BQVVfeXFMTmtpVndhQWZOeWdXMFQtcWJtcHkwOWlpU1dHSmQ5RndHdTVMeXZLdEFZTndrb2RpQTI1Z1h1OUg4MzZ2a2JYSjFvbmdCRFVhaDlNVmhvLURrSTBvTzFIeDlOYjVtb2VJNE9VV2JxVjBVZ3JCZm9OQ0NOZjlqZ09MOGZKV1BBZWotNEVYWEx4SmZEM05EZGVkbW41VGpkb1dZaEdOVmhzTHhZdExYR2Jlbk9rWkNoSVlzeVkydG9SaU53d2dEbkl2Q1J6dzR3WFpKT215OWNzVS13a1RIaG80cWlLeUd3V3EtT2E2RldfdVU?oc=5",
+      "created_at": "2026-09-17",
+      "status": "draft",
+      "_score": 22,
+      "_judge": "The hook gives away the linguistic pivot too early, ruining the transition from romantic partners to gig workers.",
+      "_detail": {
+        "share_trigger": 2,
+        "surprise": 3,
+        "specificity": 4,
+        "voice": 3
+      },
+      "_penalty": 4
+    },
+    {
+      "trend": "Rent A Garba Partner For Navratri: Bizarre Viral Post Offers Packages Starting At ₹1,000",
+      "context": "Loneliness in metropolitan cities during major festivals drives adults to pay for temporary community access.",
+      "angle": "You are paying a rental fee to avoid explaining to your mother why you went to the pandal alone.",
+      "slides": [
+        "Even family traditions now have an hourly rental model.",
+        "\"Ghar kab aa rahe ho?\"\n\"Work is busy, mummy.\"\n\"Pandal chale jana thoda.\"\n\"Haan, partner rent kar liya hai.\"",
+        "Thoda adjust kar lo.\n\nAt ₹1,000 an hour."
+      ],
+      "caption": "At least the rental partner won't ask why you aren't married yet. 💃 #navratri #hinglish #adulthood",
+      "trigger": "festivals",
+      "structure": "dialogue",
+      "satire_level": 3,
+      "hinglish": true,
+      "source": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxPc3dnaEZjU3hIU0lkQWhScGxCdnRwSW9xeEF6N1R6X3IycmgyLXhnU0phWG96MjFhTFNBMVBFdkh3QzRzUEEyTEdSdEFfYkhwNlNIU0ZOa1U0MmkzcG9CX1dvRkY0WlJ4OV9ydmUtSmNta1c4RGlJZ0JKOTFiT3JERVlWX3Z0eWQ5YmQ2WklyY19ZYy00eWVGTG9uTURod2loYjFGZndzdUgwSUs0Q2pYbjJKenYycUVYMEV5akFZQzVRYlZBcG5iN1FWZkJaMjQwUlEwTFBOVDJpNWFMRlMzUVkyd0ZUSkpfaGfSAe8BQVVfeXFMTmtpVndhQWZOeWdXMFQtcWJtcHkwOWlpU1dHSmQ5RndHdTVMeXZLdEFZTndrb2RpQTI1Z1h1OUg4MzZ2a2JYSjFvbmdCRFVhaDlNVmhvLURrSTBvTzFIeDlOYjVtb2VJNE9VV2JxVjBVZ3JCZm9OQ0NOZjlqZ09MOGZKV1BBZWotNEVYWEx4SmZEM05EZGVkbW41VGpkb1dZaEdOVmhzTHhZdExYR2Jlbk9rWkNoSVlzeVkydG9SaU53d2dEbkl2Q1J6dzR3WFpKT215OWNzVS13a1RIaG80cWlLeUd3V3EtT2E2RldfdVU?oc=5",
+      "created_at": "2026-09-17",
+      "status": "draft",
+      "_score": 13,
+      "_judge": "Breaking the grammatical escalation template for a clunky dialogue makes this feel like a cheap WhatsApp joke instead of a cold documentary.",
+      "_detail": {
+        "share_trigger": 1,
+        "surprise": 2,
+        "specificity": 3,
+        "voice": 2
+      },
+      "_penalty": 4
+    }
+  ],
+  "rejected": [
+    {
+      "trend": "UPI MDR For Capital Markets: Why A Tiny Fee Could Test India’s Zero-brokerage Model",
+      "context": "Salaried employees trying to build long-term wealth find that micro-fees eat into small-ticket investing habits.",
+      "angle": "You are charged a fee for the privilege of transferring your taxed income to a high-risk asset class.",
+      "slides": [
+        "The tax department and your broker are having a meeting.",
+        "Salary credited: Tax deducted at source.\nMoney transferred to broker: UPI fee deducted.\nStock purchased: Exchange fees applied.\nStock sold: Depository charges applied.",
+        "You are not an investor.\n\nYou are a middleman."
+      ],
+      "caption": "The house always wins. Especially when the house has a tax mandate. 📈 #money #taxes #portfolio",
+      "trigger": "money",
+      "structure": "juxtaposition",
+      "satire_level": 4,
+      "hinglish": false,
+      "source": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNWFBqcFZrNzRkZ3k1TkFYVTkxZ25qdVlhRXQ0SmoyaFJnVlRabkpsT0NWMXFJSEVxOXR3QTRxU3M2YW5ITWwwMVVNeHBDNW9SVWxXbnhLQ3I2a0FrV0hadThQMWl0OGRja1F2dTdGc1BjallObENya05FR0tPUmZ0M0kybEpOa0kzRkMtTDMzV080RXZrMmJNRWxwVkk0cWpBMFdVVjBmaVZJMWpSTU5vZnl1SDVGMzM2Wm1DWE9B0gHLAUFVX3lxTFBzMjB5VF94bDZfWTBVakFsUnZ2LW5YTmJnXzRtMklEQlAyWkNMYm1MVm5DSGs2OXZDVGlGckg3eHlGYlhFbUZFRFVoNWNRVDRiR0ZnTFF0Z0xJWnZyUGRTTlJBU01tTXYybFF2bmFrYkdHS2w5cFpJV1hNbWVCdHVEakk0ZVphWEFTa0swYlVNVllOSlVoV0JPbHJRemh2eVhsY1BieDhiV1dkYVlOSzNzRXdnWHd5TGwxVTFyWDFCOXJTdkkycm9fY1Yw?oc=5",
+      "created_at": "2026-09-17",
+      "_gate_failures": [
+        "no concrete detail (no number, rupee figure or quoted speech) — too generic"
+      ]
+    }
+  ]
+}

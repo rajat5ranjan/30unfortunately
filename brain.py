@@ -206,6 +206,26 @@ def build_user_prompt(trends: List[Dict[str, Any]], n: int) -> str:
     return "\n".join(lines)
 
 
+RANK_SCHEMA = {
+    "type": "object",
+    "properties": {"scores": {"type": "array", "items": {"type": "object", "properties": {
+        "index": {"type": "integer"},
+        "share_trigger": {"type": "integer"},
+        "specificity": {"type": "integer"},
+        "surprise": {"type": "integer"},
+        "voice": {"type": "integer"},
+        "verdict": {"type": "string"},
+    }, "required": ["index", "share_trigger", "specificity", "surprise", "voice",
+                    "verdict"]}}},
+    "required": ["scores"],
+}
+
+# Weights. share_trigger dominates because the stated goal of the account is a
+# forward, not a like. These are guesses until there is performance data:
+# at n>=30 published posts, refit them against shares/reach.
+RANK_WEIGHTS = {"share_trigger": 3, "surprise": 2, "specificity": 2, "voice": 2}
+
+
 RESPONSE_SCHEMA = {
     "type": "object",
     "properties": {
@@ -238,7 +258,8 @@ RESPONSE_SCHEMA = {
 
 
 # ------------------------------------------------------------------------ model
-def call_model(system: str, user: str, cfg: Dict[str, Any]) -> Dict[str, Any]:
+def call_model(system: str, user: str, cfg: Dict[str, Any],
+               schema: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
     key = os.environ.get("GEMINI_API_KEY")
     if not key:
         sys.exit("GEMINI_API_KEY is not set. Put it in .env and export it, or use --dry-run.")
@@ -253,7 +274,7 @@ def call_model(system: str, user: str, cfg: Dict[str, Any]) -> Dict[str, Any]:
         system_instruction=system,
         temperature=cfg["temperature"],
         response_mime_type="application/json",
-        response_schema=RESPONSE_SCHEMA,
+        response_schema=schema or RESPONSE_SCHEMA,
     )
 
     # 503 (overloaded) and 429 (quota) are routine on the free tier. A twice-daily
@@ -279,6 +300,68 @@ def call_model(system: str, user: str, cfg: Dict[str, Any]) -> Dict[str, Any]:
 
 
 # ------------------------------------------------------------------------- main
+RANK_PROMPT = """You are ranking finished posts for the account described below.
+You did not write them. Be a harsh editor, not a supportive one.
+
+Score each 1-5 on:
+  share_trigger  Would a real person send this to ONE specific named friend?
+                 5 = they have someone in mind before finishing it.
+                 1 = they might like it and scroll on.
+  specificity    Concrete, checkable detail: a rupee figure, a brand, a date, a
+                 line of real speech. 1 = could have been written about any
+                 country in any decade.
+  surprise       Is the landing earned or visible from slide 1?
+                 5 = the turn is genuinely unexpected but obvious in hindsight.
+  voice          Deadpan, second person, ends on a noun, explains nothing.
+                 1 = it winks at the reader or moralises.
+
+Use the full range. If everything scores 4 you have not done the job.
+verdict: one blunt sentence on the single biggest weakness.
+"""
+
+
+def rank(posts: List[Dict[str, Any]], brand: Dict[str, Any],
+         history: List[Dict[str, Any]], cfg: Dict[str, Any]) -> List[Dict[str, Any]]:
+    """Score, then penalise repetition. Returns posts sorted best-first.
+
+    The judge is a second, separate call: asking the writer to grade its own
+    work in the same breath produces uniformly high marks.
+    """
+    listing = "\n\n".join(
+        "%d. %s" % (i, " / ".join(p["slides"]).replace("\n", " "))
+        for i, p in enumerate(posts, 1))
+    system = RANK_PROMPT + "\n\nACCOUNT:\n" + yaml.safe_dump(
+        {k: brand[k] for k in ("identity", "audience", "voice", "slides")},
+        sort_keys=False, allow_unicode=True, width=100)
+
+    scores = {}
+    try:
+        res = call_model(system, listing, cfg, schema=RANK_SCHEMA)
+        for sc in res.get("scores", []):
+            scores[sc["index"]] = sc
+    except SystemExit:
+        print("  ranking unavailable — falling back to generation order")
+
+    # Repetition is invisible to a judge looking at one batch, so it is applied
+    # here: the account's recent shape, not the post's own quality.
+    recent_struct = [p.get("structure") for p in history[-6:]]
+    recent_trig = [p.get("trigger") for p in history[-4:]]
+
+    for i, p in enumerate(posts, 1):
+        sc = scores.get(i, {})
+        base = sum(RANK_WEIGHTS[k] * sc.get(k, 3) for k in RANK_WEIGHTS)
+        penalty = 0
+        if p.get("structure") in recent_struct:
+            penalty += 4 * recent_struct.count(p.get("structure"))
+        if p.get("trigger") in recent_trig:
+            penalty += 3
+        p["_score"] = base - penalty
+        p["_judge"] = sc.get("verdict", "")
+        p["_detail"] = dict((k, sc.get(k)) for k in RANK_WEIGHTS)
+        p["_penalty"] = penalty
+    return sorted(posts, key=lambda p: -p["_score"])
+
+
 def cmd_check(brand, cfg):
     """Self-test: every approved post must survive its own gates."""
     history = load_history()
@@ -326,6 +409,10 @@ def cmd_approve(pick: int, cfg) -> int:
     n = 1 + max([int(x[1:]) for x in existing if x[:1] == "g" and x[1:].isdigit()] or [0])
     post["id"] = "g%03d" % n
     post["status"] = "approved"
+    post["rank_score"] = post.pop("_score", None)
+    post["rank_verdict"] = post.pop("_judge", "")
+    for k in ("_detail", "_penalty"):
+        post.pop(k, None)
 
     os.makedirs(APPROVED_DIR, exist_ok=True)
     out = os.path.join(APPROVED_DIR, "%s.json" % post["id"])
@@ -436,6 +523,10 @@ def main():
     ap.add_argument("--n", type=int, default=None, help="posts per usable trend")
     ap.add_argument("--dry-run", action="store_true", help="print the prompt, call nothing")
     ap.add_argument("--check", action="store_true", help="run gates over approved posts")
+    ap.add_argument("--min-backlog", type=int, metavar="N", default=None,
+                    help="do nothing if at least N posts are already queued")
+    ap.add_argument("--auto", type=int, metavar="N", default=0,
+                    help="auto-approve the top N ranked candidates")
     ap.add_argument("--html", action="store_true",
                     help="write docs/candidates.html for the Pages site")
     ap.add_argument("--summary", action="store_true",
@@ -457,6 +548,15 @@ def main():
         sys.exit(cmd_summary())
     if args.approve:
         sys.exit(cmd_approve(args.approve, cfg))
+
+    if args.min_backlog is not None:
+        import store
+        queued = store.counts(store.connect()).get("queued", 0)
+        if queued >= args.min_backlog:
+            print("%d posts already queued (>= %d) — not generating."
+                  % (queued, args.min_backlog))
+            return
+        print("%d queued, below %d — generating." % (queued, args.min_backlog))
 
     history = load_history()
     with open(args.trends) as f:
@@ -494,6 +594,15 @@ def main():
             p["status"] = "draft"
             accepted.append(p)
 
+    if accepted:
+        accepted = rank(accepted, brand, history, cfg)
+        print("\nranked:")
+        for i, p in enumerate(accepted, 1):
+            print("  %d. score %-3s %-16s %s" % (i, p["_score"], p["structure"],
+                                                 p["slides"][0][:52]))
+            if p.get("_judge"):
+                print("       %s" % p["_judge"][:96])
+
     os.makedirs(CANDIDATE_DIR, exist_ok=True)
     stamp = datetime.now(timezone.utc).strftime("%Y%m%d-%H%M%S")
     out = os.path.join(CANDIDATE_DIR, "%s.json" % stamp)
@@ -504,6 +613,11 @@ def main():
 
     print("\n%d accepted, %d rejected by gates -> %s\n"
           % (len(accepted), len(rejected), os.path.relpath(out, ROOT)))
+
+    if args.auto:
+        for n in range(1, min(args.auto, len(accepted)) + 1):
+            cmd_approve(n, cfg)
+        return
     for p in accepted:
         print("  [%s/%s] %s" % (p["structure"], p["satire_level"], p["slides"][0]))
         for s in p["slides"][1:]:
