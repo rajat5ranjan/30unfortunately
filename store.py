@@ -123,6 +123,33 @@ def next_queued(conn: sqlite3.Connection) -> Optional[sqlite3.Row]:
     ).fetchone()
 
 
+def mark_publishing(conn: sqlite3.Connection, post_id: str, container_id: str) -> None:
+    """Record the in-flight publish BEFORE media_publish is called.
+
+    If the connection drops on that call, Instagram may have accepted the post
+    while we never saw the reply. A row left as 'queued' would be published a
+    second time at the next slot; a row parked here is reconciled against the
+    account's real feed first. The container id lands in ig_media_id and is
+    overwritten with the real media id once the publish is confirmed.
+    """
+    conn.execute("UPDATE posts SET status='publishing', ig_media_id=? WHERE id=?",
+                 (container_id, post_id))
+    conn.commit()
+
+
+def in_flight(conn: sqlite3.Connection) -> List[sqlite3.Row]:
+    return conn.execute(
+        "SELECT * FROM posts WHERE status='publishing' ORDER BY queued_at, id"
+    ).fetchall()
+
+
+def requeue(conn: sqlite3.Connection, post_id: str) -> None:
+    """Only ever called once the feed has been checked and the post is not on it."""
+    conn.execute("UPDATE posts SET status='queued', ig_media_id=NULL WHERE id=?",
+                 (post_id,))
+    conn.commit()
+
+
 def mark_published(conn: sqlite3.Connection, post_id: str, media_id: str,
                    permalink: Optional[str]) -> None:
     conn.execute("UPDATE posts SET status='published', published_at=?, ig_media_id=?,"

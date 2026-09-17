@@ -29,8 +29,10 @@ on:
 permissions:
   contents: write
 
+# posts.db is binary and cannot be merged, so the three workflows that write
+# it share one lane and never run at the same time.
 concurrency:
-  group: generate
+  group: state
 
 jobs:
   generate:
@@ -67,14 +69,10 @@ jobs:
 
       - name: Commit
         run: |
-          git config user.name  "30unfortunately-bot"
-          git config user.email "rajat5ranjan@users.noreply.github.com"
-          git add content docs posts.db
-          git diff --staged --quiet || git commit -m "queue: $(date -u +%Y-%m-%d)"
-          git push
+          tools/commit_state.sh "queue: $(date -u +%Y-%m-%d)" content docs posts.db
 
       # The veto window: you are notified, you do nothing, it ships. Reply
-      # "skip g005" to that email and publish.py drops it seconds before posting.
+      # "skip <id>" to that email and publish.py drops it seconds before posting.
       - name: Email the queue
         env:
           NOTIFY_EMAIL: ${{ secrets.NOTIFY_EMAIL }}
@@ -84,9 +82,13 @@ jobs:
           set -euo pipefail
           QUEUE=$(python3 publish.py list)
           [ "$QUEUE" = "queue is empty" ] && exit 0
+          # The hint comes from notify.py, which deliberately keeps it unparseable:
+          # this mail lands in the same inbox it is read from, so a real id here
+          # would veto the post the message is announcing.
+          HINT=$(python3 -c 'import notify; print(notify.REPLY_HINT)')
           python3 notify.py send "30unfortunately — queued $(date -u +%Y-%m-%d)" \
             "$(printf '%s\n\n%s\n\n%s\n\n%s\n' \
               "These go live at the next slots unless you stop them." \
               "$QUEUE" \
-              "To stop one, just reply to this email with: skip g005" \
+              "$HINT" \
               "Full text: https://rajat5ranjan.github.io/30unfortunately/candidates.html")"

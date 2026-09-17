@@ -42,10 +42,11 @@ posts.db                committed on purpose — see .gitignore
 content/
   seed_posts.json       12 approved posts, the few-shot source
   trends.json           trend input (manual until Phase 5)
-  candidates/           generated, gitignored
+  candidates/           generated, committed — two runners have to see them
 docs/                   GitHub Pages root — index.html is the approval sheet,
                         media/<id>/N.png is what Meta pulls at publish time
 assets/brand/           battery mark, end-mark, profile picture
+tools/commit_state.sh   commit + push the state, surviving a racing push
 fonts/                  Bricolage Grotesque (OFL)
 tools/                  make_mark_svg.py, make_pfp.py — regenerate brand assets
                         from the card font, so they cannot drift from the cards
@@ -72,11 +73,32 @@ python3 publish.py refresh-token       # extend the 60-day token
 `publish.py`, `store.py` and `notify.py` are stdlib-only, so the scheduled job
 has no install step that can break.
 
-`posts.db` is binary, so git cannot merge it. Local commands that write to it
-fetch first and refuse if the remote has a newer copy — otherwise a publish on
-the runner and a queue locally resolve as a conflict and one side is lost with
-no warning. Skipped in CI, where the checkout is always fresh;
-`SKIP_DB_GUARD=1` overrides it when offline.
+### Not posting twice
+
+The whole design has one genuinely dangerous failure: publishing the same
+carousel twice. Three things prevent it.
+
+**A lost reply from `media_publish`.** It is the one call whose outcome cannot
+be inferred from its failure — a timeout says nothing about whether Instagram
+accepted the post. The row is marked `publishing` immediately before the call,
+and the next run reconciles it against the account's actual feed, matching on
+caption: found means published, definitively absent means back in the queue,
+and an unreachable API means stop rather than guess.
+
+**A lost state commit.** If the row that records "this went out" never reaches
+`main`, the next run reads a stale `posts.db` and ships the post again. So
+`tools/commit_state.sh` retries a rejected push. `posts.db` is binary and will
+conflict; it keeps the runner's copy, because that is the one holding the
+publish record, and then restores anything the other side queued by re-running
+`publish.py queue` over `content/approved/`, which is text and merges cleanly.
+
+**Two jobs writing at once.** `generate`, `publish` and `approve` share one
+concurrency group, so they queue behind each other instead of racing.
+
+Locally, commands that write `posts.db` fetch first and refuse if the remote has
+a newer copy — otherwise a publish on the runner and a queue on your laptop
+resolve as a conflict and one side is lost with no warning. Skipped in CI, where
+the checkout is always fresh; `SKIP_DB_GUARD=1` overrides it when offline.
 
 ## Secrets
 
@@ -131,7 +153,7 @@ every 21d  refresh-token  keeps the 60-day token alive
 
 **There is no approval step.** The best-ranked candidate is queued
 automatically and ships. You get an email listing what is about to go out; to
-stop one, reply `skip g005`. Do nothing and it publishes.
+stop one, reply `skip <id>`. Do nothing and it publishes.
 
 Generation is backlog-driven, and the arithmetic has to work or the gate never
 trips. Publishing consumes 2/day, so a run that approves 2 leaves the queue

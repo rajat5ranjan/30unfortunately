@@ -14,7 +14,10 @@ immediately before posting, which is exactly when a veto matters, so the window
 is real-time anyway.
 
 Unread/read is the cursor. A reply is processed once and marked seen; no
-timestamps to keep in sync.
+timestamps to keep in sync. Everything goes through the UID commands: plain
+sequence numbers are only valid within one IMAP session, and the read and the
+flagging happen in two, so a message expunged in between would shift them and
+we would mark the wrong reply done.
 
 Silently does nothing when the secrets are absent, so the pipeline runs
 unchanged without notifications configured.
@@ -83,6 +86,8 @@ def _body_text(msg) -> str:
 def fetch_commands(include_seen: bool = False) -> List[tuple]:
     """Read vetoes WITHOUT consuming them: [(uid, [ids])].
 
+    The uid is a real IMAP UID, stable across sessions — see the module note.
+
     Deliberately does not mark anything read. The caller applies the skips,
     commits, and only then calls mark_done(). If the job dies in between, the
     reply stays unread and is retried next run — a veto that was silently
@@ -101,10 +106,11 @@ def fetch_commands(include_seen: bool = False) -> List[tuple]:
         # it lands in the same inbox and its own instruction line would
         # otherwise parse as a command against the post it is announcing.
         scope = "" if include_seen else "UNSEEN "
-        typ, data = m.search(None, '(%sSUBJECT "Re: 30unfortunately")' % scope)
-        for num in (data[0].split() if typ == "OK" else []):
-            typ, raw = m.fetch(num, "(BODY.PEEK[])")     # PEEK: does not set \Seen
-            if typ != "OK":
+        typ, data = m.uid("SEARCH", None,
+                          '(%sSUBJECT "Re: 30unfortunately")' % scope)
+        for num in (data[0].split() if typ == "OK" and data[0] else []):
+            typ, raw = m.uid("FETCH", num, "(BODY.PEEK[])")  # PEEK: no \Seen
+            if typ != "OK" or not raw or not isinstance(raw[0], tuple):
                 continue
             text = _body_text(email.message_from_bytes(raw[0][1]))
             # only what was typed, not the quoted original beneath it
@@ -130,7 +136,7 @@ def mark_done(uids: List[bytes]) -> None:
         m.login(addr, pw)
         m.select("INBOX")
         for uid in uids:
-            m.store(uid, "+FLAGS", "\\Seen")
+            m.uid("STORE", uid, "+FLAGS", "\\Seen")
         m.logout()
     except Exception as e:
         print("notify: could not mark replies read (%s)" % e, file=sys.stderr)

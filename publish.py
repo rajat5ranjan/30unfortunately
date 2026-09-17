@@ -74,6 +74,11 @@ def _request(method: str, url: str, params: Dict[str, Any]) -> Dict[str, Any]:
         except ValueError:
             msg = "HTTP %s: %s" % (e.code, body[:400])
         raise GraphError(msg) from None
+    except urllib.error.URLError as e:
+        # A timeout or reset says nothing about whether Meta acted on the call.
+        # It has to surface as a GraphError so cmd_next's handler sees it and
+        # leaves an in-flight publish parked for reconciliation.
+        raise GraphError("no reply from %s (%s)" % (GRAPH, e.reason)) from None
 
 
 def get(path: str, token: str, **params: Any) -> Dict[str, Any]:
@@ -126,6 +131,34 @@ def slide_urls(post_id: str, n_slides: int) -> List[str]:
     with open(os.path.join(ROOT, "config.json")) as f:
         base = json.load(f)["pages_base_url"].rstrip("/")
     return ["%s/media/%s/%d.png" % (base, post_id, i + 1) for i in range(n_slides)]
+
+
+def reconcile(conn, token: str, ig_id: str) -> None:
+    """Settle posts left mid-publish, before anything new goes out.
+
+    media_publish is the one call whose outcome we cannot infer from a failure:
+    if the reply is lost, the post may or may not be on the account. The row is
+    parked as 'publishing' beforehand, and the only source of truth is the feed
+    itself — so ask it. A caption is unique per post, which makes it the join.
+
+    Confirmed on the feed  -> published, with the real media id.
+    Definitively absent    -> back to the queue, to go out at the next slot.
+    Cannot tell            -> stop. Publishing again is how you double-post.
+    """
+    stuck = store.in_flight(conn)
+    if not stuck:
+        return
+    recent = get("%s/media" % ig_id, token, fields="id,caption,permalink", limit=25)
+    feed = dict(((m.get("caption") or "").strip(), m) for m in recent.get("data", []))
+    for row in stuck:
+        hit = feed.get((row["caption"] or "").strip())
+        if hit:
+            store.mark_published(conn, row["id"], hit["id"], hit.get("permalink"))
+            print("reconciled: %s did publish -> %s"
+                  % (row["id"], hit.get("permalink") or hit["id"]))
+        else:
+            store.requeue(conn, row["id"])
+            print("reconciled: %s never published — back in the queue" % row["id"])
 
 
 # -------------------------------------------------------------------- commands
@@ -217,6 +250,14 @@ def cmd_next(args: argparse.Namespace) -> int:
         done.append(uid)
     notify.mark_done(done)      # only after the skips are committed
 
+    token, ig_id = ("", "")
+    if not args.dry_run:
+        token, ig_id = need("IG_ACCESS_TOKEN"), ig_user()
+        # Anything left mid-publish by a dropped connection is settled against
+        # the real feed before a single new container is created. It can also
+        # put a post back at the head of the queue, so it runs before the pick.
+        reconcile(conn, token, ig_id)
+
     row = store.next_queued(conn)
     if not row:
         print("queue is empty")
@@ -234,8 +275,6 @@ def cmd_next(args: argparse.Namespace) -> int:
     if args.dry_run:
         print("\n--dry-run: nothing sent.")
         return 0
-
-    token, ig_id = need("IG_ACCESS_TOKEN"), ig_user()
 
     missing = [u for u in urls if not url_is_live(u)]
     if missing:
@@ -257,6 +296,9 @@ def cmd_next(args: argparse.Namespace) -> int:
         wait_for_container(parent["id"], token, "carousel")
         print("FINISHED")
 
+        # The point of no return: past this line a lost reply is ambiguous, so
+        # the row is parked as 'publishing' and the next run reconciles it.
+        store.mark_publishing(conn, row["id"], parent["id"])
         pub = post("%s/media_publish" % ig_id, token, creation_id=parent["id"])
         media_id = pub["id"]
 
@@ -270,6 +312,12 @@ def cmd_next(args: argparse.Namespace) -> int:
         print("\npublished %s -> %s" % (row["id"], permalink or media_id))
         return 0
     except GraphError as e:
+        if store.in_flight(conn):
+            # media_publish was already sent. Whether it landed is unknown, so
+            # this row stays parked rather than being retried blindly.
+            sys.exit("publish failed after media_publish: %s\n"
+                     "%s is held as 'publishing' — the next run checks the feed\n"
+                     "and either records it or puts it back in the queue." % (e, row["id"]))
         store.mark_failed(conn, row["id"], str(e))
         sys.exit("publish failed: %s" % e)
 

@@ -13,8 +13,10 @@ on:
 permissions:
   contents: write
 
+# Shared with generate and approve: posts.db is binary, so only one workflow
+# may be writing it at a time.
 concurrency:
-  group: publish
+  group: state
   cancel-in-progress: false
 
 jobs:
@@ -54,8 +56,4 @@ jobs:
       - name: Commit state
         if: always()
         run: |
-          git config user.name  "30unfortunately-bot"
-          git config user.email "rajat5ranjan@users.noreply.github.com"
-          git add posts.db
-          git diff --staged --quiet || git commit -m "state: $(date -u +%Y-%m-%dT%H:%MZ)"
-          git push
+          tools/commit_state.sh "state: $(date -u +%Y-%m-%dT%H:%MZ)" posts.db
