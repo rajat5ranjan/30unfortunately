@@ -58,6 +58,11 @@ def need(key: str) -> str:
     return v
 
 
+def ig_user() -> str:
+    """The numeric id, or 'me' — the Graph API accepts either."""
+    return os.environ.get("IG_USER_ID") or "me"
+
+
 # ----------------------------------------------------------------------- http
 class GraphError(RuntimeError):
     pass
@@ -110,7 +115,7 @@ def slide_urls(post_id: str, n_slides: int) -> List[str]:
 
 # -------------------------------------------------------------------- commands
 def cmd_check(args: argparse.Namespace) -> int:
-    token, ig_id = need("IG_ACCESS_TOKEN"), need("IG_USER_ID")
+    token, ig_id = need("IG_ACCESS_TOKEN"), ig_user()
     ok = True
 
     try:
@@ -148,6 +153,19 @@ def cmd_check(args: argparse.Namespace) -> int:
         else:
             print("images     all %d slides of %s are live" % (len(urls), nxt["id"]))
     return 0 if ok else 1
+
+
+def cmd_whoami(args: argparse.Namespace) -> int:
+    """Resolve IG_USER_ID from a token alone, so you only have to find one value."""
+    token = need("IG_ACCESS_TOKEN")
+    me = get("me", token, fields="user_id,username,account_type,media_count")
+    uid = me.get("user_id") or me.get("id")
+    print("username     @%s" % me.get("username"))
+    print("account type %s" % me.get("account_type"))
+    print("media count  %s" % me.get("media_count"))
+    print("\nIG_USER_ID=%s" % uid)
+    print("\nAdd that line to .env. ('me' also works in place of the id.)")
+    return 0
 
 
 def cmd_queue(args: argparse.Namespace) -> int:
@@ -190,7 +208,7 @@ def cmd_next(args: argparse.Namespace) -> int:
         print("\n--dry-run: nothing sent.")
         return 0
 
-    token, ig_id = need("IG_ACCESS_TOKEN"), need("IG_USER_ID")
+    token, ig_id = need("IG_ACCESS_TOKEN"), ig_user()
 
     missing = [u for u in urls if not url_is_live(u)]
     if missing:
@@ -294,6 +312,7 @@ def main() -> None:
     sub = ap.add_subparsers(dest="cmd", required=True)
 
     sub.add_parser("check").set_defaults(fn=cmd_check)
+    sub.add_parser("whoami").set_defaults(fn=cmd_whoami)
 
     q = sub.add_parser("queue")
     q.add_argument("--src", default=os.path.join(ROOT, "content", "seed_posts.json"))
