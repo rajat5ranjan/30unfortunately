@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" role="img" aria-label="Terms Apply asterisk mark">
-  <!-- 6-arm asterisk; the upper-left arm is a stub: the term they didn't tell you about -->
-  <g stroke="currentColor" stroke-width="12" stroke-linecap="round">
-    <path d="M50 14 L50 86"/>
-    <path d="M18.8 68 L81.2 32"/>
-    <path d="M34.4 41 L81.2 68"/>
-  </g>
-</svg>

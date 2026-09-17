@@ -31,5 +31,7 @@ def build(bg, stroke, name, guide=False):
 
 
 build(render.INK, render.PAPER, "pfp-dark.png")
-build(render.PAPER, render.INK, "pfp-light.png")
-build(render.INK, render.PAPER, "pfp-dark-cropguide.png", guide=True)
+
+if "--all" in sys.argv:          # variants, for checking rather than shipping
+    build(render.PAPER, render.INK, "pfp-light.png")
+    build(render.INK, render.PAPER, "pfp-dark-cropguide.png", guide=True)

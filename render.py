@@ -269,7 +269,7 @@ def render_post(post: Dict[str, Any], handle: str, outdir: str) -> List[str]:
 # ----------------------------------------------------------------- contact sheet
 SHEET_CSS = """
 *{box-sizing:border-box}body{margin:0;background:#E7E2D6;color:#15140F;
-font-family:'Space Grotesk',system-ui,sans-serif;padding:40px}
+font-family:'Bricolage Grotesque',system-ui,sans-serif;padding:40px}
 h1{font-size:30px;letter-spacing:-1px;margin:0 0 4px}
 p.sub{margin:0 0 28px;color:#5E5849;font-size:14px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:26px}
@@ -318,7 +318,7 @@ def write_contact_sheet(posts: List[Dict[str, Any]], handle: str) -> None:
         '<meta name="viewport" content="width=device-width,initial-scale=1">'
         '<title>%s — contact sheet</title>'
         '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?'
-        'family=Space+Grotesk:wght@400;500;700&display=swap">'
+        'family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700&display=swap">'
         '<style>%s</style></head><body>'
         '<h1>Thirty Unfortunately</h1>'
         '<p class="sub">%d posts rendered &middot; %s &middot; these files are what '

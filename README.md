@@ -45,8 +45,10 @@ content/
   candidates/           generated, gitignored
 docs/                   GitHub Pages root — index.html is the approval sheet,
                         media/<id>/N.png is what Meta pulls at publish time
-assets/brand/           battery mark, end-mark, rejected alternates
-fonts/                  Space Grotesk (OFL)
+assets/brand/           battery mark, end-mark, profile picture
+fonts/                  Bricolage Grotesque (OFL)
+tools/                  make_mark_svg.py, make_pfp.py — regenerate brand assets
+                        from the card font, so they cannot drift from the cards
 ```
 
 ## Run
@@ -137,3 +139,7 @@ approved post is rendered.
 8. Learning loop (only at n≥60; before that it fits noise)
 
 Fonts are SIL OFL. Everything else is a personal experiment.
+
+To reconsider the typeface, re-download candidates from the Google Fonts repo,
+point `config.json` at one, then run `tools/make_mark_svg.py` and `render.py` —
+cards, ghost, watermark and logo all follow.
