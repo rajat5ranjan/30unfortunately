@@ -1,0 +1,156 @@
+{
+  "generated_at": "20260917-145730",
+  "model": "gemini-3.5-flash",
+  "accepted": [
+    {
+      "trend": "UPI MDR For Capital Markets: Why A Tiny Fee Could Test India’s Zero-brokerage Model",
+      "context": "Urban 30-year-olds grew up on the promise of the internet being free, but are now paying subscriptions for basic existence.",
+      "angle": "The illusion of the modern, zero-fee digital India was actually just the pre-heating cycle of the oven.",
+      "slides": [
+        "Remember 2017 when everything on your phone was free?",
+        "Then: Zero brokerage. Zero fee. Unlimited data.\nNow: Platforms charge ₹5 to pay bills. Apps charge ₹10 to exist. UPI wants a cut of your investments.",
+        "The trial period of your adulthood has expired.\n\nPlease enter your card details."
+      ],
+      "caption": "Your free trials have ended. Please pay to continue breathing.",
+      "trigger": "money",
+      "structure": "then_now",
+      "satire_level": 4,
+      "hinglish": false,
+      "source": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNWFBqcFZrNzRkZ3k1TkFYVTkxZ25qdVlhRXQ0SmoyaFJnVlRabkpsT0NWMXFJSEVxOXR3QTRxU3M2YW5ITWwwMVVNeHBDNW9SVWxXbnhLQ3I2a0FrV0hadThQMWl0OGRja1F2dTdGc1BjallObENya05FR0tPUmZ0M0kybEpOa0kzRkMtTDMzV080RXZrMmJNRWxwVkk0cWpBMFdVVjBmaVZJMWpSTU5vZnl1SDVGMzM2Wm1DWE9B0gHLAUFVX3lxTFBzMjB5VF94bDZfWTBVakFsUnZ2LW5YTmJnXzRtMklEQlAyWkNMYm1MVm5DSGs2OXZDVGlGckg3eHlGYlhFbUZFRFVoNWNRVDRiR0ZnTFF0Z0xJWnZyUGRTTlJBU01tTXYybFF2bmFrYkdHS2w5cFpJV1hNbWVCdHVEakk0ZVphWEFTa0swYlVNVllOSlVoV0JPbHJRemh2eVhsY1BieDhiV1dkYVlOSzNzRXdnWHd5TGwxVTFyWDFCOXJTdkkycm9fY1Yw?oc=5",
+      "created_at": "2026-09-17",
+      "status": "draft"
+    },
+    {
+      "trend": "Baby Care Quick-Commerce Startup Kiddo, Raises Pre-seed Round of 12.5 Cr Led by Campus Fund",
+      "context": "Young parents are overwhelmed by the hyper-convenience economy where children's basic needs are treated as emergency deliveries.",
+      "angle": "Quick-commerce makes you feel like you are saving time, but it actually just turns your child's basic biological functions into high-frequency financial trades.",
+      "slides": [
+        "The invoice for keeping a child alive in 2026.",
+        "10-minute delivery of diapers: ₹800.\nOrganic pureed apple: ₹450.\nQuick-commerce handling fee: ₹25.\nRain surge charge on baby formula: ₹60.",
+        "Your mother says: Humne toh dabba dabba doodh nahi khareeda.\n\nYou are paying a surge price to keep a toddler quiet."
+      ],
+      "caption": "Every diaper change has an associated platform fee.",
+      "trigger": "parents",
+      "structure": "receipt",
+      "satire_level": 4,
+      "hinglish": true,
+      "source": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQTUttQXFKdnFxTF9mQUdGNW9aV1l2dnBJZEdpRDJ2YmxMdUJwbjg2blN3eXdiYWFWTnE2M2d2NjZZcng0NUxORTM1c1hscG9XbVJGNGdvX3E5VmNKYnp0dmRwZGduQUxfRTh3TFNYaXdaSVZwS0Q0UThPTFkyTE81MHJpVU9JdXZZNlRKdjNsRFNyTVBMM2Vzc1FHRGhCeXk2OXdaWkNEd1RUNXAyNlpVclB6ZF9VMUhVRkRhZlhhYUdIZERlcE1wVmprcUVjZFBs?oc=5",
+      "created_at": "2026-09-17",
+      "status": "draft"
+    },
+    {
+      "trend": "Baby Care Quick-Commerce Startup Kiddo, Raises Pre-seed Round of 12.5 Cr Led by Campus Fund",
+      "context": "People in their late 20s and early 30s are deciding if they can afford families while staring at tech-fueled inflation.",
+      "angle": "Startups can raise crores in minutes based on baby data, but you can't get a raise to actually pay for the baby.",
+      "slides": [
+        "There are two financial models running your house.",
+        "One is a startup raising ₹12.5 crore to deliver baby wipes on a bike.\nThe other is you calculating if you can afford play school on a single salary.",
+        "The startup got funded in six weeks.\n\nYour appraisal is in March."
+      ],
+      "caption": "The VC market is bullish on babies. Your bank account is not.",
+      "trigger": "parents",
+      "structure": "juxtaposition",
+      "satire_level": 3,
+      "hinglish": false,
+      "source": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQTUttQXFKdnFxTF9mQUdGNW9aV1l2dnBJZEdpRDJ2YmxMdUJwbjg2blN3eXdiYWFWTnE2M2d2NjZZcng0NUxORTM1c1hscG9XbVJGNGdvX3E5VmNKYnp0dmRwZGduQUxfRTh3TFNYaXdaSVZwS0Q0UThPTFkyTE81MHJpVU9JdXZZNlRKdjNsRFNyTVBMM2Vzc1FHRGhCeXk2OXdaWkNEd1RUNXAyNlpVclB6ZF9VMUhVRkRhZlhhYUdIZERlcE1wVmprcUVjZFBs?oc=5",
+      "created_at": "2026-09-17",
+      "status": "draft"
+    },
+    {
+      "trend": "Indian Office Leasing Shifts to Connectivity and Air Quality",
+      "context": "Tech parks and corporates are spending massive capital to upgrade physical offices so workers feel guilty about demanding remote work.",
+      "angle": "Your office is becoming a highly sanitized, air-filtered luxury resort to mask the fact that you still live in a cramped flat next to a construction site.",
+      "slides": [
+        "Your company's new office has hospital-grade air filtration.",
+        "The office: PM 2.5 levels at zero. Air circulated every six minutes. Leased line backup.\nYour home: Rent up by 15%. Balcony covered in metro dust. Wi-Fi dropping twice during standup.",
+        "They built a perfect biosphere to keep you in desk 14.\n\nYou still cannot afford a balcony."
+      ],
+      "caption": "Fresh air is now a corporate benefit. 💨",
+      "trigger": "corporate",
+      "structure": "juxtaposition",
+      "satire_level": 4,
+      "hinglish": false,
+      "source": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxQVlctaFl2VkFBUFMyLTAyQ01Tc2g1Y3BNMlBrOGRyWi1RNUl6YUxic3ctWnQ3RVNyZ1dOZ2dpbkVHVDV2TGNUdEd2Z1prbTN5cWtRTlhXOGF6Z3A0dERTZXlWSWZUQ0drbWx1VXAtQ2R2NjBDYXRQYndmemszME50TGVzYmo5MktjaE05allhYkJrWUN6RTZ2cVR3MkZYS1E4VVc1WG4yc3NhTU1tRWdhcEVQQ1FPekRsbWl4c1FNUnduT3JSOFRsSk91NHhtS0pVRDFn?oc=5",
+      "created_at": "2026-09-17",
+      "status": "draft"
+    },
+    {
+      "trend": "Rent A Garba Partner For Navratri: Bizarre Viral Post Offers Packages Starting At ₹1,000",
+      "context": "The loneliness of urban migration has reached a point where community festivals are outsourced to gig workers.",
+      "angle": "Renting human connection by the hour under the guise of cultural participation.",
+      "slides": [
+        "The invoice for your festive season.",
+        "Pass to the ground: ₹1,500.\nKurta dry cleaning: ₹400.\nHourly rate for a rented Garba partner: ₹1,000.\nPlatform handling fee: ₹45.",
+        "Your parents met in local colony groups without a transaction fee.\n\nYou are paying GST on a dance partner."
+      ],
+      "caption": "Can we pay extra for a partner who doesn't talk about their startup?",
+      "trigger": "festivals",
+      "structure": "receipt",
+      "satire_level": 4,
+      "hinglish": false,
+      "source": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxPc3dnaEZjU3hIU0lkQWhScGxCdnRwSW9xeEF6N1R6X3IycmgyLXhnU0phWG96MjFhTFNBMVBFdkh3QzRzUEEyTEdSdEFfYkhwNlNIU0ZOa1U0MmkzcG9CX1dvRkY0WlJ4OV9ydmUtSmNta1c4RGlJZ0JKOTFiT3JERVlWX3Z0eWQ5YmQ2WklyY19ZYy00eWVGTG9uTURod2loYjFGZndzdUgwSUs0Q2pYbjJKenYycUVYMEV5akFZQzVRYlZBcG5iN1FWZkJaMjQwUlEwTFBOVDJpNWFMRlMzUVkyd0ZUSkpfaGfSAe8BQVVfeXFMTmtpVndhQWZOeWdXMFQtcWJtcHkwOWlpU1dHSmQ5RndHdTVMeXZLdEFZTndrb2RpQTI1Z1h1OUg4MzZ2a2JYSjFvbmdCRFVhaDlNVmhvLURrSTBvTzFIeDlOYjVtb2VJNE9VV2JxVjBVZ3JCZm9OQ0NOZjlqZ09MOGZKV1BBZWotNEVYWEx4SmZEM05EZGVkbW41VGpkb1dZaEdOVmhzTHhZdExYR2Jlbk9rWkNoSVlzeVkydG9SaU53d2dEbkl2Q1J6dzR3WFpKT215OWNzVS13a1RIaG80cWlLeUd3V3EtT2E2RldfdVU?oc=5",
+      "created_at": "2026-09-17",
+      "status": "draft"
+    },
+    {
+      "trend": "Rent A Garba Partner For Navratri: Bizarre Viral Post Offers Packages Starting At ₹1,000",
+      "context": "Everything in urban India is transacted as a gig, leaving absolutely no room for unmetered social life.",
+      "angle": "Renting a human companion turns a casual conversation into a high-pressure contract with an expiry time.",
+      "slides": [
+        "A conversation in the parking lot at 11:45 PM.",
+        "\"Tum thak gaye ho kya?\"\n\"Nahi, my rental package ends at midnight.\"\n\"Ek round aur?\"\n\"Extra ₹500 lagenge.\"",
+        "No one is celebrating.\n\nEveryone is keeping track of the billable hour."
+      ],
+      "caption": "Please rate your festive experience on a scale of 1 to 5. ⭐",
+      "trigger": "festivals",
+      "structure": "dialogue",
+      "satire_level": 3,
+      "hinglish": true,
+      "source": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxPc3dnaEZjU3hIU0lkQWhScGxCdnRwSW9xeEF6N1R6X3IycmgyLXhnU0phWG96MjFhTFNBMVBFdkh3QzRzUEEyTEdSdEFfYkhwNlNIU0ZOa1U0MmkzcG9CX1dvRkY0WlJ4OV9ydmUtSmNta1c4RGlJZ0JKOTFiT3JERVlWX3Z0eWQ5YmQ2WklyY19ZYy00eWVGTG9uTURod2loYjFGZndzdUgwSUs0Q2pYbjJKenYycUVYMEV5akFZQzVRYlZBcG5iN1FWZkJaMjQwUlEwTFBOVDJpNWFMRlMzUVkyd0ZUSkpfaGfSAe8BQVVfeXFMTmtpVndhQWZOeWdXMFQtcWJtcHkwOWlpU1dHSmQ5RndHdTVMeXZLdEFZTndrb2RpQTI1Z1h1OUg4MzZ2a2JYSjFvbmdCRFVhaDlNVmhvLURrSTBvTzFIeDlOYjVtb2VJNE9VV2JxVjBVZ3JCZm9OQ0NOZjlqZ09MOGZKV1BBZWotNEVYWEx4SmZEM05EZGVkbW41VGpkb1dZaEdOVmhzTHhZdExYR2Jlbk9rWkNoSVlzeVkydG9SaU53d2dEbkl2Q1J6dzR3WFpKT215OWNzVS13a1RIaG80cWlLeUd3V3EtT2E2RldfdVU?oc=5",
+      "created_at": "2026-09-17",
+      "status": "draft"
+    }
+  ],
+  "rejected": [
+    {
+      "trend": "UPI MDR For Capital Markets: Why A Tiny Fee Could Test India’s Zero-brokerage Model",
+      "context": "Urban 30-year-olds are obsessed with personal finance, SIPs, and mutual funds, tracking every rupee because salary growth is stagnant.",
+      "angle": "Every single path of wealth creation is immediately intercepted by micro-taxes before the money even lands in your account.",
+      "slides": [
+        "Check your mutual fund SIP today.",
+        "Market goes up — portfolio green.\nRedeem your returns — capital gains tax.\nTransfer the funds — UPI MDR fee.\nWithdraw the cash — ATM limit charge.",
+        "Even your own profit is charged convenience fees.\n\nYou are paying rent on your own money."
+      ],
+      "caption": "Nothing is free. It was just a free trial to get you hooked. 💸",
+      "trigger": "upi",
+      "structure": "escalating_list",
+      "satire_level": 4,
+      "hinglish": false,
+      "source": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNWFBqcFZrNzRkZ3k1TkFYVTkxZ25qdVlhRXQ0SmoyaFJnVlRabkpsT0NWMXFJSEVxOXR3QTRxU3M2YW5ITWwwMVVNeHBDNW9SVWxXbnhLQ3I2a0FrV0hadThQMWl0OGRja1F2dTdGc1BjallObENya05FR0tPUmZ0M0kybEpOa0kzRkMtTDMzV080RXZrMmJNRWxwVkk0cWpBMFdVVjBmaVZJMWpSTU5vZnl1SDVGMzM2Wm1DWE9B0gHLAUFVX3lxTFBzMjB5VF94bDZfWTBVakFsUnZ2LW5YTmJnXzRtMklEQlAyWkNMYm1MVm5DSGs2OXZDVGlGckg3eHlGYlhFbUZFRFVoNWNRVDRiR0ZnTFF0Z0xJWnZyUGRTTlJBU01tTXYybFF2bmFrYkdHS2w5cFpJV1hNbWVCdHVEakk0ZVphWEFTa0swYlVNVllOSlVoV0JPbHJRemh2eVhsY1BieDhiV1dkYVlOSzNzRXdnWHd5TGwxVTFyWDFCOXJTdkkycm9fY1Yw?oc=5",
+      "created_at": "2026-09-17",
+      "_gate_failures": [
+        "no concrete detail (no number, rupee figure or quoted speech) — too generic"
+      ]
+    },
+    {
+      "trend": "Indian Office Leasing Shifts to Connectivity and Air Quality",
+      "context": "The return-to-office push is being re-engineered as a medical and productivity wellness campaign.",
+      "angle": "They aren't cleaning the office air because they care about your health; they are cleaning it so you don't use sick leaves.",
+      "slides": [
+        "Read the new workplace wellness circular carefully.",
+        "Ergonomic seating for collaboration.\nOxygen-rich zones for energy.\nState-of-the-art campus connectivity.\nMandatory attendance tracking at the main gate.",
+        "They are not purifying the air for your lungs.\n\nThey are purifying it for your timesheet."
+      ],
+      "caption": "Breathe in the productivity. Exhale your personal life.",
+      "trigger": "corporate",
+      "structure": "escalating_list",
+      "satire_level": 4,
+      "hinglish": false,
+      "source": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxQVlctaFl2VkFBUFMyLTAyQ01Tc2g1Y3BNMlBrOGRyWi1RNUl6YUxic3ctWnQ3RVNyZ1dOZ2dpbkVHVDV2TGNUdEd2Z1prbTN5cWtRTlhXOGF6Z3A0dERTZXlWSWZUQ0drbWx1VXAtQ2R2NjBDYXRQYndmemszME50TGVzYmo5MktjaE05allhYkJrWUN6RTZ2cVR3MkZYS1E4VVc1WG4yc3NhTU1tRWdhcEVQQ1FPekRsbWl4c1FNUnduT3JSOFRsSk91NHhtS0pVRDFn?oc=5",
+      "created_at": "2026-09-17",
+      "_gate_failures": [
+        "no concrete detail (no number, rupee figure or quoted speech) — too generic"
+      ]
+    }
+  ]
+}
