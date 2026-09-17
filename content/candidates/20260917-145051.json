@@ -1,0 +1,151 @@
+{
+  "generated_at": "20260917-145051",
+  "model": "gemini-3.5-flash",
+  "accepted": [
+    {
+      "trend": "UPI MDR For Capital Markets: Why A Tiny Fee Could Test India’s Zero-brokerage Model",
+      "context": "Urban Indians in their late 20s and early 30s are heavily investing in mutual funds and stocks via apps, only to find micro-fees eating into their small gains.",
+      "angle": "Every transaction now has a micro-fee chipping away at your ₹5,000 mutual fund SIP.",
+      "slides": [
+        "Log in to your investment app today.",
+        "Transfer ₹5,000 — UPI fee.\nBuy mutual fund — stamp duty.\nSell share — DP charges.\nWithdraw money — GST.",
+        "The market went down 2% today.\n\nThe brokers made their cut."
+      ],
+      "caption": "Your financial independence has a subscription model. 📈",
+      "trigger": "upi",
+      "structure": "escalating_list",
+      "satire_level": 4,
+      "hinglish": false,
+      "source": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNWFBqcFZrNzRkZ3k1TkFYVTkxZ25qdVlhRXQ0SmoyaFJnVlRabkpsT0NWMXFJSEVxOXR3QTRxU3M2YW5ITWwwMVVNeHBDNW9SVWxXbnhLQ3I2a0FrV0hadThQMWl0OGRja1F2dTdGc1BjallObENya05FR0tPUmZ0M0kybEpOa0kzRkMtTDMzV080RXZrMmJNRWxwVkk0cWpBMFdVVjBmaVZJMWpSTU5vZnl1SDVGMzM2Wm1DWE9B0gHLAUFVX3lxTFBzMjB5VF94bDZfWTBVakFsUnZ2LW5YTmJnXzRtMklEQlAyWkNMYm1MVm5DSGs2OXZDVGlGckg3eHlGYlhFbUZFRFVoNWNRVDRiR0ZnTFF0Z0xJWnZyUGRTTlJBU01tTXYybFF2bmFrYkdHS2w5cFpJV1hNbWVCdHVEakk0ZVphWEFTa0swYlVNVllOSlVoV0JPbHJRemh2eVhsY1BieDhiV1dkYVlOSzNzRXdnWHd5TGwxVTFyWDFCOXJTdkkycm9fY1Yw?oc=5",
+      "created_at": "2026-09-17",
+      "status": "draft"
+    },
+    {
+      "trend": "UPI MDR For Capital Markets: Why A Tiny Fee Could Test India’s Zero-brokerage Model",
+      "context": "Urban Indians who jumped on the 'zero-brokerage' retail investing bandwagon are realizing free services do not exist.",
+      "angle": "The illusion of the 'zero-brokerage' era is masking an endless stream of micro-taxes.",
+      "slides": [
+        "Open your portfolio app and look at the 'zero' fees.",
+        "Zero brokerage on equity.\n₹15 per order on options.\n18% GST on the platform fee.\n₹2 transaction tax per transfer.",
+        "It is free to lose your money.\n\nIt costs money to move it."
+      ],
+      "caption": "Free admission. Paid exit. 💸",
+      "trigger": "upi",
+      "structure": "juxtaposition",
+      "satire_level": 3,
+      "hinglish": false,
+      "source": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNWFBqcFZrNzRkZ3k1TkFYVTkxZ25qdVlhRXQ0SmoyaFJnVlRabkpsT0NWMXFJSEVxOXR3QTRxU3M2YW5ITWwwMVVNeHBDNW9SVWxXbnhLQ3I2a0FrV0hadThQMWl0OGRja1F2dTdGc1BjallObENya05FR0tPUmZ0M0kybEpOa0kzRkMtTDMzV080RXZrMmJNRWxwVkk0cWpBMFdVVjBmaVZJMWpSTU5vZnl1SDVGMzM2Wm1DWE9B0gHLAUFVX3lxTFBzMjB5VF94bDZfWTBVakFsUnZ2LW5YTmJnXzRtMklEQlAyWkNMYm1MVm5DSGs2OXZDVGlGckg3eHlGYlhFbUZFRFVoNWNRVDRiR0ZnTFF0Z0xJWnZyUGRTTlJBU01tTXYybFF2bmFrYkdHS2w5cFpJV1hNbWVCdHVEakk0ZVphWEFTa0swYlVNVllOSlVoV0JPbHJRemh2eVhsY1BieDhiV1dkYVlOSzNzRXdnWHd5TGwxVTFyWDFCOXJTdkkycm9fY1Yw?oc=5",
+      "created_at": "2026-09-17",
+      "status": "draft"
+    },
+    {
+      "trend": "Indian Office Leasing Shifts to Connectivity and Air Quality",
+      "context": "Corporates are upgrading physical office specs to lure workers back to physical spaces.",
+      "angle": "The 'premium air quality' at the office is used as leverage to justify long commutes and complete RTO.",
+      "slides": [
+        "Ask your HR why the office has 'hospital-grade' air filters now.",
+        "Work from home — bad air.\nHybrid schedule — dust allergy.\nFive days in office — pure oxygen.\n60 hours a week — immortality.",
+        "They didn't fix the city.\n\nThey just built a better cage."
+      ],
+      "caption": "Breathe in the productivity. 🏢",
+      "trigger": "corporate",
+      "structure": "escalating_list",
+      "satire_level": 4,
+      "hinglish": false,
+      "source": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxQVlctaFl2VkFBUFMyLTAyQ01Tc2g1Y3BNMlBrOGRyWi1RNUl6YUxic3ctWnQ3RVNyZ1dOZ2dpbkVHVDV2TGNUdEd2Z1prbTN5cWtRTlhXOGF6Z3A0dERTZXlWSWZUQ0drbWx1VXAtQ2R2NjBDYXRQYndmemszME50TGVzYmo5MktjaE05allhYkJrWUN6RTZ2cVR3MkZYS1E4VVc1WG4yc3NhTU1tRWdhcEVQQ1FPekRsbWl4c1FNUnduT3JSOFRsSk91NHhtS0pVRDFn?oc=5",
+      "created_at": "2026-09-17",
+      "status": "draft"
+    },
+    {
+      "trend": "Indian Office Leasing Shifts to Connectivity and Air Quality",
+      "context": "The sharp contrast between high-tech, air-purified office spaces and the hellish commutes required to reach them.",
+      "angle": "The luxury infrastructure at your desk only highlights how broken the journey to get there actually is.",
+      "slides": [
+        "Compare the office lobby to your actual desk.",
+        "The building has PM 2.5 air purification.\nYour commute is 12 km behind a diesel bus.\nThe reception has a living green wall.\nYour lumbar support is a folded sweater.",
+        "The building is thriving.\n\nYou are coughing."
+      ],
+      "caption": "But at least the Wi-Fi has low latency. 💻",
+      "trigger": "commute",
+      "structure": "juxtaposition",
+      "satire_level": 3,
+      "hinglish": false,
+      "source": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxQVlctaFl2VkFBUFMyLTAyQ01Tc2g1Y3BNMlBrOGRyWi1RNUl6YUxic3ctWnQ3RVNyZ1dOZ2dpbkVHVDV2TGNUdEd2Z1prbTN5cWtRTlhXOGF6Z3A0dERTZXlWSWZUQ0drbWx1VXAtQ2R2NjBDYXRQYndmemszME50TGVzYmo5MktjaE05allhYkJrWUN6RTZ2cVR3MkZYS1E4VVc1WG4yc3NhTU1tRWdhcEVQQ1FPekRsbWl4c1FNUnduT3JSOFRsSk91NHhtS0pVRDFn?oc=5",
+      "created_at": "2026-09-17",
+      "status": "draft"
+    },
+    {
+      "trend": "Rent A Garba Partner For Navratri: Bizarre Viral Post Offers Packages Starting At ₹1,000",
+      "context": "Single urban Indian 30-year-olds face severe societal pressure to have active social lives during major festivals.",
+      "angle": "At 30, festive joy and human companionship are just another line item on the monthly expense sheet.",
+      "slides": [
+        "Read the rental agreement for your festive social life.",
+        "Garba pass — ₹1,200.\nKurtis from Fabindia — ₹2,400.\nPartner rental — ₹1,000 per hour.\nFuel to find parking — ₹500.",
+        "You danced for three minutes.\n\nThe invoice was processed in five."
+      ],
+      "caption": "Festive cheer, now with GST. 💃",
+      "trigger": "festivals",
+      "structure": "receipt",
+      "satire_level": 4,
+      "hinglish": true,
+      "source": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxPc3dnaEZjU3hIU0lkQWhScGxCdnRwSW9xeEF6N1R6X3IycmgyLXhnU0phWG96MjFhTFNBMVBFdkh3QzRzUEEyTEdSdEFfYkhwNlNIU0ZOa1U0MmkzcG9CX1dvRkY0WlJ4OV9ydmUtSmNta1c4RGlJZ0JKOTFiT3JERVlWX3Z0eWQ5YmQ2WklyY19ZYy00eWVGTG9uTURod2loYjFGZndzdUgwSUs0Q2pYbjJKenYycUVYMEV5akFZQzVRYlZBcG5iN1FWZkJaMjQwUlEwTFBOVDJpNWFMRlMzUVkyd0ZUSkpfaGfSAe8BQVVfeXFMTmtpVndhQWZOeWdXMFQtcWJtcHkwOWlpU1dHSmQ5RndHdTVMeXZLdEFZTndrb2RpQTI1Z1h1OUg4MzZ2a2JYSjFvbmdCRFVhaDlNVmhvLURrSTBvTzFIeDlOYjVtb2VJNE9VV2JxVjBVZ3JCZm9OQ0NOZjlqZ09MOGZKV1BBZWotNEVYWEx4SmZEM05EZGVkbW41VGpkb1dZaEdOVmhzTHhZdExYR2Jlbk9rWkNoSVlzeVkydG9SaU53d2dEbkl2Q1J6dzR3WFpKT215OWNzVS13a1RIaG80cWlLeUd3V3EtT2E2RldfdVU?oc=5",
+      "created_at": "2026-09-17",
+      "status": "draft"
+    },
+    {
+      "trend": "Rent A Garba Partner For Navratri: Bizarre Viral Post Offers Packages Starting At ₹1,000",
+      "context": "The transition from natural friend groups to transactional engagements as life moves forward.",
+      "angle": "The rapid clinical commercialization of festival culture for the lonely urban demographic.",
+      "slides": [
+        "Think about who you went to Navratri with in 2016.",
+        "At 18 — your school crush.\nAt 24 — your flatmates.\nAt 28 — your colleagues.\nAt 30 — a verified vendor on WhatsApp.",
+        "They charge extra if you want them to smile in the photo.\n\nThe deposit is non-refundable."
+      ],
+      "caption": "Settle the bill before the final beat. 🥁",
+      "trigger": "festivals",
+      "structure": "definition_drift",
+      "satire_level": 4,
+      "hinglish": true,
+      "source": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxPc3dnaEZjU3hIU0lkQWhScGxCdnRwSW9xeEF6N1R6X3IycmgyLXhnU0phWG96MjFhTFNBMVBFdkh3QzRzUEEyTEdSdEFfYkhwNlNIU0ZOa1U0MmkzcG9CX1dvRkY0WlJ4OV9ydmUtSmNta1c4RGlJZ0JKOTFiT3JERVlWX3Z0eWQ5YmQ2WklyY19ZYy00eWVGTG9uTURod2loYjFGZndzdUgwSUs0Q2pYbjJKenYycUVYMEV5akFZQzVRYlZBcG5iN1FWZkJaMjQwUlEwTFBOVDJpNWFMRlMzUVkyd0ZUSkpfaGfSAe8BQVVfeXFMTmtpVndhQWZOeWdXMFQtcWJtcHkwOWlpU1dHSmQ5RndHdTVMeXZLdEFZTndrb2RpQTI1Z1h1OUg4MzZ2a2JYSjFvbmdCRFVhaDlNVmhvLURrSTBvTzFIeDlOYjVtb2VJNE9VV2JxVjBVZ3JCZm9OQ0NOZjlqZ09MOGZKV1BBZWotNEVYWEx4SmZEM05EZGVkbW41VGpkb1dZaEdOVmhzTHhZdExYR2Jlbk9rWkNoSVlzeVkydG9SaU53d2dEbkl2Q1J6dzR3WFpKT215OWNzVS13a1RIaG80cWlLeUd3V3EtT2E2RldfdVU?oc=5",
+      "created_at": "2026-09-17",
+      "status": "draft"
+    },
+    {
+      "trend": "Vedaant Madhavan, 21, discusses his fitness routine; says ‘Indians need to fix their diet’",
+      "context": "A 21-year-old celebrity kid lecturing working class 30-year-olds on diet choices while they barely survive corporate stressors.",
+      "angle": "Dietary advice from a 21-year-old athlete completely misses the biological tax of a 30-year-old desk job.",
+      "slides": [
+        "Listen to the 21-year-old explaining nutrition to you.",
+        "He says skip the oil.\nHe says count the macros.\nHe says avoid the carbohydrates.\nHe has never had a 9:00 PM client call.",
+        "Your dinner is a cold samosa from the pantry.\n\nYou are surviving on spite and Pantocid."
+      ],
+      "caption": "Acidity is our primary macro. ☕",
+      "trigger": "health",
+      "structure": "escalating_list",
+      "satire_level": 4,
+      "hinglish": true,
+      "source": "https://news.google.com/rss/articles/CBMiywFBVV95cUxONzlmcFZESW5ZeVNjMGN3TTVIZFFGV1I3aGZxOUZkZmFvTkRsVHRzTW9palBZbDl4UFpGVE9rb2lDczBydW5PN1FkdTRzOWZqNFdvdDk3a0k1eTViWWlrZHV4aWFYZG54RUZtQWwzX25OM2JPeTR3dElqSVJOb1pHa0QwQkloS05wTmlkOXFYWllsakVaM3BYYkdDd3h2N3ZadXFDX3JiZ20teGJmdC1FczJEaG11ZGlFT05wNXVLQU1kWU5VbHhGSFd1WdIB0gFBVV95cUxNUVNrS1NNSERQczhMNW5uRTFIczJIaTY2b2ctRHI4YTJtVDF6NXNLVTg2WkxyUURHdElsalJWdUY3Ykx3UG5yZlhSdzNhZ08yb0p0aUlnalcyNFJ1Y1hCeGZYUVdLMGt5bTNCM0xPR01fblBVYk52b1lJUWtENm5fQlpEZHpVTHFDNjdMd2VqWGRoOUYxV09XUzBFQnN2R3BuTjg1NVBBdjU5TV9EWGZBaVFzOEpyYXhVaWxvUGsxUU1PY1FYVWhvV3ZuMlczZk9NdWc?oc=5",
+      "created_at": "2026-09-17",
+      "status": "draft"
+    },
+    {
+      "trend": "Vedaant Madhavan, 21, discusses his fitness routine; says ‘Indians need to fix their diet’",
+      "context": "The gap between standard influencer fitness advice and the practical reality of budget constraints and grueling corporate timelines.",
+      "angle": "Clean eating is a luxury of time and budget, both of which are depleted by age 30.",
+      "slides": [
+        "Write down everything you consumed yesterday.",
+        "The fitness influencer: 'Eat clean organic protein.'\nYour budget: ₹150 per meal.\nThe fitness influencer: 'Sleep eight hours minimum.'\nYour manager: 'Need this slide deck by 8:00 AM.'",
+        "The diet is fixed.\n\nThe client is still hungry."
+      ],
+      "caption": "Your metabolism is not on the payroll. 🍳",
+      "trigger": "health",
+      "structure": "juxtaposition",
+      "satire_level": 3,
+      "hinglish": false,
+      "source": "https://news.google.com/rss/articles/CBMiywFBVV95cUxONzlmcFZESW5ZeVNjMGN3TTVIZFFGV1I3aGZxOUZkZmFvTkRsVHRzTW9palBZbDl4UFpGVE9rb2lDczBydW5PN1FkdTRzOWZqNFdvdDk3a0k1eTViWWlrZHV4aWFYZG54RUZtQWwzX25OM2JPeTR3dElqSVJOb1pHa0QwQkloS05wTmlkOXFYWllsakVaM3BYYkdDd3h2N3ZadXFDX3JiZ20teGJmdC1FczJEaG11ZGlFT05wNXVLQU1kWU5VbHhGSFd1WdIB0gFBVV95cUxNUVNrS1NNSERQczhMNW5uRTFIczJIaTY2b2ctRHI4YTJtVDF6NXNLVTg2WkxyUURHdElsalJWdUY3Ykx3UG5yZlhSdzNhZ08yb0p0aUlnalcyNFJ1Y1hCeGZYUVdLMGt5bTNCM0xPR01fblBVYk52b1lJUWtENm5fQlpEZHpVTHFDNjdMd2VqWGRoOUYxV09XUzBFQnN2R3BuTjg1NVBBdjU5TV9EWGZBaVFzOEpyYXhVaWxvUGsxUU1PY1FYVWhvV3ZuMlczZk9NdWc?oc=5",
+      "created_at": "2026-09-17",
+      "status": "draft"
+    }
+  ],
+  "rejected": []
+}

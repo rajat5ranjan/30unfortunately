@@ -4,8 +4,10 @@
 __pycache__/
 *.pyc
 .venv/
-content/candidates/
 out/
 
+# content/candidates/ and posts.db are deliberately committed. generate.yml
+# writes candidates on one runner and approve.yml reads them on another, so
+# they have to travel through git — the same reason posts.db does.
 # posts.db is deliberately committed: runners are ephemeral and the
 # commit doubles as the Actions cron keepalive.

@@ -1,0 +1,79 @@
+{
+  "generated_at": "20260917-143102",
+  "model": "gemini-3.5-flash",
+  "accepted": [
+    {
+      "trend": "Bengaluru offices are short of desks after shrinking their footprint during the work-from-home years, now that staff are mandated back five days a week.",
+      "context": "Urban Indian tech workers forced back to physical offices to justify commercial leases, only to face lack of infrastructure.",
+      "angle": "You fought the management to save your commute, but you have to fight your own colleagues just to get a physical chair.",
+      "slides": [
+        "Your company spent six months mandating five days in office.",
+        "\"Yaar, empty desk dikhna toh batana.\"\n\"Meeting room block kar le, wahan se kaam karenge.\"\n\"Cafeteria mein charging point chal raha hai?\"\n\"Main washroom ja raha hoon, seat rakhna please.\"",
+        "You spent two hours in traffic.\n\nTo work from a beanbag."
+      ],
+      "caption": "The collaboration has been extremely high dynamic. 💻",
+      "trigger": "corporate",
+      "structure": "dialogue",
+      "satire_level": 3,
+      "hinglish": true,
+      "source": "https://www.bangalorefurnishedoffice.com/managed-office-space-bangalore-rto-2026/",
+      "created_at": "2026-09-17",
+      "status": "draft"
+    },
+    {
+      "trend": "Bengaluru offices are short of desks after shrinking their footprint during the work-from-home years, now that staff are mandated back five days a week.",
+      "context": "Corporate employees being forced into gamified systems just to perform basic administrative tasks like sitting down.",
+      "angle": "The office is no longer a workplace; it is a live multiplayer battle royale for basic office supplies.",
+      "slides": [
+        "There is an app on your phone that decides if you are allowed to sit.",
+        "The company has 14,000 employees.\nThe company has 8,000 desks.\nYou must book Seat 42B three days in advance.",
+        "If you are late, your colleague takes your monitor.\n\nWelcome back to the culture."
+      ],
+      "caption": "Highly collaborative environment. 🤝",
+      "trigger": "corporate",
+      "structure": "juxtaposition",
+      "satire_level": 4,
+      "hinglish": false,
+      "source": "https://www.bangalorefurnishedoffice.com/managed-office-space-bangalore-rto-2026/",
+      "created_at": "2026-09-17",
+      "status": "draft"
+    },
+    {
+      "trend": "Furniture and appliance rental plans from around Rs 2,699/month are growing across Indian metros against Rs 3-4 lakh setup costs.",
+      "context": "Urban migrants in their late 20s and early 30s who move frequently and cannot afford or justify buying permanent furniture.",
+      "angle": "Our parents built permanent lives with heavy steel; we rent a temporary existence that can be repossessed if our card declines.",
+      "slides": [
+        "Compare your assets with what your father owned at your age.",
+        "At 30, your father bought a Godrej steel almirah.\nIt survived three house shifts.\nIt survived two city moves.\nIt is currently holding your original degree certificate.",
+        "You pay ₹2,699 a month for a bed.\n\nIf you miss the subscription, they take your sleep."
+      ],
+      "caption": "The modern asset-light lifestyle. 🛏️",
+      "trigger": "nostalgia",
+      "structure": "then_now",
+      "satire_level": 4,
+      "hinglish": false,
+      "source": "https://www.globenewswire.com/news-release/2026/08/08/3341437/0/en/furniture-and-appliance-rentals-gain-ground-across-delhi-noida-pune-mumbai-hyderabad-bangalore-and-chennai-in-2026-as-3-lakh-4-lakh-setup-costs-face-2-699month-plans-including-ren.html",
+      "created_at": "2026-09-17",
+      "status": "draft"
+    },
+    {
+      "trend": "Furniture and appliance rental plans from around Rs 2,699/month are growing across Indian metros against Rs 3-4 lakh setup costs.",
+      "context": "The illusion of independent adult life in metros where every physical item is actually on loan.",
+      "angle": "You are living in a display flat where even your comfort is a recurring liability.",
+      "slides": [
+        "The itemised monthly invoice of your independence.",
+        "Rented 2-BHK flat: ₹35,000\nRented double bed: ₹1,200\nRented smart TV: ₹899\nRented washing machine: ₹600",
+        "\"When are you settling down?\"\n\nWhen the subscription expires."
+      ],
+      "caption": "Everything is temporary except the recurring bills. 💸",
+      "trigger": "rent",
+      "structure": "receipt",
+      "satire_level": 4,
+      "hinglish": false,
+      "source": "https://www.globenewswire.com/news-release/2026/08/08/3341437/0/en/furniture-and-appliance-rentals-gain-ground-across-delhi-noida-pune-mumbai-hyderabad-bangalore-and-chennai-in-2026-as-3-lakh-4-lakh-setup-costs-face-2-699month-plans-including-ren.html",
+      "created_at": "2026-09-17",
+      "status": "draft"
+    }
+  ],
+  "rejected": []
+}
