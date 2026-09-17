@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" role="img" aria-label="30 where the zero is a progress ring stopped at 30 percent">
+  <path d="M14 32 A14 14 0 1 1 28 46 A14 14 0 1 1 14 60" stroke="currentColor" stroke-width="9" stroke-linecap="round"/>
+  <circle cx="68" cy="46" r="24" stroke="currentColor" stroke-width="9" opacity="0.2"/>
+  <path d="M68 22 A24 24 0 0 1 90.8 53.4" stroke="#D8451F" stroke-width="9" stroke-linecap="round"/>
+</svg>

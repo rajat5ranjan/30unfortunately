@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100" fill="none" role="img" aria-label="30 comma mark">
+  <!-- "30," — the comma IS the word "unfortunately": the pause before the bad news -->
+  <g stroke="currentColor" stroke-width="9" stroke-linecap="round">
+    <path d="M20 32 A14 14 0 1 1 34 46 A14 14 0 1 1 20 60"/>
+    <ellipse cx="72" cy="46" rx="14" ry="28"/>
+  </g>
+  <path d="M99 64 C99 72 96 79 90 84" stroke="#D8451F" stroke-width="10" stroke-linecap="round"/>
+</svg>

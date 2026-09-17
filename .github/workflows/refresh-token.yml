@@ -1,0 +1,37 @@
+name: refresh-token
+
+# Instagram long-lived tokens last 60 days and can only be refreshed while
+# still alive. A 90-day experiment dies at day 60 without this. Runs every 3
+# weeks so two consecutive failures still leave time to fix it by hand.
+on:
+  schedule:
+    - cron: "25 4 */21 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Refresh and rotate the secret
+        env:
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+        run: |
+          set -euo pipefail
+          NEW=$(python3 publish.py refresh-token --quiet)
+          if [ -z "${GH_TOKEN:-}" ]; then
+            echo "::error::Token refreshed but GH_PAT is not set, so the secret could not"
+            echo "::error::be rotated. Run 'python3 publish.py refresh-token --write' locally"
+            echo "::error::and update the IG_ACCESS_TOKEN secret by hand."
+            exit 1
+          fi
+          gh secret set IG_ACCESS_TOKEN --body "$NEW"
+          echo "IG_ACCESS_TOKEN rotated."

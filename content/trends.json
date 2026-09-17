@@ -1,0 +1,27 @@
+{
+  "_note": "Manual for now. trend_agent.py replaces this in Phase 5. Pulled 2026-09-17.",
+  "pulled_at": "2026-09-17",
+  "trends": [
+    {
+      "trend": "18% GST will apply to the Merchant Discount Rate on UPI transactions above Rs 2,000 from 15 Oct 2026. Person-to-person UPI stays free.",
+      "source": "https://www.onmanorama.com/news/india/2026/09/17/gst-of-18-per-cent-to-apply-on-mdr-for-upi-payments-above-2-000-what-this-means.html",
+      "note": "Already used in p001 — generate a DIFFERENT angle or discard."
+    },
+    {
+      "trend": "The rupee strengthened to a two-month high against the US dollar, supported by dollar inflows and RBI intervention.",
+      "source": "https://blitzindiamedia.com/news/india-latest-news-september-2026/"
+    },
+    {
+      "trend": "Bengaluru offices are short of desks after shrinking their footprint during the work-from-home years, now that staff are mandated back five days a week.",
+      "source": "https://www.bangalorefurnishedoffice.com/managed-office-space-bangalore-rto-2026/"
+    },
+    {
+      "trend": "Furniture and appliance rental plans from around Rs 2,699/month are growing across Indian metros against Rs 3-4 lakh setup costs.",
+      "source": "https://www.globenewswire.com/news-release/2026/08/08/3341437/0/en/furniture-and-appliance-rentals-gain-ground-across-delhi-noida-pune-mumbai-hyderabad-bangalore-and-chennai-in-2026-as-3-lakh-4-lakh-setup-costs-face-2-699month-plans-including-ren.html"
+    },
+    {
+      "trend": "GST 2.0 collapsed the old five slabs into mainly two, 5% and 18%, with essentials including dairy and 33 lifesaving drugs at nil.",
+      "source": "https://cleartax.in/s/gst-rates"
+    }
+  ]
+}

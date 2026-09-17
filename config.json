@@ -1,0 +1,13 @@
+{
+  "model": "gemini-flash-latest",
+  "temperature": 1.0,
+  "posts_per_trend": 2,
+  "few_shot_count": 8,
+  "novelty_threshold": 0.72,
+  "structure_enforce_from": 20,
+  "_note": "model is a placeholder until the real free-tier quota is checked in AI Studio. If daily requests are tight, raise posts_per_trend and generate a week at a time instead of per-post.",
+  "pages_base_url": "https://rajat5ranjan.github.io/30unfortunately",
+  "font": "fonts/BricolageGrotesque.ttf",
+  "font_weight": "ExtraBold",
+  "svg_glyph_weight": 800
+}

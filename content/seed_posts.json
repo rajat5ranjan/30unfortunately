@@ -1,0 +1,260 @@
+{
+  "_schema_note": "V2. `slides` is now an array (2 or 3), because the unit is a carousel and the rant needs room. Slide 1 must open a loop, never carry half the joke. Last slide is always ink, all others paper.",
+  "brand": "Thirty Unfortunately",
+  "handle": "@30unfortunately",
+  "generated_at": "2026-09-17",
+  "rules_applied": {
+    "hook_rule": "Slide 1 is an instruction, a challenge or a claim that demands proof. If slide 1 can be screenshotted and understood alone, it has failed.",
+    "hinglish_ratio": "4 of 12 — code-switched the way people actually type, never decorative",
+    "structure_cap": "no structure above 30%"
+  },
+  "posts": [
+    {
+      "id": "p001",
+      "trend": "18% GST applies to the Merchant Discount Rate on UPI transactions above Rs 2,000 from 15 Oct 2026; P2P stays free.",
+      "context": "This cohort has paid for everything by UPI for a decade and treats it as free public infrastructure.",
+      "angle": "Follow a single note through one ordinary evening and count the tolls. Nothing has even been consumed yet.",
+      "slides": [
+        "Follow one ₹100 through your day.",
+        "Salary credited — taxed.\nOrder dinner — taxed.\nDelivery fee — taxed.\nPlatform fee — taxed.",
+        "From 15 October, paying for it — taxed.\n\nYou still haven't eaten."
+      ],
+      "caption": "Eleven years of free UPI and they found the last free thing. Tag someone who still says \"UPI kar dena\".",
+      "trigger": "upi",
+      "structure": "escalating_list",
+      "satire_level": 4,
+      "hinglish": false,
+      "source": "https://www.onmanorama.com/news/india/2026/09/17/gst-of-18-per-cent-to-apply-on-mdr-for-upi-payments-above-2-000-what-this-means.html",
+      "created_at": "2026-09-17",
+      "status": "draft"
+    },
+    {
+      "id": "p002",
+      "trend": "Indian IT firms tightened RTO in 2026 — Infosys' attendance app auto-rejects WFH below 10 office days a month; TCS ties presence to variable pay; Wipro mandates 6 hours across 3 days.",
+      "context": "People moved cities, took flats further out and moved parents in, on the strength of these promises.",
+      "angle": "The company never deleted the promise. It just stopped honouring it, and left the evidence online.",
+      "slides": [
+        "Go and read your company's 2021 LinkedIn post again.",
+        "\"Work from anywhere.\"\n\"Flexibility is the future.\"\n\"We trust our people.\"\n\"Remote-first. Forever.\"",
+        "In 2026 an app auto-rejects your WFH if you missed ten office days.\n\nThe post is still up."
+      ],
+      "caption": "Nobody took it down. That's the part that gets me.",
+      "trigger": "corporate",
+      "structure": "escalating_list",
+      "satire_level": 4,
+      "hinglish": false,
+      "source": "https://www.storyboard18.com/how-it-works/indias-it-giants-tighten-return-to-office-rules-amid-ai-disruption-87216.htm",
+      "created_at": "2026-09-17",
+      "status": "draft"
+    },
+    {
+      "id": "p003",
+      "trend": "Evergreen — the Indian family's most-used word.",
+      "context": "\"Settle ho ja\" is said to every Indian adult, by everyone, permanently.",
+      "angle": "It is not a destination. It is a moving target, and it has never once been reached by anybody.",
+      "slides": [
+        "There is a word your family uses that has no fixed meaning.",
+        "\"Settle ho ja.\"\n\nAt 22 it meant a job.\nAt 26 it meant a flat.\nAt 30 it means a wedding.\nAt 34 it will mean a child.",
+        "Nobody in your family has ever been settled.\n\nIt just moves."
+      ],
+      "caption": "Ask the person telling you to settle whether they have settled. Watch what happens.",
+      "trigger": "marriage",
+      "structure": "definition_drift",
+      "satire_level": 4,
+      "hinglish": true,
+      "source": "evergreen",
+      "created_at": "2026-09-17",
+      "status": "draft"
+    },
+    {
+      "id": "p004",
+      "trend": "Evergreen — the universal Indian coping instruction.",
+      "context": "Every structural problem in an Indian life is answered with the same two words.",
+      "angle": "Adjustment was sold as resilience. Thirty years of it is not resilience, it is deformation.",
+      "slides": [
+        "Indian families have one patch for every bug in the system.",
+        "Low salary? Thoda adjust kar lo.\nBad manager? Thoda adjust kar lo.\nTerrible flat? Thoda adjust kar lo.\nWrong marriage? Thoda adjust kar lo.",
+        "Thirty years of adjusting.\n\nYou are now shaped like the problem."
+      ],
+      "caption": "\"Adjust kar lo\" has done more damage than any recession.",
+      "trigger": "parents",
+      "structure": "escalating_list",
+      "satire_level": 5,
+      "hinglish": true,
+      "source": "evergreen",
+      "created_at": "2026-09-17",
+      "status": "draft"
+    },
+    {
+      "id": "p005",
+      "trend": "India's economy grew 7.8% in the April-June 2026 quarter.",
+      "context": "Appraisals in Indian offices are running 4-8% while the headline number is quoted back at employees as good news.",
+      "angle": "You are inside the growth. You are receiving none of it.",
+      "slides": [
+        "The economy grew 7.8% this quarter.",
+        "Your rent grew 10%.\nYour grocery bill grew.\nYour parents' expectations grew.\nYour salary is \"under review\".",
+        "Congratulations to the economy."
+      ],
+      "caption": "Genuinely thrilled for it.",
+      "trigger": "salary",
+      "structure": "escalating_list",
+      "satire_level": 3,
+      "hinglish": false,
+      "source": "https://blitzindiamedia.com/news/india-latest-news-september-2026/",
+      "created_at": "2026-09-17",
+      "status": "draft"
+    },
+    {
+      "id": "p006",
+      "trend": "Bengaluru IT-corridor rents rising 8-15% in 2026; Mumbai 8-12%; two-three month deposits plus a month of brokerage standard.",
+      "context": "Renting has stopped being a stopgap for this cohort and become the permanent arrangement.",
+      "angle": "Your landlord runs a faster, more confident compensation cycle than your employer.",
+      "slides": [
+        "Your landlord runs a better appraisal process than your company.",
+        "No self-assessment form.\nNo calibration meeting.\nNo \"budget constraints this year\".\nNo \"let's revisit in Q3\".\n\nOne WhatsApp message in October. 10%. Confirmed."
+      ],
+      "caption": "He doesn't even know your rating. Incredible conviction.",
+      "trigger": "rent",
+      "structure": "juxtaposition",
+      "satire_level": 3,
+      "hinglish": false,
+      "source": "https://rentenpe.com/blog/how-indias-rental-market-is-changing-in-2026",
+      "created_at": "2026-09-17",
+      "status": "draft"
+    },
+    {
+      "id": "p007",
+      "trend": "Evergreen — the sentences that keep an Indian adult's life running.",
+      "context": "A shared, unspoken script that every 30-year-old uses daily without thinking.",
+      "angle": "These aren't lies to other people. They are a maintenance protocol.",
+      "slides": [
+        "The four sentences holding your life together.",
+        "\"Bas nikal hi raha hoon.\"\n\"Haan haan, kha liya.\"\n\"Kal se gym.\"\n\"Main dekh leta hoon.\"",
+        "You have used all four today.\n\nTwo were to your mother."
+      ],
+      "caption": "\"Bas 5 minute\" — a man who has not left the bed.",
+      "trigger": "home",
+      "structure": "list_collapse",
+      "satire_level": 3,
+      "hinglish": true,
+      "source": "evergreen",
+      "created_at": "2026-09-17",
+      "status": "draft"
+    },
+    {
+      "id": "p008",
+      "trend": "IMD warned of extremely heavy rainfall across Chhattisgarh, eastern MP, UP and the Northeast in mid-September 2026; Kolkata saw waterlogging and traffic disruption.",
+      "context": "RTO mandates and monsoon commutes are colliding at full scale for the first time.",
+      "angle": "Infrastructure is allowed to fail. You are not.",
+      "slides": [
+        "It rained for forty minutes this morning.",
+        "The main road is a river.\nThe auto wants ₹400 for 3 km.\nThe metro has become a single organism.\nYour manager has sent \"standup in 10?\"",
+        "The city stopped.\n\nThe 9:30 did not."
+      ],
+      "caption": "\"Plan your commute accordingly\" — a company, to a person who cannot swim.",
+      "trigger": "commute",
+      "structure": "escalating_list",
+      "satire_level": 3,
+      "hinglish": false,
+      "source": "https://blitzindiamedia.com/news/india-latest-news-september-2026/",
+      "created_at": "2026-09-17",
+      "status": "draft"
+    },
+    {
+      "id": "p009",
+      "trend": "Festival season 2026: Navratri from 11 Oct, Durga Puja 16-21 Oct, Dussehra 20 Oct, Diwali 8 Nov.",
+      "context": "The first stretch of the year where being the earning adult of the family is fully itemised.",
+      "angle": "Childhood festivals were received. Adult festivals are budgeted.",
+      "slides": [
+        "Festival season starts in three weeks. Open your calculator.",
+        "Flights home: two.\nGifts: eleven, minimum.\nSweets for the office: ₹1,400.\nCash for the kids at home: unknown, always more than planned.",
+        "At 12 you counted what you got.\n\nAt 30 you count what it cost."
+      ],
+      "caption": "Book now. The fare only moves one way.",
+      "trigger": "festivals",
+      "structure": "escalating_list",
+      "satire_level": 3,
+      "hinglish": false,
+      "source": "https://hinducalculator.com/durga-puja-calendar/2026/",
+      "created_at": "2026-09-17",
+      "status": "draft"
+    },
+    {
+      "id": "p010",
+      "trend": "Evergreen — the daily check-in with an Indian mother.",
+      "context": "Financial independence changes nothing about the script.",
+      "angle": "You run an entire household and still file a daily report you cannot pass.",
+      "slides": [
+        "You run a house and manage a team.\n\nHere is your daily performance review.",
+        "\"Khana kha liya?\"\n\"Haan.\"\n\"Kya khaya?\"\n\"...khana.\"",
+        "Thirty years old.\n\nStill negotiating."
+      ],
+      "caption": "Maggi at 11:40pm is technically khana. Technically.",
+      "trigger": "parents",
+      "structure": "dialogue",
+      "satire_level": 2,
+      "hinglish": true,
+      "source": "evergreen",
+      "created_at": "2026-09-17",
+      "status": "draft"
+    },
+    {
+      "id": "p011",
+      "trend": "Evergreen — the body at 30.",
+      "context": "This cohort's first encounter with injuries that have no origin story.",
+      "angle": "Pain used to be earned. Now it just arrives.",
+      "slides": [
+        "List every injury you currently have. Go on.",
+        "Neck — from sleeping.\nBack — from sitting.\nKnee — from standing up once.\nWrist — unknown, since March.",
+        "Not one of them has a story.\n\nThat's the part nobody warns you about."
+      ],
+      "caption": "At 22 the injuries at least came with a night out.",
+      "trigger": "health",
+      "structure": "escalating_list",
+      "satire_level": 3,
+      "hinglish": false,
+      "source": "evergreen",
+      "created_at": "2026-09-17",
+      "status": "draft"
+    },
+    {
+      "id": "p012",
+      "trend": "West Indies tour India from 27 Sep 2026 — three ODIs and five T20Is.",
+      "context": "Cricket was the shared language of this cohort's childhood; the fixture volume has outgrown anyone's attention.",
+      "angle": "You didn't lose interest. There is simply more cricket than a life has room for.",
+      "slides": [
+        "A series starts on Saturday. You found out from a meme.",
+        "At 15 you knew every batting average.\nAt 22 you knew the playing XI.\nAt 26 you knew the captain.\nAt 30 you know there is cricket happening.",
+        "There is always cricket happening."
+      ],
+      "caption": "Somewhere, right now, India is playing someone. That's the whole update.",
+      "trigger": "cricket",
+      "structure": "definition_drift",
+      "satire_level": 2,
+      "hinglish": false,
+      "source": "https://en.wikipedia.org/wiki/West_Indian_cricket_team_in_India_in_2026%E2%80%9327",
+      "created_at": "2026-09-17",
+      "status": "draft"
+    }
+  ],
+  "cut": [
+    {
+      "id": "old_p010",
+      "text": "Papa never calls / Papa asks Mummy to ask you...",
+      "reason": "Cut on review — the observation is true but it is warm, not satirical, and the payoff is a shrug rather than a landing."
+    }
+  ],
+  "rejected_demo": [
+    {
+      "trend": "Nepal flood death toll crosses 1,000; rescue teams working in remote areas.",
+      "verdict": "REJECT",
+      "reason": "Active mass-casualty disaster. The gate rejects any trend whose subject is death, violence, communal conflict or a named private individual — before the content agent ever sees it."
+    }
+  ],
+  "audit": {
+    "hinglish": "4/12 (33%)",
+    "three_slide": "10/12",
+    "escalating_list": "6/12 (50%) — OVER the 30% cap, acceptable only for a seed set; the generator must diversify",
+    "satire_level_avg": 3.3
+  }
+}

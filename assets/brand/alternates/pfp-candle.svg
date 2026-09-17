@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" role="img" aria-label="30 with a blown-out candle on the zero">
+  <path d="M66 6 C60 12 73 15 66 22" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" opacity="0.55"/>
+  <rect x="62.5" y="23" width="7" height="13" rx="2" fill="#D8451F"/>
+  <g stroke="currentColor" stroke-width="9" stroke-linecap="round">
+    <path d="M14 43 A14 14 0 1 1 28 57 A14 14 0 1 1 14 71"/>
+    <ellipse cx="66" cy="57" rx="14" ry="28"/>
+  </g>
+</svg>

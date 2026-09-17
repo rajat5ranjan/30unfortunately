@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 167.2 100" fill="none" role="img" aria-label="30 with the zero as a battery at 30 percent">
+  <!-- '3' is the real BricolageGrotesque.ttf glyph; regenerate with tools/make_mark_svg.py -->
+  <path d="M277 -14Q211 -14 161.0 -1.0Q111 12 77.0 37.5Q43 63 26.5 101.5Q10 140 12 192L164 215Q163 194 169.5 175.5Q176 157 191.0 143.0Q206 129 229.0 121.0Q252 113 284 113Q316 113 340.5 122.5Q365 132 378.5 151.0Q392 170 392 199Q392 240 366.5 265.0Q341 290 284.5 298.0Q228 306 136 296V391L328 523V527H45V661H521V534L307 384V379Q393 384 449.0 358.5Q505 333 532.5 287.5Q560 242 560 185Q560 125 528.5 80.5Q497 36 434.5 11.0Q372 -14 277 -14Z" transform="matrix(0.14815 0 0 -0.14815 -1.746 97.926)" fill="currentColor"/>
+  <rect x="113.26" y="0" width="31.92" height="17.60" rx="4.55" fill="currentColor"/>
+  <rect x="96.97" y="18.75" width="64.50" height="75.50" rx="16.72" stroke="currentColor" stroke-width="11.50"/>
+  <rect x="109.04" y="66.77" width="40.35" height="15.40" rx="5.75" fill="#D8451F"/>
+</svg>

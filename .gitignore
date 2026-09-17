@@ -1,0 +1,11 @@
+.env
+*.p8
+*.pem
+__pycache__/
+*.pyc
+.venv/
+content/candidates/
+out/
+
+# posts.db is deliberately committed: runners are ephemeral and the
+# commit doubles as the Actions cron keepalive.
