@@ -25,6 +25,7 @@ import urllib.parse
 import urllib.request
 from typing import Any, Dict, List, Optional
 
+import envfile
 import store
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -37,20 +38,6 @@ MEDIA_METRICS = ["reach", "views", "likes", "comments", "saved", "shares",
 
 
 # ------------------------------------------------------------------------ env
-def load_env() -> None:
-    """Minimal .env reader — no dependency, and the file is gitignored."""
-    path = os.path.join(ROOT, ".env")
-    if not os.path.exists(path):
-        return
-    with open(path) as f:
-        for line in f:
-            line = line.strip()
-            if not line or line.startswith("#") or "=" not in line:
-                continue
-            k, v = line.split("=", 1)
-            os.environ.setdefault(k.strip(), v.strip().strip('"').strip("'"))
-
-
 def need(key: str) -> str:
     v = os.environ.get(key)
     if not v:
@@ -80,10 +67,11 @@ def _request(method: str, url: str, params: Dict[str, Any]) -> Dict[str, Any]:
         body = e.read().decode(errors="replace")
         try:
             err = json.loads(body).get("error", {})
-            raise GraphError("%s (code %s, subcode %s)" % (
-                err.get("message", body), err.get("code"), err.get("error_subcode")))
+            msg = "%s (code %s, subcode %s)" % (
+                err.get("message", body), err.get("code"), err.get("error_subcode"))
         except ValueError:
-            raise GraphError("HTTP %s: %s" % (e.code, body[:400]))
+            msg = "HTTP %s: %s" % (e.code, body[:400])
+        raise GraphError(msg) from None
 
 
 def get(path: str, token: str, **params: Any) -> Dict[str, Any]:
@@ -307,7 +295,7 @@ def cmd_refresh_token(args: argparse.Namespace) -> int:
 
 
 def main() -> None:
-    load_env()
+    envfile.load()
     ap = argparse.ArgumentParser()
     sub = ap.add_subparsers(dest="cmd", required=True)
 
@@ -331,7 +319,10 @@ def main() -> None:
     r.set_defaults(fn=cmd_refresh_token)
 
     args = ap.parse_args()
-    sys.exit(args.fn(args))
+    try:
+        sys.exit(args.fn(args))
+    except GraphError as e:
+        sys.exit("Instagram API error: %s" % e)
 
 
 if __name__ == "__main__":

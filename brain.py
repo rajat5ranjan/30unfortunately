@@ -17,10 +17,13 @@ import json
 import os
 import re
 import sys
+import time
 from datetime import datetime, timezone
 from typing import Any, Dict, List, Optional, Tuple
 
 import yaml
+
+import envfile
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 BRAND = os.path.join(ROOT, "brand.yaml")
@@ -245,17 +248,33 @@ def call_model(system: str, user: str, cfg: Dict[str, Any]) -> Dict[str, Any]:
         sys.exit("pip install -r requirements.txt  (google-genai is missing)")
 
     client = genai.Client(api_key=key)
-    resp = client.models.generate_content(
-        model=cfg["model"],
-        contents=user,
-        config=types.GenerateContentConfig(
-            system_instruction=system,
-            temperature=cfg["temperature"],
-            response_mime_type="application/json",
-            response_schema=RESPONSE_SCHEMA,
-        ),
+    conf = types.GenerateContentConfig(
+        system_instruction=system,
+        temperature=cfg["temperature"],
+        response_mime_type="application/json",
+        response_schema=RESPONSE_SCHEMA,
     )
-    return json.loads(resp.text)
+
+    # 503 (overloaded) and 429 (quota) are routine on the free tier. A twice-daily
+    # job must ride them out rather than dying, so back off and retry.
+    attempts = cfg.get("retry_attempts", 4)
+    delay = cfg.get("retry_base_seconds", 20)
+    for attempt in range(1, attempts + 1):
+        try:
+            resp = client.models.generate_content(
+                model=cfg["model"], contents=user, config=conf)
+            return json.loads(resp.text)
+        except Exception as e:
+            code = getattr(e, "code", None) or getattr(e, "status_code", None)
+            transient = code in (429, 500, 503) or "UNAVAILABLE" in str(e) or \
+                "RESOURCE_EXHAUSTED" in str(e)
+            if not transient or attempt == attempts:
+                sys.exit("Gemini call failed (%s): %s"
+                         % (code or "error", str(e).split("\n")[0][:300]))
+            wait = delay * (2 ** (attempt - 1))
+            print("  %s — retrying in %ds (attempt %d/%d)"
+                  % (code or "transient error", wait, attempt, attempts))
+            time.sleep(wait)
 
 
 # ------------------------------------------------------------------------- main
@@ -287,20 +306,55 @@ def cmd_check(brand, cfg):
     return 0 if bad == 0 else 1
 
 
+def cmd_approve(pick: int, cfg) -> int:
+    """Promote one candidate into content/approved/ with a stable id.
+
+    Approved posts become both the publish queue's source and the few-shot
+    examples for the next run, so the account learns from what you kept.
+    """
+    files = sorted(glob.glob(os.path.join(CANDIDATE_DIR, "*.json")))
+    if not files:
+        sys.exit("no candidate files yet — run brain.py first")
+    blob = json.load(open(files[-1]))
+    acc = blob.get("accepted", [])
+    if not 1 <= pick <= len(acc):
+        sys.exit("--approve must be 1..%d" % len(acc))
+    post = acc[pick - 1]
+
+    existing = [os.path.basename(f)[:-5] for f in glob.glob(os.path.join(APPROVED_DIR, "*.json"))]
+    n = 1 + max([int(x[1:]) for x in existing if x[:1] == "g" and x[1:].isdigit()] or [0])
+    post["id"] = "g%03d" % n
+    post["status"] = "approved"
+
+    os.makedirs(APPROVED_DIR, exist_ok=True)
+    out = os.path.join(APPROVED_DIR, "%s.json" % post["id"])
+    with open(out, "w") as f:
+        json.dump({"handle": "@30unfortunately", "posts": [post]}, f,
+                  indent=2, ensure_ascii=False)
+    print("approved %s -> %s" % (post["id"], os.path.relpath(out, ROOT)))
+    print("  %s" % post["slides"][0])
+    return 0
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--trends", default=os.path.join(ROOT, "content", "trends.json"))
     ap.add_argument("--n", type=int, default=None, help="posts per usable trend")
     ap.add_argument("--dry-run", action="store_true", help="print the prompt, call nothing")
     ap.add_argument("--check", action="store_true", help="run gates over approved posts")
+    ap.add_argument("--approve", type=int, metavar="N",
+                    help="promote candidate N from the latest run into content/approved/")
     args = ap.parse_args()
 
+    envfile.load()
     brand, cfg = load_brand(), load_config()
     if args.n:
         cfg["posts_per_trend"] = args.n
 
     if args.check:
         sys.exit(cmd_check(brand, cfg))
+    if args.approve:
+        sys.exit(cmd_approve(args.approve, cfg))
 
     history = load_history()
     with open(args.trends) as f:

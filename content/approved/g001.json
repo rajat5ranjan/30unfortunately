@@ -1,0 +1,24 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "Furniture and appliance rental plans from around Rs 2,699/month are growing across Indian metros against Rs 3-4 lakh setup costs.",
+      "context": "Urban migrants in their late 20s and early 30s who move frequently and cannot afford or justify buying permanent furniture.",
+      "angle": "Our parents built permanent lives with heavy steel; we rent a temporary existence that can be repossessed if our card declines.",
+      "slides": [
+        "Compare your assets with what your father owned at your age.",
+        "At 30, your father bought a Godrej steel almirah.\nIt survived three house shifts.\nIt survived two city moves.\nIt is currently holding your original degree certificate.",
+        "You pay ₹2,699 a month for a bed.\n\nIf you miss the subscription, they take your sleep."
+      ],
+      "caption": "The modern asset-light lifestyle. 🛏️",
+      "trigger": "nostalgia",
+      "structure": "then_now",
+      "satire_level": 4,
+      "hinglish": false,
+      "source": "https://www.globenewswire.com/news-release/2026/08/08/3341437/0/en/furniture-and-appliance-rentals-gain-ground-across-delhi-noida-pune-mumbai-hyderabad-bangalore-and-chennai-in-2026-as-3-lakh-4-lakh-setup-costs-face-2-699month-plans-including-ren.html",
+      "created_at": "2026-09-17",
+      "status": "approved",
+      "id": "g001"
+    }
+  ]
+}

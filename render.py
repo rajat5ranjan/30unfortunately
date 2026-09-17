@@ -282,8 +282,26 @@ a{color:#15140F}
 """
 
 
+def all_known_posts() -> List[Dict[str, Any]]:
+    """Every post with rendered slides — seeds plus approved — newest first.
+
+    The sheet is the approval UI, so it must show everything regardless of what
+    this particular run happened to render.
+    """
+    out = []
+    for path in ([os.path.join(ROOT, "content", "seed_posts.json")]
+                 + sorted(glob.glob(os.path.join(ROOT, "content", "approved", "*.json")))):
+        if not os.path.exists(path):
+            continue
+        with open(path) as f:
+            out.extend(json.load(f).get("posts", []))
+    return [p for p in out
+            if os.path.isdir(os.path.join(OUT, p.get("id", "")))][::-1]
+
+
 def write_contact_sheet(posts: List[Dict[str, Any]], handle: str) -> None:
     """A static approval page. Cheapest possible review UI: look, then delete."""
+    posts = all_known_posts() or posts
     cards = []
     for i, p in enumerate(posts):
         pid = p.get("id") or "c%03d" % (i + 1)
