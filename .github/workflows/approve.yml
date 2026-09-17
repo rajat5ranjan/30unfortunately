@@ -1,0 +1,49 @@
+name: approve
+
+# The one human step. Runs from the GitHub mobile app: Actions -> approve ->
+# Run workflow -> type the candidate number.
+on:
+  workflow_dispatch:
+    inputs:
+      pick:
+        description: "Candidate number from the latest generate run"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: approve
+
+jobs:
+  approve:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -q google-genai PyYAML Pillow
+
+      # No preflight here: the slides are not on Pages until the commit below
+      # lands and Pages rebuilds. publish.py checks liveness at publish time.
+      - name: Approve, render and queue
+        run: |
+          set -euo pipefail
+          python3 brain.py --approve "${{ inputs.pick }}"
+          ID=$(ls -t content/approved/*.json | head -1 | xargs basename | sed 's/.json//')
+          echo "approved $ID" >> "$GITHUB_STEP_SUMMARY"
+          python3 render.py --from "content/approved/$ID.json"
+          python3 publish.py queue --src "content/approved/$ID.json"
+
+      # The queue and the rendered slides both live in the repo, so this commit
+      # is what hands the post to the publish job. Pages needs a minute or two
+      # afterwards before Meta can fetch the images.
+      - name: Commit
+        run: |
+          git config user.name  "30unfortunately-bot"
+          git config user.email "rajat5ranjan@users.noreply.github.com"
+          git add content/approved docs posts.db
+          git diff --staged --quiet || git commit -m "approve: queue next post"
+          git push

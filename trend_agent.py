@@ -49,6 +49,11 @@ NOT_A_TREND = [
     # advertorials score well on triggers and are pure marketing
     "legacy of", "premium housing", "unveils", "launches", "partners with",
     "announces partnership", "success story", "leading provider", "awarded",
+    # B2B, investor and analyst copy: matches triggers, speaks to nobody here
+    "initiates", "target price", "grade-a", "occupiers", "commercial space",
+    "bps", "q1 results", "q2 results", "earnings", "ipo", "stock", "shares rise",
+    "shares fall", "brokerage firm", "analysts", "valuation", "funding round",
+    "crore revenue", "market cap", "survey finds", "report says",
 ]
 
 HARD_BLOCK = [
@@ -65,21 +70,93 @@ HARD_BLOCK = [
     "cancer", "hospitalised", "critical condition", "obituary", "passes away",
 ]
 
-# What this account is actually about. An item must hit at least one.
+# What this account is actually about. Each bucket carries a weight (how central
+# it is) and a standing angle — the brand's fixed take on that subject, passed
+# through to the content agent so it does not have to rediscover it every run.
+#
+# The angle is the point. "Gym" is not a fitness topic here; it is the invoice
+# for a decade of drinking. Without that line the model writes a health post.
 TRIGGERS = {
-    "money":    ["upi", "gst", "tax", "salary", "income", "emi", "loan", "rupee",
-                 "inflation", "price", "fee", "charge", "subscription", "refund"],
-    "work":     ["office", "wfh", "remote", "hybrid", "layoff", "hiring", "appraisal",
-                 "employee", "workweek", "resign", "job", "intern", "startup"],
-    "home":     ["rent", "tenant", "landlord", "housing", "flat", "broker", "deposit",
-                 "society", "maid", "electricity", "water supply"],
-    "daily":    ["swiggy", "zomato", "blinkit", "zepto", "ola", "uber", "rapido",
-                 "metro", "traffic", "commute", "airline", "irctc", "train", "flight"],
-    "culture":  ["cricket", "ipl", "bollywood", "netflix", "instagram", "reel",
-                 "festival", "diwali", "navratri", "wedding", "shaadi"],
-    "life":     ["gym", "sleep", "burnout", "screen time", "dating", "marriage",
-                 "parents", "friendship", "loneliness", "therapy"],
+    "body": {
+        "weight": 3,
+        "angle": "The body at 30 is an invoice for the twenties. The gym is not "
+                 "aspiration, it is a repayment plan. Nothing here is motivational.",
+        "words": ["gym", "fitness", "workout", "protein", "supplement", "cholesterol",
+                  "diabetes", "sugar level", "bp ", "blood pressure", "obesity",
+                  "belly fat", "weight loss", "knee", "back pain", "posture",
+                  "hair loss", "balding", "grey hair", "eyesight", "hangover",
+                  "liver", "alcohol", "liquor", "booze", "drinking", "smoking",
+                  "vaping", "sleep", "insomnia", "burnout", "health checkup",
+                  "cardiac", "lifestyle disease", "step count", "marathon"],
+    },
+    "family": {
+        "weight": 3,
+        "angle": "A child converts every abstract adult cost into a dated line item. "
+                 "The satire is the arithmetic, never the child.",
+        "words": ["baby", "newborn", "pregnan", "maternity", "paternity", "ivf",
+                  "fertility", "daycare", "creche", "nursery", "school fee",
+                  "school admission", "playschool", "diaper", "formula milk",
+                  "parenting", "child care", "vaccination", "paediatric"],
+    },
+    "money": {
+        "weight": 3,
+        "angle": "Everything that was free acquires a business model. Every raise is "
+                 "absorbed before it arrives.",
+        "words": ["upi", "gst", "income tax", "tds", "salary", "hike", "appraisal",
+                  "emi", "home loan", "credit card", "cibil", "mutual fund", "sip",
+                  "ppf", "nps", "pension", "inflation", "price hike", "fee",
+                  "charge", "subscription", "premium", "insurance", "rupee",
+                  "savings", "fd rate", "gold price"],
+    },
+    "work": {
+        "weight": 3,
+        "angle": "The promises made in 2021 are being quietly withdrawn, and the "
+                 "old posts are still up.",
+        "words": ["office", "wfh", "work from home", "remote", "hybrid", "layoff",
+                  "job cut", "hiring", "attrition", "notice period", "moonlight",
+                  "appraisal", "promotion", "manager", "startup", "employee",
+                  "workweek", "overtime", "resign", "ai jobs", "automation"],
+    },
+    "home": {
+        "weight": 3,
+        "angle": "Renting stopped being temporary. The landlord runs a faster "
+                 "compensation cycle than the employer.",
+        "words": ["rent", "tenant", "landlord", "housing", "flat", "broker",
+                  "brokerage", "deposit", "society", "maintenance charge",
+                  "property price", "real estate", "maid", "domestic help",
+                  "electricity bill", "water supply", "power cut"],
+    },
+    "city": {
+        "weight": 2,
+        "angle": "Infrastructure is permitted to fail. You are not.",
+        "words": ["traffic", "commute", "metro", "pollution", "aqi", "air quality",
+                  "waterlogging", "potholes", "cab fare", "auto fare", "ola",
+                  "uber", "rapido", "irctc", "flight fare", "airline", "train delay",
+                  "toll", "fuel price", "petrol"],
+    },
+    "consume": {
+        "weight": 2,
+        "angle": "Convenience is billed monthly and never cancelled.",
+        "words": ["swiggy", "zomato", "blinkit", "zepto", "instamart", "delivery fee",
+                  "platform fee", "surge", "netflix", "spotify", "prime", "hotstar",
+                  "subscription price", "quick commerce", "dark store"],
+    },
+    "relations": {
+        "weight": 2,
+        "angle": "Everyone has an opinion about your timeline and none about your rent.",
+        "words": ["wedding", "shaadi", "marriage", "matrimonial", "divorce",
+                  "dating app", "breakup", "in-laws", "relatives", "loneliness",
+                  "friendship", "therapy", "mental health"],
+    },
+    "culture": {
+        "weight": 1,
+        "angle": "Nostalgia is cheaper than the present.",
+        "words": ["cricket", "ipl", "test match", "bollywood", "ott", "reels",
+                  "instagram", "festival", "diwali", "navratri", "holi", "rakhi",
+                  "screen time", "doomscroll", "nostalgia"],
+    },
 }
+
 
 # Words too common to identify a story. Without these, "India" and "new" alone
 # make unrelated headlines look like the same event.
@@ -89,13 +166,25 @@ year years month week day today big top first next last set gets get make made
 plan plans hint hints move moves may might""".split())
 
 FEEDS = [
-    "https://news.google.com/rss/search?q=UPI+OR+GST+OR+%22income+tax%22+India+when:3d&hl=en-IN&gl=IN&ceid=IN:en",
-    "https://news.google.com/rss/search?q=rent+OR+housing+OR+landlord+India+city+when:3d&hl=en-IN&gl=IN&ceid=IN:en",
-    "https://news.google.com/rss/search?q=%22return+to+office%22+OR+layoffs+OR+hiring+OR+salary+India+when:3d&hl=en-IN&gl=IN&ceid=IN:en",
-    "https://news.google.com/rss/search?q=Swiggy+OR+Zomato+OR+Blinkit+OR+Ola+OR+Uber+India+when:3d&hl=en-IN&gl=IN&ceid=IN:en",
-    "https://news.google.com/rss/search?q=India+consumer+OR+lifestyle+OR+spending+trend+when:3d&hl=en-IN&gl=IN&ceid=IN:en",
-]
+    # money, work, home — fast-moving, so a tight window
+    "https://news.google.com/rss/search?q=UPI+OR+GST+OR+%22income+tax%22+OR+EMI+OR+%22home+loan%22+India+when:3d&hl=en-IN&gl=IN&ceid=IN:en",
+    "https://news.google.com/rss/search?q=layoffs+OR+hiring+OR+%22return+to+office%22+OR+appraisal+OR+salary+India+when:3d&hl=en-IN&gl=IN&ceid=IN:en",
+    "https://news.google.com/rss/search?q=rent+OR+landlord+OR+brokerage+OR+%22property+prices%22+India+city+when:3d&hl=en-IN&gl=IN&ceid=IN:en",
 
+    # the body — slower moving, and the angle here is penance, not fitness
+    "https://news.google.com/rss/search?q=gym+OR+fitness+OR+obesity+OR+diabetes+OR+cholesterol+Indians+lifestyle+when:7d&hl=en-IN&gl=IN&ceid=IN:en",
+    "https://news.google.com/rss/search?q=alcohol+OR+liquor+OR+drinking+OR+smoking+India+consumption+when:7d&hl=en-IN&gl=IN&ceid=IN:en",
+    "https://news.google.com/rss/search?q=sleep+OR+burnout+OR+%22mental+health%22+OR+%22health+checkup%22+India+professionals+when:7d&hl=en-IN&gl=IN&ceid=IN:en",
+
+    # family, and the costs that arrive with it
+    "https://news.google.com/rss/search?q=%22school+fees%22+OR+daycare+OR+creche+OR+%22school+admission%22+India+parents+when:7d&hl=en-IN&gl=IN&ceid=IN:en",
+    "https://news.google.com/rss/search?q=parenting+OR+newborn+OR+maternity+OR+paternity+India+cost+when:7d&hl=en-IN&gl=IN&ceid=IN:en",
+
+    # daily friction
+    "https://news.google.com/rss/search?q=Swiggy+OR+Zomato+OR+Blinkit+OR+Zepto+OR+%22platform+fee%22+India+when:3d&hl=en-IN&gl=IN&ceid=IN:en",
+    "https://news.google.com/rss/search?q=traffic+OR+metro+OR+%22air+quality%22+OR+%22cab+fare%22+India+commute+when:3d&hl=en-IN&gl=IN&ceid=IN:en",
+    "https://news.google.com/rss/search?q=wedding+OR+shaadi+OR+%22dating+app%22+OR+matrimonial+India+cost+when:7d&hl=en-IN&gl=IN&ceid=IN:en",
+]
 
 def fetch(url: str, timeout: int = 25) -> Optional[str]:
     try:
@@ -154,15 +243,32 @@ def blocked(title: str) -> Optional[str]:
     return None
 
 
+_BUCKET_RE = dict(
+    (b, re.compile(r"\b(?:%s)\b" % "|".join(re.escape(w.strip()) for w in spec["words"])))
+    for b, spec in TRIGGERS.items())
+
+
 def score(title: str) -> Tuple[int, List[str]]:
+    """Weighted, on whole words.
+
+    Substring matching silently mis-tagged everything: "delivery" contains
+    "liver", so every Swiggy story scored as a health story.
+    """
     low = title.lower()
-    hits = []
-    for bucket, words in TRIGGERS.items():
-        for w in words:
-            if w in low:
-                hits.append(bucket)
-                break
-    return len(hits), sorted(set(hits))
+    hits, total = [], 0
+    for bucket, rx in _BUCKET_RE.items():
+        if rx.search(low):
+            hits.append(bucket)
+            total += TRIGGERS[bucket]["weight"]
+    return total, hits
+
+
+def angle_for(buckets: List[str]) -> str:
+    """The brand's standing take on the heaviest bucket this item hits."""
+    if not buckets:
+        return ""
+    best = max(buckets, key=lambda b: TRIGGERS[b]["weight"])
+    return TRIGGERS[best]["angle"]
 
 
 def signature(title: str) -> set:
@@ -241,8 +347,8 @@ def main() -> None:
             dropped.append((title, "already covered"))
             continue
         kept.append({"trend": title, "source": item["link"],
-                     "note": "triggers: %s" % ", ".join(buckets),
-                     "_score": s,
+                     "note": "%s (angle: %s)" % (", ".join(buckets), angle_for(buckets)),
+                     "_score": s, "_buckets": buckets,
                      "_published": dt.isoformat() if dt else None})
 
     kept.sort(key=lambda x: -x["_score"])
@@ -253,18 +359,28 @@ def main() -> None:
     # however differently they are phrased. Proportional overlap does not catch
     # this: "UPI MDR: Ministry addresses concerns" and "UPI MDR for capital
     # markets" share only 25% of their words but are one event.
-    chosen = []
+    # Two limits. Same-story dedup catches one event under many headlines; the
+    # per-bucket cap stops one live topic (a UPI rule change, say) from eating
+    # the whole slate and leaving the account writing about nothing else.
+    per_bucket = cfg.get("trend_max_per_bucket", 2)
+    chosen, bucket_used = [], {}
     for c in kept:
         sig = signature(c["trend"])
         clash = next((p for p in chosen if len(sig & signature(p["trend"])) >= 2), None)
         if clash:
             dropped.append((c["trend"], "same story as: %s" % clash["trend"][:38]))
             continue
+        dom = max(c["_buckets"], key=lambda b: TRIGGERS[b]["weight"])
+        if bucket_used.get(dom, 0) >= per_bucket:
+            dropped.append((c["trend"], "bucket '%s' already full" % dom))
+            continue
+        bucket_used[dom] = bucket_used.get(dom, 0) + 1
         chosen.append(c)
         if len(chosen) == want:
             break
     for c in chosen:
         c.pop("_score", None)
+        c.pop("_buckets", None)
 
     print("kept %d, dropped %d -> writing %d" % (len(kept), len(dropped), len(chosen)))
     if args.all:

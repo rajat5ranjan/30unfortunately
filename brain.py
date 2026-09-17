@@ -336,12 +336,38 @@ def cmd_approve(pick: int, cfg) -> int:
     return 0
 
 
+def cmd_summary() -> int:
+    """Markdown for the Actions job summary — the approval UI on a phone."""
+    files = sorted(glob.glob(os.path.join(CANDIDATE_DIR, "*.json")))
+    if not files:
+        print("No candidates."); return 0
+    blob = json.load(open(files[-1]))
+    acc = blob.get("accepted", [])
+    print("## %d candidates\n" % len(acc))
+    print("Approve one from **Actions -> approve -> Run workflow**, "
+          "entering its number.\n")
+    for i, p in enumerate(acc, 1):
+        print("### %d. %s `%s` satire %s%s" % (
+            i, p["trigger"], p["structure"], p["satire_level"],
+            " **hinglish**" if p.get("hinglish") else ""))
+        print("> _%s_\n" % p["angle"])
+        for n, sl in enumerate(p["slides"], 1):
+            print("**%d.** %s\n" % (n, sl.replace("\n", "  \n")))
+        print("`%s`\n" % p["caption"])
+        print("---\n")
+    for d in blob.get("rejected", []):
+        print("- rejected by gates: %s" % "; ".join(d.get("_gate_failures", [])))
+    return 0
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--trends", default=os.path.join(ROOT, "content", "trends.json"))
     ap.add_argument("--n", type=int, default=None, help="posts per usable trend")
     ap.add_argument("--dry-run", action="store_true", help="print the prompt, call nothing")
     ap.add_argument("--check", action="store_true", help="run gates over approved posts")
+    ap.add_argument("--summary", action="store_true",
+                    help="markdown digest of the latest candidates")
     ap.add_argument("--approve", type=int, metavar="N",
                     help="promote candidate N from the latest run into content/approved/")
     args = ap.parse_args()
@@ -353,6 +379,8 @@ def main():
 
     if args.check:
         sys.exit(cmd_check(brand, cfg))
+    if args.summary:
+        sys.exit(cmd_summary())
     if args.approve:
         sys.exit(cmd_approve(args.approve, cfg))
 

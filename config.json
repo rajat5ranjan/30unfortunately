@@ -13,6 +13,7 @@
   "retry_attempts": 4,
   "retry_base_seconds": 20,
   "trend_max_age_hours": 72,
-  "trend_count": 6,
-  "trend_min_score": 1
+  "trend_count": 8,
+  "trend_min_score": 3,
+  "trend_max_per_bucket": 2
 }

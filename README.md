@@ -110,11 +110,30 @@ account's own structure-overuse stats back to the model each run.
   media: views, reach, likes, comments, saved, shares, reposts. So shares/reach
   and saves/reach are the primary metrics; follower attribution is account-level.
 
+## The daily loop
+
+```
+06:15 IST  generate.yml   trend_agent -> brain -> candidates + job summary
+  you      approve.yml    Actions -> approve -> type a number  (phone, ~20s)
+08:40      publish.yml    queue -> carousel -> insights -> commit state
+19:40      publish.yml    the second post
+every 21d  refresh-token  keeps the 60-day token alive
+```
+
+The only human step is picking a number. Everything else is committed state
+moving between jobs: `content/trends.json`, `content/candidates/`,
+`content/approved/`, `docs/media/` and `posts.db` all travel through git,
+because runners are ephemeral and git is the only storage this design has.
+
+Candidates are text only. Rendering all eight daily would add ~1.7MB of PNGs a
+day to a repo that also *serves* them — about 150MB over 90 days. Only the
+approved post is rendered.
+
 ## Phases
 
 1. ~~Content contract~~ · 2. ~~Seed posts~~ · 3. ~~Renderer~~ ·
-4. ~~Publisher + scheduler~~ (awaiting Meta credentials) · 5. Trend discovery ·
-6. First live post · 7. 30-post run → insights → carousel vs Reel A/B ·
+4. ~~Publisher + scheduler~~ · 5. ~~Trend discovery~~ · 6. ~~First live posts~~ ·
+7. 30-post run → insights → carousel vs Reel A/B ·
 8. Learning loop (only at n≥60; before that it fits noise)
 
 Fonts are SIL OFL. Everything else is a personal experiment.

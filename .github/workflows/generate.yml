@@ -1,0 +1,46 @@
+name: generate
+
+# 06:15 IST — trends pulled and candidates written before you are awake, so the
+# only human step of the day is picking one.
+on:
+  schedule:
+    - cron: "45 0 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: generate
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -q google-genai PyYAML
+
+      - name: Pull trends
+        run: python3 trend_agent.py
+
+      - name: Generate candidates
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python3 brain.py
+
+      - name: Publish digest to the job summary
+        run: python3 brain.py --summary >> "$GITHUB_STEP_SUMMARY"
+
+      # Candidates are text only. Rendering all of them daily would add ~1.7MB
+      # of PNGs a day to a repo that also serves them — roughly 150MB over the
+      # 90-day experiment. Only the approved post gets rendered.
+      - name: Commit trends and candidates
+        run: |
+          git config user.name  "30unfortunately-bot"
+          git config user.email "rajat5ranjan@users.noreply.github.com"
+          git add content/trends.json content/candidates
+          git diff --staged --quiet || git commit -m "candidates: $(date -u +%Y-%m-%d)"
+          git push
