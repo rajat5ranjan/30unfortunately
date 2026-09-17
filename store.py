@@ -9,6 +9,8 @@ days of no activity on the default branch.
 import json
 import os
 import sqlite3
+import subprocess
+import sys
 from datetime import datetime, timezone
 from typing import Any, Dict, List, Optional
 
@@ -52,7 +54,48 @@ def now() -> str:
     return datetime.now(timezone.utc).isoformat(timespec="seconds")
 
 
-def connect() -> sqlite3.Connection:
+ROOT = os.path.dirname(os.path.abspath(__file__))
+
+
+def _git(*args) -> str:
+    try:
+        r = subprocess.run(["git"] + list(args), cwd=ROOT, capture_output=True,
+                           text=True, timeout=25)
+        return r.stdout.strip() if r.returncode == 0 else ""
+    except Exception:
+        return ""
+
+
+def guard_stale() -> None:
+    """Refuse to write posts.db when the remote already has a newer one.
+
+    posts.db is binary, so git cannot merge it. If the publish job writes it on
+    a runner while you queue something locally, `git pull` resolves as a
+    conflict and whichever side you discard is lost with no warning — a post
+    silently unqueued, or one published twice.
+
+    Skipped in CI, where the checkout is always fresh, and bypassable with
+    SKIP_DB_GUARD=1 when offline.
+    """
+    if os.environ.get("GITHUB_ACTIONS") or os.environ.get("SKIP_DB_GUARD"):
+        return
+    if not os.path.isdir(os.path.join(ROOT, ".git")):
+        return
+    _git("fetch", "-q", "origin", "main")
+    here = _git("rev-parse", "HEAD:posts.db")
+    there = _git("rev-parse", "origin/main:posts.db")
+    if here and there and here != there:
+        sys.exit(
+            "posts.db on origin/main differs from your checkout — the publish job\n"
+            "has written it since you last pulled. It is a binary file, so writing\n"
+            "now would lose one side on the next merge.\n\n"
+            "    git pull --rebase origin main\n\n"
+            "then run this again. (SKIP_DB_GUARD=1 to override.)")
+
+
+def connect(write: bool = False) -> sqlite3.Connection:
+    if write:
+        guard_stale()
     conn = sqlite3.connect(DB)
     conn.row_factory = sqlite3.Row
     conn.executescript(SCHEMA)

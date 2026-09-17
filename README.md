@@ -69,8 +69,14 @@ python3 publish.py insights            # pull metrics
 python3 publish.py refresh-token       # extend the 60-day token
 ```
 
-`publish.py` and `store.py` are stdlib-only, so the scheduled job has no install
-step that can break.
+`publish.py`, `store.py` and `notify.py` are stdlib-only, so the scheduled job
+has no install step that can break.
+
+`posts.db` is binary, so git cannot merge it. Local commands that write to it
+fetch first and refuse if the remote has a newer copy — otherwise a publish on
+the runner and a queue locally resolve as a conflict and one side is lost with
+no warning. Skipped in CI, where the checkout is always fresh;
+`SKIP_DB_GUARD=1` overrides it when offline.
 
 ## Secrets
 

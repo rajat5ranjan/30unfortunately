@@ -196,7 +196,7 @@ def cmd_queue(args: argparse.Namespace) -> int:
     if not posts:
         sys.exit("nothing to queue")
 
-    conn = store.connect()
+    conn = store.connect(write=True)
     added = sum(1 for p in posts if store.enqueue(conn, p))
     print("queued %d new, %d already known" % (added, len(posts) - added))
     print("queue now: %s" % store.counts(conn))
@@ -204,7 +204,7 @@ def cmd_queue(args: argparse.Namespace) -> int:
 
 
 def cmd_next(args: argparse.Namespace) -> int:
-    conn = store.connect()
+    conn = store.connect(write=True)
 
     # Read vetoes immediately before publishing. Actions cannot receive a
     # webhook, but this job runs seconds before the post goes out, so polling
@@ -275,7 +275,7 @@ def cmd_next(args: argparse.Namespace) -> int:
 
 
 def cmd_skip(args: argparse.Namespace) -> int:
-    conn = store.connect()
+    conn = store.connect(write=True)
     for pid in args.ids:
         print("skipped %s" % pid if store.skip(conn, pid)
               else "%s was not queued — nothing to skip" % pid)
@@ -296,7 +296,7 @@ def cmd_queue_list(args: argparse.Namespace) -> int:
 
 def cmd_insights(args: argparse.Namespace) -> int:
     token = need("IG_ACCESS_TOKEN")
-    conn = store.connect()
+    conn = store.connect(write=True)
     rows = store.published(conn)
     if not rows:
         print("nothing published yet")
