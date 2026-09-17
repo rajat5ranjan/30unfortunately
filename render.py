@@ -367,7 +367,7 @@ def main():
 
     write_contact_sheet(posts, blob.get("handle", ""))
     print("\n%d posts, %.1f MB total" % (len(posts), total_bytes / 1e6))
-    print("contact sheet: docs/index.html  (open it to approve)")
+    print("contact sheet: docs/index.html  (everything rendered so far)")
 
 
 if __name__ == "__main__":

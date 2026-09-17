@@ -1,7 +1,9 @@
 name: approve
 
-# The one human step. Runs from the GitHub mobile app: Actions -> approve ->
-# Run workflow -> type the candidate number.
+# The manual override, not the normal path — generate.yml approves the top
+# candidates by itself and the veto arrives by email. This is for pushing a
+# specific candidate out of order: Actions -> approve -> Run workflow -> type
+# the candidate number from the job summary.
 on:
   workflow_dispatch:
     inputs:

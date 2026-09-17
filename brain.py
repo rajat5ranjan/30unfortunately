@@ -425,15 +425,21 @@ def cmd_approve(pick: int, cfg) -> int:
 
 
 def cmd_summary() -> int:
-    """Markdown for the Actions job summary — the approval UI on a phone."""
+    """Markdown for the Actions job summary — the record of what a run decided.
+
+    It used to be the approval UI. Approval is automatic now, so this reports
+    rather than asks: the veto arrives by email, and manual approval is only
+    the override in approve.yml.
+    """
     files = sorted(glob.glob(os.path.join(CANDIDATE_DIR, "*.json")))
     if not files:
         print("No candidates."); return 0
     blob = json.load(open(files[-1]))
     acc = blob.get("accepted", [])
-    print("## %d candidates\n" % len(acc))
-    print("Approve one from **Actions -> approve -> Run workflow**, "
-          "entering its number.\n")
+    print("## %d candidates, ranked best first\n" % len(acc))
+    print("The top ones were approved and queued automatically. Reply "
+          "`skip <id>` to the queue email to stop one; **Actions -> approve "
+          "-> Run workflow** is the manual override, by number.\n")
     for i, p in enumerate(acc, 1):
         print("### %d. %s `%s` satire %s%s" % (
             i, p["trigger"], p["structure"], p["satire_level"],
@@ -460,6 +466,10 @@ a.back{color:#D8451F;font-weight:700;text-decoration:none}
 .num{background:#D8451F;color:#FBF9F4;font-weight:700;font-size:15px;
 border-radius:8px;padding:3px 11px}
 .tag{font-size:10px;letter-spacing:.8px;color:#6E675A;font-weight:700}
+.id{margin-left:auto;font-size:10px;letter-spacing:.8px;font-weight:700;
+border-radius:6px;padding:3px 8px;background:#15140F;color:#F2EEE4}
+.id.off{background:none;color:#9A9384;border:1px solid #D6D0C2}
+.sub code{background:#FBF9F4;border-radius:4px;padding:1px 5px;font-size:13px}
 .slides{display:flex;gap:6px}
 .s{flex:1;border-radius:5px;padding:11px 10px;font-size:11.5px;font-weight:700;
 line-height:1.34;white-space:pre-line;min-height:118px}
@@ -468,6 +478,15 @@ line-height:1.34;white-space:pre-line;min-height:118px}
 .angle{font-size:11.5px;color:#6E675A;line-height:1.45;margin-top:11px}
 .cap{font-size:11px;color:#3A3629;margin-top:7px;font-style:italic}
 """
+
+
+def _stamp(raw: str) -> str:
+    """20260917-150929 -> 17 Sep 2026, 15:09 UTC."""
+    try:
+        return datetime.strptime(raw, "%Y%m%d-%H%M%S").strftime(
+            "%-d %b %Y, %H:%M UTC")
+    except ValueError:
+        return raw
 
 
 def cmd_html() -> int:
@@ -483,6 +502,23 @@ def cmd_html() -> int:
     blob = json.load(open(files[-1]))
     acc = blob.get("accepted", [])
 
+    # Which of these actually shipped. Nothing is chosen by hand any more, so
+    # the page's job is to say what the run decided, not to ask for a decision.
+    # Matched on caption rather than on rank, because rank is what cmd_approve
+    # consumed and the answer should come from the record, not from arithmetic.
+    live = {}
+    for f in glob.glob(os.path.join(APPROVED_DIR, "*.json")):
+        for q in json.load(open(f)).get("posts", []):
+            live[(q.get("caption") or "").strip()] = q.get("id")
+    status = {}
+    try:
+        import store
+        conn = store.connect()
+        status = dict((r["id"], r["status"])
+                      for r in conn.execute("SELECT id, status FROM posts"))
+    except Exception:
+        pass
+
     cards = []
     for i, p in enumerate(acc, 1):
         last = len(p["slides"]) - 1
@@ -490,25 +526,40 @@ def cmd_html() -> int:
             '<div class="s %s">%s</div>' % ("ink" if n == last else "paper",
                                             html_escape(sl))
             for n, sl in enumerate(p["slides"]))
+        pid = live.get((p.get("caption") or "").strip())
+        badge = ('<span class="id">%s &middot; %s</span>'
+                 % (pid, status.get(pid, "approved")) if pid else
+                 '<span class="id off">not approved</span>')
         cards.append(
             '<div class="c"><div class="n"><span class="num">%d</span>'
-            '<span class="tag">%s &middot; %s &middot; SATIRE %s%s</span></div>'
+            '<span class="tag">%s &middot; %s &middot; SATIRE %s%s</span>%s</div>'
             '<div class="slides">%s</div>'
             '<div class="angle">%s</div><div class="cap">%s</div></div>'
             % (i, p["trigger"].upper(), p["structure"], p["satire_level"],
-               " &middot; HINGLISH" if p.get("hinglish") else "",
+               " &middot; HINGLISH" if p.get("hinglish") else "", badge,
                slides, html_escape(p["angle"]), html_escape(p["caption"])))
+
+    shipped = [live[k] for k in
+               [(p.get("caption") or "").strip() for p in acc] if k in live]
+    # Only a post that is still queued can be vetoed, so only name one of those.
+    stoppable = [i for i in shipped if status.get(i) == "queued"]
 
     doc = ('<!doctype html><html lang="en"><head><meta charset="utf-8">'
            '<meta name="viewport" content="width=device-width,initial-scale=1">'
            '<title>Candidates</title><link rel="stylesheet" href="https://fonts.googleapis.com/'
            'css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700&display=swap">'
            '<style>%s</style></head><body><h1>Today&rsquo;s candidates</h1>'
-           '<p class="sub">%s &middot; %d to choose from &middot; approve one from '
-           'Actions &rarr; approve &rarr; Run workflow &nbsp;&middot;&nbsp; '
+           '<p class="sub">%s &middot; %d passed the gates, %d approved &middot; '
+           'ranked best first &middot; nothing here needs approving. %s'
+           '&nbsp;&middot;&nbsp; '
            '<a class="back" href="./">published &amp; queued posts &rarr;</a></p>'
            '<div class="grid">%s</div></body></html>'
-           % (CAND_CSS, blob.get("generated_at", ""), len(acc), "".join(cards)))
+           % (CAND_CSS, _stamp(blob.get("generated_at", "")), len(acc),
+              len(shipped),
+              ('To stop one, reply <code>skip %s</code> to the queue email. '
+               % stoppable[0]) if stoppable else
+              'Nothing from this run is still waiting to go out. ',
+              "".join(cards)))
 
     out = os.path.join(ROOT, "docs", "candidates.html")
     with open(out, "w") as f:
