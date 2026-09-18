@@ -180,8 +180,8 @@ def current_window(now: Optional[datetime] = None) -> Optional[Dict[str, Any]]:
 def window_used(conn, w: Dict[str, Any], now: Optional[datetime] = None) -> bool:
     """Has something already published in this window today?
 
-    This is what makes polling safe: six attempts inside a two-hour window, and
-    the first one that finds the slot empty fills it.
+    This is what makes polling safe: every poll inside an open window tries,
+    and the first one that finds the slot empty fills it.
     """
     now = now or local_now()
     off = timedelta(minutes=int(cfg("publish_utc_offset_minutes", 330)))
@@ -197,6 +197,43 @@ def window_used(conn, w: Dict[str, Any], now: Optional[datetime] = None) -> bool
         if at.date() == now.date() and a <= at.time() < b:
             return True
     return False
+
+
+def last_publish_local(conn) -> Optional[datetime]:
+    """When anything last went out, in account-local time. None if nothing has."""
+    off = timedelta(minutes=int(cfg("publish_utc_offset_minutes", 330)))
+    best = None
+    for row in store.published(conn):
+        if not row["published_at"]:
+            continue
+        try:
+            at = datetime.fromisoformat(row["published_at"]).replace(tzinfo=None) + off
+        except ValueError:
+            continue
+        if best is None or at > best:
+            best = at
+    return best
+
+
+def too_soon(conn, now: Optional[datetime] = None) -> int:
+    """Minutes still owed before the next post, or 0 if it can go now.
+
+    The windows had to be widened because GitHub delivers roughly one scheduled
+    poll every few hours, not the seventy-two a day the cron asks for — and a
+    window only catches a poll if it is wide. Widening the deadlines put the end
+    of one window within an hour of the start of the next, so two posts could
+    land back to back, which is the one thing that reliably costs reach: they
+    compete for the same audience in the same hour.
+
+    Deliberately not applied to --now. That button means now.
+    """
+    now = now or local_now()
+    gap = int(cfg("min_publish_gap_minutes", 90))
+    last = last_publish_local(conn)
+    if last is None:
+        return 0
+    mins = (now - last).total_seconds() / 60.0
+    return int(gap - mins) if 0 <= mins < gap else 0
 
 
 def _alert(msg: str) -> None:
@@ -220,9 +257,15 @@ def cmd_due(args: argparse.Namespace) -> int:
         print("%s — outside the publish windows (%s)"
               % (now.strftime("%H:%M"), ", ".join(nxt)))
         return 1
-    if window_used(store.connect(), w, now):
+    conn = store.connect()
+    if window_used(conn, w, now):
         print("%s — the %s window already published today"
               % (now.strftime("%H:%M"), w["name"]))
+        return 1
+    wait = too_soon(conn, now)
+    if wait:
+        print("%s — %s window is open, but the last post was too recent; "
+              "%d min to go" % (now.strftime("%H:%M"), w["name"], wait))
         return 1
     print("%s — %s window is open (%s-%s)"
           % (now.strftime("%H:%M"), w["name"], w["after"], w["before"]))
@@ -381,6 +424,13 @@ def cmd_next(args: argparse.Namespace) -> int:
         if window_used(conn, w, now):
             print("%s — the %s window already published today"
                   % (now.strftime("%H:%M"), w["name"]))
+            return 0
+        wait = too_soon(conn, now)
+        if wait:
+            print("%s — %s window open, but only %d min since the last post; "
+                  "waiting %d min so they do not compete"
+                  % (now.strftime("%H:%M"), w["name"],
+                     int(cfg("min_publish_gap_minutes", 90)) - wait, wait))
             return 0
         print("%s — %s window open" % (now.strftime("%H:%M"), w["name"]))
 

@@ -26,7 +26,11 @@ name: generate
 # no RSS, no Gemini, about ten seconds. That is what makes the frequency free.
 on:
   schedule:
-    - cron: "45 */3 * * *"
+    # Every two hours, on a minute GitHub is least likely to drop. Its schedule
+    # has been delivered once in its life, so the answer to a missed run is more
+    # chances at it, not a better-chosen hour — and a run that finds the backlog
+    # healthy costs one sqlite read.
+    - cron: "13 */2 * * *"
   workflow_dispatch:
     inputs:
       force:

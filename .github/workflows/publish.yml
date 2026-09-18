@@ -1,21 +1,29 @@
 name: publish
 
-# Polls every 20 minutes and publishes on the first poll inside a window that
-# has not been used today. The windows live in config.json (08:30-10:30 and
-# 19:30-21:30 IST).
+# Polls three times an hour and publishes on the first poll inside a window that
+# has not been used today. The windows live in config.json (08:30-12:30,
+# 15:00-18:45 and 19:30-22:45 IST).
 #
 # It used to be two crons aimed at 08:40 and 19:40. That does not work: GitHub
 # runs scheduled workflows best-effort, queues them under load and drops them
-# outright when it is heavy. On 2026-09-18 the 08:40 run never fired at all and
-# generate arrived 4h28m late. Aiming at a minute is not a control you have;
-# aiming at a two-hour window with six attempts inside it is.
+# outright when it is heavy.
 #
-# Public repos get unlimited Actions minutes, so 72 polls a day is free — and
-# all but two of them stop at the `due` step, before any API call or mailbox
-# read.
+# The polling rewrite assumed the cron would at least mostly be delivered. It is
+# not. Measured on 2026-09-18: `*/20` landed on main at 12:58, was due ~16 times
+# by 18:19, and ran ONCE — at 17:51, between two windows, so it correctly did
+# nothing while a post sat in the queue and the 15:00-17:00 window passed unused.
+#
+# Two changes came out of that. The windows in config.json now run for hours
+# rather than two, because a window only catches a poll if it is wide. And the
+# minutes here avoid :00, :20 and :40 — GitHub's own docs say scheduled runs are
+# delayed most at the start of the hour, and `*/20` aimed a third of its
+# attempts straight at the worst minute of the hour for no reason.
+#
+# Public repos get unlimited Actions minutes, so polling is free either way, and
+# all but a few polls stop at the `due` step before any API call or mailbox read.
 on:
   schedule:
-    - cron: "*/20 * * * *"
+    - cron: "7,27,47 * * * *"
   workflow_dispatch:
     inputs:
       now:

@@ -29,18 +29,19 @@
     {
       "name": "morning",
       "after": "08:30",
-      "before": "10:30"
+      "before": "12:30"
     },
     {
       "name": "afternoon",
       "after": "15:00",
-      "before": "17:00"
+      "before": "18:45"
     },
     {
       "name": "evening",
       "after": "19:30",
-      "before": "21:30"
+      "before": "22:45"
     }
   ],
-  "_note_windows": "Windows, not instants. GitHub runs scheduled workflows best-effort: on 2026-09-18 the 08:40 publish never fired at all and generate came 4h28m late. The job now polls every 20 minutes and publishes on the first poll inside a window that has not been used today. A fixed offset rather than a timezone name because IST has no DST, so this is exactly correct and needs no tz database."
+  "_note_windows": "Windows, not instants, and the deadline is the part that moved. GitHub does not deliver the cron it is given: from 2026-09-18 12:58 to 18:19 the */20 publish poll was due ~16 times and ran ONCE, and generate's schedule has fired once in its life. The 15:00-17:00 window was missed outright with a post sitting in the queue. So 'after' is still the researched best time and nothing publishes before it \u2014 'before' is now hours later, because a window only catches a poll if it is wide enough to be hit. min_publish_gap_minutes is the cost of that: widening the deadlines put the end of one window within an hour of the next window's start, and two posts in one hour compete for the same audience. --now ignores it. A fixed UTC offset rather than a timezone name because IST has no DST.",
+  "min_publish_gap_minutes": 90
 }

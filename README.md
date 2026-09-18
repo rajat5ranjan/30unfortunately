@@ -240,20 +240,45 @@ account's own structure-overuse stats back to the model each run.
 ## The daily loop
 
 ```
-every 3h   generate.yml   ONLY if fewer than 6 posts are queued:
+:13 / 2h   generate.yml   ONLY if fewer than 6 posts are queued:
                           trends -> generate -> judge ranks -> auto-approve
                           top 6 -> render + reel -> queue -> email you the list
-+30 min    assets.yml     make sure every queued post has an mp4 and a cover
-every 20m  publish.yml    in an unused window: read vetoes -> publish -> insights
-                          windows are 08:30-10:30, 15:00-17:00, 19:30-21:30 IST
+:38 / 2h   assets.yml     make sure every queued post has an mp4 and a cover
+:07:27:47  publish.yml    in an unused window: read vetoes -> publish -> insights
+                          windows are 08:30-12:30, 15:00-18:45, 19:30-22:45 IST
 on issue   command.yml    run the button that was tapped on the Pages site
 every 21d  refresh-token  keeps the 60-day token alive
 ```
 
-Nothing is aimed at a minute. GitHub runs scheduled workflows best-effort —
-on 2026-09-18 an 08:40 publish never fired at all and generate arrived 4h28m
-late — so publish polls and takes the first slot inside a window that has not
-been used today.
+### Why nothing is aimed at a minute
+
+GitHub does not run the cron it is given. It is best-effort: queued under load,
+dropped outright when heavy. The first version aimed two crons at 08:40 and
+19:40; on 2026-09-18 the 08:40 run never fired and generate arrived 4h28m late.
+
+That was replaced with `*/20` polling into two-hour windows — and the measured
+result was worse than expected. Between 12:58 and 18:19 that day the poll was
+due about sixteen times and **ran once**, at 17:51, which fell between two
+windows: it correctly did nothing while a post sat in the queue and the
+15:00-17:00 window passed unused. `generate.yml`'s schedule has been delivered
+once in its life.
+
+So the current shape is:
+
+- **`after` is the researched best time and nothing publishes before it.**
+  `before` is the deadline, hours later, because a window only catches a poll if
+  it is wide enough to be hit. A post at 16:20 beats no post.
+- **No cron fires at :00, :20 or :40.** GitHub's docs say scheduled runs are
+  delayed most at the start of the hour, and `*/20` aimed a third of its
+  attempts at the worst minute for nothing.
+- **`min_publish_gap_minutes` (90).** Widening the deadlines put one window's
+  end within an hour of the next window's start, so a sparse afternoon could
+  put two posts out fifty minutes apart, competing for the same audience.
+  `--now` ignores it — that button means now.
+
+None of this makes the schedule reliable, and it is not meant to. It makes a
+missed run cheap. The buttons on the Pages site are the backstop: if a window
+is missed, **Post now** publishes in about a minute.
 
 **There is no approval step.** The best-ranked candidates are queued
 automatically and ship. Do nothing and they publish.

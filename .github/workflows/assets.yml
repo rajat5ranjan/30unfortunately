@@ -13,7 +13,7 @@ name: assets
 # already on the Release is left alone.
 on:
   schedule:
-    - cron: "15 1,4,7,10,13,16,19,22 * * *"   # 30 min after each generate slot
+    - cron: "38 */2 * * *"   # 25 min after each generate slot, off the hour
   workflow_dispatch:
 
 permissions:

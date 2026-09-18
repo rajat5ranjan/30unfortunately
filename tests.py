@@ -15,7 +15,7 @@ reached only when a real publish is in flight needs a stub and a test.
 import os
 import sys
 import unittest
-from datetime import datetime
+from datetime import datetime, timedelta
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "tools"))
 
@@ -59,15 +59,76 @@ class WaitForContainer(unittest.TestCase):
 
 
 class Windows(unittest.TestCase):
-    def test_boundaries(self):
+    """Read from config.json rather than hardcoded, because the deadlines moved
+    once already and a test that restates them only proves it was edited twice.
+    What is asserted is the shape: no overlap, and a boundary that is inclusive
+    at the start and exclusive at the end."""
+
+    def windows(self):
+        return publish.cfg("publish_windows", [])
+
+    def test_every_window_opens_and_closes_where_config_says(self):
         day = "2026-09-18 "
-        for t, expected in (("08:29", None), ("08:30", "morning"),
-                            ("10:29", "morning"), ("10:30", None),
-                            ("15:00", "afternoon"), ("17:00", None),
-                            ("19:30", "evening"), ("21:30", None)):
-            now = datetime.strptime(day + t, "%Y-%m-%d %H:%M")
-            w = publish.current_window(now)
-            self.assertEqual(w["name"] if w else None, expected, t)
+        for w in self.windows():
+            for t, expected in ((w["after"], w["name"]), (w["before"], None)):
+                now = datetime.strptime(day + t, "%Y-%m-%d %H:%M")
+                got = publish.current_window(now)
+                self.assertEqual(got["name"] if got else None, expected,
+                                 "%s at %s" % (w["name"], t))
+
+    def test_a_minute_before_opening_is_still_closed(self):
+        for w in self.windows():
+            h, m = map(int, w["after"].split(":"))
+            now = datetime(2026, 9, 18, h, m) - timedelta(minutes=1)
+            self.assertIsNone(publish.current_window(now), w["name"])
+
+    def test_windows_do_not_overlap(self):
+        spans = sorted((w["after"], w["before"], w["name"]) for w in self.windows())
+        for (a1, b1, n1), (a2, _, n2) in zip(spans, spans[1:]):
+            self.assertLess(a1, b1, n1)
+            self.assertLessEqual(b1, a2, "%s overruns into %s" % (n1, n2))
+
+
+class Spacing(unittest.TestCase):
+    """The widened deadlines put one window's end within an hour of the next
+    window's start. Without this guard a single sparse afternoon could put two
+    posts out 50 minutes apart, competing for the same audience."""
+
+    class FakeConn(object):
+        def __init__(self, rows):
+            self.rows = rows
+
+    def since(self, minutes_ago, now=None):
+        now = now or datetime(2026, 9, 18, 20, 0)
+        # published_at is stored in UTC; local_now() is UTC + the offset, so the
+        # fixture has to be written in UTC or the guard reads hours off.
+        off = timedelta(minutes=int(publish.cfg("publish_utc_offset_minutes", 330)))
+        at = (now - timedelta(minutes=minutes_ago)) - off
+        rows = [{"published_at": at.isoformat(timespec="seconds")}]
+        real = store.published
+        store.published = lambda conn: rows
+        try:
+            return publish.too_soon(None, now)
+        finally:
+            store.published = real
+
+    def test_blocks_a_post_that_is_too_close_to_the_last_one(self):
+        gap = int(publish.cfg("min_publish_gap_minutes", 90))
+        self.assertEqual(self.since(gap - 30), 30)
+        self.assertEqual(self.since(1), gap - 1)
+
+    def test_allows_one_once_the_gap_has_passed(self):
+        gap = int(publish.cfg("min_publish_gap_minutes", 90))
+        self.assertEqual(self.since(gap), 0)
+        self.assertEqual(self.since(gap + 600), 0)
+
+    def test_an_empty_history_never_blocks(self):
+        real = store.published
+        store.published = lambda conn: []
+        try:
+            self.assertEqual(publish.too_soon(None), 0)
+        finally:
+            store.published = real
 
 
 class Formats(unittest.TestCase):
