@@ -1,0 +1,51 @@
+name: assets
+
+# Makes sure every queued post has a reel on the Release.
+#
+# The format is decided on the day a post publishes, and publish.py is
+# stdlib-only and cannot render anything — so by then BOTH assets have to
+# already exist. The slides always do: they are committed and served by Pages.
+# The reel only does if something uploaded it.
+#
+# generate.yml uploads reels for posts it has just approved, which covers the
+# normal path and nothing else — a post queued before reels existed, a failed
+# upload, a re-render. This is the safety net, and it is idempotent: anything
+# already on the Release is left alone.
+on:
+  schedule:
+    - cron: "15 1,4,7,10,13,16,19,22 * * *"   # 30 min after each generate slot
+  workflow_dispatch:
+
+permissions:
+  contents: write        # release assets
+
+concurrency:
+  group: assets          # not the state lane: this writes nothing to git
+
+jobs:
+  assets:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # Cheap first: one HEAD request per queued post, no rendering.
+      - name: What is missing?
+        id: gap
+        run: |
+          if python3 tools/ensure_reels.py --check; then
+            echo "go=no" >> "$GITHUB_OUTPUT"
+          else
+            echo "go=yes" >> "$GITHUB_OUTPUT"
+          fi
+
+      - if: steps.gap.outputs.go == 'yes'
+        run: pip install -q PyYAML Pillow av
+
+      - name: Render and upload the missing reels
+        if: steps.gap.outputs.go == 'yes'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 tools/ensure_reels.py | tee -a "$GITHUB_STEP_SUMMARY"

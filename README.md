@@ -50,6 +50,7 @@ assets/brand/           battery mark, end-mark, profile picture
 build/reels/            rendered MP4s, gitignored — they live on a Release
 tools/commit_state.sh   commit + push the state, surviving a racing push
 tools/release_upload.py puts a reel on a GitHub Release and returns its URL
+tools/ensure_reels.py   backfills any queued post whose reel is not on the Release
 fonts/                  Bricolage Grotesque (OFL)
 tools/                  make_mark_svg.py, make_pfp.py — regenerate brand assets
                         from the card font, so they cannot drift from the cards
