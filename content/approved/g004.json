@@ -1,0 +1,26 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "How Indians can build a diabetes-friendly lifestyle without extreme diets",
+      "context": "Urban Indians are hitting their thirties and realizing their bodies are starting to break down from a decade of poor lifestyle choices.",
+      "angle": "What was once a simple treat becomes an active financial threat to your future.",
+      "slides": [
+        "There is a word that changes its meaning when you turn thirty.",
+        "\"Sweet.\"\n\nAt 15: A reward for passing your school exams.\n\nAt 22: A late-night treat with college friends.\n\nAt 30: A threat to your HDFC health insurance premium.",
+        "You didn't even get to eat it.\n\nThe doctor just warned you about the smell."
+      ],
+      "caption": "The transition from sugar rush to sugar monitoring is extremely fast. 🩺",
+      "trigger": "health",
+      "structure": "definition_drift",
+      "satire_level": 3,
+      "hinglish": false,
+      "source": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQVzlLQXF1aXVpWHlPVUFnQ1RSbFhvQjNRY2VTb21hVGNlYk5jVXJNY2RNcUozaDFyeGQwTlRqUzZSZTk3R3d3MnZ3TE5GbXpVN1dXS3FESmtsemYzZjR4VGxMV2RpbVlvYkZYZ1NMWGphNWVuLVFMNlM0LXUwTFBxeGpCaDNfd0NhRGYtNlVB?oc=5",
+      "created_at": "2026-09-18",
+      "status": "approved",
+      "id": "g004",
+      "rank_score": 37,
+      "rank_verdict": "The middle slide is too wordy and breaks the rhythm of short, sharp sentences."
+    }
+  ]
+}

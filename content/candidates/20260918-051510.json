@@ -1,0 +1,169 @@
+{
+  "generated_at": "20260918-051510",
+  "model": "gemini-3.5-flash",
+  "accepted": [
+    {
+      "trend": "How Indians can build a diabetes-friendly lifestyle without extreme diets",
+      "context": "Urban Indians are hitting their thirties and realizing their bodies are starting to break down from a decade of poor lifestyle choices.",
+      "angle": "What was once a simple treat becomes an active financial threat to your future.",
+      "slides": [
+        "There is a word that changes its meaning when you turn thirty.",
+        "\"Sweet.\"\n\nAt 15: A reward for passing your school exams.\n\nAt 22: A late-night treat with college friends.\n\nAt 30: A threat to your HDFC health insurance premium.",
+        "You didn't even get to eat it.\n\nThe doctor just warned you about the smell."
+      ],
+      "caption": "The transition from sugar rush to sugar monitoring is extremely fast. 🩺",
+      "trigger": "health",
+      "structure": "definition_drift",
+      "satire_level": 3,
+      "hinglish": false,
+      "source": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQVzlLQXF1aXVpWHlPVUFnQ1RSbFhvQjNRY2VTb21hVGNlYk5jVXJNY2RNcUozaDFyeGQwTlRqUzZSZTk3R3d3MnZ3TE5GbXpVN1dXS3FESmtsemYzZjR4VGxMV2RpbVlvYkZYZ1NMWGphNWVuLVFMNlM0LXUwTFBxeGpCaDNfd0NhRGYtNlVB?oc=5",
+      "created_at": "2026-09-18",
+      "status": "draft",
+      "_score": 37,
+      "_judge": "The middle slide is too wordy and breaks the rhythm of short, sharp sentences.",
+      "_detail": {
+        "share_trigger": 5,
+        "surprise": 4,
+        "specificity": 5,
+        "voice": 4
+      },
+      "_penalty": 4
+    },
+    {
+      "trend": "How Indians can build a diabetes-friendly lifestyle without extreme diets",
+      "context": "Urban Indians are hitting their thirties and realizing their bodies are starting to break down from a decade of poor lifestyle choices.",
+      "angle": "Your mother's daily check-in call undergoes a subtle but terrifying shift from emotional to medical.",
+      "slides": [
+        "The three questions your mother asks in a single call.",
+        "\"Khana kha liya?\"\n\n\"Roti mein ghee toh nahi lagaya?\"\n\n\"Sugar check kiya ki nahi?\"",
+        "You are thirty-two.\n\nShe still treats you like an unstable chemical."
+      ],
+      "caption": "The transition is complete. You are now a medical project. 📞",
+      "trigger": "parents",
+      "structure": "dialogue",
+      "satire_level": 3,
+      "hinglish": true,
+      "source": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQVzlLQXF1aXVpWHlPVUFnQ1RSbFhvQjNRY2VTb21hVGNlYk5jVXJNY2RNcUozaDFyeGQwTlRqUzZSZTk3R3d3MnZ3TE5GbXpVN1dXS3FESmtsemYzZjR4VGxMV2RpbVlvYkZYZ1NMWGphNWVuLVFMNlM0LXUwTFBxeGpCaDNfd0NhRGYtNlVB?oc=5",
+      "created_at": "2026-09-18",
+      "status": "draft",
+      "_score": 36,
+      "_judge": "The hook leans too close to generic Indian family meme territory instead of a distinct, sharp documentary.",
+      "_detail": {
+        "share_trigger": 5,
+        "surprise": 4,
+        "specificity": 5,
+        "voice": 5
+      },
+      "_penalty": 7
+    },
+    {
+      "trend": "₹16,500 rent, ₹12,000 iPhone EMI: Mumbai founder reveals her ₹52,000 monthly expenses",
+      "context": "Urban Indians are spending more on the tools that project wealth than on the actual shelter they live in.",
+      "angle": "The modern cost of living is split between keeping yourself alive and keeping your feed looking premium.",
+      "slides": [
+        "Let's calculate the cost of looking like you have made it.",
+        "Rent for a flat you cannot show on video — ₹16,500.\n\nEMI for the phone that takes the video — ₹12,000.\n\nBroadband to upload the video — ₹1,000.\n\nTherapist to explain why the video got no views — ₹3,000.",
+        "You are surviving in Mumbai.\n\nThe phone is the only thing that is fully upgraded."
+      ],
+      "caption": "Your lifestyle is sponsored by your future self's credit card limit. 📱",
+      "trigger": "rent",
+      "structure": "escalating_list",
+      "satire_level": 4,
+      "hinglish": false,
+      "source": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxOYThmQjNtRGUyX2NUa2pwNkhFZFJ6bkhfMy0zY2xWdnNmakMtOGhnM0lHTHFTNlQwRGQ5eFVqS2tTVUliYTdKMVczaEo1R01xYkFnQXVTc3lxeFQ5UkIwb25jS081bTZDM3JVRVM4ZG0yTDB1ekhYT09CNzg5VVEwMzE5bWUyODBDWG54ODhBSGdYeFc1TE43bmw3TXZQRGJoaURicUZNMm5WcTJiS3R6YnlOUlJVdE45a2lQSnFiVVZvbUh1eWg4NzFPbHRjNUZyejJhZmxQMzhVM001R2Q5a1VpNXRFMWhZdEFoZjQtXzPSAfABQVVfeXFMTmE4ZkIzbURlMl9jVGtqcDZIRWRSem5IXzMtM2NsVnZzZmpDLThoZzNJR0xxUzZUMERkOXhVaktrU1VJYmE3SjFXM2hKNUdNcWJBZ0F1U3N5cXhUOVJCMG9uY0tPNW02QzNyVUVTOGRtMkwwdXpIWE9PQjc4OVVR0MzE5bWUyODBDWG54ODhBSGdYeFc1TE43bmw3TXZQRGJoaURicUZNMm5WcTJiS3R6YnlOUlJVdE45a2lQSnFiVVZvbUh1eWg4NzFPbHRjNUZyejJhZmxQMzhVM001G2Q5a1VpNXRFMWhZdEFoZjQtXzM?oc=5",
+      "created_at": "2026-09-18",
+      "status": "draft",
+      "_score": 30,
+      "_judge": "The hook reads like a generic personal finance tip rather than an intriguing open loop.",
+      "_detail": {
+        "share_trigger": 4,
+        "surprise": 3,
+        "specificity": 5,
+        "voice": 3
+      },
+      "_penalty": 4
+    },
+    {
+      "trend": "How Indians can build a diabetes-friendly lifestyle without extreme diets",
+      "context": "Urban Indians are hitting their thirties and realizing their bodies are starting to break down from a decade of poor lifestyle choices.",
+      "angle": "The body at 30 doesn't care about your appraisal cycle; it's running its own financial year.",
+      "slides": [
+        "Your body is running a different financial year than your career.",
+        "Your salary increased by 8% this year.\n\nYour fasting blood sugar increased by 15%.",
+        "The promotion is still pending.\n\nThe prescription is already active."
+      ],
+      "caption": "The body keeps the score, and it’s winning. 📉",
+      "trigger": "health",
+      "structure": "juxtaposition",
+      "satire_level": 4,
+      "hinglish": false,
+      "source": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQVzlLQXF1aXVpWHlPVUFnQ1RSbFhvQjNRY2VTb21hVGNlYk5jVXJNY2RNcUozaDFyeGQwTlRqUzZSZTk3R3d3MnZ3TE5GbXpVN1dXS3FESmtsemYzZjR4VGxMV2RpbVlvYkZYZ1NMWGphNWVuLVFMNlM0LXUwTFBxeGpCaDNfd0NhRGYtNlVB?oc=5",
+      "created_at": "2026-09-18",
+      "status": "draft",
+      "_score": 28,
+      "_judge": "The comparison between salary and blood sugar is a tired corporate cliché that lacks genuine surprise.",
+      "_detail": {
+        "share_trigger": 4,
+        "surprise": 2,
+        "specificity": 3,
+        "voice": 3
+      },
+      "_penalty": 0
+    },
+    {
+      "trend": "₹16,500 rent, ₹12,000 iPhone EMI: Mumbai founder reveals her ₹52,000 monthly expenses",
+      "context": "Urban Indians are spending more on the tools that project wealth than on the actual shelter they live in.",
+      "angle": "Your monthly expenses are an index of different brands that own pieces of your time.",
+      "slides": [
+        "Your bank statement is a conflict of interest.",
+        "Landlord's bank account — ₹16,500.\n\nApple's finance department — ₹12,000.\n\nZomato's platform fee account — ₹4,500.\n\nYour savings account — ₹432.",
+        "You are working for three different corporations.\n\nNone of them is your own."
+      ],
+      "caption": "A diversified portfolio of payments. 💸",
+      "trigger": "money",
+      "structure": "receipt",
+      "satire_level": 3,
+      "hinglish": false,
+      "source": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxOYThmQjNtRGUyX2NUa2pwNkhFZFJ6bkhfMy0zY2xWdnNmakMtOGhnM0lHTHFTNlQwRGQ5eFVqS2tTVUliYTdKMVczaEo1R01xYkFnQXVTc3lxeFQ5UkIwb25jS081bTZDM3JVRVM4ZG0yTDB1ekhYT09CNzg5VVEwMzE5bWUyODBDWG54ODhBSGdYeFc1TE43bmw3TXZQRGJoaURicUZNMm5WcTJiS3R6YnlOUlJVdE45a2lQSnFiVVZvbUh1eWg4NzFPbHRjNUZyejJhZmxQMzhVM001G2Q5a1VpNXRFMWhZdEFoZjQtXzM?oc=5",
+      "created_at": "2026-09-18",
+      "status": "draft",
+      "_score": 23,
+      "_judge": "The landing moralizes the situation instead of keeping the tone flat and deadpan.",
+      "_detail": {
+        "share_trigger": 3,
+        "surprise": 2,
+        "specificity": 5,
+        "voice": 2
+      },
+      "_penalty": 4
+    },
+    {
+      "trend": "₹16,500 rent, ₹12,000 iPhone EMI: Mumbai founder reveals her ₹52,000 monthly expenses",
+      "context": "Urban Indians are spending more on the tools that project wealth than on the actual shelter they live in.",
+      "angle": "Adulthood in a metro is just upgrading the camera you use to photograph a life that hasn't changed.",
+      "slides": [
+        "Your expenses have undergone a shift in priorities.",
+        "At 21: You slept on a thin mattress and owned a ₹10,000 phone.\n\nAt 30: You sleep on a thin mattress and own a ₹1,20,000 phone.",
+        "The mattress is still on the floor.\n\nBut the camera quality is excellent."
+      ],
+      "caption": "At least the struggle looks cinematic now. 🎬",
+      "trigger": "home",
+      "structure": "then_now",
+      "satire_level": 4,
+      "hinglish": false,
+      "source": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxOYThmQjNtRGUyX2NUa2pwNkhFZFJ6bkhfMy0zY2xWdnNmakMtOGhnM0lHTHFTNlQwRGQ5eFVqS2tTVUliYTdKMVczaEo1R01xYkFnQXVTc3lxeFQ5UkIwb25jS081bTZDM3JVRVM4ZG0yTDB1ekhYT09CNzg5VVEwMzE5bWUyODBDWG54ODhBSGdYeFc1TE43bmw3TXZQRGJoaURicUZNMm5WcTJiS3R6YnlOUlJVdE45a2lQSnFiVVZvbUh1eWg4NzFPbHRjNUZyejJhZmxQMzhVM001G2Q5a1VpNXRFMWhZdEFoZjQtXzM?oc=5",
+      "created_at": "2026-09-18",
+      "status": "draft",
+      "_score": 18,
+      "_judge": "The hook is extremely boring and lacks any tension to make the reader swipe.",
+      "_detail": {
+        "share_trigger": 2,
+        "surprise": 3,
+        "specificity": 4,
+        "voice": 3
+      },
+      "_penalty": 8
+    }
+  ],
+  "rejected": []
+}

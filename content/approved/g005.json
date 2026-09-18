@@ -1,0 +1,26 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "How Indians can build a diabetes-friendly lifestyle without extreme diets",
+      "context": "Urban Indians are hitting their thirties and realizing their bodies are starting to break down from a decade of poor lifestyle choices.",
+      "angle": "Your mother's daily check-in call undergoes a subtle but terrifying shift from emotional to medical.",
+      "slides": [
+        "The three questions your mother asks in a single call.",
+        "\"Khana kha liya?\"\n\n\"Roti mein ghee toh nahi lagaya?\"\n\n\"Sugar check kiya ki nahi?\"",
+        "You are thirty-two.\n\nShe still treats you like an unstable chemical."
+      ],
+      "caption": "The transition is complete. You are now a medical project. 📞",
+      "trigger": "parents",
+      "structure": "dialogue",
+      "satire_level": 3,
+      "hinglish": true,
+      "source": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQVzlLQXF1aXVpWHlPVUFnQ1RSbFhvQjNRY2VTb21hVGNlYk5jVXJNY2RNcUozaDFyeGQwTlRqUzZSZTk3R3d3MnZ3TE5GbXpVN1dXS3FESmtsemYzZjR4VGxMV2RpbVlvYkZYZ1NMWGphNWVuLVFMNlM0LXUwTFBxeGpCaDNfd0NhRGYtNlVB?oc=5",
+      "created_at": "2026-09-18",
+      "status": "approved",
+      "id": "g005",
+      "rank_score": 36,
+      "rank_verdict": "The hook leans too close to generic Indian family meme territory instead of a distinct, sharp documentary."
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "₹16,500 rent, ₹12,000 iPhone EMI: Mumbai founder reveals her ₹52,000 monthly expenses",
+      "context": "Urban Indians are spending more on the tools that project wealth than on the actual shelter they live in.",
+      "angle": "The modern cost of living is split between keeping yourself alive and keeping your feed looking premium.",
+      "slides": [
+        "Let's calculate the cost of looking like you have made it.",
+        "Rent for a flat you cannot show on video — ₹16,500.\n\nEMI for the phone that takes the video — ₹12,000.\n\nBroadband to upload the video — ₹1,000.\n\nTherapist to explain why the video got no views — ₹3,000.",
+        "You are surviving in Mumbai.\n\nThe phone is the only thing that is fully upgraded."
+      ],
+      "caption": "Your lifestyle is sponsored by your future self's credit card limit. 📱",
+      "trigger": "rent",
+      "structure": "escalating_list",
+      "satire_level": 4,
+      "hinglish": false,
+      "source": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxOYThmQjNtRGUyX2NUa2pwNkhFZFJ6bkhfMy0zY2xWdnNmakMtOGhnM0lHTHFTNlQwRGQ5eFVqS2tTVUliYTdKMVczaEo1R01xYkFnQXVTc3lxeFQ5UkIwb25jS081bTZDM3JVRVM4ZG0yTDB1ekhYT09CNzg5VVEwMzE5bWUyODBDWG54ODhBSGdYeFc1TE43bmw3TXZQRGJoaURicUZNMm5WcTJiS3R6YnlOUlJVdE45a2lQSnFiVVZvbUh1eWg4NzFPbHRjNUZyejJhZmxQMzhVM001R2Q5a1VpNXRFMWhZdEFoZjQtXzPSAfABQVVfeXFMTmE4ZkIzbURlMl9jVGtqcDZIRWRSem5IXzMtM2NsVnZzZmpDLThoZzNJR0xxUzZUMERkOXhVaktrU1VJYmE3SjFXM2hKNUdNcWJBZ0F1U3N5cXhUOVJCMG9uY0tPNW02QzNyVUVTOGRtMkwwdXpIWE9PQjc4OVVR0MzE5bWUyODBDWG54ODhBSGdYeFc1TE43bmw3TXZQRGJoaURicUZNMm5WcTJiS3R6YnlOUlJVdE45a2lQSnFiVVZvbUh1eWg4NzFPbHRjNUZyejJhZmxQMzhVM001G2Q5a1VpNXRFMWhZdEFoZjQtXzM?oc=5",
+      "created_at": "2026-09-18",
+      "status": "approved",
+      "id": "g006",
+      "rank_score": 30,
+      "rank_verdict": "The hook reads like a generic personal finance tip rather than an intriguing open loop."
+    }
+  ]
+}

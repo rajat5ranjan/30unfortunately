@@ -1,0 +1,26 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "How Indians can build a diabetes-friendly lifestyle without extreme diets",
+      "context": "Urban Indians are hitting their thirties and realizing their bodies are starting to break down from a decade of poor lifestyle choices.",
+      "angle": "The body at 30 doesn't care about your appraisal cycle; it's running its own financial year.",
+      "slides": [
+        "Your body is running a different financial year than your career.",
+        "Your salary increased by 8% this year.\n\nYour fasting blood sugar increased by 15%.",
+        "The promotion is still pending.\n\nThe prescription is already active."
+      ],
+      "caption": "The body keeps the score, and it’s winning. 📉",
+      "trigger": "health",
+      "structure": "juxtaposition",
+      "satire_level": 4,
+      "hinglish": false,
+      "source": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQVzlLQXF1aXVpWHlPVUFnQ1RSbFhvQjNRY2VTb21hVGNlYk5jVXJNY2RNcUozaDFyeGQwTlRqUzZSZTk3R3d3MnZ3TE5GbXpVN1dXS3FESmtsemYzZjR4VGxMV2RpbVlvYkZYZ1NMWGphNWVuLVFMNlM0LXUwTFBxeGpCaDNfd0NhRGYtNlVB?oc=5",
+      "created_at": "2026-09-18",
+      "status": "approved",
+      "id": "g007",
+      "rank_score": 28,
+      "rank_verdict": "The comparison between salary and blood sugar is a tired corporate cliché that lacks genuine surprise."
+    }
+  ]
+}
