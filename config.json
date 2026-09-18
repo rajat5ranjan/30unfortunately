@@ -30,6 +30,11 @@
       "before": "10:30"
     },
     {
+      "name": "afternoon",
+      "after": "15:00",
+      "before": "17:00"
+    },
+    {
       "name": "evening",
       "after": "19:30",
       "before": "21:30"

@@ -3,19 +3,18 @@ name: generate
 # 06:15 IST. Generation is backlog-driven, and the numbers have to work or the
 # gate never trips:
 #
-#   publish consumes 2/day. If a run approves 2, the queue is empty again every
-#   morning, min-backlog is always satisfied, and Gemini is called daily — the
-#   opposite of the intent.
+#   publish consumes 3/day (three windows in config.json). If a run approves 3,
+#   the queue is empty again every morning, min-backlog is always satisfied, and
+#   Gemini is called daily — the opposite of the intent.
 #
-#   Approving 6 per run instead:
-#     day 1  0 -> generate -> 6   publish 2 -> 4
-#     day 2  4 -> skip            publish 2 -> 2
-#     day 3  2 -> generate -> 8   publish 2 -> 6
-#     day 4  6 -> skip            publish 2 -> 4
+#   Approving 6 per run, generating below 6:
+#     day 1  5 -> generate -> 11   publish 3 -> 8
+#     day 2  8 -> skip             publish 3 -> 5
+#     day 3  5 -> generate -> 11   publish 3 -> 8
 #
-#   so roughly one call every two or three days, and a 2-6 post cushion if
-#   Gemini is down. posts_per_trend is 3 (config.json) so a run yields ~10-12
-#   candidates and the top 6 is still the better half, not the whole batch.
+#   so a call every other day, and a 5-11 post cushion if Gemini is down.
+#   posts_per_trend is 3 (config.json) so a run yields ~10-12 candidates and the
+#   top 6 is still the better half, not the whole batch.
 on:
   schedule:
     - cron: "45 0 * * *"
@@ -52,7 +51,7 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
           set -euo pipefail
-          BACKLOG="--min-backlog ${{ inputs.force && '0' || '4' }}"
+          BACKLOG="--min-backlog ${{ inputs.force && '0' || '6' }}"
           python3 brain.py $BACKLOG --auto 6 | tee /tmp/gen.log
 
       # Every approved post is rendered BOTH ways. Which one ships is decided on

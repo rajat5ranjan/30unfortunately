@@ -106,8 +106,14 @@ the checkout is always fresh; `SKIP_DB_GUARD=1` overrides it when offline.
 ## Windows, not clock times
 
 `publish.yml` polls every 20 minutes and publishes on the first poll inside a
-window that has not been used that day. Windows are in `config.json`
-(08:30–10:30 and 19:30–21:30 IST).
+window that has not been used that day. Three windows, three posts a day, in
+`config.json`:
+
+```
+morning    08:30 – 10:30 IST
+afternoon  15:00 – 17:00 IST     the strongest window for Indian audiences
+evening    19:30 – 21:30 IST
+```
 
 It used to be two crons aimed at 08:40 and 19:40, which does not work. GitHub
 runs scheduled workflows best-effort: they queue under load and are dropped
