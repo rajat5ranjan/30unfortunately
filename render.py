@@ -22,6 +22,8 @@ from typing import Any, Dict, List, Optional, Tuple
 
 from PIL import Image, ImageDraw, ImageFont
 
+import control
+
 ROOT = os.path.dirname(os.path.abspath(__file__))
 with open(os.path.join(ROOT, "config.json")) as _f:
     _CFG = json.load(_f)
@@ -305,9 +307,30 @@ def all_known_posts() -> List[Dict[str, Any]]:
             if os.path.isdir(os.path.join(OUT, p.get("id", "")))][::-1]
 
 
+def queue_status() -> Dict[str, str]:
+    """id -> status, so the sheet can offer the right button per post.
+
+    Best-effort: this is the only thing on the page that needs the database, and
+    a sheet without buttons is still a useful sheet.
+    """
+    try:
+        import store
+        return dict((r["id"], r["status"])
+                    for r in store.connect().execute("SELECT id, status FROM posts"))
+    except Exception as e:
+        print("contact sheet: no queue status (%s)" % e)
+        return {}
+
+
 def write_contact_sheet(posts: List[Dict[str, Any]], handle: str) -> None:
-    """A static approval page. Cheapest possible review UI: look, then delete."""
+    """A static approval page — and, via control.py, the place you act on it.
+
+    The slides here are the real rendered PNGs rather than CSS boxes, so this is
+    the page worth deciding from; the buttons file a prefilled issue that
+    command.yml runs. Nothing is sent from the browser: the repo is public.
+    """
     posts = all_known_posts() or posts
+    status = queue_status()
     cards = []
     for i, p in enumerate(posts):
         pid = p.get("id") or "c%03d" % (i + 1)
@@ -315,10 +338,11 @@ def write_contact_sheet(posts: List[Dict[str, Any]], handle: str) -> None:
                        for n in range(len(p["slides"])))
         cards.append(
             '<div class="post"><div class="strip">%s</div>'
-            '<div class="meta"><b>%s</b> &middot; %s &middot; satire %s%s<br>%s</div></div>'
+            '<div class="meta"><b>%s</b> &middot; %s &middot; satire %s%s<br>%s</div>'
+            '%s</div>'
             % (imgs, pid, p.get("structure", ""), p.get("satire_level", ""),
                " &middot; hinglish" if p.get("hinglish") else "",
-               p.get("angle", "")))
+               p.get("angle", ""), control.bar(pid, status.get(pid))))
     html = (
         '<!doctype html><html lang="en"><head><meta charset="utf-8">'
         '<meta name="viewport" content="width=device-width,initial-scale=1">'
@@ -328,10 +352,11 @@ def write_contact_sheet(posts: List[Dict[str, Any]], handle: str) -> None:
         '<style>%s</style></head><body>'
         '<h1>Thirty Unfortunately</h1>'
         '<p class="sub">%d posts rendered &middot; %s &middot; these files are what '
-        'Meta pulls at publish time</p>'
+        'Meta pulls at publish time &middot; a button files a one-tap issue and '
+        'the workflow does the rest</p>'
         '<a class="nav" href="candidates.html">Today&rsquo;s candidates &rarr;</a>'
         '<div class="grid">%s</div></body></html>'
-        % (handle, SHEET_CSS, len(posts), handle, "".join(cards)))
+        % (handle, SHEET_CSS + control.CSS, len(posts), handle, "".join(cards)))
     with open(os.path.join(ROOT, "docs", "index.html"), "w") as f:
         f.write(html)
 
@@ -342,7 +367,19 @@ def main():
     ap.add_argument("--from", dest="src",
                     default=os.path.join(ROOT, "content", "seed_posts.json"))
     ap.add_argument("--id", help="render a single post id")
+    ap.add_argument("--sheet-only", action="store_true",
+                    help="rewrite docs/index.html from what is already rendered")
     args = ap.parse_args()
+
+    # The buttons on the sheet carry each post's status, so anything that
+    # changes the queue has to rewrite the page or you tap Skip and it still
+    # says Skip. Needs no fonts and no font rendering, only Pillow's import.
+    if args.sheet_only:
+        with open(args.src) as f:
+            handle = json.load(f).get("handle", "@30unfortunately")
+        write_contact_sheet([], handle)
+        print("contact sheet: docs/index.html")
+        return
 
     if not os.path.exists(FONT):
         sys.exit("fonts/SpaceGrotesk.ttf missing — see README")

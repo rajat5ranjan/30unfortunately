@@ -1,6 +1,7 @@
 name: generate
 
-# 06:15 IST. Generation is backlog-driven, and the numbers have to work or the
+# Every three hours, but it almost always stops at the first step.
+# Generation is backlog-driven, and the numbers have to work or the
 # gate never trips:
 #
 #   publish consumes 3/day (three windows in config.json). If a run approves 3,
@@ -134,8 +135,10 @@ jobs:
           # would veto the post the message is announcing.
           HINT=$(python3 -c 'import notify; print(notify.REPLY_HINT)')
           python3 notify.py send "30unfortunately — queued $(date -u +%Y-%m-%d)" \
-            "$(printf '%s\n\n%s\n\n%s\n\n%s\n' \
+            "$(printf '%s\n\n%s\n\n%s\n%s\n\n%s\n%s\n' \
               "These go live at the next slots unless you stop them." \
               "$QUEUE" \
-              "$HINT" \
-              "Full text: https://rajat5ranjan.github.io/30unfortunately/candidates.html")"
+              "Decide with a tap — every post has Skip and Post now:" \
+              "  https://rajat5ranjan.github.io/30unfortunately/" \
+              "Not signed in to GitHub on that device? The old way still works." \
+              "  $HINT")"

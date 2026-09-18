@@ -24,6 +24,8 @@ from typing import Any, Dict, List, Optional, Tuple
 import yaml
 from html import escape as html_escape
 
+import control
+
 import envfile
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -534,10 +536,11 @@ def cmd_html() -> int:
             '<div class="c"><div class="n"><span class="num">%d</span>'
             '<span class="tag">%s &middot; %s &middot; SATIRE %s%s</span>%s</div>'
             '<div class="slides">%s</div>'
-            '<div class="angle">%s</div><div class="cap">%s</div></div>'
+            '<div class="angle">%s</div><div class="cap">%s</div>%s</div>'
             % (i, p["trigger"].upper(), p["structure"], p["satire_level"],
                " &middot; HINGLISH" if p.get("hinglish") else "", badge,
-               slides, html_escape(p["angle"]), html_escape(p["caption"])))
+               slides, html_escape(p["angle"]), html_escape(p["caption"]),
+               control.bar(pid, status.get(pid) if pid else None, rank=i)))
 
     shipped = [live[k] for k in
                [(p.get("caption") or "").strip() for p in acc] if k in live]
@@ -554,10 +557,10 @@ def cmd_html() -> int:
            '&nbsp;&middot;&nbsp; '
            '<a class="back" href="./">published &amp; queued posts &rarr;</a></p>'
            '<div class="grid">%s</div></body></html>'
-           % (CAND_CSS, _stamp(blob.get("generated_at", "")), len(acc),
-              len(shipped),
-              ('To stop one, reply <code>skip %s</code> to the queue email. '
-               % stoppable[0]) if stoppable else
+           % (CAND_CSS + control.CSS, _stamp(blob.get("generated_at", "")),
+              len(acc), len(shipped),
+              ('%d still to go out — the buttons below file a one-tap issue and '
+               'the workflow does the rest. ' % len(stoppable)) if stoppable else
               'Nothing from this run is still waiting to go out. ',
               "".join(cards)))
 

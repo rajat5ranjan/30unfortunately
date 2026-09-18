@@ -161,7 +161,18 @@ def enqueue(conn: sqlite3.Connection, post: Dict[str, Any]) -> bool:
     return True
 
 
-def next_queued(conn: sqlite3.Connection) -> Optional[sqlite3.Row]:
+def next_queued(conn: sqlite3.Connection,
+                post_id: Optional[str] = None) -> Optional[sqlite3.Row]:
+    """The head of the queue, or one named post.
+
+    Named is how the "Post now" button works. It still goes through status
+    ='queued', so a post that was already published or vetoed comes back None
+    and the caller says so, rather than being sent round a second time.
+    """
+    if post_id:
+        return conn.execute(
+            "SELECT * FROM posts WHERE id = ? AND status = 'queued'",
+            (post_id,)).fetchone()
     return conn.execute(
         "SELECT * FROM posts WHERE status = 'queued' ORDER BY queued_at, id LIMIT 1"
     ).fetchone()
@@ -213,6 +224,16 @@ def skip(conn: sqlite3.Connection, post_id: str) -> bool:
     is training data for the ranking weights once performance data exists."""
     cur = conn.execute(
         "UPDATE posts SET status='skipped' WHERE id=? AND status='queued'", (post_id,))
+    conn.commit()
+    return cur.rowcount > 0
+
+
+def unskip(conn: sqlite3.Connection, post_id: str) -> bool:
+    """Undo a veto. Deliberately narrower than requeue(): 'skipped' is the only
+    status it will move, so a mis-tapped Skip is recoverable while a published
+    row can never be dragged back into the queue and sent out twice."""
+    cur = conn.execute(
+        "UPDATE posts SET status='queued' WHERE id=? AND status='skipped'", (post_id,))
     conn.commit()
     return cur.rowcount > 0
 

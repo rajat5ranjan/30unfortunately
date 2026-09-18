@@ -240,17 +240,44 @@ account's own structure-overuse stats back to the model each run.
 ## The daily loop
 
 ```
-06:15 IST  generate.yml   ONLY if fewer than 4 posts are queued:
+every 3h   generate.yml   ONLY if fewer than 6 posts are queued:
                           trends -> generate -> judge ranks -> auto-approve
-                          top 6 -> render -> queue -> email you the list
-08:40      publish.yml    read email replies -> publish next -> insights
-19:40      publish.yml    the second post
+                          top 6 -> render + reel -> queue -> email you the list
++30 min    assets.yml     make sure every queued post has an mp4 and a cover
+every 20m  publish.yml    in an unused window: read vetoes -> publish -> insights
+                          windows are 08:30-10:30, 15:00-17:00, 19:30-21:30 IST
+on issue   command.yml    run the button that was tapped on the Pages site
 every 21d  refresh-token  keeps the 60-day token alive
 ```
 
-**There is no approval step.** The best-ranked candidate is queued
-automatically and ships. You get an email listing what is about to go out; to
-stop one, reply `skip <id>`. Do nothing and it publishes.
+Nothing is aimed at a minute. GitHub runs scheduled workflows best-effort —
+on 2026-09-18 an 08:40 publish never fired at all and generate arrived 4h28m
+late — so publish polls and takes the first slot inside a window that has not
+been used today.
+
+**There is no approval step.** The best-ranked candidates are queued
+automatically and ship. Do nothing and they publish.
+
+### Changing your mind
+
+Every post on both Pages pages carries buttons: **Skip**, **Post now**,
+**Put it back**, and **Approve this one** for a candidate the run passed over.
+
+Pages is static and this repo is public, so no page here can hold a token —
+it would be served alongside the HTML. A button therefore opens a *prefilled
+issue* instead: GitHub takes the title from the query string, you are already
+signed in on the phone, and one more tap files it. `command.yml` reads the
+title, runs it, replies with the output and closes the issue. Two taps, no
+secret in the page, and the history of every decision is a closed issue with
+its run attached.
+
+The workflow runs only for issues opened by the repo owner, and
+`tools/command.py` validates the argument to `[a-z][0-9]{3}` before any step
+interpolates it into a shell line. Titles that are not commands are ignored
+completely, so the tracker is still a tracker.
+
+Email remains as the fallback, for a device with no GitHub session: reply
+`skip <id>` to the queue mail.
 
 Generation is backlog-driven, and the arithmetic has to work or the gate never
 trips. Publishing consumes 2/day, so a run that approves 2 leaves the queue

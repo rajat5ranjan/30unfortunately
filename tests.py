@@ -12,10 +12,15 @@ publish.py imported, compiled and passed `check` — the failure only appeared
 against a live container, after a post had already been half-created. Anything
 reached only when a real publish is in flight needs a stub and a test.
 """
+import os
 import sys
 import unittest
 from datetime import datetime
 
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "tools"))
+
+import command
+import control
 import publish
 import store
 
@@ -75,6 +80,38 @@ class Formats(unittest.TestCase):
     def test_urls(self):
         self.assertTrue(publish.reel_url("g005").endswith("/reels/g005.mp4"))
         self.assertEqual(len(publish.slide_urls("g005", 3)), 3)
+
+
+class IssueCommands(unittest.TestCase):
+    """The issue title is the only input to this system that arrives as free
+    text from outside a script, and command.yml interpolates the argument into
+    a shell line afterwards. The owner check in the workflow is access control;
+    this is the escaping."""
+
+    def test_the_buttons_produce_commands_that_parse(self):
+        for kind, expect in (("queued", ("now", "skip")),
+                             ("skipped", ("unskip",)),
+                             (None, ("approve",))):
+            html = control.bar("g006", kind, rank=3)
+            titles = [t.replace("%20", " ") for t in
+                      __import__("re").findall(r"issues/new\?title=([^&]+)", html)]
+            self.assertEqual(len(titles), len(expect), kind)
+            for title, verb in zip(titles, expect):
+                go, got, _ = command.parse(title)
+                self.assertEqual((go, got), ("ok", verb), title)
+
+    def test_a_published_post_gets_no_buttons(self):
+        self.assertNotIn("issues/new", control.bar("g001", "published"))
+
+    def test_junk_arguments_never_reach_the_shell(self):
+        for title in ("now g006; rm -rf /", "skip $(whoami)", "skip g6",
+                      "approve twelve", "approve 0", "skip ../../etc"):
+            go, _, _ = command.parse(title)
+            self.assertEqual(go, "bad", title)
+
+    def test_a_real_issue_is_left_alone(self):
+        for title in ("Reel audio is broken", "", "skipping the gym"):
+            self.assertEqual(command.parse(title)[0], "ignore", title)
 
 
 if __name__ == "__main__":

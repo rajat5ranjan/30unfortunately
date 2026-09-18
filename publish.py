@@ -403,7 +403,16 @@ def cmd_next(args: argparse.Namespace) -> int:
         # put a post back at the head of the queue, so it runs before the pick.
         reconcile(conn, token, ig_id)
 
-    row = store.next_queued(conn)
+    row = store.next_queued(conn, args.id)
+    if not row and args.id:
+        # Named by a button, so the answer has to be specific: the id is either
+        # unknown, already out, or vetoed, and "nothing to publish" would read
+        # as an empty queue.
+        cur = conn.execute("SELECT status FROM posts WHERE id=?",
+                           (args.id,)).fetchone()
+        print("%s is %s — only a queued post can be published"
+              % (args.id, cur["status"] if cur else "not a post in the queue"))
+        return 1
     if not row:
         # An empty queue at any other moment is fine. An empty queue while a
         # window is OPEN is a missed slot, and it is the only way this system
@@ -508,6 +517,15 @@ def cmd_skip(args: argparse.Namespace) -> int:
     for pid in args.ids:
         print("skipped %s" % pid if store.skip(conn, pid)
               else "%s was not queued — nothing to skip" % pid)
+    print("queue now: %s" % store.counts(conn))
+    return 0
+
+
+def cmd_unskip(args: argparse.Namespace) -> int:
+    conn = store.connect(write=True)
+    for pid in args.ids:
+        print("%s is back in the queue" % pid if store.unskip(conn, pid)
+              else "%s was not skipped — nothing to put back" % pid)
     print("queue now: %s" % store.counts(conn))
     return 0
 
@@ -689,6 +707,7 @@ def main() -> None:
                    help="override the day's format; the A/B assumes you do not")
     n.add_argument("--now", action="store_true",
                    help="ignore the publish windows and go")
+    n.add_argument("--id", help="publish this queued post instead of the head")
     n.set_defaults(fn=cmd_next)
 
     sub.add_parser("due").set_defaults(fn=cmd_due)
@@ -700,6 +719,10 @@ def main() -> None:
     sk = sub.add_parser("skip")
     sk.add_argument("ids", nargs="+", help="post ids to remove from the queue")
     sk.set_defaults(fn=cmd_skip)
+
+    us = sub.add_parser("unskip")
+    us.add_argument("ids", nargs="+", help="post ids to put back in the queue")
+    us.set_defaults(fn=cmd_unskip)
 
     r = sub.add_parser("refresh-token")
     r.add_argument("--write", action="store_true", help="update .env in place")

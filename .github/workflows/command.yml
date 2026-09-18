@@ -1,0 +1,130 @@
+name: command
+
+# The buttons on the Pages site land here.
+#
+# Pages is static and this repo is public, so no page can carry a token — it
+# would be published along with the HTML. What a static page CAN do is hand you
+# a prefilled issue, which is one tap to file. The title is the command, the
+# body is ignored, and this workflow runs it, replies with the output and closes
+# the issue. Two taps, no secret in the page, and every approve/skip/force ends
+# up as a closed issue with its run attached.
+#
+# Titles that are not commands are ignored entirely: the tracker is still a
+# tracker. See tools/command.py.
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: write
+  issues: write
+
+# Shared with publish, generate, approve and assets: posts.db is binary, so only
+# one workflow may be writing it at a time.
+concurrency:
+  group: state
+  cancel-in-progress: false
+
+jobs:
+  run:
+    # The repo is public, so anyone can open an issue. Without this line a
+    # stranger could empty the queue or force a post out at 3am.
+    if: github.event.issue.user.login == github.repository_owner
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # The title is text a human typed. It goes in through the environment and
+      # is never interpolated into a shell line, because an issue form that
+      # reaches the shell is a shell. command.py then validates the argument
+      # down to a strict shape before any later step interpolates it.
+      - name: Parse the title
+        id: c
+        env:
+          TITLE: ${{ github.event.issue.title }}
+        run: python3 tools/command.py "$TITLE"
+
+      - name: Skip
+        if: steps.c.outputs.go == 'ok' && steps.c.outputs.verb == 'skip'
+        run: python3 publish.py skip "${{ steps.c.outputs.arg }}" | tee -a result.txt
+
+      - name: Put it back
+        if: steps.c.outputs.go == 'ok' && steps.c.outputs.verb == 'unskip'
+        run: python3 publish.py unskip "${{ steps.c.outputs.arg }}" | tee -a result.txt
+
+      # Same path the scheduled job takes, minus the window gate — that is the
+      # whole point of the button. reconcile() still runs, so a post that is
+      # already half-published is settled rather than sent twice.
+      - name: Post now
+        if: steps.c.outputs.go == 'ok' && steps.c.outputs.verb == 'now'
+        env:
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          NOTIFY_EMAIL: ${{ secrets.NOTIFY_EMAIL }}
+          NOTIFY_EMAIL_PASSWORD: ${{ secrets.NOTIFY_EMAIL_PASSWORD }}
+        run: |
+          set -o pipefail
+          python3 tests.py 2>&1 | tail -3
+          python3 publish.py next --now --id "${{ steps.c.outputs.arg }}" | tee -a result.txt
+
+      # Same body as approve.yml's dispatch path: promote the candidate, render
+      # both formats, put the reel on the Release, queue it.
+      - name: Approve
+        if: steps.c.outputs.go == 'ok' && steps.c.outputs.verb == 'approve'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          pip install -q google-genai PyYAML Pillow av
+          python3 brain.py --approve "${{ steps.c.outputs.arg }}" | tee -a result.txt
+          ID=$(ls -t content/approved/*.json | head -1 | xargs basename | sed 's/.json//')
+          python3 render.py --from "content/approved/$ID.json"
+          python3 reel.py   --from "content/approved/$ID.json"
+          python3 tools/release_upload.py "build/reels/$ID.mp4" "build/reels/$ID-cover.jpg"
+          python3 publish.py queue --src "content/approved/$ID.json" | tee -a result.txt
+
+      # Both pages carry each post's status in its buttons, so a command that
+      # changes the queue has to rewrite them or you tap Skip and it still says
+      # Skip. PyYAML and Pillow are all that costs — neither page renders an
+      # image, and on the approve path they are already installed.
+      - name: Rebuild the pages and commit
+        if: steps.c.outputs.go == 'ok'
+        run: |
+          set -euo pipefail
+          pip install -q PyYAML Pillow
+          python3 brain.py --html
+          python3 render.py --sheet-only
+          tools/commit_state.sh "${{ steps.c.outputs.verb }} ${{ steps.c.outputs.arg }} (issue #${{ github.event.issue.number }})" \
+            posts.db content/approved docs
+
+      # Always, so a failure answers on the issue instead of only in the log —
+      # the phone that filed this is not going to go looking through Actions.
+      - name: Reply and close
+        if: always() && steps.c.outputs.go != 'ignore'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          STATUS: ${{ job.status }}
+          GO: ${{ steps.c.outputs.go }}
+        run: |
+          {
+            if [ "$GO" = "bad" ]; then
+              echo "I could not read that command."
+              echo
+              echo '```'
+              python3 -c 'import sys; sys.path.insert(0,"tools"); import command; print(command.usage())'
+              echo '```'
+            else
+              echo "**\`${{ steps.c.outputs.verb }} ${{ steps.c.outputs.arg }}\`** — $STATUS"
+              echo
+              echo '```'
+              cat result.txt 2>/dev/null || echo "(no output)"
+              echo '```'
+            fi
+            echo
+            echo "[run log]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID)"
+          } > body.md
+          gh issue comment "${{ github.event.issue.number }}" --body-file body.md
+          gh issue close "${{ github.event.issue.number }}"

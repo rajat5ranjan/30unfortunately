@@ -40,7 +40,7 @@ jobs:
           echo "approved $ID" >> "$GITHUB_STEP_SUMMARY"
           python3 render.py --from "content/approved/$ID.json"
           python3 reel.py --from "content/approved/$ID.json"
-          python3 tools/release_upload.py "build/reels/$ID.mp4"
+          python3 tools/release_upload.py "build/reels/$ID.mp4" "build/reels/$ID-cover.jpg"
           python3 publish.py queue --src "content/approved/$ID.json"
 
       # The queue and the rendered slides both live in the repo, so this commit
