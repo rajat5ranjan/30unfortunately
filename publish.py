@@ -196,6 +196,18 @@ def window_used(conn, w: Dict[str, Any], now: Optional[datetime] = None) -> bool
     return False
 
 
+def _alert(msg: str) -> None:
+    """Loud on the console, and on the Actions run page where it will be read."""
+    print("!! %s" % msg.replace("\n", "\n   "), file=sys.stderr)
+    path = os.environ.get("GITHUB_STEP_SUMMARY")
+    if path:
+        try:
+            with open(path, "a") as f:
+                f.write("### Missed slot risk\n\n%s\n" % msg)
+        except OSError:
+            pass
+
+
 def cmd_due(args: argparse.Namespace) -> int:
     """Exit 0 if a slot is open. Cheap: no API calls, no mailbox."""
     now = local_now()
@@ -345,6 +357,7 @@ def cmd_next(args: argparse.Namespace) -> int:
 
     # The window gate comes first, before the mailbox and before any API call:
     # this job now runs 72 times a day and only two of those should do work.
+    w = None
     if not (args.now or args.dry_run):
         now = local_now()
         w = current_window(now)
@@ -379,7 +392,17 @@ def cmd_next(args: argparse.Namespace) -> int:
 
     row = store.next_queued(conn)
     if not row:
-        print("queue is empty")
+        # An empty queue at any other moment is fine. An empty queue while a
+        # window is OPEN is a missed slot, and it is the only way this system
+        # silently falls behind — so say it loudly and put it where it will be
+        # seen rather than buried in the log of one poll out of seventy-two.
+        if w:
+            _alert("Nothing to publish and the %s window is open (%s-%s IST).\n"
+                   "A slot will be missed unless generate refills the queue "
+                   "before %s." % (w["name"], w["after"], w["before"],
+                                   w["before"]))
+        else:
+            print("queue is empty")
         return 0
 
     slides = json.loads(row["slides"])

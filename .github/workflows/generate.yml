@@ -15,9 +15,17 @@ name: generate
 #   so a call every other day, and a 5-11 post cushion if Gemini is down.
 #   posts_per_trend is 3 (config.json) so a run yields ~10-12 candidates and the
 #   top 6 is still the better half, not the whole batch.
+# Every three hours. What frequency buys is recovery time: if the queue drops
+# below the floor, it refills within three hours instead of twenty-four, so an
+# empty queue can never cost more than one of the day's three publish windows.
+# On 2026-09-18 the single daily run arrived 4h28m late — with eight chances,
+# one being late or dropped stops mattering.
+#
+# A run that finds the backlog healthy stops at the first step: no pip install,
+# no RSS, no Gemini, about ten seconds. That is what makes the frequency free.
 on:
   schedule:
-    - cron: "45 0 * * *"
+    - cron: "45 */3 * * *"
   workflow_dispatch:
     inputs:
       force:
@@ -41,29 +49,53 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - run: pip install -q google-genai PyYAML Pillow av
 
-      - name: Pull trends
-        run: python3 trend_agent.py
-
-      - name: Generate, rank, auto-approve the best six
-        env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      # Cheapest possible question, asked first: one sqlite read, stdlib only.
+      # Seven of the eight daily runs end here.
+      - name: Is the backlog low?
+        id: backlog
         run: |
           set -euo pipefail
-          BACKLOG="--min-backlog ${{ inputs.force && '0' || '6' }}"
-          python3 brain.py $BACKLOG --auto 6 | tee /tmp/gen.log
+          Q=$(python3 -c "import store; print(store.counts(store.connect()).get('queued', 0))")
+          echo "$Q queued, floor is 6"
+          if [ "${{ inputs.force }}" = "true" ] || [ "$Q" -lt 6 ]; then
+            echo "go=yes" >> "$GITHUB_OUTPUT"
+          else
+            echo "go=no" >> "$GITHUB_OUTPUT"
+          fi
+
+      - if: steps.backlog.outputs.go == 'yes'
+        run: pip install -q google-genai PyYAML Pillow av
+
+      - name: Pull trends
+        if: steps.backlog.outputs.go == 'yes'
+        run: python3 trend_agent.py
+
+      # --min-backlog 0 because the step above already decided. Keeping the flag
+      # means brain.py still refuses to run on a healthy queue when invoked by
+      # hand, which is the case the gate does not cover.
+      - name: Generate, rank, auto-approve the best six
+        if: steps.backlog.outputs.go == 'yes'
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python3 brain.py --min-backlog 0 --auto 6
 
       # Every approved post is rendered BOTH ways. Which one ships is decided on
       # the day it publishes (store.format_for), and publish.py is stdlib-only
       # so it cannot render anything itself — both assets have to exist first.
       - name: Render and queue whatever was approved
+        id: rq
+        if: steps.backlog.outputs.go == 'yes'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
           NEW=$(git ls-files --others --exclude-standard content/approved || true)
-          if [ -z "$NEW" ]; then echo "nothing new approved"; exit 0; fi
+          if [ -z "$NEW" ]; then
+            echo "nothing new approved"
+            echo "queued=no" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
           for f in $NEW; do
             ID=$(basename "$f" .json)
             python3 render.py --from "$f"
@@ -73,14 +105,22 @@ jobs:
           done
           python3 brain.py --summary >> "$GITHUB_STEP_SUMMARY"
           python3 brain.py --html
+          echo "queued=yes" >> "$GITHUB_OUTPUT"
 
       - name: Commit
+        if: steps.rq.outputs.queued == 'yes'
         run: |
           tools/commit_state.sh "queue: $(date -u +%Y-%m-%d)" content docs posts.db
 
       # The veto window: you are notified, you do nothing, it ships. Reply
       # "skip <id>" to that email and publish.py drops it seconds before posting.
+      #
+      # Only when something was actually generated. This job now runs four times
+      # a day and three of those will normally find the backlog healthy and do
+      # nothing — mailing the same queue four times would train you to ignore
+      # the one message the veto depends on.
       - name: Email the queue
+        if: steps.rq.outputs.queued == 'yes'
         env:
           NOTIFY_EMAIL: ${{ secrets.NOTIFY_EMAIL }}
           NOTIFY_EMAIL_PASSWORD: ${{ secrets.NOTIFY_EMAIL_PASSWORD }}

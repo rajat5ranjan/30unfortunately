@@ -121,6 +121,16 @@ outright when it is heavy. On 2026-09-18 the 08:40 run never fired at all and
 `generate` arrived 4h28m late. A minute is not something you can aim at; a
 two-hour window with six attempts inside it is.
 
+`generate.yml` polls too, every three hours, behind a gate that costs one
+sqlite read — no pip install, no RSS, no Gemini unless the backlog is actually
+low. Seven of the eight daily runs stop at that first step in about ten seconds.
+What the frequency buys is recovery time: an empty queue refills within three
+hours, so it can never cost more than one of the day's three windows.
+
+If a window opens and there is nothing queued, `publish.py` writes an alert to
+stderr and to the Actions job summary. It is the only way this system falls
+behind silently, so it is the one thing that shouts.
+
 `publish.py due` is the gate and is deliberately cheap — config and the local
 database, no network — so 70 of the 72 daily polls stop there, before any API
 call or mailbox read. It costs 0.1s. `publish.py next --now` ignores the
