@@ -58,6 +58,14 @@ jobs:
             echo "go=no" >> "$GITHUB_OUTPUT"
           fi
 
+      # Between the gate and the post, because the paths that matter here only
+      # run while a post is half-created: a NameError inside wait_for_container
+      # shipped once and was only found against a live container. stdlib only,
+      # 3ms, and only on the two polls a day that are about to do something.
+      - name: Tests
+        if: steps.due.outputs.go == 'yes'
+        run: python3 tests.py
+
       - name: Pre-flight
         if: steps.due.outputs.go == 'yes'
         env:

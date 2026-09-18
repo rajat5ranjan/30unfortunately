@@ -30,7 +30,10 @@ import time
 import urllib.error
 import urllib.parse
 import urllib.request
-from datetime import datetime, time, timedelta, timezone
+from datetime import datetime, timedelta, timezone
+from datetime import time as TimeOfDay   # NOT `time`: that is the stdlib module
+                                         # this file polls with, and shadowing it
+                                         # breaks every publish, not just reels
 from typing import Any, Dict, List, Optional
 
 import envfile
@@ -154,9 +157,9 @@ def local_now() -> datetime:
         minutes=int(cfg("publish_utc_offset_minutes", 330)))
 
 
-def _hhmm(s: str) -> time:
+def _hhmm(s: str) -> TimeOfDay:
     h, m = s.split(":")
-    return time(int(h), int(m))
+    return TimeOfDay(int(h), int(m))
 
 
 def current_window(now: Optional[datetime] = None) -> Optional[Dict[str, Any]]:

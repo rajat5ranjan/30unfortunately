@@ -178,6 +178,18 @@ Reels are hosted on a GitHub Release rather than committed. A slide is 200KB and
 a reel is half a megabyte, and anything committed stays in git history forever —
 on a project whose entire state-passing mechanism is cloning the repo.
 
+## Tests
+
+`python3 tests.py` — stdlib only, so the publish job runs it with no install,
+between the window gate and the post itself.
+
+It exists because of one bug. `from datetime import time` shadowed the stdlib
+`time` module that `wait_for_container` polls with, and nothing caught it:
+the file imported, compiled and passed `check`. The failure only appeared
+against a live Instagram container, after the container had already been
+created. Anything reached only while a post is half-created needs a stub and a
+test.
+
 ## Secrets
 
 Set as repository secrets, never in the repo — it is public.
