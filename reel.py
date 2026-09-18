@@ -17,15 +17,30 @@ no system binary and nothing to install on a runner beyond `pip install av`.
 
 Design decisions that are load-bearing, not taste:
 
-  * The hook is on screen from frame 0, underneath the brand animation. Meta's
-    own figure for the stay-or-scroll decision is ~1.7s, and watch time is the
-    top ranking signal — five seconds of logo before the joke would spend the
-    whole judgement window on branding.
-  * Short and loopable. Watch time now counts replays, so a 13s reel watched
-    three times beats a 40s one watched once. The tail crossfades back into
+  * The first five seconds are identical on every reel and carry no post
+    content: the mark scales up, the battery charges to 100%, drains to 30%,
+    and the number it lands on IS the logo. It then shrinks into the corner and
+    becomes the watermark the rest of the reel already uses, so the intro ends
+    by turning into the interface rather than stopping.
+  * The draining battery is the progress bar. It starts the content at 30% —
+    what the intro left you — and empties as the reel runs out. One element,
+    two jobs, in the brand's own metaphor.
+  * Text types itself out with a caret, then holds. Reading speed sets the
+    pace, not animation speed.
+  * The cover is rendered here, at 9:16. Handing Instagram the carousel's
+    slide 1 does not work: that is 1080x1350 against a 1080x1920 cover frame,
+    and the difference is made up by scaling to fill and cropping — the text
+    comes out oversized and running off the frame. The cover also has to
+    survive a second crop, because the profile grid keeps a 4:5 slice of the
+    middle, so the hook is centred in the whole frame rather than in the band
+    the video uses.
+  * Short and loopable. Watch time now counts replays, so a short reel watched
+    three times beats a long one watched once. The tail crossfades back into
     frame 0 so a replay has no seam.
-  * No audio track beyond silence. Reels published through the API cannot
-    attach Instagram's trending audio, and ours are read, not heard.
+  * No audio. The track is silent rather than absent, because a video with no
+    audio stream has historically been rejected outright. Reels published
+    through the API cannot attach Instagram's trending audio anyway, and these
+    are read, not heard.
 """
 import argparse
 import glob
@@ -349,6 +364,25 @@ def slide_frames(text: str, role: str, dark: bool, handle: str, n_frames: int,
     return frames
 
 
+def cover_image(post: Dict[str, Any]) -> Image.Image:
+    """The grid thumbnail: the hook, at 9:16, centred to survive a 4:5 crop.
+
+    Not a frame of the video — frame 0 is the brand intro. This is what the reel
+    would look like if the hook opened it, which is what someone scrolling a
+    profile needs to see.
+    """
+    lines, font, lh = _fit(post["slides"][0], "hook", 1000)
+    img, fg, _ = _surface(False, 0.30)
+    # lower than the video's watermark: the grid crop starts at y=285 and the
+    # mark at MARK_TOP would be sliced off the top of every tile
+    grid_top = (H - W * 5 // 4) // 2        # the 4:5 slice the profile keeps
+    render.draw_mark(ImageDraw.Draw(img), MARGIN_X, grid_top + 62, MARK_H, fg, RED)
+    # centred in the FULL frame, not the safe band: the grid keeps the middle
+    # 4:5 of this and throws the rest away
+    _text_block(img, lines, font, lh, (H - len(lines) * lh) // 2 - 30, fg, 1.0)
+    return img.convert("RGB")
+
+
 def build_frames(post: Dict[str, Any], handle: str) -> List[Image.Image]:
     """Intro, then every slide including the hook — the intro carries no post
     content now, so slide 1 has to be shown like any other."""
@@ -449,8 +483,10 @@ def render_reel(post: Dict[str, Any], handle: str, stills_only: bool = False,
 
     out = os.path.join(OUT, "%s.mp4" % pid)
     encode(frames, out)
+    cover_image(post).save(os.path.join(OUT, "%s-cover.jpg" % pid),
+                           quality=92, optimize=True)
     mb = os.path.getsize(out) / 1e6
-    print("%s -> %s  %.1fs  %.1f MB"
+    print("%s -> %s  %.1fs  %.1f MB  (+ cover)"
           % (pid, os.path.relpath(out, ROOT), len(frames) / float(FPS), mb))
     return out
 

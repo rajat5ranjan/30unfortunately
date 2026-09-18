@@ -239,6 +239,16 @@ def reel_url(post_id: str) -> str:
     return "%s/%s.mp4" % (_cfg("reels_base_url"), post_id)
 
 
+def cover_url(post_id: str) -> str:
+    """The reel's own 9:16 cover.
+
+    NOT the carousel's slide 1. That is 1080x1350 against a 1080x1920 cover
+    frame, and Instagram makes up the difference by scaling to fill and
+    cropping — the text arrives oversized and running off the tile.
+    """
+    return "%s/%s-cover.jpg" % (_cfg("reels_base_url"), post_id)
+
+
 def reconcile(conn, token: str, ig_id: str) -> None:
     """Settle posts left mid-publish, before anything new goes out.
 
@@ -429,7 +439,8 @@ def cmd_next(args: argparse.Namespace) -> int:
         store.mark_failed(conn, row["id"], "images not reachable: %s" % missing[0])
         sys.exit("images are not publicly reachable yet — run `check` for detail")
 
-    if fmt == "reel" and not url_is_live(reel_url(row["id"])):
+    if fmt == "reel" and not (url_is_live(reel_url(row["id"]))
+                              and url_is_live(cover_url(row["id"]))):
         # Ship the carousel rather than skip the slot, and record what actually
         # went out. The split drifts; a missing post would be worse, and an
         # arm labelled with what it was meant to be would be worse still.
@@ -441,7 +452,7 @@ def cmd_next(args: argparse.Namespace) -> int:
         if fmt == "reel":
             r = post("%s/media" % ig_id, token, media_type="REELS",
                      video_url=reel_url(row["id"]), caption=caption,
-                     cover_url=urls[0], share_to_feed="true")
+                     cover_url=cover_url(row["id"]), share_to_feed="true")
             print("  reel container %s" % r["id"], end=" ", flush=True)
             # Meta transcodes the video, which takes far longer than pulling a
             # handful of PNGs. 180s is not enough for a reel.

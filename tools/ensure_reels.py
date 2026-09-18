@@ -53,10 +53,14 @@ def main() -> int:
 
     missing = []
     for row in rows:
-        url = publish.reel_url(row["id"])
-        live = publish.url_is_live(url)
-        print("%-6s %s" % (row["id"], "on the release" if live else "MISSING"))
-        if not live:
+        have = [publish.url_is_live(publish.reel_url(row["id"])),
+                publish.url_is_live(publish.cover_url(row["id"]))]
+        label = {(True, True): "reel + cover",
+                 (True, False): "MISSING cover",
+                 (False, True): "MISSING reel",
+                 (False, False): "MISSING both"}[tuple(have)]
+        print("%-6s %s" % (row["id"], label))
+        if not all(have):
             missing.append(row["id"])
 
     if not missing:
@@ -76,7 +80,8 @@ def main() -> int:
             print("  %s has no file in content/approved — skipped" % pid)
             continue
         path = reel.render_reel(post, handle)
-        print("  uploaded -> %s" % upload(path))
+        for f in (path, path[:-4] + "-cover.jpg"):
+            print("  uploaded -> %s" % upload(f))
     return 0
 
 

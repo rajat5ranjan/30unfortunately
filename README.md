@@ -167,6 +167,13 @@ at 30 characters a second. The oversized ghost mark behind the text is the
 progress bar: it starts at 30%, which is what the intro left you, and empties as
 the reel runs out.
 
+The cover is rendered here too, at 9:16 — not the carousel's slide 1. That is
+1080×1350 against a 1080×1920 cover frame, and Instagram makes up the difference
+by scaling to fill and cropping, so the text arrives oversized and running off
+the tile. The cover also survives a second crop: the profile grid keeps a 4:5
+slice of the middle, so the hook is centred in the whole frame and the watermark
+sits below the crop line rather than at the video's margin.
+
 Everything visual is Pillow, drawn parametrically like the cards. Pillow cannot
 write H.264, so PyAV does the encode — a pip wheel with libav inside it, no
 system ffmpeg and nothing to install on a runner beyond `pip install av`.
