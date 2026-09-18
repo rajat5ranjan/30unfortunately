@@ -12,6 +12,7 @@
       ],
       "caption": "Your lifestyle is sponsored by your future self's credit card limit. 📱",
       "trigger": "rent",
+      "target": "self",
       "structure": "escalating_list",
       "satire_level": 4,
       "hinglish": false,

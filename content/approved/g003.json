@@ -12,6 +12,7 @@
       ],
       "caption": "Return to office because the oxygen is company property. 💨 #corporate #delhipollution #rto",
       "trigger": "corporate",
+      "target": "HR",
       "structure": "then_now",
       "satire_level": 4,
       "hinglish": false,

@@ -12,6 +12,7 @@
       ],
       "caption": "A diversified portfolio of payments. 💸",
       "trigger": "money",
+      "target": "platform",
       "structure": "receipt",
       "satire_level": 3,
       "hinglish": false,

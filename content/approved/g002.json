@@ -12,6 +12,7 @@
       ],
       "caption": "The village it takes to raise a child has been replaced by a 10-minute delivery app. 🍼 #parenting #quickcommerce #startup",
       "trigger": "parents",
+      "target": "platform",
       "structure": "receipt",
       "satire_level": 3,
       "hinglish": false,

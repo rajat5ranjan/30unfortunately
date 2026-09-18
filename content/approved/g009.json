@@ -12,6 +12,7 @@
       ],
       "caption": "At least the struggle looks cinematic now. 🎬",
       "trigger": "home",
+      "target": "self",
       "structure": "then_now",
       "satire_level": 4,
       "hinglish": false,

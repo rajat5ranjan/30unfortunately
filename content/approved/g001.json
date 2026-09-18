@@ -12,6 +12,7 @@
       ],
       "caption": "The modern asset-light lifestyle. 🛏️",
       "trigger": "nostalgia",
+      "target": "platform",
       "structure": "then_now",
       "satire_level": 4,
       "hinglish": false,

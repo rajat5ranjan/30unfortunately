@@ -12,6 +12,7 @@
       ],
       "caption": "The transition is complete. You are now a medical project. 📞",
       "trigger": "parents",
+      "target": "parents",
       "structure": "dialogue",
       "satire_level": 3,
       "hinglish": true,

@@ -106,6 +106,42 @@ def gate_shape(post: Dict[str, Any], brand: Dict[str, Any]) -> List[str]:
     return fails
 
 
+def gate_target(post: Dict[str, Any], brand: Dict[str, Any]) -> List[str]:
+    """Who the joke is on. Not the value of it — only that it was decided.
+
+    The share of posts aimed at the reader is a property of the mix, not of one
+    post, so the cap is enforced in rank() where the other mix penalties live.
+    Here we only refuse a post that never answered the question, because
+    "target: self" chosen on purpose is a different thing from not having
+    thought about it, and the first is allowed.
+    """
+    t = (post.get("target") or "").strip().lower()
+    if not t:
+        return ["no target — who is this joke ON? See the target section."]
+    if len(t.split()) > 3:
+        return ["target is a sentence, not a target: '%s'" % t]
+    return []
+
+
+def gate_travels(post: Dict[str, Any], brand: Dict[str, Any]) -> List[str]:
+    """The one mechanically checkable half of the travels rule.
+
+    Everything else about whether a post crosses a border is a judgement call
+    and lives in the ranker. This is not: a rupee figure or a brand name in the
+    LANDING means the final beat depends on knowing what that thing costs or
+    what that company does, and the post dies at the border. In the escalation
+    the same detail is texture and is wanted.
+    """
+    landing = (post.get("slides") or [""])[-1]
+    # A currency mark, or a digit group written with a separator. Bare four
+    # digits are years — "In 2026 an app auto-rejects your WFH" is a date, and
+    # an earlier version of this rule threw it out as a price.
+    if re.search(r"[₹$]\s?[0-9]|[0-9]{1,3},[0-9]{2,3}", landing):
+        return ["landing carries a currency figure — that beat cannot travel; "
+                "move the number into the escalation"]
+    return []
+
+
 def gate_source(post: Dict[str, Any]) -> List[str]:
     src = (post.get("source") or "").strip()
     if not src:
@@ -153,6 +189,7 @@ def structure_report(posts: List[Dict[str, Any]], cap: float,
 def run_gates(post: Dict[str, Any], brand: Dict[str, Any], history: List[Dict[str, Any]],
               cfg: Dict[str, Any]) -> List[str]:
     return (gate_hard_bans(post, brand) + gate_shape(post, brand)
+            + gate_target(post, brand) + gate_travels(post, brand)
             + gate_source(post) + gate_novelty(post, history, cfg["novelty_threshold"]))
 
 
@@ -163,6 +200,10 @@ def build_system_prompt(brand: Dict[str, Any], history: List[Dict[str, Any]],
     shares, _ = structure_report(history, brand["structures"]["max_share_of_output"],
                                  cfg["structure_enforce_from"])
     hinglish_share = (sum(1 for p in history if p.get("hinglish")) / max(len(history), 1))
+    # Untargeted posts predate this field; counting them as 'self' is right —
+    # that is what they were, and the share is meant to shame the batch.
+    self_share = (sum(1 for p in history if (p.get("target") or "self") == "self")
+                  / max(len(history), 1))
 
     ex_blocks = []
     for p in examples:
@@ -176,8 +217,9 @@ def build_system_prompt(brand: Dict[str, Any], history: List[Dict[str, Any]],
     return "\n\n".join([
         "You write for an Instagram account. This is the entire contract. Follow it exactly.",
         yaml.safe_dump({k: brand[k] for k in
-                        ("identity", "audience", "formula", "slides", "voice", "hinglish",
-                         "satire_ladder", "structures", "hard_bans", "output_schema")},
+                        ("identity", "audience", "formula", "slides", "target", "voice",
+                         "hinglish", "travels", "satire_ladder", "structures",
+                         "hard_bans", "output_schema")},
                        sort_keys=False, allow_unicode=True, width=100),
         "APPROVED EXAMPLES — match this register, never reuse these jokes:\n\n"
         + "\n\n===\n\n".join(ex_blocks),
@@ -185,7 +227,9 @@ def build_system_prompt(brand: Dict[str, Any], history: List[Dict[str, Any]],
         + "\n".join("  %s: %.0f%%" % (k, v * 100) for k, v in
                     sorted(shares.items(), key=lambda kv: -kv[1]))
         + "\n  hinglish: %.0f%% (target %s)" % (hinglish_share * 100,
-                                                brand["hinglish"]["target_ratio"]),
+                                                brand["hinglish"]["target_ratio"])
+        + "\n  jokes aimed at the reader ('self'): %.0f%% (cap %.0f%%)"
+          % (self_share * 100, brand["target"]["self_cap"] * 100),
         "Return ONLY JSON matching the schema. No preamble, no markdown fence.",
     ])
 
@@ -216,16 +260,18 @@ RANK_SCHEMA = {
         "specificity": {"type": "integer"},
         "surprise": {"type": "integer"},
         "voice": {"type": "integer"},
+        "travels": {"type": "integer"},
         "verdict": {"type": "string"},
     }, "required": ["index", "share_trigger", "specificity", "surprise", "voice",
-                    "verdict"]}}},
+                    "travels", "verdict"]}}},
     "required": ["scores"],
 }
 
 # Weights. share_trigger dominates because the stated goal of the account is a
 # forward, not a like. These are guesses until there is performance data:
 # at n>=30 published posts, refit them against shares/reach.
-RANK_WEIGHTS = {"share_trigger": 3, "surprise": 2, "specificity": 2, "voice": 2}
+RANK_WEIGHTS = {"share_trigger": 3, "surprise": 2, "specificity": 2, "voice": 2,
+                "travels": 2}
 
 
 RESPONSE_SCHEMA = {
@@ -248,11 +294,13 @@ RESPONSE_SCHEMA = {
                 "caption": {"type": "string"},
                 "trigger": {"type": "string"},
                 "structure": {"type": "string"},
+                "target": {"type": "string"},
                 "satire_level": {"type": "integer"},
                 "hinglish": {"type": "boolean"},
                 "source": {"type": "string"},
             }, "required": ["trend", "context", "angle", "slides", "caption",
-                            "trigger", "structure", "satire_level", "hinglish", "source"]},
+                            "trigger", "target", "structure", "satire_level",
+                            "hinglish", "source"]},
         },
     },
     "required": ["posts"],
@@ -312,6 +360,12 @@ Score each 1-5 on:
   specificity    Concrete, checkable detail: a rupee figure, a brand, a date, a
                  line of real speech. 1 = could have been written about any
                  country in any decade.
+  travels        Cover every proper noun and every number with your thumb. Does
+                 it still land on a 30-year-old in Manila who has never heard of
+                 Zomato? 5 = the feeling is universal and the detail is only
+                 texture. 1 = the joke WAS the trivia, and outside India it is
+                 just a sentence. This is not the opposite of specificity — the
+                 best posts score 5 on both.
   surprise       Is the landing earned or visible from slide 1?
                  5 = the turn is genuinely unexpected but obvious in hindsight.
   voice          Deadpan, second person, ends on a noun, explains nothing.
@@ -333,7 +387,7 @@ def rank(posts: List[Dict[str, Any]], brand: Dict[str, Any],
         "%d. %s" % (i, " / ".join(p["slides"]).replace("\n", " "))
         for i, p in enumerate(posts, 1))
     system = RANK_PROMPT + "\n\nACCOUNT:\n" + yaml.safe_dump(
-        {k: brand[k] for k in ("identity", "audience", "voice", "slides")},
+        {k: brand[k] for k in ("identity", "audience", "voice", "slides", "travels")},
         sort_keys=False, allow_unicode=True, width=100)
 
     scores = {}
@@ -348,6 +402,12 @@ def rank(posts: List[Dict[str, Any]], brand: Dict[str, Any],
     # here: the account's recent shape, not the post's own quality.
     recent_struct = [p.get("structure") for p in history[-6:]]
     recent_trig = [p.get("trigger") for p in history[-4:]]
+    # A post aimed at the reader is not wrong — it is only wrong in bulk, which
+    # no judge looking at one batch can see. Free while the account is under
+    # the cap, expensive once it is over.
+    recent_self = sum(1 for p in history[-8:] if (p.get("target") or "self") == "self")
+    self_cap = brand["target"]["self_cap"]
+    over_self = recent_self > self_cap * max(len(history[-8:]), 1)
 
     for i, p in enumerate(posts, 1):
         sc = scores.get(i, {})
@@ -357,6 +417,8 @@ def rank(posts: List[Dict[str, Any]], brand: Dict[str, Any],
             penalty += 4 * recent_struct.count(p.get("structure"))
         if p.get("trigger") in recent_trig:
             penalty += 3
+        if over_self and (p.get("target") or "self") == "self":
+            penalty += 5
         p["_score"] = base - penalty
         p["_judge"] = sc.get("verdict", "")
         p["_detail"] = dict((k, sc.get(k)) for k in RANK_WEIGHTS)
@@ -388,6 +450,19 @@ def cmd_check(brand, cfg):
     print("\nHinglish: %d/%d (%.0f%%)  target %s"
           % (hin, len(history), hin / max(len(history), 1) * 100,
              brand["hinglish"]["target_ratio"]))
+
+    aims = {}  # type: Dict[str, int]
+    for p in history:
+        aims[(p.get("target") or "untargeted")] = aims.get(
+            p.get("target") or "untargeted", 0) + 1
+    print("\nAimed at:")
+    for k, v in sorted(aims.items(), key=lambda kv: -kv[1]):
+        print("  %-18s %d (%.0f%%)" % (k, v, v / max(len(history), 1) * 100))
+    at_self = (aims.get("self", 0) + aims.get("untargeted", 0)) / max(len(history), 1)
+    if at_self > brand["target"]["self_cap"]:
+        print("  ! %.0f%% of posts are aimed at the reader (cap %.0f%%) — "
+              "that reads sad, not satirical"
+              % (at_self * 100, brand["target"]["self_cap"] * 100))
     print("\n%s" % ("ALL PASS" if bad == 0 else "%d post(s) failed" % bad))
     return 0 if bad == 0 else 1
 

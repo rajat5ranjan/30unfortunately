@@ -87,6 +87,32 @@ slides:
       - "And that's why we need financial literacy."
 
 # -----------------------------------------------------------------------------
+# TARGET — who the joke is ON. The thing most often missing.
+# -----------------------------------------------------------------------------
+target:
+  rule: |
+    Satire has a direction. Every post names who it is aimed at, in one word,
+    and it is usually NOT the reader. A post whose only butt is the person
+    reading it is not satire — it is a diagnosis. It can be true, specific and
+    beautifully written and it will still read sad, because there is nobody in
+    it but the victim.
+  allowed:
+    - landlord, employer, insurer, bank, app, platform, airline, gym, school
+    - relatives, aunty, parents, in-laws, neighbours, society uncle
+    - HR, marketing, LinkedIn, the wedding industry, the wellness industry
+    - self          # the reader. At most 1 post in 4.
+  self_cap: 0.25
+  test: |
+    Read the landing and ask who should feel uncomfortable. If the only answer
+    is "the reader", raise the aim. The reader is the witness, not the crime.
+  good: |
+    "In 2026 an app decides whether you were allowed to have a fever."
+    target: app. It happened TO the reader; it is not ABOUT the reader.
+  bad: |
+    "Landlord — 16,500. Apple — 12,000. Your savings account — 432."
+    target: self. Sharp, checkable, and aimed at the person already losing.
+
+# -----------------------------------------------------------------------------
 # VOICE
 # -----------------------------------------------------------------------------
 voice:
@@ -107,7 +133,7 @@ voice:
 # HINGLISH — the single biggest differentiator. Get this wrong and it's generic.
 # -----------------------------------------------------------------------------
 hinglish:
-  target_ratio: 1 in 4 posts (25–35%)
+  target_ratio: 1 in 3 posts (30–40%)
   rule: |
     Code-switch only where a real person would actually switch — reported
     speech from family, a phrase with no English equivalent, an instruction
@@ -125,6 +151,46 @@ hinglish:
     - "Paisa (money) problems at 30."         # never gloss
     - "Life is such a jhamela yaar 😂"         # decoration, not speech
 
+  in_the_landing: |
+    The strongest position, and the one this account has never used. A landing
+    may be a bare Hindi phrase where English has no equivalent — not a
+    translation of the joke, the joke itself. Use it when the phrase IS what is
+    being satirised: the instruction a whole generation was handed and is still
+    obeying. It needs no translation to land, and translating it would kill it.
+  landings:
+    - "Adjust kar lo."
+    - "Settle ho ja."
+    - "Log kya kahenge."
+    - "Sab chalta hai."
+    - "Thoda compromise karna padta hai."
+
+# -----------------------------------------------------------------------------
+# TRAVELS — the account is Indian. The feeling has to be everyone's.
+# -----------------------------------------------------------------------------
+travels:
+  rule: |
+    Local texture everywhere. No local knowledge in the load-bearing beat.
+    A 30-year-old in Manila or Sao Paulo has never heard of Zomato, does not
+    know that 16,500 is a lot of rent, and cannot parse HDFC. They should still
+    finish the post and feel it. Give them the shape, never a glossary.
+  where_the_local_goes:
+    - Reported speech. Untranslated, unglossed, always.
+    - The escalation lines. Brands and rupee figures belong here.
+    - Proper nouns as texture, never as the hinge.
+  where_it_must_not_go:
+    - The landing. No rupee figure and no brand in the final line, ever.
+    - Any beat where missing the reference means missing the joke.
+  test: |
+    Cover every proper noun and every number with your thumb. If the post still
+    lands, it travels. If it collapses, the joke was trivia.
+  good: |
+    "Khana kha liya? / Roti mein ghee toh nahi lagaya? / Sugar check kiya ki nahi?"
+    -> "She still treats you like an unstable chemical."
+    Nobody needs the words. Everybody has that phone call.
+  bad: |
+    "Rent 16,500 / EMI 12,000 / Broadband 1,000" -> "You are surviving in Mumbai."
+    The landing is a fact about Mumbai. Anywhere else it is just a sentence.
+
 # -----------------------------------------------------------------------------
 # SATIRE LADDER — vary it. An account that is always level 5 is exhausting.
 # -----------------------------------------------------------------------------
@@ -134,7 +200,8 @@ satire_ladder:
   3: Proper satire. "Congratulations to the economy."
   4: Biting. "In 2026 an app decides whether you were allowed to have a fever."
   5: Sharp. "Thirty years of adjusting. You are now shaped like the problem."
-  target_mix: "mostly 2–4. Level 5 at most 1 in 8. Level 1 at most 1 in 6."
+  target_mix: "mostly 3–4. Level 5 at most 1 in 6. Level 1 at most 1 in 8.
+    An account that never reaches 4 is a diary, not satire."
 
 # -----------------------------------------------------------------------------
 # STRUCTURE — variety is survival. Repetition is how an account starts
@@ -148,6 +215,17 @@ structures:
   then_now: At X / At Y. Powerful and very easy to overuse.
   list_collapse: A list that undercuts itself at the end. (the four sentences)
   receipt: An itemised cost of something emotional. (festival season)
+
+  # The seven above are all forms of comparison, which is why the jokes kept
+  # landing on the reader: there is nobody on the other side of a comparison.
+  # These five come with an antagonist built in — someone wrote the document,
+  # someone is reading the script, someone sent the invite.
+  terms_and_conditions: The fine print, written out in plain language. Target is whoever drafted it.
+  customer_support: A script that answers everything and resolves nothing.
+  job_description: A posting rewritten to describe the actual job.
+  group_chat: Names, one line each. What nobody says is the joke.
+  wedding_invite: The card, annotated with what attending actually costs you.
+
   max_share_of_output: 0.30   # HARD CAP per structure across all published posts
 
 # -----------------------------------------------------------------------------
@@ -202,6 +280,7 @@ output_schema:
   slides: Array of 2–3 strings. Newlines allowed inside a slide.
   caption: One or two lines. May carry a tag prompt. Emoji allowed here only.
   trigger: One word — upi, salary, rent, parents, corporate, commute, festivals, cricket, health, friends, marriage, nostalgia, home.
+  target: One word — who the joke is aimed at. See the target section. "self" at most 1 in 4.
   structure: One of the structures above.
   satire_level: 1–5.
   hinglish: true or false.

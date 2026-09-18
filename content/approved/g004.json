@@ -12,6 +12,7 @@
       ],
       "caption": "The transition from sugar rush to sugar monitoring is extremely fast. 🩺",
       "trigger": "health",
+      "target": "self",
       "structure": "definition_drift",
       "satire_level": 3,
       "hinglish": false,

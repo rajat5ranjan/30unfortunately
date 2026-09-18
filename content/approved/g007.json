@@ -12,6 +12,7 @@
       ],
       "caption": "The body keeps the score, and it’s winning. 📉",
       "trigger": "health",
+      "target": "self",
       "structure": "juxtaposition",
       "satire_level": 4,
       "hinglish": false,
