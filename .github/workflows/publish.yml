@@ -1,14 +1,27 @@
 name: publish
 
-# 08:40 and 19:40 IST. Deliberately off the hour: GitHub runs scheduled
-# workflows best-effort and queues them under load, which peaks at :00.
+# Polls every 20 minutes and publishes on the first poll inside a window that
+# has not been used today. The windows live in config.json (08:30-10:30 and
+# 19:30-21:30 IST).
+#
+# It used to be two crons aimed at 08:40 and 19:40. That does not work: GitHub
+# runs scheduled workflows best-effort, queues them under load and drops them
+# outright when it is heavy. On 2026-09-18 the 08:40 run never fired at all and
+# generate arrived 4h28m late. Aiming at a minute is not a control you have;
+# aiming at a two-hour window with six attempts inside it is.
+#
+# Public repos get unlimited Actions minutes, so 72 polls a day is free — and
+# all but two of them stop at the `due` step, before any API call or mailbox
+# read.
 on:
-  # 08:40 and 19:40 IST. Deliberately off the hour: GitHub queues scheduled runs
-  # under load, and load peaks at :00.
   schedule:
-    - cron: "10 3 * * *"
-    - cron: "10 14 * * *"
+    - cron: "*/20 * * * *"
   workflow_dispatch:
+    inputs:
+      now:
+        description: "Publish immediately, ignoring the windows"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -31,29 +44,46 @@ jobs:
 
       # publish.py is stdlib-only, so there is no install step to fail
 
+      # Cheap on purpose: config and the local database, no network at all.
+      # This is what makes polling 72 times a day reasonable.
+      - name: Is a slot open?
+        id: due
+        run: |
+          if [ "${{ inputs.now }}" = "true" ]; then
+            echo "forced by hand"
+            echo "go=yes" >> "$GITHUB_OUTPUT"
+          elif python3 publish.py due; then
+            echo "go=yes" >> "$GITHUB_OUTPUT"
+          else
+            echo "go=no" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Pre-flight
+        if: steps.due.outputs.go == 'yes'
         env:
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
         run: python3 publish.py check
 
       - name: Publish next queued post
+        if: steps.due.outputs.go == 'yes'
         env:
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
           NOTIFY_EMAIL: ${{ secrets.NOTIFY_EMAIL }}
           NOTIFY_EMAIL_PASSWORD: ${{ secrets.NOTIFY_EMAIL_PASSWORD }}
-        run: python3 publish.py next
+        run: python3 publish.py next ${{ inputs.now == true && '--now' || '' }}
 
       - name: Collect insights
-        if: always()
+        if: steps.due.outputs.go == 'yes'
         env:
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
         run: python3 publish.py insights || true
 
       # The commit is the persistence layer AND the keepalive: GitHub disables a
       # scheduled workflow after 60 days with no commit on the default branch.
+      # Only the polls that did something reach it, which is enough — two a day.
       - name: Commit state
-        if: always()
+        if: steps.due.outputs.go == 'yes'
         run: |
           tools/commit_state.sh "state: $(date -u +%Y-%m-%dT%H:%MZ)" posts.db

@@ -21,5 +21,19 @@
   "reel_chars_per_second": 15.0,
   "reel_text_fade_seconds": 0.45,
   "reel_type_cps": 30.0,
-  "reel_tagline": "Thirty, unfortunately."
+  "reel_tagline": "Thirty, unfortunately.",
+  "publish_utc_offset_minutes": 330,
+  "publish_windows": [
+    {
+      "name": "morning",
+      "after": "08:30",
+      "before": "10:30"
+    },
+    {
+      "name": "evening",
+      "after": "19:30",
+      "before": "21:30"
+    }
+  ],
+  "_note_windows": "Windows, not instants. GitHub runs scheduled workflows best-effort: on 2026-09-18 the 08:40 publish never fired at all and generate came 4h28m late. The job now polls every 20 minutes and publishes on the first poll inside a window that has not been used today. A fixed offset rather than a timezone name because IST has no DST, so this is exactly correct and needs no tz database."
 }

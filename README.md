@@ -103,6 +103,26 @@ a newer copy — otherwise a publish on the runner and a queue on your laptop
 resolve as a conflict and one side is lost with no warning. Skipped in CI, where
 the checkout is always fresh; `SKIP_DB_GUARD=1` overrides it when offline.
 
+## Windows, not clock times
+
+`publish.yml` polls every 20 minutes and publishes on the first poll inside a
+window that has not been used that day. Windows are in `config.json`
+(08:30–10:30 and 19:30–21:30 IST).
+
+It used to be two crons aimed at 08:40 and 19:40, which does not work. GitHub
+runs scheduled workflows best-effort: they queue under load and are dropped
+outright when it is heavy. On 2026-09-18 the 08:40 run never fired at all and
+`generate` arrived 4h28m late. A minute is not something you can aim at; a
+two-hour window with six attempts inside it is.
+
+`publish.py due` is the gate and is deliberately cheap — config and the local
+database, no network — so 70 of the 72 daily polls stop there, before any API
+call or mailbox read. It costs 0.1s. `publish.py next --now` ignores the
+windows, and so does running the workflow by hand with **now** ticked.
+
+A fixed UTC offset rather than a timezone name, because IST has no daylight
+saving: it is exactly correct and needs no tz database in the runner image.
+
 ## Carousel or reel
 
 Every approved post is rendered both ways. Which one ships is decided on the day

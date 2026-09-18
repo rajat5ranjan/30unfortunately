@@ -7,6 +7,7 @@ publish.py — Instagram carousel publishing via the official Graph API.
     python3 publish.py next --dry-run            show what would publish
     python3 publish.py next                      publish the next queued post
     python3 publish.py insights                  pull metrics for published posts
+    python3 publish.py due                       is a publish slot open right now?
     python3 publish.py ab                        carousel vs reel, so far
     python3 publish.py refresh-token             extend the 60-day token
 
@@ -29,7 +30,7 @@ import time
 import urllib.error
 import urllib.parse
 import urllib.request
-from datetime import datetime, timezone
+from datetime import datetime, time, timedelta, timezone
 from typing import Any, Dict, List, Optional
 
 import envfile
@@ -133,9 +134,84 @@ def url_is_live(url: str) -> bool:
 
 
 # ------------------------------------------------------------------- slide urls
-def _cfg(key: str) -> str:
+def cfg(key: str, default: Any = None) -> Any:
     with open(os.path.join(ROOT, "config.json")) as f:
-        return json.load(f)[key].rstrip("/")
+        return json.load(f).get(key, default)
+
+
+def _cfg(key: str) -> str:
+    return cfg(key).rstrip("/")
+
+
+# ------------------------------------------------------------------- windows
+def local_now() -> datetime:
+    """Now, in the account's own timezone, as a naive datetime.
+
+    A fixed offset rather than a timezone name: IST has no daylight saving, so
+    this is exactly correct and does not need a tz database to be present.
+    """
+    return datetime.now(timezone.utc).replace(tzinfo=None) + timedelta(
+        minutes=int(cfg("publish_utc_offset_minutes", 330)))
+
+
+def _hhmm(s: str) -> time:
+    h, m = s.split(":")
+    return time(int(h), int(m))
+
+
+def current_window(now: Optional[datetime] = None) -> Optional[Dict[str, Any]]:
+    """The publish window we are inside, if any.
+
+    Scheduled workflows on GitHub are best-effort — they queue under load and
+    are dropped outright when it is heavy. Aiming a cron at a minute does not
+    work; on 2026-09-18 the 08:40 slot never ran at all. So the job polls and
+    the window is the thing that is aimed.
+    """
+    now = now or local_now()
+    for w in cfg("publish_windows", []):
+        if _hhmm(w["after"]) <= now.time() < _hhmm(w["before"]):
+            return w
+    return None
+
+
+def window_used(conn, w: Dict[str, Any], now: Optional[datetime] = None) -> bool:
+    """Has something already published in this window today?
+
+    This is what makes polling safe: six attempts inside a two-hour window, and
+    the first one that finds the slot empty fills it.
+    """
+    now = now or local_now()
+    off = timedelta(minutes=int(cfg("publish_utc_offset_minutes", 330)))
+    a, b = _hhmm(w["after"]), _hhmm(w["before"])
+    for row in store.published(conn):
+        if not row["published_at"]:
+            continue
+        try:
+            at = datetime.fromisoformat(row["published_at"]).replace(
+                tzinfo=None) + off
+        except ValueError:
+            continue
+        if at.date() == now.date() and a <= at.time() < b:
+            return True
+    return False
+
+
+def cmd_due(args: argparse.Namespace) -> int:
+    """Exit 0 if a slot is open. Cheap: no API calls, no mailbox."""
+    now = local_now()
+    w = current_window(now)
+    if not w:
+        nxt = sorted(x["after"] for x in cfg("publish_windows", []))
+        print("%s — outside the publish windows (%s)"
+              % (now.strftime("%H:%M"), ", ".join(nxt)))
+        return 1
+    if window_used(store.connect(), w, now):
+        print("%s — the %s window already published today"
+              % (now.strftime("%H:%M"), w["name"]))
+        return 1
+    print("%s — %s window is open (%s-%s)"
+          % (now.strftime("%H:%M"), w["name"], w["after"], w["before"]))
+    return 0
 
 
 def slide_urls(post_id: str, n_slides: int) -> List[str]:
@@ -202,6 +278,19 @@ def cmd_check(args: argparse.Namespace) -> int:
     c = store.counts(conn)
     print("queue      %s" % (", ".join("%s %d" % kv for kv in sorted(c.items())) or "empty"))
 
+    now = local_now()
+    w = current_window(now)
+    if not w:
+        print("window     %s — closed (%s)" % (
+            now.strftime("%H:%M"),
+            ", ".join("%s %s-%s" % (x["name"], x["after"], x["before"])
+                      for x in cfg("publish_windows", []))))
+    else:
+        print("window     %s — %s is %s" % (
+            now.strftime("%H:%M"), w["name"],
+            "already used today" if window_used(conn, w, now) else "OPEN"))
+    print("format     today ships as a %s" % store.format_for(now))
+
     nxt = store.next_queued(conn)
     if nxt:
         urls = slide_urls(nxt["id"], len(json.loads(nxt["slides"])))
@@ -253,6 +342,21 @@ def cmd_queue(args: argparse.Namespace) -> int:
 
 def cmd_next(args: argparse.Namespace) -> int:
     conn = store.connect(write=True)
+
+    # The window gate comes first, before the mailbox and before any API call:
+    # this job now runs 72 times a day and only two of those should do work.
+    if not (args.now or args.dry_run):
+        now = local_now()
+        w = current_window(now)
+        if not w:
+            print("%s — outside the publish windows, nothing to do"
+                  % now.strftime("%H:%M"))
+            return 0
+        if window_used(conn, w, now):
+            print("%s — the %s window already published today"
+                  % (now.strftime("%H:%M"), w["name"]))
+            return 0
+        print("%s — %s window open" % (now.strftime("%H:%M"), w["name"]))
 
     # Read vetoes immediately before publishing. Actions cannot receive a
     # webhook, but this job runs seconds before the post goes out, so polling
@@ -546,8 +650,11 @@ def main() -> None:
     n.add_argument("--dry-run", action="store_true")
     n.add_argument("--format", choices=("carousel", "reel"),
                    help="override the day's format; the A/B assumes you do not")
+    n.add_argument("--now", action="store_true",
+                   help="ignore the publish windows and go")
     n.set_defaults(fn=cmd_next)
 
+    sub.add_parser("due").set_defaults(fn=cmd_due)
     sub.add_parser("ab").set_defaults(fn=cmd_ab)
 
     sub.add_parser("insights").set_defaults(fn=cmd_insights)

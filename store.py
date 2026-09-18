@@ -65,6 +65,14 @@ def now() -> str:
 ROOT = os.path.dirname(os.path.abspath(__file__))
 
 
+def _git_ok(*args) -> bool:
+    try:
+        return subprocess.run(["git"] + list(args), cwd=ROOT,
+                              capture_output=True, timeout=25).returncode == 0
+    except Exception:
+        return False
+
+
 def _git(*args) -> str:
     try:
         r = subprocess.run(["git"] + list(args), cwd=ROOT, capture_output=True,
@@ -90,6 +98,12 @@ def guard_stale() -> None:
     if not os.path.isdir(os.path.join(ROOT, ".git")):
         return
     _git("fetch", "-q", "origin", "main")
+    # Being AHEAD of the remote is the normal case — you have committed and not
+    # pushed yet. Only a remote that holds commits you do not have can cost you
+    # anything, so if origin/main is already an ancestor of HEAD there is
+    # nothing to lose and the blobs are allowed to differ.
+    if _git_ok("merge-base", "--is-ancestor", "origin/main", "HEAD"):
+        return
     here = _git("rev-parse", "HEAD:posts.db")
     there = _git("rev-parse", "origin/main:posts.db")
     if here and there and here != there:
