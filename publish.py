@@ -7,10 +7,15 @@ publish.py — Instagram carousel publishing via the official Graph API.
     python3 publish.py next --dry-run            show what would publish
     python3 publish.py next                      publish the next queued post
     python3 publish.py insights                  pull metrics for published posts
+    python3 publish.py ab                        carousel vs reel, so far
     python3 publish.py refresh-token             extend the 60-day token
 
-Publishing is a three-step dance: a container per slide, a CAROUSEL container
-holding their ids, then media_publish. Meta downloads each image from a public
+A post ships as a carousel or as a reel depending on the day (store.format_for)
+— that is the reach experiment, and `ab` reads it out.
+
+A carousel is a three-step dance: a container per slide, a CAROUSEL container
+holding their ids, then media_publish. A reel is one container and a longer
+wait, because Meta has to transcode the video. Meta downloads each image from a public
 HTTPS URL — there is no byte upload — so the slides must already be live on
 GitHub Pages before this runs. `check` and `next` both verify that first.
 
@@ -24,6 +29,7 @@ import time
 import urllib.error
 import urllib.parse
 import urllib.request
+from datetime import datetime, timezone
 from typing import Any, Dict, List, Optional
 
 import envfile
@@ -127,10 +133,19 @@ def url_is_live(url: str) -> bool:
 
 
 # ------------------------------------------------------------------- slide urls
-def slide_urls(post_id: str, n_slides: int) -> List[str]:
+def _cfg(key: str) -> str:
     with open(os.path.join(ROOT, "config.json")) as f:
-        base = json.load(f)["pages_base_url"].rstrip("/")
+        return json.load(f)[key].rstrip("/")
+
+
+def slide_urls(post_id: str, n_slides: int) -> List[str]:
+    base = _cfg("pages_base_url")
     return ["%s/media/%s/%d.png" % (base, post_id, i + 1) for i in range(n_slides)]
+
+
+def reel_url(post_id: str) -> str:
+    """The rendered reel, on a GitHub Release rather than in the repo."""
+    return "%s/%s.mp4" % (_cfg("reels_base_url"), post_id)
 
 
 def reconcile(conn, token: str, ig_id: str) -> None:
@@ -266,10 +281,13 @@ def cmd_next(args: argparse.Namespace) -> int:
     slides = json.loads(row["slides"])
     urls = slide_urls(row["id"], len(slides))
     caption = row["caption"]
+    fmt = args.format or store.format_for(datetime.now(timezone.utc))
 
-    print("%s — %d slides" % (row["id"], len(slides)))
+    print("%s — %s, %d slides" % (row["id"], fmt, len(slides)))
     for u in urls:
         print("  %s" % u)
+    if fmt == "reel":
+        print("  %s" % reel_url(row["id"]))
     print("caption: %s" % caption)
 
     if args.dry_run:
@@ -281,20 +299,42 @@ def cmd_next(args: argparse.Namespace) -> int:
         store.mark_failed(conn, row["id"], "images not reachable: %s" % missing[0])
         sys.exit("images are not publicly reachable yet — run `check` for detail")
 
+    if fmt == "reel" and not url_is_live(reel_url(row["id"])):
+        # Ship the carousel rather than skip the slot, and record what actually
+        # went out. The split drifts; a missing post would be worse, and an
+        # arm labelled with what it was meant to be would be worse still.
+        print("reel asset is not on the release yet — publishing as a carousel")
+        fmt = "carousel"
+    store.set_format(conn, row["id"], fmt)
+
     try:
+        if fmt == "reel":
+            r = post("%s/media" % ig_id, token, media_type="REELS",
+                     video_url=reel_url(row["id"]), caption=caption,
+                     cover_url=urls[0], share_to_feed="true")
+            print("  reel container %s" % r["id"], end=" ", flush=True)
+            # Meta transcodes the video, which takes far longer than pulling a
+            # handful of PNGs. 180s is not enough for a reel.
+            wait_for_container(r["id"], token, "reel", timeout=420, interval=8)
+            print("FINISHED")
+            parent = r
+        else:
+            parent = None
+
         children = []
-        for u in urls:
+        for u in (urls if parent is None else []):
             r = post("%s/media" % ig_id, token, image_url=u, is_carousel_item="true")
             children.append(r["id"])
             print("  container %s" % r["id"], end=" ", flush=True)
             wait_for_container(r["id"], token, "slide")
             print("FINISHED")
 
-        parent = post("%s/media" % ig_id, token, media_type="CAROUSEL",
-                      children=",".join(children), caption=caption)
-        print("  carousel  %s" % parent["id"], end=" ", flush=True)
-        wait_for_container(parent["id"], token, "carousel")
-        print("FINISHED")
+        if parent is None:
+            parent = post("%s/media" % ig_id, token, media_type="CAROUSEL",
+                          children=",".join(children), caption=caption)
+            print("  carousel  %s" % parent["id"], end=" ", flush=True)
+            wait_for_container(parent["id"], token, "carousel")
+            print("FINISHED")
 
         # The point of no return: past this line a lost reply is ambiguous, so
         # the row is parked as 'publishing' and the next run reconciles it.
@@ -373,6 +413,90 @@ def cmd_insights(args: argparse.Namespace) -> int:
     return 0
 
 
+def _median(xs: List[float]) -> Optional[float]:
+    xs = sorted(x for x in xs if x is not None)
+    if not xs:
+        return None
+    n = len(xs)
+    return xs[n // 2] if n % 2 else (xs[n // 2 - 1] + xs[n // 2]) / 2.0
+
+
+def _bootstrap(a: List[float], b: List[float], rounds: int = 4000):
+    """A confidence interval on median(b)/median(a), by resampling.
+
+    Not a t-test: reach is violently right-skewed and the samples are tiny, so
+    the assumptions behind a p-value are not met. Resampling makes no
+    distributional claim — it just asks how much the ratio moves when you draw
+    these same posts again with replacement.
+    """
+    import random
+    if len(a) < 3 or len(b) < 3:
+        return None
+    rng = random.Random(30)
+    out = []
+    for _ in range(rounds):
+        ma = _median([rng.choice(a) for _ in a])
+        mb = _median([rng.choice(b) for _ in b])
+        if ma:
+            out.append(mb / ma)
+    if not out:
+        return None
+    out.sort()
+    return out[int(0.05 * len(out))], out[int(0.95 * len(out)) - 1]
+
+
+def cmd_ab(args: argparse.Namespace) -> int:
+    """Carousel versus reel, on the metrics both formats actually report."""
+    conn = store.connect()
+    groups = store.by_format(conn)
+    arms = ("carousel", "reel")
+    rows = dict((a, groups.get(a, [])) for a in arms)
+
+    def col(a, key):
+        return [r[key] for r in rows[a] if r[key] is not None]
+
+    def rate(a, key):
+        return [(r[key] or 0) / float(r["reach"]) for r in rows[a]
+                if r["reach"]]
+
+    print("%-18s %10s %10s %10s" % ("", "carousel", "reel", "ratio"))
+    print("%-18s %10d %10d" % ("posts", len(rows["carousel"]), len(rows["reel"])))
+
+    def line(label, a_vals, b_vals, pct=False):
+        ma, mb = _median(a_vals), _median(b_vals)
+        fmt = (lambda v: "-" if v is None else
+               ("%.2f%%" % (v * 100) if pct else "%.0f" % v))
+        ratio = "%.1fx" % (mb / ma) if (ma and mb) else "—"
+        print("%-18s %10s %10s %10s" % (label, fmt(ma), fmt(mb), ratio))
+
+    line("reach (median)", col("carousel", "reach"), col("reel", "reach"))
+    line("shares/reach", rate("carousel", "shares"), rate("reel", "shares"), True)
+    line("saves/reach", rate("carousel", "saved"), rate("reel", "saved"), True)
+    line("likes/reach", rate("carousel", "likes"), rate("reel", "likes"), True)
+
+    ci = _bootstrap(col("carousel", "reach"), col("reel", "reach"))
+    print()
+    if ci:
+        print("reel reach advantage: bootstrap 90%% CI %.1fx - %.1fx" % ci)
+        if ci[0] > 1.0:
+            print("  the interval clears 1.0 — reels are reaching further.")
+        elif ci[1] < 1.0:
+            print("  the interval is below 1.0 — carousels are reaching further.")
+        else:
+            print("  the interval spans 1.0, so this is not yet a difference.")
+    smallest = min(len(rows["carousel"]), len(rows["reel"]))
+    if smallest < 15:
+        print("Only %d in the smaller arm. Medians move a lot at this size; treat"
+              % smallest)
+        print("anything here as a shape, not a result. Read it again at 15 each,")
+        print("and decide at 30.")
+    print("\nShares per reach is the tiebreaker: reach says Instagram showed it")
+    print("to more people, shares says they passed it on. Only the second one")
+    print("compounds. Reel watch time is not here because carousels cannot")
+    print("report it — the comparison only uses metrics both formats produce.")
+    return 0
+
+
 def cmd_refresh_token(args: argparse.Namespace) -> int:
     """Long-lived tokens last 60 days and can only be refreshed while still alive."""
     token = need("IG_ACCESS_TOKEN")
@@ -420,7 +544,11 @@ def main() -> None:
 
     n = sub.add_parser("next")
     n.add_argument("--dry-run", action="store_true")
+    n.add_argument("--format", choices=("carousel", "reel"),
+                   help="override the day's format; the A/B assumes you do not")
     n.set_defaults(fn=cmd_next)
+
+    sub.add_parser("ab").set_defaults(fn=cmd_ab)
 
     sub.add_parser("insights").set_defaults(fn=cmd_insights)
     sub.add_parser("list").set_defaults(fn=cmd_queue_list)

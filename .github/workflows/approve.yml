@@ -26,17 +26,21 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - run: pip install -q google-genai PyYAML Pillow
+      - run: pip install -q google-genai PyYAML Pillow av
 
       # No preflight here: the slides are not on Pages until the commit below
       # lands and Pages rebuilds. publish.py checks liveness at publish time.
       - name: Approve, render and queue
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
           python3 brain.py --approve "${{ inputs.pick }}"
           ID=$(ls -t content/approved/*.json | head -1 | xargs basename | sed 's/.json//')
           echo "approved $ID" >> "$GITHUB_STEP_SUMMARY"
           python3 render.py --from "content/approved/$ID.json"
+          python3 reel.py --from "content/approved/$ID.json"
+          python3 tools/release_upload.py "build/reels/$ID.mp4"
           python3 publish.py queue --src "content/approved/$ID.json"
 
       # The queue and the rendered slides both live in the repo, so this commit

@@ -11,3 +11,7 @@ out/
 # they have to travel through git — the same reason posts.db does.
 # posts.db is deliberately committed: runners are ephemeral and the
 # commit doubles as the Actions cron keepalive.
+
+# Reels are uploaded to GitHub Releases, not committed — a binary that big
+# would sit in git history forever for no benefit.
+build/

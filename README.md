@@ -35,7 +35,8 @@ renderer and add a swipe-completion signal. Reels are the Phase 7 A/B.
 brand.yaml              the content contract — identity, voice, gates. The product.
 brain.py                trends → prompt → LLM → gates → candidates
 render.py               posts → 1080×1350 PNGs + contact sheet
-publish.py              queue → carousel containers → publish → insights
+reel.py                 the same posts → 1080×1920 H.264, animated
+publish.py              queue → containers → publish → insights
 store.py                SQLite: the queue and the metrics history
 config.json             model, thresholds, font, Pages base URL
 posts.db                committed on purpose — see .gitignore
@@ -46,7 +47,9 @@ content/
 docs/                   GitHub Pages root — index.html is the approval sheet,
                         media/<id>/N.png is what Meta pulls at publish time
 assets/brand/           battery mark, end-mark, profile picture
+build/reels/            rendered MP4s, gitignored — they live on a Release
 tools/commit_state.sh   commit + push the state, surviving a racing push
+tools/release_upload.py puts a reel on a GitHub Release and returns its URL
 fonts/                  Bricolage Grotesque (OFL)
 tools/                  make_mark_svg.py, make_pfp.py — regenerate brand assets
                         from the card font, so they cannot drift from the cards
@@ -99,6 +102,44 @@ Locally, commands that write `posts.db` fetch first and refuse if the remote has
 a newer copy — otherwise a publish on the runner and a queue on your laptop
 resolve as a conflict and one side is lost with no warning. Skipped in CI, where
 the checkout is always fresh; `SKIP_DB_GUARD=1` overrides it when offline.
+
+## Carousel or reel
+
+Every approved post is rendered both ways. Which one ships is decided on the day
+it publishes, not per post — `store.format_for()` alternates by date.
+
+That detail is the experiment. With two slots a day, alternating per *post*
+would pin carousels to the morning slot and reels to the evening one forever,
+and no amount of data could then separate format from time of day. Alternating
+by day gives each format both slots.
+
+`publish.py ab` reads it out: medians rather than means, because reach is
+violently right-skewed and one post catching Explore would move a mean and tell
+you nothing; only metrics both formats report, so reel watch time is context
+rather than evidence; and a bootstrap interval rather than a p-value, because at
+this sample size a t-test's assumptions are not met. Shares per reach is the
+tiebreaker — reach says Instagram showed it to more people, shares says they
+passed it on, and only the second one compounds.
+
+### The reel
+
+`reel.py`, 1080×1920, ~22s. Five seconds of brand — the mark scales up, charges
+to 100%, drains to 30%, and the number it lands on is the logo — then it shrinks
+into the corner and becomes the watermark. Content types itself out with a caret
+at 30 characters a second. The oversized ghost mark behind the text is the
+progress bar: it starts at 30%, which is what the intro left you, and empties as
+the reel runs out.
+
+Everything visual is Pillow, drawn parametrically like the cards. Pillow cannot
+write H.264, so PyAV does the encode — a pip wheel with libav inside it, no
+system ffmpeg and nothing to install on a runner beyond `pip install av`.
+The audio track is silence: a video with no audio stream at all has historically
+been rejected, and reels published through the API cannot attach Instagram's
+trending audio anyway.
+
+Reels are hosted on a GitHub Release rather than committed. A slide is 200KB and
+a reel is half a megabyte, and anything committed stays in git history forever —
+on a project whose entire state-passing mechanism is cloning the repo.
 
 ## Secrets
 

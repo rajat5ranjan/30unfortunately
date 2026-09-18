@@ -62,12 +62,15 @@ def _three_font(h: float) -> Tuple[ImageFont.FreeTypeFont, Tuple[int, int, int, 
 
 
 def draw_mark(d: ImageDraw.ImageDraw, x: float, y: float, h: float,
-              stroke: Any, accent: Any) -> float:
+              stroke: Any, accent: Any, charge: float = 0.30) -> float:
     """Battery-at-30%: a real '3' from the typeface, then a battery as the zero.
 
     (x, y) is the mark's top-left; h its cap height. Returns total width.
     The '3' is set in the card's own typeface rather than drawn from arcs, so it
     is a properly designed numeral and stays consistent with the headline.
+
+    `charge` is the fill level, 0..1. It is 0.30 everywhere the logo appears —
+    that is the joke — and only reel.py moves it, to drain the mark on screen.
     """
     f, bb = _three_font(h)
     d.text((x - bb[0], y - bb[1]), "3", font=f, fill=stroke)
@@ -91,9 +94,10 @@ def draw_mark(d: ImageDraw.ImageDraw, x: float, y: float, h: float,
     # 30% charge
     pad = sw * 1.55
     iy1, iy0 = body_b - pad, body_t + pad
-    ch = (iy1 - iy0) * 0.30
-    d.rounded_rectangle([bx + pad, iy1 - ch, bx + bw - pad, iy1],
-                        radius=sw * 0.5, fill=accent)
+    ch = (iy1 - iy0) * max(0.0, min(1.0, charge))
+    if ch > 0.5:
+        d.rounded_rectangle([bx + pad, iy1 - ch, bx + bw - pad, iy1],
+                            radius=sw * 0.5, fill=accent)
     return w3 + gap + bw
 
 

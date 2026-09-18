@@ -42,7 +42,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - run: pip install -q google-genai PyYAML Pillow
+      - run: pip install -q google-genai PyYAML Pillow av
 
       - name: Pull trends
         run: python3 trend_agent.py
@@ -55,13 +55,21 @@ jobs:
           BACKLOG="--min-backlog ${{ inputs.force && '0' || '4' }}"
           python3 brain.py $BACKLOG --auto 6 | tee /tmp/gen.log
 
+      # Every approved post is rendered BOTH ways. Which one ships is decided on
+      # the day it publishes (store.format_for), and publish.py is stdlib-only
+      # so it cannot render anything itself — both assets have to exist first.
       - name: Render and queue whatever was approved
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
           NEW=$(git ls-files --others --exclude-standard content/approved || true)
           if [ -z "$NEW" ]; then echo "nothing new approved"; exit 0; fi
           for f in $NEW; do
+            ID=$(basename "$f" .json)
             python3 render.py --from "$f"
+            python3 reel.py --from "$f"
+            python3 tools/release_upload.py "build/reels/$ID.mp4"
             python3 publish.py queue --src "$f"
           done
           python3 brain.py --summary >> "$GITHUB_STEP_SUMMARY"

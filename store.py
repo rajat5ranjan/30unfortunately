@@ -49,6 +49,14 @@ CREATE TABLE IF NOT EXISTS metrics (
 CREATE INDEX IF NOT EXISTS idx_posts_status ON posts(status);
 """
 
+# CREATE TABLE IF NOT EXISTS cannot add a column to a table that already exists,
+# and posts.db is live with published rows in it. Anything added after the first
+# release goes here instead.
+MIGRATIONS = [
+    ("format", "ALTER TABLE posts ADD COLUMN format TEXT",
+     "UPDATE posts SET format='carousel' WHERE format IS NULL"),
+]
+
 
 def now() -> str:
     return datetime.now(timezone.utc).isoformat(timespec="seconds")
@@ -99,7 +107,29 @@ def connect(write: bool = False) -> sqlite3.Connection:
     conn = sqlite3.connect(DB)
     conn.row_factory = sqlite3.Row
     conn.executescript(SCHEMA)
+    have = set(r["name"] for r in conn.execute("PRAGMA table_info(posts)"))
+    for col, add, backfill in MIGRATIONS:
+        if col not in have:
+            conn.execute(add)
+            conn.execute(backfill)   # every row that predates the column was a
+            conn.commit()            # carousel, which is the A/B control arm
     return conn
+
+
+def format_for(day: "datetime") -> str:
+    """Which format publishes on a given day.
+
+    By DAY, not by post. With two slots a day, alternating per post would pin
+    carousels to the morning and reels to the evening forever, and the
+    experiment could never separate format from time of day. Alternating by day
+    gives each format both slots.
+    """
+    return "reel" if day.toordinal() % 2 else "carousel"
+
+
+def set_format(conn: sqlite3.Connection, post_id: str, fmt: str) -> None:
+    conn.execute("UPDATE posts SET format=? WHERE id=?", (fmt, post_id))
+    conn.commit()
 
 
 def enqueue(conn: sqlite3.Connection, post: Dict[str, Any]) -> bool:
@@ -176,6 +206,23 @@ def skip(conn: sqlite3.Connection, post_id: str) -> bool:
 def queued(conn: sqlite3.Connection) -> List[sqlite3.Row]:
     return conn.execute(
         "SELECT * FROM posts WHERE status='queued' ORDER BY queued_at, id").fetchall()
+
+
+def by_format(conn: sqlite3.Connection) -> Dict[str, List[sqlite3.Row]]:
+    """Published posts grouped by format, each with its latest metrics row."""
+    rows = conn.execute("""
+        SELECT p.*, m.reach, m.likes, m.saved, m.shares, m.total_interactions
+        FROM posts p
+        LEFT JOIN (SELECT ig_media_id, MAX(captured_at) AS t FROM metrics
+                   GROUP BY ig_media_id) last ON last.ig_media_id = p.ig_media_id
+        LEFT JOIN metrics m ON m.ig_media_id = p.ig_media_id
+                           AND m.captured_at = last.t
+        WHERE p.status = 'published'
+        ORDER BY p.published_at""").fetchall()
+    out = {}  # type: Dict[str, List[sqlite3.Row]]
+    for r in rows:
+        out.setdefault(r["format"] or "carousel", []).append(r)
+    return out
 
 
 def published(conn: sqlite3.Connection) -> List[sqlite3.Row]:
