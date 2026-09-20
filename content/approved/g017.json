@@ -1,0 +1,27 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "UPI MDR For Capital Markets: Why A Tiny Fee Could Test India’s Zero-brokerage Model",
+      "context": "The middle-class Indian's financial discipline is systematically drained by corporate micro-charges.",
+      "angle": "No matter how carefully you calculate your savings, the infrastructure of the transaction is designed to eat the margin.",
+      "slides": [
+        "Hisab lagao.",
+        "Invest ₹1000 — convenience fee.\n\nSell ₹1000 — brokerage fee.\n\nCheck balance — SMS charge.\n\nMove money — UPI MDR.",
+        "Your money is still in transit.\n\nSab chalta hai."
+      ],
+      "caption": "The math always favors the house. 🏦",
+      "trigger": "money",
+      "structure": "escalating_list",
+      "target": "bank",
+      "satire_level": 4,
+      "hinglish": true,
+      "source": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNWFBqcFZrNzRkZ3k1TkFYVTkxZ25qdVlhRXQ0SmoyaFJnVlRabkpsT0NWMXFJSEVxOXR3QTRxU3M2YW5ITWwwMVVNeHBDNW9SVWxXbnhLQ3I2a0FrV0hadThQMWl0OGRja1F2dTdGc1BjallObENya05FR0tPUmZ0M0kybEpOa0kzRkMtTDMzV080RXZrMmJNRWxwVkk0cWpBMFdVVjBmaVZJMWpSTU5vZnl1SDVGMzM2Wm1DWE9B0gHLAUFVX3lxTFBzMjB5VF94bDZfWTBVakFsUnZ2LW5YTmJnXzRtMklEQlAyWkNMYm1MVm5DSGs2OXZDVGlGckg3eHlGYlhFbUZFRFVoNWNRVDRiR0ZnTFF0Z0xJWnZyUGRTTlJBU01tTXYybFF2bmFrYkdHS2w5cFpJV1hNbWVCdHVEakk0ZVphWEFTa0swYlVNVllOSlVoV0JPbHJRemh2eVhsY1BieDhiV1dkYVlOSzNzRXdnWHd5TGwxVTFyWDFCOXJTdkkycm9fY1Yw?oc=5",
+      "created_at": "2026-09-20",
+      "status": "approved",
+      "id": "g017",
+      "rank_score": 22,
+      "rank_verdict": "Using localized jargon like UPI MDR and ending on a colloquial phrase makes the post collapse outside India."
+    }
+  ]
+}
