@@ -143,6 +143,62 @@ class Formats(unittest.TestCase):
         self.assertEqual(len(publish.slide_urls("g005", 3)), 3)
 
 
+class Reconcile(unittest.TestCase):
+    """The only place in the system that can double-post.
+
+    A row parked as 'publishing' means media_publish was sent and the reply was
+    lost. reconcile() decides from the live feed whether it landed. Getting
+    "absent" wrong publishes it twice.
+    """
+
+    class Conn(object):
+        """Enough of a connection for reconcile: it only reaches the DB through
+        the store functions, which are stubbed."""
+
+    def run_with(self, feed_data, media_count, stuck=("g001",)):
+        rows = [{"id": i, "caption": "cap-%s" % i} for i in stuck]
+        calls = {"published": [], "requeued": []}
+        real = (store.in_flight, store.mark_published, store.requeue, publish.get)
+        store.in_flight = lambda conn: rows
+        store.mark_published = lambda c, i, m, p: calls["published"].append(i)
+        store.requeue = lambda c, i: calls["requeued"].append(i)
+
+        def fake_get(path, token, **kw):
+            if "media_count" in kw.get("fields", ""):
+                return {"media_count": media_count}
+            return {"data": feed_data}
+
+        publish.get = fake_get
+        try:
+            publish.reconcile(self.Conn(), "tok", "me")
+        finally:
+            (store.in_flight, store.mark_published,
+             store.requeue, publish.get) = real
+        return calls
+
+    def test_a_post_found_on_the_feed_is_recorded(self):
+        c = self.run_with([{"id": "17", "caption": "cap-g001",
+                            "permalink": "http://x"}], 9)
+        self.assertEqual(c["published"], ["g001"])
+        self.assertEqual(c["requeued"], [])
+
+    def test_a_post_genuinely_absent_goes_back_in_the_queue(self):
+        c = self.run_with([{"id": "17", "caption": "something else"}], 9)
+        self.assertEqual(c["requeued"], ["g001"])
+        self.assertEqual(c["published"], [])
+
+    def test_an_empty_feed_from_a_non_empty_account_refuses_to_guess(self):
+        # The failure this guards: the API answers with an empty page, every
+        # parked row looks absent, and a post that is already live is requeued
+        # and published a second time.
+        with self.assertRaises(publish.GraphError):
+            self.run_with([], 9)
+
+    def test_an_empty_feed_from_an_empty_account_is_believed(self):
+        c = self.run_with([], 0)
+        self.assertEqual(c["requeued"], ["g001"])
+
+
 class IssueCommands(unittest.TestCase):
     """The issue title is the only input to this system that arrives as free
     text from outside a script, and command.yml interpolates the argument into

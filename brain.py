@@ -72,10 +72,14 @@ def _flat(post: Dict[str, Any]) -> str:
 
 def gate_hard_bans(post: Dict[str, Any], brand: Dict[str, Any]) -> List[str]:
     fails = []
-    body = _flat(post).lower()
+    # Phrases are banned from the whole post, caption included — "adulting" in
+    # the caption is the same tell as "adulting" on a card, and _flat() reads
+    # only the slides, so the caption used to walk straight past this.
+    body = (_flat(post) + " " + (post.get("caption") or "")).lower()
     for phrase in brand["hard_bans"]["phrases"]:
         if phrase.lower() in body:
             fails.append("banned phrase: '%s'" % phrase)
+    # Emoji, unlike phrases, ARE allowed in the caption and only there.
     if EMOJI.search(_flat(post)):
         fails.append("emoji in card art (captions only)")
     return fails

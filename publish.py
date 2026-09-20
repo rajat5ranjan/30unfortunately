@@ -308,7 +308,21 @@ def reconcile(conn, token: str, ig_id: str) -> None:
     if not stuck:
         return
     recent = get("%s/media" % ig_id, token, fields="id,caption,permalink", limit=25)
-    feed = dict(((m.get("caption") or "").strip(), m) for m in recent.get("data", []))
+    data = recent.get("data") or []
+
+    # The docstring has always promised three outcomes and the code only had
+    # two. An empty page is the missing one: the account has posts, so an empty
+    # reply is the API failing to answer, not the feed being empty — and
+    # treating it as "never published" requeues a post that is already live.
+    if not data:
+        me = get(ig_id, token, fields="media_count")
+        if int(me.get("media_count") or 0) > 0:
+            raise GraphError(
+                "the feed came back empty for an account with %s posts, so "
+                "whether %s published cannot be determined. Leaving it parked."
+                % (me.get("media_count"), ", ".join(r["id"] for r in stuck)))
+
+    feed = dict(((m.get("caption") or "").strip(), m) for m in data)
     for row in stuck:
         hit = feed.get((row["caption"] or "").strip())
         if hit:
@@ -341,6 +355,22 @@ def cmd_check(args: argparse.Namespace) -> int:
         print("rate limit %s/%s posts used in the last 24h" % (d.get("quota_usage", 0), quota))
     except GraphError as e:
         print("rate limit unavailable — %s" % e)
+
+    # The single highest-consequence silent failure left in the system: the
+    # token lasts 60 days and can only be refreshed while alive. If
+    # refresh-token.yml is dropped often enough, everything stops at once and
+    # the fix itself stops working. Cheap to ask, so ask on every check.
+    try:
+        days = token_days_left(token)
+        print("token      %d days left%s"
+              % (days, "  <-- REFRESH IT" if days < 14 else ""))
+        if days < 14:
+            ok = False
+            _alert("The Instagram token expires in %d days. It can only be "
+                   "refreshed while it is still alive:\n"
+                   "  Actions -> refresh-token -> Run workflow" % days)
+    except GraphError as e:
+        print("token      expiry unknown — %s" % e)
 
     conn = store.connect()
     c = store.counts(conn)
@@ -599,6 +629,11 @@ def cmd_insights(args: argparse.Namespace) -> int:
         print("nothing published yet")
         return 0
 
+    # Newest first, and only the window where numbers still move. This runs on
+    # every publish; without a bound it is one API call per post ever made,
+    # three times a day, growing forever — 200 sequential calls on a job that
+    # is meant to take a minute.
+    rows = rows[:int(args.limit)]
     for row in rows:
         mid = row["ig_media_id"]
         try:
@@ -706,6 +741,18 @@ def cmd_ab(args: argparse.Namespace) -> int:
     return 0
 
 
+def token_days_left(token: str) -> int:
+    """Days until the long-lived token expires.
+
+    refresh_access_token both refreshes and reports; calling it is idempotent
+    and the returned token is only kept when we mean to rotate. Reading the
+    expiry is the useful half.
+    """
+    res = _request("GET", "%s/refresh_access_token" % GRAPH,
+                   {"grant_type": "ig_refresh_token", "access_token": token})
+    return int(res.get("expires_in", 0)) // 86400
+
+
 def cmd_refresh_token(args: argparse.Namespace) -> int:
     """Long-lived tokens last 60 days and can only be refreshed while still alive."""
     token = need("IG_ACCESS_TOKEN")
@@ -763,7 +810,10 @@ def main() -> None:
     sub.add_parser("due").set_defaults(fn=cmd_due)
     sub.add_parser("ab").set_defaults(fn=cmd_ab)
 
-    sub.add_parser("insights").set_defaults(fn=cmd_insights)
+    ins = sub.add_parser("insights")
+    ins.add_argument("--limit", type=int, default=25,
+                     help="how many of the most recent posts to refresh")
+    ins.set_defaults(fn=cmd_insights)
     sub.add_parser("list").set_defaults(fn=cmd_queue_list)
 
     sk = sub.add_parser("skip")

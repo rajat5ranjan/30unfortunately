@@ -27,6 +27,9 @@ jobs:
         run: |
           set -euo pipefail
           NEW=$(python3 publish.py refresh-token --quiet)
+          # GitHub only redacts secrets it already knows, and this one is new.
+          # The repo is public, so an unmasked token in a log is a disclosure.
+          echo "::add-mask::$NEW"
           if [ -z "${GH_TOKEN:-}" ]; then
             echo "::error::Token refreshed but GH_PAT is not set, so the secret could not"
             echo "::error::be rotated. Run 'python3 publish.py refresh-token --write' locally"

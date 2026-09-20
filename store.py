@@ -55,6 +55,11 @@ CREATE INDEX IF NOT EXISTS idx_posts_status ON posts(status);
 MIGRATIONS = [
     ("format", "ALTER TABLE posts ADD COLUMN format TEXT",
      "UPDATE posts SET format='carousel' WHERE format IS NULL"),
+    # Who the joke was aimed at. It lived only in content/approved, so the one
+    # number the contract now steers by — the share aimed at the reader — could
+    # not be read back against what any of it actually reached.
+    ("target", "ALTER TABLE posts ADD COLUMN target TEXT",
+     "UPDATE posts SET target='self' WHERE target IS NULL"),
 ]
 
 
@@ -152,10 +157,12 @@ def enqueue(conn: sqlite3.Connection, post: Dict[str, Any]) -> bool:
     if cur.fetchone():
         return False
     conn.execute(
-        "INSERT INTO posts (id, slides, caption, trigger, structure, satire_level,"
-        " hinglish, source, status, queued_at) VALUES (?,?,?,?,?,?,?,?,'queued',?)",
+        "INSERT INTO posts (id, slides, caption, trigger, target, structure,"
+        " satire_level, hinglish, source, status, queued_at)"
+        " VALUES (?,?,?,?,?,?,?,?,?,'queued',?)",
         (post["id"], json.dumps(post["slides"], ensure_ascii=False), post["caption"],
-         post.get("trigger"), post.get("structure"), post.get("satire_level"),
+         post.get("trigger"), post.get("target") or "self", post.get("structure"),
+         post.get("satire_level"),
          int(bool(post.get("hinglish"))), post.get("source"), now()))
     conn.commit()
     return True

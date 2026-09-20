@@ -73,6 +73,13 @@ jobs:
       - if: steps.backlog.outputs.go == 'yes'
         run: pip install -q google-genai PyYAML Pillow av
 
+      # Cheap, no API: every approved post must still survive its own gates.
+      # Tightening a gate without noticing it now rejects the back catalogue is
+      # exactly how the queue stops refilling.
+      - name: Contract self-test
+        if: steps.backlog.outputs.go == 'yes'
+        run: python3 brain.py --check || echo "::warning::approved posts no longer pass their own gates"
+
       - name: Pull trends
         if: steps.backlog.outputs.go == 'yes'
         run: python3 trend_agent.py
@@ -115,22 +122,15 @@ jobs:
           python3 brain.py --html
           echo "queued=yes" >> "$GITHUB_OUTPUT"
 
-      # Runs whenever the job did work, not only when it approved something.
-      # The candidates file records what was generated and why each post was
-      # rejected, and committing it only on success threw away the evidence for
-      # exactly the runs that needed explaining. commit_state.sh no-ops on an
-      # empty diff, so this is free when there is nothing to say.
-      - name: Commit
-        if: steps.backlog.outputs.go == 'yes'
-        run: |
-          tools/commit_state.sh \
-            "${{ steps.rq.outputs.queued == 'yes' && 'queue' || 'candidates' }}: $(date -u +%Y-%m-%d)" \
-            content docs posts.db
-
       # A run that approves nothing is indistinguishable from a healthy no-op:
       # brain.py exits 0, the commit finds nothing, the job is green. That is
       # how this workflow ran nine times between 18 and 20 Sep while the queue
       # drained to zero and nobody was told.
+      #
+      # Throttled to one mail a day. Six crons against a dry queue would send
+      # six, and an alert you have learned to delete is worse than no alert —
+      # this is the same inbox the veto arrives in. Before the commit, so the
+      # marker it writes is persisted.
       - name: Say so if the queue is running dry
         if: steps.backlog.outputs.go == 'yes' && steps.rq.outputs.queued != 'yes'
         env:
@@ -145,12 +145,31 @@ jobs:
             echo "$Q queued, still enough for a day — not mailing about it"
             exit 0
           fi
+          MARK=content/last_dry_alert.txt
+          NOW=$(date -u +%s)
+          if [ $((NOW - $(cat "$MARK" 2>/dev/null || echo 0))) -lt 72000 ]; then
+            echo "already mailed about a dry queue in the last 20h"
+            exit 0
+          fi
           python3 notify.py send \
             "30unfortunately — the queue is running dry ($Q left)" \
             "$(printf '%s\n\n%s\n%s\n' \
               "generate ran and approved nothing. $Q posts are left, which is under a day." \
               "Why, per the run log:" \
               "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}")"
+          echo "$NOW" > "$MARK"
+
+      # Runs whenever the job did work, not only when it approved something.
+      # The candidates file records what was generated and why each post was
+      # rejected, and committing it only on success threw away the evidence for
+      # exactly the runs that needed explaining. commit_state.sh no-ops on an
+      # empty diff, so this is free when there is nothing to say.
+      - name: Commit
+        if: steps.backlog.outputs.go == 'yes'
+        run: |
+          tools/commit_state.sh \
+            "${{ steps.rq.outputs.queued == 'yes' && 'queue' || 'candidates' }}: $(date -u +%Y-%m-%d)" \
+            content docs posts.db
 
       # The veto window: you are notified, you do nothing, it ships. Reply
       # "skip <id>" to that email and publish.py drops it seconds before posting.
