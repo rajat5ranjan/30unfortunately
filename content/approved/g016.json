@@ -1,0 +1,27 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "UPI MDR For Capital Markets: Why A Tiny Fee Could Test India’s Zero-brokerage Model",
+      "context": "The illusion of active capital market investment hides the reality of being a rent-extracted consumer.",
+      "angle": "You are not an active market participant; you are a captive source of micro-transaction fees for platforms that never lose money.",
+      "slides": [
+        "Try finding the 'free' button on your investment app today.",
+        "Your portfolio: down 4%.\n\nThe platform fee: up 18%.\n\nThe GST on your transaction: mandatory.\n\nYour broker's profit: guaranteed.",
+        "You are just a database row.\n\nThe platform is the only winner."
+      ],
+      "caption": "But congratulations on your diversification strategy. 📈",
+      "trigger": "money",
+      "structure": "juxtaposition",
+      "target": "platform",
+      "satire_level": 3,
+      "hinglish": false,
+      "source": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNWFBqcFZrNzRkZ3k1TkFYVTkxZ25qdVlhRXQ0SmoyaFJnVlRabkpsT0NWMXFJSEVxOXR3QTRxU3M2YW5ITWwwMVVNeHBDNW9SVWxXbnhLQ3I2a0FrV0hadThQMWl0OGRja1F2dTdGc1BjallObENya05FR0tPUmZ0M0kybEpOa0kzRkMtTDMzV080RXZrMmJNRWxwVkk0cWpBMFdVVjBmaVZJMWpSTU5vZnl1SDVGMzM2Wm1DWE9B0gHLAUFVX3lxTFBzMjB5VF94bDZfWTBVakFsUnZ2LW5YTmJnXzRtMklEQlAyWkNMYm1MVm5DSGs2OXZDVGlGckg3eHlGYlhFbUZFRFVoNWNRVDRiR0ZnTFF0Z0xJWnZyUGRTTlJBU01tTXYybFF2bmFrYkdHS2w5cFpJV1hNbWVCdHVEakk0ZVphWEFTa0swYlVNVllOSlVoV0JPbHJRemh2eVhsY1BieDhiV1dkYVlOSzNzRXdnWHd5TGwxVTFyWDFCOXJTdkkycm9fY1Yw?oc=5",
+      "created_at": "2026-09-20",
+      "status": "approved",
+      "id": "g016",
+      "rank_score": 30,
+      "rank_verdict": "The landing states the obvious moral of the post rather than letting the deadpan speak for itself."
+    }
+  ]
+}
