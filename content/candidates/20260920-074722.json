@@ -1,0 +1,237 @@
+{
+  "generated_at": "20260920-074722",
+  "model": "gemini-3.5-flash",
+  "accepted": [
+    {
+      "trend": "250+ job applications, zero callbacks: IIM Kozhikode MBA grad asks if anyone is hiring",
+      "context": "Recruiting processes have become fully mechanical, stripping any value from the qualifications applicants were told to acquire.",
+      "angle": "Corporate job descriptions demand premium academic debt in exchange for micro-salaries.",
+      "slides": [
+        "Read the actual JD for the job that rejected you.",
+        "Must have: MBA from tier-1 college.\nMust have: 3 years of Excel macros experience.\nMust have: Ability to handle \"fast-paced environments\".\nSalary: ₹45,000 per month.",
+        "Settle ho ja.\n\nThe recruiter is 23 and uses ChatGPT to decline you."
+      ],
+      "caption": "Tier-1 degrees for entry-level data entry. 📄",
+      "trigger": "corporate",
+      "structure": "job_description",
+      "target": "HR",
+      "satire_level": 4,
+      "hinglish": true,
+      "source": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxQT1BVVTU0Y3VNdklHY08yM256aXB6aU9RZENkUk5MVHRNbDZyNmFhQmFpOFUza0JqM3hrVG1NUHNESFpDZ0o4b1R3OXU0WjVFVUNieGxtLTJ5TFljOUgyNC02eEpZUEtKc1RSeGVVRkJTU1JTdDNXQk5sU3ZDV0FDa1VTS2tqb2VDVjFuaS0tQ3FaRktmcmFJekh1VEx0Y2ZrLWZVZVJpcVBoVlFyVy15NlJEMG16UklzT2Q3MERiWFVUcjVFQV96bUxJZWxwU2pkNW0zNl9Za1RWT1hmT3Q2ay1BZzRHdlQ50gHuAUFVX3lxTE5QVl84dnIxaVpCcjFWekRYOGhKdkJDM2hodFFUbEJtenp3ZVl2UnQwZUxqZVhOYTdSWF9xZHZ6T19qUWhOQjJGTTROWlhfSEZUR0hmM0xrS3pZN3lOV0RTSTFkOE9sTzNHSWRPc0JndWJfVVBMNnZtT3ZzR0ozUDhJOEh2aHgweVZLVzJQQ3JKUmtCNm5YMVA4UjAxcHVMRmtBa2lpN0lwdzJhaFdfUlRZSjRFQTJ1VExNTFBPT1A2aU9jQno0ajY2ZlU1V0JabExOeW5GZjJ0dEVZUll6cFdPZU9jcHNVYllwU3puU3c?oc=5",
+      "created_at": "2026-09-20",
+      "status": "draft",
+      "_score": 45,
+      "_judge": "The random insertion of 'Settle ho ja' on the final slide disrupts the rhythm and feels disconnected from the joke about the recruiter.",
+      "_detail": {
+        "share_trigger": 5,
+        "surprise": 4,
+        "specificity": 4,
+        "voice": 3,
+        "travels": 4
+      },
+      "_penalty": 0
+    },
+    {
+      "trend": "Rise of HYROX in India: Why Women And Fitness Buffs Are Swapping Gym For Hybrid Runs",
+      "context": "The transition of physical stamina from a youthful resource to a high-cost commodity purchased at the gym.",
+      "angle": "Stamina used to be a natural state; now it is an invoice you pay off in monthly instalments.",
+      "slides": [
+        "There is a word the fitness industry uses to sell you your own exhaustion.",
+        "\"Endurance.\"\n\nAt 22, it meant staying at the pub until 3 AM.\nAt 26, it meant sitting through a 4-hour review meeting.\nAt 30, it means paying a trainer to watch you lift a heavy sandbag.",
+        "Your body is an invoice for your twenties.\n\nYou are paying it off in monthly instalments."
+      ],
+      "caption": "Paying to lift sandbags because sitting in an ergonomic chair ruined your lower back. 💼",
+      "trigger": "health",
+      "structure": "definition_drift",
+      "target": "wellness industry",
+      "satire_level": 5,
+      "hinglish": false,
+      "source": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOYWJsb0ItTUtORXFnN3BfY050MGZNb0o4M3Z4Q3cxMkJuQzdya2k0aHJ4ckx6MnBLV3VrZGdYUS14NWR0YS10alUtbEJtQjhFblExU1JJWlVCUHV0Y0hFZHV3MUpoMmpORzdoU1RBUjV3MzZsWUI4ajNJVWJMUk05MkpmcXg0MDBkci1QUHVoSDdBYzY5S2JyZ0NYOUNuSG81bERjWl8xanVodDJfVU02RUZkU2RpU195RGtveXBmVDVZa0ZUZ3MtUFFhbjBmYW9wa0ZNXzl30gHWAUFVX3lxTE5hYmxvQi1NS05FcWc3cF9jTnQwZk1vSjgzdnhDdzEyQm5DN3JraTRocnhyTHoycEtXdWtkZ1hRLXg1ZHRhLXRqVS1sQm1COEVuUTFTUklaVUJQdXRjSEVkdXcxSmgyak5HN2hTVEFSNXczNmxZQjhqM0lVYkxSTTkySmZxeDQwMGRyLVBQdWhIN0FjNjlLYnJnQ1g5Q25IbzVsRGNaXzFqdWh0Ml9VTTZFRmRTZGlTX3lEk9veXBmVDVZa0ZUZ3MtUFFhbjBmYW9wa0ZNXzl3?oc=5",
+      "created_at": "2026-09-20",
+      "status": "draft",
+      "_score": 39,
+      "_judge": "Slide 1 explains too much of the premise upfront instead of opening an irresistible, urgent loop.",
+      "_detail": {
+        "share_trigger": 4,
+        "surprise": 4,
+        "specificity": 4,
+        "voice": 4,
+        "travels": 5
+      },
+      "_penalty": 7
+    },
+    {
+      "trend": "250+ job applications, zero callbacks: IIM Kozhikode MBA grad asks if anyone is hiring",
+      "context": "The prestige degree was sold as a golden ticket, but the job market gatekeepers changed the locks while you were in class.",
+      "angle": "The elite MBA has been demoted to a high-interest entry ticket for automated rejection algorithms.",
+      "slides": [
+        "Place your 2024 educational loan next to your inbox.",
+        "IIM MBA on your resume.\n250 job applications sent.\nTwo rounds of automated screening.\nZero humans spoken to.",
+        "The placement brochure is still on the website.\n\nThe interest rate is 9.5%."
+      ],
+      "caption": "The brochure promised leadership. The automated mailer promised nothing. 🎓",
+      "trigger": "corporate",
+      "structure": "juxtaposition",
+      "target": "employer",
+      "satire_level": 4,
+      "hinglish": false,
+      "source": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxQT1BVVTU0Y3VNdklHY08yM256aXB6aU9RZENkUk5MVHRNbDZyNmFhQmFpOFUza0JqM3hrVG1NUHNESFpDZ0o4b1R3OXU0WjVFVUNieGxtLTJ5TFljOUgyNC02eEpZUEtKc1RSeGVVRkJTU1JTdDNXQk5sU3ZDV0FDa1VTS2tqb2VDVjFuaS0tQ3FaRktmcmFJekh1VEx0N2ZrLWZVZVJpcVBoVlFyVy15NlJEMG16UklzT2Q3MERiWFVUcjVFQV96bUxJZWxwU2pkNW0zNl9Za1RWT1hmT3Q2ay1BZzRHdlQ50gHuAUFVX3lxTE5QVl84dnIxaVpCcjFWekRYOGhKdkJDM2hodFFUbEJtenp3ZVl2UnQwZUxqZVhOYTdSWF9xZHZ6T19qUWhOQjJGTTROWlhfSEZUR0hmM0xrS3pZN3lOV0RTSTFkOE9sTzNHSWRPc0JndWJfVVBMNnZtT3ZzR0ozUDhJOEh2aHgweVZLVzJQQ3JKUmtCNm5YMVA4UjAxcHVMRmtBa2lpN0lwdzJhaFdfUlRZSjRFQTJ1VExNTFBPT1A2aU9jQno0ajY2ZlU1V0JabExOeW5GZjJ0dEVZUll6cFdPZU9jcHNVYllwU3puU3c?oc=5",
+      "created_at": "2026-09-20",
+      "status": "draft",
+      "_score": 36,
+      "_judge": "The landing violates the strict voice rules by ending on a cold, numerical interest rate instead of a flat, heavy noun.",
+      "_detail": {
+        "share_trigger": 4,
+        "surprise": 3,
+        "specificity": 5,
+        "voice": 2,
+        "travels": 4
+      },
+      "_penalty": 4
+    },
+    {
+      "trend": "Rise of HYROX in India: Why Women And Fitness Buffs Are Swapping Gym For Hybrid Runs",
+      "context": "The 30-year-old body is accumulating strain, and the fitness industry is rebranding basic survival movements as premium athletics.",
+      "angle": "The fitness industry rebranded running after transit as an elite sport and charged you for it.",
+      "slides": [
+        "Read the terms and conditions of your new ₹8,000 fitness program.",
+        "Run 1 km — knee clicking.\nPush a 100 kg sled — lower back burning.\nRope climbs — shoulder popping.\nBurpee broad jumps — absolute regret.",
+        "The trainer calls it \"functional fitness\".\n\nYou used to get this for free running after the 8:15 local."
+      ],
+      "caption": "Charging you premium rates to simulate the physical toll of a delayed train. 🏃‍♂️💨",
+      "trigger": "health",
+      "structure": "terms_and_conditions",
+      "target": "wellness industry",
+      "satire_level": 4,
+      "hinglish": false,
+      "source": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOYWJsb0ItTUtORXFnN3BfY050MGZNb0o4M3Z4Q3cxMkJuQzdya2k0aHJ4ckx6MnBLV3VrZGdYUS14NWR0YS10alUtbEJtQjhFblExU1JJWlVCUHV0Y0hFZHV3MUpoMmpORzdoU1RBUjV3MzZsWUI4ajNJVWJMUk05MkpmcXg0MDBkci1QUHVoSDdBYzY5S2JyZ0NYOUNuSG81bERjWl8xanVodDJfVU02RUZkU2RpU195RGtveXBmVDVZa0ZUZ3MtUFFhbjBmYW9wa0ZNXzl30gHWAUFVX3lxTE5hYmxvQi1NS05FcWc3cF9jTnQwZk1vSjgzdnhDdzEyQm5DN3JraTRocnhyTHoycEtXdWtkZ1hRLXg1ZHRhLXRqVS1sQm1COEVuUTFTUklaVUJQdXRjSEVkdXcxSmgyak5HN2hTVEFSNXczNmxZQjhqM0lVYkxSTTkySmZxeDQwMGRyLVBQdWhIN0FjNjlLYnJnQ1g5Q25IbzVsRGNaXzFqdWh0Ml9VTTZFRmRTZGlTX3lEk9veXBmVDVZa0ZUZ3MtUFFhbjBmYW9wa0ZNXzl3?oc=5",
+      "created_at": "2026-09-20",
+      "status": "draft",
+      "_score": 30,
+      "_judge": "The final landing relies on a tired comparison between gym workouts and local train commutes that lacks a sharp, universal sting.",
+      "_detail": {
+        "share_trigger": 3,
+        "surprise": 2,
+        "specificity": 4,
+        "voice": 3,
+        "travels": 3
+      },
+      "_penalty": 3
+    },
+    {
+      "trend": "250+ job applications, zero callbacks: IIM Kozhikode MBA grad asks if anyone is hiring",
+      "context": "Professional validation at 30 has devolved into a series of performative, digital administrative loops that yield nothing.",
+      "angle": "The modern applicant journey is high-effort background noise designed to sustain a hiring platform's metrics.",
+      "slides": [
+        "The modern checklist for getting an interview.",
+        "Update the resume template.\nWrite a customized cover letter.\nAdd \"Driven professional\" to LinkedIn headline.\nAsk a stranger for a referral.",
+        "\"Thank you for your interest, we will keep your profile on file.\"\n\nThe file does not exist."
+      ],
+      "caption": "Your application has been stored in a virtual filing cabinet that is cleared every Friday. 📁",
+      "trigger": "corporate",
+      "structure": "list_collapse",
+      "target": "LinkedIn",
+      "satire_level": 3,
+      "hinglish": false,
+      "source": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxQT1BVVTU0Y3VNdklHY08yM256aXB6aU9RZENkUk5MVHRNbDZyNmFhQmFpOFUza0JqM3hrVG1NUHNESFpDZ0o4b1R3OXU0WjVFVUNieGxtLTJ5TFljOUgyNC02eEpZUEtKc1RSeGVVRkJTU1JTdDNXQk5sU3ZDV0FDa1VTS2tqb2VDVjFuaS0tQ3FaRktmcmFJekh1VEx0N2ZrLWZVZVJpcVBoVlFyVy15NlJEMG16UklzT2Q3MERiWFVUcjVFQV96bUxJZWxwU2pkNW0zNl9Za1RWT1hmT3Q2ay1BZzRHdlQ50gHuAUFVX3lxTE5QVl84dnIxaVpCcjFWekRYOGhKdkJDM2hodFFUbEJtenp3ZVl2UnQwZUxqZVhOYTdSWF9xZHZ6T19qUWhOQjJGTTROWlhfSEZUR0hmM0xrS3pZN3lOV0RTSTFkOE9sTzNHSWRPc0JndWJfVVBMNnZtT3ZzR0ozUDhJOEh2aHgweVZLVzJQQ3JKUmtCNm5YMVA4UjAxcHVMRmtBa2lpN0lwdzJhaFdfUlRZSjRFQTJ1VExNTFBPT1A2aU9jQno0ajY2ZlU1V0JabExOeW5GZjJ0dEVZUll6cFdPZU9jcHNVYllwU3puU3c?oc=5",
+      "created_at": "2026-09-20",
+      "status": "draft",
+      "_score": 24,
+      "_judge": "This reads like a generic, cliché LinkedIn rant completely devoid of the account's signature hyper-specific financial pain.",
+      "_detail": {
+        "share_trigger": 2,
+        "surprise": 1,
+        "specificity": 1,
+        "voice": 2,
+        "travels": 5
+      },
+      "_penalty": 0
+    }
+  ],
+  "rejected": [
+    {
+      "trend": "Rise of HYROX in India: Why Women And Fitness Buffs Are Swapping Gym For Hybrid Runs",
+      "context": "At 30, physical exercise is no longer about aesthetics; it is a maintenance protocol to keep sitting at a desk.",
+      "angle": "The gym is no longer an aspirational space; it is physical therapy masquerading as a lifestyle.",
+      "slides": [
+        "Compare your physical goals at 22 versus 32.",
+        "At 22: Six-pack for Goa.\nAt 25: Running a 10k for a metal medal.\nAt 28: Spine alignment class.\nAt 31: Moving from the bed to the chair without making a sound.",
+        "The gym rebranded your recovery phase as \"hybrid training\".\n\nThe bill is ₹12,000."
+      ],
+      "caption": "Rebranding basic posture maintenance as extreme sports. 🏋️‍♂️",
+      "trigger": "health",
+      "structure": "then_now",
+      "target": "gym",
+      "satire_level": 4,
+      "hinglish": false,
+      "source": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOYWJsb0ItTUtORXFnN3BfY050MGZNb0o4M3Z4Q3cxMkJuQzdya2k0aHJ4ckx6MnBLV3VrZGdYUS14NWR0YS10alUtbEJtQjhFblExU1JJWlVCUHV0Y0hFZHV3MUpoMmpORzdoU1RBUjV3MzZsWUI4ajNJVWJMUk05MkpmcXg0MDBkci1QUHVoSDdBYzY5S2JyZ0NYOUNuSG81bERjWl8xanVodDJfVU02RUZkU2RpU195RGtveXBmVDVZa0ZUZ3MtUFFhbjBmYW9wa0ZNXzl30gHWAUFVX3lxTE5hYmxvQi1NS05FcWc3cF9jTnQwZk1vSjgzdnhDdzEyQm5DN3JraTRocnhyTHoycEtXdWtkZ1hRLXg1ZHRhLXRqVS1sQm1COEVuUTFTUklaVUJQdXRjSEVkdXcxSmgyak5HN2hTVEFSNXczNmxZQjhqM0lVYkxSTTkySmZxeDQwMGRyLVBQdWhIN0FjNjlLYnJnQ1g5Q25IbzVsRGNaXzFqdWh0Ml9VTTZFRmRTZGlTX3lEk9veXBmVDVZa0ZUZ3MtUFFhbjBmYW9wa0ZNXzl3?oc=5",
+      "created_at": "2026-09-20",
+      "_gate_failures": [
+        "landing carries a currency figure — that beat cannot travel; move the number into the escalation"
+      ]
+    },
+    {
+      "trend": "What Has Hyderabad Got For Being India's Richest Landlord?",
+      "context": "For urban 30-year-olds, renting is no longer a temporary transit phase. It has become a permanent extraction model.",
+      "angle": "Renting is a subscription service that gets premium upgrades faster than your compensation cycle.",
+      "slides": [
+        "Check who actually owns your 30s.",
+        "Move to Hyderabad for the tech park — landlord gets 40,000.\nGet a 10% raise — landlord asks for 12%.\nDeposit three months' rent — landlord keeps the interest.\nPaint the walls back to eggshell white — landlord deducts 15,000.",
+        "You are not building a life in the city.\n\nYou are paying off someone else's second home."
+      ],
+      "caption": "Your appraisal was 6%. Your rent hike is 12%. Do the math. 📈",
+      "trigger": "rent",
+      "structure": "escalating_list",
+      "target": "landlord",
+      "satire_level": 5,
+      "hinglish": false,
+      "source": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQUHdhSVFzZkx3djVvcVI3Ulo3MkoybDZUOHBWM3VwZ0ttZGdmd2xnTjJvcVgtT1otajRpZTZYTndqOXhBNkRoTmlEMjJGcURsV3ltVnRyRzhDcW1SQTh3bVBsX19vUUhpVk5zcmJZaFpsS25FLUt3eDRUSHpGZ2I4RjQ1elhvZkdjbHcyRU5hN1lpUnBPaVZhLW9CONIBqwFBVV95cUxPdkFwSF9fd09ESDRMZTdTTGFQNGxMWG91NlFiR0FocEhtTlh3Z3R0aHlXTEt5RFJ3M0hxS016VHdGQWcxUmdhQWhXTnpNMEM1Ri1pYzBmeTdRV1lPYk4yMExWd0NCUEphdzZXRnZJT3VpVUxMcktPeGlTWDlDYlBFSXpmekpQRmRkZTBvVVZIbFVsSXE3S0VnWDdWT043UGI0amhPTGMwc3ZYb2c?oc=5",
+      "created_at": "2026-09-20",
+      "_gate_failures": [
+        "slide 2 is 224 chars (max 210) — cut lines, not the joke"
+      ]
+    },
+    {
+      "trend": "What Has Hyderabad Got For Being India's Richest Landlord?",
+      "context": "The relentless certainty of the monthly rent demand contrasted with the corporate precarity of the tenant.",
+      "angle": "Your landlord runs a faster and more predictable communications department than your employer.",
+      "slides": [
+        "The only WhatsApp contact who never misses a deadline.",
+        "\"Rent transfer kar diya?\"\n\"Maintenance is up by 1,500.\"\n\"Please send the screenshot.\"\n\"Next year 10% hike fixed hai.\"",
+        "Your company is planning another restructuring.\n\nThe rent is due on Tuesday."
+      ],
+      "caption": "Predictability in a volatile world. 📱",
+      "trigger": "rent",
+      "structure": "dialogue",
+      "target": "landlord",
+      "satire_level": 4,
+      "hinglish": true,
+      "source": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQUHdhSVFzZkx3djVvcVI3Ulo3MkoybDZUOHBWM3VwZ0ttZGdmd2xnTjJvcVgtT1otajRpZTZYTndqOXhBNkRoTmlEMjJGcURsV3ltVnRyRzhDcW1SQTh3bVBsX19vUUhpVk5zcmJZaFpsS25FLUt3eDRUSHpGZ2I4RjQ1elhvZkdjbHcyRU5hN1lpUnBPaVZhLW9CONIBqwFBVV95cUxPdkFwSF9fd09ESDRMZTdTTGFQNGxMWG91NlFiR0FocEhtTlh3Z3R0aHlXTEt5RFJ3M0hxS016VHdGQWcxUmdhQWhXTnpNMEM1Ri1pYzBmeTdRV1lPYk4yMExWd0NCUEphdzZXRnZJT3VpVUxMcktPeGlTWDlDYlBFSXpmekpQRmRkZTBvVVZIbFVsSXE3S0VnWDdWT043UGI0amhPTGMwc3ZYb2c?oc=5",
+      "created_at": "2026-09-20",
+      "_gate_failures": [
+        "angle repeats p006 (76% similar)"
+      ]
+    },
+    {
+      "trend": "What Has Hyderabad Got For Being India's Richest Landlord?",
+      "context": "At 30, the security deposit is an interest-free loan you give to a stranger, which you must fight to get back.",
+      "angle": "The security deposit is a non-refundable entry fee for a flat you will never own.",
+      "slides": [
+        "The itemised cost of leaving your rental flat.",
+        "Professional painting: ₹18,000.\nDeep cleaning service: ₹4,500.\nMinor scratch on door: ₹3,000.\nBrokerage for the next place: ₹45,000.",
+        "Your deposit was ₹1,20,000.\n\nYou received a PDF of the deductions."
+      ],
+      "caption": "Your deposit exists only as a mathematical concept in your landlord's mutual fund. 🧾",
+      "trigger": "rent",
+      "structure": "receipt",
+      "target": "landlord",
+      "satire_level": 4,
+      "hinglish": false,
+      "source": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQUHdhSVFzZkx3djVvcVI3Ulo3MkoybDZUOHBWM3VwZ0ttZGdmd2xnTjJvcVgtT1otajRpZTZYTndqOXhBNkRoTmlEMjJGcURsV3ltVnRyRzhDcW1SQTh3bVBsX19vUUhpVk5zcmJZaFpsS25FLUt3eDRUSHpGZ2I4RjQ1elhvZkdjbHcyRU5hN1lpUnBPaVZhLW9CONIBqwFBVV95cUxPdkFwSF9fd09ESDRMZTdTTGFQNGxMWG91NlFiR0FocEhtTlh3Z3R0aHlXTEt5RFJ3M0hxS016VHdGQWcxUmdhQWhXTnpNMEM1Ri1pYzBmeTdRV1lPYk4yMExWd0NCUEphdzZXRnZJT3VpVUxMcktPeGlTWDlDYlBFSXpmekpQRmRkZTBvVVZIbFVsSXE3S0VnWDdWT043UGI0amhPTGMwc3ZYb2c?oc=5",
+      "created_at": "2026-09-20",
+      "_gate_failures": [
+        "landing carries a currency figure — that beat cannot travel; move the number into the escalation"
+      ]
+    }
+  ]
+}

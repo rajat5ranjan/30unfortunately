@@ -77,14 +77,16 @@ jobs:
         if: steps.backlog.outputs.go == 'yes'
         run: python3 trend_agent.py
 
-      # --min-backlog 0 because the step above already decided. Keeping the flag
-      # means brain.py still refuses to run on a healthy queue when invoked by
-      # hand, which is the case the gate does not cover.
+      # No --min-backlog here: the step above already decided, and the flag
+      # cannot express "decided elsewhere". It was passed 0 to mean that, which
+      # means "skip when at least 0 are queued" — always true. Two days of
+      # scheduled runs returned in zero seconds without calling the model.
+      # brain.py now refuses a value below 1 outright.
       - name: Generate, rank, auto-approve the best six
         if: steps.backlog.outputs.go == 'yes'
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        run: python3 brain.py --min-backlog 0 --auto 6
+        run: python3 brain.py --auto 6
 
       # Every approved post is rendered BOTH ways. Which one ships is decided on
       # the day it publishes (store.format_for), and publish.py is stdlib-only

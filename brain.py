@@ -696,6 +696,15 @@ def main():
         sys.exit(cmd_approve(args.approve, cfg))
 
     if args.min_backlog is not None:
+        # 0 reads as "skip when at least 0 posts are queued", which is always
+        # true, so it does not disable the guard — it disables generation. It
+        # sat in generate.yml from 2026-09-18 13:05 and every scheduled run for
+        # two days returned in zero seconds without calling the model. Refuse it
+        # rather than let it mean the opposite of what it looks like.
+        if args.min_backlog < 1:
+            sys.exit("--min-backlog must be >= 1. It means 'do nothing if at "
+                     "least N are queued', so 0 is always satisfied and nothing "
+                     "is ever generated. Omit the flag to generate regardless.")
         import store
         queued = store.counts(store.connect()).get("queued", 0)
         if queued >= args.min_backlog:
