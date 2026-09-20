@@ -115,6 +115,54 @@ def gate_shape(post: Dict[str, Any], brand: Dict[str, Any]) -> List[str]:
     return fails
 
 
+# Bare verbs that start a command. Used only to measure the MIX — a single
+# imperative hook is fine and several of the best posts open that way.
+IMPERATIVES = set("""read place list follow go open compare name check count look
+ask try watch tell find write add call send describe explain pick take think
+imagine picture remember consider""".split())
+
+STOPWORDS = set("""a an the and or but if of to in on at for with from by is are
+was were be been being it its this that these those you your yours he she they
+them his her their not no nor so as than then there here what which who whom
+have has had do does did will would can could should may might must just only
+now still even more most much many one two three all any some each every""".split())
+
+
+def is_imperative(hook: str) -> bool:
+    w = re.sub(r"[^a-z\s]", " ", (hook or "").lower()).split()
+    return bool(w) and w[0] in IMPERATIVES
+
+
+def _words(text: str) -> List[str]:
+    return [w for w in re.sub(r"[^a-z\s]", " ", (text or "").lower()).split()
+            if len(w) > 3 and w not in STOPWORDS]
+
+
+def gate_landing_turns(post: Dict[str, Any], brand: Dict[str, Any]) -> List[str]:
+    """The landing has to bring in a word the post has not used.
+
+    Catches the literal version of the failure: a last slide assembled entirely
+    from the vocabulary of the first two, which is a restatement wearing a
+    pause. "She still treats you like an unstable chemical" passes because
+    `chemical` arrives from nowhere, and that is the whole joke.
+
+    It does NOT catch a gloss — "Your body is an invoice for your twenties. /
+    You are paying it off in monthly instalments." shares no words with itself
+    and sails through. A paraphrase reuses the idea, not the vocabulary, and no
+    amount of string comparison sees that. The rule is in brand.yaml and the
+    judge scores it under surprise and laugh; pretending a regex covers it
+    would be worse than admitting it does not.
+    """
+    slides = post.get("slides") or []
+    if len(slides) < 2:
+        return []
+    earlier = set(w for s in slides[:-1] for w in _words(s))
+    if not [w for w in _words(slides[-1]) if w not in earlier]:
+        return ["the landing introduces no word the post has not already used "
+                "— it restates instead of turning"]
+    return []
+
+
 def gate_target(post: Dict[str, Any], brand: Dict[str, Any]) -> List[str]:
     """Who the joke is on. Not the value of it — only that it was decided.
 
@@ -199,10 +247,31 @@ def run_gates(post: Dict[str, Any], brand: Dict[str, Any], history: List[Dict[st
               cfg: Dict[str, Any]) -> List[str]:
     return (gate_hard_bans(post, brand) + gate_shape(post, brand)
             + gate_target(post, brand) + gate_travels(post, brand)
+            + gate_landing_turns(post, brand)
             + gate_source(post) + gate_novelty(post, history, cfg["novelty_threshold"]))
 
 
 # ----------------------------------------------------------------------- prompt
+# Everything here is sent to the writer. A section added to brand.yaml and not
+# added here is invisible to the model while looking, in the file, exactly like
+# a rule — `target` and `travels` both shipped that way, and `territory` nearly
+# did. NOT_A_RULE names the sections that are deliberately withheld, so the
+# check below can tell an omission from a decision.
+CONTRACT_SECTIONS = ("identity", "audience", "formula", "slides", "target", "voice",
+                     "hinglish", "travels", "territory", "satire_ladder",
+                     "structures", "hard_bans", "output_schema")
+NOT_A_RULE = ("trend_gate",           # applied to trends before the writer runs
+              "few_shot_examples")    # a path, and the examples are sent separately
+
+
+def check_contract_is_whole(brand: Dict[str, Any]) -> List[str]:
+    unseen = [k for k in brand
+              if k not in CONTRACT_SECTIONS and k not in NOT_A_RULE]
+    return ["brand.yaml section '%s' is never sent to the model — add it to "
+            "CONTRACT_SECTIONS, or to NOT_A_RULE if that is deliberate" % k
+            for k in unseen]
+
+
 def build_system_prompt(brand: Dict[str, Any], history: List[Dict[str, Any]],
                         cfg: Dict[str, Any]) -> str:
     examples = history[: cfg["few_shot_count"]]
@@ -213,6 +282,11 @@ def build_system_prompt(brand: Dict[str, Any], history: List[Dict[str, Any]],
     # that is what they were, and the share is meant to shame the batch.
     self_share = (sum(1 for p in history if (p.get("target") or "self") == "self")
                   / max(len(history), 1))
+    voices = set(brand["structures"]["voices"])
+    voice_share = (sum(1 for p in history if p.get("structure") in voices)
+                   / max(len(history), 1))
+    imp_share = (sum(1 for p in history if is_imperative((p.get("slides") or [""])[0]))
+                 / max(len(history), 1))
 
     ex_blocks = []
     for p in examples:
@@ -225,10 +299,7 @@ def build_system_prompt(brand: Dict[str, Any], history: List[Dict[str, Any]],
 
     return "\n\n".join([
         "You write for an Instagram account. This is the entire contract. Follow it exactly.",
-        yaml.safe_dump({k: brand[k] for k in
-                        ("identity", "audience", "formula", "slides", "target", "voice",
-                         "hinglish", "travels", "satire_ladder", "structures",
-                         "hard_bans", "output_schema")},
+        yaml.safe_dump({k: brand[k] for k in CONTRACT_SECTIONS},
                        sort_keys=False, allow_unicode=True, width=100),
         "APPROVED EXAMPLES — match this register, never reuse these jokes:\n\n"
         + "\n\n===\n\n".join(ex_blocks),
@@ -238,7 +309,12 @@ def build_system_prompt(brand: Dict[str, Any], history: List[Dict[str, Any]],
         + "\n  hinglish: %.0f%% (target %s)" % (hinglish_share * 100,
                                                 brand["hinglish"]["target_ratio"])
         + "\n  jokes aimed at the reader ('self'): %.0f%% (cap %.0f%%)"
-          % (self_share * 100, brand["target"]["self_cap"] * 100),
+          % (self_share * 100, brand["target"]["self_cap"] * 100)
+        + "\n  posts with somebody SPEAKING in them: %.0f%% (floor %.0f%%)"
+          % (voice_share * 100, brand["structures"]["min_voice_share"] * 100)
+        + "\n  hooks that open with a command: %.0f%% (cap %.0f%%)"
+          % (imp_share * 100,
+             brand["slides"]["slide_1_is_a_HOOK"]["max_imperative_share"] * 100),
         "Return ONLY JSON matching the schema. No preamble, no markdown fence.",
     ])
 
@@ -265,22 +341,23 @@ RANK_SCHEMA = {
     "type": "object",
     "properties": {"scores": {"type": "array", "items": {"type": "object", "properties": {
         "index": {"type": "integer"},
+        "laugh": {"type": "integer"},
         "share_trigger": {"type": "integer"},
         "specificity": {"type": "integer"},
         "surprise": {"type": "integer"},
         "voice": {"type": "integer"},
         "travels": {"type": "integer"},
         "verdict": {"type": "string"},
-    }, "required": ["index", "share_trigger", "specificity", "surprise", "voice",
-                    "travels", "verdict"]}}},
+    }, "required": ["index", "laugh", "share_trigger", "specificity", "surprise",
+                    "voice", "travels", "verdict"]}}},
     "required": ["scores"],
 }
 
 # Weights. share_trigger dominates because the stated goal of the account is a
 # forward, not a like. These are guesses until there is performance data:
 # at n>=30 published posts, refit them against shares/reach.
-RANK_WEIGHTS = {"share_trigger": 3, "surprise": 2, "specificity": 2, "voice": 2,
-                "travels": 2}
+RANK_WEIGHTS = {"laugh": 3, "share_trigger": 3, "surprise": 2, "specificity": 2,
+                "voice": 2, "travels": 2}
 
 
 RESPONSE_SCHEMA = {
@@ -363,6 +440,12 @@ RANK_PROMPT = """You are ranking finished posts for the account described below.
 You did not write them. Be a harsh editor, not a supportive one.
 
 Score each 1-5 on:
+  laugh          Did you actually exhale through your nose? Not "is this clever",
+                 not "is this true" — funny. 5 = you would read it out to
+                 whoever is nearest. 1 = accurate and sad. Most posts that fail
+                 this fail by being an observation with an ironic shape rather
+                 than a joke, and they score well on everything else while
+                 doing it, which is why this axis exists.
   share_trigger  Would a real person send this to ONE specific named friend?
                  5 = they have someone in mind before finishing it.
                  1 = they might like it and scroll on.
@@ -418,6 +501,18 @@ def rank(posts: List[Dict[str, Any]], brand: Dict[str, Any],
     self_cap = brand["target"]["self_cap"]
     over_self = recent_self > self_cap * max(len(history[-8:]), 1)
 
+    # Voices are the one quantity the account is short of rather than long on,
+    # so this is a pull rather than a push: a speaking post is worth more only
+    # while the recent mix is starved of them, and worth nothing extra once it
+    # is not. Same for the hook monotone, in the other direction.
+    recent = history[-8:] or history
+    voices = set(brand["structures"]["voices"])
+    under_voice = (sum(1 for p in recent if p.get("structure") in voices)
+                   < brand["structures"]["min_voice_share"] * max(len(recent), 1))
+    over_imp = (sum(1 for p in recent if is_imperative((p.get("slides") or [""])[0]))
+                > brand["slides"]["slide_1_is_a_HOOK"]["max_imperative_share"]
+                * max(len(recent), 1))
+
     for i, p in enumerate(posts, 1):
         sc = scores.get(i, {})
         base = sum(RANK_WEIGHTS[k] * sc.get(k, 3) for k in RANK_WEIGHTS)
@@ -428,6 +523,10 @@ def rank(posts: List[Dict[str, Any]], brand: Dict[str, Any],
             penalty += 3
         if over_self and (p.get("target") or "self") == "self":
             penalty += 5
+        if under_voice and p.get("structure") in voices:
+            penalty -= 5
+        if over_imp and is_imperative((p.get("slides") or [""])[0]):
+            penalty += 4
         p["_score"] = base - penalty
         p["_judge"] = sc.get("verdict", "")
         p["_detail"] = dict((k, sc.get(k)) for k in RANK_WEIGHTS)
@@ -438,6 +537,8 @@ def rank(posts: List[Dict[str, Any]], brand: Dict[str, Any],
 def cmd_check(brand, cfg):
     """Self-test: every approved post must survive its own gates."""
     history = load_history()
+    for w in check_contract_is_whole(brand):
+        print("  ! %s" % w)
     print("Running gates over %d approved posts\n" % len(history))
     bad = 0
     for i, p in enumerate(history):
@@ -467,6 +568,19 @@ def cmd_check(brand, cfg):
     print("\nAimed at:")
     for k, v in sorted(aims.items(), key=lambda kv: -kv[1]):
         print("  %-18s %d (%.0f%%)" % (k, v, v / max(len(history), 1) * 100))
+    voices = set(brand["structures"]["voices"])
+    vs = sum(1 for p in history if p.get("structure") in voices) / max(len(history), 1)
+    imps = sum(1 for p in history
+               if is_imperative((p.get("slides") or [""])[0])) / max(len(history), 1)
+    print("\nSomebody speaking: %.0f%% (floor %.0f%%)%s"
+          % (vs * 100, brand["structures"]["min_voice_share"] * 100,
+             "" if vs >= brand["structures"]["min_voice_share"] else "  <-- short"))
+    print("Hooks that are commands: %.0f%% (cap %.0f%%)%s"
+          % (imps * 100,
+             brand["slides"]["slide_1_is_a_HOOK"]["max_imperative_share"] * 100,
+             "" if imps <= brand["slides"]["slide_1_is_a_HOOK"]["max_imperative_share"]
+             else "  <-- one rhythm"))
+
     at_self = (aims.get("self", 0) + aims.get("untargeted", 0)) / max(len(history), 1)
     if at_self > brand["target"]["self_cap"]:
         print("  ! %.0f%% of posts are aimed at the reader (cap %.0f%%) — "
