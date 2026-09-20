@@ -62,6 +62,21 @@ slides:
       - "Adulting is expensive."              # closed loop, nothing to swipe for
       - "POV: You're 30 and broke 😭"          # states the punchline
 
+  max_chars_per_slide: 210
+  # Enforced by gate_shape, which used to hardcode 240 and never say so anywhere
+  # the writer could read it. Two of three posts in the 2026-09-20 run died on
+  # it at 283 and 288 chars and the run approved nothing, which is how the queue
+  # emptied.
+  #
+  # 210 is drawn from the corpus, not chosen: across the 21 posts that worked,
+  # the median slide is 82 and the longest is 202. It is a guard against the
+  # model writing paragraphs, not a tight budget. A first attempt at 200 failed
+  # a published post by two characters, which is the wrong kind of rule.
+  #
+  # Reels want far less — a 210-char slide has to type at ~56 characters a
+  # second to fit its beat, and it bursts. That is the reel renderer's problem
+  # to solve, not a reason to starve the carousel.
+
   middle_slide_is_the_ESCALATION:
     rule: |
       Three to five short lines, same grammatical shape, each one worse than
@@ -220,6 +235,10 @@ structures:
   # landing on the reader: there is nobody on the other side of a comparison.
   # These five come with an antagonist built in — someone wrote the document,
   # someone is reading the script, someone sent the invite.
+  #
+  # They also run long, because a document has more words than a comparison.
+  # max_chars_per_slide still applies and is not negotiable: cut lines, do not
+  # cut the joke. Four short entries beat six that overflow.
   terms_and_conditions: The fine print, written out in plain language. Target is whoever drafted it.
   customer_support: A script that answers everything and resolves nothing.
   job_description: A posting rewritten to describe the actual job.

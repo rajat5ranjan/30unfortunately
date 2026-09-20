@@ -89,14 +89,19 @@ def gate_shape(post: Dict[str, Any], brand: Dict[str, Any]) -> List[str]:
         return fails
     hook = slides[0]
     max_hook = brand["slides"]["slide_1_is_a_HOOK"]["max_chars"]
+    # From the contract, not from here. A gate enforcing a number the writer was
+    # never given is not a gate, it is a trap — and it silently emptied the
+    # queue for two days.
+    max_slide = brand["slides"]["max_chars_per_slide"]
     if len(hook) > max_hook:
         fails.append("hook is %d chars (max %d) — it is carrying the joke, not opening a loop"
                      % (len(hook), max_hook))
     if hook.rstrip().endswith("?") and len(hook) < 30:
         fails.append("hook is a bare question — weak open loop")
     for i, s in enumerate(slides):
-        if len(s) > 240:
-            fails.append("slide %d is %d chars (max 240)" % (i + 1, len(s)))
+        if len(s) > max_slide:
+            fails.append("slide %d is %d chars (max %d) — cut lines, not the joke"
+                         % (i + 1, len(s), max_slide))
     landing = slides[-1]
     if landing.rstrip().endswith("?"):
         fails.append("landing ends on a question — this account states, it does not beg")
@@ -467,6 +472,18 @@ def cmd_check(brand, cfg):
     return 0 if bad == 0 else 1
 
 
+def _alert(msg: str) -> None:
+    """Loud on the console, and on the Actions run page where it gets read."""
+    print("!! %s" % msg.replace("\n", "\n   "), file=sys.stderr)
+    path = os.environ.get("GITHUB_STEP_SUMMARY")
+    if path:
+        try:
+            with open(path, "a") as f:
+                f.write("### Nothing was approved\n\n%s\n" % msg)
+        except OSError:
+            pass
+
+
 def cmd_approve(pick: int, cfg) -> int:
     """Promote one candidate into content/approved/ with a stable id.
 
@@ -743,19 +760,38 @@ def main():
     print("\n%d accepted, %d rejected by gates -> %s\n"
           % (len(accepted), len(rejected), os.path.relpath(out, ROOT)))
 
+    # Always, in both paths. --auto used to return before reaching this, so a
+    # run that rejected everything printed no reason anywhere — the workflow
+    # went green, the commit was skipped, and the queue drained for two days
+    # with the evidence living only in a runner that had been destroyed.
+    for p in rejected:
+        print("  REJECTED: %s" % (p["slides"][0] if p.get("slides") else "(no slides)"))
+        for f in p["_gate_failures"]:
+            print("      - %s" % f)
+
     if args.auto:
-        for n in range(1, min(args.auto, len(accepted)) + 1):
-            cmd_approve(n, cfg)
+        n = min(args.auto, len(accepted))
+        for i in range(1, n + 1):
+            cmd_approve(i, cfg)
+        if not n:
+            reasons = {}
+            for p in rejected:
+                for f in p["_gate_failures"]:
+                    key = f.split(" — ")[0].split(" (")[0]
+                    reasons[key] = reasons.get(key, 0) + 1
+            _alert("Approved nothing. %d posts came back, all rejected.\n%s\n"
+                   "The queue does not refill by itself from here."
+                   % (len(rejected),
+                      "\n".join("  %dx %s" % (v, k) for k, v
+                                in sorted(reasons.items(), key=lambda kv: -kv[1]))
+                      or "  (the model returned no posts at all)"))
         return
+
     for p in accepted:
         print("  [%s/%s] %s" % (p["structure"], p["satire_level"], p["slides"][0]))
         for s in p["slides"][1:]:
             print("      %s" % s.replace("\n", " / "))
         print()
-    for p in rejected:
-        print("  REJECTED: %s" % p["slides"][0] if p.get("slides") else "  REJECTED")
-        for f in p["_gate_failures"]:
-            print("      - %s" % f)
 
 
 if __name__ == "__main__":

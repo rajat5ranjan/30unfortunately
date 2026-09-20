@@ -26,11 +26,12 @@ name: generate
 # no RSS, no Gemini, about ten seconds. That is what makes the frequency free.
 on:
   schedule:
-    # Every two hours, on a minute GitHub is least likely to drop. Its schedule
-    # has been delivered once in its life, so the answer to a missed run is more
-    # chances at it, not a better-chosen hour — and a run that finds the backlog
-    # healthy costs one sqlite read.
-    - cron: "13 */2 * * *"
+    # Every four hours. Two-hourly was a response to GitHub dropping almost
+    # every scheduled run; it is now delivering roughly one in two, which makes
+    # six slots a day about three real runs — enough to keep a floor of 6 for a
+    # pipeline that spends 3 a day. Going back to two-hourly only spends Gemini
+    # calls regenerating the same jokes from the same feed.
+    - cron: "13 */4 * * *"
   workflow_dispatch:
     inputs:
       force:
@@ -105,17 +106,49 @@ jobs:
             ID=$(basename "$f" .json)
             python3 render.py --from "$f"
             python3 reel.py --from "$f"
-            python3 tools/release_upload.py "build/reels/$ID.mp4"
+            python3 tools/release_upload.py "build/reels/$ID.mp4" "build/reels/$ID-cover.jpg"
             python3 publish.py queue --src "$f"
           done
           python3 brain.py --summary >> "$GITHUB_STEP_SUMMARY"
           python3 brain.py --html
           echo "queued=yes" >> "$GITHUB_OUTPUT"
 
+      # Runs whenever the job did work, not only when it approved something.
+      # The candidates file records what was generated and why each post was
+      # rejected, and committing it only on success threw away the evidence for
+      # exactly the runs that needed explaining. commit_state.sh no-ops on an
+      # empty diff, so this is free when there is nothing to say.
       - name: Commit
-        if: steps.rq.outputs.queued == 'yes'
+        if: steps.backlog.outputs.go == 'yes'
         run: |
-          tools/commit_state.sh "queue: $(date -u +%Y-%m-%d)" content docs posts.db
+          tools/commit_state.sh \
+            "${{ steps.rq.outputs.queued == 'yes' && 'queue' || 'candidates' }}: $(date -u +%Y-%m-%d)" \
+            content docs posts.db
+
+      # A run that approves nothing is indistinguishable from a healthy no-op:
+      # brain.py exits 0, the commit finds nothing, the job is green. That is
+      # how this workflow ran nine times between 18 and 20 Sep while the queue
+      # drained to zero and nobody was told.
+      - name: Say so if the queue is running dry
+        if: steps.backlog.outputs.go == 'yes' && steps.rq.outputs.queued != 'yes'
+        env:
+          NOTIFY_EMAIL: ${{ secrets.NOTIFY_EMAIL }}
+          NOTIFY_EMAIL_PASSWORD: ${{ secrets.NOTIFY_EMAIL_PASSWORD }}
+          NOTIFY_TO: ${{ secrets.NOTIFY_TO }}
+        run: |
+          set -euo pipefail
+          Q=$(python3 -c "import store; print(store.counts(store.connect()).get('queued', 0))")
+          echo "::warning::generate approved nothing — $Q posts still queued"
+          if [ "$Q" -ge 3 ]; then
+            echo "$Q queued, still enough for a day — not mailing about it"
+            exit 0
+          fi
+          python3 notify.py send \
+            "30unfortunately — the queue is running dry ($Q left)" \
+            "$(printf '%s\n\n%s\n%s\n' \
+              "generate ran and approved nothing. $Q posts are left, which is under a day." \
+              "Why, per the run log:" \
+              "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}")"
 
       # The veto window: you are notified, you do nothing, it ships. Reply
       # "skip <id>" to that email and publish.py drops it seconds before posting.
