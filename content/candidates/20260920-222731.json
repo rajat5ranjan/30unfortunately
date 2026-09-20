@@ -1,0 +1,179 @@
+{
+  "generated_at": "20260920-222731",
+  "model": "gemini-3.5-flash",
+  "accepted": [
+    {
+      "trend": "Dreaming of a Germany job? Indian engineer explains what a €70,000 salary looks like after taxes, rent & other costs",
+      "context": "Indian parents view moving to Europe as an automatic ticket to extreme wealth, oblivious to progressive taxes.",
+      "angle": "Your family thinks moving abroad is a Bollywood transition scene.",
+      "slides": [
+        "Beta, Germany ka visa kab aa raha hai?",
+        "Sharma ji ka beta Berlin mein hai.\nGhar kab le rahe ho?\nSettle ho jao ab.",
+        "You are thirty-one.\n\nYou have to explain why forty percent of your salary belongs to a government that does not speak English."
+      ],
+      "caption": "Settle ho jao. ✈️",
+      "trigger": "parents_ageing",
+      "structure": "phone_call",
+      "target": "parents",
+      "satire_level": 3,
+      "hinglish": true,
+      "source": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxObVdqYThjQThVanVaTkxHTmFXcjBtOUY4WUZkT3EyZ1BEX0htd0w1YVFBWi10ckx5a0dNZFpuSktJLXJEV3JKUHJTemV3dGJPVUduSjBMZ1pjc09ISjN4ZWpGT004bTBzTEc0alQ4SzFfeERLRWkxbjRGNGNhSlpQYWVabGhxMGo0a0JRdjZVVVZKZ0FLWjRrLXZsUk8yRUxiamQzRERVbVItc29vdDJyYU0xY2xuNlhMRjdoNUFwOUNRYnRxT2dyX3doS2hxbTA3cXhJVV9rS3BsMEI1UlhXT0gxOXlrak9iSkdqNWdqTlhpTkppZF82WnFrbUtHeE0?oc=5",
+      "created_at": "2026-09-20",
+      "status": "draft",
+      "_score": 73,
+      "_judge": "An exceptionally strong post that executes the transition from family pressure to cold tax bureaucracy flawlessly.",
+      "_detail": {
+        "laugh": 5,
+        "share_trigger": 5,
+        "surprise": 5,
+        "specificity": 5,
+        "voice": 5,
+        "travels": 4
+      },
+      "_penalty": -5
+    },
+    {
+      "trend": "Dreaming of a Germany job? Indian engineer explains what a €70,000 salary looks like after taxes, rent & other costs",
+      "context": "The LinkedIn fantasy of migrating abroad misses the reality of a global middle-class grind under heavy tax regimes.",
+      "angle": "Escaping India just changes the currency of your anxiety.",
+      "slides": [
+        "The exact invoice for escaping to Europe.",
+        "Rent in Munich — €1,800.\nTaxes — 42%.\nHealth insurance — €350.\nOne single, sad cauliflower — €4.",
+        "You survived the Indian middle class.\n\nOnly to count pennies in Euro."
+      ],
+      "caption": "The grass is green, but it has a high maintenance cost. ✈️",
+      "trigger": "money",
+      "structure": "receipt",
+      "target": "LinkedIn",
+      "satire_level": 4,
+      "hinglish": false,
+      "source": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxObVdqYThjQThVanVaTkxHTmFXcjBtOUY4WUZkT3EyZ1BEX0htd0w1YVFBWi10ckx5a0dNZFpuSktJLXJEV3JKUHJTemV3dGJPVUduSjBMZ1pjc09ISjN4ZWpGT004bTBzTEc0alQ4SzFfeERLRWkxbjRGNGNhSlpQYWVabGhxMGo0a0JRdjZVVVZKZ0FLWjRrLXZsUk8yRUxiamQzRERVbVItc29vdDJyYU0xY2xuNlhMRjdoNUFwOUNRYnRxT2dyX3doS2hxbTA3cXhJVV9rS3BsMEI1UlhXT0gxOXlrak9iSkdqNWdqTlhpTkppZF82WnFrbUtHeE0?oc=5",
+      "created_at": "2026-09-20",
+      "status": "draft",
+      "_score": 58,
+      "_judge": "The final line slightly over-explains the joke by explicitly stating the irony of counting pennies in Euros.",
+      "_detail": {
+        "laugh": 4,
+        "share_trigger": 5,
+        "surprise": 4,
+        "specificity": 5,
+        "voice": 4,
+        "travels": 4
+      },
+      "_penalty": 3
+    },
+    {
+      "trend": "Dreaming of a Germany job? Indian engineer explains what a €70,000 salary looks like after taxes, rent & other costs",
+      "context": "The loss of affordable domestic support in Western countries completely restructures daily life for former middle-class Indians.",
+      "angle": "The international relocation calculator skips the emotional interest rate.",
+      "slides": [
+        "A €70,000 salary sounds like you have finally made it.",
+        "In India: You had a maid, a cook, and a driver.\nIn Europe: You are the maid, the cook, and the driver.",
+        "You moved six thousand kilometres.\n\nTo do your own laundry."
+      ],
+      "caption": "A very successful migration. 🗽",
+      "trigger": "money",
+      "structure": "juxtaposition",
+      "target": "LinkedIn",
+      "satire_level": 3,
+      "hinglish": false,
+      "source": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxObVdqYThjQThVanVaTkxHTmFXcjBtOUY4WUZkT3EyZ1BEX0htd0w1YVFBWi10ckx5a0dNZFpuSktJLXJEV3JKUHJTemV3dGJPVUduSjBMZ1pjc09ISjN4ZWpGT004bTBzTEc0alQ4SzFfeERLRWkxbjRGNGNhSlpQYWVabGhxMGo0a0JRdjZVVVZKZ0FLWjRrLXZsUk8yRUxiamQzRERVbVItc29vdDJyYU0xY2xuNlhMRjdoNUFwOUNRYnRxT2dyX3doS2hxbTA3cXhJVV9rS3BsMEI1UlhXT0gxOXlrak9iSkdqNWdqTlhpTkppZF82WnFrbUtHeE0?oc=5",
+      "created_at": "2026-09-20",
+      "status": "draft",
+      "_score": 52,
+      "_judge": "The contrast between domestic help at home and chores abroad is a highly recycled trope that lacks real surprise.",
+      "_detail": {
+        "laugh": 4,
+        "share_trigger": 5,
+        "surprise": 3,
+        "specificity": 4,
+        "voice": 4,
+        "travels": 5
+      },
+      "_penalty": 7
+    },
+    {
+      "trend": "Festive hiring surge puts workforce planning, employee burnout in focus",
+      "context": "Companies use the cultural cover of festivals to mask chronic understaffing and force extreme overtime.",
+      "angle": "A festive surge is just corporate understaffing dressed up in ethnic wear.",
+      "slides": [
+        "We are looking for a Festive Warrior who thrives under pressure.",
+        "Must think of 14-hour days as festive cheer.\nMust treat chest pain as passion.\nMust accept a dry fruit box as variable pay.\nMust not have plans for Diwali.",
+        "The shifts are twelve hours.\n\nYour manager's out-of-office is already active."
+      ],
+      "caption": "Happy holidays to the leadership team. ✨",
+      "trigger": "corporate",
+      "structure": "job_description",
+      "target": "employer",
+      "satire_level": 4,
+      "hinglish": false,
+      "source": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxOZXlLN05FXzY1VkYybnI4WlhZMmd6bHV0WTd1UU9QZjFCa200ZkZ4dm85YVVQb04tTzRjUTVWRUtZVGlfSTZxM3IwWHFlUE03SzJieG9GcUVaT1AzOXhNNlktRmNHeXBMcWpoN2oxbUFiSVpYcFp3MGFrTHhuRElaaFhrRng3OVA3YTMyOFFyaXAzbkxoVkZVbnMyQWJEcW9lOFhFMS1pR3B4ckNsMk1lb3lUUUhqdG1WSW1JdmVqV3NhUHFZSURDQ185YklPOXpuUG9fNGhMRmE3X2h5dVc1SEhnYzlaMzhvdWNJTGlHNXFnb05M0gH0AUFVX3lxTE5leUs3TkVfNjVWRjJucjhaWFkyZ3psdXRZN3VRT1BmMUJrbTRmRnh2bzlhVVBvTi1PNGNRNVZFS1lUaV9JNnEzcjBYcWVQTTdLMmJ4b0ZxRVpPUDM5eE02WS1GY0d5cExxamg3ajFtQWJJWlhwWncwYWtMeG5ESVpoWGtGeDc5UDdhMzI4UXJpcDNuTGhWRlVuczJBYkRxb2U4WEUxLWlHcHhyQ2wyTWVveVRRSGp0bVZJbUl2ZWpXc2FQcVlJRENDXzliSU85em5Qb180aExGYTdfaHl1VzVISGdjOVozOG91Y0lMaUc1cWdvTkw?oc=5",
+      "created_at": "2026-09-20",
+      "status": "draft",
+      "_score": 48,
+      "_judge": "The hook violates the strict second-person rule by adopting a first-person corporate 'We' perspective.",
+      "_detail": {
+        "laugh": 4,
+        "share_trigger": 4,
+        "surprise": 4,
+        "specificity": 4,
+        "voice": 3,
+        "travels": 3
+      },
+      "_penalty": 4
+    },
+    {
+      "trend": "Festive hiring surge puts workforce planning, employee burnout in focus",
+      "context": "Companies build burnouts directly into their planning cycles and treat individuals as depreciating operational resources.",
+      "angle": "Corporate wellness is simply an administrative buffer to keep you working.",
+      "slides": [
+        "The terms and conditions of your October appraisal.",
+        "Clause 1: Your personal life is a sub-brand of the company.\nClause 2: Sleep is an optional third-party integration.\nClause 3: All complaints must be directed to the automated HR chatbot.",
+        "The chatbot is currently down for maintenance."
+      ],
+      "caption": "Please check the fine print. ✅",
+      "trigger": "admin",
+      "structure": "terms_and_conditions",
+      "target": "employer",
+      "satire_level": 3,
+      "hinglish": false,
+      "source": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxOZXlLN05FXzY1VkYybnI4WlhZMmd6bHV0WTd1UU9QZjFCa200ZkZ4dm85YVVQb04tTzRjUTVWRUtZVGlfSTZxM3IwWHFlUE03SzJieG9GcUVaT1AzOXhNNlktRmNHeXBMcWpoN2oxbUFiSVpYcFp3MGFrTHhuRElaaFhrRng3OVA3YTMyOFFyaXAzbkxoVkZVbnMyQWJEcW9lOFhFMS1pR3B4ckNsMk1lb3lUUUhqdG1WSW1JdmVqV3NhUHFZSURDQ185YklPOXpuUG9fNGhMRmE3X2h5dVc1SEhnYzlaMzhvdWNJTGlHNXFnb05M0gH0AUFVX3lxTE5leUs3TkVfNjVWRjJucjhaWFkyZ3psdXRZN3VRT1BmMUJrbTRmRnh2bzlhVVBvTi1PNGNRNVZFS1lUaV9JNnEzcjBYcWVQTTdLMmJ4b0ZxRVpPUDM5eE02WS1GY0d5cExxamg3ajFtQWJJWlhwWncwYWtMeG5ESVpoWGtGeDc5UDdhMzI4UXJpcDNuTGhWRlVuczJBYkRxb2U4WEUxLWlHcHhyQ2wyTWVveVRRSGp0bVZJbUl2ZWpXc2FQcVlJRENDXzliSU85em5Qb180aExGYTdfaHl1VzVISGdjOVozOG91Y0lMaUc1cWdvTkw?oc=5",
+      "created_at": "2026-09-20",
+      "status": "draft",
+      "_score": 32,
+      "_judge": "The landing is incredibly predictable and feels like a generic LinkedIn observation rather than a sharp adulting report.",
+      "_detail": {
+        "laugh": 2,
+        "share_trigger": 2,
+        "surprise": 2,
+        "specificity": 2,
+        "voice": 3,
+        "travels": 5
+      },
+      "_penalty": 4
+    }
+  ],
+  "rejected": [
+    {
+      "trend": "Festive hiring surge puts workforce planning, employee burnout in focus",
+      "context": "The corporate machine attempts to scale human output beyond physical limits during Q3 targets.",
+      "angle": "The human body does not have a holiday quarterly cycle.",
+      "slides": [
+        "A small request from the leadership team.",
+        "Can you stretch a bit extra till November?\nA thoda work on Sunday also?\nClient wants the deck by Monday morning.\nWe will compensate you after the season.",
+        "Your spine has filed a complaint.\n\nYou are now paying a physiotherapist ₹1,500 an hour."
+      ],
+      "caption": "Settle down. It's just a holiday. ☕",
+      "trigger": "the_body_learning_new_words",
+      "structure": "dialogue",
+      "target": "employer",
+      "satire_level": 4,
+      "hinglish": true,
+      "source": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxOZXlLN05FXzY1VkYybnI4WlhZMmd6bHV0WTd1UU9QZjFCa200ZkZ4dm85YVVQb04tTzRjUTVWRUtZVGlfSTZxM3IwWHFlUE03SzJieG9GcUVaT1AzOXhNNlktRmNHeXBMcWpoN2oxbUFiSVpYcFp3MGFrTHhuRElaaFhrRng3OVA3YTMyOFFyaXAzbkxoVkZVbnMyQWJEcW9lOFhFMS1pR3B4ckNsMk1lb3lUUUhqdG1WSW1JdmVqV3NhUHFZSURDQ185YklPOXpuUG9fNGhMRmE3X2h5dVc1SEhnYzlaMzhvdWNJTGlHNXFnb05M0gH0AUFVX3lxTE5leUs3TkVfNjVWRjJucjhaWFkyZ3psdXRZN3VRT1BmMUJrbTRmRnh2bzlhVVBvTi1PNGNRNVZFS1lUaV9JNnEzcjBYcWVQTTdLMmJ4b0ZxRVpPUDM5eE02WS1GY0d5cExxamg3ajFtQWJJWlhwWncwYWtMeG5ESVpoWGtGeDc5UDdhMzI4UXJpcDNuTGhWRlVuczJBYkRxb2U4WEUxLWlHcHhyQ2wyTWVveVRRSGp0bVZJbUl2ZWpXc2FQcVlJRENDXzliSU85em5Qb180aExGYTdfaHl1VzVISGdjOVozOG91Y0lMaUc1cWdvTkw?oc=5",
+      "created_at": "2026-09-20",
+      "_gate_failures": [
+        "landing carries a currency figure — that beat cannot travel; move the number into the escalation"
+      ]
+    }
+  ]
+}

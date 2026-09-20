@@ -1,0 +1,27 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "Dreaming of a Germany job? Indian engineer explains what a €70,000 salary looks like after taxes, rent & other costs",
+      "context": "The LinkedIn fantasy of migrating abroad misses the reality of a global middle-class grind under heavy tax regimes.",
+      "angle": "Escaping India just changes the currency of your anxiety.",
+      "slides": [
+        "The exact invoice for escaping to Europe.",
+        "Rent in Munich — €1,800.\nTaxes — 42%.\nHealth insurance — €350.\nOne single, sad cauliflower — €4.",
+        "You survived the Indian middle class.\n\nOnly to count pennies in Euro."
+      ],
+      "caption": "The grass is green, but it has a high maintenance cost. ✈️",
+      "trigger": "money",
+      "structure": "receipt",
+      "target": "LinkedIn",
+      "satire_level": 4,
+      "hinglish": false,
+      "source": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxObVdqYThjQThVanVaTkxHTmFXcjBtOUY4WUZkT3EyZ1BEX0htd0w1YVFBWi10ckx5a0dNZFpuSktJLXJEV3JKUHJTemV3dGJPVUduSjBMZ1pjc09ISjN4ZWpGT004bTBzTEc0alQ4SzFfeERLRWkxbjRGNGNhSlpQYWVabGhxMGo0a0JRdjZVVVZKZ0FLWjRrLXZsUk8yRUxiamQzRERVbVItc29vdDJyYU0xY2xuNlhMRjdoNUFwOUNRYnRxT2dyX3doS2hxbTA3cXhJVV9rS3BsMEI1UlhXT0gxOXlrak9iSkdqNWdqTlhpTkppZF82WnFrbUtHeE0?oc=5",
+      "created_at": "2026-09-20",
+      "status": "approved",
+      "id": "g019",
+      "rank_score": 58,
+      "rank_verdict": "The final line slightly over-explains the joke by explicitly stating the irony of counting pennies in Euros."
+    }
+  ]
+}

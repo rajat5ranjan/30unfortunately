@@ -1,0 +1,27 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "Festive hiring surge puts workforce planning, employee burnout in focus",
+      "context": "Companies build burnouts directly into their planning cycles and treat individuals as depreciating operational resources.",
+      "angle": "Corporate wellness is simply an administrative buffer to keep you working.",
+      "slides": [
+        "The terms and conditions of your October appraisal.",
+        "Clause 1: Your personal life is a sub-brand of the company.\nClause 2: Sleep is an optional third-party integration.\nClause 3: All complaints must be directed to the automated HR chatbot.",
+        "The chatbot is currently down for maintenance."
+      ],
+      "caption": "Please check the fine print. ✅",
+      "trigger": "admin",
+      "structure": "terms_and_conditions",
+      "target": "employer",
+      "satire_level": 3,
+      "hinglish": false,
+      "source": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxOZXlLN05FXzY1VkYybnI4WlhZMmd6bHV0WTd1UU9QZjFCa200ZkZ4dm85YVVQb04tTzRjUTVWRUtZVGlfSTZxM3IwWHFlUE03SzJieG9GcUVaT1AzOXhNNlktRmNHeXBMcWpoN2oxbUFiSVpYcFp3MGFrTHhuRElaaFhrRng3OVA3YTMyOFFyaXAzbkxoVkZVbnMyQWJEcW9lOFhFMS1pR3B4ckNsMk1lb3lUUUhqdG1WSW1JdmVqV3NhUHFZSURDQ185YklPOXpuUG9fNGhMRmE3X2h5dVc1SEhnYzlaMzhvdWNJTGlHNXFnb05M0gH0AUFVX3lxTE5leUs3TkVfNjVWRjJucjhaWFkyZ3psdXRZN3VRT1BmMUJrbTRmRnh2bzlhVVBvTi1PNGNRNVZFS1lUaV9JNnEzcjBYcWVQTTdLMmJ4b0ZxRVpPUDM5eE02WS1GY0d5cExxamg3ajFtQWJJWlhwWncwYWtMeG5ESVpoWGtGeDc5UDdhMzI4UXJpcDNuTGhWRlVuczJBYkRxb2U4WEUxLWlHcHhyQ2wyTWVveVRRSGp0bVZJbUl2ZWpXc2FQcVlJRENDXzliSU85em5Qb180aExGYTdfaHl1VzVISGdjOVozOG91Y0lMaUc1cWdvTkw?oc=5",
+      "created_at": "2026-09-20",
+      "status": "approved",
+      "id": "g022",
+      "rank_score": 32,
+      "rank_verdict": "The landing is incredibly predictable and feels like a generic LinkedIn observation rather than a sharp adulting report."
+    }
+  ]
+}

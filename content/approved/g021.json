@@ -1,0 +1,27 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "Festive hiring surge puts workforce planning, employee burnout in focus",
+      "context": "Companies use the cultural cover of festivals to mask chronic understaffing and force extreme overtime.",
+      "angle": "A festive surge is just corporate understaffing dressed up in ethnic wear.",
+      "slides": [
+        "We are looking for a Festive Warrior who thrives under pressure.",
+        "Must think of 14-hour days as festive cheer.\nMust treat chest pain as passion.\nMust accept a dry fruit box as variable pay.\nMust not have plans for Diwali.",
+        "The shifts are twelve hours.\n\nYour manager's out-of-office is already active."
+      ],
+      "caption": "Happy holidays to the leadership team. ✨",
+      "trigger": "corporate",
+      "structure": "job_description",
+      "target": "employer",
+      "satire_level": 4,
+      "hinglish": false,
+      "source": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxOZXlLN05FXzY1VkYybnI4WlhZMmd6bHV0WTd1UU9QZjFCa200ZkZ4dm85YVVQb04tTzRjUTVWRUtZVGlfSTZxM3IwWHFlUE03SzJieG9GcUVaT1AzOXhNNlktRmNHeXBMcWpoN2oxbUFiSVpYcFp3MGFrTHhuRElaaFhrRng3OVA3YTMyOFFyaXAzbkxoVkZVbnMyQWJEcW9lOFhFMS1pR3B4ckNsMk1lb3lUUUhqdG1WSW1JdmVqV3NhUHFZSURDQ185YklPOXpuUG9fNGhMRmE3X2h5dVc1SEhnYzlaMzhvdWNJTGlHNXFnb05M0gH0AUFVX3lxTE5leUs3TkVfNjVWRjJucjhaWFkyZ3psdXRZN3VRT1BmMUJrbTRmRnh2bzlhVVBvTi1PNGNRNVZFS1lUaV9JNnEzcjBYcWVQTTdLMmJ4b0ZxRVpPUDM5eE02WS1GY0d5cExxamg3ajFtQWJJWlhwWncwYWtMeG5ESVpoWGtGeDc5UDdhMzI4UXJpcDNuTGhWRlVuczJBYkRxb2U4WEUxLWlHcHhyQ2wyTWVveVRRSGp0bVZJbUl2ZWpXc2FQcVlJRENDXzliSU85em5Qb180aExGYTdfaHl1VzVISGdjOVozOG91Y0lMaUc1cWdvTkw?oc=5",
+      "created_at": "2026-09-20",
+      "status": "approved",
+      "id": "g021",
+      "rank_score": 48,
+      "rank_verdict": "The hook violates the strict second-person rule by adopting a first-person corporate 'We' perspective."
+    }
+  ]
+}
