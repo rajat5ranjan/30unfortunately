@@ -1,0 +1,27 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "250+ job applications, zero callbacks: IIM Kozhikode MBA grad asks if anyone is hiring",
+      "context": "The recruitment process has become completely depersonalized, leaving mid-career professionals shouting into automated voids.",
+      "angle": "HR departments have built automated screens so efficient that actual human capability has become an administrative error.",
+      "slides": [
+        "The standard response to your 200th job application.",
+        "\"We received 4,000 applications.\"\n\n\"Your profile is impressive.\"\n\n\"We will keep it in our database.\"\n\n\"Please do not reply to this email.\"",
+        "The database is a graveyard.\n\nHR is in a meeting."
+      ],
+      "caption": "They are processing your disappointment in batches. 🤖",
+      "trigger": "corporate",
+      "structure": "customer_support",
+      "target": "HR",
+      "satire_level": 4,
+      "hinglish": false,
+      "source": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxQT1BVVTU0Y3VNdklHY08yM256aXB6aU9RZENkUk5MVHRNbDZyNmFhQmFpOFUza0JqM3hrVG1NUHNESFpDZ0o4b1R3OXU0WjVFVUNieGxtLTJ5TFljOUgyNC02eEpZUEtKc1RSeGVVRkJTU1JTdDNXQk5sU3ZDV0FDa1VTS2tqb2VDVjFuaS0tQ3FaRktmcmFJekh1VEx0N2ZrLWZVZVJpcVBoVlFyVy15NlJEMG16UklzT2Q3MERiWFVUcjVFQV96bUxJZWxwU2pkNW0zNl9Za1RWT1hmT3Q2ay1BZzRHdlQ50gHuAUFVX3lxTE5QVl84dnIxaVpCcjFWekRYOGhKdkJDM2hodFFUbEJtenp3ZVl2UnQwZUxqZVhOYTdSWF9xZHZ6T19qUWhOQjJGTTROWlhfSEZUR0hmM0xrS3pZN3lOV0RTSTFkOE9sTzNHSWRPc0JndWJfVVBMNnZtT3ZzR0ozUDhJOEh2aHgweVZLVzJQQ3JKUmtCNm5YMVA4UjAxcHVMRmtBa2lpN0lwdzJhaFdfUlRZSjRFQTJ1VExNTFBPT1A2aU9jQno0ajY2ZlU1V0JabExOeW5GZjJ0dEVZUll6cFdPZU9jcHNVYllwU3puU3c?oc=5",
+      "created_at": "2026-09-20",
+      "status": "approved",
+      "id": "g010",
+      "rank_score": 50,
+      "rank_verdict": "Excellent deadpan delivery and a highly relatable corporate gut-punch that lands perfectly on a noun."
+    }
+  ]
+}

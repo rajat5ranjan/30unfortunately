@@ -1,0 +1,261 @@
+{
+  "generated_at": "20260920-075852",
+  "model": "gemini-3.5-flash",
+  "accepted": [
+    {
+      "trend": "250+ job applications, zero callbacks: IIM Kozhikode MBA grad asks if anyone is hiring",
+      "context": "The recruitment process has become completely depersonalized, leaving mid-career professionals shouting into automated voids.",
+      "angle": "HR departments have built automated screens so efficient that actual human capability has become an administrative error.",
+      "slides": [
+        "The standard response to your 200th job application.",
+        "\"We received 4,000 applications.\"\n\n\"Your profile is impressive.\"\n\n\"We will keep it in our database.\"\n\n\"Please do not reply to this email.\"",
+        "The database is a graveyard.\n\nHR is in a meeting."
+      ],
+      "caption": "They are processing your disappointment in batches. 🤖",
+      "trigger": "corporate",
+      "structure": "customer_support",
+      "target": "HR",
+      "satire_level": 4,
+      "hinglish": false,
+      "source": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxQT1BVVTU0Y3VNdklHY08yM256aXB6aU9RZENkUk5MVHRNbDZyNmFhQmFpOFUza0JqM3hrVG1NUHNESFpDZ0o4b1R3OXU0WjVFVUNieGxtLTJ5TFljOUgyNC02eEpZUEtKc1RSeGVVRkJTU1JTdDNXQk5sU3ZDV0FDa1VTS2tqb2VDVjFuaS0tQ3FaRktmcmFJekh1VEx0N2ZrLWZVZVJpcVBoVlFyVy15NlJEMG16UklzT2Q3MERiWFVUcjVFQV96bUxJZWxwU2pkNW0zNl9Za1RWT1hmT3Q2ay1BZzRHdlQ50gHuAUFVX3lxTE5QVl84dnIxaVpCcjFWekRYOGhKdkJDM2hodFFUbEJtenp3ZVl2UnQwZUxqZVhOYTdSWF9xZHZ6T19qUWhOQjJGTTROWlhfSEZUR0hmM0xrS3pZN3lOV0RTSTFkOE9sTzNHSWRPc0JndWJfVVBMNnZtT3ZzR0ozUDhJOEh2aHgweVZLVzJQQ3JKUmtCNm5YMVA4UjAxcHVMRmtBa2lpN0lwdzJhaFdfUlRZSjRFQTJ1VExNTFBPT1A2aU9jQno0ajY2ZlU1V0JabExOeW5GZjJ0dEVZUll6cFdPZU9jcHNVYllwU3puU3c?oc=5",
+      "created_at": "2026-09-20",
+      "status": "draft",
+      "_score": 50,
+      "_judge": "Excellent deadpan delivery and a highly relatable corporate gut-punch that lands perfectly on a noun.",
+      "_detail": {
+        "share_trigger": 4,
+        "surprise": 5,
+        "specificity": 4,
+        "voice": 5,
+        "travels": 5
+      },
+      "_penalty": 0
+    },
+    {
+      "trend": "250+ job applications, zero callbacks: IIM Kozhikode MBA grad asks if anyone is hiring",
+      "context": "The promise that elite academic credentials guarantee a secure and comfortable adulthood has expired.",
+      "angle": "The institutional brands that you spent your youth competing to enter have been reduced to content pieces for job boards.",
+      "slides": [
+        "Go and look at your degree certificate in the folder.",
+        "In 2016: \"Get this brand, your life is sorted.\"\n\nIn 2021: \"The network is your net worth.\"\n\nIn 2026: 250 applications, 0 callbacks, 1 LinkedIn post asking for a referral.",
+        "The premium subscription didn't help.\n\nThe platform is still charging you."
+      ],
+      "caption": "The gold medal has been archived. 📁",
+      "trigger": "corporate",
+      "structure": "then_now",
+      "target": "LinkedIn",
+      "satire_level": 4,
+      "hinglish": false,
+      "source": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxQT1BVVTU0Y3VNdklHY08yM256aXB6aU9RZENkUk5MVHRNbDZyNmFhQmFpOFUza0JqM3hrVG1NUHNESFpDZ0o4b1R3OXU0WjVFVUNieGxtLTJ5TFljOUgyNC02eEpZUEtKc1RSeGVVRkJTU1JTdDNXQk5sU3ZDV0FDa1VTS2tqb2VDVjFuaS0tQ3FaRktmcmFJekh1VEx0N2ZrLWZVZVJpcVBoVlFyVy15NlJEMG16UklzT2Q3MERiWFVUcjVFQV96bUxJZWxwU2pkNW0zNl9Za1RWT1hmT3Q2ay1BZzRHdlQ50gHuAUFVX3lxTE5QVl84dnIxaVpCcjFWekRYOGhKdkJDM2hodFFUbEJtenp3ZVl2UnQwZUxqZVhOYTdSWF9xZHZ6T19qUWhOQjJGTTROWlhfSEZUR0hmM0xrS3pZN3lOV0RTSTFkOE9sTzNHSWRPc0JndWJfVVBMNnZtT3ZzR0ozUDhJOEh2aHgweVZLVzJQQ3JKUmtCNm5YMVA4UjAxcHVMRmtBa2lpN0lwdzJhaFdfUlRZSjRFQTJ1VExNTFBPT1A2aU9jQno0ajY2ZlU1V0JabExOeW5GZjJ0dEVZUll6cFdPZU9jcHNVYllwU3puU3c?oc=5",
+      "created_at": "2026-09-20",
+      "status": "draft",
+      "_score": 47,
+      "_judge": "A strong, resonant post, though the transition from the physical degree to a digital subscription in the landing is slightly loose.",
+      "_detail": {
+        "share_trigger": 5,
+        "surprise": 4,
+        "specificity": 5,
+        "voice": 4,
+        "travels": 5
+      },
+      "_penalty": 4
+    },
+    {
+      "trend": "Rise of HYROX in India: Why Women And Fitness Buffs Are Swapping Gym For Hybrid Runs",
+      "context": "Corporate employees are so conditioned to seek validation through measurable misery that they have turned fitness into a performance review.",
+      "angle": "Hybrid fitness competitions are designed specifically to exploit corporate anxiety by turning manual labor into a premium hobby.",
+      "slides": [
+        "There is a new fitness trend designed specifically for your corporate anxiety.",
+        "Job Title: Hybrid Athlete.\n\nWorking Hours: 6:00 AM before your first call.\n\nKey Deliverables: Carry 50 kg sandbags across a concrete floor.\n\nCompensation: A digital badge and a sore knee.",
+        "You pay them to register.\n\nIt is the only review where you work this hard."
+      ],
+      "caption": "At least here the KPIs are clearly defined. 🏃‍♂️",
+      "trigger": "health",
+      "structure": "job_description",
+      "target": "gym",
+      "satire_level": 3,
+      "hinglish": false,
+      "source": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOYWJsb0ItTUtORXFnN3BfY050MGZNb0o4M3Z4Q3cxMkJuQzdya2k0aHJ4ckx6MnBLV3VrZGdYUS14NWR0YS10alUtbEJtQjhFblExU1JJWlVCUHV0Y0hFZHV3MUpoMmpORzdoU1RBUjV3MzZsWUI4ajNJVWJMUk05MkpmcXg0M00",
+      "created_at": "2026-09-20",
+      "status": "draft",
+      "_score": 41,
+      "_judge": "The final line fumbles the landing with a clumsy comparison to a performance review.",
+      "_detail": {
+        "share_trigger": 4,
+        "surprise": 3,
+        "specificity": 4,
+        "voice": 4,
+        "travels": 5
+      },
+      "_penalty": 3
+    },
+    {
+      "trend": "250+ job applications, zero callbacks: IIM Kozhikode MBA grad asks if anyone is hiring",
+      "context": "Indian parents struggle to comprehend a services economy that does not reward traditional academic linear progress.",
+      "angle": "The older generation's belief in institutional brand names is entirely incompatible with modern algorithmic hiring.",
+      "slides": [
+        "Explain the job market to your father today.",
+        "\"IIM se padha hai na?\"\n\n\"Toh naukri kyun nahi mil rahi?\"\n\n\"Tumhari generation ko sab jaldi chahiye.\"\n\n\"Thoda adjust kar lo.\"",
+        "He still thinks the dean calls companies for placements.\n\nLog kya kahenge."
+      ],
+      "caption": "The syllabus changed. Nobody sent him the PDF. 📚",
+      "trigger": "parents",
+      "structure": "dialogue",
+      "target": "parents",
+      "satire_level": 4,
+      "hinglish": true,
+      "source": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxQT1BVVTU0Y3VNdklHY08yM256aXB6aU9RZENkUk5MVHRNbDZyNmFhQmFpOFUza0JqM3hrVG1NUHNESFpDZ0o4b1R3OXU0WjVFVUNieGxtLTJ5TFljOUgyNC02eEpZUEtKc1RSeGVVRkJTU1JTdDNXQk5sU3ZDV0FDa1VTS2tqb2VDVjFuaS0tQ3FaRktmcmFJekh1VEx0N2ZrLWZVZVJpcVBoVlFyVy15NlJEMG16UklzT2Q3MERiWFVUcjVFQV96bUxJZWxwU2pkNW0zNl9Za1RWT1hmT3Q2ay1BZzRHdlQ50gHuAUFVX3lxTE5QVl84dnIxaVpCcjFWekRYOGhKdkJDM2hodFFUbEJtenp3ZVl2UnQwZUxqZVhOYTdSWF9xZHZ6T19qUWhOQjJGTTROWlhfSEZUR0hmM0xrS3pZN3lOV0RTSTFkOE9sTzNHSWRPc0JndWJfVVBMNnZtT3ZzR0ozUDhJOEh2aHgweVZLVzJQQ3JKUmtCNm5YMVA4UjAxcHVMRmtBa2lpN0lwdzJhaFdfUlRZSjRFQTJ1VExNTFBPT1A2aU9jQno0ajY2ZlU1V0JabExOeW5GZjJ0dEVZUll6cFdPZU9jcHNVYllwU3puU3c?oc=5",
+      "created_at": "2026-09-20",
+      "status": "draft",
+      "_score": 34,
+      "_judge": "Ending on 'Log kya kahenge' ruins both the voice and the global travel of an otherwise sharp observation.",
+      "_detail": {
+        "share_trigger": 4,
+        "surprise": 4,
+        "specificity": 4,
+        "voice": 2,
+        "travels": 3
+      },
+      "_penalty": 4
+    },
+    {
+      "trend": "UPI MDR For Capital Markets: Why A Tiny Fee Could Test India’s Zero-brokerage Model",
+      "context": "Every micro-convenience that defined the early digital experiences of young urban Indians is slowly being monetized.",
+      "angle": "Adulthood in India is a series of tiny, unavoidable tolls where 'free forever' was actually just a trial period.",
+      "slides": [
+        "Open any financial app on your phone right now.",
+        "Step 1: Download because it is \"free forever\".\n\nStep 2: Accumulate ₹14 in platform fees.\n\nStep 3: Pay GST on the fee.\n\nStep 4: Pay GST on the tax on the fee.",
+        "The convenience is no longer convenient.\n\nThe app always gets its rupee."
+      ],
+      "caption": "The price of doing business is you. 💸",
+      "trigger": "money",
+      "structure": "terms_and_conditions",
+      "target": "app",
+      "satire_level": 4,
+      "hinglish": false,
+      "source": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNWFBqcFZrNzRkZ3k1TkFYVTkxZ25qdVlhRXQ0SmoyaFJnVlRabkpsT0NWMXFJSEVxOXR3QTRxU3M2YW5ITWwwMVVNeHBDNW9SVWxXbnhLQ3I2a0FrV0hadThQMWl0OGRja1F2dTdGc1BjallObENya05FR0tPUmZ0M0kybEpOa0kzRkMtTDMzV080RXZrMmJNRWxwVkk0cWpBMFdVVjBmaVZJMWpSTU5vZnl1SDVGMzM2Wm1DWE9B0gHLAUFVX3lxTFBzMjB5VF94bDZfWTBVakFsUnZ2LW5YTmJnXzRtMklEQlAyWkNMYm1MVm5DSGs2OXZDVGlGckg3eHlGYlhFbUZFRFVoNWNRVDRiR0ZnTFF0Z0xJWnZyUGRTTlJBU01tTXYybFF2bmFrYkdHS2w5cFpJV1hNbWVCdHVEakk0ZVphWEFTa0swYlVNVllOSlVoV0JPbHJRemh2eVhsY1BieDhiV1dkYVlOSzNzRXdnWHd5TGwxVTFyWDFCOXJTdkkycm9fY1Yw?oc=5",
+      "created_at": "2026-09-20",
+      "status": "draft",
+      "_score": 32,
+      "_judge": "The landing moralises and explains the joke instead of staying deadpan.",
+      "_detail": {
+        "share_trigger": 3,
+        "surprise": 3,
+        "specificity": 4,
+        "voice": 2,
+        "travels": 4
+      },
+      "_penalty": 3
+    },
+    {
+      "trend": "Rise of HYROX in India: Why Women And Fitness Buffs Are Swapping Gym For Hybrid Runs",
+      "context": "The transition from youthful invincibility to adult fragility is heavily monitored by maternal anxiety.",
+      "angle": "Your parents view your attempts at intense adult fitness as a reckless endangerment of the body they spent decades trying to feed.",
+      "slides": [
+        "Read the messages in your family WhatsApp group this morning.",
+        "\"Gym ja rahe ho?\"\n\"Zada bhari weight mat uthana.\"\n\"Kamar dard kaisa hai?\"\n\"Doctor ne toh walking bola tha na?\"",
+        "You still went and signed up for a high-intensity run.\n\nThoda adjust kar lo."
+      ],
+      "caption": "They still treat you like an unstable chemical. 🧪",
+      "trigger": "parents",
+      "structure": "dialogue",
+      "target": "parents",
+      "satire_level": 4,
+      "hinglish": true,
+      "source": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOYWJsb0ItTUtORXFnN3BfY050MGZNb0o4M3Z4Q3cxMkJuQzdya2k0aHJ4ckx6MnBLV3VrZGdYUS14NWR0YS10alUtbEJtQjhFblExU1JJWlVCUHV0Y0hFZHV3MUpoMmpORzdoU1RBUjV3MzZsWUI4ajNJVWJMUk05MkpmcXg0M00",
+      "created_at": "2026-09-20",
+      "status": "draft",
+      "_score": 30,
+      "_judge": "Ending on an untranslated Hindi phrase ruins the global travel of the joke and violates the landing rules.",
+      "_detail": {
+        "share_trigger": 4,
+        "surprise": 2,
+        "specificity": 4,
+        "voice": 3,
+        "travels": 2
+      },
+      "_penalty": 4
+    },
+    {
+      "trend": "UPI MDR For Capital Markets: Why A Tiny Fee Could Test India’s Zero-brokerage Model",
+      "context": "The illusion of active capital market investment hides the reality of being a rent-extracted consumer.",
+      "angle": "You are not an active market participant; you are a captive source of micro-transaction fees for platforms that never lose money.",
+      "slides": [
+        "Try finding the 'free' button on your investment app today.",
+        "Your portfolio: down 4%.\n\nThe platform fee: up 18%.\n\nThe GST on your transaction: mandatory.\n\nYour broker's profit: guaranteed.",
+        "You are just a database row.\n\nThe platform is the only winner."
+      ],
+      "caption": "But congratulations on your diversification strategy. 📈",
+      "trigger": "money",
+      "structure": "juxtaposition",
+      "target": "platform",
+      "satire_level": 3,
+      "hinglish": false,
+      "source": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNWFBqcFZrNzRkZ3k1TkFYVTkxZ25qdVlhRXQ0SmoyaFJnVlRabkpsT0NWMXFJSEVxOXR3QTRxU3M2YW5ITWwwMVVNeHBDNW9SVWxXbnhLQ3I2a0FrV0hadThQMWl0OGRja1F2dTdGc1BjallObENya05FR0tPUmZ0M0kybEpOa0kzRkMtTDMzV080RXZrMmJNRWxwVkk0cWpBMFdVVjBmaVZJMWpSTU5vZnl1SDVGMzM2Wm1DWE9B0gHLAUFVX3lxTFBzMjB5VF94bDZfWTBVakFsUnZ2LW5YTmJnXzRtMklEQlAyWkNMYm1MVm5DSGs2OXZDVGlGckg3eHlGYlhFbUZFRFVoNWNRVDRiR0ZnTFF0Z0xJWnZyUGRTTlJBU01tTXYybFF2bmFrYkdHS2w5cFpJV1hNbWVCdHVEakk0ZVphWEFTa0swYlVNVllOSlVoV0JPbHJRemh2eVhsY1BieDhiV1dkYVlOSzNzRXdnWHd5TGwxVTFyWDFCOXJTdkkycm9fY1Yw?oc=5",
+      "created_at": "2026-09-20",
+      "status": "draft",
+      "_score": 30,
+      "_judge": "The landing states the obvious moral of the post rather than letting the deadpan speak for itself.",
+      "_detail": {
+        "share_trigger": 3,
+        "surprise": 3,
+        "specificity": 4,
+        "voice": 3,
+        "travels": 4
+      },
+      "_penalty": 7
+    },
+    {
+      "trend": "UPI MDR For Capital Markets: Why A Tiny Fee Could Test India’s Zero-brokerage Model",
+      "context": "The middle-class Indian's financial discipline is systematically drained by corporate micro-charges.",
+      "angle": "No matter how carefully you calculate your savings, the infrastructure of the transaction is designed to eat the margin.",
+      "slides": [
+        "Hisab lagao.",
+        "Invest ₹1000 — convenience fee.\n\nSell ₹1000 — brokerage fee.\n\nCheck balance — SMS charge.\n\nMove money — UPI MDR.",
+        "Your money is still in transit.\n\nSab chalta hai."
+      ],
+      "caption": "The math always favors the house. 🏦",
+      "trigger": "money",
+      "structure": "escalating_list",
+      "target": "bank",
+      "satire_level": 4,
+      "hinglish": true,
+      "source": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNWFBqcFZrNzRkZ3k1TkFYVTkxZ25qdVlhRXQ0SmoyaFJnVlRabkpsT0NWMXFJSEVxOXR3QTRxU3M2YW5ITWwwMVVNeHBDNW9SVWxXbnhLQ3I2a0FrV0hadThQMWl0OGRja1F2dTdGc1BjallObENya05FR0tPUmZ0M0kybEpOa0kzRkMtTDMzV080RXZrMmJNRWxwVkk0cWpBMFdVVjBmaVZJMWpSTU5vZnl1SDVGMzM2Wm1DWE9B0gHLAUFVX3lxTFBzMjB5VF94bDZfWTBVakFsUnZ2LW5YTmJnXzRtMklEQlAyWkNMYm1MVm5DSGs2OXZDVGlGckg3eHlGYlhFbUZFRFVoNWNRVDRiR0ZnTFF0Z0xJWnZyUGRTTlJBU01tTXYybFF2bmFrYkdHS2w5cFpJV1hNbWVCdHVEakk0ZVphWEFTa0swYlVNVllOSlVoV0JPbHJRemh2eVhsY1BieDhiV1dkYVlOSzNzRXdnWHd5TGwxVTFyWDFCOXJTdkkycm9fY1Yw?oc=5",
+      "created_at": "2026-09-20",
+      "status": "draft",
+      "_score": 22,
+      "_judge": "Using localized jargon like UPI MDR and ending on a colloquial phrase makes the post collapse outside India.",
+      "_detail": {
+        "share_trigger": 3,
+        "surprise": 2,
+        "specificity": 4,
+        "voice": 2,
+        "travels": 2
+      },
+      "_penalty": 7
+    }
+  ],
+  "rejected": [
+    {
+      "trend": "Rise of HYROX in India: Why Women And Fitness Buffs Are Swapping Gym For Hybrid Runs",
+      "context": "At 30, fitness is no longer about looking good; it is a desperate maintenance protocol to survive a sedentary corporate desk job.",
+      "angle": "The gym is no longer an aspiration. It has been rebranded as a high-intensity physical therapy session that you pay to endure.",
+      "slides": [
+        "Go and look at your new gym membership receipt.",
+        "At 22: You wanted to look good on a beach.\n\nAt 26: You wanted to \"clear your mind\".\n\nAt 30: You just want to sit down without your lower back making a sound.",
+        "You are paying ₹4,000 a month to learn how to stand.\n\nThe wellness industry is winning."
+      ],
+      "caption": "It’s not a hobby, it’s a restoration project. 🛠️",
+      "trigger": "health",
+      "structure": "then_now",
+      "target": "wellness industry",
+      "satire_level": 4,
+      "hinglish": false,
+      "source": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOYWJsb0ItTUtORXFnN3BfY050MGZNb0o4M3Z4Q3cxMkJuQzdya2k0aHJ4ckx6MnBLV3VrZGdYUS14NWR0YS10alUtbEJtQjhFblExU1JJWlVCUHV0Y0hFZHV3MUpoMmpORzdoU1RBUjV3MzZsWUI4ajNJVWJMUk05MkpmcXg0M00",
+      "created_at": "2026-09-20",
+      "_gate_failures": [
+        "landing carries a currency figure — that beat cannot travel; move the number into the escalation"
+      ]
+    }
+  ]
+}

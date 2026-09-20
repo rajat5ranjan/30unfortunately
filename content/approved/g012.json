@@ -1,0 +1,27 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "Rise of HYROX in India: Why Women And Fitness Buffs Are Swapping Gym For Hybrid Runs",
+      "context": "Corporate employees are so conditioned to seek validation through measurable misery that they have turned fitness into a performance review.",
+      "angle": "Hybrid fitness competitions are designed specifically to exploit corporate anxiety by turning manual labor into a premium hobby.",
+      "slides": [
+        "There is a new fitness trend designed specifically for your corporate anxiety.",
+        "Job Title: Hybrid Athlete.\n\nWorking Hours: 6:00 AM before your first call.\n\nKey Deliverables: Carry 50 kg sandbags across a concrete floor.\n\nCompensation: A digital badge and a sore knee.",
+        "You pay them to register.\n\nIt is the only review where you work this hard."
+      ],
+      "caption": "At least here the KPIs are clearly defined. 🏃‍♂️",
+      "trigger": "health",
+      "structure": "job_description",
+      "target": "gym",
+      "satire_level": 3,
+      "hinglish": false,
+      "source": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOYWJsb0ItTUtORXFnN3BfY050MGZNb0o4M3Z4Q3cxMkJuQzdya2k0aHJ4ckx6MnBLV3VrZGdYUS14NWR0YS10alUtbEJtQjhFblExU1JJWlVCUHV0Y0hFZHV3MUpoMmpORzdoU1RBUjV3MzZsWUI4ajNJVWJMUk05MkpmcXg0M00",
+      "created_at": "2026-09-20",
+      "status": "approved",
+      "id": "g012",
+      "rank_score": 41,
+      "rank_verdict": "The final line fumbles the landing with a clumsy comparison to a performance review."
+    }
+  ]
+}

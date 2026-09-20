@@ -1,0 +1,27 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "Rise of HYROX in India: Why Women And Fitness Buffs Are Swapping Gym For Hybrid Runs",
+      "context": "The transition from youthful invincibility to adult fragility is heavily monitored by maternal anxiety.",
+      "angle": "Your parents view your attempts at intense adult fitness as a reckless endangerment of the body they spent decades trying to feed.",
+      "slides": [
+        "Read the messages in your family WhatsApp group this morning.",
+        "\"Gym ja rahe ho?\"\n\"Zada bhari weight mat uthana.\"\n\"Kamar dard kaisa hai?\"\n\"Doctor ne toh walking bola tha na?\"",
+        "You still went and signed up for a high-intensity run.\n\nThoda adjust kar lo."
+      ],
+      "caption": "They still treat you like an unstable chemical. 🧪",
+      "trigger": "parents",
+      "structure": "dialogue",
+      "target": "parents",
+      "satire_level": 4,
+      "hinglish": true,
+      "source": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOYWJsb0ItTUtORXFnN3BfY050MGZNb0o4M3Z4Q3cxMkJuQzdya2k0aHJ4ckx6MnBLV3VrZGdYUS14NWR0YS10alUtbEJtQjhFblExU1JJWlVCUHV0Y0hFZHV3MUpoMmpORzdoU1RBUjV3MzZsWUI4ajNJVWJMUk05MkpmcXg0M00",
+      "created_at": "2026-09-20",
+      "status": "approved",
+      "id": "g015",
+      "rank_score": 30,
+      "rank_verdict": "Ending on an untranslated Hindi phrase ruins the global travel of the joke and violates the landing rules."
+    }
+  ]
+}
