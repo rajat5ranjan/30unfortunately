@@ -79,6 +79,13 @@ def gate_hard_bans(post: Dict[str, Any], brand: Dict[str, Any]) -> List[str]:
     for phrase in brand["hard_bans"]["phrases"]:
         if phrase.lower() in body:
             fails.append("banned phrase: '%s'" % phrase)
+    # Borrowed slang is a separate list because it fails for a different
+    # reason: not that it is a cliche, but that it dates the writer. Only the
+    # unambiguous tokens are in the list — see the note above it in brand.yaml.
+    for word in brand["hard_bans"].get("slang") or []:
+        if word.lower() in body:
+            fails.append("borrowed slang: '%s' — mechanics, not vocabulary"
+                         % word)
     # Emoji, unlike phrases, ARE allowed in the caption and only there.
     if EMOJI.search(_flat(post)):
         fails.append("emoji in card art (captions only)")
@@ -258,8 +265,8 @@ def run_gates(post: Dict[str, Any], brand: Dict[str, Any], history: List[Dict[st
 # did. NOT_A_RULE names the sections that are deliberately withheld, so the
 # check below can tell an omission from a decision.
 CONTRACT_SECTIONS = ("identity", "audience", "formula", "slides", "target", "voice",
-                     "hinglish", "travels", "territory", "satire_ladder",
-                     "structures", "hard_bans", "output_schema")
+                     "hinglish", "travels", "territory", "reply_moves",
+                     "satire_ladder", "structures", "hard_bans", "output_schema")
 NOT_A_RULE = ("trend_gate",           # applied to trends before the writer runs
               "few_shot_examples")    # a path, and the examples are sent separately
 

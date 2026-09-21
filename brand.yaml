@@ -18,6 +18,13 @@ audience:
   state: |
     Earning but not comfortable. Independent but still reporting to parents.
     Old enough to remember scarcity, young enough to be sold abundance.
+  the_audience_is_turning_over: |
+    The youngest millennials turn 30 in 2026. The oldest of the generation
+    after them turn 30 in 2027. So the reader this account is written for is
+    already, in part, someone who was twenty-two when it started — and next
+    year more of them will be. Write so that a twenty-eight-year-old reads it
+    without deciding it was made by somebody older. That is a rule about
+    comic mechanics, not vocabulary: see hard_bans.borrowed_slang.
   the_reaction_we_want: |
     They screenshot it and send it to one specific person.
     Not a like. A forward. If a post doesn't make someone think of a named
@@ -37,6 +44,11 @@ formula: |
 
   The trend is raw material. The observation is the product.
   Never report the news. Never explain the news. Metabolise it.
+
+  Write the REPLY, not the take. A take explains the thing and then has an
+  opinion about it; a reply assumes you already saw it and says the one line
+  underneath. The funniest thing on any news post is in the comments, and it
+  is never the comment that summarises the article. See reply_moves.
 
 # -----------------------------------------------------------------------------
 # SLIDE ARCHITECTURE — the carousel is the unit, never a single image
@@ -395,6 +407,93 @@ territory:
     replies under those finance posts — not another pass at search.
 
 # -----------------------------------------------------------------------------
+# REPLY MOVES — the comic operation, which is not the same as the structure
+# -----------------------------------------------------------------------------
+reply_moves:
+  why_this_section_exists: |
+    The account had a list of SHAPES (structures: then_now, receipt, dialogue)
+    and no list of MOVES. A shape is how a post is laid out across three
+    slides; a move is the thing that makes it funny. A receipt can run any of
+    the moves below, and two posts with the same structure and different moves
+    are different posts — which is exactly what the account has not been
+    producing.
+
+    These were read off replies rather than off posts, deliberately. The
+    funniest thing under any news item is in the comments, and the comment
+    that travels is never the one that summarises the article. Every specimen
+    quoted here is real and is quoted to show the mechanism, not to be
+    rewritten.
+  moves:
+    flat_restatement: |
+      Put two facts from the same story next to each other and add nothing.
+      No adjective, no verdict, no "you cannot make this up". The reader
+      takes the last step, and that step is the joke.
+        "let me get this straight. a team will not be playing in the FIFA
+         World Cup because they are currently being bombed by the FIFA Peace
+         Prize winner"
+      Hardest of the moves to do and the one that travels furthest, because
+      it cannot be accused of exaggerating. Our factual_ceiling makes it
+      cheap for us: we already may not add a fact.
+    absurd_comparative: |
+      Rate the news against something trivial, dated and concrete.
+        "Radioshack gonna reopen before the Strait of Hormuz."
+        "Sneezing in your late thirties is equally as violent as getting
+         jumped by 3 UFC fighters."
+      Rule: the yardstick must be MORE specific than the thing being
+      measured. Vague against vague is not a joke.
+    literalisation: |
+      Take the industry at its word and apply it honestly.
+        "Every cell phone is foldable. It's just a matter of will."
+      The target is always the language, never the reader who believed it.
+    the_banal_true_answer: |
+      A solemn frame, answered with the boring truth.
+        "Everyone always says 'Millennials will never forget where we were on
+         9/11' and it's like yeah, school."
+      This is the cheapest available way to puncture a sentimental trend
+      without being cruel to anybody in it.
+    the_turn_in_the_last_words: |
+      Everything before is reframed by three or four words at the end.
+        "not gonna kill the bug in my sink but not gonna save it either. he
+         needs to find his own way out. we both do"
+      This is already our landing rule, with a specimen attached. Note it
+      turns, it does not explain — "we both do" says nothing the sentence
+      before it said.
+    compression: |
+      The shortening IS the joke; there is no other content.
+        "i love the SeptemberOctoberNovemberDecember arc."
+      Use sparingly. One a fortnight, and never as the landing.
+    the_institutional_frame: |
+      Treat something trivial with the procedural seriousness it does not
+      deserve — terms and conditions, a job description, a support ticket, a
+      compliance notice. The account already has these as structures; this is
+      the note that they are a MOVE and they need a target. The comedy is the
+      register, so the register must never break, not once, not in the
+      landing.
+    the_question_with_one_answer: |
+      A question whose answer the reader already has.
+        "If a headline ever asks a question it means the answer is no."
+      Our hard_bans forbid a rhetorical question as the LANDING and that
+      stands. As a hook it is allowed and it is one of the few things that
+      reliably makes people reply.
+  the_wrapper_rule: |
+    The most useful single finding in the reading: absurdity is a wrapper for
+    sincerity. Direct sincerity reads as embarrassing, so the feeling goes
+    inside a frame absurd enough to make it safe to have. That is precisely
+    this account's contract already — the flat landing is the sincere bit and
+    the escalation is the wrapper — so the failure mode is now nameable: a
+    post with no wrapper is a diagnosis, and a post with no sincerity inside
+    it is a pun.
+  layers_of_irony: |
+    Sarcasm says the opposite of what it means and is one layer deep. Everyone
+    can read it, which is why it is the least interesting thing available.
+    The layer above it says something apparently sarcastic and actually means
+    it. Above that it stops being decidable at all, which is funny to the
+    people in the room and illegible to everyone else.
+    This account lives on the middle rung. The bottom one is a Facebook meme;
+    the top one cannot be written by an account a stranger meets in Explore,
+    because it requires already knowing who is speaking.
+
+# -----------------------------------------------------------------------------
 # SATIRE LADDER — vary it. An account that is always level 5 is exhausting.
 # -----------------------------------------------------------------------------
 satire_ladder:
@@ -471,6 +570,33 @@ hard_bans:
     - "nobody talks about"
     - "let that sink in"
     - "the truth is"
+  # Only the unambiguous ones are listed for the gate. It matches on raw
+  # substrings, so "bet" would fail "better" and "fr" would fail "from" —
+  # a gate that misfires is worse than the prose rule below, which covers
+  # the rest.
+  slang:
+    - rizz
+    - delulu
+    - skibidi
+    - gyatt
+    - "no cap"
+    - "it's giving"
+    - "main character energy"
+    - "understood the assignment"
+    - "left no crumbs"
+    - "ate that"
+  borrowed_slang: |
+    Take the comic mechanics of a younger internet and none of its
+    vocabulary. The reader is thirty; an account that writes like it is
+    nineteen is a thirty-year-old doing an impression of one, and that is
+    the least forgivable thing this account could sound like. Slang also
+    rots: a word that lands in September is a timestamp by March, and these
+    posts sit in a grid for years.
+    So: no rizz, no delulu, no ate, no slay, no bet, no fr, no no-cap, no
+    lowercase-as-a-personality, no unexplained meme formats, and no ironic
+    misspelling. The list is not the rule — the rule is that if a word marks
+    the writer's age, it is out. Plain sentences carry every move in
+    reply_moves without a single one of these.
   formal:
     - No emoji anywhere in the card art. Captions only, and sparingly.
     - No centred text. The clearest AI-slop tell there is.
