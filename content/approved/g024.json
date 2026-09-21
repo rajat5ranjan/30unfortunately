@@ -1,0 +1,28 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "Can You Rent Your Way Out Of Loneliness? - India Today",
+      "context": "Explaining the high-priced modern concept of co-living to traditional Indian parents.",
+      "angle": "Parents see through the expensive terminology of the real estate industry instantly.",
+      "slides": [
+        "\"Beta, you pay so much to share a kitchen with strangers?\"",
+        "\"No mummy, it's co-living. There's a community.\"\n\"But you don't even talk to our relatives.\"\n\"That's different, these are curated young professionals.\"\n\"So you pay to have friends?\"",
+        "\"It has a pool table, mummy.\"\n\n\"But you don't know how to play.\""
+      ],
+      "caption": "Whose mother is this?",
+      "trigger": "home",
+      "structure": "phone_call",
+      "move": "the_banal_true_answer",
+      "target": "parents",
+      "satire_level": 3,
+      "hinglish": true,
+      "source": "https://news.google.com/rss/articles/CBMingFBVV95cUxPWWZpZ1ZjSjRMX2JjMEctZG1acHJUWGdER1ByRWpiOElEVlo2a0dvTXdqX1dTUHlXNDdzQWFpLTRlYmtVZGN5MGJrODQyb091YndUbHhFcnpuYUpaOVdvWGdEVGV6YWlOZWNNMl9ONTBZZDdPRFJKSWc4b0lpVTVxRFJNQlJEVUtHQ3pyS1FDUGEwSkpoS0lyT01QWDBkZ9IBowFBVV95cUxPMjA1VzRYMzZHSzNMdllGbm1oeEp6THU5dGtXX1VaZWFqLWRuc0NxZVd0U0t4UU5oY1NJdGZVQ2pEX0VoYVFnY1ZNNGNWLUhha2k2bVZKcWFPbm5YTkxJZDZURjFNbWdFZHZzNUUzaUV3MDQ2cko3Vl9Fc2N4TU9OQmNJUUN1cFNqbnBiVjhDZmJsR0c1S1EteFRzSGgzd1lrbWdr?oc=5",
+      "created_at": "2026-09-21",
+      "status": "approved",
+      "id": "g024",
+      "rank_score": 59,
+      "rank_verdict": "The script format is slightly dialogue-heavy, but the maternal shutdown on the final slide makes it work."
+    }
+  ]
+}
