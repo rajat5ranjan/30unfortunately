@@ -94,6 +94,14 @@ def gate_hard_bans(post: Dict[str, Any], brand: Dict[str, Any]) -> List[str]:
 
 
 PRICE = re.compile(r"[\u20b9$]\s?\d[\d,]*")
+# A quote mark standing where a rupee sign should be. The model emitted
+# "\u20192,999" on 2026-09-21 and both the price gate and the renderer would
+# have taken it at face value — a card reading \u20192,999 in Bricolage Grotesque
+# at 96px. Narrow on purpose: it only fires before a figure that looks like
+# money, so "the '90s" and "'26 batch" are untouched.
+MONEY = r"\d{1,3}(?:,\d{2,3})+|\d{3,}"
+CURRENCY_LOOKALIKE = re.compile(
+    r"[\u2018\u2019\u201b\u0060\u00b4']\s?(?:%s)" % MONEY)
 TITLE_CARD = re.compile(
     r"^\s*(there\s+(is|are)|let'?s|let\s+us|here\s+(is|are)|presenting|"
     r"introducing|a\s+look\s+at|the\s+story\s+of)\b", re.I)
@@ -107,11 +115,29 @@ def gate_one_price(post: Dict[str, Any], brand: Dict[str, Any]) -> List[str]:
     using two numbers, and a gate that cannot tell them apart would take the
     best post in the corpus down with the worst.
     """
-    found = PRICE.findall(_flat(post))
+    body = _flat(post)
+    # Lookalikes count: a mangled rupee sign is still a price, and a receipt
+    # of four of them is still a spreadsheet.
+    found = PRICE.findall(body) + CURRENCY_LOOKALIKE.findall(body)
     if len(found) > 1:
         return ["%d prices in one post (%s) — the reader has to do arithmetic "
                 "to reach the joke. One figure, alone, does the work"
                 % (len(found), ", ".join(found[:4]))]
+    return []
+
+
+def gate_currency_is_real(post: Dict[str, Any],
+                          brand: Dict[str, Any]) -> List[str]:
+    """A rupee sign that is actually an apostrophe.
+
+    Nothing downstream would have caught it. The price gate counts currency
+    marks and would not see one; render.py draws whatever string it is given,
+    so the card ships with a quote mark where the money should be.
+    """
+    hit = CURRENCY_LOOKALIKE.search(_flat(post) + " " + (post.get("caption") or ""))
+    if hit:
+        return ["a quote mark is standing in for a currency sign — write "
+                "\u20b9 or leave the figure bare"]
     return []
 
 
@@ -316,6 +342,7 @@ def run_gates(post: Dict[str, Any], brand: Dict[str, Any], history: List[Dict[st
             + gate_target(post, brand) + gate_travels(post, brand)
             + gate_landing_turns(post, brand) + gate_one_price(post, brand)
             + gate_hook_is_not_a_title_card(post, brand)
+            + gate_currency_is_real(post, brand)
             + gate_move_is_declared(post, brand)
             + gate_source(post) + gate_novelty(post, history, cfg["novelty_threshold"]))
 
