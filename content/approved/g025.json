@@ -1,0 +1,28 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "From 1,700 to 50,000: BookMyBai Records a Sharp Rise in Domestic Help Hiring as India Embraces Digital Discovery",
+      "context": "Managing household help is the ultimate urban Indian milestone, now mediated by modern startup platforms.",
+      "angle": "We are applying the language of corporate software sprints to the person sweeping our floors.",
+      "slides": [
+        "Evaluating the sweep SLA with the person who cleans the kitchen.",
+        "\"Did you check the corners?\"\n\"Haan didi, clean hai.\"\n\"But the SLA was 9 AM. You logged in at 9:45.\"\n\"Traffic tha didi.\"",
+        "\"We need to align on deliverables. No leaves during the Diwali sprint.\"\n\n\"Didi, double lagega.\""
+      ],
+      "caption": "Somebody in your WhatsApp contacts is currently conducting quarterly reviews for their living room.",
+      "trigger": "home",
+      "structure": "dialogue",
+      "move": "the_institutional_frame",
+      "target": "app",
+      "satire_level": 3,
+      "hinglish": true,
+      "source": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxPbU1xYnN4aW82Vk1RTUYxYU1GX3JnWXBvV2lNbkxVMWV3NEtnMlV6c20tRGszWElfWUVjbGExR2RPRXVCZUNraU5EaUJYTHhyaGlzME9qX3ltZHpyZ05jLXZCR2lPaGNHNzFfWXdjSVNSS3ZfQ2M4QWxPNzlSWUpwMUhBSFpUd2NBTlFiOUdzLXRndEhic05qakZDVXJXanNfVGUwdnh1dWtiZzVRUFBETW5aTEtwTXNnZlQ2bVZuS0ZZbVdOQUVrSU15dkZsQlVBTW85UnI2VW15WUdsbEpXell3?oc=5",
+      "created_at": "2026-09-21",
+      "status": "approved",
+      "id": "g025",
+      "rank_score": 45,
+      "rank_verdict": "The corporate translation joke feels too forced and scripted to land as a natural observation."
+    }
+  ]
+}
