@@ -757,18 +757,26 @@ def cmd_html() -> int:
     # Only a post that is still queued can be vetoed, so only name one of those.
     stoppable = [i for i in shipped if status.get(i) == "queued"]
 
+    # The heading used to say "today" whichever day the run was from. It is
+    # read on a phone in the morning, so the one thing it must not do is
+    # present three-day-old candidates as this morning's.
+    ran = os.path.basename(files[-1])[:8]
+    today = ran == datetime.now(timezone.utc).strftime("%Y%m%d")
     doc = ('<!doctype html><html lang="en"><head><meta charset="utf-8">'
            '<meta name="viewport" content="width=device-width,initial-scale=1">'
            '<title>Candidates</title><link rel="stylesheet" href="https://fonts.googleapis.com/'
            'css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700&display=swap">'
-           '<style>%s</style></head><body><h1>Today&rsquo;s candidates</h1>'
+           '<style>%s</style></head><body><h1>%s</h1>'
            '<p class="sub">%s &middot; %d passed the gates, %d approved &middot; '
-           'ranked best first &middot; nothing here needs approving. %s'
+           'ranked best first &middot; nothing here needs approving. %s%s'
            '&nbsp;&middot;&nbsp; '
-           '<a class="back" href="./">published &amp; queued posts &rarr;</a></p>'
+           '<a class="back" href="./">the dashboard &amp; everything published &rarr;</a></p>'
            '<div class="grid">%s</div></body></html>'
-           % (CAND_CSS + control.CSS, _stamp(blob.get("generated_at", "")),
+           % (CAND_CSS + control.CSS,
+              "Today&rsquo;s candidates" if today else "The latest candidates",
+              _stamp(blob.get("generated_at", "")),
               len(acc), len(shipped),
+              '' if today else 'Nothing has generated today yet. ',
               ('%d still to go out — the buttons below file a one-tap issue and '
                'the workflow does the rest. ' % len(stoppable)) if stoppable else
               'Nothing from this run is still waiting to go out. ',

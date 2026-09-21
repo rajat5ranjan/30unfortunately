@@ -287,6 +287,8 @@ p.sub{margin:0 0 28px;color:#5E5849;font-size:14px}
 a{color:#15140F}
 .nav{display:inline-block;margin-bottom:22px;background:#D8451F;color:#FBF9F4;
 text-decoration:none;font-weight:700;font-size:13px;padding:9px 15px;border-radius:9px}
+h2.sec{font-size:13px;letter-spacing:1.2px;text-transform:uppercase;color:#9A9384;
+margin:0 0 14px;font-weight:700}
 """
 
 
@@ -322,6 +324,21 @@ def queue_status() -> Dict[str, str]:
         return {}
 
 
+def dashboard() -> Tuple[str, str]:
+    """(css, html) for the numbers at the top — best-effort, like the buttons.
+
+    Everything below it is a file on disk; this is the only part that needs the
+    database, and a sheet with no dashboard is still a sheet worth reading.
+    """
+    try:
+        import dash
+        import store
+        return dash.CSS, dash.block(store.connect())
+    except Exception as e:
+        print("contact sheet: no dashboard (%s)" % e)
+        return "", ""
+
+
 def write_contact_sheet(posts: List[Dict[str, Any]], handle: str) -> None:
     """A static approval page — and, via control.py, the place you act on it.
 
@@ -331,6 +348,7 @@ def write_contact_sheet(posts: List[Dict[str, Any]], handle: str) -> None:
     """
     posts = all_known_posts() or posts
     status = queue_status()
+    dash_css, dash_html = dashboard()
     cards = []
     for i, p in enumerate(posts):
         pid = p.get("id") or "c%03d" % (i + 1)
@@ -351,12 +369,15 @@ def write_contact_sheet(posts: List[Dict[str, Any]], handle: str) -> None:
         'family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700&display=swap">'
         '<style>%s</style></head><body>'
         '<h1>Thirty Unfortunately</h1>'
-        '<p class="sub">%d posts rendered &middot; %s &middot; these files are what '
-        'Meta pulls at publish time &middot; a button files a one-tap issue and '
-        'the workflow does the rest</p>'
+        '<p class="sub">%s &middot; %d posts rendered &middot; a button files a '
+        'one-tap issue and the workflow does the rest</p>'
+        '%s'
         '<a class="nav" href="candidates.html">Today&rsquo;s candidates &rarr;</a>'
+        '<h2 class="sec">Everything rendered so far</h2>'
+        '<p class="sub">These files are what Meta pulls at publish time.</p>'
         '<div class="grid">%s</div></body></html>'
-        % (handle, SHEET_CSS + control.CSS, len(posts), handle, "".join(cards)))
+        % (handle, SHEET_CSS + control.CSS + dash_css, handle, len(posts),
+           dash_html, "".join(cards)))
     with open(os.path.join(ROOT, "docs", "index.html"), "w") as f:
         f.write(html)
 

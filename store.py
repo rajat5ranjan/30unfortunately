@@ -250,10 +250,16 @@ def queued(conn: sqlite3.Connection) -> List[sqlite3.Row]:
         "SELECT * FROM posts WHERE status='queued' ORDER BY queued_at, id").fetchall()
 
 
-def by_format(conn: sqlite3.Connection) -> Dict[str, List[sqlite3.Row]]:
-    """Published posts grouped by format, each with its latest metrics row."""
-    rows = conn.execute("""
-        SELECT p.*, m.reach, m.likes, m.saved, m.shares, m.total_interactions
+def published_with_metrics(conn: sqlite3.Connection) -> List[sqlite3.Row]:
+    """Published posts, oldest first, each carrying its most recent capture.
+
+    One row per post, not per capture: the metrics table is a history and the
+    numbers in it are cumulative, so anything that reads every row counts the
+    same reach once per pull.
+    """
+    return conn.execute("""
+        SELECT p.*, m.reach, m.views, m.likes, m.comments, m.saved, m.shares,
+               m.total_interactions, m.captured_at
         FROM posts p
         LEFT JOIN (SELECT ig_media_id, MAX(captured_at) AS t FROM metrics
                    GROUP BY ig_media_id) last ON last.ig_media_id = p.ig_media_id
@@ -261,8 +267,12 @@ def by_format(conn: sqlite3.Connection) -> Dict[str, List[sqlite3.Row]]:
                            AND m.captured_at = last.t
         WHERE p.status = 'published'
         ORDER BY p.published_at""").fetchall()
+
+
+def by_format(conn: sqlite3.Connection) -> Dict[str, List[sqlite3.Row]]:
+    """The same rows, grouped into the two arms of the format experiment."""
     out = {}  # type: Dict[str, List[sqlite3.Row]]
-    for r in rows:
+    for r in published_with_metrics(conn):
         out.setdefault(r["format"] or "carousel", []).append(r)
     return out
 

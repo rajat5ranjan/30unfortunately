@@ -15,12 +15,14 @@ reached only when a real publish is in flight needs a stub and a test.
 import os
 import sys
 import unittest
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "tools"))
 
 import command
 import control
+import dash
+import metrics
 import publish
 import store
 
@@ -229,6 +231,84 @@ class IssueCommands(unittest.TestCase):
     def test_a_real_issue_is_left_alone(self):
         for title in ("Reel audio is broken", "", "skipping the gym"):
             self.assertEqual(command.parse(title)[0], "ignore", title)
+
+
+class Numbers(unittest.TestCase):
+    """The arithmetic behind `ab` and the dashboard, on a throwaway DB.
+
+    Both readings come from metrics.py now, so a test here covers the page and
+    the terminal at once. The fixture is deliberately lopsided: one arm with a
+    single huge post is exactly the shape that makes a mean lie and a median
+    hold.
+    """
+
+    def _db(self, rows):
+        import sqlite3
+        conn = sqlite3.connect(":memory:")
+        conn.row_factory = sqlite3.Row
+        conn.executescript(store.SCHEMA)
+        conn.execute("ALTER TABLE posts ADD COLUMN format TEXT")
+        for i, (fmt, reach, views, shares) in enumerate(rows):
+            mid = "m%d" % i
+            conn.execute(
+                "INSERT INTO posts (id, slides, caption, status, format,"
+                " published_at, ig_media_id) VALUES (?,'[]','',?,?,?,?)",
+                ("x%03d" % i, "published", fmt, "2026-09-%02d" % (i + 1), mid))
+            conn.execute(
+                "INSERT INTO metrics (ig_media_id, post_id, captured_at, reach,"
+                " views, shares) VALUES (?,?,?,?,?,?)",
+                (mid, "x%03d" % i, "2026-09-20T06:00:00+00:00", reach, views,
+                 shares))
+        conn.commit()
+        return conn
+
+    def test_only_the_newest_capture_counts(self):
+        """Metrics rows are cumulative, so summing the history triples reach."""
+        conn = self._db([("carousel", 10, 20, 1)])
+        conn.execute("INSERT INTO metrics (ig_media_id, post_id, captured_at,"
+                     " reach, views, shares) VALUES ('m0','x000',"
+                     "'2026-09-21T06:00:00+00:00', 30, 60, 3)")
+        conn.commit()
+        o = metrics.overview(conn)
+        self.assertEqual((o["reach"], o["views"], o["posts"]), (30, 60, 1))
+
+    def test_a_median_is_not_moved_by_one_outlier(self):
+        conn = self._db([("carousel", 10, 1, 0), ("carousel", 12, 1, 0),
+                         ("carousel", 900, 1, 0)])
+        line = metrics.compare(conn)["lines"][0]
+        self.assertEqual(line["carousel"], 12)
+
+    def test_an_empty_arm_never_divides_by_zero(self):
+        cmp_ = metrics.compare(self._db([("carousel", 10, 20, 0)]))
+        self.assertEqual(cmp_["n"], {"carousel": 1, "reel": 0})
+        self.assertIsNone(cmp_["ci"])
+        self.assertTrue(all(l["ratio"] is None for l in cmp_["lines"]))
+        self.assertIn("Too few", cmp_["verdict"])
+
+    def test_a_tiny_sample_always_carries_its_caveat(self):
+        conn = self._db([("carousel", 10, 20, 0)] * 4 + [("reel", 90, 99, 2)] * 3)
+        cmp_ = metrics.compare(conn)
+        self.assertIsNotNone(cmp_["ci"])
+        self.assertIsNotNone(cmp_["caveat"],
+                             "3 posts in an arm must never read as a result")
+
+    def test_the_dashboard_survives_an_empty_database(self):
+        """It is best-effort on the sheet, but it should not need to be."""
+        html = dash.block(self._db([]))
+        self.assertIn("Where it stands", html)
+        self.assertIn("never", html)
+
+    def test_stale_metrics_say_so(self):
+        conn = self._db([("carousel", 10, 20, 0)])
+        conn.execute("UPDATE metrics SET captured_at = ?",
+                     ((datetime.now(timezone.utc)
+                       - timedelta(hours=dash.STALE_HOURS + 2)).isoformat(),))
+        conn.commit()
+        self.assertIn("Older than it should be", dash.block(conn))
+        conn.execute("UPDATE metrics SET captured_at = ?",
+                     (datetime.now(timezone.utc).isoformat(),))
+        conn.commit()
+        self.assertNotIn("Older than it should be", dash.block(conn))
 
 
 if __name__ == "__main__":

@@ -1,0 +1,56 @@
+name: metrics
+
+# Pulls insights and rebuilds the Pages dashboard on a clock of its own.
+#
+# This used to ride along with publish.yml, which only collects insights when a
+# publish window is open. That is two or three moments a day at best, and when
+# GitHub drops those crons it is none — the dashboard read "27 hours ago" the
+# first time it was built. A dashboard nobody trusts the timestamp on is not a
+# dashboard, so the numbers now refresh on their own schedule whether or not
+# anything published.
+on:
+  schedule:
+    - cron: "53 */3 * * *"   # 8 a day, off the hour where delivery is worst
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# Same lane as publish and command: this commits posts.db, and two jobs writing
+# that file is exactly the race commit_state.sh exists to survive.
+concurrency:
+  group: state
+  cancel-in-progress: false
+
+jobs:
+  metrics:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # render.py draws the contact sheet with Pillow and brain.py parses the
+      # contract with PyYAML. The insights call itself needs neither.
+      - run: pip install -q PyYAML Pillow
+
+      - name: Collect insights
+        env:
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+        run: python3 publish.py insights | tee -a "$GITHUB_STEP_SUMMARY"
+
+      # The pages are static files, so nothing on them changes until something
+      # rewrites them. Both are cheap and neither touches the network.
+      - name: Rebuild the pages
+        run: |
+          python3 render.py --sheet-only
+          python3 brain.py --html
+
+      - name: What the numbers say
+        run: python3 publish.py ab | tee -a "$GITHUB_STEP_SUMMARY"
+
+      - name: Commit
+        run: |
+          tools/commit_state.sh "metrics: $(date -u +%Y-%m-%dT%H:%MZ)" \
+            posts.db docs/index.html docs/candidates.html

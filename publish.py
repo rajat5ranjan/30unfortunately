@@ -37,6 +37,7 @@ from datetime import time as TimeOfDay   # NOT `time`: that is the stdlib module
 from typing import Any, Dict, List, Optional
 
 import envfile
+import metrics
 import notify
 import store
 
@@ -657,83 +658,23 @@ def cmd_insights(args: argparse.Namespace) -> int:
     return 0
 
 
-def _median(xs: List[float]) -> Optional[float]:
-    xs = sorted(x for x in xs if x is not None)
-    if not xs:
-        return None
-    n = len(xs)
-    return xs[n // 2] if n % 2 else (xs[n // 2 - 1] + xs[n // 2]) / 2.0
-
-
-def _bootstrap(a: List[float], b: List[float], rounds: int = 4000):
-    """A confidence interval on median(b)/median(a), by resampling.
-
-    Not a t-test: reach is violently right-skewed and the samples are tiny, so
-    the assumptions behind a p-value are not met. Resampling makes no
-    distributional claim — it just asks how much the ratio moves when you draw
-    these same posts again with replacement.
-    """
-    import random
-    if len(a) < 3 or len(b) < 3:
-        return None
-    rng = random.Random(30)
-    out = []
-    for _ in range(rounds):
-        ma = _median([rng.choice(a) for _ in a])
-        mb = _median([rng.choice(b) for _ in b])
-        if ma:
-            out.append(mb / ma)
-    if not out:
-        return None
-    out.sort()
-    return out[int(0.05 * len(out))], out[int(0.95 * len(out)) - 1]
-
-
 def cmd_ab(args: argparse.Namespace) -> int:
-    """Carousel versus reel, on the metrics both formats actually report."""
-    conn = store.connect()
-    groups = store.by_format(conn)
-    arms = ("carousel", "reel")
-    rows = dict((a, groups.get(a, [])) for a in arms)
-
-    def col(a, key):
-        return [r[key] for r in rows[a] if r[key] is not None]
-
-    def rate(a, key):
-        return [(r[key] or 0) / float(r["reach"]) for r in rows[a]
-                if r["reach"]]
+    """Carousel versus reel, printed. The arithmetic lives in metrics.py."""
+    r = metrics.compare(store.connect())
 
     print("%-18s %10s %10s %10s" % ("", "carousel", "reel", "ratio"))
-    print("%-18s %10d %10d" % ("posts", len(rows["carousel"]), len(rows["reel"])))
-
-    def line(label, a_vals, b_vals, pct=False):
-        ma, mb = _median(a_vals), _median(b_vals)
+    print("%-18s %10d %10d" % ("posts", r["n"]["carousel"], r["n"]["reel"]))
+    for line in r["lines"]:
         fmt = (lambda v: "-" if v is None else
-               ("%.2f%%" % (v * 100) if pct else "%.0f" % v))
-        ratio = "%.1fx" % (mb / ma) if (ma and mb) else "—"
-        print("%-18s %10s %10s %10s" % (label, fmt(ma), fmt(mb), ratio))
+               ("%.2f%%" % (v * 100) if line["pct"] else "%.0f" % v))
+        print("%-18s %10s %10s %10s"
+              % (line["label"], fmt(line["carousel"]), fmt(line["reel"]),
+                 "%.1fx" % line["ratio"] if line["ratio"] else "\u2014"))
 
-    line("reach (median)", col("carousel", "reach"), col("reel", "reach"))
-    line("shares/reach", rate("carousel", "shares"), rate("reel", "shares"), True)
-    line("saves/reach", rate("carousel", "saved"), rate("reel", "saved"), True)
-    line("likes/reach", rate("carousel", "likes"), rate("reel", "likes"), True)
-
-    ci = _bootstrap(col("carousel", "reach"), col("reel", "reach"))
     print()
-    if ci:
-        print("reel reach advantage: bootstrap 90%% CI %.1fx - %.1fx" % ci)
-        if ci[0] > 1.0:
-            print("  the interval clears 1.0 — reels are reaching further.")
-        elif ci[1] < 1.0:
-            print("  the interval is below 1.0 — carousels are reaching further.")
-        else:
-            print("  the interval spans 1.0, so this is not yet a difference.")
-    smallest = min(len(rows["carousel"]), len(rows["reel"]))
-    if smallest < 15:
-        print("Only %d in the smaller arm. Medians move a lot at this size; treat"
-              % smallest)
-        print("anything here as a shape, not a result. Read it again at 15 each,")
-        print("and decide at 30.")
+    print(r["verdict"])
+    if r["caveat"]:
+        print(r["caveat"])
     print("\nShares per reach is the tiebreaker: reach says Instagram showed it")
     print("to more people, shares says they passed it on. Only the second one")
     print("compounds. Reel watch time is not here because carousels cannot")
