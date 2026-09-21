@@ -27,109 +27,90 @@ CANDIDATE_DIR = os.path.join(ROOT, "content", "candidates")
 STALE_HOURS = 14
 
 CSS = """
-.dash{background:#FBF9F4;border-radius:14px;padding:22px 22px 26px;margin:0 0 30px;
-box-shadow:0 3px 12px rgba(21,20,15,.1)}
-.dash h2{font-size:13px;letter-spacing:1.2px;text-transform:uppercase;color:#9A9384;
-margin:26px 0 12px;font-weight:700}
+.dash{background:#FBF9F4;border-radius:14px;padding:24px 26px 28px;margin:0 0 34px;
+box-shadow:0 3px 12px rgba(21,20,15,.1);max-width:820px}
+.dash h2{font-size:12px;letter-spacing:1.3px;text-transform:uppercase;color:#9A9384;
+margin:30px 0 12px;font-weight:700}
 .dash h2:first-child{margin-top:0}
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(88px,1fr));gap:12px}
-.stat{background:#F2EEE4;border-radius:10px;padding:11px 12px}
-.stat b{display:block;font-size:24px;line-height:1.05;letter-spacing:-1px}
-.stat span{display:block;font-size:10.5px;letter-spacing:.6px;text-transform:uppercase;
-color:#6E675A;margin-top:3px}
-.stat.hot b{color:#D8451F}
-.when{font-size:12px;color:#6E675A;margin:14px 0 0}
-.when.stale{color:#D8451F;font-weight:700}
-.row{display:grid;grid-template-columns:104px 1fr 44px;gap:10px;align-items:center;
-margin-bottom:9px}
-.lbl{font-size:11px;color:#6E675A;text-align:right;line-height:1.25}
-.ratio{font-size:11px;font-weight:700;color:#15140F;text-align:right}
-.pair{display:grid;gap:4px}
-.b{display:flex;align-items:center;gap:7px}
-.track{flex:1;height:13px;background:#EDE8DC;border-radius:3px;overflow:hidden}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.kpi{background:#F2EEE4;border-radius:10px;padding:13px 14px 12px}
+.kpi b{display:block;font-size:30px;line-height:1;letter-spacing:-1.5px}
+.kpi span{display:block;font-size:10.5px;letter-spacing:.5px;text-transform:uppercase;
+color:#6E675A;margin-top:5px}
+.kpi em{display:block;font-style:normal;font-size:11px;color:#9A9384;margin-top:6px}
+.kpi em.up{color:#2E7D4F}
+.kpi em.down{color:#D8451F}
+.when{font-size:11.5px;color:#9A9384;margin:12px 0 0}
+.when.stale{color:#D8451F}
+.headline{font-size:17px;line-height:1.35;letter-spacing:-.3px;margin:0 0 14px}
+.vs{max-width:520px}
+.vsrow{display:grid;grid-template-columns:66px 1fr 34px;gap:9px;align-items:center;
+margin-bottom:7px}
+.vsrow span{font-size:11.5px;color:#6E675A}
+.track{height:15px;background:#EDE8DC;border-radius:3px;overflow:hidden}
 .track i{display:block;height:100%;border-radius:3px}
 .track i.car{background:#15140F}
 .track i.reel{background:#D8451F}
-.track i.views{background:#CFC8B8}
-.b em{font-style:normal;font-size:11px;color:#3A3629;min-width:52px}
-.legend{font-size:11px;color:#6E675A;margin:0 0 14px}
-.key{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:4px;
-vertical-align:baseline}
-.key.car{background:#15140F}.key.reel{background:#D8451F}.key.views{background:#CFC8B8}
-.verdict{font-size:12.5px;color:#15140F;margin:14px 0 0;line-height:1.5}
-.caveat{font-size:11.5px;color:#6E675A;margin:6px 0 0;line-height:1.5}
-.prow{display:grid;grid-template-columns:78px 1fr 84px;gap:10px;align-items:center;
-margin-bottom:6px}
-.pid{font-size:11px;color:#6E675A}
-.pid b{color:#15140F;font-weight:700}
-.pnum{font-size:11px;color:#6E675A;text-align:right}
-.cands{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}
+.vsrow b{font-size:12px;text-align:right}
+.caveat{font-size:11.5px;color:#6E675A;margin:12px 0 0;line-height:1.55;
+max-width:560px}
+.posts{max-width:560px}
+.prow{display:grid;grid-template-columns:44px 1fr 30px;gap:9px;align-items:center;
+margin-bottom:5px}
+.prow span{font-size:11.5px;color:#15140F;font-weight:700}
+.prow b{font-size:11.5px;text-align:right;color:#6E675A;font-weight:400}
+.prow .track{height:11px}
+.cands{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
 .cand{background:#F2EEE4;border-radius:9px;padding:11px 12px;font-size:12px;
 line-height:1.4}
 .cand .h{display:block;color:#15140F;margin-bottom:5px}
 .cand .m{font-size:10px;letter-spacing:.5px;text-transform:uppercase;color:#9A9384}
 .none{font-size:12.5px;color:#6E675A;margin:0}
-@media(max-width:520px){.dash{padding:16px 14px 20px}
-.row{grid-template-columns:76px 1fr 38px}.lbl{font-size:10px}
-.prow{grid-template-columns:62px 1fr 70px}}
+@media(max-width:560px){.dash{padding:16px 14px 20px}
+.kpis{grid-template-columns:repeat(2,1fr)}.kpi b{font-size:26px}
+.headline{font-size:15.5px}.vsrow{grid-template-columns:52px 1fr 30px}}
 """
 
 
-def _bar(kind: str, frac: float, value: str) -> str:
-    pct = max(0.0, min(1.0, frac)) * 100
-    return ('<div class="b"><div class="track"><i class="%s" style="width:%.1f%%">'
-            '</i></div><em>%s</em></div>' % (kind, pct, value))
+def _n(v, dash="\u2014") -> str:
+    return dash if v is None else ("%.1f" % v).rstrip("0").rstrip(".")
 
 
-def _fmt(v: Optional[float], pct: bool) -> str:
-    if v is None:
-        return "—"
-    return "%.1f%%" % (v * 100) if pct else "%.0f" % v
+def kpi(value, label, note="", cls="") -> str:
+    return ('<div class="kpi"><b>%s</b><span>%s</span>%s</div>'
+            % (value, escape(label),
+               '<em class="%s">%s</em>' % (cls, escape(note)) if note else ""))
 
 
-def ab_chart(cmp_: Dict[str, Any]) -> str:
-    """One row per metric, two bars, scaled against the larger of the pair.
+def versus(cmp_: Dict[str, Any]) -> str:
+    """One comparison, not five. The rest is a sentence underneath.
 
-    Scaled per row rather than across the chart because the rows are in
-    different units — a percentage and a reach count share no axis.
+    The first chart put reach, views and three rates on equal footing as five
+    pairs of bars, which is a table pretending to be a picture. Only one row
+    ever decided anything, so only that row is drawn.
     """
+    reach = cmp_["lines"][0]
+    top = max(reach["carousel"] or 0, reach["reel"] or 0, 1)
     rows = []
-    for line in cmp_["lines"]:
-        a, b = line["carousel"], line["reel"]
-        top = max(v for v in (a or 0, b or 0, 1e-9))
-        rows.append(
-            '<div class="row"><div class="lbl">%s</div><div class="pair">%s%s</div>'
-            '<div class="ratio">%s</div></div>'
-            % (escape(line["label"]),
-               _bar("car", (a or 0) / top, _fmt(a, line["pct"])),
-               _bar("reel", (b or 0) / top, _fmt(b, line["pct"])),
-               "%.1fx" % line["ratio"] if line["ratio"] else "—"))
-    return "".join(rows)
+    for arm, kind in (("carousel", "car"), ("reel", "reel")):
+        v = reach[arm] or 0
+        rows.append('<div class="vsrow"><span>%s (%d)</span>'
+                    '<div class="track"><i class="%s" style="width:%.1f%%"></i>'
+                    '</div><b>%s</b></div>'
+                    % (arm, cmp_["n"][arm], kind, 100.0 * v / top, _n(v)))
+    return '<div class="vs">%s</div>' % "".join(rows)
 
 
-def post_chart(rows) -> str:
-    """Every published post, oldest first, reach inside views.
-
-    Two layers on one track rather than two bars: views is always the larger
-    of the pair, so reach sitting inside it is the same picture with half the
-    ink — and the gap between them is the share of viewers Instagram counted
-    more than once.
-    """
-    top = max([r["views"] or 0 for r in rows] + [1])
-    out = []
-    for r in rows:
-        fmt = r["format"] or "carousel"
-        reach, views = r["reach"] or 0, r["views"] or 0
-        out.append(
-            '<div class="prow"><div class="pid"><b>%s</b> %s</div>'
-            '<div class="track" style="position:relative">'
-            '<i class="views" style="width:%.1f%%"></i>'
-            '<i class="%s" style="width:%.1f%%;position:absolute;top:0;left:0"></i>'
-            '</div><div class="pnum">%d / %d</div></div>'
-            % (escape(r["id"]), escape(fmt), 100.0 * views / top,
-               "reel" if fmt == "reel" else "car", 100.0 * reach / top,
-               reach, views))
-    return "".join(out)
+def post_chart(rows: List[Dict[str, Any]]) -> str:
+    """Every post's day-one reach, newest first, longest bar = best ever."""
+    rows = list(reversed(rows))
+    top = max([r["reach"] for r in rows] + [1])
+    return '<div class="posts">%s</div>' % "".join(
+        '<div class="prow"><span>%s</span><div class="track">'
+        '<i class="%s" style="width:%.1f%%"></i></div><b>%s</b></div>'
+        % (escape(r["id"]), "reel" if r["format"] == "reel" else "car",
+           100.0 * r["reach"] / top, r["reach"])
+        for r in rows)
 
 
 def todays_candidates(today: Optional[str] = None) -> str:
@@ -161,44 +142,62 @@ def todays_candidates(today: Optional[str] = None) -> str:
             % (cards, len(acc)))
 
 
+
 def block(conn) -> str:
-    """The whole dashboard, ready to drop into a page."""
+    """The whole dashboard: four numbers, one verdict, two lists."""
     o = metrics.overview(conn)
     c = metrics.compare(conn)
+    t = metrics.trend(conn)
+    one = metrics.day_one(conn)
     counts = o["counts"]
+    published = counts.get("published", 0)
 
-    stats = [("published", counts.get("published", 0), False),
-             ("queued", counts.get("queued", 0), False),
-             ("reach", o["reach"], True),
-             ("views", o["views"], True),
-             ("interactions", o["total_interactions"], False),
-             ("shares", o["shares"], False)]
-    cells = "".join('<div class="stat%s"><b>%s</b><span>%s</span></div>'
-                    % (" hot" if hot else "", v, k) for k, v, hot in stats)
+    # Day-one reach is the headline because it is the only reach number that
+    # means the same thing on every post. The trend beside it compares the
+    # last five against the five before, which is the smallest window that is
+    # not just one good Saturday.
+    if t["before"]:
+        delta = t["now"] - t["before"]
+        note = "%s%s vs %s before" % ("+" if delta > 0 else "", _n(delta),
+                                      _n(t["before"]))
+        cls = "up" if delta > 0 else ("down" if delta < 0 else "")
+    else:
+        note, cls = "%d posts old enough to count" % t["have"], ""
+
+    sends = o["shares"] / float(published) if published else 0
+    best = max(one, key=lambda r: r["reach"]) if one else None
+
+    kpis = ('<div class="kpis">%s%s%s%s</div>'
+            % (kpi(_n(t["now"]), "reach, first day", note, cls),
+               kpi(_n(sends), "sends per post", "%d in total" % o["shares"]),
+               kpi(published, "published", "%d queued" % counts.get("queued", 0)),
+               kpi(best["reach"] if best else "\u2014", "best post",
+                   "%s, a %s" % (best["id"], best["format"]) if best else "")))
 
     stale = metrics.hours_since(o["captured"]) > STALE_HOURS
-    when = ('<p class="when%s">Metrics pulled %s &middot; %s%s</p>'
-            % (" stale" if stale else "",
-               o["captured"].strftime("%-d %b, %H:%M UTC") if o["captured"]
-               else "never",
-               metrics.ago(o["captured"]),
-               ". Older than it should be — the collector only runs when a "
-               "publish window is open." if stale else ""))
+    if o["captured"] is None:
+        when = '<p class="when stale">Metrics have never been pulled.</p>'
+    else:
+        when = ('<p class="when%s">Metrics pulled %s, %s%s</p>'
+                % (" stale" if stale else "",
+                   o["captured"].strftime("%-d %b %H:%M UTC"),
+                   metrics.ago(o["captured"]),
+                   ". Older than it should be." if stale else ""))
 
-    return ('<section class="dash">'
-            '<h2>Where it stands</h2>%s%s'
-            '<h2>Carousel vs reel</h2>'
-            '<p class="legend"><span class="key car"></span>carousel (%d) '
-            '&nbsp; <span class="key reel"></span>reel (%d)</p>%s'
-            '<p class="verdict">%s</p>%s'
-            '<h2>Reach per post</h2>'
-            '<p class="legend"><span class="key views"></span>views '
-            '&nbsp; <span class="key car"></span>reach &mdash; oldest first</p>%s'
+    rates = c["lines"][4]
+    footnote = ("%s Likes run at %s%% of reach on carousels against %s%% on "
+                "reels, and %s" % (
+                    c["caveat"] or "",
+                    _n((rates["carousel"] or 0) * 100),
+                    _n((rates["reel"] or 0) * 100),
+                    "nothing has been saved yet." if not o["saved"] else
+                    "%d posts have been saved." % o["saved"]))
+
+    return ('<section class="dash">%s%s'
+            '<h2>Which format travels</h2>'
+            '<p class="headline">%s</p>%s<p class="caveat">%s</p>'
+            '<h2>Every post, first-day reach</h2>%s'
             '<h2>Today&rsquo;s candidates</h2>%s'
             '</section>'
-            % (cells, when, c["n"]["carousel"], c["n"]["reel"], ab_chart(c),
-               escape(c["verdict"]),
-               '<p class="caveat">%s</p>' % escape(c["caveat"])
-               if c["caveat"] else "",
-               post_chart(store.published_with_metrics(conn)),
-               todays_candidates()))
+            % (kpis, when, escape(c["headline"]), versus(c), escape(footnote),
+               post_chart(one), todays_candidates()))

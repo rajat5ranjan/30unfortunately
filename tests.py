@@ -242,23 +242,33 @@ class Numbers(unittest.TestCase):
     hold.
     """
 
-    def _db(self, rows):
+    def _db(self, rows, base=None):
+        """rows: (format, reach, views, shares, age_hours_at_capture).
+
+        age_hours is how old the post was when the capture was taken, because
+        that is the whole question day_one answers: a post measured at three
+        hours and one measured at three days are not comparable numbers.
+        """
         import sqlite3
+        base = base or datetime(2026, 9, 1, tzinfo=timezone.utc)
         conn = sqlite3.connect(":memory:")
         conn.row_factory = sqlite3.Row
         conn.executescript(store.SCHEMA)
         conn.execute("ALTER TABLE posts ADD COLUMN format TEXT")
-        for i, (fmt, reach, views, shares) in enumerate(rows):
-            mid = "m%d" % i
+        for i, row in enumerate(rows):
+            fmt, reach, views, shares = row[:4]
+            age = row[4] if len(row) > 4 else 20
+            mid, pid = "m%d" % i, "x%03d" % i
+            pub = base + timedelta(days=i)
             conn.execute(
                 "INSERT INTO posts (id, slides, caption, status, format,"
                 " published_at, ig_media_id) VALUES (?,'[]','',?,?,?,?)",
-                ("x%03d" % i, "published", fmt, "2026-09-%02d" % (i + 1), mid))
+                (pid, "published", fmt, pub.isoformat(), mid))
             conn.execute(
                 "INSERT INTO metrics (ig_media_id, post_id, captured_at, reach,"
                 " views, shares) VALUES (?,?,?,?,?,?)",
-                (mid, "x%03d" % i, "2026-09-20T06:00:00+00:00", reach, views,
-                 shares))
+                (mid, pid, (pub + timedelta(hours=age)).isoformat(), reach,
+                 views, shares))
         conn.commit()
         return conn
 
@@ -267,10 +277,31 @@ class Numbers(unittest.TestCase):
         conn = self._db([("carousel", 10, 20, 1)])
         conn.execute("INSERT INTO metrics (ig_media_id, post_id, captured_at,"
                      " reach, views, shares) VALUES ('m0','x000',"
-                     "'2026-09-21T06:00:00+00:00', 30, 60, 3)")
+                     "'2026-09-05T06:00:00+00:00', 30, 60, 3)")
         conn.commit()
         o = metrics.overview(conn)
         self.assertEqual((o["reach"], o["views"], o["posts"]), (30, 60, 1))
+
+    def test_a_post_too_young_to_judge_is_left_out(self):
+        """Reach accrues for days; a three-hour-old post is not a data point."""
+        conn = self._db([("carousel", 40, 80, 2, 20), ("reel", 3, 5, 0, 3)])
+        self.assertEqual([r["id"] for r in metrics.day_one(conn)], ["x000"])
+
+    def test_day_one_reads_the_last_capture_before_24h(self):
+        """Not the newest capture — the newest one taken inside the window."""
+        conn = self._db([("carousel", 10, 20, 0, 18)])
+        conn.execute("INSERT INTO metrics (ig_media_id, post_id, captured_at,"
+                     " reach, views, shares) VALUES ('m0','x000',"
+                     "'2026-09-09T00:00:00+00:00', 999, 999, 9)")
+        conn.commit()
+        self.assertEqual(metrics.day_one(conn)[0]["reach"], 10)
+        self.assertEqual(metrics.overview(conn)["reach"], 999)
+
+    def test_a_naive_timestamp_does_not_crash_the_page(self):
+        conn = self._db([("carousel", 10, 20, 0, 18)])
+        conn.execute("UPDATE metrics SET captured_at='2026-09-01T18:00:00'")
+        conn.commit()
+        self.assertEqual(len(metrics.day_one(conn)), 1)
 
     def test_a_median_is_not_moved_by_one_outlier(self):
         conn = self._db([("carousel", 10, 1, 0), ("carousel", 12, 1, 0),
@@ -282,21 +313,23 @@ class Numbers(unittest.TestCase):
         cmp_ = metrics.compare(self._db([("carousel", 10, 20, 0)]))
         self.assertEqual(cmp_["n"], {"carousel": 1, "reel": 0})
         self.assertIsNone(cmp_["ci"])
-        self.assertTrue(all(l["ratio"] is None for l in cmp_["lines"]))
-        self.assertIn("Too few", cmp_["verdict"])
+        self.assertTrue(all(l["ratio"] is None for l in cmp_["lines"][:2]))
+        self.assertIn("Not enough posts", cmp_["headline"])
 
     def test_a_tiny_sample_always_carries_its_caveat(self):
         conn = self._db([("carousel", 10, 20, 0)] * 4 + [("reel", 90, 99, 2)] * 3)
         cmp_ = metrics.compare(conn)
         self.assertIsNotNone(cmp_["ci"])
+        self.assertIn("Reels reach", cmp_["headline"])
         self.assertIsNotNone(cmp_["caveat"],
                              "3 posts in an arm must never read as a result")
 
     def test_the_dashboard_survives_an_empty_database(self):
         """It is best-effort on the sheet, but it should not need to be."""
         html = dash.block(self._db([]))
-        self.assertIn("Where it stands", html)
-        self.assertIn("never", html)
+        self.assertIn("reach, first day", html)
+        self.assertIn("Metrics have never been pulled", html)
+        self.assertNotIn("smaller arm", html)
 
     def test_stale_metrics_say_so(self):
         conn = self._db([("carousel", 10, 20, 0)])
