@@ -1,0 +1,269 @@
+{
+  "generated_at": "20260921-100353",
+  "model": "gemini-3.5-flash",
+  "accepted": [
+    {
+      "trend": "From a surya namaskar to dand baithak: Baba Ramdev’s 5-move fitness plan for Gen Z",
+      "context": "Indian parents believe modern corporate health fatigue and systemic back issues can be entirely cured by simple morning exercises.",
+      "angle": "The advice to 'just stretch' is the universal home remedy proposed by older relatives who do not understand corporate spinal compression.",
+      "slides": [
+        "Your mother has diagnosed your work fatigue.",
+        "\"Uthne ke baad paani piya karo.\"\n\"Yeh sab computer ke wajah se hai.\"\n\"Subah uth ke thoda dhyan lagaya karo.\"\n\"Sab theek ho jayega.\"",
+        "You have a herniated disc.\n\nShe says you do not breathe deeply enough."
+      ],
+      "caption": "Send this to the person who receives the daily \"subah garam paani piyo\" WhatsApp forwards from their family. ☕",
+      "trigger": "parents",
+      "structure": "phone_call",
+      "target": "parents",
+      "satire_level": 4,
+      "hinglish": true,
+      "source": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNTWpUWExfWjRWdER5a2xFelJKcFlxNENzLW5JM3BveDFWM05DLTdPU05NMk8tUTVDa1ZHSl90TXBLSVR3T3JtTEw1WFgtX3JQdWkteWNiUnJnYkFveGpFQUdCdWV6ZmlMMDJ6QXZEYXR4a0NtWURXeFY4cm13R1llLXlkNXhXZkxKWERCQWF5YzhhU2dCOGFlWFk5ci00RHVBVzRSbF9YZzBXM05JSTNhcWl3ak1FeTBiVmdTNlBjTEQ0aE9wRFpSMkpzd29Uc2J4bUtoaWxqc9IB3gFBVV95cUxPWE5jQkxEcHprWXhKalYzdTFnOVBpeWtuSEZWOUJMMUsyMzNvbGpmTjhQdUt1WWpJTC1xY3dqeW9kLU9RR0xXWU9WazBhS3A2UGJGNG1sc2kzMEdWdkE1R0x6N3BrVWEtMzQ2ZzU2Rk9nOUR1dmE3YnlWRmxURk5PMXdwRzRXSlhqeUdval9qcy00RTBTc1dGR3lUUm1sZjZqcEZYaVhaeHlQanhRMEI0Q2VxSExxOU45alJOOG50WWxYdU9xM0FjRE9fTWREcEZEV0ltYl9RV2preVM1aXc?oc=5",
+      "created_at": "2026-09-21",
+      "status": "draft",
+      "_score": 62,
+      "_judge": "The middle slide contains too many variations of the same diagnostic advice, slowing down the escalatory rhythm.",
+      "_detail": {
+        "laugh": 4,
+        "share_trigger": 5,
+        "surprise": 4,
+        "specificity": 5,
+        "voice": 4,
+        "travels": 4
+      },
+      "_penalty": -1
+    },
+    {
+      "trend": "Can You Rent Your Way Out Of Loneliness? - India Today",
+      "context": "Applying to join modern curated co-living setups feels strangely identical to a multi-round corporate job selection.",
+      "angle": "The intense corporate screening process to enter community flats is just a landlord trying to avoid administrative hassle.",
+      "slides": [
+        "The screening call for your new \"community flat\".",
+        "\"Do you align with our core values of open connection?\"\n\"I just want a place with power backup.\"\n\"Are you ready to co-create memorable experiences?\"\n\"I work twelve hours a day.\"",
+        "\"We require a character reference from your previous startup.\"\n\nThe rent is due on the first."
+      ],
+      "caption": "Send this to someone who went through three rounds of interviews just to lease a bed. 🙄",
+      "trigger": "rent",
+      "structure": "interview",
+      "target": "landlord",
+      "satire_level": 3,
+      "hinglish": true,
+      "source": "https://news.google.com/rss/articles/CBMingFBVV95cUxPWWZpZ1ZjSjRMX2JjMEctZG1acHJUWGdER1ByRWpiOElEVlo2a0dvTXdqX1dTUHlXNDdzQWFpLTRlYmtVZGN5MGJrODQyb091YndUbHhFcnpuYUpaOVdvWGdEVGV6YWlOZWNNMl9ONTBZZDdPRFJKSWc4b0lpVTVxRFJNQlJEVUtHQ3pyS1FDUGEwSkpoS0lyT01QWDBkZ9IBowFBVV95cUxPMjA1VzRYMzZHSzNMdllGbm1oeEp6THU5dGtXX1VaZWFqLWRuc0NxZVd0U0t4UU5oY1NJdGZVQ2pEX0VoYVFnY1ZNNGNWLUhha2k2bVZKcWFPbm5YTkxJZDZURjFNbWdFZHZzNUUzaUV3MDQ2cko3Vl9Fc2N4TU9OQmNJUUN1cFNqbnBiVjhDZmJsG0clEteFRzSGgzd1lrbWdr?oc=5",
+      "created_at": "2026-09-21",
+      "status": "draft",
+      "_score": 58,
+      "_judge": "The tech-startup housing interview is highly specific but borders on being an inside joke for a very narrow, online demographic.",
+      "_detail": {
+        "laugh": 3,
+        "share_trigger": 4,
+        "surprise": 4,
+        "specificity": 4,
+        "voice": 4,
+        "travels": 4
+      },
+      "_penalty": -5
+    },
+    {
+      "trend": "From 1,700 to 50,000: BookMyBai Records a Sharp Rise in Domestic Help Hiring as India Embraces Digital Discovery",
+      "context": "At thirty, your actual domestic peace is determined entirely by delicate kitchen negotiations.",
+      "angle": "The intense emotional blackmail and negotiation in domestic help retention is the only real performance contract in your household.",
+      "slides": [
+        "\"Didi, Monday se do log aur aayenge khane pe.\"",
+        "\"Toh extra lagega.\"\n\"Haan toh thoda adjust kar lo na.\"\n\"Mera gaon ka ticket karwa do phir.\"\n\"Diwali bonus toh abhi diya tha.\"",
+        "\"Woh toh shaadi ka tha, yeh bimar ka hai.\"\n\nYou pay for the ticket."
+      ],
+      "caption": "Send this to the CEO of your household negotiation team. 💳",
+      "trigger": "home",
+      "structure": "dialogue",
+      "target": "self",
+      "satire_level": 4,
+      "hinglish": true,
+      "source": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxPbU1xYnN4aW82Vk1RTUYxYU1GX3JnWXBvV2lNbkxVMWV3NEtnMlV6c20tRGszWElfWUVjbGExR2RPRXVCZUNraU5EaUJYTHhyaGlzME9qX3ltZHpyZ05jLXZCR2lPaGNHNzFfWXdjSVNSS3ZfQ2M4QWxPNzlSWUpwMUhBSFpUd2NBTlFiOUdzLXRndEhic05qakZDVXJXanNfVGUwdnh1dWtiZzVRUFBETW5aTEtwTXNnZlQ2bVZuS0ZZbVdOQUVrSU15dkZsQlVBTW85UnI2VW15WUdsbEpXell3?oc=5",
+      "created_at": "2026-09-21",
+      "status": "draft",
+      "_score": 52,
+      "_judge": "The post relies entirely on untranslated Hindi dialogue for the central mechanism of the joke, leaving any outsider completely behind.",
+      "_detail": {
+        "laugh": 3,
+        "share_trigger": 4,
+        "surprise": 3,
+        "specificity": 5,
+        "voice": 4,
+        "travels": 1
+      },
+      "_penalty": -5
+    },
+    {
+      "trend": "From a surya namaskar to dand baithak: Baba Ramdev’s 5-move fitness plan for Gen Z",
+      "context": "Entering your thirties means discovering how fragile the human body becomes after years of desk posture.",
+      "angle": "The biological user agreement you signed when you turned thirty regarding minor physical movement has strict clauses.",
+      "slides": [
+        "The warranty on your physical body has expired.",
+        "Clause 1: Sneeze at your own risk.\nClause 2: Sleeping on a different pillow voids your neck alignment.\nClause 3: Standing up too quickly requires a five-second buffer.",
+        "You sat down to tie your shoelaces.\n\nYour back is now locked until Thursday."
+      ],
+      "caption": "Send this to your friend who got a severe neck pull just by turning their head to look at a meme. 🤕",
+      "trigger": "health",
+      "structure": "terms_and_conditions",
+      "target": "self",
+      "satire_level": 5,
+      "hinglish": false,
+      "source": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNTWpUWExfWjRWdER5a2xFelJKcFlxNENzLW5JM3BveDFWM05DLTdPU05NMk8tUTVDa1ZHSl90TXBLSVR3T3JtTEw1WFgtX3JQdWkteWNiUnJnYkFveGpFQUdCdWV6ZmlMMDJ6QXZEYXR4a0NtWURXeFY4cm13R1llLXlkNXhXZkxKWERCQWF5YzhhU2dCOGFlWFk5ci00RHVBVzRSbF9YZzBXM05JSTNhcWl3ak1FeTBiVmdTNlBjTEQ0aE9wRFpSMkpzd29Uc2J4bUtoaWxqc9IB3gFBVV95cUxPWE5jQkxEcHprWXhKalYzdTFnOVBpeWtuSEZWOUJMMUsyMzNvbGpmTjhQdUt1WWpJTC1xY3dqeW9kLU9RR0xXWU9WazBhS3A2UGJGNG1sc2kzMEdWdkE1R0x6N3BrVWEtMzQ2ZzU2Rk9nOUR1dmE3YnlWRmxURk5PMXdwRzRXSlhqeUdval9qcy00RTBTc1dGR3lUUm1sZjZqcEZYaVhaeHlQanhRMEI0Q2VxSExxOU45alJOOG50WWxYdU9xM0FjRE9fTWREcEZEV0ltYl9RV2preVM1aXc?oc=5",
+      "created_at": "2026-09-21",
+      "status": "draft",
+      "_score": 52,
+      "_judge": "Though highly relatable, the 'your back hurts when you sneeze' meme is one of the most overused premises on the internet.",
+      "_detail": {
+        "laugh": 4,
+        "share_trigger": 4,
+        "surprise": 3,
+        "specificity": 4,
+        "voice": 4,
+        "travels": 5
+      },
+      "_penalty": 4
+    },
+    {
+      "trend": "From 1,700 to 50,000: BookMyBai Records a Sharp Rise in Domestic Help Hiring as India Embraces Digital Discovery",
+      "context": "Urban Indian adults rely completely on domestic help to survive their working hours, making maid retention their actual high-stakes management challenge.",
+      "angle": "Managing domestic help in India requires more high-stakes negotiation, emotional intelligence, and crisis management than leading a corporate team.",
+      "slides": [
+        "Your appraisal skills are being wasted at your company.",
+        "You need a senior resource for a critical daily deployment.\nThey demand a 15% hike before signing.\nThey completely reject your core working hours.\nThey go offline on Monday with no prior notice.",
+        "You immediately approve the hike and offer free tea.\n\nYour maid knows you have no backup plan."
+      ],
+      "caption": "Send this to your manager to explain why you were twenty minutes late for the daily sync. 🧹",
+      "trigger": "home",
+      "structure": "job_description",
+      "target": "employer",
+      "satire_level": 4,
+      "hinglish": false,
+      "source": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxPbU1xYnN4aW82Vk1RTUYxYU1GX3JnWXBvV2lNbkxVMWV3NEtnMlV6c20tRGszWElfWUVjbGExR2RPRXVCZUNraU5EaUJYTHhyaGlzME9qX3ltZHpyZ05jLXZCR2lPaGNHNzFfWXdjSVNSS3ZfQ2M4QWxPNzlSWUpwMUhBSFpUd2NBTlFiOUdzLXRndEhic05qakZDVXJXanNfVGUwdnh1dWtiZzVRUFBETW5aTEtwTXNnZlQ2bVZuS0ZZbVdOQUVrSU15dkZsQlVBTW85UnI2VW15WUdsbEpXell3?oc=5",
+      "created_at": "2026-09-21",
+      "status": "draft",
+      "_score": 50,
+      "_judge": "The corporate metaphor in the middle slide is slightly over-extended, making the buildup feel a bit too intellectual before the maid twist.",
+      "_detail": {
+        "laugh": 4,
+        "share_trigger": 4,
+        "surprise": 4,
+        "specificity": 4,
+        "voice": 4,
+        "travels": 3
+      },
+      "_penalty": 4
+    },
+    {
+      "trend": "From a surya namaskar to dand baithak: Baba Ramdev’s 5-move fitness plan for Gen Z",
+      "context": "For thirty-year-olds with sedentary desk jobs, working out transitions sharply from an aesthetic goal to basic physical survival.",
+      "angle": "The purpose of working out shifts entirely from vanity in your early twenties to desperate physical preservation in your thirties.",
+      "slides": [
+        "Your relationship with physical fitness has changed.",
+        "At 22: Six-pack prep, two-hour lifting sessions, protein shakes.\n\nAt 32: Ten minutes of stretching so you can sit without groaning.",
+        "You did one \"surya namaskar\" this morning.\n\nYour left shoulder is now making a clicking noise."
+      ],
+      "caption": "Send this to your gym partner who currently has an impressive collection of pain relief sprays in their desk drawer. 🧴",
+      "trigger": "health",
+      "structure": "then_now",
+      "target": "gym",
+      "satire_level": 3,
+      "hinglish": false,
+      "source": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNTWpUWExfWjRWdER5a2xFelJKcFlxNENzLW5JM3BveDFWM05DLTdPU05NMk8tUTVDa1ZHSl90TXBLSVR3T3JtTEw1WFgtX3JQdWkteWNiUnJnYkFveGpFQUdCdWV6ZmlMMDJ6QXZEYXR4a0NtWURXeFY4cm13R1llLXlkNXhXZkxKWERCQWF5YzhhU2dCOGFlWFk5ci00RHVBVzRSbF9YZzBXM05JSTNhcWl3ak1FeTBiVmdTNlBjTEQ0aE9wRFpSMkpzd29Uc2J4bUtoaWxqc9IB3gFBVV95cUxPWE5jQkxEcHprWXhKalYzdTFnOVBpeWtuSEZWOUJMMUsyMzNvbGpmTjhQdUt1WWpJTC1xY3dqeW9kLU9RR0xXWU9WazBhS3A2UGJGNG1sc2kzMEdWdkE1R0x6N3BrVWEtMzQ2ZzU2Rk9nOUR1dmE3YnlWRmxURk5PMXdwRzRXSlhqeUdval9qcy00RTBTc1dGR3lUUm1sZjZqcEZYaVhaeHlQanhRMEI0Q2VxSExxOU45alJOOG50WWxYdU9xM0FjRE9fTWREcEZEV0ltYl9RV2preVM1aXc?oc=5",
+      "created_at": "2026-09-21",
+      "status": "draft",
+      "_score": 47,
+      "_judge": "The hook is weak and phrased like an observational essay title rather than a sharp, active claim.",
+      "_detail": {
+        "laugh": 3,
+        "share_trigger": 4,
+        "surprise": 3,
+        "specificity": 3,
+        "voice": 3,
+        "travels": 4
+      },
+      "_penalty": 0
+    },
+    {
+      "trend": "Can You Rent Your Way Out Of Loneliness? - India Today",
+      "context": "Young urban professionals are increasingly outsourcing community and friendship to subscription-based lifestyle spaces.",
+      "angle": "The steep commercial fee you pay to buy synthetic human connection is a tax on basic modern alienation.",
+      "slides": [
+        "The monthly cost of not feeling alone in a metro.",
+        "Rent for a 120-sq-ft \"micro-studio\": ₹38,000.\nCommunity fee for \"Sunday mixer\": ₹2,500.\nCo-working hot desk pass: ₹12,000.\nCurated movie screening ticket: ₹1,200.",
+        "You spent the weekend staring at your phone in the common room.\n\nNobody spoke to you."
+      ],
+      "caption": "Send this to your friend who moved into a co-living space to \"find their tribe\" and only found higher credit card bills. 💸",
+      "trigger": "money",
+      "structure": "receipt",
+      "target": "marketing",
+      "satire_level": 4,
+      "hinglish": false,
+      "source": "https://news.google.com/rss/articles/CBMingFBVV95cUxPWWZpZ1ZjSjRMX2JjMEctZG1acHJUWGdER1ByRWpiOElEVlo2a0dvTXdqX1dTUHlXNDdzQWFpLTRlYmtVZGN5MGJrODQyb091YndUbHhFcnpuYUpaOVdvWGdEVGV6YWlOZWNNMl9ONTBZZDdPRFJKSWc4b0lpVTVxRFJNQlJEVUtHQ3pyS1FDUGEwSkpoS0lyT01QWDBkZ9IBowFBVV95cUxPMjA1VzRYMzZHSzNMdllGbm1oeEp6THU5dGtXX1VaZWFqLWRuc0NxZVd0U0t4UU5oY1NJdGZVQ2pEX0VoYVFnY1ZNNGNWLUhha2k2bVZKcWFPbm5YTkxJZDZURjFNbWdFZHZzNUUzaUV3MDQ2cko3Vl9Fc2N4TU9OQmNJUUN1cFNqbnBiVjhDZmJsG0clEteFRzSGgzd1lrbWdr?oc=5",
+      "created_at": "2026-09-21",
+      "status": "draft",
+      "_score": 37,
+      "_judge": "This is a sad and accurate observation about modern urban isolation rather than a comedy post.",
+      "_detail": {
+        "laugh": 1,
+        "share_trigger": 3,
+        "surprise": 2,
+        "specificity": 5,
+        "voice": 4,
+        "travels": 5
+      },
+      "_penalty": 7
+    },
+    {
+      "trend": "From 1,700 to 50,000: BookMyBai Records a Sharp Rise in Domestic Help Hiring as India Embraces Digital Discovery",
+      "context": "The rise of maid-hiring apps promises a clean digital fix for a highly volatile and personal human dynamic.",
+      "angle": "Digital discovery platforms charge high-end tech premium fees to deliver the exact same analog unpredictability.",
+      "slides": [
+        "Read the fine print on that premium domestic help app.",
+        "Registration fee: ₹3,000.\nVerification fee: ₹1,500.\nGuaranteed replacement within 24 hours.\nPlatform processing charge: ₹500.",
+        "The replacement also did not show up.\n\nYour sink is still full."
+      ],
+      "caption": "Send this to the person currently doing the bartan because the 'verified professional' took a sudden long weekend. 🧽",
+      "trigger": "admin",
+      "structure": "terms_and_conditions",
+      "target": "app",
+      "satire_level": 3,
+      "hinglish": false,
+      "source": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxPbU1xYnN4aW82Vk1RTUYxYU1GX3JnWXBvV2lNbkxVMWV3NEtnMlV6c20tRGszWElfWUVjbGExR2RPRXVCZUNraU5EaUJYTHhyaGlzME9qX3ltZHpyZ05jLXZCR2lPaGNHNzFfWXdjSVNSS3ZfQ2M4QWxPNzlSWUpwMUhBSFpUd2NBTlFiOUdzLXRndEhic05qakZDVXJXanNfVGUwdnh1dWtiZzVRUFBETW5aTEtwTXNnZlQ2bVZuS0ZZbVdOQUVrSU15dkZsQlVBTW85UnI2VW15WUdsbEpXell3?oc=5",
+      "created_at": "2026-09-21",
+      "status": "draft",
+      "_score": 36,
+      "_judge": "The landing has no real turn; the replacement not showing up is exactly what the user expected to happen.",
+      "_detail": {
+        "laugh": 2,
+        "share_trigger": 3,
+        "surprise": 2,
+        "specificity": 5,
+        "voice": 3,
+        "travels": 4
+      },
+      "_penalty": 7
+    }
+  ],
+  "rejected": [
+    {
+      "trend": "Can You Rent Your Way Out Of Loneliness? - India Today",
+      "context": "Co-living startups targeting single working professionals package high real-estate prices as curated community living.",
+      "angle": "Co-living startups have successfully rebranded steep rents and a lack of private space as a 'curated lifestyle choice' for lonely adults.",
+      "slides": [
+        "There is a word the real estate industry uses to describe cramped flats.",
+        "\"Co-living.\"\n\nAt 21 it was called a PG.\nAt 25 it was called flat-sharing.\nAt 30 it is a \"premium community space\".",
+        "The rent is now ₹45,000.\n\nYou still have to share a microwave."
+      ],
+      "caption": "Send this to your flatmate who still has not paid their share of the electricity bill. ⚡",
+      "trigger": "rent",
+      "structure": "definition_drift",
+      "target": "landlord",
+      "satire_level": 4,
+      "hinglish": false,
+      "source": "https://news.google.com/rss/articles/CBMingFBVV95cUxPWWZpZ1ZjSjRMX2JjMEctZG1acHJUWGdER1ByRWpiOElEVlo2a0dvTXdqX1dTUHlXNDdzQWFpLTRlYmtVZGN5MGJrODQyb091YndUbHhFcnpuYUpaOVdvWGdEVGV6YWlOZWNNMl9ONTBZZDdPRFJKSWc4b0lpVTVxRFJNQlJEVUtHQ3pyS1FDUGEwSkpoS0lyT01QWDBkZ9IBowFBVV95cUxPMjA1VzRYMzZHSzNMdllGbm1oeEp6THU5dGtXX1VaZWFqLWRuc0NxZVd0U0t4UU5oY1NJdGZVQ2pEX0VoYVFnY1ZNNGNWLUhha2k2bVZKcWFPbm5YTkxJZDZURjFNbWdFZHZzNUUzaUV3MDQ2cko3Vl9Fc2N4TU9OQmNJUUN1cFNqbnBiVjhDZmJsR0c1S1EteFRzSGgzd1lrbWdr?oc=5",
+      "created_at": "2026-09-21",
+      "_gate_failures": [
+        "landing carries a currency figure — that beat cannot travel; move the number into the escalation"
+      ]
+    }
+  ]
+}

@@ -1,13 +1,7 @@
 {
   "_note": "written by trend_agent.py — do not hand-edit",
-  "pulled_at": "2026-09-20",
+  "pulled_at": "2026-09-21",
   "trends": [
-    {
-      "trend": "Festive hiring surge puts workforce planning, employee burnout in focus",
-      "source": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxOZXlLN05FXzY1VkYybnI4WlhZMmd6bHV0WTd1UU9QZjFCa200ZkZ4dm85YVVQb04tTzRjUTVWRUtZVGlfSTZxM3IwWHFlUE03SzJieG9GcUVaT1AzOXhNNlktRmNHeXBMcWpoN2oxbUFiSVpYcFp3MGFrTHhuRElaaFhrRng3OVA3YTMyOFFyaXAzbkxoVkZVbnMyQWJEcW9lOFhFMS1pR3B4ckNsMk1lb3lUUUhqdG1WSW1JdmVqV3NhUHFZSURDQ185YklPOXpuUG9fNGhMRmE3X2h5dVc1SEhnYzlaMzhvdWNJTGlHNXFnb05M0gH0AUFVX3lxTE5leUs3TkVfNjVWRjJucjhaWFkyZ3psdXRZN3VRT1BmMUJrbTRmRnh2bzlhVVBvTi1PNGNRNVZFS1lUaV9JNnEzcjBYcWVQTTdLMmJ4b0ZxRVpPUDM5eE02WS1GY0d5cExxamg3ajFtQWJJWlhwWncwYWtMeG5ESVpoWGtGeDc5UDdhMzI4UXJpcDNuTGhWRlVuczJBYkRxb2U4WEUxLWlHcHhyQ2wyTWVveVRRSGp0bVZJbUl2ZWpXc2FQcVlJRENDXzliSU85em5Qb180aExGYTdfaHl1VzVISGdjOVozOG91Y0lMaUc1cWdvTkw?oc=5",
-      "note": "body, work, consume (angle: The body at 30 is an invoice for the twenties. The gym is not aspiration, it is a repayment plan. Nothing here is motivational.)",
-      "_published": "2026-09-18T00:30:00+00:00"
-    },
     {
       "trend": "CGST searches real estate developer’s premises in Gurugram; Rs 117 cr GST recovered",
       "source": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNVVdaamNmNmU4NTBCek84WkNudU1heXU3Ujg3d2tlWEFFMmRNMVZrVDRJSEVTSWwzcnJNZmljeEU4ZXFHRDc0WEpjOXJtLWo4R2lJeEc3aEpzZnF4ZzdhbUZMc1hWM3ZPSm5QZmZkbVlKT3pkQU1TaEMzMHFBUGhleFdKUTlUYWlfamNFTmNYUGJiZTlORkxVUnpYMFpWYUx6ejFZZzNBd1lDYXU5T2hkS2FxY0JSempEQlhLdtIBvAFBVV95cUxNVVdaamNmNmU4NTBCek84WkNudU1heXU3Ujg3d2tlWEFFMmRNMVZrVDRJSEVTSWwzcnJNZmljeEU4ZXFHRDc0WEpjOXJtLWo4R2lJeEc3aEpzZnF4ZzdhbUZMc1hWM3ZPSm5QZmZkbVlKT3pkQU1TaEMzMHFBUGhleFdKUTlUYWlfamNFTmNYUGJiZTlORkxVUnpYMFpWYUx6ejFZZzNBd1lDYXU5T2hkS2FxY0JSempEQlhLdg?oc=5",
@@ -15,10 +9,22 @@
       "_published": "2026-09-19T14:52:20+00:00"
     },
     {
-      "trend": "Dreaming of a Germany job? Indian engineer explains what a €70,000 salary looks like after taxes, rent & other costs",
-      "source": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxObVdqYThjQThVanVaTkxHTmFXcjBtOUY4WUZkT3EyZ1BEX0htd0w1YVFBWi10ckx5a0dNZFpuSktJLXJEV3JKUHJTemV3dGJPVUduSjBMZ1pjc09ISjN4ZWpGT004bTBzTEc0alQ4SzFfeERLRWkxbjRGNGNhSlpQYWVabGhxMGo0a0JRdjZVVVZKZ0FLWjRrLXZsUk8yRUxiamQzRERVbVItc29vdDJyYU0xY2xuNlhMRjdoNUFwOUNRYnRxT2dyX3doS2hxbTA3cXhJVV9rS3BsMEI1UlhXT0gxOXlrak9iSkdqNWdqTlhpTkppZF82WnFrbUtHeE0?oc=5",
-      "note": "money, home (angle: Everything that was free acquires a business model. Every raise is absorbed before it arrives.)",
-      "_published": "2026-09-20T06:26:01+00:00"
+      "trend": "From 1,700 to 50,000: BookMyBai Records a Sharp Rise in Domestic Help Hiring as India Embraces Digital Discovery",
+      "source": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxPbU1xYnN4aW82Vk1RTUYxYU1GX3JnWXBvV2lNbkxVMWV3NEtnMlV6c20tRGszWElfWUVjbGExR2RPRXVCZUNraU5EaUJYTHhyaGlzME9qX3ltZHpyZ05jLXZCR2lPaGNHNzFfWXdjSVNSS3ZfQ2M4QWxPNzlSWUpwMUhBSFpUd2NBTlFiOUdzLXRndEhic05qakZDVXJXanNfVGUwdnh1dWtiZzVRUFBETW5aTEtwTXNnZlQ2bVZuS0ZZbVdOQUVrSU15dkZsQlVBTW85UnI2VW15WUdsbEpXell3?oc=5",
+      "note": "work, home (angle: The promises made in 2021 are being quietly withdrawn, and the old posts are still up.)",
+      "_published": "2026-09-21T09:41:54+00:00"
+    },
+    {
+      "trend": "SBI Hiring Group CISO With Salary Up to ₹2.5 Crore; See Eligibility and Qualifications",
+      "source": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQT244cTdjbHViRjR3eTk0LUI0ZlZXMEdSTUxFR2drcU8xekVKM2J4SnVJOVRORFdZeXllRHNjdnpuSlVhNVNlZW1uQTN6Z2xtbnFlVDB5NllVclhaZUFkQWpKNmItb1d6NW15aW13N21VcS1yX09yal85SkppX3hYT0J4NklJZUVtTE5fZnZsbEtlclVsMGQtTkdtNTdkYzVYTkkzUFRoTk55VlpZVVNjZ3V5bEo?oc=5",
+      "note": "money, work (angle: Everything that was free acquires a business model. Every raise is absorbed before it arrives.)",
+      "_published": "2026-09-18T12:30:57+00:00"
+    },
+    {
+      "trend": "Can You Rent Your Way Out Of Loneliness? - India Today",
+      "source": "https://news.google.com/rss/articles/CBMingFBVV95cUxPWWZpZ1ZjSjRMX2JjMEctZG1acHJUWGdER1ByRWpiOElEVlo2a0dvTXdqX1dTUHlXNDdzQWFpLTRlYmtVZGN5MGJrODQyb091YndUbHhFcnpuYUpaOVdvWGdEVGV6YWlOZWNNMl9ONTBZZDdPRFJKSWc4b0lpVTVxRFJNQlJEVUtHQ3pyS1FDUGEwSkpoS0lyT01QWDBkZ9IBowFBVV95cUxPMjA1VzRYMzZHSzNMdllGbm1oeEp6THU5dGtXX1VaZWFqLWRuc0NxZVd0U0t4UU5oY1NJdGZVQ2pEX0VoYVFnY1ZNNGNWLUhha2k2bVZKcWFPbm5YTkxJZDZURjFNbWdFZHZzNUUzaUV3MDQ2cko3Vl9Fc2N4TU9OQmNJUUN1cFNqbnBiVjhDZmJsR0c1S1EteFRzSGgzd1lrbWdr?oc=5",
+      "note": "home, relations (angle: Renting stopped being temporary. The landlord runs a faster compensation cycle than the employer.)",
+      "_published": "2026-09-20T15:43:36+00:00"
     },
     {
       "trend": "From a $15M divorce to a secret newborn at 54: Michael Strahan has everything except a reason to ever get",
@@ -39,16 +45,10 @@
       "_published": "2026-09-20T14:50:16+00:00"
     },
     {
-      "trend": "Hiring expands beyond metros as tier II, III cities gain ground: Report",
-      "source": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxQZE5HUGp1V2k0ODBPcGp2czRvcUFnb29HcEFyQ3RsN1BaMzJUOTNMT1BlU1VKblJoc084N1paMWJYY0VvbzVnU1BJMC1CNjdpcklQYzExNjA5SjU1aWFTc1VlR3dxNkdaZF9DUFVJMnhLR3RrNU1XT3VFa3I0Y1pfUkVsRERqaHVRdUE3aWczbFNLUWJiWWJabTNmQXRRM0c3bV9fYjhuWEJPc1kta3BPbW8xSk84c2dqdTFTYllNR2kySHpJSk16eHg1Q09IWEFhLURsTmdLM3bSAdgBQVVfeXFMUGROR1BqdVdpNDgwT3BqdnM0b3FBZ29vR3BBckN0bDdQWjMyVDkzTE9QZVNVSm5SaHNPODdaWjFiWGNFb281Z1NQSTAtQjY3aXJJUGMxMTYwOUo1NWlhU3NVZUd3cTZHWmRfQ1BVSTJ4S0d0azVNV091RWtyNGNaX1JFbEREamh1UXVBN2lnM2xTS1FiYlliWm0zZkF0UTNHN21fX2I4blhCT3NZLWtwT21vMUpPOHNnanUxU2JZTUdpMkh6SUpNenh4NUNPSFhBYS1EbE5nSzN2?oc=5",
-      "note": "work (angle: The promises made in 2021 are being quietly withdrawn, and the old posts are still up.)",
-      "_published": "2026-09-20T09:54:31+00:00"
-    },
-    {
-      "trend": "What Has Hyderabad Got For Being India's Richest Landlord?",
-      "source": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQUHdhSVFzZkx3djVvcVI3Ulo3MkoybDZUOHBWM3VwZ0ttZGdmd2xnTjJvcVgtT1otajRpZTZYTndqOXhBNkRoTmlEMjJGcURsV3ltVnRyRzhDcW1SQTh3bVBsX19vUUhpVk5zcmJZaFpsS25FLUt3eDRUSHpGZ2I4RjQ1elhvZkdjbHcyRU5hN1lpUnBPaVZhLW9CONIBqwFBVV95cUxPdkFwSF9fd09ESDRMZTdTTGFQNGxMWG91NlFiR0FocEhtTlh3Z3R0aHlXTEt5RFJ3M0hxS016VHdGQWcxUmdhQWhXTnpNMEM1Ri1pYzBmeTdRV1lPYk4yMExWd0NCUEphdzZXRnZJT3VpVUxMcktPeGlTWDlDYlBFSXpmekpQRmRkZTBvVVZIbFVsSXE3S0VnWDdWT043UGI0amhPTGMwc3ZYb2c?oc=5",
-      "note": "home (angle: Renting stopped being temporary. The landlord runs a faster compensation cycle than the employer.)",
-      "_published": "2026-09-18T06:27:27+00:00"
+      "trend": "From surya namaskar to dand baithak: Baba Ramdev’s 5-move fitness plan for Gen Z",
+      "source": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNTWpUWExfWjRWdER5a2xFelJKcFlxNENzLW5JM3BveDFWM05DLTdPU05NMk8tUTVDa1ZHSl90TXBLSVR3T3JtTEw1WFgtX3JQdWkteWNiUnJnYkFveGpFQUdCdWV6ZmlMMDJ6QXZEYXR4a0NtWURXeFY4cm13R1llLXlkNXhXZkxKWERCQWF5YzhhU2dCOGFlWFk5ci00RHVBVzRSbF9YZzBXM05JSTNhcWl3ak1FeTBiVmdTNlBjTEQ0aE9wRFpSMkpzd29Uc2J4bUtoaWxqc9IB3gFBVV95cUxPWE5jQkxEcHprWXhKalYzdTFnOVBpeWtuSEZWOUJMMUsyMzNvbGpmTjhQdUt1WWpJTC1xY3dqeW9kLU9RR0xXWU9WazBhS3A2UGJGNG1sc2kzMEdWdkE1R0x6N3BrVWEtMzQ2ZzU2Rk9nOUR1dmE3YnlWRmxURk5PMXdwRzRXSlhqeUdval9qcy00RTBTc1dGR3lUUm1sZjZqcEZYaVhaeHlQanhRMEI0Q2VxSExxOU45alJOOG50WWxYdU9xM0FjRE9fTWREcEZEV0ltYl9RV2preVM1aXc?oc=5",
+      "note": "body (angle: The body at 30 is an invoice for the twenties. The gym is not aspiration, it is a repayment plan. Nothing here is motivational.)",
+      "_published": "2026-09-20T00:30:56+00:00"
     }
   ]
 }

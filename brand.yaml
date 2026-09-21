@@ -56,6 +56,27 @@ formula: |
 slides:
   count: 2 or 3. Three by default. Two only when the joke is tight enough to hurt.
 
+  the_caption:
+    rule: |
+      The caption's job is to give the reader a specific person to send this
+      to — a send is worth several likes in how far a post goes, and this is
+      the only place we can ask for one. Name them by what they do, never
+      "tag a friend who".
+    max_command_share: 0.5
+    register: |
+      And do not open every one the same way. The first batch written under
+      this rule came back eight for eight starting "Send this to...", which is
+      the hook monotone again in a different field — the rule was read as a
+      formula. At most one caption in two may open with a command.
+
+      The person can be produced without an imperative, and the versions that
+      do not command are usually funnier, because naming the behaviour is the
+      second joke.
+    openings_that_are_not_commands:
+      - Name them and stop.           "Every family has one person who forwards the 5am health video."
+      - State it as a fact.           "Somebody you know has three pain sprays in a desk drawer."
+      - Ask the question flatly.      "Whose mother is this?"
+      - Address them directly.        "You know who you are, and so does your physiotherapist."
   slide_1_is_a_HOOK:
     rule: |
       Slide 1 opens a loop. It is an instruction, a challenge, or a claim

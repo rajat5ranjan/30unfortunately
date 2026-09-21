@@ -475,6 +475,19 @@ verdict: one blunt sentence on the single biggest weakness.
 """
 
 
+SEND_COMMAND = re.compile(r"^\s*(send|tag|share|forward|show)\b", re.I)
+
+
+def is_send_command(caption: Optional[str]) -> bool:
+    """Does the caption open by telling the reader to pass it on?
+
+    Deliberately only the opening, and only these five verbs: the rule is
+    about the rhythm every caption starts with, not about whether a send is
+    requested at all. Requesting one is the point.
+    """
+    return bool(SEND_COMMAND.match(caption or ""))
+
+
 def rank(posts: List[Dict[str, Any]], brand: Dict[str, Any],
          history: List[Dict[str, Any]], cfg: Dict[str, Any]) -> List[Dict[str, Any]]:
     """Score, then penalise repetition. Returns posts sorted best-first.
@@ -519,6 +532,12 @@ def rank(posts: List[Dict[str, Any]], brand: Dict[str, Any],
     over_imp = (sum(1 for p in recent if is_imperative((p.get("slides") or [""])[0]))
                 > brand["slides"]["slide_1_is_a_HOOK"]["max_imperative_share"]
                 * max(len(recent), 1))
+    # The caption rule asking for a send was read as a formula: the first batch
+    # under it opened "Send this to..." eight times out of eight. Same monotone
+    # as the hooks, same remedy — a pull on the mix, not a gate on the post.
+    over_send = (sum(1 for p in recent if is_send_command(p.get("caption")))
+                 > brand["slides"]["the_caption"]["max_command_share"]
+                 * max(len(recent), 1))
 
     for i, p in enumerate(posts, 1):
         sc = scores.get(i, {})
@@ -534,6 +553,8 @@ def rank(posts: List[Dict[str, Any]], brand: Dict[str, Any],
             penalty -= 5
         if over_imp and is_imperative((p.get("slides") or [""])[0]):
             penalty += 4
+        if over_send and is_send_command(p.get("caption")):
+            penalty += 3
         p["_score"] = base - penalty
         p["_judge"] = sc.get("verdict", "")
         p["_detail"] = dict((k, sc.get(k)) for k in RANK_WEIGHTS)
