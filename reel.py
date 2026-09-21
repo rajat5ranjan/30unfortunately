@@ -65,7 +65,7 @@ OUT = os.path.join(ROOT, "build", "reels")
 # ---------------------------------------------------------------- design tokens
 W, H = 1080, 1920                      # 9:16, Reels' native frame
 FPS = int(CFG.get("reel_fps", 30))
-INTRO_S = float(CFG.get("reel_intro_seconds", 5.0))
+OUTRO_S = float(CFG.get("reel_outro_seconds", 3.5))
 LOOP_S = float(CFG.get("reel_loop_fade_seconds", 0.5))
 FADE_S = float(CFG.get("reel_text_fade_seconds", 0.45))
 READ_CPS = float(CFG.get("reel_chars_per_second", 15.0))
@@ -262,13 +262,20 @@ def _tagline(img: Image.Image, cy: float, alpha: float) -> None:
     img.alpha_composite(layer)
 
 
-def intro_frames(n_frames: int) -> List[Image.Image]:
-    """The five and a half seconds that open every reel, identically.
+def outro_frames(n_frames: int) -> List[Image.Image]:
+    """The five seconds that CLOSE every reel, identically.
 
-    No post content: this is the account's title card. The mark scales up, the
-    battery fills and then drains, and the number it lands on is the logo
-    itself. It then shrinks into the corner and becomes the watermark the rest
-    of the reel already uses, so the intro ends by turning into the interface.
+    This used to open them, and that was the single most expensive mistake in
+    the file. Measured across the three published reels it was 23-24% of the
+    runtime, and it was the first 23% — the exact window Instagram uses to
+    decide whether to show the reel to anyone else, spent on a logo. Watch
+    time is one of three confirmed ranking signals and nobody has ever
+    watched a logo.
+
+    So the motion is reversed and moved to the end. The mark grows out of the
+    corner watermark it has been sitting in, the battery charges and drains,
+    and the number it lands on IS the logo. Frame 0 of the video is now the
+    hook.
     """
     asp = mark_aspect()
     cx, cy = W / 2.0, H * 0.46
@@ -280,28 +287,25 @@ def intro_frames(n_frames: int) -> List[Image.Image]:
         t = i / max(1, n_frames - 1)
         img, fg, muted = _surface(False)
 
-        if t < 0.13:                      # zoom in
-            e = _ease(t / 0.13)
-            h, alpha, charge = HERO_H * (0.35 + 0.65 * e), e, 0.30
-        elif t < 0.28:                    # charge to full
-            e = _ease((t - 0.13) / 0.15)
-            h, alpha, charge = HERO_H, 1.0, 0.30 + 0.70 * e
-        elif t < 0.64:                    # and drain, which is the whole point
-            e = _ease_io((t - 0.28) / 0.36)
+        if t < 0.16:                      # grow out of the corner watermark
+            e = _ease(t / 0.16)
+            h, alpha, charge = MARK_H + (HERO_H - MARK_H) * e, 1.0, 0.0
+        elif t < 0.34:                    # charge to full
+            e = _ease((t - 0.16) / 0.18)
+            h, alpha, charge = HERO_H, 1.0, e
+        elif t < 0.70:                    # and drain, which is the whole point
+            e = _ease_io((t - 0.34) / 0.36)
             h, alpha, charge = HERO_H, 1.0, 1.0 - 0.70 * e
-        elif t < 0.84:                    # hold on thirty, and say the name
+        else:                             # hold on thirty, and say the name
             h, alpha, charge = HERO_H, 1.0, 0.30
-        else:                             # shrink into the corner watermark
-            e = _ease((t - 0.84) / 0.16)
-            h, alpha, charge = HERO_H + (MARK_H - HERO_H) * e, 1.0, 0.30
 
         w = h * asp
-        if t < 0.84:
-            x, y = cx - w / 2.0, cy - h / 2.0
+        if t < 0.16:
+            e = _ease(t / 0.16)
+            x = end_x + (cx - w / 2.0 - end_x) * e
+            y = end_y + (cy - h / 2.0 - end_y) * e
         else:
-            e = _ease((t - 0.84) / 0.16)
-            x = (cx - HERO_H * asp / 2.0) + (end_x - (cx - HERO_H * asp / 2.0)) * e
-            y = (cy - HERO_H / 2.0) + (end_y - (cy - HERO_H / 2.0)) * e
+            x, y = cx - w / 2.0, cy - h / 2.0
 
         # full brand red by the time it lands on 30%: the last frame of the
         # drain has to BE the logo, not an approximation of it
@@ -310,22 +314,22 @@ def intro_frames(n_frames: int) -> List[Image.Image]:
 
         layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
         ld = ImageDraw.Draw(layer)
-        if 0.13 <= t < 0.72:              # the counter, landing on the logo
+        if 0.18 <= t < 0.78:              # the counter, landing on the logo
             lab = "%d%%" % int(round(charge * 100))
-            a = min(1.0, (t - 0.13) / 0.05) * min(1.0, (0.72 - t) / 0.05)
+            a = min(1.0, (t - 0.18) / 0.05) * min(1.0, (0.78 - t) / 0.05)
             ld.text((cx - pf.getlength(lab) / 2, cy + HERO_H * 0.62), lab,
                     font=pf, fill=render._hex_rgba(accent, a))
-        if t > 0.88:                      # the handle, locking up under the
-            a = _ease(min(1.0, (t - 0.88) / 0.08))   # mark it just parked beside
-            ld.text((MARGIN_X, MARK_TOP + MARK_H + 26), "@30unfortunately",
+        if t > 0.86:                      # the handle, last thing on screen
+            a = _ease(min(1.0, (t - 0.86) / 0.08))
+            ld.text((cx - hf.getlength("@30unfortunately") / 2,
+                     cy + HERO_H * 0.62 + 96), "@30unfortunately",
                     font=hf, fill=render._hex_rgba(INK, a * 0.55))
         img.alpha_composite(layer)
 
         # the counter hands over to the name, in the same place on screen
-        if t > 0.68:
-            a = (_ease(min(1.0, (t - 0.68) / 0.08))
-                 * (1.0 if t < 0.88 else max(0.0, 1 - (t - 0.88) / 0.08)))
-            _tagline(img, cy + HERO_H * 0.62 + 8, a * 0.92)
+        if t > 0.74:
+            _tagline(img, cy + HERO_H * 0.62 + 8,
+                     _ease(min(1.0, (t - 0.74) / 0.08)) * 0.92)
         frames.append(img)
     return frames
 
@@ -384,23 +388,28 @@ def cover_image(post: Dict[str, Any]) -> Image.Image:
 
 
 def build_frames(post: Dict[str, Any], handle: str) -> List[Image.Image]:
-    """Intro, then every slide including the hook — the intro carries no post
-    content now, so slide 1 has to be shown like any other."""
+    """The hook on frame 0, every slide, then the mark.
+
+    The battery now starts full and empties across the content, which is what
+    a progress bar is for — before, the content inherited 30% from the intro
+    and the bar never said how much was left.
+    """
     slides = post["slides"]
     durations = [secs_for(s) for s in slides]
     total = sum(durations)
 
-    frames = intro_frames(int(INTRO_S * FPS))
-    # the intro leaves you on 30%; the content spends it down to nothing
+    frames = []
     elapsed = 0.0
     for n, text in enumerate(slides):
         role = ("hook" if n == 0
                 else "landing" if n == len(slides) - 1 else "list")
         frames += slide_frames(
             text, role, n == len(slides) - 1, handle, int(durations[n] * FPS),
-            0.30 * (1 - elapsed / total),
-            0.30 * (1 - (elapsed + durations[n]) / total))
+            1.0 - elapsed / total,
+            1.0 - (elapsed + durations[n]) / total)
         elapsed += durations[n]
+
+    frames += outro_frames(int(OUTRO_S * FPS))
 
     nf = int(LOOP_S * FPS)
     if nf > 1 and frames:
@@ -470,10 +479,12 @@ def render_reel(post: Dict[str, Any], handle: str, stills_only: bool = False,
     if stills_only:
         d = os.path.join(OUT, pid)
         os.makedirs(d, exist_ok=True)
-        n = int(INTRO_S * FPS)
-        marks = [int(n * 0.10), int(n * 0.30), int(n * 0.60), int(n * 0.78),
-                 n - 3, n + int(FPS * 1.2),
-                 len(frames) - int(LOOP_S * FPS) - 1]
+        # The storyboard samples the content first and the outro last, which
+        # is now also the order they play in.
+        n, tail = len(frames) - int(LOOP_S * FPS), int(OUTRO_S * FPS)
+        marks = [int(FPS * 1.2), int((n - tail) * 0.45), (n - tail) - 3,
+                 (n - tail) + int(tail * 0.25), (n - tail) + int(tail * 0.55),
+                 (n - tail) + int(tail * 0.80), n - 1]
         for n, f in enumerate(marks, 1):
             frames[min(f, len(frames) - 1)].convert("RGB").save(
                 os.path.join(d, "storyboard-%d.png" % n))

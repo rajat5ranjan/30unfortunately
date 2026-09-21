@@ -77,13 +77,64 @@ slides:
       - State it as a fact.           "Somebody you know has three pain sprays in a desk drawer."
       - Ask the question flatly.      "Whose mother is this?"
       - Address them directly.        "You know who you are, and so does your physiotherapist."
+  at_most_one_price: |
+    One currency figure per post. Not four.
+
+    Four of the first twelve posts put a column of rupee amounts in the
+    middle slide, and a column of amounts is a spreadsheet: the reader has
+    to do arithmetic to reach the joke, and nobody laughs at arithmetic,
+    they nod at it. That is the whole difference between the account's 19%
+    like rate and its zero saves.
+
+    ₹432 works precisely because it is alone. Percentages, years and ages
+    are not prices and are not counted here — "8% salary, 15% blood sugar"
+    is a comparison, not a ledger.
+
   slide_1_is_a_HOOK:
     rule: |
-      Slide 1 opens a loop. It is an instruction, a challenge, or a claim
-      that demands proof. It never carries half the joke.
+      Slide 1 carries the best line in the post AND leaves a bill unpaid.
+      Both. Not either.
+    what_the_old_rule_did: |
+      It used to say: "if slide 1 can be screenshotted and understood on its
+      own, it has FAILED. Nobody swipes to confirm something they already
+      got." That is true about the SWIPE and it was read as an instruction
+      to make slide 1 uninformative, which is a different thing entirely.
+
+      The result, counted across the first twelve published posts: eleven of
+      them open with an announcement that a joke is coming.
+        "Follow one ₹100 through your day."
+        "Compare your assets with what your father owned at your age."
+        "Let's calculate the cost of looking like you have made it."
+        "There is a word that changes its meaning when you turn thirty."
+        "There is a new fitness trend designed for your corporate anxiety."
+        "Your expenses have undergone a shift in priorities."
+      Not one of those is funny. They are chapter headings. An uninformative
+      opener is not an open loop, it is a table of contents, and nobody
+      swipes past a table of contents either.
+
+      What actually travels is the whole joke in one line, which STILL makes
+      you want the rest: "Sneezing in your late thirties is equally as
+      violent as getting jumped by 3 UFC fighters."
     test: |
-      If slide 1 can be screenshotted and understood on its own, it has FAILED.
-      Nobody swipes to confirm something they already got.
+      Two questions, both of which must pass.
+
+        1. Is this the funniest sentence in the post? If slide 2 or slide 3
+           is funnier, they are in the wrong order. Move it up.
+        2. After reading it, is there still something owed? A fact withheld,
+           a consequence unstated, a person not yet named. If there is
+           nothing owed, the post is one slide long — which is allowed and
+           is better than three slides of stalling.
+
+      Worked example, from a real post rated 3 out of 10:
+        was:  "Your expenses have undergone a shift in priorities."
+        is:   "Same mattress. The phone costs twelve times more."
+      The second one is the joke, and it still owes you the years.
+    never_a_title_card: |
+      An announcement is not a hook. These openings are refused outright
+      because every one of them is the post clearing its throat: "There
+      is", "There are", "Let's", "Let us", "Here is", "Here are",
+      "Presenting", "Introducing", "A look at", "The story of". If the
+      sentence can be deleted and the post still works, it was a title.
     max_chars: 90
     max_imperative_share: 0.33
     register: |
@@ -98,15 +149,21 @@ slides:
       an account starts sounding automated. At most one in three may be a
       command.
     openings_that_are_not_commands:
-      - A claim stated flatly.        "There is a word your family uses that has no fixed meaning."
+      - A claim stated flatly.        "Your family has a word for this and it means nothing."
       - Someone mid-sentence.         '"Beta, ek baat batao."'
       - A number with no context yet. "Four rupees. That is the difference."
       - A flat fact about them.       "Your mattress has not changed since college"
     good:
-      - "Follow one ₹100 through your day."
+      - "Same mattress. The phone costs twelve times more."
+      - "Your mother has diagnosed your herniated disc as a breathing problem."
+      - "Your office now advertises its air quality."
       - "Go and read your company's 2021 LinkedIn post again."
-      - "List every injury you currently have. Go on."
-      - "There is a word your family uses that has no fixed meaning."
+      - '"Beta, ek baat batao."'
+      # The four that used to sit here were "Follow one ₹100 through your
+      # day", "List every injury you currently have", "There is a word your
+      # family uses that has no fixed meaning" and the LinkedIn one. Three of
+      # the four are title cards, which is where the account learnt the
+      # habit — an example outranks a rule every time.
     bad:
       - "At 20 everything was free."          # this is setup, not hook
       - "Adulting is expensive."              # closed loop, nothing to swipe for
@@ -576,6 +633,21 @@ structures:
 
   max_share_of_output: 0.30   # HARD CAP per structure across all published posts
 
+  # The count that mattered more than any single structure's share: across the
+  # first twelve published posts, TWELVE had a parallel list in the middle
+  # slide. Not most — all. These eight are not eight structures, they are one
+  # structure wearing eight headers, and the per-structure cap cannot see that
+  # because each header stays under 30% on its own.
+  list_shaped: [escalating_list, definition_drift, then_now, list_collapse,
+                receipt, terms_and_conditions, customer_support, job_description]
+  max_list_share: 0.5
+  # Half, not zero. The list is a good shape and it is the shape that overflows
+  # a slide, bores the reader by item three and turns the post into a table
+  # someone has to read rather than a line someone can repeat. A post whose
+  # middle slide is one sentence is almost always the stronger post.
+
+  # A column of prices is the worst version of it. See slides.at_most_one_price.
+
 # -----------------------------------------------------------------------------
 # HARD BANS — automatic rejection, no judgement call
 # -----------------------------------------------------------------------------
@@ -660,7 +732,13 @@ output_schema:
     is the only place the post can ask for one.
   trigger: One word, from the territory list. Not confined to the money/family/body three.
   target: One word — who the joke is aimed at. See the target section. "self" at most 1 in 4.
-  structure: One of the structures above.
+  structure: One of the structures above. HOW the post is laid out.
+  move: |
+    One of the keys under reply_moves.moves. WHY it is funny, which is not
+    the same question as the structure and must be answered separately.
+    Eleven of the first twelve published posts ran the same move — corporate
+    register applied to a personal thing — under nine different structure
+    names, and nothing in this file could see it.
   satire_level: 1–5.
   hinglish: true or false.
   source: URL, or the literal string "evergreen".

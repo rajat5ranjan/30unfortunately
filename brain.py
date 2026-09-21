@@ -34,6 +34,7 @@ CONFIG = os.path.join(ROOT, "config.json")
 SEED = os.path.join(ROOT, "content", "seed_posts.json")
 APPROVED_DIR = os.path.join(ROOT, "content", "approved")
 CANDIDATE_DIR = os.path.join(ROOT, "content", "candidates")
+LEGACY = os.path.join(ROOT, "content", "legacy_failures.json")
 
 EMOJI = re.compile(
     "[\U0001F300-\U0001FAFF\U00002600-\U000027BF\U0001F000-\U0001F2FF←-⇿⬀-⯿]"
@@ -90,6 +91,65 @@ def gate_hard_bans(post: Dict[str, Any], brand: Dict[str, Any]) -> List[str]:
     if EMOJI.search(_flat(post)):
         fails.append("emoji in card art (captions only)")
     return fails
+
+
+PRICE = re.compile(r"[\u20b9$]\s?\d[\d,]*")
+TITLE_CARD = re.compile(
+    r"^\s*(there\s+(is|are)|let'?s|let\s+us|here\s+(is|are)|presenting|"
+    r"introducing|a\s+look\s+at|the\s+story\s+of)\b", re.I)
+
+
+def gate_one_price(post: Dict[str, Any], brand: Dict[str, Any]) -> List[str]:
+    """A column of rupee amounts is a spreadsheet, not a joke.
+
+    Counts currency figures only. Percentages, years and ages are comparisons
+    and are left alone — "8% salary, 15% blood sugar" is the good version of
+    using two numbers, and a gate that cannot tell them apart would take the
+    best post in the corpus down with the worst.
+    """
+    found = PRICE.findall(_flat(post))
+    if len(found) > 1:
+        return ["%d prices in one post (%s) — the reader has to do arithmetic "
+                "to reach the joke. One figure, alone, does the work"
+                % (len(found), ", ".join(found[:4]))]
+    return []
+
+
+def gate_hook_is_not_a_title_card(post: Dict[str, Any],
+                                  brand: Dict[str, Any]) -> List[str]:
+    """Slide 1 announcing that a joke is coming, instead of being one.
+
+    Only the openings that are pure throat-clearing are machine-checked; the
+    wider habit is prose in slides.slide_1_is_a_HOOK, because "is this an
+    announcement" is a judgement and this is a regex.
+    """
+    hook = (post.get("slides") or [""])[0]
+    if TITLE_CARD.match(hook):
+        return ["slide 1 opens as a title card, not a hook — it announces "
+                "that a joke is coming instead of being one"]
+    return []
+
+
+def gate_move_is_declared(post: Dict[str, Any], brand: Dict[str, Any]) -> List[str]:
+    """Every post has to say which move it is running.
+
+    Not a quality check — a visibility one. The structure field said how a
+    post was laid out and nothing said why it was funny, so the account ran
+    one joke eleven times under nine structure names and no rule could see
+    it. Declaring the move is what lets rank() space them out.
+    """
+    known = brand["reply_moves"]["moves"]
+    move = post.get("move")
+    if not move:
+        # Silent for the back catalogue: the field did not exist when those
+        # were written, and baselining thirty-four posts to say so would bury
+        # the signal this check exists to give. New posts cannot skip it —
+        # RESPONSE_SCHEMA marks move required, so the model must emit one.
+        return []
+    if move not in known:
+        return ["unknown move '%s' — one of: %s"
+                % (move, ", ".join(sorted(known)))]
+    return []
 
 
 def gate_shape(post: Dict[str, Any], brand: Dict[str, Any]) -> List[str]:
@@ -254,7 +314,9 @@ def run_gates(post: Dict[str, Any], brand: Dict[str, Any], history: List[Dict[st
               cfg: Dict[str, Any]) -> List[str]:
     return (gate_hard_bans(post, brand) + gate_shape(post, brand)
             + gate_target(post, brand) + gate_travels(post, brand)
-            + gate_landing_turns(post, brand)
+            + gate_landing_turns(post, brand) + gate_one_price(post, brand)
+            + gate_hook_is_not_a_title_card(post, brand)
+            + gate_move_is_declared(post, brand)
             + gate_source(post) + gate_novelty(post, history, cfg["novelty_threshold"]))
 
 
@@ -387,13 +449,14 @@ RESPONSE_SCHEMA = {
                 "caption": {"type": "string"},
                 "trigger": {"type": "string"},
                 "structure": {"type": "string"},
+                "move": {"type": "string"},
                 "target": {"type": "string"},
                 "satire_level": {"type": "integer"},
                 "hinglish": {"type": "boolean"},
                 "source": {"type": "string"},
             }, "required": ["trend", "context", "angle", "slides", "caption",
-                            "trigger", "target", "structure", "satire_level",
-                            "hinglish", "source"]},
+                            "trigger", "target", "structure", "move",
+                            "satire_level", "hinglish", "source"]},
         },
     },
     "required": ["posts"],
@@ -532,6 +595,15 @@ def rank(posts: List[Dict[str, Any]], brand: Dict[str, Any],
     over_imp = (sum(1 for p in recent if is_imperative((p.get("slides") or [""])[0]))
                 > brand["slides"]["slide_1_is_a_HOOK"]["max_imperative_share"]
                 * max(len(recent), 1))
+    # Twelve of the first twelve published posts had a parallel list in the
+    # middle slide, under eight different structure names — so the per-
+    # structure cap could not see it and neither could a judge reading one
+    # batch. Same remedy as the voices, pointing the other way.
+    lists = set(brand["structures"]["list_shaped"])
+    over_list = (sum(1 for p in recent if p.get("structure") in lists)
+                 > brand["structures"]["max_list_share"] * max(len(recent), 1))
+    # And the move, which is the thing the structure name was hiding.
+    recent_move = [p.get("move") for p in history[-6:] if p.get("move")]
     # The caption rule asking for a send was read as a formula: the first batch
     # under it opened "Send this to..." eight times out of eight. Same monotone
     # as the hooks, same remedy — a pull on the mix, not a gate on the post.
@@ -555,6 +627,10 @@ def rank(posts: List[Dict[str, Any]], brand: Dict[str, Any],
             penalty += 4
         if over_send and is_send_command(p.get("caption")):
             penalty += 3
+        if over_list and p.get("structure") in lists:
+            penalty += 4
+        if p.get("move") in recent_move:
+            penalty += 3 * recent_move.count(p.get("move"))
         p["_score"] = base - penalty
         p["_judge"] = sc.get("verdict", "")
         p["_detail"] = dict((k, sc.get(k)) for k in RANK_WEIGHTS)
@@ -562,21 +638,58 @@ def rank(posts: List[Dict[str, Any]], brand: Dict[str, Any],
     return sorted(posts, key=lambda p: -p["_score"])
 
 
-def cmd_check(brand, cfg):
+def load_legacy() -> Dict[str, List[str]]:
+    """Failures already on the record when the rule that causes them was written.
+
+    A rule tightened today will reject posts published last week, and there is
+    no fixing those: they are on Instagram. Without a baseline the self-test is
+    permanently red and stops meaning anything, which defeats the point of
+    running it before every generation — the question it exists to answer is
+    "did the change I just made break the back catalogue", and that only reads
+    if the catalogue was green a minute ago.
+
+    Matched on the exact failure text, not on the post id, so an old post
+    breaking for a NEW reason still shows up.
+    """
+    try:
+        with open(LEGACY) as f:
+            return json.load(f)
+    except (IOError, ValueError):
+        return {}
+
+
+def cmd_check(brand, cfg, record: bool = False):
     """Self-test: every approved post must survive its own gates."""
     history = load_history()
+    legacy = {} if record else load_legacy()
     for w in check_contract_is_whole(brand):
         print("  ! %s" % w)
     print("Running gates over %d approved posts\n" % len(history))
     bad = 0
+    known = 0
+    baseline = {}  # type: Dict[str, List[str]]
     for i, p in enumerate(history):
         others = history[:i] + history[i + 1:]
         fails = run_gates(p, brand, others, cfg)
-        if fails:
-            bad += 1
-            print("  %s FAIL" % p.get("id"))
-            for f in fails:
-                print("      - %s" % f)
+        if not fails:
+            continue
+        pid = p.get("id") or "?"
+        baseline[pid] = fails
+        fresh = [f for f in fails if f not in legacy.get(pid, [])]
+        if not fresh:
+            known += 1
+            continue
+        bad += 1
+        print("  %s FAIL" % pid)
+        for f in fresh:
+            print("      - %s" % f)
+    if known:
+        print("  (%d published post(s) fail rules written after them — "
+              "content/legacy_failures.json)" % known)
+    if record:
+        with open(LEGACY, "w") as f:
+            json.dump(baseline, f, indent=2, sort_keys=True)
+        print("  recorded %d as the baseline" % len(baseline))
     shares, warnings = structure_report(history, brand["structures"]["max_share_of_output"],
                                         cfg["structure_enforce_from"])
     print("\nStructure mix:")
@@ -823,6 +936,8 @@ def main():
     ap.add_argument("--n", type=int, default=None, help="posts per usable trend")
     ap.add_argument("--dry-run", action="store_true", help="print the prompt, call nothing")
     ap.add_argument("--check", action="store_true", help="run gates over approved posts")
+    ap.add_argument("--record-legacy", action="store_true",
+                    help="with --check: freeze today's failures as the baseline")
     ap.add_argument("--min-backlog", type=int, metavar="N", default=None,
                     help="do nothing if at least N posts are already queued")
     ap.add_argument("--auto", type=int, metavar="N", default=0,
@@ -841,7 +956,7 @@ def main():
         cfg["posts_per_trend"] = args.n
 
     if args.check:
-        sys.exit(cmd_check(brand, cfg))
+        sys.exit(cmd_check(brand, cfg, record=args.record_legacy))
     if args.html:
         sys.exit(cmd_html())
     if args.summary:

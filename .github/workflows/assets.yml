@@ -15,6 +15,11 @@ on:
   schedule:
     - cron: "43 */4 * * *"   # 30 min after each generate slot, off the hour
   workflow_dispatch:
+    inputs:
+      rebuild:
+        description: "Re-render and re-upload every queued reel, not just the missing ones (use after the renderer changes)"
+        type: boolean
+        default: false
 
 permissions:
   contents: write        # release assets
@@ -35,7 +40,10 @@ jobs:
       - name: What is missing?
         id: gap
         run: |
-          if python3 tools/ensure_reels.py --check; then
+          if [ "${{ inputs.rebuild }}" = "true" ]; then
+            echo "rebuilding everything by hand"
+            echo "go=yes" >> "$GITHUB_OUTPUT"
+          elif python3 tools/ensure_reels.py --check; then
             echo "go=no" >> "$GITHUB_OUTPUT"
           else
             echo "go=yes" >> "$GITHUB_OUTPUT"
@@ -48,4 +56,7 @@ jobs:
         if: steps.gap.outputs.go == 'yes'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python3 tools/ensure_reels.py | tee -a "$GITHUB_STEP_SUMMARY"
+        run: |
+          python3 tools/ensure_reels.py \
+            ${{ inputs.rebuild == true && '--rebuild' || '' }} \
+            | tee -a "$GITHUB_STEP_SUMMARY"

@@ -44,6 +44,8 @@ def main() -> int:
     ap.add_argument("--check", action="store_true", help="report only")
     ap.add_argument("--all", action="store_true",
                     help="include published posts, not just the queue")
+    ap.add_argument("--rebuild", action="store_true",
+                    help="re-render and re-upload even where a reel exists")
     args = ap.parse_args()
 
     conn = store.connect()
@@ -60,12 +62,19 @@ def main() -> int:
                  (False, True): "MISSING reel",
                  (False, False): "MISSING both"}[tuple(have)]
         print("%-6s %s" % (row["id"], label))
-        if not all(have):
+        if not all(have) or args.rebuild:
             missing.append(row["id"])
 
     if not missing:
         print("\nevery queued post has a reel.")
         return 0
+    if args.rebuild:
+        # The normal path is idempotent on purpose — it is a safety net that
+        # runs every four hours and must never re-upload what is already
+        # there. --rebuild is for the other case: the renderer changed and
+        # the queue is holding assets built by the old one.
+        print("\nrebuilding all %d, including the ones already uploaded"
+              % len(missing))
     if args.check:
         print("\n%d missing: %s" % (len(missing), ", ".join(missing)))
         return 1

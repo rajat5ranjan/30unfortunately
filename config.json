@@ -5,10 +5,10 @@
   "few_shot_count": 8,
   "novelty_threshold": 0.72,
   "structure_enforce_from": 20,
-  "_note": "Pinned model, not '-latest': a moving alias would change the voice mid-experiment. posts_per_trend 3 so one run yields ~10-12 candidates and --auto 6 is still the top half \u2014 see generate.yml for the backlog arithmetic.",
+  "_note": "Pinned model, not '-latest': a moving alias would change the voice mid-experiment. posts_per_trend 3 so one run yields ~10-12 candidates and --auto 6 is still the top half — see generate.yml for the backlog arithmetic.",
   "pages_base_url": "https://rajat5ranjan.github.io/30unfortunately",
   "repo": "rajat5ranjan/30unfortunately",
-  "_note_repo": "Where the buttons on the Pages site file their commands. The site is static and this repo is public, so a page cannot hold a token \u2014 a prefilled issue is the one way a tap becomes a workflow with no secret in the HTML. See control.py.",
+  "_note_repo": "Where the buttons on the Pages site file their commands. The site is static and this repo is public, so a page cannot hold a token — a prefilled issue is the one way a tap becomes a workflow with no secret in the HTML. See control.py.",
   "font": "fonts/BricolageGrotesque.ttf",
   "font_weight": "ExtraBold",
   "svg_glyph_weight": 800,
@@ -19,7 +19,6 @@
   "trend_min_score": 3,
   "trend_max_per_bucket": 2,
   "reels_base_url": "https://github.com/rajat5ranjan/30unfortunately/releases/download/reels",
-  "reel_intro_seconds": 5.0,
   "reel_chars_per_second": 15.0,
   "reel_text_fade_seconds": 0.45,
   "reel_type_cps": 30.0,
@@ -42,6 +41,8 @@
       "before": "22:45"
     }
   ],
-  "_note_windows": "Windows, not instants, and the deadline is the part that moved. GitHub does not deliver the cron it is given: from 2026-09-18 12:58 to 18:19 the */20 publish poll was due ~16 times and ran ONCE, and generate's schedule has fired once in its life. The 15:00-17:00 window was missed outright with a post sitting in the queue. So 'after' is still the researched best time and nothing publishes before it \u2014 'before' is now hours later, because a window only catches a poll if it is wide enough to be hit. min_publish_gap_minutes is the cost of that: widening the deadlines put the end of one window within an hour of the next window's start, and two posts in one hour compete for the same audience. --now ignores it. A fixed UTC offset rather than a timezone name because IST has no DST.",
-  "min_publish_gap_minutes": 90
+  "_note_windows": "Windows, not instants, and the deadline is the part that moved. GitHub does not deliver the cron it is given: from 2026-09-18 12:58 to 18:19 the */20 publish poll was due ~16 times and ran ONCE, and generate's schedule has fired once in its life. The 15:00-17:00 window was missed outright with a post sitting in the queue. So 'after' is still the researched best time and nothing publishes before it — 'before' is now hours later, because a window only catches a poll if it is wide enough to be hit. min_publish_gap_minutes is the cost of that: widening the deadlines put the end of one window within an hour of the next window's start, and two posts in one hour compete for the same audience. --now ignores it. A fixed UTC offset rather than a timezone name because IST has no DST.",
+  "min_publish_gap_minutes": 90,
+  "reel_outro_seconds": 3.5,
+  "_note_outro": "The mark animation plays at the END. It used to open every reel and it was 23-24%% of the runtime of the three that published — the first 23%%, which is the window Instagram uses to decide whether to show the reel to anybody else. Frame 0 is the hook now. Shorter too: a sign-off has less work to do than an introduction."
 }
