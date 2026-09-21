@@ -60,6 +60,12 @@ MIGRATIONS = [
     # not be read back against what any of it actually reached.
     ("target", "ALTER TABLE posts ADD COLUMN target TEXT",
      "UPDATE posts SET target='self' WHERE target IS NULL"),
+    # Which comic move the post runs, and the three search terms. Both are
+    # written at generation time and both are needed long after: the move so
+    # metrics can ask which kind of joke travels, the keywords because
+    # publish.py builds the hashtags and the alt text out of them.
+    ("move", "ALTER TABLE posts ADD COLUMN move TEXT", None),
+    ("keywords", "ALTER TABLE posts ADD COLUMN keywords TEXT", None),
 ]
 
 
@@ -130,8 +136,13 @@ def connect(write: bool = False) -> sqlite3.Connection:
     for col, add, backfill in MIGRATIONS:
         if col not in have:
             conn.execute(add)
-            conn.execute(backfill)   # every row that predates the column was a
-            conn.commit()            # carousel, which is the A/B control arm
+            # A backfill only where the old rows have a knowable value: every
+            # row that predates `format` was a carousel, which is the A/B
+            # control arm. Nobody can say retrospectively which move a post
+            # ran, so those stay NULL and every reader has to handle it.
+            if backfill:
+                conn.execute(backfill)
+            conn.commit()
     return conn
 
 
@@ -158,12 +169,14 @@ def enqueue(conn: sqlite3.Connection, post: Dict[str, Any]) -> bool:
         return False
     conn.execute(
         "INSERT INTO posts (id, slides, caption, trigger, target, structure,"
-        " satire_level, hinglish, source, status, queued_at)"
-        " VALUES (?,?,?,?,?,?,?,?,?,'queued',?)",
+        " move, satire_level, hinglish, keywords, source, status, queued_at)"
+        " VALUES (?,?,?,?,?,?,?,?,?,?,?,'queued',?)",
         (post["id"], json.dumps(post["slides"], ensure_ascii=False), post["caption"],
          post.get("trigger"), post.get("target") or "self", post.get("structure"),
-         post.get("satire_level"),
-         int(bool(post.get("hinglish"))), post.get("source"), now()))
+         post.get("move"), post.get("satire_level"),
+         int(bool(post.get("hinglish"))),
+         json.dumps(post.get("keywords") or [], ensure_ascii=False),
+         post.get("source"), now()))
     conn.commit()
     return True
 

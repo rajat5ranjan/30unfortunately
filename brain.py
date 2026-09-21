@@ -156,6 +156,32 @@ def gate_hook_is_not_a_title_card(post: Dict[str, Any],
     return []
 
 
+# Hyphens allowed: "co-living" is how people type it. Nothing else,
+# because every other punctuation mark in a keyword is a hashtag
+# trying to get in.
+KEYWORD = re.compile(r"^[a-z0-9][a-z0-9 -]{1,28}[a-z0-9]$")
+
+
+def gate_keywords(post: Dict[str, Any], brand: Dict[str, Any]) -> List[str]:
+    """Three plain search terms, and nothing that looks like a hashtag.
+
+    Shape only. Whether "co-living bangalore" is a term anybody types is a
+    judgement, and this is a regex — the judgement lives in
+    discoverability.keywords, where the model can read it.
+    """
+    kws = post.get("keywords")
+    if kws is None:
+        return []          # predates the field; the response schema requires it
+    if not isinstance(kws, list) or len(kws) != 3:
+        return ["keywords must be exactly three terms, got %s"
+                % (len(kws) if isinstance(kws, list) else type(kws).__name__)]
+    bad = [k for k in kws if not KEYWORD.match((k or "").strip())]
+    if bad:
+        return ["keywords must be plain lowercase words a person would type, "
+                "no hash and no camel case: %s" % ", ".join(repr(b) for b in bad)]
+    return []
+
+
 def gate_move_is_declared(post: Dict[str, Any], brand: Dict[str, Any]) -> List[str]:
     """Every post has to say which move it is running.
 
@@ -344,6 +370,7 @@ def run_gates(post: Dict[str, Any], brand: Dict[str, Any], history: List[Dict[st
             + gate_hook_is_not_a_title_card(post, brand)
             + gate_currency_is_real(post, brand)
             + gate_move_is_declared(post, brand)
+            + gate_keywords(post, brand)
             + gate_source(post) + gate_novelty(post, history, cfg["novelty_threshold"]))
 
 
@@ -355,7 +382,8 @@ def run_gates(post: Dict[str, Any], brand: Dict[str, Any], history: List[Dict[st
 # check below can tell an omission from a decision.
 CONTRACT_SECTIONS = ("identity", "audience", "formula", "slides", "target", "voice",
                      "hinglish", "travels", "territory", "reply_moves",
-                     "satire_ladder", "structures", "hard_bans", "output_schema")
+                     "satire_ladder", "structures", "hard_bans",
+                     "discoverability", "output_schema")
 NOT_A_RULE = ("trend_gate",           # applied to trends before the writer runs
               "few_shot_examples")    # a path, and the examples are sent separately
 
@@ -480,10 +508,12 @@ RESPONSE_SCHEMA = {
                 "target": {"type": "string"},
                 "satire_level": {"type": "integer"},
                 "hinglish": {"type": "boolean"},
+                "keywords": {"type": "array", "items": {"type": "string"},
+                             "minItems": 3, "maxItems": 3},
                 "source": {"type": "string"},
             }, "required": ["trend", "context", "angle", "slides", "caption",
                             "trigger", "target", "structure", "move",
-                            "satire_level", "hinglish", "source"]},
+                            "satire_level", "hinglish", "keywords", "source"]},
         },
     },
     "required": ["posts"],

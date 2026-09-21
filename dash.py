@@ -143,6 +143,35 @@ def todays_candidates(today: Optional[str] = None) -> str:
 
 
 
+def pin_these(one: List[Dict[str, Any]], n: int = 3) -> str:
+    """The three best posts by day-one reach, for the profile.
+
+    Pinning is app-only — there is no Graph API call for it, and there is no
+    way around that. But CHOOSING what to pin is a data question and the data
+    is right here: a stranger who taps the profile sees the grid before they
+    see anything else, and the grid should open with the three posts that
+    already proved they travel rather than whatever went out on Tuesday.
+
+    Day-one reach, not lifetime, or this is just a list of the oldest posts.
+    """
+    if len(one) < n:
+        return ('<p class="none">Not enough posts measured yet to say what '
+                'belongs on the profile.</p>')
+    best = sorted(one, key=lambda r: -r["reach"])[:n]
+    rows = "".join(
+        '<div class="prow"><span>%s</span><div class="track">'
+        '<i class="%s" style="width:%.1f%%"></i></div><b>%s</b></div>'
+        % (escape(r["id"]), "reel" if r["format"] == "reel" else "car",
+           100.0 * r["reach"] / best[0]["reach"], r["reach"])
+        for r in best)
+    return ('<div class="posts">%s</div>'
+            '<p class="none" style="margin-top:10px">Pin these three, in this '
+            'order. Instagram has no API for pinning, so it is three long '
+            'presses in the app &mdash; and it is the only thing on this page '
+            'that changes what a stranger sees before they have read '
+            'anything.</p>' % rows)
+
+
 def block(conn) -> str:
     """The whole dashboard: four numbers, one verdict, two lists."""
     o = metrics.overview(conn)
@@ -196,8 +225,9 @@ def block(conn) -> str:
     return ('<section class="dash">%s%s'
             '<h2>Which format travels</h2>'
             '<p class="headline">%s</p>%s<p class="caveat">%s</p>'
+            '<h2>Pin these to the profile</h2>%s'
             '<h2>Every post, first-day reach</h2>%s'
             '<h2>Today&rsquo;s candidates</h2>%s'
             '</section>'
             % (kpis, when, escape(c["headline"]), versus(c), escape(footnote),
-               post_chart(one), todays_candidates()))
+               pin_these(one), post_chart(one), todays_candidates()))

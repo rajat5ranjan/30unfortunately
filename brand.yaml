@@ -718,6 +718,43 @@ trend_gate:
     If the joke needs a second fact, the joke is wrong, not the source.
 
 # -----------------------------------------------------------------------------
+# DISCOVERABILITY — the part of the post nobody reads
+# -----------------------------------------------------------------------------
+discoverability:
+  what_instagram_reads: |
+    Instagram indexes the caption, the alt text, the on-screen text in the
+    image and the words in a profile, and matches them against what people
+    type into search. Public professional accounts are also indexed by
+    Google. None of that is hashtag volume — captions now outrank hashtags,
+    and the account has been publishing with no alt text at all.
+  where_the_keywords_go: |
+    NOT in the visible caption. The caption is a joke with one job already,
+    and a searchable sentence bolted onto it is the explaining this contract
+    spent a week removing. "Co-living rent in Bangalore, and what
+    thirty-somethings actually pay for company" is a subtitle, and a subtitle
+    tells the reader they did not have to read the post.
+
+    So the search words live in two places nobody reads as prose:
+      1. ALT TEXT, which is generated from the slides and never written by
+         hand. Blind readers get the actual text of the card, which is the
+         only honest description of an image that is text; the index gets the
+         same words. One artefact, two jobs, no cost to the joke.
+      2. UP TO THREE HASHTAGS on their own line, which the hard bans already
+         cap and which now have to be search terms rather than decoration.
+  keywords: |
+    Three plain terms per post, lowercase, no hash, no camel case. What a
+    person would TYPE, not what the post is filed under: "co-living
+    bangalore" and "rent" over "#urbanlife" and "#millennialstruggles". At
+    least one should name the concrete thing in the post — the city, the app,
+    the object, the relative.
+  the_grid_is_a_search_result: |
+    Slide 1 is the thumbnail for a carousel and the cover frame is the
+    thumbnail for a reel, so the hook is doing SEO work as on-screen text
+    whether or not anyone intended it. Another reason it cannot be a title
+    card: "There is a word that changes its meaning" contains nothing
+    anybody would ever search for.
+
+# -----------------------------------------------------------------------------
 # OUTPUT
 # -----------------------------------------------------------------------------
 output_schema:
@@ -741,6 +778,10 @@ output_schema:
     names, and nothing in this file could see it.
   satire_level: 1–5.
   hinglish: true or false.
+  keywords: |
+    Exactly three plain search terms, lowercase, no "#". See discoverability.
+    They never appear in the caption as prose — they become the hashtags and
+    the alt text.
   source: URL, or the literal string "evergreen".
 
 few_shot_examples: content/seed_posts.json   # the twelve approved posts

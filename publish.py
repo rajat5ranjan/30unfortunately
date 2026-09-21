@@ -25,6 +25,7 @@ stdlib only, so the scheduled job needs no install step.
 import argparse
 import json
 import os
+import re
 import sys
 import time
 import urllib.error
@@ -293,6 +294,50 @@ def cover_url(post_id: str) -> str:
     return "%s/%s-cover.jpg" % (_cfg("reels_base_url"), post_id)
 
 
+def keywords_of(row) -> List[str]:
+    try:
+        return [k for k in json.loads(row["keywords"] or "[]") if k]
+    except (ValueError, TypeError, IndexError, KeyError):
+        return []
+
+
+def full_caption(row) -> str:
+    """The caption as Instagram receives it: the joke, then the search terms.
+
+    The hashtags go on their own line and nowhere near the joke. Instagram
+    indexes the caption, so the temptation is to write a searchable sentence
+    into it — which is a subtitle, and a subtitle tells the reader they did
+    not have to read the post. Three tags on line three cost nothing.
+
+    A function rather than a column because reconcile() identifies a
+    published post by its caption, and the string sent and the string
+    searched for have to be produced by the same code.
+    """
+    base = (row["caption"] or "").strip()
+    tags = []
+    for k in keywords_of(row)[:3]:
+        t = "#" + re.sub(r"[^a-z0-9]", "", k.lower())
+        if len(t) > 2 and t not in tags:
+            tags.append(t)
+    return "%s\n\n%s" % (base, " ".join(tags)) if tags else base
+
+
+def alt_text_for(row, text: str, n: int, total: int) -> str:
+    """What a screen reader says, and what the search index reads.
+
+    The image IS text, so the only honest description of it is that text —
+    which happens to be the same words somebody would search for. One
+    artefact doing both jobs, and neither of them costs the joke anything,
+    because nobody reading the post ever sees this.
+    """
+    body = " ".join((text or "").split())
+    alt = "Slide %d of %d, text on a plain card: \u201c%s\u201d" % (n, total, body)
+    kws = keywords_of(row)
+    if kws:
+        alt += ". A post about %s." % ", ".join(kws)
+    return alt[:990]
+
+
 def reconcile(conn, token: str, ig_id: str) -> None:
     """Settle posts left mid-publish, before anything new goes out.
 
@@ -325,7 +370,7 @@ def reconcile(conn, token: str, ig_id: str) -> None:
 
     feed = dict(((m.get("caption") or "").strip(), m) for m in data)
     for row in stuck:
-        hit = feed.get((row["caption"] or "").strip())
+        hit = feed.get(full_caption(row).strip())
         if hit:
             store.mark_published(conn, row["id"], hit["id"], hit.get("permalink"))
             print("reconciled: %s did publish -> %s"
@@ -510,7 +555,7 @@ def cmd_next(args: argparse.Namespace) -> int:
 
     slides = json.loads(row["slides"])
     urls = slide_urls(row["id"], len(slides))
-    caption = row["caption"]
+    caption = full_caption(row)
     fmt = args.format or store.format_for(datetime.now(timezone.utc))
 
     print("%s — %s, %d slides" % (row["id"], fmt, len(slides)))
@@ -553,8 +598,13 @@ def cmd_next(args: argparse.Namespace) -> int:
             parent = None
 
         children = []
-        for u in (urls if parent is None else []):
-            r = post("%s/media" % ig_id, token, image_url=u, is_carousel_item="true")
+        for n, u in enumerate(urls if parent is None else [], 1):
+            # alt_text has been accepted on image and carousel-item containers
+            # since March 2025. Not on reels, which is why the reel branch
+            # above does not send it.
+            r = post("%s/media" % ig_id, token, image_url=u,
+                     is_carousel_item="true",
+                     alt_text=alt_text_for(row, slides[n - 1], n, len(slides)))
             children.append(r["id"])
             print("  container %s" % r["id"], end=" ", flush=True)
             wait_for_container(r["id"], token, "slide")

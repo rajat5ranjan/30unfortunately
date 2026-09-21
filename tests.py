@@ -12,6 +12,7 @@ publish.py imported, compiled and passed `check` — the failure only appeared
 against a live container, after a post had already been half-created. Anything
 reached only when a real publish is in flight needs a stub and a test.
 """
+import json
 import os
 import sys
 import unittest
@@ -157,8 +158,10 @@ class Reconcile(unittest.TestCase):
         """Enough of a connection for reconcile: it only reaches the DB through
         the store functions, which are stubbed."""
 
-    def run_with(self, feed_data, media_count, stuck=("g001",)):
-        rows = [{"id": i, "caption": "cap-%s" % i} for i in stuck]
+    def run_with(self, feed_data, media_count, stuck=("g001",), keywords=None):
+        rows = [{"id": i, "caption": "cap-%s" % i,
+                 "keywords": json.dumps(keywords) if keywords else None}
+                for i in stuck]
         calls = {"published": [], "requeued": []}
         real = (store.in_flight, store.mark_published, store.requeue, publish.get)
         store.in_flight = lambda conn: rows
@@ -184,6 +187,21 @@ class Reconcile(unittest.TestCase):
         self.assertEqual(c["published"], ["g001"])
         self.assertEqual(c["requeued"], [])
 
+    def test_it_matches_the_caption_instagram_actually_received(self):
+        """The hashtag line is part of the published caption, so it is part
+        of the string reconcile has to search for. Get this wrong and a post
+        that DID publish reads as absent, and absent means publish it again."""
+        live = "cap-g001\n\n#rent #gym #thirties"
+        c = self.run_with([{"id": "17", "caption": live, "permalink": "http://x"}],
+                          9, keywords=["rent", "gym", "thirties"])
+        self.assertEqual(c["published"], ["g001"])
+        self.assertEqual(c["requeued"], [])
+
+    def test_a_post_queued_before_keywords_existed_still_matches(self):
+        c = self.run_with([{"id": "17", "caption": "cap-g001",
+                            "permalink": "http://x"}], 9, keywords=None)
+        self.assertEqual(c["published"], ["g001"])
+
     def test_a_post_genuinely_absent_goes_back_in_the_queue(self):
         c = self.run_with([{"id": "17", "caption": "something else"}], 9)
         self.assertEqual(c["requeued"], ["g001"])
@@ -199,6 +217,40 @@ class Reconcile(unittest.TestCase):
     def test_an_empty_feed_from_an_empty_account_is_believed(self):
         c = self.run_with([], 0)
         self.assertEqual(c["requeued"], ["g001"])
+
+
+
+class Discoverability(unittest.TestCase):
+    def _row(self, caption, keywords):
+        return {"caption": caption,
+                "keywords": json.dumps(keywords) if keywords is not None else None}
+
+    def test_the_visible_caption_is_untouched_without_keywords(self):
+        row = self._row("Whose mother is this?", None)
+        self.assertEqual(publish.full_caption(row), "Whose mother is this?")
+
+    def test_tags_go_on_their_own_line_never_into_the_joke(self):
+        out = publish.full_caption(self._row("Whose mother is this?",
+                                             ["co-living bangalore", "rent", "gym"]))
+        first = out.split("\n")[0]
+        self.assertEqual(first, "Whose mother is this?")
+        self.assertIn("#colivingbangalore", out)
+        self.assertNotIn("#", first)
+
+    def test_at_most_three_tags_and_no_duplicates(self):
+        out = publish.full_caption(self._row("x", ["rent", "rent", "gym", "emi"]))
+        self.assertEqual(out.count("#"), 2)
+
+    def test_alt_text_carries_the_slide_text_verbatim(self):
+        alt = publish.alt_text_for(self._row("x", ["rent"]),
+                                   "Same mattress.\nThe phone costs more.", 2, 3)
+        self.assertIn("Same mattress. The phone costs more.", alt)
+        self.assertIn("Slide 2 of 3", alt)
+        self.assertIn("rent", alt)
+
+    def test_alt_text_stays_under_the_api_limit(self):
+        alt = publish.alt_text_for(self._row("x", ["rent"]), "w " * 900, 1, 3)
+        self.assertLessEqual(len(alt), 1000)
 
 
 class IssueCommands(unittest.TestCase):
