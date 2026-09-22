@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "In appeal to Centre, Maharashtra petrol dealers seek UPI MDR exemption",
+      "context": "Parents view digital transactions with structural, ancestral suspicion that is slowly starting to look justified.",
+      "angle": "The older generation's paranoia about digital money is beginning to look like sound financial planning.",
+      "slides": [
+        "Your family group chat has discovered a new financial warning.",
+        "\"Do not use UPI for small payments.\"\n\"Government is charging 18% tax.\"\n\"Your bank account will be blocked.\"",
+        "\"Beta, cash rakha karo.\""
+      ],
+      "caption": "Every family WhatsApp group has one uncle who thinks UPI is a personal conspiracy.",
+      "trigger": "upi",
+      "structure": "whatsapp_forward",
+      "move": "the_banal_true_answer",
+      "target": "relatives",
+      "satire_level": 4,
+      "hinglish": true,
+      "keywords": [
+        "whatsapp forward",
+        "upi charges",
+        "indian parents"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMiigJBVV95cUxPWUFYN25tclJWZ0U0bWFTazFKcm1hREUzRWNLbFpiWXRwdzRGOU5wRjhqWFZBeDd6bXZnOExia191QWlSeEZla3NmQnVCRHktS2RJT1habzhTYjJOVndRV290Z3FFVERWWEswSG5Sc0pnQ0dxTDJESjZ1dWluZTZYSWRVTU5TSVJRMnZKb1NBVnF2S21qSWdhbU5zcnNpaUJVTE95VkZiUnBjeU01djVVRkM3d2RkZ0VFVWw5d3VTdnBoM08yaUNUVTNSRE1oMlYyRi1ia2RlLXVMVWg0SUJxTE9TZTFpamVjb2NMY3ZqdzZIV2Z6TGhMU2NqMC1aY1U0cDNkN3FLVUZ6d9IBkAJBVV95cUxQdEIzbnFob1ZlNmZULTJrZEJYQW9sZFNlekJ3MFUwaUxLY0tqV0tmX0otalNmTWNfTnJpS1Vzbkk1UEtOdUtzQ2szMTI0ZFlGMGVBMm52ZFl1eU5PM1g4LU5hWWRlcDZwWXEyVGphSjFOcDhRdjFXQUpZbl83WVBvQTkybktleThvY3Fjc2NsTmpDcVM4TFFwR0NybmVUVmJsbDZHYzhrMGdlOER5VzVSQmphOFlNSlJ3T0lmbEIxdDl5R09TaklpdE13azJwMzJBSFpkRkk3WjN5ZDdEdmpYLVFiWmNIa0NLWTZ5SmM2SGI1S1RlLXRfZVJXRU40cGk2REhURzdZekV3WUIzT1VIVQ?oc=5",
+      "created_at": "2026-09-22",
+      "status": "approved",
+      "id": "g029",
+      "rank_score": 49,
+      "rank_verdict": "The core joke relies too heavily on local Indian WhatsApp rumor trivia about tax rules to travel successfully."
+    }
+  ]
+}

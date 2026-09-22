@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "Bengaluru Metro Cost: Why Housing Access Still Falls Short",
+      "context": "The concept of 'co-living' or suburban rentals is sold as premium living but functions as shared density for high prices.",
+      "angle": "The real estate industry uses lifestyle vocabulary to mask basic housing scarcity.",
+      "slides": [
+        "Your relatives are discussing your new rented flat.",
+        "\"Sharing flat is okay at twenty-two.\"\n\"At thirty, she should have her own kitchen.\"\n\"Even the deposit is five months' rent.\"",
+        "\"And she still has to take an auto to the office.\""
+      ],
+      "caption": "Send this to the person who moved to the suburbs for the 'peace' and now spends four hours in traffic.",
+      "trigger": "rent",
+      "structure": "two_aunties",
+      "move": "the_banal_true_answer",
+      "target": "relatives",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "co living belfour",
+        "house hunting",
+        "flat rent"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPajBHM0RrS0R2QkI1cTN6QkgteERSMy04X18tUWNkbnpJLUdxdFRYd1NOTmZQSFk2X0lpTDgxZnliZkViemstTmc4dDk3cnhQWUdSWFlaRVVScndwbm56N01nV1JxT1Z6VmhKVU1fOF8ycDZtT3JDRk9MRFBMVFVkc2poenpsc0ZrMG1iQw?oc=5",
+      "created_at": "2026-09-22",
+      "status": "approved",
+      "id": "g031",
+      "rank_score": 41,
+      "rank_verdict": "The post reads as a flat transcription of gossip without finding an unexpected comedic angle or a sharp final punchline."
+    }
+  ]
+}

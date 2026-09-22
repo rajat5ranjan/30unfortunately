@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "Bengaluru Metro Cost: Why Housing Access Still Falls Short",
+      "context": "The mathematical trade-off of living near transit lines never actually nets out in the resident's favor.",
+      "angle": "The massive upfront capital required to live near infrastructure cancels out any actual time saved.",
+      "slides": [
+        "Your new commute is shorter. Your security deposit is gone.",
+        "Metro token: ₹45.\nAuto to the station: double.\nBrokerage for the new flat: one month.\nSecurity deposit: five months.",
+        "You saved twelve minutes this morning."
+      ],
+      "caption": "Someone you know is still celebrating saving ten minutes on their commute.",
+      "trigger": "rent",
+      "structure": "receipt",
+      "move": "flat_restatement",
+      "target": "landlord",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "metro transit",
+        "rent deposit",
+        "bengaluru metro"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPajBHM0RrS0R2QkI1cTN6QkgteERSMy04X18tUWNkbnpJLUdxdFRYd1NOTmZQSFk2X0lpTDgxZnliZkViemstTmc4dDk3cnhQWUdSWFlaRVVScndwbm56N01nV1JxT1Z6VmhKVU1fOF8ycDZtT3JDRk9MRFBMVFVkc2poenpsc0ZrMG1iQw?oc=5",
+      "created_at": "2026-09-22",
+      "status": "approved",
+      "id": "g027",
+      "rank_score": 51,
+      "rank_verdict": "The middle slide borders slightly on a dry spreadsheet list of expenses, though the deadpan landing rescues it."
+    }
+  ]
+}

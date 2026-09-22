@@ -1,0 +1,331 @@
+{
+  "generated_at": "20260922-230142",
+  "model": "gemini-3.5-flash",
+  "accepted": [
+    {
+      "trend": "Bengaluru Metro Cost: Why Housing Access Still Falls Short",
+      "context": "The mathematical trade-off of living near transit lines never actually nets out in the resident's favor.",
+      "angle": "The massive upfront capital required to live near infrastructure cancels out any actual time saved.",
+      "slides": [
+        "Your new commute is shorter. Your security deposit is gone.",
+        "Metro token: ₹45.\nAuto to the station: double.\nBrokerage for the new flat: one month.\nSecurity deposit: five months.",
+        "You saved twelve minutes this morning."
+      ],
+      "caption": "Someone you know is still celebrating saving ten minutes on their commute.",
+      "trigger": "rent",
+      "structure": "receipt",
+      "move": "flat_restatement",
+      "target": "landlord",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "metro transit",
+        "rent deposit",
+        "bengaluru metro"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPajBHM0RrS0R2QkI1cTN6QkgteERSMy04X18tUWNkbnpJLUdxdFRYd1NOTmZQSFk2X0lpTDgxZnliZkViemstTmc4dDk3cnhQWUdSWFlaRVVScndwbm56N01nV1JxT1Z6VmhKVU1fOF8ycDZtT3JDRk9MRFBMVFVkc2poenpsc0ZrMG1iQw?oc=5",
+      "created_at": "2026-09-22",
+      "status": "draft",
+      "_score": 51,
+      "_judge": "The middle slide borders slightly on a dry spreadsheet list of expenses, though the deadpan landing rescues it.",
+      "_detail": {
+        "laugh": 3,
+        "share_trigger": 4,
+        "surprise": 4,
+        "specificity": 4,
+        "voice": 5,
+        "travels": 4
+      },
+      "_penalty": 4
+    },
+    {
+      "trend": "Inside Apple's Second Layoff Round: Why Fitness+ Audio Teams Were Cut Weeks After 200+ Job Losses",
+      "context": "Corporate wellness is a series of checklist tasks designed to shift liability back to the employee.",
+      "angle": "The office environment systematically destroys the spine while prescribing hydration and breathing breaks as the cure.",
+      "slides": [
+        "You asked the company doctor about your posture.",
+        "\"Is it the ergonomic chair?\"\n\"No, it is the nine hours of sitting.\"\n\"Is it the blue-light glasses?\"\n\"No, it is the twelve hours of staring.\"",
+        "\"Can I have a standing desk?\"\n\n\"Drink more water.\""
+      ],
+      "caption": "Whose HR manager is this?",
+      "trigger": "corporate",
+      "structure": "interview",
+      "move": "the_institutional_frame",
+      "target": "employer",
+      "satire_level": 3,
+      "hinglish": false,
+      "keywords": [
+        "hr wellness",
+        "ergonomic chair",
+        "corporate office"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPbVFRcDlCYUF2bFUwb2V3ckI0LUh1SjFCakRYN0FON1BNZm1rZXZMX3YzV2tpLVhoU3ZHY3BydFZQckpuY1RlU21kd1B1cDZucGxBTmdGdkY3ZUFQdkU5alR5c1JyZGFaVGZLUF8zcW5vd3c4MEpFb09HcjFmNnFMcjU3TXBvVlVvZTYwQ1B3?oc=5",
+      "created_at": "2026-09-22",
+      "status": "draft",
+      "_score": 49,
+      "_judge": "The middle slide feels slightly like a sterile Q&A pamphlet rather than a harsh, active rant from real corporate life.",
+      "_detail": {
+        "laugh": 3,
+        "share_trigger": 3,
+        "surprise": 4,
+        "specificity": 3,
+        "voice": 4,
+        "travels": 5
+      },
+      "_penalty": 1
+    },
+    {
+      "trend": "In appeal to Centre, Maharashtra petrol dealers seek UPI MDR exemption",
+      "context": "Parents view digital transactions with structural, ancestral suspicion that is slowly starting to look justified.",
+      "angle": "The older generation's paranoia about digital money is beginning to look like sound financial planning.",
+      "slides": [
+        "Your family group chat has discovered a new financial warning.",
+        "\"Do not use UPI for small payments.\"\n\"Government is charging 18% tax.\"\n\"Your bank account will be blocked.\"",
+        "\"Beta, cash rakha karo.\""
+      ],
+      "caption": "Every family WhatsApp group has one uncle who thinks UPI is a personal conspiracy.",
+      "trigger": "upi",
+      "structure": "whatsapp_forward",
+      "move": "the_banal_true_answer",
+      "target": "relatives",
+      "satire_level": 4,
+      "hinglish": true,
+      "keywords": [
+        "whatsapp forward",
+        "upi charges",
+        "indian parents"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMiigJBVV95cUxPWUFYN25tclJWZ0U0bWFTazFKcm1hREUzRWNLbFpiWXRwdzRGOU5wRjhqWFZBeDd6bXZnOExia191QWlSeEZla3NmQnVCRHktS2RJT1habzhTYjJOVndRV290Z3FFVERWWEswSG5Sc0pnQ0dxTDJESjZ1dWluZTZYSWRVTU5TSVJRMnZKb1NBVnF2S21qSWdhbU5zcnNpaUJVTE95VkZiUnBjeU01djVVRkM3d2RkZ0VFVWw5d3VTdnBoM08yaUNUVTNSRE1oMlYyRi1ia2RlLXVMVWg0SUJxTE9TZTFpamVjb2NMY3ZqdzZIV2Z6TGhMU2NqMC1aY1U0cDNkN3FLVUZ6d9IBkAJBVV95cUxQdEIzbnFob1ZlNmZULTJrZEJYQW9sZFNlekJ3MFUwaUxLY0tqV0tmX0otalNmTWNfTnJpS1Vzbkk1UEtOdUtzQ2szMTI0ZFlGMGVBMm52ZFl1eU5PM1g4LU5hWWRlcDZwWXEyVGphSjFOcDhRdjFXQUpZbl83WVBvQTkybktleThvY3Fjc2NsTmpDcVM4TFFwR0NybmVUVmJsbDZHYzhrMGdlOER5VzVSQmphOFlNSlJ3T0lmbEIxdDl5R09TaklpdE13azJwMzJBSFpkRkk3WjN5ZDdEdmpYLVFiWmNIa0NLWTZ5SmM2SGI1S1RlLXRfZVJXRU40cGk2REhURzdZekV3WUIzT1VIVQ?oc=5",
+      "created_at": "2026-09-22",
+      "status": "draft",
+      "_score": 49,
+      "_judge": "The core joke relies too heavily on local Indian WhatsApp rumor trivia about tax rules to travel successfully.",
+      "_detail": {
+        "laugh": 3,
+        "share_trigger": 4,
+        "surprise": 3,
+        "specificity": 4,
+        "voice": 4,
+        "travels": 2
+      },
+      "_penalty": -2
+    },
+    {
+      "trend": "Inside Apple's Second Layoff Round: Why Fitness+ Audio Teams Were Cut Weeks After 200+ Job Losses",
+      "context": "Minor sleep movements now result in medical-grade rehabilitation timelines.",
+      "angle": "The comedy is the sheer discrepancy between the trivial nature of the action and the violence of the physical consequence.",
+      "slides": [
+        "You woke up today with a brand new injury.",
+        "\"Kuch bhari uthaya tha kya?\"\n\"Nahi.\"\n\"Gym mein galat posture?\"\n\"Nahi.\"\n\"Toh phir neck sprain kaise hua?\"",
+        "\"Sote waqt thoda galat turn le liya.\""
+      ],
+      "caption": "Send this to the colleague who spent the entire standup explaining their neck sprain.",
+      "trigger": "health",
+      "structure": "dialogue",
+      "move": "the_turn_in_the_last_words",
+      "target": "self",
+      "satire_level": 4,
+      "hinglish": true,
+      "keywords": [
+        "neck pain",
+        "orthopaedic",
+        "physio"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPbVFRcDlCYUF2bFUwb2V3ckI0LUh1SjFCakRYN0FON1BNZm1rZXZMX3YzV2tpLVhoU3ZHY3BydFZQckpuY1RlU21kd1B1cDZucGxBTmdGdkY3ZUFQdkU5alR5c1JyZGFaVGZLUF8zcW5vd3c4MEpFb09HcjFmNnFMcjU3TXBvVlVvZTYwQ1B3?oc=5",
+      "created_at": "2026-09-22",
+      "status": "draft",
+      "_score": 45,
+      "_judge": "The entire final landing slide is in untranslated Hindi, which violates the rule that the load-bearing punchline must travel globally.",
+      "_detail": {
+        "laugh": 4,
+        "share_trigger": 4,
+        "surprise": 3,
+        "specificity": 4,
+        "voice": 4,
+        "travels": 2
+      },
+      "_penalty": 5
+    },
+    {
+      "trend": "Bengaluru Metro Cost: Why Housing Access Still Falls Short",
+      "context": "The concept of 'co-living' or suburban rentals is sold as premium living but functions as shared density for high prices.",
+      "angle": "The real estate industry uses lifestyle vocabulary to mask basic housing scarcity.",
+      "slides": [
+        "Your relatives are discussing your new rented flat.",
+        "\"Sharing flat is okay at twenty-two.\"\n\"At thirty, she should have her own kitchen.\"\n\"Even the deposit is five months' rent.\"",
+        "\"And she still has to take an auto to the office.\""
+      ],
+      "caption": "Send this to the person who moved to the suburbs for the 'peace' and now spends four hours in traffic.",
+      "trigger": "rent",
+      "structure": "two_aunties",
+      "move": "the_banal_true_answer",
+      "target": "relatives",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "co living belfour",
+        "house hunting",
+        "flat rent"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPajBHM0RrS0R2QkI1cTN6QkgteERSMy04X18tUWNkbnpJLUdxdFRYd1NOTmZQSFk2X0lpTDgxZnliZkViemstTmc4dDk3cnhQWUdSWFlaRVVScndwbm56N01nV1JxT1Z6VmhKVU1fOF8ycDZtT3JDRk9MRFBMVFVkc2poenpsc0ZrMG1iQw?oc=5",
+      "created_at": "2026-09-22",
+      "status": "draft",
+      "_score": 41,
+      "_judge": "The post reads as a flat transcription of gossip without finding an unexpected comedic angle or a sharp final punchline.",
+      "_detail": {
+        "laugh": 2,
+        "share_trigger": 3,
+        "surprise": 2,
+        "specificity": 4,
+        "voice": 3,
+        "travels": 3
+      },
+      "_penalty": -2
+    },
+    {
+      "trend": "Bengaluru Metro Cost: Why Housing Access Still Falls Short",
+      "context": "Any new infrastructure announcement is instantly weaponized by real estate markets to justify rent hikes.",
+      "angle": "The metro line does not improve your transit; it merely justifies your landlord's next appraisal cycle.",
+      "slides": [
+        "Your landlord has completed his annual market research.",
+        "\"Metro station is only 2 km away now.\"\n\"Brokerage is standard.\"\n\"Maintenance has increased.\"\n\"Deposit is non-negotiable.\"",
+        "\"Agle mahine se bees percent badha dena.\""
+      ],
+      "caption": "Your friend in Indiranagar needs to see this before they check their October rent slip.",
+      "trigger": "rent",
+      "structure": "dialogue",
+      "move": "the_turn_in_the_last_words",
+      "target": "landlord",
+      "satire_level": 5,
+      "hinglish": true,
+      "keywords": [
+        "bengaluru rent",
+        "landlord whatsapp",
+        "house rent"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPajBHM0RrS0R2QkI1cTN6QkgteERSMy04X18tUWNkbnpJLUdxdFRYd1NOTmZQSFk2X0lpTDgxZnliZkViemstTmc4dDk3cnhQWUdSWFlaRVVScndwbm56N01nV1JxT1Z6VmhKVU1fOF8ycDZtT3JDRk9MRFBMVFVkc2poenpsc0ZrMG1iQw?oc=5",
+      "created_at": "2026-09-22",
+      "status": "draft",
+      "_score": 37,
+      "_judge": "The landing lacks a proper turn, serving as a predictable and flat continuation of the landlord's demands.",
+      "_detail": {
+        "laugh": 2,
+        "share_trigger": 3,
+        "surprise": 2,
+        "specificity": 4,
+        "voice": 3,
+        "travels": 3
+      },
+      "_penalty": 2
+    },
+    {
+      "trend": "Inside Apple's Second Layoff Round: Why Fitness+ Audio Teams Were Cut Weeks After 200+ Job Losses",
+      "context": "The 30-year-old body requires maintenance that is sold as wellness but acts as basic damage control.",
+      "angle": "The gym is no longer about looking good or looking healthy. It is a repayment plan for the damage done in your early twenties.",
+      "slides": [
+        "Your corporate gym membership is no longer an aspiration.",
+        "At 22: Bench press.\nAt 27: Cardio zone.\nAt 32: Core stabilization for lower back compression.",
+        "It is not fitness.\n\nIt is a monthly installment on your twenties."
+      ],
+      "caption": "Somebody you know is currently researching orthopaedic insoles like they are high-tech sneakers.",
+      "trigger": "health",
+      "structure": "escalating_list",
+      "move": "absurd_comparative",
+      "target": "gym",
+      "satire_level": 3,
+      "hinglish": false,
+      "keywords": [
+        "gym membership",
+        "physiotherapy",
+        "back pain"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPbVFRcDlCYUF2bFUwb2V3ckI0LUh1SjFCakRYN0FON1BNZm1rZXZMX3YzV2tpLVhoU3ZHY3BydFZQckpuY1RlU21kd1B1cDZucGxBTmdGdkY3ZUFQdkU5alR5c1JyZGFaVGZLUF8zcW5vd3c4MEpFb09HcjFmNnFMcjU3TXBvVlVvZTYwQ1B3?oc=5",
+      "created_at": "2026-09-22",
+      "status": "draft",
+      "_score": 30,
+      "_judge": "The landing explains the joke and feels like a corporate presentation's summary instead of a sharp comedic turn.",
+      "_detail": {
+        "laugh": 2,
+        "share_trigger": 3,
+        "surprise": 2,
+        "specificity": 3,
+        "voice": 2,
+        "travels": 4
+      },
+      "_penalty": 7
+    },
+    {
+      "trend": "In appeal to Centre, Maharashtra petrol dealers seek UPI MDR exemption",
+      "context": "Fintech convenience has become a luxury service with an unannounced tariff structure.",
+      "angle": "We are paying structural transaction fees purely for the privilege of spending our own salary.",
+      "slides": [
+        "\"Bhai, look at my credit card statement.\"",
+        "\"Subscription auto-renewed.\"\n\"Platform fee on every dinner.\"\n\"Convenience charge on every ticket.\"\n\"Handling fee for the box it came in.\"",
+        "We are paying a convenience fee to spend our own money."
+      ],
+      "caption": "Send this to the person who refuses to pay the ₹3 platform fee and walks 2 km instead.",
+      "trigger": "upi",
+      "structure": "phone_call",
+      "move": "the_turn_in_the_last_words",
+      "target": "platform",
+      "satire_level": 3,
+      "hinglish": false,
+      "keywords": [
+        "platform fee",
+        "credit card statement",
+        "extra charges"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMiigJBVV95cUxPWUFYN25tclJWZ0U0bWFTazFKcm1hREUzRWNLbFpiWXRwdzRGOU5wRjhqWFZBeDd6bXZnOExia191QWlSeEZla3NmQnVCRHktS2RJT1habzhTYjJOVndRV290Z3FFVERWWEswSG5Sc0pnQ0dxTDJESjZ1dWluZTZYSWRVTU5TSVJRMnZKb1NBVnF2S21qSWdhbU5zcnNpaUJVTE95VkZiUnBjeU01djVVRkM3d2RkZ0VFVWw5d3VTdnBoM08yaUNUVTNSRE1oMlYyRi1ia2RlLXVMVWg0SUJxTE9TZTFpamVjb2NMY3ZqdzZIV2Z6TGhMU2NqMC1aY1U0cDNkN3FLVUZ6d9IBkAJBVV95cUxQdEIzbnFob1ZlNmZULTJrZEJYQW9sZFNlekJ3MFUwaUxLY0tqV0tmX0otalNmTWNfTnJpS1Vzbkk1UEtOdUtzQ2szMTI0ZFlGMGVBMm52ZFl1eU5PM1g4LU5hWWRlcDZwWXEyVGphSjFOcDhRdjFXQUpZbl83WVBvQTkybktleThvY3Fjc2NsTmpDcVM4TFFwR0NybmVUVmJsbDZHYzhrMGdlOER5VzVSQmphOFlNSlJ3T0lmbEIxdDl5R09TaklpdE13azJwMzJBSFpkRkk3WjN5ZDdEdmpYLVFiWmNIa0NLWTZ5SmM2SGI1S1RlLXRfZVJXRU40cGk2REhURzdZekV3WUIzT1VIVQ?oc=5",
+      "created_at": "2026-09-22",
+      "status": "draft",
+      "_score": 25,
+      "_judge": "The landing violates the non-negotiable rule by using 'We' and merely summarizing the user's financial complaints.",
+      "_detail": {
+        "laugh": 1,
+        "share_trigger": 2,
+        "surprise": 1,
+        "specificity": 3,
+        "voice": 1,
+        "travels": 4
+      },
+      "_penalty": 2
+    },
+    {
+      "trend": "In appeal to Centre, Maharashtra petrol dealers seek UPI MDR exemption",
+      "context": "The digital payment revolution promised absolute friction-free convenience, which is now being clawed back paisa by paisa.",
+      "angle": "Every single movement of money now attracts its own tiny ecosystem of fees and taxes.",
+      "slides": [
+        "Every transaction now has its own little audience.",
+        "Send ₹2000 to a colleague — MDR fee.\nPay for petrol — platform surcharge.\nOrder tea — convenience charge.\nTransfer rent — gateway commission.",
+        "In 2026, the internet is no longer free.\n\nIt is just a series of micro-tolls."
+      ],
+      "caption": "We all have that friend who still does the math on Splitwise down to fifty paise.",
+      "trigger": "upi",
+      "structure": "escalating_list",
+      "move": "flat_restatement",
+      "target": "platform",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "upi charges",
+        "platform fee",
+        "convenience fee"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMiigJBVV95cUxPWUFYN25tclJWZ0U0bWFTazFKcm1hREUzRWNLbFpiWXRwdzRGOU5wRjhqWFZBeDd6bXZnOExia191QWlSeEZla3NmQnVCRHktS2RJT1habzhTYjJOVndRV290Z3FFVERWWEswSG5Sc0pnQ0dxTDJESjZ1dWluZTZYSWRVTU5TSVJRMnZKb1NBVnF2S21qSWdhbU5zcnNpaUJVTE95VkZiUnBjeU01djVVRkM3d2RkZ0VFVWw5d3VTdnBoM08yaUNUVTNSRE1oMlYyRi1ia2RlLXVMVWg0SUJxTE9TZTFpamVjb2NMY3ZqdzZIV2Z6TGhMU2NqMC1aY1U0cDNkN3FLVUZ6d9IBkAJBVV95cUxQdEIzbnFob1ZlNmZULTJrZEJYQW9sZFNlekJ3MFUwaUxLY0tqV0tmX0otalNmTWNfTnJpS1Vzbkk1UEtOdUtzQ2szMTI0ZFlGMGVBMm52ZFl1eU5PM1g4LU5hWWRlcDZwWXEyVGphSjFOcDhRdjFXQUpZbl83WVBvQTkybktleThvY3Fjc2NsTmpDcVM4TFFwR0NybmVUVmJsbDZHYzhrMGdlOER5VzVSQmphOFlNSlJ3T0lmbEIxdDl5R09TaklpdE13azJwMzJBSFpkRkk3WjN5ZDdEdmpYLVFiWmNIa0NLWTZ5SmM2SGI1S1RlLXRfZVJXRU40cGk2REhURzdZekV3WUIzT1VIVQ?oc=5",
+      "created_at": "2026-09-22",
+      "status": "draft",
+      "_score": 23,
+      "_judge": "The landing is a dry, moralizing thesis statement about the state of the internet rather than a sharp punchline.",
+      "_detail": {
+        "laugh": 1,
+        "share_trigger": 2,
+        "surprise": 1,
+        "specificity": 3,
+        "voice": 2,
+        "travels": 3
+      },
+      "_penalty": 4
+    }
+  ],
+  "rejected": []
+}

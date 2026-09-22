@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "Bengaluru Metro Cost: Why Housing Access Still Falls Short",
+      "context": "Any new infrastructure announcement is instantly weaponized by real estate markets to justify rent hikes.",
+      "angle": "The metro line does not improve your transit; it merely justifies your landlord's next appraisal cycle.",
+      "slides": [
+        "Your landlord has completed his annual market research.",
+        "\"Metro station is only 2 km away now.\"\n\"Brokerage is standard.\"\n\"Maintenance has increased.\"\n\"Deposit is non-negotiable.\"",
+        "\"Agle mahine se bees percent badha dena.\""
+      ],
+      "caption": "Your friend in Indiranagar needs to see this before they check their October rent slip.",
+      "trigger": "rent",
+      "structure": "dialogue",
+      "move": "the_turn_in_the_last_words",
+      "target": "landlord",
+      "satire_level": 5,
+      "hinglish": true,
+      "keywords": [
+        "bengaluru rent",
+        "landlord whatsapp",
+        "house rent"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPajBHM0RrS0R2QkI1cTN6QkgteERSMy04X18tUWNkbnpJLUdxdFRYd1NOTmZQSFk2X0lpTDgxZnliZkViemstTmc4dDk3cnhQWUdSWFlaRVVScndwbm56N01nV1JxT1Z6VmhKVU1fOF8ycDZtT3JDRk9MRFBMVFVkc2poenpsc0ZrMG1iQw?oc=5",
+      "created_at": "2026-09-22",
+      "status": "approved",
+      "id": "g032",
+      "rank_score": 37,
+      "rank_verdict": "The landing lacks a proper turn, serving as a predictable and flat continuation of the landlord's demands."
+    }
+  ]
+}

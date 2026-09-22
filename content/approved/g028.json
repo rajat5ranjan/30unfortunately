@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "Inside Apple's Second Layoff Round: Why Fitness+ Audio Teams Were Cut Weeks After 200+ Job Losses",
+      "context": "Corporate wellness is a series of checklist tasks designed to shift liability back to the employee.",
+      "angle": "The office environment systematically destroys the spine while prescribing hydration and breathing breaks as the cure.",
+      "slides": [
+        "You asked the company doctor about your posture.",
+        "\"Is it the ergonomic chair?\"\n\"No, it is the nine hours of sitting.\"\n\"Is it the blue-light glasses?\"\n\"No, it is the twelve hours of staring.\"",
+        "\"Can I have a standing desk?\"\n\n\"Drink more water.\""
+      ],
+      "caption": "Whose HR manager is this?",
+      "trigger": "corporate",
+      "structure": "interview",
+      "move": "the_institutional_frame",
+      "target": "employer",
+      "satire_level": 3,
+      "hinglish": false,
+      "keywords": [
+        "hr wellness",
+        "ergonomic chair",
+        "corporate office"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPbVFRcDlCYUF2bFUwb2V3ckI0LUh1SjFCakRYN0FON1BNZm1rZXZMX3YzV2tpLVhoU3ZHY3BydFZQckpuY1RlU21kd1B1cDZucGxBTmdGdkY3ZUFQdkU5alR5c1JyZGFaVGZLUF8zcW5vd3c4MEpFb09HcjFmNnFMcjU3TXBvVlVvZTYwQ1B3?oc=5",
+      "created_at": "2026-09-22",
+      "status": "approved",
+      "id": "g028",
+      "rank_score": 49,
+      "rank_verdict": "The middle slide feels slightly like a sterile Q&A pamphlet rather than a harsh, active rant from real corporate life."
+    }
+  ]
+}

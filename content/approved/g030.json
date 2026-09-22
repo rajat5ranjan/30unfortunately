@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "Inside Apple's Second Layoff Round: Why Fitness+ Audio Teams Were Cut Weeks After 200+ Job Losses",
+      "context": "Minor sleep movements now result in medical-grade rehabilitation timelines.",
+      "angle": "The comedy is the sheer discrepancy between the trivial nature of the action and the violence of the physical consequence.",
+      "slides": [
+        "You woke up today with a brand new injury.",
+        "\"Kuch bhari uthaya tha kya?\"\n\"Nahi.\"\n\"Gym mein galat posture?\"\n\"Nahi.\"\n\"Toh phir neck sprain kaise hua?\"",
+        "\"Sote waqt thoda galat turn le liya.\""
+      ],
+      "caption": "Send this to the colleague who spent the entire standup explaining their neck sprain.",
+      "trigger": "health",
+      "structure": "dialogue",
+      "move": "the_turn_in_the_last_words",
+      "target": "self",
+      "satire_level": 4,
+      "hinglish": true,
+      "keywords": [
+        "neck pain",
+        "orthopaedic",
+        "physio"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPbVFRcDlCYUF2bFUwb2V3ckI0LUh1SjFCakRYN0FON1BNZm1rZXZMX3YzV2tpLVhoU3ZHY3BydFZQckpuY1RlU21kd1B1cDZucGxBTmdGdkY3ZUFQdkU5alR5c1JyZGFaVGZLUF8zcW5vd3c4MEpFb09HcjFmNnFMcjU3TXBvVlVvZTYwQ1B3?oc=5",
+      "created_at": "2026-09-22",
+      "status": "approved",
+      "id": "g030",
+      "rank_score": 45,
+      "rank_verdict": "The entire final landing slide is in untranslated Hindi, which violates the rule that the load-bearing punchline must travel globally."
+    }
+  ]
+}
