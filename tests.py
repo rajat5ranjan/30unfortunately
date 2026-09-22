@@ -410,7 +410,9 @@ class Soundtrack(unittest.TestCase):
         for n in range(slides):
             segs.append({"role": "hook" if n == 0 else "list",
                          "start": t, "dur": dur, "keys": keys,
-                         "type_dur": 0.0 if n == 0 else type_dur})
+                         "type_dur": 0.0 if n == 0 else type_dur,
+                         "charge0": 1.0 - n / float(slides),
+                         "charge1": 1.0 - (n + 1) / float(slides)})
             t += dur
         return {"slides": segs, "outro": {"start": t, "dur": 3.5},
                 "loop": 0.5, "duration": t + 4.0}
@@ -432,12 +434,14 @@ class Soundtrack(unittest.TestCase):
                              "the limiter let something past PEAK")
 
     def test_no_step_big_enough_to_click(self):
-        """A click is a discontinuity. The fastest thing in the mix is the
-        chime's octave, and one sample of that at full level is the ceiling;
-        anything above it is a join that was never faded."""
+        """A click is a discontinuity. One sample's worth of the highest
+        partial in the mix at full level is the steepest a real waveform can
+        be; anything above it is a join that was never faded. TOP_HZ rather
+        than a number here, so changing the material cannot quietly widen the
+        thing this test is guarding."""
         a = self.pcm()
         step = max(abs(a[i + 1] - a[i]) for i in range(len(a) - 1))
-        ceiling = 32767 * audio.PEAK * 2 * 3.14159 * 1100.0 / audio.SR
+        ceiling = 32767 * audio.PEAK * 2 * 3.14159 * audio.TOP_HZ / audio.SR
         self.assertLess(step, ceiling, "a sample step too big to be a waveform")
 
     def test_the_loop_has_no_seam(self):
@@ -446,6 +450,29 @@ class Soundtrack(unittest.TestCase):
         a = self.pcm()
         self.assertEqual(list(a[:3]), [0, 0, 0])
         self.assertEqual(list(a[-3:]), [0, 0, 0])
+
+    def test_the_typing_leads(self):
+        """Keys on top, melody underneath. A reel where the tune leads is a
+        reel whose soundtrack is about nothing, which is how three earlier
+        versions of this file went wrong — so it is worth a test rather
+        than a comment.
+
+        Slide 1 does not type and slide 2 does, so the same file gives both
+        measurements and normalisation cannot flatter either of them.
+        """
+        import math
+        a = self.pcm()
+        sc = self.score()
+        quiet, loud = sc["slides"][0], sc["slides"][1]
+
+        def rms(t0, t1):
+            seg = a[int(t0 * audio.SR):int(t1 * audio.SR)]
+            return math.sqrt(sum(v * v for v in seg) / max(1, len(seg)))
+
+        melody = rms(quiet["start"] + 0.8, quiet["start"] + quiet["dur"])
+        typing = rms(loud["start"], loud["start"] + loud["type_dur"])
+        self.assertGreater(typing / melody, 1.6,
+                           "the melody is competing with the typing")
 
     def test_it_is_not_monotone(self):
         """The brief was smooth, not flat. Half-second RMS has to move."""
