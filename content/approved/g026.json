@@ -1,0 +1,28 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "Can You Rent Your Way Out Of Loneliness? - India Today",
+      "context": "The rising trend of expensive co-living setups targeted at lonely urban tech workers.",
+      "angle": "Startups have successfully packaged basic human interaction as a subscription service.",
+      "slides": [
+        "Terms and conditions for renting your way out of loneliness.",
+        "1. Friendship is guaranteed only during active billing cycles.\n2. The community manager is not your therapist.\n3. Organic bonding is scheduled every Tuesday at 8:00 PM.",
+        "If you do not attend, the loneliness will be debited from your card.\n\nAuto-renewal is active."
+      ],
+      "caption": "Name the friend who paid forty thousand rupees to have \"curated housemates\" to ignore.",
+      "trigger": "home",
+      "structure": "terms_and_conditions",
+      "move": "the_institutional_frame",
+      "target": "landlord",
+      "satire_level": 4,
+      "hinglish": false,
+      "source": "https://news.google.com/rss/articles/CBMingFBVV95cUxPWWZpZ1ZjSjRMX2JjMEctZG1acHJUWGdER1ByRWpiOElEVlo2a0dvTXdqX1dTUHlXNDdzQWFpLTRlYmtVZGN5MGJrODQyb091YndUbHhFcnpuYUpaOVdvWGdEVGV6YWlOZWNNMl9ONTBZZDdPRFJKSWc4b0lpVTVxRFJNQlJEVUtHQ3pyS1FDUGEwSkpoS0lyT01QWDBkZ9IBowFBVV95cUxPMjA1VzRYMzZHSzNMdllGbm1oeEp6THU5dGtXX1VaZWFqLWRuc0NxZVd0U0t4UU5oY1NJdGZVQ2pEX0VoYVFnY1ZNNGNWLUhha2k2bVZKcWFPbm5YTkxJZDZURjFNbWdFZHZzNUUzaUV3MDQ2cko3Vl9Fc2N4TU9OQmNJUUN1cFNqbnBiVjhDZmJsR0c1S1EteFRzSGgzd1lrbWdr?oc=5",
+      "created_at": "2026-09-21",
+      "status": "approved",
+      "id": "g026",
+      "rank_score": 44,
+      "rank_verdict": "Slide 1 is a textbook title card that announces the joke instead of hooking the reader."
+    }
+  ]
+}
