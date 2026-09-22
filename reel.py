@@ -17,16 +17,18 @@ no system binary and nothing to install on a runner beyond `pip install av`.
 
 Design decisions that are load-bearing, not taste:
 
-  * The first five seconds are identical on every reel and carry no post
-    content: the mark scales up, the battery charges to 100%, drains to 30%,
-    and the number it lands on IS the logo. It then shrinks into the corner and
-    becomes the watermark the rest of the reel already uses, so the intro ends
-    by turning into the interface rather than stopping.
-  * The draining battery is the progress bar. It starts the content at 30% —
-    what the intro left you — and empties as the reel runs out. One element,
-    two jobs, in the brand's own metaphor.
-  * Text types itself out with a caret, then holds. Reading speed sets the
-    pace, not animation speed.
+  * Frame 0 is the hook, whole. Nothing types on the first slide, because
+    the first frame is the audition: Instagram decides inside a second or two
+    and the cover has to work as a still. The hook is read, not watched.
+  * Every slide after it types itself out with a caret. There the typing is
+    the pacing — you read at the speed it arrives — and there is no
+    audition left to lose.
+  * The mark animation is the last three and a half seconds, not the first
+    five. It scales out of the corner, the battery charges and drains, and the
+    number it lands on IS the logo.
+  * The draining battery is the progress bar. It starts the content full and
+    empties as the reel runs out. One element, two jobs, in the brand's own
+    metaphor.
   * The cover is rendered here, at 9:16. Handing Instagram the carousel's
     slide 1 does not work: that is 1080x1350 against a 1080x1920 cover frame,
     and the difference is made up by scaling to fill and cropping — the text
@@ -37,10 +39,13 @@ Design decisions that are load-bearing, not taste:
   * Short and loopable. Watch time now counts replays, so a short reel watched
     three times beats a long one watched once. The tail crossfades back into
     frame 0 so a replay has no seam.
-  * No audio. The track is silent rather than absent, because a video with no
-    audio stream has historically been rejected outright. Reels published
-    through the API cannot attach Instagram's trending audio anyway, and these
-    are read, not heard.
+  * Audio, synthesised in audio.py from the same plan() that draws the
+    picture — so the keystrokes are heard exactly where they are seen. It
+    used to be silence (a stream is required, a signal was not), which reads
+    as broken when autoplay has sound on. Reels published through the API
+    cannot attach Instagram's trending audio, so the only options were nothing
+    or our own, and baked-in audio at least becomes the account's "Original
+    audio".
 """
 import argparse
 import glob
@@ -54,6 +59,7 @@ from typing import Any, Dict, List, Optional, Tuple
 
 from PIL import Image, ImageDraw, ImageFont
 
+import audio
 import render
 from render import INK, PAPER, RED, MUTED_ON_INK, MUTED_ON_PAPER, load_font, wrap
 
@@ -73,6 +79,7 @@ TAGLINE = CFG.get("reel_tagline", "Thirty, unfortunately.")
 TYPE_CPS = float(CFG.get("reel_type_cps", 30.0))
 LINE_PAUSE = 4          # characters' worth of pause at each line break
 CRF = str(CFG.get("reel_crf", 21))
+AUDIO = bool(CFG.get("reel_audio", True))
 
 MARGIN_X = 104
 TEXT_MAX_W = W - 2 * MARGIN_X
@@ -334,26 +341,74 @@ def outro_frames(n_frames: int) -> List[Image.Image]:
     return frames
 
 
-def slide_frames(text: str, role: str, dark: bool, handle: str, n_frames: int,
-                 charge0: float, charge1: float) -> List[Image.Image]:
-    lines, font, lh = _fit(text, role, 980)
+def plan(post: Dict[str, Any]) -> Dict[str, Any]:
+    """Every number the picture and the sound both need, decided once.
+
+    The ticks have to land on the keystrokes, and the only way to guarantee
+    that is for one function to own the timing. Frame counts rather than
+    seconds, because the video is quantised to FPS and the audio is not —
+    deriving the sound from the float durations would let the two drift apart
+    by a frame per slide and nobody would know why the end sounded loose.
+    """
+    slides = post["slides"]
+    durs = [secs_for(t) for t in slides]
+    span = sum(durs)
+
+    segs, at, elapsed = [], 0, 0.0
+    for n, text in enumerate(slides):
+        last = n == len(slides) - 1
+        role = "hook" if n == 0 else "landing" if last else "list"
+        lines, font, lh = _fit(text, role, 980)
+        nf = int(durs[n] * FPS)
+        keys = type_length(lines)
+        # The hook does not type. It used to, and budget = total * t/type_dur
+        # meant frame 0 held zero characters — an empty card with a caret, on
+        # the one frame that is also the still. A second in, half the sentence
+        # had arrived; the hook was not finished until 2.0-2.9s, by which time
+        # the reel has already been rated. Typing stays on the slides after it,
+        # where it is pacing rather than an audition.
+        type_dur = 0.0 if role == "hook" else min(
+            max(0.4, (durs[n] - FADE_S) * 0.62), keys / TYPE_CPS)
+        segs.append({
+            "role": role, "dark": last, "lines": lines, "font": font, "lh": lh,
+            "frames": nf, "dur": nf / float(FPS), "start": at / float(FPS),
+            "keys": keys, "type_dur": type_dur,
+            "charge0": 1.0 - elapsed / span,
+            "charge1": 1.0 - (elapsed + durs[n]) / span,
+        })
+        at += nf
+        elapsed += durs[n]
+
+    outro_nf = int(OUTRO_S * FPS)
+    loop_nf = int(LOOP_S * FPS)
+    return {
+        "slides": segs,
+        "outro": {"frames": outro_nf, "start": at / float(FPS),
+                  "dur": outro_nf / float(FPS)},
+        "loop_frames": loop_nf,
+        "loop": loop_nf / float(FPS),
+        "duration": (at + outro_nf + loop_nf) / float(FPS),
+    }
+
+
+def slide_frames(seg: Dict[str, Any], handle: str) -> List[Image.Image]:
+    lines, font, lh = seg["lines"], seg["font"], seg["lh"]
+    dark, n_frames, dur = seg["dark"], seg["frames"], seg["dur"]
+    total, type_dur = seg["keys"], seg["type_dur"]
     band_top, band_bot = SAFE_TOP + MARK_H + 90, H - SAFE_BOTTOM - 60
     top = band_top + (band_bot - band_top - len(lines) * lh) // 2
-    dur = n_frames / float(FPS)
-    total = type_length(lines)
-    # Typing has to finish with room to spare, or the slide ends while the last
-    # word is still arriving. It speeds up on long slides rather than overrun.
-    type_dur = min(max(0.4, (dur - FADE_S) * 0.62), total / TYPE_CPS)
     frames = []
     for i in range(n_frames):
         t = i / float(FPS)
-        charge = charge0 + (charge1 - charge0) * (i / max(1, n_frames - 1))
+        charge = seg["charge0"] + (seg["charge1"] - seg["charge0"]) * (
+            i / max(1, n_frames - 1))
         img, fg, muted = _surface(dark, charge)
         render.draw_mark(ImageDraw.Draw(img), MARGIN_X, MARK_TOP, MARK_H,
                          fg, RED)
         # no fade in: the typing is the entrance, and doing both is muddy
         alpha = 1.0 if t < dur - FADE_S else max(0.0, _ease((dur - t) / FADE_S))
         typing = t < type_dur
+        # type_dur of 0 is the hook: whole line, frame 0, no reveal at all.
         budget = int(total * min(1.0, t / type_dur)) if type_dur else total
         caret = typing or (int(t * 2.2) % 2 == 0 and t < dur - FADE_S)
         _text_block(img, lines, font, lh, top, fg, alpha, 0.0, budget, caret)
@@ -371,9 +426,9 @@ def slide_frames(text: str, role: str, dark: bool, handle: str, n_frames: int,
 def cover_image(post: Dict[str, Any]) -> Image.Image:
     """The grid thumbnail: the hook, at 9:16, centred to survive a 4:5 crop.
 
-    Not a frame of the video — frame 0 is the brand intro. This is what the reel
-    would look like if the hook opened it, which is what someone scrolling a
-    profile needs to see.
+    Close to frame 0 of the video, which is the hook in full, but not the same
+    image: the video's watermark sits above the grid's 4:5 crop, so this one
+    is centred in the whole frame rather than in the video's safe band.
     """
     lines, font, lh = _fit(post["slides"][0], "hook", 1000)
     img, fg, _ = _surface(False, 0.30)
@@ -387,31 +442,16 @@ def cover_image(post: Dict[str, Any]) -> Image.Image:
     return img.convert("RGB")
 
 
-def build_frames(post: Dict[str, Any], handle: str) -> List[Image.Image]:
-    """The hook on frame 0, every slide, then the mark.
-
-    The battery now starts full and empties across the content, which is what
-    a progress bar is for — before, the content inherited 30% from the intro
-    and the bar never said how much was left.
-    """
-    slides = post["slides"]
-    durations = [secs_for(s) for s in slides]
-    total = sum(durations)
-
+def build_frames(post: Dict[str, Any], handle: str,
+                 sc: Optional[Dict[str, Any]] = None) -> List[Image.Image]:
+    """The hook on frame 0, every slide, then the mark."""
+    sc = sc or plan(post)
     frames = []
-    elapsed = 0.0
-    for n, text in enumerate(slides):
-        role = ("hook" if n == 0
-                else "landing" if n == len(slides) - 1 else "list")
-        frames += slide_frames(
-            text, role, n == len(slides) - 1, handle, int(durations[n] * FPS),
-            1.0 - elapsed / total,
-            1.0 - (elapsed + durations[n]) / total)
-        elapsed += durations[n]
+    for seg in sc["slides"]:
+        frames += slide_frames(seg, handle)
+    frames += outro_frames(sc["outro"]["frames"])
 
-    frames += outro_frames(int(OUTRO_S * FPS))
-
-    nf = int(LOOP_S * FPS)
+    nf = sc["loop_frames"]
     if nf > 1 and frames:
         first, last = frames[0], frames[-1]
         for i in range(nf):
@@ -420,11 +460,15 @@ def build_frames(post: Dict[str, Any], handle: str) -> List[Image.Image]:
 
 
 # ---------------------------------------------------------------------- encode
-def encode(frames: List[Image.Image], out: str) -> str:
-    """H.264 in an MP4, plus a silent AAC track.
+def encode(frames: List[Image.Image], out: str,
+           samples: Optional[bytes] = None) -> str:
+    """H.264 in an MP4, plus an AAC track.
 
     Instagram wants yuv420p H.264; a missing audio stream has historically been
-    rejected outright, so silence is muxed in rather than left out.
+    rejected outright, so there is always a track — audio.py's if there is
+    one, silence if audio is switched off. Either way it goes in as raw s16
+    bytes rather than through numpy, which is the only thing that array would
+    have been for.
     """
     import av
 
@@ -443,15 +487,19 @@ def encode(frames: List[Image.Image], out: str) -> str:
         for packet in v.encode(frame):
             container.mux(packet)
 
-    # Silence, written as raw zero bytes rather than through numpy — it is the
-    # only thing that array would have been for.
+    # Trimmed or zero-padded to the video's own length. plan() and the frame
+    # list agree, but rounding a float duration twice need not.
     n_samples = int(44100 * len(frames) / float(FPS))
+    need = 2 * n_samples
+    pcm = (samples or b"")[:need]
+    pcm += bytes(need - len(pcm))
+
     chunk = 1024
     pts = 0
     while pts < n_samples:
         size = min(chunk, n_samples - pts)
         af = av.AudioFrame(format="s16", layout="mono", samples=size)
-        af.planes[0].update(b"\x00" * (size * 2))
+        af.planes[0].update(pcm[2 * pts:2 * (pts + size)])
         af.sample_rate = 44100
         af.pts = pts
         af.time_base = Fraction(1, 44100)
@@ -469,7 +517,8 @@ def encode(frames: List[Image.Image], out: str) -> str:
 
 def render_reel(post: Dict[str, Any], handle: str, stills_only: bool = False,
                 preview: bool = False) -> Optional[str]:
-    frames = build_frames(post, handle)
+    sc = plan(post)
+    frames = build_frames(post, handle, sc)
     pid = post["id"]
     if preview:
         # A fresh filename every time. QuickTime holds a file open and re-focuses
@@ -479,10 +528,10 @@ def render_reel(post: Dict[str, Any], handle: str, stills_only: bool = False,
     if stills_only:
         d = os.path.join(OUT, pid)
         os.makedirs(d, exist_ok=True)
-        # The storyboard samples the content first and the outro last, which
-        # is now also the order they play in.
-        n, tail = len(frames) - int(LOOP_S * FPS), int(OUTRO_S * FPS)
-        marks = [int(FPS * 1.2), int((n - tail) * 0.45), (n - tail) - 3,
+        # Frame 0 first, because frame 0 is now the whole hook and it is the
+        # frame the reel is judged on. Then the content, then the outro.
+        n, tail = len(frames) - sc["loop_frames"], sc["outro"]["frames"]
+        marks = [0, int((n - tail) * 0.45), (n - tail) - 3,
                  (n - tail) + int(tail * 0.25), (n - tail) + int(tail * 0.55),
                  (n - tail) + int(tail * 0.80), n - 1]
         for n, f in enumerate(marks, 1):
@@ -493,12 +542,13 @@ def render_reel(post: Dict[str, Any], handle: str, stills_only: bool = False,
         return None
 
     out = os.path.join(OUT, "%s.mp4" % pid)
-    encode(frames, out)
+    encode(frames, out, audio.render(sc) if AUDIO else None)
     cover_image(post).save(os.path.join(OUT, "%s-cover.jpg" % pid),
                            quality=92, optimize=True)
     mb = os.path.getsize(out) / 1e6
-    print("%s -> %s  %.1fs  %.1f MB  (+ cover)"
-          % (pid, os.path.relpath(out, ROOT), len(frames) / float(FPS), mb))
+    print("%s -> %s  %.1fs  %.1f MB  (%s, + cover)"
+          % (pid, os.path.relpath(out, ROOT), len(frames) / float(FPS), mb,
+             "sound" if AUDIO else "silent"))
     return out
 
 

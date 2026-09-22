@@ -43,6 +43,8 @@
   ],
   "_note_windows": "Windows, not instants, and the deadline is the part that moved. GitHub does not deliver the cron it is given: from 2026-09-18 12:58 to 18:19 the */20 publish poll was due ~16 times and ran ONCE, and generate's schedule has fired once in its life. The 15:00-17:00 window was missed outright with a post sitting in the queue. So 'after' is still the researched best time and nothing publishes before it — 'before' is now hours later, because a window only catches a poll if it is wide enough to be hit. min_publish_gap_minutes is the cost of that: widening the deadlines put the end of one window within an hour of the next window's start, and two posts in one hour compete for the same audience. --now ignores it. A fixed UTC offset rather than a timezone name because IST has no DST.",
   "min_publish_gap_minutes": 90,
+  "reel_audio": true,
+  "_note_audio": "Synthesised in audio.py from the same plan() that draws the frames, so the keystroke ticks cannot drift off the typing. Sines only, every envelope a raised cosine, nothing below ~170 Hz that a phone speaker would swallow. Set false and encode() goes back to muxing silence — the stream stays either way, because a reel with no audio stream has historically been rejected outright.",
   "reel_outro_seconds": 3.5,
   "_note_outro": "The mark animation plays at the END. It used to open every reel and it was 23-24%% of the runtime of the three that published — the first 23%%, which is the window Instagram uses to decide whether to show the reel to anybody else. Frame 0 is the hook now. Shorter too: a sign-off has less work to do than an introduction."
 }

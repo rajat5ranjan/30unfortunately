@@ -20,6 +20,7 @@ from datetime import datetime, timedelta, timezone
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "tools"))
 
+import audio
 import command
 import control
 import dash
@@ -394,6 +395,73 @@ class Numbers(unittest.TestCase):
                      (datetime.now(timezone.utc).isoformat(),))
         conn.commit()
         self.assertNotIn("Older than it should be", dash.block(conn))
+
+
+class Soundtrack(unittest.TestCase):
+    """audio.py is stdlib-only on purpose, so the publish job can test it.
+
+    None of this is about taste. It is about the four things that are audible
+    as faults rather than as choices: clipping, a click, a seam on the loop,
+    and a level that never moves.
+    """
+
+    def score(self, slides=3, dur=5.0, keys=70, type_dur=2.0):
+        segs, t = [], 0.0
+        for n in range(slides):
+            segs.append({"role": "hook" if n == 0 else "list",
+                         "start": t, "dur": dur, "keys": keys,
+                         "type_dur": 0.0 if n == 0 else type_dur})
+            t += dur
+        return {"slides": segs, "outro": {"start": t, "dur": 3.5},
+                "loop": 0.5, "duration": t + 4.0}
+
+    def pcm(self, **kw):
+        import array
+        a = array.array("h")
+        a.frombytes(audio.render(self.score(**kw)))
+        return a
+
+    def test_length_matches_the_plan(self):
+        sc = self.score()
+        a = self.pcm()
+        self.assertAlmostEqual(len(a) / float(audio.SR), sc["duration"], delta=0.02)
+
+    def test_nothing_clips(self):
+        a = self.pcm()
+        self.assertLessEqual(max(abs(v) for v in a), int(32767 * audio.PEAK) + 2,
+                             "the limiter let something past PEAK")
+
+    def test_no_step_big_enough_to_click(self):
+        """A click is a discontinuity. The fastest thing in the mix is the
+        chime's octave, and one sample of that at full level is the ceiling;
+        anything above it is a join that was never faded."""
+        a = self.pcm()
+        step = max(abs(a[i + 1] - a[i]) for i in range(len(a) - 1))
+        ceiling = 32767 * audio.PEAK * 2 * 3.14159 * 1100.0 / audio.SR
+        self.assertLess(step, ceiling, "a sample step too big to be a waveform")
+
+    def test_the_loop_has_no_seam(self):
+        """Both ends silent and equal, or the replay clicks — and replays are
+        most of a reel's watch time."""
+        a = self.pcm()
+        self.assertEqual(list(a[:3]), [0, 0, 0])
+        self.assertEqual(list(a[-3:]), [0, 0, 0])
+
+    def test_it_is_not_monotone(self):
+        """The brief was smooth, not flat. Half-second RMS has to move."""
+        import math
+        a = self.pcm()
+        b = audio.SR // 2
+        rms = [math.sqrt(sum(v * v for v in a[i:i + b]) / b)
+               for i in range(0, len(a) - b, b)]
+        self.assertGreater(max(rms) / max(1.0, min(rms)), 2.0,
+                           "the level never moves — that is a drone")
+
+    def test_an_empty_plan_is_survivable(self):
+        """No slides, no crash: ensure_reels hands this whatever is queued."""
+        pcm = audio.render({"slides": [], "outro": {"start": 0.0, "dur": 1.0},
+                            "loop": 0.0, "duration": 1.0})
+        self.assertEqual(len(pcm), 2 * audio.SR)
 
 
 if __name__ == "__main__":
