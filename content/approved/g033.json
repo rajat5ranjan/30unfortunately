@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "Inside Apple's Second Layoff Round: Why Fitness+ Audio Teams Were Cut Weeks After 200+ Job Losses",
+      "context": "The 30-year-old body requires maintenance that is sold as wellness but acts as basic damage control.",
+      "angle": "The gym is no longer about looking good or looking healthy. It is a repayment plan for the damage done in your early twenties.",
+      "slides": [
+        "Your corporate gym membership is no longer an aspiration.",
+        "At 22: Bench press.\nAt 27: Cardio zone.\nAt 32: Core stabilization for lower back compression.",
+        "It is not fitness.\n\nIt is a monthly installment on your twenties."
+      ],
+      "caption": "Somebody you know is currently researching orthopaedic insoles like they are high-tech sneakers.",
+      "trigger": "health",
+      "structure": "escalating_list",
+      "move": "absurd_comparative",
+      "target": "gym",
+      "satire_level": 3,
+      "hinglish": false,
+      "keywords": [
+        "gym membership",
+        "physiotherapy",
+        "back pain"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPbVFRcDlCYUF2bFUwb2V3ckI0LUh1SjFCakRYN0FON1BNZm1rZXZMX3YzV2tpLVhoU3ZHY3BydFZQckpuY1RlU21kd1B1cDZucGxBTmdGdkY3ZUFQdkU5alR5c1JyZGFaVGZLUF8zcW5vd3c4MEpFb09HcjFmNnFMcjU3TXBvVlVvZTYwQ1B3?oc=5",
+      "created_at": "2026-09-22",
+      "status": "approved",
+      "id": "g033",
+      "rank_score": 30,
+      "rank_verdict": "The landing explains the joke and feels like a corporate presentation's summary instead of a sharp comedic turn."
+    }
+  ]
+}
