@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "India Drives Global Growth in Premium Liquor Segment Despite Market Slowdown",
+      "context": "The physical reality of drinking in your thirties has turned high-end purchases into harm-reduction choices.",
+      "angle": "You didn't develop a sophisticated palate; your liver simply started issuing terms and conditions.",
+      "slides": [
+        "You aren't buying premium single malt because you have made it.",
+        "At 22: Any brand that costs under ₹600. Zero hangover. Six hours of sleep on a carpet.\n\nAt 32: Double-aged single cask, imported water, imported ice.",
+        "One glass.\n\nThree days of antacids."
+      ],
+      "caption": "Somebody you know has a dedicated medical drawer next to the premium home bar. 🥃",
+      "trigger": "health",
+      "structure": "then_now",
+      "move": "absurd_comparative",
+      "target": "wellness industry",
+      "satire_level": 3,
+      "hinglish": false,
+      "keywords": [
+        "premium liquor",
+        "hangover",
+        "health"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNbFV3NTctekl2SlVEYi1zb3NVa28yR1RvTmdyOFlETFpNSVR2OV9CaEZRRGtOeEdZUkEyWHc2aGQzTFVGcnF5TzY4OTdtSkllSnM4Mjc2OUJJQ1dDbmFaWjFfLV9YTWRGVlphOXdKaThCbVo1R0ozckY4UEdDM3VjNzkyRmlBRHVNNWdrSG44ZUV5c1F0Rm9uWHNTbFEtNi1GV1Vz?oc=5",
+      "created_at": "2026-09-24",
+      "status": "approved",
+      "id": "g035",
+      "rank_score": 47,
+      "rank_verdict": "The premise and landing rely on a highly familiar, slightly overdone trope about aging bodies and hangovers."
+    }
+  ]
+}

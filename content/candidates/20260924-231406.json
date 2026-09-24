@@ -1,0 +1,191 @@
+{
+  "generated_at": "20260924-231406",
+  "model": "gemini-3.5-flash",
+  "accepted": [
+    {
+      "trend": "India Drives Global Growth in Premium Liquor Segment Despite Market Slowdown",
+      "context": "The standard Friday night group plan at thirty has collapsed into finding the path of least physical resistance.",
+      "angle": "Social outings are no longer about showing up; they are about avoiding noise and sitting down.",
+      "slides": [
+        "\"Bhai, Friday ko milte hain, but somewhere quiet.\"",
+        "\"Bhai, bohot loud hai, can't hear anything.\"\n\n\"That premium cocktail place?\"\n\n\"₹900 a drink before tax, aur baithne ki jagah bhi nahi hai.\"\n\n\"My place?\"\n\n\"Haan, wahan chupchaap baithte hain.\"",
+        "Everyone is asleep by ten.\n\nWhile the Uber driver is still searching for the OTP."
+      ],
+      "caption": "You know who you are, and so does your orthopedic mattress. 🛌",
+      "trigger": "friends",
+      "structure": "group_chat",
+      "move": "the_turn_in_the_last_words",
+      "target": "friends",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "friday plan",
+        "microbrewery",
+        "friends"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNbFV3NTctekl2SlVEYi1zb3NVa28yR1RvTmdyOFlETFpNSVR2OV9CaEZRRGtOeEdZUkEyWHc2aGQzTFVGcnF5TzY4OTdtSkllSnM4Mjc2OUJJQ1dDbmFaWjFfLV9YTWRGVlphOXdKaThCbVo1R0ozckY4UEdDM3VjNzkyRmlBRHVNNWdrSG44ZUV5c1F0Rm9uWHNTbFEtNi1GV1Vz?oc=5",
+      "created_at": "2026-09-24",
+      "status": "draft",
+      "_score": 48,
+      "_judge": "Relying entirely on dialogue in the first two slides abandons the signature deadpan narrative voice of the account in favor of a screenplay script.",
+      "_detail": {
+        "laugh": 4,
+        "share_trigger": 4,
+        "surprise": 4,
+        "specificity": 4,
+        "voice": 3,
+        "travels": 4
+      },
+      "_penalty": 6
+    },
+    {
+      "trend": "India Drives Global Growth in Premium Liquor Segment Despite Market Slowdown",
+      "context": "The physical reality of drinking in your thirties has turned high-end purchases into harm-reduction choices.",
+      "angle": "You didn't develop a sophisticated palate; your liver simply started issuing terms and conditions.",
+      "slides": [
+        "You aren't buying premium single malt because you have made it.",
+        "At 22: Any brand that costs under ₹600. Zero hangover. Six hours of sleep on a carpet.\n\nAt 32: Double-aged single cask, imported water, imported ice.",
+        "One glass.\n\nThree days of antacids."
+      ],
+      "caption": "Somebody you know has a dedicated medical drawer next to the premium home bar. 🥃",
+      "trigger": "health",
+      "structure": "then_now",
+      "move": "absurd_comparative",
+      "target": "wellness industry",
+      "satire_level": 3,
+      "hinglish": false,
+      "keywords": [
+        "premium liquor",
+        "hangover",
+        "health"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNbFV3NTctekl2SlVEYi1zb3NVa28yR1RvTmdyOFlETFpNSVR2OV9CaEZRRGtOeEdZUkEyWHc2aGQzTFVGcnF5TzY4OTdtSkllSnM4Mjc2OUJJQ1dDbmFaWjFfLV9YTWRGVlphOXdKaThCbVo1R0ozckY4UEdDM3VjNzkyRmlBRHVNNWdrSG44ZUV5c1F0Rm9uWHNTbFEtNi1GV1Vz?oc=5",
+      "created_at": "2026-09-24",
+      "status": "draft",
+      "_score": 47,
+      "_judge": "The premise and landing rely on a highly familiar, slightly overdone trope about aging bodies and hangovers.",
+      "_detail": {
+        "laugh": 3,
+        "share_trigger": 4,
+        "surprise": 3,
+        "specificity": 4,
+        "voice": 4,
+        "travels": 5
+      },
+      "_penalty": 6
+    }
+  ],
+  "rejected": [
+    {
+      "trend": "Rs 70,000 Salary Needed for Bengaluru Metro Commute? Here’s Why Namma Metro Is Costlier",
+      "context": "The basic arithmetic of commuting to a physical office in a metro city has decoupled from average salary brackets.",
+      "angle": "The arithmetic of working in a city does not work; you are practically paying a subscription fee to keep your job.",
+      "slides": [
+        "You need a ₹70,000 salary just to afford the commute.",
+        "Rent within walking distance: ₹45,000.\n\nCab to the metro: ₹150.\n\nMetro card auto-reload: ₹500.\n\nYour company's annual increment: 4%.",
+        "The office coffee is still free.\n\nBut you have to face the manager anyway."
+      ],
+      "caption": "Somebody you know has spent forty minutes calculating if they are paying the company to work there. 💸",
+      "trigger": "commute",
+      "structure": "juxtaposition",
+      "move": "flat_restatement",
+      "target": "employer",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "bengaluru metro",
+        "salary",
+        "commute"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMiigJBVV95cUxQb1pEbjk4MVd0MzRFSGN0NVZlcjBuRDFCZEdXYVhlTkVUYmJacERvM0FFQzVXeHdfUEZHdnlJb2pxSmQyUHQ5R1Bobl80WDNqYVBFOUdTM0xERXZ1ZFRIRG1OUHd0WU9aVnBldXhXdFdDNTdZWXhPa2NmXzJBeXFHZUpOdnNyZlpmYlp6em1kSjBpVEgxR3ZaUVlkVVF4VWNTa3FtSzlpekU1RXhtZW1hbDBPQWphTGx6d1hBMkp0M3l1c1ZYQVRaZS1xQWVib3V5Rnk2MlVBWnM2bzJyNnpvUDZuQW1zaHpyOGczZ2NXbzBYQXlEM3VYaElYOVNJaXVKZkdEalF3MEgzQdIBjwJBVV95cUxOUE5yQXh2YUY4eV9GZEU4MVU3MVNSTmtrQ3ZpSUEwVGRQWFlVVExMaVhlYlNQV3JXc01aVDNZN0xjVk44bjlvR0p1alpFUFNvLUJtTzZTeGhubnA5UHJkWWNNTU4wWF80S0M3ejdjVE92YU1EalhYM2o3Z2dkei02bFJ2aTVyeFlaOGtreWRzUVU4M1M0ZlZEVTFJX1l6UG12TE9yc2pjQjVuWXZQQTlGRVQ2TlZDNkxtWXFzT1o4Yld0dlllcDAteUV4MVotdDFKanRPcVZFU09ZNjFwbGFNUUdIcE91WXNjLThnZGRDWjFpSzc2bGVnS0NuRENURDdJLWU5UlJ0TGZKTllxOGRz?oc=5",
+      "created_at": "2026-09-24",
+      "_gate_failures": [
+        "4 prices in one post (₹70,000, ₹45,000, ₹150, ₹500) — the reader has to do arithmetic to reach the joke. One figure, alone, does the work"
+      ]
+    },
+    {
+      "trend": "Rs 70,000 Salary Needed for Bengaluru Metro Commute? Here’s Why Namma Metro Is Costlier",
+      "context": "Urban parents have no frame of reference for the compounding costs of micro-transactions in modern Indian cities.",
+      "angle": "Explaining modern living expenses to parents who bought a house on a single salary is impossible.",
+      "slides": [
+        "\"Beta, Bangalore mein toh bohot saving hoti hogi?\"",
+        "\"Flat ka rent ₹35,000 hai.\"\n\n\"Toh security deposit toh do mahine ka hoga?\"\n\n\"Ten months, Mummy. Plus brokerage.\"\n\n\"Aur metro?\"\n\n\"Metro ticket lene ke liye line mein lagne ka time nahi hai, auto ka ₹200 lagta hai.\"",
+        "Settle kab ho rahe ho?"
+      ],
+      "caption": "Whose mother is this? 🥲",
+      "trigger": "parents",
+      "structure": "dialogue",
+      "move": "the_banal_true_answer",
+      "target": "parents",
+      "satire_level": 4,
+      "hinglish": true,
+      "keywords": [
+        "bangalore rent",
+        "mummy",
+        "metro"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMiigJBVV95cUxQb1pEbjk4MVd0MzRFSGN0NVZlcjBuRDFCZEdXYVhlTkVUYmJacERvM0FFQzVXeHdfUEZHdnlJb2pxSmQyUHQ5R1Bobl80WDNqYVBFOUdTM0xERXZ1ZFRIRG1OUHd0WU9aVnBldXhXdFdDNTdZWXhPa2NmXzJBeXFHZUpOdnNyZlpmYlp6em1kSjBpVEgxR3ZaUVlkVVF4VWNTa3FtSzlpekU1RXhtZW1hbDBPQWphTGx6d1hBMkp0M3l1c1ZYQVRaZS1xQWVib3V5Rnk2MlVBWnM2bzJyNnpvUDZuQW1zaHpyOGczZ2NXbzBYQXlEM3VYaElYOVNJaXVKZkdEalF3MEgzQdIBjwJBVV95cUxOUE5yQXh2YUY4eV9GZEU4MVU3MVNSTmtrQ3ZpSUEwVGRQWFlVVExMaVhlYlNQV3JXc01aVDNZN0xjVk44bjlvR0p1alpFUFNvLUJtTzZTeGhubnA5UHJkWWNNTU4wWF80S0M3ejdjVE92YU1EalhYM2o3Z2dkei02bFJ2aTVyeFlaOGtreWRzUVU4M1M0ZlZEVTFJX1l6UG12TE9yc2pjQjVuWXZQQTlGRVQ2TlZDNkxtWXFzT1o4Yld0dlllcDAteUV4MVotdDFKanRPcVZFU09ZNjFwbGFNUUdIcE91WXNjLThnZGRDWjFpSzc2bGVnS0NuRENURDdJLWU5UlJ0TGZKTllxOGRz?oc=5",
+      "created_at": "2026-09-24",
+      "_gate_failures": [
+        "slide 2 is 213 chars (max 210) — cut lines, not the joke",
+        "landing ends on a question — this account states, it does not beg",
+        "2 prices in one post (₹35,000, ₹200) — the reader has to do arithmetic to reach the joke. One figure, alone, does the work"
+      ]
+    },
+    {
+      "trend": "Rs 70,000 Salary Needed for Bengaluru Metro Commute? Here’s Why Namma Metro Is Costlier",
+      "context": "The daily logistical struggle of reaching an office in waterlogged, high-demand conditions is a financial penalty.",
+      "angle": "The hidden cost of working is the transaction fee of keeping your sanity intact.",
+      "slides": [
+        "The cost of arriving at your desk looking like a functional adult.",
+        "Quick commerce rain poncho: ₹249.\n\nMetro card auto-reload: ₹500.\n\nCancelling the auto because of 'high demand': ₹150.\n\nSilent prayer to the signal gods: Free.",
+        "The laptop charger stayed dry.\n\nYou did not."
+      ],
+      "caption": "Somebody you know is currently sitting under the office AC waiting for their socks to dry. 🌧️",
+      "trigger": "commute",
+      "structure": "receipt",
+      "move": "the_turn_in_the_last_words",
+      "target": "app",
+      "satire_level": 3,
+      "hinglish": false,
+      "keywords": [
+        "metro commute",
+        "rain auto",
+        "office"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMiigJBVV95cUxQb1pEbjk4MVd0MzRFSGN0NVZlcjBuRDFCZEdXYVhlTkVUYmJacERvM0FFQzVXeHdfUEZHdnlJb2pxSmQyUHQ5R1Bobl80WDNqYVBFOUdTM0xERXZ1ZFRIRG1OUHd0WU9aVnBldXhXdFdDNTdZWXhPa2NmXzJBeXFHZUpOdnNyZlpmYlp6em1kSjBpVEgxR3ZaUVlkVVF4VWNTa3FtSzlpekU1RXhtZW1hbDBPQWphTGx6d1hBMkp0M3l1c1ZYQVRaZS1xQWVib3V5Rnk2MlVBWnM2bzJyNnpvUDZuQW1zaHpyOGczZ2NXbzBYQXlEM3VYaElYOVNJaXVKZkdEalF3MEgzQdIBjwJBVV95cUxOUE5yQXh2YUY4eV9GZEU4MVU3MVNSTmtrQ3ZpSUEwVGRQWFlVVExMaVhlYlNQV3JXc01aVDNZN0xjVk44bjlvR0p1alpFUFNvLUJtTzZTeGhubnA5UHJkWWNNTU4wWF80S0M3ejdjVE92YU1EalhYM2o3Z2dkei02bFJ2aTVyeFlaOGtreWRzUVU4M1M0ZlZEVTFJX1l6UG12TE9yc2pjQjVuWXZQQTlGRVQ2TlZDNkxtWXFzT1o4Yld0dlllcDAteUV4MVotdDFKanRPcVZFU09ZNjFwbGFNUUdIcE91WXNjLThnZGRDWjFpSzc2bGVnS0NuRENURDdJLWU5UlJ0TGZKTllxOGRz?oc=5",
+      "created_at": "2026-09-24",
+      "_gate_failures": [
+        "3 prices in one post (₹249, ₹500, ₹150) — the reader has to do arithmetic to reach the joke. One figure, alone, does the work"
+      ]
+    },
+    {
+      "trend": "India Drives Global Growth in Premium Liquor Segment Despite Market Slowdown",
+      "context": "The consumption of high-end experiences is a cope for structural stagnation in the housing and career markets.",
+      "angle": "We are buying premium bottles because we cannot afford the premium apartments they are poured in.",
+      "slides": [
+        "Your body has started rejecting the alcohol you can actually afford.",
+        "A craft gin to forget the rent.\n\nA single malt to survive the appraisal call.\n\nAn imported lager to look at the home loan EMI.",
+        "The single malt is premium.\n\nThe appraisal is still a PDF."
+      ],
+      "caption": "Send this to the colleague who knows the exact tasting notes of Glenfiddich 12 but doesn't know their PF balance. 🧾",
+      "trigger": "money",
+      "structure": "list_collapse",
+      "move": "juxtaposition",
+      "target": "landlord",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "appraisal",
+        "single malt",
+        "rent"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNbFV3NTctekl2SlVEYi1zb3NVa28yR1RvTmdyOFlETFpNSVR2OV9CaEZRRGtOeEdZUkEyWHc2aGQzTFVGcnF5TzY4OTdtSkllSnM4Mjc2OUJJQ1dDbmFaWjFfLV9YTWRGVlphOXdKaThCbVo1R0ozckY4UEdDM3VjNzkyRmlBRHVNNWdrSG44ZUV5c1F0Rm9uWHNTbFEtNi1GV1Vz?oc=5",
+      "created_at": "2026-09-24",
+      "_gate_failures": [
+        "no concrete detail (no number, rupee figure or quoted speech) — too generic",
+        "unknown move 'juxtaposition' — one of: absurd_comparative, compression, flat_restatement, literalisation, the_banal_true_answer, the_institutional_frame, the_question_with_one_answer, the_turn_in_the_last_words"
+      ]
+    }
+  ]
+}

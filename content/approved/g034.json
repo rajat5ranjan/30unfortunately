@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "India Drives Global Growth in Premium Liquor Segment Despite Market Slowdown",
+      "context": "The standard Friday night group plan at thirty has collapsed into finding the path of least physical resistance.",
+      "angle": "Social outings are no longer about showing up; they are about avoiding noise and sitting down.",
+      "slides": [
+        "\"Bhai, Friday ko milte hain, but somewhere quiet.\"",
+        "\"Bhai, bohot loud hai, can't hear anything.\"\n\n\"That premium cocktail place?\"\n\n\"₹900 a drink before tax, aur baithne ki jagah bhi nahi hai.\"\n\n\"My place?\"\n\n\"Haan, wahan chupchaap baithte hain.\"",
+        "Everyone is asleep by ten.\n\nWhile the Uber driver is still searching for the OTP."
+      ],
+      "caption": "You know who you are, and so does your orthopedic mattress. 🛌",
+      "trigger": "friends",
+      "structure": "group_chat",
+      "move": "the_turn_in_the_last_words",
+      "target": "friends",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "friday plan",
+        "microbrewery",
+        "friends"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNbFV3NTctekl2SlVEYi1zb3NVa28yR1RvTmdyOFlETFpNSVR2OV9CaEZRRGtOeEdZUkEyWHc2aGQzTFVGcnF5TzY4OTdtSkllSnM4Mjc2OUJJQ1dDbmFaWjFfLV9YTWRGVlphOXdKaThCbVo1R0ozckY4UEdDM3VjNzkyRmlBRHVNNWdrSG44ZUV5c1F0Rm9uWHNTbFEtNi1GV1Vz?oc=5",
+      "created_at": "2026-09-24",
+      "status": "approved",
+      "id": "g034",
+      "rank_score": 48,
+      "rank_verdict": "Relying entirely on dialogue in the first two slides abandons the signature deadpan narrative voice of the account in favor of a screenplay script."
+    }
+  ]
+}
