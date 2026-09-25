@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "Songashim Rungsung Viral Video: Manipur Model’s Gym Return Reel Creates Buzz on Instagram",
+      "context": "The commercial fitness industry sells peak athletic dreams to people who can barely survive a desk chair.",
+      "angle": "Treating basic physiological decay with the administrative gravity of a customer help desk.",
+      "slides": [
+        "Press 1 if you woke up with an unexplained shoulder injury.",
+        "Press 2 if your knees click when it rains.\nPress 3 if your mattress is from college.\nHold to speak to a doctor who will blame your posture.",
+        "Your call is important to us.\n\nPlease remain in a horizontal position."
+      ],
+      "caption": "Someone in your chat has three different pain relief sprays in their office desk drawer. 🧴",
+      "trigger": "health",
+      "structure": "customer_support",
+      "move": "literalisation",
+      "target": "the_wellness_industry",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "shoulder injury",
+        "orthopedic",
+        "fitness"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOeUt4OExpLWNTNk5QalRCb3RNV2QzUE9vT1lJV0xpN2FlQXFGZDZDaEJUajd1VGFrbjdfOGpqaXh0a1BHQUxfSDRpQ0tkWGExYlhXeUdmR0JDQ0RQUTduYTdPbmQweVBDUjNDNWR6U3BrUmdVRG1rTlYwZVM5cjJYRlNKUEhVZFFIR3RFUGJZdGxOUFp3LWNrVWp6ZTduTmxBbmZ3akVuSFU3NjQyZ0xMclFWem1EVjZvVm9Eb3Rqa0gzY1NNR293MWhtRndpUW9xSVBqdldla3kxNUHSAdsBQVVfeXFMTnlLeDhMaS1jUzZOUGpUQm90TVdkM1BPb09ZSVdMaTdhZUFxRmQ2Q2hCVGo3dVRha243Xzhqaml4dGtQR0FMX0g0aUNLZFhhMWJYV3lHZkdCQ0NEUFE3bmE3T25kMHlQQ1IzQzVkelNwa1JnVURta05WMGVTOXIyWEZTSlBIVWRRSEd0RVBiWXRsTlBady1ja1VqemU3bk5sQW5md2pFbkhVNzY0MmdMTHJRVnptRFY2b1ZvRG90amtIM2NTTUdvdzFobUZ3aVFvcUlQanZXZWt5MTVB?oc=5",
+      "created_at": "2026-09-25",
+      "status": "approved",
+      "id": "g038",
+      "rank_score": 39,
+      "rank_verdict": ""
+    }
+  ]
+}

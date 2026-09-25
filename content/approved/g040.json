@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "'Rent a garba partner' posts spark cyber safety concerns ahead of Navratri",
+      "context": "Indian families use festival gatherings as high-intensity validation boards for single millennials.",
+      "angle": "Renting a fake partner to escape parental pressure only exposes them to corporate scrutiny from uncles.",
+      "slides": [
+        "Beta, Navratri pe akele ja rahe ho?",
+        "Umar nikli ja rahi hai.\nAgli baar dadi ke liye bahu lani hai.\nSharma ji ka beta toh settle ho gaya.",
+        "You rented a partner just to stop the questions.\n\nThey asked her what her CTC is."
+      ],
+      "caption": "Whose family has already prepared the spreadsheet of prospective biodatas? 📋",
+      "trigger": "parents",
+      "structure": "dialogue",
+      "move": "flat_restatement",
+      "target": "relatives",
+      "satire_level": 5,
+      "hinglish": true,
+      "keywords": [
+        "settle ho ja",
+        "dandiya",
+        "family pressure"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPTWJ4akE4S2VqSnBiYXZvSUpRaUVkVWlFOFdQVlFHc05ma2JOQTAtMUJjUkN3eDFYV0VBTmQ1WV9ySlc1VzBVMGpkQ3FfSFlDZnlJUVJQVlpCcjZBMFAwdDBvNjNHdEtfa3NXbjdlbktReGNLcXJaaU0wSHJWZHdVMngyekVJSXRoZXoyRTJtYzN0pDFKNk1ISWhHVUpsSnFPNktUNFJuYUFRQUh4MG15a3M2dWlvMmF0Z3JCMEVn0gHDAUFVX3lxTE05ZUNBS0Y3dmlfc19vNjJ1TkJmRnExbGwxOWF3MVhZamxnWkI4eHZzYjRYQ2dSbFF0dFdseWhDMVZ5ejRFT0lMWS05Nlh3djZJaXljSm9xNFV5Y19DTGlrbGg0Nm02U1dDbmEtYnMyemFiQ2hrdDAwd1Z6U1U0eGxjX2JTWjdIRXUxQkJnRkJXNG41UWJodzluM0ZuSXgyQ25CN1pjV0RmNEc5ZjNkdDJLeDgxMy15Q0N4V3FObHU0ZVgxTQ?oc=5",
+      "created_at": "2026-09-25",
+      "status": "approved",
+      "id": "g040",
+      "rank_score": 34,
+      "rank_verdict": ""
+    }
+  ]
+}

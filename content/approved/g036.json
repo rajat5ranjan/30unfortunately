@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "Commute Times on Bengaluru’s SH-35 Corridor Surge 22% in Two Years, New Mobility Study Reveals",
+      "context": "The daily commute in major Indian IT corridors has become a gruelling part-time job that nobody is getting paid for.",
+      "angle": "Corporate systems track your laptop activity to the second, while ignoring the hours lost to absolute structural collapse outside the office gates.",
+      "slides": [
+        "Your contract says 8 hours of work. It forgot to mention the 4 hours of tarmac.",
+        "Office reach time — up 22%.\nCab fare — up 40%.\nPothole depth — up 15 cm.\nYour patience — depleted.",
+        "Your company counts the desk hours.\n\nThe road owns the rest."
+      ],
+      "caption": "Send this to the manager who insists on a 9 AM physical attendance huddle. 🚗",
+      "trigger": "commute",
+      "structure": "terms_and_conditions",
+      "move": "literalisation",
+      "target": "employer",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "bengaluru traffic",
+        "commute",
+        "office hours"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOSFMtM3V0MG04N19TdE1TTmQ3YUhqbUN2M0RVVnlxdHd0ZjRMWldyaUtfRjYzUGF2ODBiMXY3enpwaXV3NnF4eUtmMnF3OUxZMkhOc2ZBZjZEbkctcTM1N2ZEMWNiRzFwb2tJOVFpcUQ2eUpQOXpSZDJaQWNJcGdmb0JsQ1ZzWGVkSlVZem1NbWRrdnFzMFI2QWJ0bUhlNW4yTTFVZFYybzhVVEVLdUgtZVp4cnBfcTRfV040?oc=5",
+      "created_at": "2026-09-25",
+      "status": "approved",
+      "id": "g036",
+      "rank_score": 42,
+      "rank_verdict": ""
+    }
+  ]
+}

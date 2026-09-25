@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "Commute Times on Bengaluru’s SH-35 Corridor Surge 22% in Two Years, New Mobility Study Reveals",
+      "context": "The modern Indian urban commute has turned 'five minutes away' into a permanent geographical state.",
+      "angle": "Navigation apps tell us we are moving when we have actually integrated into the local ecosystem of the crossing.",
+      "slides": [
+        "Haan bhai, Sarjapur signal pe hoon. Bas panch minute.",
+        "Nahi, map red nahi dikha raha.\nHaan, auto wala cancel kar diya.\nNahi, paidal nahi chal sakta, rasta hi gayab hai.",
+        "You have been at the same crossing since 2024.\n\nYou live there now."
+      ],
+      "caption": "We all know someone who has been 'reaching in 5 mins' for the last forty minutes. 🗺️",
+      "trigger": "commute",
+      "structure": "phone_call",
+      "move": "the_banal_true_answer",
+      "target": "app",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "sarjapur",
+        "bengaluru",
+        "google maps"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOSFMtM3V0MG04N19TdE1TTmQ3YUhqbUN2M0RVVnlxdHd0ZjRMWldyaUtfRjYzUGF2ODBiMXY3enpwaXV3NnF4eUtmMnF3OUxZMkhOc2ZBZjZEbkctcTM1N2ZEMWNiRzFwb2tJOVFpcUQ2eUpQOXpSZDJaQWNJcGdmb0JsQ1ZzWGVkSlVZem1NbWRrdnFzMFI2QWJ0bUhlNW4yTTFVZFYybzhVVEVLdUgtZVp4cnBfcTRfV040?oc=5",
+      "created_at": "2026-09-25",
+      "status": "approved",
+      "id": "g037",
+      "rank_score": 39,
+      "rank_verdict": ""
+    }
+  ]
+}

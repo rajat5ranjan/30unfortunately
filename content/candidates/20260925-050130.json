@@ -1,0 +1,323 @@
+{
+  "generated_at": "20260925-050130",
+  "model": "gemini-3.5-flash",
+  "accepted": [
+    {
+      "trend": "Commute Times on Bengaluru’s SH-35 Corridor Surge 22% in Two Years, New Mobility Study Reveals",
+      "context": "The daily commute in major Indian IT corridors has become a gruelling part-time job that nobody is getting paid for.",
+      "angle": "Corporate systems track your laptop activity to the second, while ignoring the hours lost to absolute structural collapse outside the office gates.",
+      "slides": [
+        "Your contract says 8 hours of work. It forgot to mention the 4 hours of tarmac.",
+        "Office reach time — up 22%.\nCab fare — up 40%.\nPothole depth — up 15 cm.\nYour patience — depleted.",
+        "Your company counts the desk hours.\n\nThe road owns the rest."
+      ],
+      "caption": "Send this to the manager who insists on a 9 AM physical attendance huddle. 🚗",
+      "trigger": "commute",
+      "structure": "terms_and_conditions",
+      "move": "literalisation",
+      "target": "employer",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "bengaluru traffic",
+        "commute",
+        "office hours"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOSFMtM3V0MG04N19TdE1TTmQ3YUhqbUN2M0RVVnlxdHd0ZjRMWldyaUtfRjYzUGF2ODBiMXY3enpwaXV3NnF4eUtmMnF3OUxZMkhOc2ZBZjZEbkctcTM1N2ZEMWNiRzFwb2tJOVFpcUQ2eUpQOXpSZDJaQWNJcGdmb0JsQ1ZzWGVkSlVZem1NbWRrdnFzMFI2QWJ0bUhlNW4yTTFVZFYybzhVVEVLdUgtZVp4cnBfcTRfV040?oc=5",
+      "created_at": "2026-09-25",
+      "status": "draft",
+      "_score": 42,
+      "_judge": "",
+      "_detail": {
+        "laugh": null,
+        "share_trigger": null,
+        "surprise": null,
+        "specificity": null,
+        "voice": null,
+        "travels": null
+      },
+      "_penalty": 0
+    },
+    {
+      "trend": "Commute Times on Bengaluru’s SH-35 Corridor Surge 22% in Two Years, New Mobility Study Reveals",
+      "context": "The modern Indian urban commute has turned 'five minutes away' into a permanent geographical state.",
+      "angle": "Navigation apps tell us we are moving when we have actually integrated into the local ecosystem of the crossing.",
+      "slides": [
+        "Haan bhai, Sarjapur signal pe hoon. Bas panch minute.",
+        "Nahi, map red nahi dikha raha.\nHaan, auto wala cancel kar diya.\nNahi, paidal nahi chal sakta, rasta hi gayab hai.",
+        "You have been at the same crossing since 2024.\n\nYou live there now."
+      ],
+      "caption": "We all know someone who has been 'reaching in 5 mins' for the last forty minutes. 🗺️",
+      "trigger": "commute",
+      "structure": "phone_call",
+      "move": "the_banal_true_answer",
+      "target": "app",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "sarjapur",
+        "bengaluru",
+        "google maps"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOSFMtM3V0MG04N19TdE1TTmQ3YUhqbUN2M0RVVnlxdHd0ZjRMWldyaUtfRjYzUGF2ODBiMXY3enpwaXV3NnF4eUtmMnF3OUxZMkhOc2ZBZjZEbkctcTM1N2ZEMWNiRzFwb2tJOVFpcUQ2eUpQOXpSZDJaQWNJcGdmb0JsQ1ZzWGVkSlVZem1NbWRrdnFzMFI2QWJ0bUhlNW4yTTFVZFYybzhVVEVLdUgtZVp4cnBfcTRfV040?oc=5",
+      "created_at": "2026-09-25",
+      "status": "draft",
+      "_score": 39,
+      "_judge": "",
+      "_detail": {
+        "laugh": null,
+        "share_trigger": null,
+        "surprise": null,
+        "specificity": null,
+        "voice": null,
+        "travels": null
+      },
+      "_penalty": 3
+    },
+    {
+      "trend": "Songashim Rungsung Viral Video: Manipur Model’s Gym Return Reel Creates Buzz on Instagram",
+      "context": "The commercial fitness industry sells peak athletic dreams to people who can barely survive a desk chair.",
+      "angle": "Treating basic physiological decay with the administrative gravity of a customer help desk.",
+      "slides": [
+        "Press 1 if you woke up with an unexplained shoulder injury.",
+        "Press 2 if your knees click when it rains.\nPress 3 if your mattress is from college.\nHold to speak to a doctor who will blame your posture.",
+        "Your call is important to us.\n\nPlease remain in a horizontal position."
+      ],
+      "caption": "Someone in your chat has three different pain relief sprays in their office desk drawer. 🧴",
+      "trigger": "health",
+      "structure": "customer_support",
+      "move": "literalisation",
+      "target": "the_wellness_industry",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "shoulder injury",
+        "orthopedic",
+        "fitness"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOeUt4OExpLWNTNk5QalRCb3RNV2QzUE9vT1lJV0xpN2FlQXFGZDZDaEJUajd1VGFrbjdfOGpqaXh0a1BHQUxfSDRpQ0tkWGExYlhXeUdmR0JDQ0RQUTduYTdPbmQweVBDUjNDNWR6U3BrUmdVRG1rTlYwZVM5cjJYRlNKUEhVZFFIR3RFUGJZdGxOUFp3LWNrVWp6ZTduTmxBbmZ3akVuSFU3NjQyZ0xMclFWem1EVjZvVm9Eb3Rqa0gzY1NNR293MWhtRndpUW9xSVBqdldla3kxNUHSAdsBQVVfeXFMTnlLeDhMaS1jUzZOUGpUQm90TVdkM1BPb09ZSVdMaTdhZUFxRmQ2Q2hCVGo3dVRha243Xzhqaml4dGtQR0FMX0g0aUNLZFhhMWJYV3lHZkdCQ0NEUFE3bmE3T25kMHlQQ1IzQzVkelNwa1JnVURta05WMGVTOXIyWEZTSlBIVWRRSEd0RVBiWXRsTlBady1ja1VqemU3bk5sQW5md2pFbkhVNzY0MmdMTHJRVnptRFY2b1ZvRG90amtIM2NTTUdvdzFobUZ3aVFvcUlQanZXZWt5MTVB?oc=5",
+      "created_at": "2026-09-25",
+      "status": "draft",
+      "_score": 39,
+      "_judge": "",
+      "_detail": {
+        "laugh": null,
+        "share_trigger": null,
+        "surprise": null,
+        "specificity": null,
+        "voice": null,
+        "travels": null
+      },
+      "_penalty": 3
+    },
+    {
+      "trend": "Songashim Rungsung Viral Video: Manipur Model’s Gym Return Reel Creates Buzz on Instagram",
+      "context": "The internet is flooded with instant posture-correction guides that we treat as aspirational libraries.",
+      "angle": "Saving fitness videos has become the modern substitute for actually exercising.",
+      "slides": [
+        "Forwarded: Five morning stretches to reverse ten years of desk sitting.",
+        "Do this for 2 minutes daily.\nNo equipment needed.\nCures lower back stiffness instantly.",
+        "You saved the video.\n\nYou are currently lying down flat on the rug."
+      ],
+      "caption": "You know who you are, and so does your saved folder. 🧘",
+      "trigger": "health",
+      "structure": "whatsapp_forward",
+      "move": "the_banal_true_answer",
+      "target": "app",
+      "satire_level": 3,
+      "hinglish": false,
+      "keywords": [
+        "posture fix",
+        "stretching",
+        "yoga"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOeUt4OExpLWNTNk5QalRCb3RNV2QzUE9vT1lJV0xpN2FlQXFGZDZDaEJUajd1VGFrbjdfOGpqaXh0a1BHQUxfSDRpQ0tkWGExYlhXeUdmR0JDQ0RQUTduYTdPbmQweVBDUjNDNWR6U3BrUmdVRG1rTlYwZVM5cjJYRlNKUEhVZFFIR3RFUGJZdGxOUFp3LWNrVWp6ZTduTmxBbmZ3akVuSFU3NjQyZ0xMclFWem1EVjZvVm9Eb3Rqa0gzY1NNR293MWhtRndpUW9xSVBqdldla3kxNUHSAdsBQVVfeXFMTnlLeDhMaS1jUzZOUGpUQm90TVdkM1BPb09ZSVdMaTdhZUFxRmQ2Q2hCVGo3dVRha243Xzhqaml4dGtQR0FMX0g0aUNLZFhhMWJYV3lHZkdCQ0NEUFE3bmE3T25kMHlQQ1IzQzVkelNwa1JnVURta05WMGVTOXIyWEZTSlBIVWRRSEd0RVBiWXRsTlBady1ja1VqemU3bk5sQW5md2pFbkhVNzY0MmdMTHJRVnptRFY2b1ZvRG90amtIM2NTTUdvdzFobUZ3aVFvcUlQanZXZWt5MTVB?oc=5",
+      "created_at": "2026-09-25",
+      "status": "draft",
+      "_score": 36,
+      "_judge": "",
+      "_detail": {
+        "laugh": null,
+        "share_trigger": null,
+        "surprise": null,
+        "specificity": null,
+        "voice": null,
+        "travels": null
+      },
+      "_penalty": 6
+    },
+    {
+      "trend": "'Rent a garba partner' posts spark cyber safety concerns ahead of Navratri",
+      "context": "Indian families use festival gatherings as high-intensity validation boards for single millennials.",
+      "angle": "Renting a fake partner to escape parental pressure only exposes them to corporate scrutiny from uncles.",
+      "slides": [
+        "Beta, Navratri pe akele ja rahe ho?",
+        "Umar nikli ja rahi hai.\nAgli baar dadi ke liye bahu lani hai.\nSharma ji ka beta toh settle ho gaya.",
+        "You rented a partner just to stop the questions.\n\nThey asked her what her CTC is."
+      ],
+      "caption": "Whose family has already prepared the spreadsheet of prospective biodatas? 📋",
+      "trigger": "parents",
+      "structure": "dialogue",
+      "move": "flat_restatement",
+      "target": "relatives",
+      "satire_level": 5,
+      "hinglish": true,
+      "keywords": [
+        "settle ho ja",
+        "dandiya",
+        "family pressure"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPTWJ4akE4S2VqSnBiYXZvSUpRaUVkVWlFOFdQVlFHc05ma2JOQTAtMUJjUkN3eDFYV0VBTmQ1WV9ySlc1VzBVMGpkQ3FfSFlDZnlJUVJQVlpCcjZBMFAwdDBvNjNHdEtfa3NXbjdlbktReGNLcXJaaU0wSHJWZHdVMngyekVJSXRoZXoyRTJtYzN0pDFKNk1ISWhHVUpsSnFPNktUNFJuYUFRQUh4MG15a3M2dWlvMmF0Z3JCMEVn0gHDAUFVX3lxTE05ZUNBS0Y3dmlfc19vNjJ1TkJmRnExbGwxOWF3MVhZamxnWkI4eHZzYjRYQ2dSbFF0dFdseWhDMVZ5ejRFT0lMWS05Nlh3djZJaXljSm9xNFV5Y19DTGlrbGg0Nm02U1dDbmEtYnMyemFiQ2hrdDAwd1Z6U1U0eGxjX2JTWjdIRXUxQkJnRkJXNG41UWJodzluM0ZuSXgyQ25CN1pjV0RmNEc5ZjNkdDJLeDgxMy15Q0N4V3FObHU0ZVgxTQ?oc=5",
+      "created_at": "2026-09-25",
+      "status": "draft",
+      "_score": 34,
+      "_judge": "",
+      "_detail": {
+        "laugh": null,
+        "share_trigger": null,
+        "surprise": null,
+        "specificity": null,
+        "voice": null,
+        "travels": null
+      },
+      "_penalty": 8
+    },
+    {
+      "trend": "'Rent a garba partner' posts spark cyber safety concerns ahead of Navratri",
+      "context": "The commercialization of traditional festivals has reached a point where loneliness itself is monetized hourly.",
+      "angle": "Renting out basic human connection and validation under structural pricing plans.",
+      "slides": [
+        "You can now rent a companion for Navratri.",
+        "₹500 per hour for eye contact.\nA polite smile for your relatives.\nAgreeing that your career is going well.",
+        "The rental terminates at midnight.\n\nYou are still thirty in the cab home."
+      ],
+      "caption": "For the friend whose relatives ask 'aur shaadi ka kya chal raha hai' every ten minutes. 🪔",
+      "trigger": "marriage",
+      "structure": "terms_and_conditions",
+      "move": "the_turn_in_the_last_words",
+      "target": "the_wedding_industry",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "garba partner",
+        "navratri",
+        "dating apps"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPTWJ4akE4S2VqSnBiYXZvSUpRaUVkVWlFOFdQVlFHc05ma2JOQTAtMUJjUkN3eDFYV0VBTmQ1WV9ySlc1VzBVMGpkQ3FfSFlDZnlJUVJQVlpCcjZBMFAwdDBvNjNHdEtfa3NXbjdlbktReGNLcXJaaU0wSHJWZHdVMngyekVJSXRoZXoyRTJtYzN0pDFKNk1ISWhHVUpsSnFPNktUNFJuYUFRQUh4MG15a3M2dWlvMmF0Z3JCMEVn0gHDAUFVX3lxTE05ZUNBS0Y3dmlfc19vNjJ1TkJmRnExbGwxOWF3MVhZamxnWkI4eHZzYjRYQ2dSbFF0dFdseWhDMVZ5ejRFT0lMWS05Nlh3djZJaXljSm9xNFV5Y19DTGlrbGg0Nm02U1dDbmEtYnMyemFiQ2hrdDAwd1Z6U1U0eGxjX2JTWjdIRXUxQkJnRkJXNG41UWJodzluM0ZuSXgyQ25CN1pjV0RmNEc5ZjNkdDJLeDgxMy15Q0N4V3FObHU0ZVgxTQ?oc=5",
+      "created_at": "2026-09-25",
+      "status": "draft",
+      "_score": 33,
+      "_judge": "",
+      "_detail": {
+        "laugh": null,
+        "share_trigger": null,
+        "surprise": null,
+        "specificity": null,
+        "voice": null,
+        "travels": null
+      },
+      "_penalty": 9
+    },
+    {
+      "trend": "'Rent a garba partner' posts spark cyber safety concerns ahead of Navratri",
+      "context": "At thirty, the energy required to seek out romance or socializing is heavily outmatched by exhaustion.",
+      "angle": "The group chat that used to plan massive festival outings now quietly coordinates a collective retreat to streaming apps.",
+      "slides": [
+        "Group Chat: 'Dandiya Night Plan?'",
+        "Rohan: I have a tight deadline.\nNeha: Already in my pyjamas.\nAbhi: Who has the energy to search for parking.",
+        "The chat went quiet at 8:15 PM.\n\nEveryone watched the same streaming show."
+      ],
+      "caption": "You know who you are, and so does your DND status. 🛌",
+      "trigger": "friends",
+      "structure": "group_chat",
+      "move": "the_banal_true_answer",
+      "target": "self",
+      "satire_level": 3,
+      "hinglish": false,
+      "keywords": [
+        "group chat",
+        "navratri plans",
+        "introvert"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPTWJ4akE4S2VqSnBiYXZvSUpRaUVkVWlFOFdQVlFHc05ma2JOQTAtMUJjUkN3eDFYV0VBTmQ1WV9ySlc1VzBVMGpkQ3FfSFlDZnlJUVJQVlpCcjZBMFAwdDBvNjNHdEtfa3NXbjdlbktReGNLcXJaaU0wSHJWZHdVMngyekVJSXRoZXoyRTJtYzN0pDFKNk1ISWhHVUpsSnFPNktUNFJuYUFRQUh4MG15a3M2dWlvMmF0Z3JCMEVn0gHDAUFVX3lxTE05ZUNBS0Y3dmlfc19vNjJ1TkJmRnExbGwxOWF3MVhZamxnWkI4eHZzYjRYQ2dSbFF0dFdseWhDMVZ5ejRFT0lMWS05Nlh3djZJaXljSm9xNFV5Y19DTGlrbGg0Nm02U1dDbmEtYnMyemFiQ2hrdDAwd1Z6U1U0eGxjX2JTWjdIRXUxQkJnRkJXNG41UWJodzluM0ZuSXgyQ25CN1pjV0RmNEc5ZjNkdDJLeDgxMy15Q0N4V3FObHU0ZVgxTQ?oc=5",
+      "created_at": "2026-09-25",
+      "status": "draft",
+      "_score": 32,
+      "_judge": "",
+      "_detail": {
+        "laugh": null,
+        "share_trigger": null,
+        "surprise": null,
+        "specificity": null,
+        "voice": null,
+        "travels": null
+      },
+      "_penalty": 10
+    },
+    {
+      "trend": "Songashim Rungsung Viral Video: Manipur Model’s Gym Return Reel Creates Buzz on Instagram",
+      "context": "For a 30-year-old, going to the gym is no longer about looks; it is a clinical intervention.",
+      "angle": "Family members evaluate physical fitness purely through domestic aesthetics, while you are just trying not to lock your spine.",
+      "slides": [
+        "Beta, gym join toh kar liya, par pet kam hua kya?",
+        "Diet mein thoda control karo.\nCalorie count kiya aaj?\nProtein shake kyun pi rahe ho, dahi khao.",
+        "You did not go to the gym to lose weight.\n\nYou went because your lower back clicked."
+      ],
+      "caption": "Whose mother is this? 🩺",
+      "trigger": "health",
+      "structure": "dialogue",
+      "move": "the_turn_in_the_last_words",
+      "target": "self",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "fitness",
+        "back pain",
+        "desi parents"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOeUt4OExpLWNTNk5QalRCb3RNV2QzUE9vT1lJV0xpN2FlQXFGZDZDaEJUajd1VGFrbjdfOGpqaXh0a1BHQUxfSDRpQ0tkWGExYlhXeUdmR0JDQ0RQUTduYTdPbmQweVBDUjNDNWR6U3BrUmdVRG1rTlYwZVM5cjJYRlNKUEhVZFFIR3RFUGJZdGxOUFp3LWNrVWp6ZTduTmxBbmZ3akVuSFU3NjQyZ0xMclFWem1EVjZvVm9Eb3Rqa0gzY1NNR293MWhtRndpUW9xSVBqdldla3kxNUHSAdsBQVVfeXFMTnlLeDhMaS1jUzZOUGpUQm90TVdkM1BPb09ZSVdMaTdhZUFxRmQ2Q2hCVGo3dVRha243Xzhqaml4dGtQR0FMX0g0aUNLZFhhMWJYV3lHZkdCQ0NEUFE3bmE3T25kMHlQQ1IzQzVkelNwa1JnVURta05WMGVTOXIyWEZTSlBIVWRRSEd0RVBiWXRsTlBady1ja1VqemU3bk5sQW5md2pFbkhVNzY0MmdMTHJRVnptRFY2b1ZvRG90amtIM2NTTUdvdzFobUZ3aVFvcUlQanZXZWt5MTVB?oc=5",
+      "created_at": "2026-09-25",
+      "status": "draft",
+      "_score": 22,
+      "_judge": "",
+      "_detail": {
+        "laugh": null,
+        "share_trigger": null,
+        "surprise": null,
+        "specificity": null,
+        "voice": null,
+        "travels": null
+      },
+      "_penalty": 20
+    }
+  ],
+  "rejected": [
+    {
+      "trend": "Commute Times on Bengaluru’s SH-35 Corridor Surge 22% in Two Years, New Mobility Study Reveals",
+      "context": "Tech parks boast of green initiatives while being entirely inaccessible through sustainable human effort.",
+      "angle": "The absurdity of preaching global green standards while the immediate municipal road requires an amphibious vehicle.",
+      "slides": [
+        "Interviewer: Why do you want to work at our eco-friendly tech park?",
+        "Because I love nature.\nBecause sustainability is core to my values.\nBecause the commute is three hours of absolute stillness.",
+        "The office has indoor plants.\n\nThe highway outside is a wetland."
+      ],
+      "caption": "The infrastructure is world-class, assuming your office commute involves a kayak. 🛶",
+      "trigger": "commute",
+      "structure": "interview",
+      "move": "flat_restatement",
+      "target": "employer",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "tech park",
+        "urban flooding",
+        "bengaluru"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOSFMtM3V0MG04N19TdE1TTmQ3YUhqbUN2M0RVVnlxdHd0ZjRMWldyaUtfRjYzUGF2ODBiMXY3enpwaXV3NnF4eUtmMnF3OUxZMkhOc2ZBZjZEbkctcTM1N2ZEMWNiRzFwb2tJOVFpcUQ2eUpQOXpSZDJaQWNJcGdmb0JsQ1ZzWGVkSlVZem1NbWRrdnFzMFI2QWJ0bUhlNW4yTTFVZFYybzhVVEVLdUgtZVp4cnBfcTRfV040?oc=5",
+      "created_at": "2026-09-25",
+      "_gate_failures": [
+        "no concrete detail (no number, rupee figure or quoted speech) — too generic"
+      ]
+    }
+  ]
+}
