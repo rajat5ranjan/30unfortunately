@@ -1,0 +1,223 @@
+{
+  "generated_at": "20260926-191843",
+  "model": "gemini-3.5-flash",
+  "accepted": [
+    {
+      "trend": "Indian Woman Pays Rs 10 Lakh Monthly Rent For 2-Bedroom Apartment In New York City, Sparks Debate",
+      "context": "Landlords in prime Indian tech cities extract high rents with passive-aggressive politeness.",
+      "angle": "The sheer friendliness of a family landlord is the ultimate cover for economic extraction.",
+      "slides": [
+        "Uncle, is baar appraisal thoda kam hua hai.",
+        "\"Beta, standard ten percent toh badhna hi hai.\"\n\"Society maintenance has gone up.\"\n\"We have to paint the building next year.\"\n\"₹45,000 is very reasonable for this area.\"",
+        "\"Accha, mom-dad kaise hain?\"\n\nHe hasn't fixed the geyser since June."
+      ],
+      "caption": "Name the landlord who asks about your health only in the month of October. 📞",
+      "trigger": "rent",
+      "structure": "phone_call",
+      "move": "the_turn_in_the_last_words",
+      "target": "landlord",
+      "satire_level": 4,
+      "hinglish": true,
+      "keywords": [
+        "house rent",
+        "bangalore landlord",
+        "flat hunting"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNWHc0SlhOV1lMMTZwVjVJc3c1TzJMb2o2U2RSY0ZhcjNGTEhrVm9PZ3NHRUVqQzNVT0Y0SEFwRzlpYWdPU0pRcDdzaHQwaTRLQ3pSYzhCU1FSMkJBaUFFbmFOcjluM001dG5nYWMzRVpYVlY2ZU9ZM3lyN0gwanRSN2ItMXlRMkMwM250ZTBkRlY1VW5EOENHUFB2VjFqNVJfc01wMWI5dG9DUzVkalYta3AwYkMzOTBUYVJqNnVPQ2czTTl3MDFxOVpJMjdzWkVGc1RiTVlHQlpVcWZ6TXJpT0NkQUZT0gHaAkFVX3lxTU5yTHlvRHcyV0VjRnJzTFBQbk5fMnRZWl91cUowTW5hdXZycDYwa0RIQWliRUxCbDVXYWt5RnpjODhEVFFiMUNPdEFKeDJzamlZdnNUc0pHZjdoeFNGYlFRRldVdndOZG4tbDZ4UlgzYndYTzVtNkhxYUlHMXpJNDdnSkNzSURMeXA3X3pKWEhUOWdaZ3hoNGVGRi1hUnZNbnNZbGRkNTBxSU1zdHhhMmxDTXZHRHNuektoZ1Q1TFUtbDdOWFZCdmsxSlVrMHNULTRHQnAzU1E?oc=5",
+      "created_at": "2026-09-26",
+      "status": "draft",
+      "_score": 59,
+      "_judge": "This is an exceptionally strong post, though the 'Uncle/Beta' framing slightly limits its immediate translation for non-Indian audiences.",
+      "_detail": {
+        "laugh": 5,
+        "share_trigger": 5,
+        "surprise": 5,
+        "specificity": 5,
+        "voice": 4,
+        "travels": 4
+      },
+      "_penalty": 7
+    },
+    {
+      "trend": "Daughter's school admission cancelled after paying Rs 21,000 admission fee; refund denied despite no class",
+      "context": "Getting a toddler into an urban school requires parents to undergo a corporate recruitment process.",
+      "angle": "Nursery admissions have adopted the exact vocabulary of corporate hiring, right down to the ghosting.",
+      "slides": [
+        "Your three-year-old needs a CV more impressive than your corporate manager.",
+        "\"What is your parenting philosophy?\"\n\"Where do you see them in fifteen years?\"\n\"Can you explain this gap in their playtime?\"\n\"Please transfer the interaction fee.\"",
+        "They reject the child.\n\nYour husband is still on the waiting list."
+      ],
+      "caption": "Someone you know is drafting a cover letter for a toddler right now. 📝",
+      "trigger": "parents",
+      "structure": "interview",
+      "move": "the_institutional_frame",
+      "target": "school",
+      "satire_level": 3,
+      "hinglish": false,
+      "keywords": [
+        "school interview",
+        "nursery admission",
+        "parenting problems"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi1AJBVV95cUxNUUZoUnlJV3ZIYU1sYTVVeEFsZXE3VWJEd0dfY1hBaXIwUXFESnNHSXoyOVVCekdDb1JyOEFpSmtpdmw1aFBEeE1Ea0t2Qk5KZEhJVGlpa3pFTWt3eHp0TVFKRTktTEQycmRjSHQxQ3RUSEhDNFZHSF9DeDlmS0JUTjZuLTJ4M2gtRkxyTU14bkJhM3lFX0NJelNEeDBzTGh1cExXb1ZacDZiYzcxaU5JdUVPNFpMRzVEckdsNkcyc0cwZ3FhMXYxYkVQRTFhSl9maU9EM201dG5nYWMzRVpYVlY2ZU9ZM3lyN0gwanRSN2ItMXlRMkMwM250ZTBkRlY1VW5EOENHUFB2VjFqNVJfc01wMWI5dG9DUzVkalYta3AwYkMzOTBUYVJqNnVPQ2czTTl3MDFxOVpJMjdzWkVGc1RiTVlHQlpVcWZ6TXJpT0NkQUZT0gHaAkFVX3lxTFBXRTBJMXJLNllFOUxzdVhDeFFXeXNFM0lYNlNkWDF6elRkN0VUcVk3VThncVoyMGtNcjhvVXdlRklobTljOFlmN2hKeEhPRXJYQ3hzZjJQMlBTUEtXcmduM0VUcGZsYzE5N3pKYlpqb0hMNUV3WERObTduSkJJdlpYWklsM016MGFMV0ZmVnB0dVJDUFRwVVRfZ29kLWdlWktENERkbTRYOEE4OVBkcEFvWXFuTDRTRE0xc3UzbEwwaUtpZy1fNkxLNVhFLTFtQjFoeFRHR2gtU2lGa19KeEpvaVlSM0h0MVYzMG5YbHhuTGotQlRvbEhycHk1Znl5Wmo0b1RPSS1fZVN1VGNqWFdEYW5kVW5HamU5bXF4dkdVWHVuZzRZZExadmJiRVZyeElYNjM5UjNMbWtHYzdxSEdTeVVHMS1tNXZ3VjNOODZVS1JtZmM2c0dKR0E?oc=5",
+      "created_at": "2026-09-26",
+      "status": "draft",
+      "_score": 53,
+      "_judge": "The post lacks a concrete, checkable specificity detail like a exact rupee fee or a specific brand to ground the exaggeration.",
+      "_detail": {
+        "laugh": 4,
+        "share_trigger": 4,
+        "surprise": 4,
+        "specificity": 3,
+        "voice": 4,
+        "travels": 5
+      },
+      "_penalty": 3
+    },
+    {
+      "trend": "Indian Woman Pays Rs 10 Lakh Monthly Rent For 2-Bedroom Apartment In New York City, Sparks Debate",
+      "context": "A 30-year-old renting in metropolitan India has surrendered to lease terms that resemble a commercial transaction.",
+      "angle": "Renting stopped being temporary. It is a corporate lease on your sanity.",
+      "slides": [
+        "Your landlord has drafted a lease that reads like a hostage negotiation.",
+        "Ten percent hike every eleven months.\nPainting charges deducted from deposit.\nWater leakage is your personal growth opportunity.\nNo guests after 9 PM.",
+        "You have lived there four years.\n\nShe still calls you the tenant."
+      ],
+      "caption": "Somebody you know is currently paying the paint budget for their landlord's daughter's wedding. 🎨",
+      "trigger": "rent",
+      "structure": "terms_and_conditions",
+      "move": "the_institutional_frame",
+      "target": "landlord",
+      "satire_level": 3,
+      "hinglish": false,
+      "keywords": [
+        "rental agreement",
+        "deposit refund",
+        "mumbai housing"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNWHc0SlhOV1lMMTZwVjVJc3c1TzJMb2o2U2RSY0ZhcjNGTEhrVm9PZ3NHRUVqQzNVT0Y0SEFwRzlpYWdPU0pRcDdzaHQwaTRLQ3pSYzhCU1FSMkJBaUFFbmFOcjluM001dG5nYWMzRVpYVlY2ZU9ZM3lyN0gwanRSN2ItMXlRMkMwM250ZTBkRlY1VW5EOENHUFB2VjFqNVJfc01wMWI5dG9DUzVkalYta3AwYkMzOTBUYVJqNnVPQ2czTTl3MDFxOVpJMjdzWkVGc1RiTVlHQlpVcWZ6TXJpT0NkQUZT0gHaAkFVX3lxTU5yTHlvRHcyV0VjRnJzTFBQbk5fMnRZWl91cUowTW5hdXZycDYwa0RIQWliRUxCbDVXYWt5RnpjODhEVFFiMUNPdEFKeDJzamlZdnNUc0pHZjdoeFNGYlFRRldVdndOZG4tbDZ4UlgzYndYTzVtNkhxYUlHMXpJNDdnSkNzSURMeXA3X3pKWEhUOWdaZ3hoNGVGRi1hUnZNbnNZbGRkNTBxSU1zdHhhMmxDTXZHRHNuektoZ1Q1TFUtbDdOWFZCdmsxSlVrMHNULTRHQnAzU1E?oc=5",
+      "created_at": "2026-09-26",
+      "status": "draft",
+      "_score": 50,
+      "_judge": "Though structurally perfect and highly relatable, the final line is a sad observation that lacks the sharp comedic turn needed for a big laugh.",
+      "_detail": {
+        "laugh": 3,
+        "share_trigger": 5,
+        "surprise": 3,
+        "specificity": 4,
+        "voice": 5,
+        "travels": 5
+      },
+      "_penalty": 8
+    },
+    {
+      "trend": "Indian Woman Pays Rs 10 Lakh Monthly Rent For 2-Bedroom Apartment In New York City, Sparks Debate",
+      "context": "Urban Indian tenants face extreme local housing demands and compare themselves to international rent outrages.",
+      "angle": "A rental broker in Mumbai or Bangalore sees international luxury rents not as news, but as a challenge.",
+      "slides": [
+        "A broker in Indiranagar has seen the ₹10 lakh NYC apartment and got inspired.",
+        "No sunlight.\nSeepage on the bedroom wall.\nTen months of deposit upfront.\nNo bachelors.\nNo non-veg.",
+        "But they want a LinkedIn profile of your pet.\n\nThe appraisal is final."
+      ],
+      "caption": "Send this to the person who spent their weekend arguing with a broker on WhatsApp. 🔑",
+      "trigger": "rent",
+      "structure": "juxtaposition",
+      "move": "absurd_comparative",
+      "target": "landlord",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "bengaluru rent",
+        "broker scam",
+        "indiranagar flat"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNWHc0SlhOV1lMMTZwVjVJc3c1TzJMb2o2U2RSY0ZhcjNGTEhrVm9PZ3NHRUVqQzNVT0Y0SEFwRzlpYWdPU0pRcDdzaHQwaTRLQ3pSYzhCU1FSMkJBaUFFbmFOcjluM001dG5nYWMzRVpYVlY2ZU9ZM3lyN0gwanRSN2ItMXlRMkMwM250ZTBkRlY1VW5EOENHUFB2VjFqNVJfc01wMWI5dG9DUzVkalYta3AwYkMzOTBUYVJqNnVPQ2czTTl3MDFxOVpJMjdzWkVGc1RiTVlHQlpVcWZ6TXJpT0NkQUZT0gHaAkFVX3lxTU5yTHlvRHcyV0VjRnJzTFBQbk5fMnRZWl91cUowTW5hdXZycDYwa0RIQWliRUxCbDVXYWt5RnpjODhEVFFiMUNPdEFKeDJzamlZdnNUc0pHZjdoeFNGYlFRRldVdndOZG4tbDZ4UlgzYndYTzVtNkhxYUlHMXpJNDdnSkNzSURMeXA3X3pKWEhUOWdaZ3hoNGVGRi1hUnZNbnNZbGRkNTBxSU1zdHhhMmxDTXZHRHNuektoZ1Q1TFUtbDdOWFZCdmsxSlVrMHNULTRHQnAzU1E?oc=5",
+      "created_at": "2026-09-26",
+      "status": "draft",
+      "_score": 39,
+      "_judge": "The landing's sudden pivot to corporate appraisal terminology in a housing joke is highly confusing and breaks the premise.",
+      "_detail": {
+        "laugh": 2,
+        "share_trigger": 3,
+        "surprise": 2,
+        "specificity": 5,
+        "voice": 3,
+        "travels": 2
+      },
+      "_penalty": 0
+    },
+    {
+      "trend": "Daughter's school admission cancelled after paying Rs 21,000 admission fee; refund denied despite no class",
+      "context": "Modern preschools have structured non-refundable fees like premium hospitality, turning parenting into a series of luxury transactions.",
+      "angle": "Every stage of your child's education is just a non-refundable booking deposit for a future you cannot afford.",
+      "slides": [
+        "A school just charged ₹21,000 to cancel a class that never even started.",
+        "No books bought.\nNo uniform stitched.\nNo desk sat on.\nNo attendance marked.",
+        "But the fee is non-refundable.\n\nYour child has learned their first lesson about the Indian education system."
+      ],
+      "caption": "Send this to the parent who is currently managing three different nursery admission spreadsheets. 🏫",
+      "trigger": "money",
+      "structure": "escalating_list",
+      "move": "flat_restatement",
+      "target": "school",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "school admission",
+        "refund",
+        "education scam"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi1AJBVV95cUxNUUZoUnlJV3ZIYU1sYTVVeEFsZXE3VWJEd0dfY1hBaXIwUXFESnNHSXoyOVVCekdDb1JyOEFpSmtpdmw1aFBEeE1Ea0t2Qk5KZEhJVGlpa3pFTWt3eHp0TVFKRTktTEQycmRjSHQxQ3RUSEhDNFZHSF9DeDlmS0JUTjZuLTJ4M2gtRkxyTU14bkJhM3lFX0NJelNEeDBzTGh1cExXb1ZacDZiYzcxaU5JdUVPNFpMRzVEckdsNkcyc0cwZ3FhMXYxYkVQRTFhSl9maU9EM201dG5nYWMzRVpYVlY2ZU9ZM3lyN0gwanRSN2ItMXlRMkMwM250ZTBkRlY1VW5EOENHUFB2VjFqNVJfc01wMWI5dG9DUzVkalYta3AwYkMzOTBUYVJqNnVPQ2czTTl3MDFxOVpJMjdzWkVGc1RiTVlHQlpVcWZ6TXJpT0NkQUZT0gHaAkFVX3lxTFBXRTBJMXJLNllFOUxzdVhDeFFXeXNFM0lYNlNkWDF6elRkN0VUcVk3VThncVoyMGtNcjhvVXdlRklobTljOFlmN2hKeEhPRXJYQ3hzZjJQMlBTUEtXcmduM0VUcGZsYzE5N3pKYlpqb0hMNUV3WERObTduSkJJdlpYWklsM016MGFMV0ZmVnB0dVJDUFRwVVRfZ29kLWdlWktENERkbTRYOEE4OVBkcEFvWXFuTDRTRE0xc3UzbEwwaUtpZy1fNkxLNVhFLTFtQjFoeFRHR2gtU2lGa19KeEpvaVlSM0h0MVYzMG5YbHhuTGotQlRvbEhycHk1Znl5Wmo0b1RPSS1fZVN1VGNqWFdEYW5kVW5HamU5bXF4dkdVWHVuZzRZZExadmJiRVZyeElYNjM5UjNMbWtHYzdxSEdTeVVHMS1tNXZ3VjNOODZVS1JtZmM2c0dKR0E?oc=5",
+      "created_at": "2026-09-26",
+      "status": "draft",
+      "_score": 24,
+      "_judge": "The landing moralizes and explains the joke to the reader instead of delivering a sharp comic turn.",
+      "_detail": {
+        "laugh": 1,
+        "share_trigger": 2,
+        "surprise": 1,
+        "specificity": 4,
+        "voice": 2,
+        "travels": 2
+      },
+      "_penalty": 3
+    },
+    {
+      "trend": "Daughter's school admission cancelled after paying Rs 21,000 admission fee; refund denied despite no class",
+      "context": "Indian parents readily hand over huge deposits for schools out of systemic pressure, ignoring basic financial sense.",
+      "angle": "The compliance culture of Indian parents makes them the easiest targets for institutional scams.",
+      "slides": [
+        "\"Beta, school ka form fill kiya ya nahi?\"",
+        "\"Form fee is ₹21,000.\"\n\"No class has started yet.\"\n\"They won't refund if we cancel.\"\n\"But they have a swimming pool on the third floor.\"",
+        "Tumhara beta abhi chalna bhi nahi seekha.\n\nThoda adjust kar lo."
+      ],
+      "caption": "Whose mother is this? 🏊‍♂️",
+      "trigger": "parents",
+      "structure": "dialogue",
+      "move": "the_banal_true_answer",
+      "target": "school",
+      "satire_level": 4,
+      "hinglish": true,
+      "keywords": [
+        "admission fee",
+        "private school",
+        "parenting"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi1AJBVV95cUxNUUZoUnlJV3ZIYU1sYTVVeEFsZXE3VWJEd0dfY1hBaXIwUXFESnNHSXoyOVVCekdDb1JyOEFpSmtpdmw1aFBEeE1Ea0t2Qk5KZEhJVGlpa3pFTWt3eHp0TVFKRTktTEQycmRjSHQxQ3RUSEhDNFZHSF9DeDlmS0JUTjZuLTJ4M2gtRkxyTU14bkJhM3lFX0NJelNEeDBzTGh1cExXb1ZacDZiYzcxaU5JdUVPNFpMRzVEckdsNkcyc0cwZ3FhMXYxYkVQRTFhSl9maU9EM201dG5nYWMzRVpYVlY2ZU9ZM3lyN0gwanRSN2ItMXlRMkMwM250ZTBkRlY1VW5EOENHUFB2VjFqNVJfc01wMWI5dG9DUzVkalYta3AwYkMzOTBUYVJqNnVPQ2czTTl3MDFxOVpJMjdzWkVGc1RiTVlHQlpVcWZ6TXJpT0NkQUZT0gHaAkFVX3lxTFBXRTBJMXJLNllFOUxzdVhDeFFXeXNFM0lYNlNkWDF6elRkN0VUcVk3VThncVoyMGtNcjhvVXdlRklobTljOFlmN2hKeEhPRXJYQ3hzZjJQMlBTUEtXcmduM0VUcGZsYzE5N3pKYlpqb0hMNUV3WERObTduSkJJdlpYWklsM016MGFMV0ZmVnB0dVJDUFRwVVRfZ29kLWdlWktENERkbTRYOEE4OVBkcEFvWXFuTDRTRE0xc3UzbEwwaUtpZy1fNkxLNVhFLTFtQjFoeFRHR2gtU2lGa19KeEpvaVlSM0h0MVYzMG5YbHhuTGotQlRvbEhycHk1Znl5Wmo0b1RPSS1fZVN1VGNqWFdEYW5kVW5HamU5bXF4dkdVWHVuZzRZZExadmJiRVZyeElYNjM5UjNMbWtHYzdxSEdTeVVHMS1tNXZ3VjNOODZVS1JtZmM2c0dKR0E?oc=5",
+      "created_at": "2026-09-26",
+      "status": "draft",
+      "_score": 24,
+      "_judge": "Putting the entire load-bearing landing slide in Hindi makes it completely untravelable for an outsider.",
+      "_detail": {
+        "laugh": 2,
+        "share_trigger": 3,
+        "surprise": 3,
+        "specificity": 4,
+        "voice": 3,
+        "travels": 1
+      },
+      "_penalty": 13
+    }
+  ],
+  "rejected": []
+}

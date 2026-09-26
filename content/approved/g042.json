@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "Indian Woman Pays Rs 10 Lakh Monthly Rent For 2-Bedroom Apartment In New York City, Sparks Debate",
+      "context": "Landlords in prime Indian tech cities extract high rents with passive-aggressive politeness.",
+      "angle": "The sheer friendliness of a family landlord is the ultimate cover for economic extraction.",
+      "slides": [
+        "Uncle, is baar appraisal thoda kam hua hai.",
+        "\"Beta, standard ten percent toh badhna hi hai.\"\n\"Society maintenance has gone up.\"\n\"We have to paint the building next year.\"\n\"₹45,000 is very reasonable for this area.\"",
+        "\"Accha, mom-dad kaise hain?\"\n\nHe hasn't fixed the geyser since June."
+      ],
+      "caption": "Name the landlord who asks about your health only in the month of October. 📞",
+      "trigger": "rent",
+      "structure": "phone_call",
+      "move": "the_turn_in_the_last_words",
+      "target": "landlord",
+      "satire_level": 4,
+      "hinglish": true,
+      "keywords": [
+        "house rent",
+        "bangalore landlord",
+        "flat hunting"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNWHc0SlhOV1lMMTZwVjVJc3c1TzJMb2o2U2RSY0ZhcjNGTEhrVm9PZ3NHRUVqQzNVT0Y0SEFwRzlpYWdPU0pRcDdzaHQwaTRLQ3pSYzhCU1FSMkJBaUFFbmFOcjluM001dG5nYWMzRVpYVlY2ZU9ZM3lyN0gwanRSN2ItMXlRMkMwM250ZTBkRlY1VW5EOENHUFB2VjFqNVJfc01wMWI5dG9DUzVkalYta3AwYkMzOTBUYVJqNnVPQ2czTTl3MDFxOVpJMjdzWkVGc1RiTVlHQlpVcWZ6TXJpT0NkQUZT0gHaAkFVX3lxTU5yTHlvRHcyV0VjRnJzTFBQbk5fMnRZWl91cUowTW5hdXZycDYwa0RIQWliRUxCbDVXYWt5RnpjODhEVFFiMUNPdEFKeDJzamlZdnNUc0pHZjdoeFNGYlFRRldVdndOZG4tbDZ4UlgzYndYTzVtNkhxYUlHMXpJNDdnSkNzSURMeXA3X3pKWEhUOWdaZ3hoNGVGRi1hUnZNbnNZbGRkNTBxSU1zdHhhMmxDTXZHRHNuektoZ1Q1TFUtbDdOWFZCdmsxSlVrMHNULTRHQnAzU1E?oc=5",
+      "created_at": "2026-09-26",
+      "status": "approved",
+      "id": "g042",
+      "rank_score": 59,
+      "rank_verdict": "This is an exceptionally strong post, though the 'Uncle/Beta' framing slightly limits its immediate translation for non-Indian audiences."
+    }
+  ]
+}

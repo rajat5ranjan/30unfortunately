@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "Daughter's school admission cancelled after paying Rs 21,000 admission fee; refund denied despite no class",
+      "context": "Indian parents readily hand over huge deposits for schools out of systemic pressure, ignoring basic financial sense.",
+      "angle": "The compliance culture of Indian parents makes them the easiest targets for institutional scams.",
+      "slides": [
+        "\"Beta, school ka form fill kiya ya nahi?\"",
+        "\"Form fee is ₹21,000.\"\n\"No class has started yet.\"\n\"They won't refund if we cancel.\"\n\"But they have a swimming pool on the third floor.\"",
+        "Tumhara beta abhi chalna bhi nahi seekha.\n\nThoda adjust kar lo."
+      ],
+      "caption": "Whose mother is this? 🏊‍♂️",
+      "trigger": "parents",
+      "structure": "dialogue",
+      "move": "the_banal_true_answer",
+      "target": "school",
+      "satire_level": 4,
+      "hinglish": true,
+      "keywords": [
+        "admission fee",
+        "private school",
+        "parenting"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi1AJBVV95cUxNUUZoUnlJV3ZIYU1sYTVVeEFsZXE3VWJEd0dfY1hBaXIwUXFESnNHSXoyOVVCekdDb1JyOEFpSmtpdmw1aFBEeE1Ea0t2Qk5KZEhJVGlpa3pFTWt3eHp0TVFKRTktTEQycmRjSHQxQ3RUSEhDNFZHSF9DeDlmS0JUTjZuLTJ4M2gtRkxyTU14bkJhM3lFX0NJelNEeDBzTGh1cExXb1ZacDZiYzcxaU5JdUVPNFpMRzVEckdsNkcyc0cwZ3FhMXYxYkVQRTFhSl9maU9EM201dG5nYWMzRVpYVlY2ZU9ZM3lyN0gwanRSN2ItMXlRMkMwM250ZTBkRlY1VW5EOENHUFB2VjFqNVJfc01wMWI5dG9DUzVkalYta3AwYkMzOTBUYVJqNnVPQ2czTTl3MDFxOVpJMjdzWkVGc1RiTVlHQlpVcWZ6TXJpT0NkQUZT0gHaAkFVX3lxTFBXRTBJMXJLNllFOUxzdVhDeFFXeXNFM0lYNlNkWDF6elRkN0VUcVk3VThncVoyMGtNcjhvVXdlRklobTljOFlmN2hKeEhPRXJYQ3hzZjJQMlBTUEtXcmduM0VUcGZsYzE5N3pKYlpqb0hMNUV3WERObTduSkJJdlpYWklsM016MGFMV0ZmVnB0dVJDUFRwVVRfZ29kLWdlWktENERkbTRYOEE4OVBkcEFvWXFuTDRTRE0xc3UzbEwwaUtpZy1fNkxLNVhFLTFtQjFoeFRHR2gtU2lGa19KeEpvaVlSM0h0MVYzMG5YbHhuTGotQlRvbEhycHk1Znl5Wmo0b1RPSS1fZVN1VGNqWFdEYW5kVW5HamU5bXF4dkdVWHVuZzRZZExadmJiRVZyeElYNjM5UjNMbWtHYzdxSEdTeVVHMS1tNXZ3VjNOODZVS1JtZmM2c0dKR0E?oc=5",
+      "created_at": "2026-09-26",
+      "status": "approved",
+      "id": "g047",
+      "rank_score": 24,
+      "rank_verdict": "Putting the entire load-bearing landing slide in Hindi makes it completely untravelable for an outsider."
+    }
+  ]
+}

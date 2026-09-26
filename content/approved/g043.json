@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "Daughter's school admission cancelled after paying Rs 21,000 admission fee; refund denied despite no class",
+      "context": "Getting a toddler into an urban school requires parents to undergo a corporate recruitment process.",
+      "angle": "Nursery admissions have adopted the exact vocabulary of corporate hiring, right down to the ghosting.",
+      "slides": [
+        "Your three-year-old needs a CV more impressive than your corporate manager.",
+        "\"What is your parenting philosophy?\"\n\"Where do you see them in fifteen years?\"\n\"Can you explain this gap in their playtime?\"\n\"Please transfer the interaction fee.\"",
+        "They reject the child.\n\nYour husband is still on the waiting list."
+      ],
+      "caption": "Someone you know is drafting a cover letter for a toddler right now. 📝",
+      "trigger": "parents",
+      "structure": "interview",
+      "move": "the_institutional_frame",
+      "target": "school",
+      "satire_level": 3,
+      "hinglish": false,
+      "keywords": [
+        "school interview",
+        "nursery admission",
+        "parenting problems"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi1AJBVV95cUxNUUZoUnlJV3ZIYU1sYTVVeEFsZXE3VWJEd0dfY1hBaXIwUXFESnNHSXoyOVVCekdDb1JyOEFpSmtpdmw1aFBEeE1Ea0t2Qk5KZEhJVGlpa3pFTWt3eHp0TVFKRTktTEQycmRjSHQxQ3RUSEhDNFZHSF9DeDlmS0JUTjZuLTJ4M2gtRkxyTU14bkJhM3lFX0NJelNEeDBzTGh1cExXb1ZacDZiYzcxaU5JdUVPNFpMRzVEckdsNkcyc0cwZ3FhMXYxYkVQRTFhSl9maU9EM201dG5nYWMzRVpYVlY2ZU9ZM3lyN0gwanRSN2ItMXlRMkMwM250ZTBkRlY1VW5EOENHUFB2VjFqNVJfc01wMWI5dG9DUzVkalYta3AwYkMzOTBUYVJqNnVPQ2czTTl3MDFxOVpJMjdzWkVGc1RiTVlHQlpVcWZ6TXJpT0NkQUZT0gHaAkFVX3lxTFBXRTBJMXJLNllFOUxzdVhDeFFXeXNFM0lYNlNkWDF6elRkN0VUcVk3VThncVoyMGtNcjhvVXdlRklobTljOFlmN2hKeEhPRXJYQ3hzZjJQMlBTUEtXcmduM0VUcGZsYzE5N3pKYlpqb0hMNUV3WERObTduSkJJdlpYWklsM016MGFMV0ZmVnB0dVJDUFRwVVRfZ29kLWdlWktENERkbTRYOEE4OVBkcEFvWXFuTDRTRE0xc3UzbEwwaUtpZy1fNkxLNVhFLTFtQjFoeFRHR2gtU2lGa19KeEpvaVlSM0h0MVYzMG5YbHhuTGotQlRvbEhycHk1Znl5Wmo0b1RPSS1fZVN1VGNqWFdEYW5kVW5HamU5bXF4dkdVWHVuZzRZZExadmJiRVZyeElYNjM5UjNMbWtHYzdxSEdTeVVHMS1tNXZ3VjNOODZVS1JtZmM2c0dKR0E?oc=5",
+      "created_at": "2026-09-26",
+      "status": "approved",
+      "id": "g043",
+      "rank_score": 53,
+      "rank_verdict": "The post lacks a concrete, checkable specificity detail like a exact rupee fee or a specific brand to ground the exaggeration."
+    }
+  ]
+}

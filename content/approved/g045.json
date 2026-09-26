@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "Indian Woman Pays Rs 10 Lakh Monthly Rent For 2-Bedroom Apartment In New York City, Sparks Debate",
+      "context": "Urban Indian tenants face extreme local housing demands and compare themselves to international rent outrages.",
+      "angle": "A rental broker in Mumbai or Bangalore sees international luxury rents not as news, but as a challenge.",
+      "slides": [
+        "A broker in Indiranagar has seen the ₹10 lakh NYC apartment and got inspired.",
+        "No sunlight.\nSeepage on the bedroom wall.\nTen months of deposit upfront.\nNo bachelors.\nNo non-veg.",
+        "But they want a LinkedIn profile of your pet.\n\nThe appraisal is final."
+      ],
+      "caption": "Send this to the person who spent their weekend arguing with a broker on WhatsApp. 🔑",
+      "trigger": "rent",
+      "structure": "juxtaposition",
+      "move": "absurd_comparative",
+      "target": "landlord",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "bengaluru rent",
+        "broker scam",
+        "indiranagar flat"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNWHc0SlhOV1lMMTZwVjVJc3c1TzJMb2o2U2RSY0ZhcjNGTEhrVm9PZ3NHRUVqQzNVT0Y0SEFwRzlpYWdPU0pRcDdzaHQwaTRLQ3pSYzhCU1FSMkJBaUFFbmFOcjluM001dG5nYWMzRVpYVlY2ZU9ZM3lyN0gwanRSN2ItMXlRMkMwM250ZTBkRlY1VW5EOENHUFB2VjFqNVJfc01wMWI5dG9DUzVkalYta3AwYkMzOTBUYVJqNnVPQ2czTTl3MDFxOVpJMjdzWkVGc1RiTVlHQlpVcWZ6TXJpT0NkQUZT0gHaAkFVX3lxTU5yTHlvRHcyV0VjRnJzTFBQbk5fMnRZWl91cUowTW5hdXZycDYwa0RIQWliRUxCbDVXYWt5RnpjODhEVFFiMUNPdEFKeDJzamlZdnNUc0pHZjdoeFNGYlFRRldVdndOZG4tbDZ4UlgzYndYTzVtNkhxYUlHMXpJNDdnSkNzSURMeXA3X3pKWEhUOWdaZ3hoNGVGRi1hUnZNbnNZbGRkNTBxSU1zdHhhMmxDTXZHRHNuektoZ1Q1TFUtbDdOWFZCdmsxSlVrMHNULTRHQnAzU1E?oc=5",
+      "created_at": "2026-09-26",
+      "status": "approved",
+      "id": "g045",
+      "rank_score": 39,
+      "rank_verdict": "The landing's sudden pivot to corporate appraisal terminology in a housing joke is highly confusing and breaks the premise."
+    }
+  ]
+}

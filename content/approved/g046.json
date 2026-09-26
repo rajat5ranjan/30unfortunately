@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "Daughter's school admission cancelled after paying Rs 21,000 admission fee; refund denied despite no class",
+      "context": "Modern preschools have structured non-refundable fees like premium hospitality, turning parenting into a series of luxury transactions.",
+      "angle": "Every stage of your child's education is just a non-refundable booking deposit for a future you cannot afford.",
+      "slides": [
+        "A school just charged ₹21,000 to cancel a class that never even started.",
+        "No books bought.\nNo uniform stitched.\nNo desk sat on.\nNo attendance marked.",
+        "But the fee is non-refundable.\n\nYour child has learned their first lesson about the Indian education system."
+      ],
+      "caption": "Send this to the parent who is currently managing three different nursery admission spreadsheets. 🏫",
+      "trigger": "money",
+      "structure": "escalating_list",
+      "move": "flat_restatement",
+      "target": "school",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "school admission",
+        "refund",
+        "education scam"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi1AJBVV95cUxNUUZoUnlJV3ZIYU1sYTVVeEFsZXE3VWJEd0dfY1hBaXIwUXFESnNHSXoyOVVCekdDb1JyOEFpSmtpdmw1aFBEeE1Ea0t2Qk5KZEhJVGlpa3pFTWt3eHp0TVFKRTktTEQycmRjSHQxQ3RUSEhDNFZHSF9DeDlmS0JUTjZuLTJ4M2gtRkxyTU14bkJhM3lFX0NJelNEeDBzTGh1cExXb1ZacDZiYzcxaU5JdUVPNFpMRzVEckdsNkcyc0cwZ3FhMXYxYkVQRTFhSl9maU9EM201dG5nYWMzRVpYVlY2ZU9ZM3lyN0gwanRSN2ItMXlRMkMwM250ZTBkRlY1VW5EOENHUFB2VjFqNVJfc01wMWI5dG9DUzVkalYta3AwYkMzOTBUYVJqNnVPQ2czTTl3MDFxOVpJMjdzWkVGc1RiTVlHQlpVcWZ6TXJpT0NkQUZT0gHaAkFVX3lxTFBXRTBJMXJLNllFOUxzdVhDeFFXeXNFM0lYNlNkWDF6elRkN0VUcVk3VThncVoyMGtNcjhvVXdlRklobTljOFlmN2hKeEhPRXJYQ3hzZjJQMlBTUEtXcmduM0VUcGZsYzE5N3pKYlpqb0hMNUV3WERObTduSkJJdlpYWklsM016MGFMV0ZmVnB0dVJDUFRwVVRfZ29kLWdlWktENERkbTRYOEE4OVBkcEFvWXFuTDRTRE0xc3UzbEwwaUtpZy1fNkxLNVhFLTFtQjFoeFRHR2gtU2lGa19KeEpvaVlSM0h0MVYzMG5YbHhuTGotQlRvbEhycHk1Znl5Wmo0b1RPSS1fZVN1VGNqWFdEYW5kVW5HamU5bXF4dkdVWHVuZzRZZExadmJiRVZyeElYNjM5UjNMbWtHYzdxSEdTeVVHMS1tNXZ3VjNOODZVS1JtZmM2c0dKR0E?oc=5",
+      "created_at": "2026-09-26",
+      "status": "approved",
+      "id": "g046",
+      "rank_score": 24,
+      "rank_verdict": "The landing moralizes and explains the joke to the reader instead of delivering a sharp comic turn."
+    }
+  ]
+}
