@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "She retired. He had a health scare: Why Indians are choosing HYROX, a brutal fitness race",
+      "context": "The dialogue around fitness in your thirties is a conversation between physical breakdown and optimization culture.",
+      "angle": "The body is signaling emergency, but the trainer is selling it as spiritual alignment.",
+      "slides": [
+        "\"Bro, heart rate hit 192 during the wall balls.\"",
+        "\"My lower back is making clicking sounds.\"\n\"Doctor toh bol raha hai MRI karana padega.\"\n\"But the trainer says it is just my blocks releasing.\"\n\"We have a 5:30 AM mobility session tomorrow.\"",
+        "You are thirty-two.\n\nYou are doing this to survive a spreadsheet."
+      ],
+      "caption": "Someone you know has three different pain sprays in their gym bag. Send them this.",
+      "trigger": "the_body_learning_new_words",
+      "structure": "phone_call",
+      "move": "the_banal_true_answer",
+      "target": "wellness industry",
+      "satire_level": 4,
+      "hinglish": true,
+      "keywords": [
+        "back pain gym",
+        "fitness goals",
+        "mri scan"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQZEl5TV83RmljMTd2aW02Sm5wTzFDOXRoMkoxWWl0OUI2UmxIbnplLWhsOC0xRTA2R0VkOXB2U1JVTzk5aGppempuelVuMTJBUXU4emRkT2EyQV9HeksxcThrRC05M0pidXM1bVpweXhuSUktMmZ3RzF1bHFsVWF5LUdZbE5GTXE1QVJrWnRDSjlHZHdDajZFRnMxNE03ZGROQ2wyNHBxYS15UEZuOWdxb3Z3?oc=5",
+      "created_at": "2026-09-29",
+      "status": "approved",
+      "id": "g051",
+      "rank_score": 35,
+      "rank_verdict": ""
+    }
+  ]
+}

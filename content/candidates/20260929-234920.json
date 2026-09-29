@@ -1,0 +1,206 @@
+{
+  "generated_at": "20260929-234920",
+  "model": "gemini-3.5-flash",
+  "accepted": [
+    {
+      "trend": "She retired. He had a health scare: Why Indians are choosing HYROX, a brutal fitness race",
+      "context": "At thirty, fitness transitions from a vain hobby to a violent form of stress-management.",
+      "angle": "We are paying to simulate manual labor because we have sitting-down anxiety.",
+      "slides": [
+        "Your fitness goals have retired. You are now training for a rescue mission.",
+        "At 22: Six-pack before Goa.\nAt 26: Cardio to survive the stairs.\nAt 30: Pulling a 100kg sled across artificial turf to feel alive.",
+        "You paid nine thousand rupees for this.\n\nTo pretend you are a cargo loader."
+      ],
+      "caption": "Your knees know exactly who you are sending this to.",
+      "trigger": "the_body_learning_new_words",
+      "structure": "then_now",
+      "move": "absurd_comparative",
+      "target": "wellness industry",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "hyrox india",
+        "functional training",
+        "fitness trend"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQZEl5TV83RmljMTd2aW02Sm5wTzFDOXRoMkoxWWl0OUI2UmxIbnplLWhsOC0xRTA2R0VkOXB2U1JVTzk5aGppempuelVuMTJBUXU4emRkT2EyQV9HeksxcThrRC05M0pidXM1bVpweXhuSUktMmZ3RzF1bHFsVWF5LUdZbE5GTXE1QVJrWnRDSjlHZHdDajZFRnMxNE03ZGROQ2wyNHBxYS15UEZuOWdxb3Z3?oc=5",
+      "created_at": "2026-09-29",
+      "status": "draft",
+      "_score": 39,
+      "_judge": "",
+      "_detail": {
+        "laugh": null,
+        "share_trigger": null,
+        "surprise": null,
+        "specificity": null,
+        "voice": null,
+        "travels": null
+      },
+      "_penalty": 3
+    },
+    {
+      "trend": "India Housing Sales Up 3% in Q3 2026 to 1 Lakh Units: Anarock",
+      "context": "Home ownership is pitched as financial maturity, but the legal reality is entirely heavily weighted against the buyer.",
+      "angle": "Take the standard builder-buyer agreement and state its actual, one-sided terms plainly.",
+      "slides": [
+        "The possession date on your agreement is a work of fiction.",
+        "Clause 4: Rain is an act of God, delays are free.\n\nClause 9: The pool is subject to municipal water, which does not exist.\n\nClause 12: Super built-up area includes the security guard's cabin.",
+        "Your first EMI is due on Tuesday.\n\nThe building is currently a hole in the ground."
+      ],
+      "caption": "Someone in your family thinks a builder-buyer agreement is a promise. Send them this.",
+      "trigger": "home",
+      "structure": "terms_and_conditions",
+      "move": "literalisation",
+      "target": "developer",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "builder agreement",
+        "home loan emi",
+        "property possession"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPN2ZyNUxFQXBYNERHZE8xU2Z6WHBNdUgzclY1bVJhUU5MV0pwczRVWjZGVjY0MXFSRkU5T2Jrb0FoVXBCZUszeHYzU1I5bjczUUJxUjRPTDBPT3h1RHJPaW0wRy00U0N5ZERwWlZxbkhOcDlGeWVmc3I0RkVGY0pPNHBWV2VjcVExUU9NcjFQbnhjNG9DdnB0YjRPSDRNeVgya3V1VVp2c0k1eTZJNkN4X9IBtgFBVV95cUxPR2hNNXRuQWQxQlFsb0hsa1B0dF8zemwwQkhacEVyMUQ3ckUxbmkxQ0dVZHZjdTVGZGNST000VlRoaWRmckZJUEVWc1JvNVhJM2dfM0xzNkpnMXNOeVVDU2lHMy1PeW9HdmpfYmJlNG1vX1I4Q1h1elVuTTdMX2tkSGpsTmx4RlhSMDM1ckd1aG1PNXY3bDZicHdDTnl5eS1iUWdUNkhMLUJENzJrVC1mdlY2QmI4UQ?oc=5",
+      "created_at": "2026-09-29",
+      "status": "draft",
+      "_score": 38,
+      "_judge": "",
+      "_detail": {
+        "laugh": null,
+        "share_trigger": null,
+        "surprise": null,
+        "specificity": null,
+        "voice": null,
+        "travels": null
+      },
+      "_penalty": 4
+    },
+    {
+      "trend": "India Housing Sales Up 3% in Q3 2026 to 1 Lakh Units: Anarock",
+      "context": "The pressure to buy a home peaks at thirty, but the product being sold is increasingly imaginary.",
+      "angle": "The brochure is selling a high-status lifestyle, but the actual square footage is a claustrophobic box.",
+      "slides": [
+        "The brochure has a virtual infinity pool. The carpet area is 340 square feet.",
+        "Brochure: \"Luxury 1BHK in an upcoming hub.\"\nReality: 42 km from your office.\n\nBrochure: \"Smart home enabled.\"\nReality: A lock that opens into the gas stove.",
+        "You are thirty-three.\n\nYou are buying a drawing of a building."
+      ],
+      "caption": "Send this to the colleague who has three tabs of real estate listings open during the standup.",
+      "trigger": "home",
+      "structure": "juxtaposition",
+      "move": "flat_restatement",
+      "target": "developer",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "flat buying",
+        "real estate",
+        "home loan"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPN2ZyNUxFQXBYNERHZE8xU2Z6WHBNdUgzclY1bVJhUU5MV0pwczRVWjZGVjY0MXFSRkU5T2Jrb0FoVXBCZUszeHYzU1I5bjczUUJxUjRPTDBPT3h1RHJPaW0wRy00U0N5ZERwWlZxbkhOcDlGeWVmc3I0RkVGY0pPNHBWV2VjcVExUU9NcjFQbnhjNG9DdnB0YjRPSDRNeVgya3V1VVp2c0k1eTZJNkN4X9IBtgFBVV95cUxPR2hNNXRuQWQxQlFsb0hsa1B0dF8zemwwQkhacEVyMUQ3ckUxbmkxQ0dVZHZjdTVGZGNST000VlRoaWRmckZJUEVWc1JvNVhJM2dfM0xzNkpnMXNOeVVDU2lHMy1PeW9HdmpfYmJlNG1vX1I4Q1h1elVuTTdMX2tkSGpsTmx4RlhSMDM1ckd1aG1PNXY3bDZicHdDTnl5eS1iUWdUNkhMLUJENzJrVC1mdlY2QmI4UQ?oc=5",
+      "created_at": "2026-09-29",
+      "status": "draft",
+      "_score": 35,
+      "_judge": "",
+      "_detail": {
+        "laugh": null,
+        "share_trigger": null,
+        "surprise": null,
+        "specificity": null,
+        "voice": null,
+        "travels": null
+      },
+      "_penalty": 7
+    },
+    {
+      "trend": "She retired. He had a health scare: Why Indians are choosing HYROX, a brutal fitness race",
+      "context": "The dialogue around fitness in your thirties is a conversation between physical breakdown and optimization culture.",
+      "angle": "The body is signaling emergency, but the trainer is selling it as spiritual alignment.",
+      "slides": [
+        "\"Bro, heart rate hit 192 during the wall balls.\"",
+        "\"My lower back is making clicking sounds.\"\n\"Doctor toh bol raha hai MRI karana padega.\"\n\"But the trainer says it is just my blocks releasing.\"\n\"We have a 5:30 AM mobility session tomorrow.\"",
+        "You are thirty-two.\n\nYou are doing this to survive a spreadsheet."
+      ],
+      "caption": "Someone you know has three different pain sprays in their gym bag. Send them this.",
+      "trigger": "the_body_learning_new_words",
+      "structure": "phone_call",
+      "move": "the_banal_true_answer",
+      "target": "wellness industry",
+      "satire_level": 4,
+      "hinglish": true,
+      "keywords": [
+        "back pain gym",
+        "fitness goals",
+        "mri scan"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQZEl5TV83RmljMTd2aW02Sm5wTzFDOXRoMkoxWWl0OUI2UmxIbnplLWhsOC0xRTA2R0VkOXB2U1JVTzk5aGppempuelVuMTJBUXU4emRkT2EyQV9HeksxcThrRC05M0pidXM1bVpweXhuSUktMmZ3RzF1bHFsVWF5LUdZbE5GTXE1QVJrWnRDSjlHZHdDajZFRnMxNE03ZGROQ2wyNHBxYS15UEZuOWdxb3Z3?oc=5",
+      "created_at": "2026-09-29",
+      "status": "draft",
+      "_score": 35,
+      "_judge": "",
+      "_detail": {
+        "laugh": null,
+        "share_trigger": null,
+        "surprise": null,
+        "specificity": null,
+        "voice": null,
+        "travels": null
+      },
+      "_penalty": 7
+    }
+  ],
+  "rejected": [
+    {
+      "trend": "India Housing Sales Up 3% in Q3 2026 to 1 Lakh Units: Anarock",
+      "context": "The pressure to buy a house is driven by an older generation whose math was done in a completely different century.",
+      "angle": "Contrast the modern reality of a multi-decade loan against the triviality of how easily our parents bought property.",
+      "slides": [
+        "\"Rent dena toh paise barbad karna hai.\"",
+        "\"Buy a 2BHK in Greater Noida.\"\n\"The EMI will keep you disciplined.\"\n\"The market is rising 12% every year.\"\n\"Our generation had two houses by thirty.\"",
+        "He bought his plot for ₹12,000.\n\nAnd a sack of wheat."
+      ],
+      "caption": "The classic Sunday afternoon lecture, translated. You know exactly who needs to see this.",
+      "trigger": "parents",
+      "structure": "dialogue",
+      "move": "the_turn_in_the_last_words",
+      "target": "relatives",
+      "satire_level": 5,
+      "hinglish": true,
+      "keywords": [
+        "buying vs renting",
+        "home loan",
+        "parents advice"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPN2ZyNUxFQXBYNERHZE8xU2Z6WHBNdUgzclY1bVJhUU5MV0pwczRVWjZGVjY0MXFSRkU5T2Jrb0FoVXBCZUszeHYzU1I5bjczUUJxUjRPTDBPT3h1RHJPaW0wRy00U0N5ZERwWlZxbkhOcDlGeWVmc3I0RkVGY0pPNHBWV2VjcVExUU9NcjFQbnhjNG9DdnB0YjRPSDRNeVgya3V1VVp2c0k1eTZJNkN4X9IBtgFBVV95cUxPR2hNNXRuQWQxQlFsb0hsa1B0dF8zemwwQkhacEVyMUQ3ckUxbmkxQ0dVZHZjdTVGZGNST000VlRoaWRmckZJUEVWc1JvNVhJM2dfM0xzNkpnMXNOeVVDU2lHMy1PeW9HdmpfYmJlNG1vX1I4Q1h1elVuTTdMX2tkSGpsTmx4RlhSMDM1ckd1aG1PNXY3bDZicHdDTnl5eS1iUWdUNkhMLUJENzJrVC1mdlY2QmI4UQ?oc=5",
+      "created_at": "2026-09-29",
+      "_gate_failures": [
+        "landing carries a currency figure — that beat cannot travel; move the number into the escalation"
+      ]
+    },
+    {
+      "trend": "She retired. He had a health scare: Why Indians are choosing HYROX, a brutal fitness race",
+      "context": "The marketing of modern functional fitness matches the clinical language of a corporate mandate.",
+      "angle": "The gym experience has been optimized into a secondary shift of physical labor.",
+      "slides": [
+        "Your corporate gym has rebranded your anxiety.",
+        "Role: High-Intensity Functional Competitor.\n\nTasks: Running until you see your ancestors.\nLifting heavy objects for no geological reason.\nPaying to sweat on synthetic turf.",
+        "The contract is annual.\n\nYour physiotherapist has already bought a car."
+      ],
+      "caption": "Whose physiotherapist is eating out at fancy places because of their gym routine?",
+      "trigger": "the_advice_industry",
+      "structure": "job_description",
+      "move": "literalisation",
+      "target": "gym",
+      "satire_level": 3,
+      "hinglish": false,
+      "keywords": [
+        "gym membership",
+        "physiotherapy",
+        "functional fitness"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQZEl5TV83RmljMTd2aW02Sm5wTzFDOXRoMkoxWWl0OUI2UmxIbnplLWhsOC0xRTA2R0VkOXB2U1JVTzk5aGppempuelVuMTJBUXU4emRkT2EyQV9HeksxcThrRC05M0pidXM1bVpweXhuSUktMmZ3RzF1bHFsVWF5LUdZbE5GTXE1QVJrWnRDSjlHZHdDajZFRnMxNE03ZGROQ2wyNHBxYS15UEZuOWdxb3Z3?oc=5",
+      "created_at": "2026-09-29",
+      "_gate_failures": [
+        "no concrete detail (no number, rupee figure or quoted speech) — too generic"
+      ]
+    }
+  ]
+}

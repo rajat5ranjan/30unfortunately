@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "India Housing Sales Up 3% in Q3 2026 to 1 Lakh Units: Anarock",
+      "context": "Home ownership is pitched as financial maturity, but the legal reality is entirely heavily weighted against the buyer.",
+      "angle": "Take the standard builder-buyer agreement and state its actual, one-sided terms plainly.",
+      "slides": [
+        "The possession date on your agreement is a work of fiction.",
+        "Clause 4: Rain is an act of God, delays are free.\n\nClause 9: The pool is subject to municipal water, which does not exist.\n\nClause 12: Super built-up area includes the security guard's cabin.",
+        "Your first EMI is due on Tuesday.\n\nThe building is currently a hole in the ground."
+      ],
+      "caption": "Someone in your family thinks a builder-buyer agreement is a promise. Send them this.",
+      "trigger": "home",
+      "structure": "terms_and_conditions",
+      "move": "literalisation",
+      "target": "developer",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "builder agreement",
+        "home loan emi",
+        "property possession"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPN2ZyNUxFQXBYNERHZE8xU2Z6WHBNdUgzclY1bVJhUU5MV0pwczRVWjZGVjY0MXFSRkU5T2Jrb0FoVXBCZUszeHYzU1I5bjczUUJxUjRPTDBPT3h1RHJPaW0wRy00U0N5ZERwWlZxbkhOcDlGeWVmc3I0RkVGY0pPNHBWV2VjcVExUU9NcjFQbnhjNG9DdnB0YjRPSDRNeVgya3V1VVp2c0k1eTZJNkN4X9IBtgFBVV95cUxPR2hNNXRuQWQxQlFsb0hsa1B0dF8zemwwQkhacEVyMUQ3ckUxbmkxQ0dVZHZjdTVGZGNST000VlRoaWRmckZJUEVWc1JvNVhJM2dfM0xzNkpnMXNOeVVDU2lHMy1PeW9HdmpfYmJlNG1vX1I4Q1h1elVuTTdMX2tkSGpsTmx4RlhSMDM1ckd1aG1PNXY3bDZicHdDTnl5eS1iUWdUNkhMLUJENzJrVC1mdlY2QmI4UQ?oc=5",
+      "created_at": "2026-09-29",
+      "status": "approved",
+      "id": "g049",
+      "rank_score": 38,
+      "rank_verdict": ""
+    }
+  ]
+}

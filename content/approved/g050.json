@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "India Housing Sales Up 3% in Q3 2026 to 1 Lakh Units: Anarock",
+      "context": "The pressure to buy a home peaks at thirty, but the product being sold is increasingly imaginary.",
+      "angle": "The brochure is selling a high-status lifestyle, but the actual square footage is a claustrophobic box.",
+      "slides": [
+        "The brochure has a virtual infinity pool. The carpet area is 340 square feet.",
+        "Brochure: \"Luxury 1BHK in an upcoming hub.\"\nReality: 42 km from your office.\n\nBrochure: \"Smart home enabled.\"\nReality: A lock that opens into the gas stove.",
+        "You are thirty-three.\n\nYou are buying a drawing of a building."
+      ],
+      "caption": "Send this to the colleague who has three tabs of real estate listings open during the standup.",
+      "trigger": "home",
+      "structure": "juxtaposition",
+      "move": "flat_restatement",
+      "target": "developer",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "flat buying",
+        "real estate",
+        "home loan"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPN2ZyNUxFQXBYNERHZE8xU2Z6WHBNdUgzclY1bVJhUU5MV0pwczRVWjZGVjY0MXFSRkU5T2Jrb0FoVXBCZUszeHYzU1I5bjczUUJxUjRPTDBPT3h1RHJPaW0wRy00U0N5ZERwWlZxbkhOcDlGeWVmc3I0RkVGY0pPNHBWV2VjcVExUU9NcjFQbnhjNG9DdnB0YjRPSDRNeVgya3V1VVp2c0k1eTZJNkN4X9IBtgFBVV95cUxPR2hNNXRuQWQxQlFsb0hsa1B0dF8zemwwQkhacEVyMUQ3ckUxbmkxQ0dVZHZjdTVGZGNST000VlRoaWRmckZJUEVWc1JvNVhJM2dfM0xzNkpnMXNOeVVDU2lHMy1PeW9HdmpfYmJlNG1vX1I4Q1h1elVuTTdMX2tkSGpsTmx4RlhSMDM1ckd1aG1PNXY3bDZicHdDTnl5eS1iUWdUNkhMLUJENzJrVC1mdlY2QmI4UQ?oc=5",
+      "created_at": "2026-09-29",
+      "status": "approved",
+      "id": "g050",
+      "rank_score": 35,
+      "rank_verdict": ""
+    }
+  ]
+}
