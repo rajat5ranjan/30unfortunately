@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "White-collar hiring grows 2% in September; AI/ML jobs surge 20%: Naukri",
+      "context": "Tech and corporate companies push employees to learn AI as a magic solution to structural workplace problems.",
+      "angle": "AI initiatives are implemented to drive productivity rather than help employees with actual stress.",
+      "slides": [
+        "Your company's new AI initiative is a chatbot that tells you to work harder.",
+        "\"Hi, I am your AI career assistant.\"\n\"How can I help you today?\"\n\"I want a better work-life balance.\"\n\"Based on your profile, I recommend learning prompt engineering.\"",
+        "The machine is fully aligned with management.\n\nIt does not take casual leave."
+      ],
+      "caption": "Somebody you work with has \"AI Transformation Lead\" in their internal bio now. 🤖",
+      "trigger": "corporate",
+      "structure": "customer_support",
+      "move": "literalisation",
+      "target": "employer",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "artificial intelligence",
+        "tech layoffs",
+        "office humor"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNTE5WOS1ESjUxLUR0MnJUV2JZczFrcHBjeGg0cFBLaVhEbjN6elVxU2tCNWFfTGhiZng5ODJpQ3NkUFE5Rm8zb1pnQ1YwSjBiQ3JpRVMweXVJQVVEbWQzTnpONUM4dmd4WDdnbDZEbm5Ienh2WmJ5b2R5QlFhdFRPcy1CZkdwUmlsZ2FnOXNjTEJqbFBJV19EMWRILTJlVDNPTjl3WVZ5dlhTVnhKaUdsX1JwOVU1dVVELVJCVmpkWWFWYlVjWjdxOGVB0gHKAUFVX3lxTE1MTlY5LURKNTEtRHQyclRXYllzMWtwcGN4aDRwUEtpWERuM3p6VXFTa0I1YV9MaGJmeDk4MmlDc2RQUTlGbzNvWmdDVjBK0gHKAUFVX3lxTE1MTlY5LURKNTEtRHQyclRXYllzMWtwcGN4aDRwUEtpWERuM3p6VXFTa0I1YV9MaGJmeDk4MmlDc2RQUTlGbzNvWmdDVjBK?oc=5",
+      "created_at": "2026-10-01",
+      "status": "approved",
+      "id": "g056",
+      "rank_score": 50,
+      "rank_verdict": "The AI chatbot trope is highly generic and prevents the post from achieving a genuinely fresh angle."
+    }
+  ]
+}

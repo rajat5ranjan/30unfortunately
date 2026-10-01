@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "IIT, IIM paychecks hit pause as median campus salaries stay flat for Class of 2027",
+      "context": "The skyrocketing cost of premium education makes flat entry-level salaries a financial hazard.",
+      "angle": "A premium MBA degree creates significant debt without matching the immediate market return.",
+      "slides": [
+        "The ROI on a premium MBA now requires forty years of corporate survival.",
+        "Two-year tuition fee — ₹25,00,000.\nEducation loan interest rate — 9.5%.\nMedian starting salary — Flat.\nAverage flat rent in Bangalore — 45% of take-home pay.",
+        "You are the smartest person in the room.\n\nAnd you cannot afford the security deposit."
+      ],
+      "caption": "Send this to the MBA grad who is still calculating their debt-to-income ratio on a Friday night. 📊",
+      "trigger": "school",
+      "structure": "receipt",
+      "move": "literalisation",
+      "target": "school",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "mba loan",
+        "iim placement",
+        "education cost"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxQOFNPUDRmb2tlRXVOSUhkQUxuRTY5bmUwLUlJSGdZZUVaVTdWY3VZRGdjdUpCdi1hX2t3UWluYXEySzdZNXF2a1FTNmE1Z0pOT21IUkVCVTUxYm5oX2ctcVNQWTJFODhEWFA1X0xnMkxIMGR0UnNaM0dXdlE1VnN4QjlZNUl3cVZlOFhnYmRHajlLb1JsUDhsdFNpeGFoekhoeHRyTWU4X2JQSTd2ZEJRNkRWU2QtOXhEWDFRNXlrV1pIdllFa2w5VDZ1MXJ3MG5MSWZhbEYwX0taNjBSanVXczc5ME1rQ3ctNlR0Zlp1emd0MzJLdUHSAfYBQVVfeXFMUDhTT1A0Zm9rZUV1TklIZEFMbkU2OW5lMC1JSUhnWWVFWlU3VmN1WURnY3VKQnYtYV9rd1FpbmFxMks3WTVxdmtRUzZhNWdKTk9tSFJFQlU1MWJuaF9nLXFTUFkyRTg4RFhQNV9MZzJMSDBkdFJzWjNHV3ZRNVZzeEI5WTVJd3FWZThYZ2JkR2o5S29SbFA4bHRTaXhhaHpIaHh0ck1lOF9iUEk3dmRCUTZEVlNkLTl4RFgxUTV5a1daSHZZRWtsOVQ2dTFydzBuTElmYWxGMF9LWjYwUmp1V3M3OTBNa0N3LTZUdGZadXpndDMyS3VB?oc=5",
+      "created_at": "2026-10-01",
+      "status": "approved",
+      "id": "g055",
+      "rank_score": 52,
+      "rank_verdict": "The middle slide borders on an accounting spreadsheet, but the sharp landing on the security deposit saves the joke."
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "White-collar hiring grows 2% in September; AI/ML jobs surge 20%: Naukri",
+      "context": "Explaining modern tech careers to older Indian relatives who are highly anxious about news trends.",
+      "angle": "The comedic gap between high-level tech jargon and simple parental concerns about job security.",
+      "slides": [
+        "\"Beta, yeh AI se humari naukri toh nahi jayegi?\"",
+        "\"Nahi Chachi, main toh prompt likhta hoon.\"\n\"Toh computer khud hi kaam kar leta hai?\"\n\"Haan, lagbhag.\"\n\"Toh phir tumko paise kis baat ke milte hain?\"",
+        "She found the structural flaw in your career.\n\nIn four sentences."
+      ],
+      "caption": "Whose relative asks the most uncomfortable career questions at family functions? 🏡",
+      "trigger": "parents",
+      "structure": "dialogue",
+      "move": "the_turn_in_the_last_words",
+      "target": "relatives",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "career advice",
+        "family gathering",
+        "artificial intelligence"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNTE5WOS1ESjUxLUR0MnJUV2JZczFrcHBjeGg0cFBLaVhEbjN6elVxU2tCNWFfTGhiZng5ODJpQ3NkUFE5Rm8zb1pnQ1YwSjBiQ3JpRVMweXVJQVVEbWQzTnpONUM4dmd4WDdnbDZEbm5Ienh2WmJ5b2R5QlFhdFRPcy1CZkdwUmlsZ2FnOXNjTEJqbFBJV19EMWRILTJlVDNPTjl3WVZ5dlhTVnhKaUdsX1JwOVU1dVVELVJCVmpkWWFWYlVjWjdxOGVB0gHKAUFVX3lxTE1MTlY5LURKNTEtRHQyclRXYllzMWtwcGN4aDRwUEtpWERuM3p6VXFTa0I1YV9MaGJmeDk4MmlDc2RQUTlGbzNvWmdDVjBK0gHKAUFVX3lxTE1MTlY5LURKNTEtRHQyclRXYllzMWtwcGN4aDRwUEtpWERuM3p6VXFTa0I1YV9MaGJmeDk4MmlDc2RQUTlGbzNvWmdDVjBK?oc=5",
+      "created_at": "2026-10-01",
+      "status": "approved",
+      "id": "g052",
+      "rank_score": 67,
+      "rank_verdict": "Brilliantly simple dialogue that cuts right through modern tech jargon with painful generational accuracy."
+    }
+  ]
+}

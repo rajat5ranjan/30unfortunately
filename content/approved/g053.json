@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "Why rising maternity costs make family health insurance coverage more important",
+      "context": "Older relatives pressure young couples to have children while remaining oblivious to the modern economic realities of childcare.",
+      "angle": "Relatives want the social milestone of grandchildren but none of the actual line-item costs.",
+      "slides": [
+        "\"Pichle saal toh bola tha thoda wait karenge.\"",
+        "\"Ab toh do saal ho gaye shaadi ko.\"\n\"Humare zamaane mein toh insurance nahi tha.\"\n\"Paisa toh aata jaata rehta hai.\"\n\"Ek pyara sa baby ghar aa jaye bas.\"",
+        "They want a grandchild.\n\nBut they are not on the co-pay sheet."
+      ],
+      "caption": "Whose mother-in-law thinks hospital bills can be paid in family blessings? 👶",
+      "trigger": "parents",
+      "structure": "phone_call",
+      "move": "the_turn_in_the_last_words",
+      "target": "relatives",
+      "satire_level": 4,
+      "hinglish": true,
+      "keywords": [
+        "family pressure",
+        "grandkids",
+        "middle class"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNX3VvNFU4a2c2cWlibUZkTUFVZ0J2eUZGa21CWnpTU1I0R3BnNGM5bURORm9lZVFieGFqdzBwcmJzQURBVGkxeFNRSVQzdWhnczFoSWxlN3lqQWYxdndZQTg1Sy1sZkpEZ0hieHlEak1ibVgySTJJQldRRV9ieVgxWXU5Um1PRFhZT3ZxRkhwcHFZb1QzejdLVy1QT3dULVR6N0JCM1RSdjZGdldVaU9UY1hjak5jVEtOZVVEamJsaw?oc=5",
+      "created_at": "2026-10-01",
+      "status": "approved",
+      "id": "g053",
+      "rank_score": 62,
+      "rank_verdict": "An exceptionally sharp contrast between warm family expectations and cold financial reality."
+    }
+  ]
+}

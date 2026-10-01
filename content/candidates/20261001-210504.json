@@ -1,0 +1,331 @@
+{
+  "generated_at": "20261001-210504",
+  "model": "gemini-3.5-flash",
+  "accepted": [
+    {
+      "trend": "White-collar hiring grows 2% in September; AI/ML jobs surge 20%: Naukri",
+      "context": "Explaining modern tech careers to older Indian relatives who are highly anxious about news trends.",
+      "angle": "The comedic gap between high-level tech jargon and simple parental concerns about job security.",
+      "slides": [
+        "\"Beta, yeh AI se humari naukri toh nahi jayegi?\"",
+        "\"Nahi Chachi, main toh prompt likhta hoon.\"\n\"Toh computer khud hi kaam kar leta hai?\"\n\"Haan, lagbhag.\"\n\"Toh phir tumko paise kis baat ke milte hain?\"",
+        "She found the structural flaw in your career.\n\nIn four sentences."
+      ],
+      "caption": "Whose relative asks the most uncomfortable career questions at family functions? 🏡",
+      "trigger": "parents",
+      "structure": "dialogue",
+      "move": "the_turn_in_the_last_words",
+      "target": "relatives",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "career advice",
+        "family gathering",
+        "artificial intelligence"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNTE5WOS1ESjUxLUR0MnJUV2JZczFrcHBjeGg0cFBLaVhEbjN6elVxU2tCNWFfTGhiZng5ODJpQ3NkUFE5Rm8zb1pnQ1YwSjBiQ3JpRVMweXVJQVVEbWQzTnpONUM4dmd4WDdnbDZEbm5Ienh2WmJ5b2R5QlFhdFRPcy1CZkdwUmlsZ2FnOXNjTEJqbFBJV19EMWRILTJlVDNPTjl3WVZ5dlhTVnhKaUdsX1JwOVU1dVVELVJCVmpkWWFWYlVjWjdxOGVB0gHKAUFVX3lxTE1MTlY5LURKNTEtRHQyclRXYllzMWtwcGN4aDRwUEtpWERuM3p6VXFTa0I1YV9MaGJmeDk4MmlDc2RQUTlGbzNvWmdDVjBK0gHKAUFVX3lxTE1MTlY5LURKNTEtRHQyclRXYllzMWtwcGN4aDRwUEtpWERuM3p6VXFTa0I1YV9MaGJmeDk4MmlDc2RQUTlGbzNvWmdDVjBK?oc=5",
+      "created_at": "2026-10-01",
+      "status": "draft",
+      "_score": 67,
+      "_judge": "Brilliantly simple dialogue that cuts right through modern tech jargon with painful generational accuracy.",
+      "_detail": {
+        "laugh": 5,
+        "share_trigger": 5,
+        "surprise": 4,
+        "specificity": 5,
+        "voice": 5,
+        "travels": 4
+      },
+      "_penalty": -1
+    },
+    {
+      "trend": "Why rising maternity costs make family health insurance coverage more important",
+      "context": "Older relatives pressure young couples to have children while remaining oblivious to the modern economic realities of childcare.",
+      "angle": "Relatives want the social milestone of grandchildren but none of the actual line-item costs.",
+      "slides": [
+        "\"Pichle saal toh bola tha thoda wait karenge.\"",
+        "\"Ab toh do saal ho gaye shaadi ko.\"\n\"Humare zamaane mein toh insurance nahi tha.\"\n\"Paisa toh aata jaata rehta hai.\"\n\"Ek pyara sa baby ghar aa jaye bas.\"",
+        "They want a grandchild.\n\nBut they are not on the co-pay sheet."
+      ],
+      "caption": "Whose mother-in-law thinks hospital bills can be paid in family blessings? 👶",
+      "trigger": "parents",
+      "structure": "phone_call",
+      "move": "the_turn_in_the_last_words",
+      "target": "relatives",
+      "satire_level": 4,
+      "hinglish": true,
+      "keywords": [
+        "family pressure",
+        "grandkids",
+        "middle class"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNX3VvNFU4a2c2cWlibUZkTUFVZ0J2eUZGa21CWnpTU1I0R3BnNGM5bURORm9lZVFieGFqdzBwcmJzQURBVGkxeFNRSVQzdWhnczFoSWxlN3lqQWYxdndZQTg1Sy1sZkpEZ0hieHlEak1ibVgySTJJQldRRV9ieVgxWXU5Um1PRFhZT3ZxRkhwcHFZb1QzejdLVy1QT3dULVR6N0JCM1RSdjZGdldVaU9UY1hjak5jVEtOZVVEamJsaw?oc=5",
+      "created_at": "2026-10-01",
+      "status": "draft",
+      "_score": 62,
+      "_judge": "An exceptionally sharp contrast between warm family expectations and cold financial reality.",
+      "_detail": {
+        "laugh": 4,
+        "share_trigger": 5,
+        "surprise": 4,
+        "specificity": 4,
+        "voice": 5,
+        "travels": 4
+      },
+      "_penalty": -1
+    },
+    {
+      "trend": "IIT, IIM paychecks hit pause as median campus salaries stay flat for Class of 2027",
+      "context": "Middle-class Indian society views premium degrees as guaranteed, inflation-proof paths to instant wealth.",
+      "angle": "The neighborhood status system built around placement packages is experiencing a technical glitch.",
+      "slides": [
+        "The Sharma ji beta roadmap has run into a pricing error.",
+        "\"IIT Bombay gaya tha na?\"\n\"Haan, package toh sunne mein nahi aaya.\"\n\"Unka bhi campus placement flat chal raha hai.\"\n\"Sharma ji ab capital gains ki baat nahi karte.\"",
+        "The neighborhood ranking system has collapsed.\n\nNobody knows who is winning anymore."
+      ],
+      "caption": "Name the uncle who hasn't asked about your appraisal since the campus placement reports came out. 🤫",
+      "trigger": "society uncle",
+      "structure": "two_aunties",
+      "move": "flat_restatement",
+      "target": "society uncle",
+      "satire_level": 4,
+      "hinglish": true,
+      "keywords": [
+        "iit placement",
+        "sharma ji",
+        "campus hiring"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxQOFNPUDRmb2tlRXVOSUhkQUxuRTY5bmUwLUlJSGdZZUVaVTdWY3VZRGdjdUpCdi1hX2t3UWluYXEySzdZNXF2a1FTNmE1Z0pOT21IUkVCVTUxYm5oX2ctcVNQWTJFODhEWFA1X0xnMkxIMGR0UnNaM0dXdlE1VnN4QjlZNUl3cVZlOFhnYmRHajlLb1JsUDhsdFNpeGFoekhoeHRyTWU4X2JQSTd2ZEJRNkRWU2QtOXhEWDFRNXlrV1pIdllFa2w5VDZ1MXJ3MG5MSWZhbEYwX0taNjBSanVXczc5ME1rQ3ctNlR0Zlp1emd0MzJLdUHSAfYBQVVfeXFMUDhTT1A0Zm9rZUV1TklIZEFMbkU2OW5lMC1JSUhnWWVFWlU3VmN1WURnY3VKQnYtYV9rd1FpbmFxMks3WTVxdmtRUzZhNWdKTk9tSFJFQlU1MWJuaF9nLXFTUFkyRTg4RFhQNV9MZzJMSDBkdFJzWjNHV3ZRNVZzeEI5WTVJd3FWZThYZ2JkR2o5S29SbFA4bHRTaXhhaHpIaHh0ck1lOF9iUEk3dmRCUTZEVlNkLTl4RFgxUTV5a1daSHZZRWtsOVQ2dTFydzBuTElmYWxGMF9LWjYwUmp1V3M3OTBNa0N3LTZUdGZadXpndDMyS3VB?oc=5",
+      "created_at": "2026-10-01",
+      "status": "draft",
+      "_score": 53,
+      "_judge": "The humor is sharp but highly reliant on local Indian status symbols, limiting its universal appeal.",
+      "_detail": {
+        "laugh": 4,
+        "share_trigger": 4,
+        "surprise": 4,
+        "specificity": 5,
+        "voice": 4,
+        "travels": 2
+      },
+      "_penalty": 1
+    },
+    {
+      "trend": "IIT, IIM paychecks hit pause as median campus salaries stay flat for Class of 2027",
+      "context": "The skyrocketing cost of premium education makes flat entry-level salaries a financial hazard.",
+      "angle": "A premium MBA degree creates significant debt without matching the immediate market return.",
+      "slides": [
+        "The ROI on a premium MBA now requires forty years of corporate survival.",
+        "Two-year tuition fee — ₹25,00,000.\nEducation loan interest rate — 9.5%.\nMedian starting salary — Flat.\nAverage flat rent in Bangalore — 45% of take-home pay.",
+        "You are the smartest person in the room.\n\nAnd you cannot afford the security deposit."
+      ],
+      "caption": "Send this to the MBA grad who is still calculating their debt-to-income ratio on a Friday night. 📊",
+      "trigger": "school",
+      "structure": "receipt",
+      "move": "literalisation",
+      "target": "school",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "mba loan",
+        "iim placement",
+        "education cost"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxQOFNPUDRmb2tlRXVOSUhkQUxuRTY5bmUwLUlJSGdZZUVaVTdWY3VZRGdjdUpCdi1hX2t3UWluYXEySzdZNXF2a1FTNmE1Z0pOT21IUkVCVTUxYm5oX2ctcVNQWTJFODhEWFA1X0xnMkxIMGR0UnNaM0dXdlE1VnN4QjlZNUl3cVZlOFhnYmRHajlLb1JsUDhsdFNpeGFoekhoeHRyTWU4X2JQSTd2ZEJRNkRWU2QtOXhEWDFRNXlrV1pIdllFa2w5VDZ1MXJ3MG5MSWZhbEYwX0taNjBSanVXczc5ME1rQ3ctNlR0Zlp1emd0MzJLdUHSAfYBQVVfeXFMUDhTT1A0Zm9rZUV1TklIZEFMbkU2OW5lMC1JSUhnWWVFWlU3VmN1WURnY3VKQnYtYV9rd1FpbmFxMks3WTVxdmtRUzZhNWdKTk9tSFJFQlU1MWJuaF9nLXFTUFkyRTg4RFhQNV9MZzJMSDBkdFJzWjNHV3ZRNVZzeEI5WTVJd3FWZThYZ2JkR2o5S29SbFA4bHRTaXhhaHpIaHh0ck1lOF9iUEk3dmRCUTZEVlNkLTl4RFgxUTV5a1daSHZZRWtsOVQ2dTFydzBuTElmYWxGMF9LWjYwUmp1V3M3OTBNa0N3LTZUdGZadXpndDMyS3VB?oc=5",
+      "created_at": "2026-10-01",
+      "status": "draft",
+      "_score": 52,
+      "_judge": "The middle slide borders on an accounting spreadsheet, but the sharp landing on the security deposit saves the joke.",
+      "_detail": {
+        "laugh": 3,
+        "share_trigger": 4,
+        "surprise": 4,
+        "specificity": 5,
+        "voice": 4,
+        "travels": 4
+      },
+      "_penalty": 3
+    },
+    {
+      "trend": "White-collar hiring grows 2% in September; AI/ML jobs surge 20%: Naukri",
+      "context": "Tech and corporate companies push employees to learn AI as a magic solution to structural workplace problems.",
+      "angle": "AI initiatives are implemented to drive productivity rather than help employees with actual stress.",
+      "slides": [
+        "Your company's new AI initiative is a chatbot that tells you to work harder.",
+        "\"Hi, I am your AI career assistant.\"\n\"How can I help you today?\"\n\"I want a better work-life balance.\"\n\"Based on your profile, I recommend learning prompt engineering.\"",
+        "The machine is fully aligned with management.\n\nIt does not take casual leave."
+      ],
+      "caption": "Somebody you work with has \"AI Transformation Lead\" in their internal bio now. 🤖",
+      "trigger": "corporate",
+      "structure": "customer_support",
+      "move": "literalisation",
+      "target": "employer",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "artificial intelligence",
+        "tech layoffs",
+        "office humor"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNTE5WOS1ESjUxLUR0MnJUV2JZczFrcHBjeGg0cFBLaVhEbjN6elVxU2tCNWFfTGhiZng5ODJpQ3NkUFE5Rm8zb1pnQ1YwSjBiQ3JpRVMweXVJQVVEbWQzTnpONUM4dmd4WDdnbDZEbm5Ienh2WmJ5b2R5QlFhdFRPcy1CZkdwUmlsZ2FnOXNjTEJqbFBJV19EMWRILTJlVDNPTjl3WVZ5dlhTVnhKaUdsX1JwOVU1dVVELVJCVmpkWWFWYlVjWjdxOGVB0gHKAUFVX3lxTE1MTlY5LURKNTEtRHQyclRXYllzMWtwcGN4aDRwUEtpWERuM3p6VXFTa0I1YV9MaGJmeDk4MmlDc2RQUTlGbzNvWmdDVjBK0gHKAUFVX3lxTE1MTlY5LURKNTEtRHQyclRXYllzMWtwcGN4aDRwUEtpWERuM3p6VXFTa0I1YV9MaGJmeDk4MmlDc2RQUTlGbzNvWmdDVjBK?oc=5",
+      "created_at": "2026-10-01",
+      "status": "draft",
+      "_score": 50,
+      "_judge": "The AI chatbot trope is highly generic and prevents the post from achieving a genuinely fresh angle.",
+      "_detail": {
+        "laugh": 3,
+        "share_trigger": 3,
+        "surprise": 3,
+        "specificity": 3,
+        "voice": 4,
+        "travels": 5
+      },
+      "_penalty": -2
+    },
+    {
+      "trend": "IIT, IIM paychecks hit pause as median campus salaries stay flat for Class of 2027",
+      "context": "Middle-class parents compare current entry-level economics with historical real estate markets.",
+      "angle": "Parents assume modern financial struggles are caused by lifestyle choices rather than macroeconomics.",
+      "slides": [
+        "Your father forwarded an article about campus placements from 1998.",
+        "\"In my time, an IIT grad bought three grounds in Pune.\"\n\"Now you boys just order organic cold brew.\"\n\"Where is the money going?\"\n\"We had no AC.\"",
+        "He thinks the problem is your coffee.\n\nNot the interest rate."
+      ],
+      "caption": "Whose father still thinks a premium degree automatically buys a three-bedroom flat? 🏡",
+      "trigger": "parents",
+      "structure": "whatsapp_forward",
+      "move": "the_banal_true_answer",
+      "target": "parents",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "placement drive",
+        "middle class parents",
+        "generation gap"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxQOFNPUDRmb2tlRXVOSUhkQUxuRTY5bmUwLUlJSGdZZUVaVTdWY3VZRGdjdUpCdi1hX2t3UWluYXEySzdZNXF2a1FTNmE1Z0pOT21IUkVCVTUxYm5oX2ctcVNQWTJFODhEWFA1X0xnMkxIMGR0UnNaM0dXdlE1VnN4QjlZNUl3cVZlOFhnYmRHajlLb1JsUDhsdFNpeGFoekhoeHRyTWU4X2JQSTd2ZEJRNkRWU2QtOXhEWDFRNXlrV1pIdllFa2w5VDZ1MXJ3MG5MSWZhbEYwX0taNjBSanVXczc5ME1rQ3ctNlR0Zlp1emd0MzJLdUHSAfYBQVVfeXFMUDhTT1A0Zm9rZUV1TklIZEFMbkU2OW5lMC1JSUhnWWVFWlU3VmN1WURnY3VKQnYtYV9rd1FpbmFxMks3WTVxdmtRUzZhNWdKTk9tSFJFQlU1MWJuaF9nLXFTUFkyRTg4RFhQNV9MZzJMSDBkdFJzWjNHV3ZRNVZzeEI5WTVJd3FWZThYZ2JkR2o5S29SbFA4bHRTaXhhaHpIaHh0ck1lOF9iUEk3dmRCUTZEVlNkLTl4RFgxUTV5a1daSHZZRWtsOVQ2dTFydzBuTElmYWxGMF9LWjYwUmp1V3M3OTBNa0N3LTZUdGZadXpndDMyS3VB?oc=5",
+      "created_at": "2026-10-01",
+      "status": "draft",
+      "_score": 50,
+      "_judge": "The final line acts as a logical economic correction rather than an unexpected comedic punchline.",
+      "_detail": {
+        "laugh": 3,
+        "share_trigger": 4,
+        "surprise": 3,
+        "specificity": 4,
+        "voice": 3,
+        "travels": 5
+      },
+      "_penalty": 1
+    },
+    {
+      "trend": "Why rising maternity costs make family health insurance coverage more important",
+      "context": "Healthcare costs in Indian private hospitals are rising, making insurance policies a major friction point for couples planning a family.",
+      "angle": "The transition from reading cool tech specs to dissecting policy document fine print.",
+      "slides": [
+        "At twenty-five, you read tech specs. At thirty, you read clause 4B.",
+        "Maternity cover limit — ₹50,000.\nRoom rent cap — 10% of sum insured.\nWaiting period — 36 months.\nCo-payment — 10%.",
+        "Your insurer expects you to schedule your family plans around their financial year.\n\nThe baby must wait for Q3."
+      ],
+      "caption": "Somebody you know spent their Sunday afternoon arguing with a chatbot about a policy PDF. 📑",
+      "trigger": "health",
+      "structure": "then_now",
+      "move": "the_banal_true_answer",
+      "target": "insurer",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "health insurance",
+        "maternity",
+        "corporate benefits"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNX3VvNFU4a2c2cWlibUZkTUFVZ0J2eUZGa21CWnpTU1I0R3BnNGM5bURORm9lZVFieGFqdzBwcmJzQURBVGkxeFNRSVQzdWhnczFoSWxlN3lqQWYxdndZQTg1Sy1sZkpEZ0hieHlEak1ibVgySTJJQldRRV9ieVgxWXU5Um1PRFhZT3ZxRkhwcHFZb1QzejdLVy1QT3dULVR6N0JCM1RSdjZGdldVaU9UY1hjak5jVEtOZVVEamJsaw?oc=5",
+      "created_at": "2026-10-01",
+      "status": "draft",
+      "_score": 43,
+      "_judge": "The punchline is clever but feels more like a logical corporate conclusion than a sudden, surprising comic turn.",
+      "_detail": {
+        "laugh": 3,
+        "share_trigger": 4,
+        "surprise": 3,
+        "specificity": 5,
+        "voice": 4,
+        "travels": 4
+      },
+      "_penalty": 10
+    },
+    {
+      "trend": "Why rising maternity costs make family health insurance coverage more important",
+      "context": "Private hospital billing structures during childbirth feel more like high-end luxury hospitality checkouts.",
+      "angle": "The hospital billing department runs a more aggressive checkout system than a premium cafe.",
+      "slides": [
+        "A premium hospital room costs more than a boutique resort in Ubud.",
+        "Admission fee — ₹2,500.\nConsultation — 10% surcharge.\nSanitiser charge — 5% service fee.\nLuxury suite surcharge — 25% extra.",
+        "You haven't even met the pediatrician yet.\n\nThe baby is already in debt."
+      ],
+      "caption": "Send this to the friend who just had to explain a hospital invoice to their parents. 🏥",
+      "trigger": "health",
+      "structure": "receipt",
+      "move": "flat_restatement",
+      "target": "wellness industry",
+      "satire_level": 3,
+      "hinglish": false,
+      "keywords": [
+        "hospital bill",
+        "childbirth costs",
+        "medical insurance"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNX3VvNFU4a2c2cWlibUZkTUFVZ0J2eUZGa21CWnpTU1I0R3BnNGM5bURORm9lZVFieGFqdzBwcmJzQURBVGkxeFNRSVQzdWhnczFoSWxlN3lqQWYxdndZQTg1Sy1sZkpEZ0hieHlEak1ibVgySTJJQldRRV9ieVgxWXU5Um1PRFhZT3ZxRkhwcHFZb1QzejdLVy1QT3dULVR6N0JCM1RSdjZGdldVaU9UY1hjak5jVEtOZVVEamJsaw?oc=5",
+      "created_at": "2026-10-01",
+      "status": "draft",
+      "_score": 35,
+      "_judge": "The final landing restates the financial despair instead of delivering a sharp, unexpected pivot.",
+      "_detail": {
+        "laugh": 2,
+        "share_trigger": 3,
+        "surprise": 2,
+        "specificity": 4,
+        "voice": 3,
+        "travels": 4
+      },
+      "_penalty": 6
+    },
+    {
+      "trend": "White-collar hiring grows 2% in September; AI/ML jobs surge 20%: Naukri",
+      "context": "The overall job market is flat, but corporate narratives exaggerate tiny positive percentages.",
+      "angle": "A rounding error in hiring is celebrated as a job boom while individual workloads double.",
+      "slides": [
+        "White-collar hiring grew by exactly two percent last month.",
+        "The national growth rate — 2%.\nYour team’s workload — up 40%.\nYour salary budget — \"currently flat\".\nYour manager's expectation — \"need 110% effort\".",
+        "Congratulations on the massive corporate recovery.\n\nDo not ask for a raise."
+      ],
+      "caption": "Send this to the teammate who is currently doing three people's jobs. 💻",
+      "trigger": "corporate",
+      "structure": "juxtaposition",
+      "move": "the_banal_true_answer",
+      "target": "HR",
+      "satire_level": 3,
+      "hinglish": false,
+      "keywords": [
+        "hiring trend",
+        "corporate life",
+        "appraisal"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNTE5WOS1ESjUxLUR0MnJUV2JZczFrcHBjeGg0cFBLaVhEbjN6elVxU2tCNWFfTGhiZng5ODJpQ3NkUFE5Rm8zb1pnQ1YwSjBiQ3JpRVMweXVJQVVEbWQzTnpONUM4dmd4WDdnbDZEbm5Ienh2WmJ5b2R5QlFhdFRPcy1CZkdwUmlsZ2FnOXNjTEJqbFBJV19EMWRILTJlVDNPTjl3WVZ5dlhTVnhKaUdsX1JwOVU1dVVELVJCVmpkWWFWYlVjWjdxOGVB0gHKAUFVX3lxTE1MTlY5LURKNTEtRHQyclRXYllzMWtwcGN4aDRwUEtpWERuM3p6VXFTa0I1YV9MaGJmeDk4MmlDc2RQUTlGbzNvWmdDVjBKMGJDcmlFUzB5dUlBVURtZDNOek41Qzh2Z3hYN2dsNkRubkh6eHZaYnlvZHlCUWF0VE9zLUJmR3BSaWxnYWc5c2NMQmpsUElXX0QxZEgtMmVUM09OOXdZVnl2WFNWeEppR2xfUnA5VTV1VUQtUkJWamRZYVZiVWNaN3E4ZUE?oc=5",
+      "created_at": "2026-10-01",
+      "status": "draft",
+      "_score": 27,
+      "_judge": "Reads like a standard LinkedIn complaint rather than a joke, offering absolutely no surprise in the landing.",
+      "_detail": {
+        "laugh": 2,
+        "share_trigger": 3,
+        "surprise": 1,
+        "specificity": 3,
+        "voice": 2,
+        "travels": 5
+      },
+      "_penalty": 10
+    }
+  ],
+  "rejected": []
+}
