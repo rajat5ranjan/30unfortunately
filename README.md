@@ -1,8 +1,8 @@
 # Thirty Unfortunately
 
-An autonomous Instagram content agent. Two carousels a day, satirising Indian
-adulthood, generated from live trends, rendered locally, published via the
-official Meta API.
+An autonomous Instagram content agent. Three posts a day — reels, with one
+carousel a week — satirising Indian adulthood, generated from live trends,
+rendered locally, published via the official Meta API.
 
 **Account:** [@30unfortunately](https://instagram.com/30unfortunately) ·
 **Budget:** ₹0/month · **Status:** Phase 3 of 8
@@ -21,13 +21,16 @@ audience?"* — is not falsifiable with n=1 and no control. It is split into thr
 H1 and H2 are the real experiment. H3 is the lottery. The design assumes a null
 H3 must still leave a usable result.
 
-## Why carousels, not single images
+## Why not single images
 
 Instagram 2026 organic reach: Reels ~30.8%, carousels ~14.5%, **single images
 ~13.1%** — and single-image reach fell ~22% YoY. Testing a content system using
 the platform's worst-performing format confounds the experiment: a null result
-would measure the format, not the content. Carousels cost ~20 lines more in the
-renderer and add a swipe-completion signal. Reels are the Phase 7 A/B.
+would measure the format, not the content. So the account started on carousels
+and A/B'd reels against them.
+
+That A/B is finished and reels won by more than the published figures suggest:
+**5.0x** the reach, 90% interval 2.0x-6.2x. See **Carousel or reel**.
 
 ## Layout
 
@@ -142,18 +145,26 @@ saving: it is exactly correct and needs no tz database in the runner image.
 
 ## Carousel or reel
 
-Every approved post is rendered both ways. Which one ships is decided on the day
-it publishes, not per post — `store.format_for()` alternates by date.
+Every approved post is rendered both ways. Which one ships is decided when it
+publishes, not when it is written — `store.format_for()`.
 
-That detail is the experiment. With two slots a day, alternating per *post*
-would pin carousels to the morning slot and reels to the evening one forever,
-and no amount of data could then separate format from time of day. Alternating
-by day gives each format both slots.
+It used to alternate by date, so each format got every slot and no amount of
+data could confuse format with time of day. That experiment is over. At 21
+posts each, reels reached **5.0x** further with a 90% interval of 2.0x-6.2x,
+and the gap was widening: in the week of 29 Sep a carousel reached about six
+people and a reel about forty-seven.
+
+So it is reels now, with **one carousel every seven days** — about 5% of the
+slots, kept because the result describes how Instagram treated this account in
+September 2026 and not a law. Keyed to days since the last carousel rather
+than to a weekday: GitHub drops scheduled runs, and "carousel on Mondays"
+would take the arm to zero in any week whose Monday polls were dropped.
 
 `publish.py ab` reads it out: medians rather than means, because reach is
 violently right-skewed and one post catching Explore would move a mean and tell
-you nothing; only metrics both formats report, so reel watch time is context
-rather than evidence; and a bootstrap interval rather than a p-value, because at
+you nothing; only metrics both formats report, so watch time is printed
+separately rather than inside the comparison; and a bootstrap interval rather
+than a p-value, because at
 this sample size a t-test's assumptions are not met. Shares per reach is the
 tiebreaker — reach says Instagram showed it to more people, shares says they
 passed it on, and only the second one compounds.
@@ -206,7 +217,46 @@ Set as repository secrets, never in the repo — it is public.
 | `IG_ACCESS_TOKEN` | everything |
 | `IG_USER_ID` | publishing |
 | `GEMINI_API_KEY` | generation only |
-| `GH_PAT` | optional: lets the refresh job rotate `IG_ACCESS_TOKEN` itself. Without it the job refreshes, then fails loudly telling you to update the secret by hand. |
+| `GH_PAT` | not used. The refresh job used to rotate `IG_ACCESS_TOKEN` with it; there is no PAT on this repo, so the job hit its own guard and failed on both of the two runs it ever had. It now emails instead — see **The token** below. |
+
+## The token
+
+Instagram long-lived tokens last 60 days and can only be refreshed while still
+alive, so the whole account stops on a date.
+
+`refresh-token.yml` was written to rotate the secret itself with `gh secret
+set`, which needs a PAT. There is no PAT on this repo, so the job hit its own
+`GH_PAT is not set` guard and exited 1. It ran twice in its life and failed
+both times — nothing had ever rotated the live token.
+
+That went unnoticed because the gauge was measuring the wrong token.
+`token_days_left` called `refresh_access_token` and returned its `expires_in`,
+on the reasoning that refreshing is idempotent and reading the expiry is the
+useful half. It is not idempotent: the call mints a **new** token string and
+reports the lifetime of that one. So `check` described a token it discarded
+and printed about sixty days every time it ran, forever, and the `REFRESH IT`
+alarm at fourteen days was unreachable code.
+
+Now:
+
+- `content/token_rotated.txt` holds the date the token in use was installed,
+  and `token_days_left()` counts down from it with no network call.
+- `refresh-token.yml` runs every ten days, mints nothing, and emails when
+  under 21 days. Ten rather than twenty-one because the window it has to land
+  in is the last fortnight of a sixty-day life, and two dropped crons could
+  miss it.
+- The token never travels by email. The repo is public and that mail goes to
+  an ordinary inbox.
+
+To rotate, on your own machine:
+
+```bash
+python3 publish.py refresh-token --write   # rotates, updates .env, stamps the date
+```
+
+then paste the value it prints into the `IG_ACCESS_TOKEN` repository secret and
+commit `content/token_rotated.txt`. A stamped date with a stale secret in CI is
+worse than no date, because it is a confident wrong answer.
 
 ## The gates
 
@@ -225,9 +275,9 @@ account's own structure-overuse stats back to the model each run.
   on GitHub Pages, hence the repo is public.
 - **No App Review needed** to post to your own account: a Meta app in
   Development mode plus your account added as an Instagram Tester.
-- **50 posts / 24h** rate limit. Two a day is not close.
+- **50 posts / 24h** rate limit. Three a day is not close.
 - **Tokens expire at 60 days** and can only be refreshed while alive. A 90-day
-  experiment dies at day 60 without a refresh job.
+  experiment dies at day 60 without a refresh job. See **The token**.
 - **GitHub Actions cron is disabled after 60 days** with no commit on the default
   branch, and is delayed or dropped under load. The publish job commits the DB
   back, which doubles as the keepalive.
@@ -247,7 +297,7 @@ account's own structure-overuse stats back to the model each run.
 :07:27:47  publish.yml    in an unused window: read vetoes -> publish -> insights
                           windows are 08:30-12:30, 15:00-18:45, 19:30-22:45 IST
 on issue   command.yml    run the button that was tapped on the Pages site
-every 21d  refresh-token  keeps the 60-day token alive
+every 10d  refresh-token  emails you when the 60-day token needs rotating
 ```
 
 ### Why nothing is aimed at a minute
