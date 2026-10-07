@@ -101,6 +101,24 @@ COUNTED = ("reach", "views", "likes", "comments", "saved", "shares",
            "total_interactions")
 
 
+def running(conn: sqlite3.Connection) -> Dict[str, Any]:
+    """How long the account has been live, from its first published post.
+
+    Counted from the first publish rather than the first commit: the repo
+    existed for a while before anything went out, and "day 3" has to mean
+    three days of the experiment, not three days of writing the thing that
+    runs it.
+    """
+    row = conn.execute(
+        "SELECT MIN(published_at) FROM posts WHERE status='published'"
+    ).fetchone()
+    if not row or not row[0]:
+        return {"days": 0, "since": None}
+    since = _dt(row[0])
+    return {"days": (datetime.now(timezone.utc) - since).days + 1,
+            "since": since}
+
+
 def watch(conn: sqlite3.Connection) -> Dict[str, Any]:
     """Reel watch time, and whether it predicts anything.
 

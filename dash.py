@@ -12,7 +12,7 @@ chart that disagrees with the terminal is worse than no chart.
 import glob
 import json
 import os
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from html import escape
 from typing import Any, Dict, List, Optional
 
@@ -40,6 +40,27 @@ color:#6E675A;margin-top:5px}
 .kpi em{display:block;font-style:normal;font-size:11px;color:#9A9384;margin-top:6px}
 .kpi em.up{color:#2E7D4F}
 .kpi em.down{color:#D8451F}
+.day{font-size:11.5px;letter-spacing:.4px;color:#6E675A;margin:14px 0 0}
+.day b{color:#15140F;letter-spacing:0}
+.chart{width:100%;height:150px;display:block;overflow:visible}
+.chart .area{fill:rgba(46,125,79,.13)}
+.chart .line{fill:none;stroke:#2E7D4F;stroke-width:2;stroke-linejoin:round;
+vector-effect:non-scaling-stroke}
+.chart .dreel{fill:#2E7D4F}
+.chart .dcar{fill:#C9A227}
+.axis{display:flex;justify-content:space-between;font-size:10.5px;color:#9A9384;
+margin:5px 0 0}
+.axis i.sw{display:inline-block;width:9px;height:9px;border-radius:2px;
+margin-right:5px;vertical-align:-1px}
+.weeks{display:flex;gap:10px;align-items:flex-end;height:120px;margin-top:4px}
+.weeks .wk{flex:1;display:flex;flex-direction:column;justify-content:flex-end;
+height:100%}
+.weeks .bars{display:flex;gap:3px;align-items:flex-end;height:100%}
+.weeks .bars i{flex:1;border-radius:3px 3px 0 0;min-height:2px}
+.weeks .bars i.reel{background:#2E7D4F}
+.weeks .bars i.car{background:#C9A227}
+.weeks .bars i.none{background:#E6E1D5;height:2px}
+.weeks .wk span{font-size:10px;color:#9A9384;text-align:center;margin-top:6px}
 .when{font-size:11.5px;color:#9A9384;margin:12px 0 0}
 .when.stale{color:#D8451F}
 .headline{font-size:17px;line-height:1.35;letter-spacing:-.3px;margin:0 0 14px}
@@ -68,7 +89,14 @@ line-height:1.4}
 .none{font-size:12.5px;color:#6E675A;margin:0}
 @media(max-width:560px){.dash{padding:16px 14px 20px}
 .kpis{grid-template-columns:repeat(2,1fr)}.kpi b{font-size:26px}
-.headline{font-size:15.5px}.vsrow{grid-template-columns:52px 1fr 30px}}
+.headline{font-size:15.5px}.vsrow{grid-template-columns:52px 1fr 30px}
+/* The weekly chart grows a column a week forever. On a phone the labels are
+   the first thing that stops fitting, so they go at 7 weeks' width and the
+   bars — which carry the shape — keep the room. */
+.weeks{gap:5px;height:96px}.weeks .bars{gap:2px}
+.weeks .wk span{font-size:0}
+.weeks .wk:first-child span,.weeks .wk:last-child span{font-size:9.5px}
+.chart{height:120px}}
 """
 
 
@@ -111,6 +139,91 @@ def post_chart(rows: List[Dict[str, Any]]) -> str:
         % (escape(r["id"]), "reel" if r["format"] == "reel" else "car",
            100.0 * r["reach"] / top, r["reach"])
         for r in rows)
+
+
+def _pts(vals, w, h, pad=4):
+    """Evenly spaced points scaled to fit, as (x, y) in SVG coordinates."""
+    top = max(vals + [1])
+    if len(vals) == 1:
+        return [(w / 2.0, h - pad - (h - 2 * pad) * vals[0] / top)]
+    step = (w - 2 * pad) / float(len(vals) - 1)
+    return [(pad + i * step, h - pad - (h - 2 * pad) * v / top)
+            for i, v in enumerate(vals)]
+
+
+def reach_over_time(rows: List[Dict[str, Any]], w: int = 760, h: int = 150) -> str:
+    """Day-one reach in publication order, as an area chart.
+
+    Inline SVG rather than a chart library for the same reason the bars are
+    divs: the page is served from a public repo, read on a phone, and has no
+    script tag. An <svg> is markup — it costs one request, which is the one
+    already being made.
+
+    Day-one reach, not lifetime, because a line of lifetime numbers slopes
+    upward forever and would read as growth no matter what happened.
+    """
+    if not rows:
+        return '<p class="caveat">Nothing has a first-day number yet.</p>'
+    vals = [r["reach"] for r in rows]
+    pts = _pts(vals, w, h)
+    line = " ".join("%.1f,%.1f" % p for p in pts)
+    area = "%.1f,%.1f %s %.1f,%.1f" % (pts[0][0], h, line, pts[-1][0], h)
+    top = max(vals)
+    dots = "".join(
+        '<circle cx="%.1f" cy="%.1f" r="2.6" class="%s"><title>%s: %d</title>'
+        '</circle>' % (x, y, "dreel" if r["format"] == "reel" else "dcar",
+                       escape(r["id"]), r["reach"])
+        for (x, y), r in zip(pts, rows))
+    return (
+        '<svg class="chart" viewBox="0 0 %d %d" preserveAspectRatio="none" '
+        'role="img" aria-label="First-day reach of every post in order of '
+        'publication. Highest %d.">'
+        '<polygon class="area" points="%s"/>'
+        '<polyline class="line" points="%s"/>%s</svg>'
+        '<p class="axis"><span>%s</span><span>peak %d</span><span>%s</span></p>'
+        % (w, h, top, area, line, dots,
+           escape(rows[0]["published_at"][:10]), top,
+           escape(rows[-1]["published_at"][:10])))
+
+
+def weekly_bars(rows: List[Dict[str, Any]]) -> str:
+    """Mean first-day reach per week, split by format.
+
+    The per-post chart is noisy by construction — one post reaching 154 makes
+    every other bar look flat. Weekly means are what the format decision was
+    actually argued from, so the page should show the same shape the argument
+    used.
+    """
+    weeks = {}  # type: Dict[str, Dict[str, List[int]]]
+    for r in rows:
+        d = datetime.strptime(r["published_at"][:10], "%Y-%m-%d")
+        key = (d - timedelta(days=d.weekday())).strftime("%Y-%m-%d")
+        weeks.setdefault(key, {"reel": [], "carousel": []})
+        weeks[key][r["format"] if r["format"] == "reel" else "carousel"].append(
+            r["reach"])
+    if not weeks:
+        return ""
+    means = {}
+    for k, v in weeks.items():
+        means[k] = dict((f, (sum(x) / float(len(x))) if x else None)
+                        for f, x in v.items())
+    top = max([m for w in means.values() for m in w.values() if m] + [1])
+    out = []
+    for k in sorted(means):
+        cells = []
+        for f, cls in (("reel", "reel"), ("carousel", "car")):
+            m = means[k][f]
+            cells.append(
+                '<i class="%s" style="height:%.1f%%" title="%s %s: %.0f"></i>'
+                % (cls, 100.0 * m / top, k, f, m) if m else
+                '<i class="none" title="no %s that week"></i>' % f)
+        out.append('<div class="wk"><div class="bars">%s</div><span>%s</span>'
+                   '</div>' % ("".join(cells),
+                               datetime.strptime(k, "%Y-%m-%d").strftime("%-d %b")))
+    return ('<div class="weeks">%s</div>'
+            '<p class="axis"><span><i class="sw reel"></i>reel</span>'
+            '<span><i class="sw car"></i>carousel</span>'
+            '<span>tallest %d</span></p>' % ("".join(out), top))
 
 
 def todays_candidates(today: Optional[str] = None) -> str:
@@ -222,12 +335,37 @@ def block(conn) -> str:
                     "nothing has been saved yet." if not o["saved"] else
                     "%d posts have been saved." % o["saved"]))
 
-    return ('<section class="dash">%s%s'
+    run = metrics.running(conn)
+    day = ('<p class="day">Day <b>%d</b> &middot; started %s &middot; '
+           '%d published, %.1f a day</p>'
+           % (run["days"], run["since"].strftime("%-d %B %Y"), published,
+              published / float(run["days"]))) if run["since"] else ""
+
+    w = metrics.watch(conn)
+    if w["n"]:
+        watch_note = (
+            "Reels are watched %.1fs on average (median %.1fs). Correlation "
+            "with reach is %+.2f — %s" % (
+                w["mean"], w["median"], w["corr_reach"],
+                "the reels watched longest reached fewest, because average "
+                "watch time is per play and a cold audience swipes. Not a "
+                "target yet." if (w["corr_reach"] or 0) < 0 else
+                "longer watches go with wider reach."))
+    else:
+        watch_note = "No reel has reported watch time yet."
+
+    return ('<section class="dash">%s%s%s'
             '<h2>Which format travels</h2>'
             '<p class="headline">%s</p>%s<p class="caveat">%s</p>'
+            '<h2>First-day reach, in order</h2>%s'
+            '<h2>Weekly average, by format</h2>%s'
+            '<h2>How long reels are watched</h2>'
+            '<p class="caveat">%s</p>'
             '<h2>Pin these to the profile</h2>%s'
             '<h2>Every post, first-day reach</h2>%s'
             '<h2>Today&rsquo;s candidates</h2>%s'
             '</section>'
-            % (kpis, when, escape(c["headline"]), versus(c), escape(footnote),
-               pin_these(one), post_chart(one), todays_candidates()))
+            % (kpis, day, when, escape(c["headline"]), versus(c),
+               escape(footnote), reach_over_time(one), weekly_bars(one),
+               escape(watch_note), pin_these(one), post_chart(one),
+               todays_candidates()))

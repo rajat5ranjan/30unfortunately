@@ -15,7 +15,9 @@ reached only when a real publish is in flight needs a stub and a test.
 import json
 import os
 import sys
+import re
 import sqlite3
+import xml.etree.ElementTree as ET
 import unittest
 from datetime import datetime, timedelta, timezone
 
@@ -293,6 +295,75 @@ class Discoverability(unittest.TestCase):
     def test_alt_text_stays_under_the_api_limit(self):
         alt = publish.alt_text_for(self._row("x", ["rent"]), "w " * 900, 1, 3)
         self.assertLessEqual(len(alt), 1000)
+
+
+class Charts(unittest.TestCase):
+    """The dashboard is best-effort: render.py swallows any exception here and
+    ships a sheet with no numbers, so a crash is silent. These are the inputs
+    that would cause one."""
+
+    ROWS = [{"id": "g001", "format": "carousel", "reach": 21, "views": 47,
+             "shares": 1, "likes": 4, "published_at": "2026-09-17T14:40:00+00:00"},
+            {"id": "g011", "format": "reel", "reach": 130, "views": 135,
+             "shares": 0, "likes": 3, "published_at": "2026-09-20T15:59:00+00:00"},
+            {"id": "g036", "format": "reel", "reach": 154, "views": 171,
+             "shares": 0, "likes": 4, "published_at": "2026-09-28T05:15:00+00:00"}]
+
+    def test_every_point_lands_inside_the_viewbox(self):
+        svg = dash.reach_over_time(self.ROWS, w=760, h=150)
+        pts = re.search(r'class="line" points="(.*?)"', svg).group(1)
+        for pair in pts.split():
+            x, y = [float(v) for v in pair.split(",")]
+            self.assertTrue(0 <= x <= 760, x)
+            self.assertTrue(0 <= y <= 150, y)
+
+    def test_the_svg_is_well_formed(self):
+        for svg in re.findall(r'<svg.*?</svg>',
+                              dash.reach_over_time(self.ROWS), re.S):
+            ET.fromstring(svg)
+
+    def test_a_single_post_does_not_divide_by_zero(self):
+        """len(vals) - 1 is the step denominator."""
+        svg = dash.reach_over_time(self.ROWS[:1])
+        self.assertIn("<svg", svg)
+
+    def test_no_posts_says_so_rather_than_raising(self):
+        self.assertIn("yet", dash.reach_over_time([]))
+        self.assertEqual(dash.weekly_bars([]), "")
+
+    def test_all_zero_reach_does_not_divide_by_zero(self):
+        rows = [dict(r, reach=0) for r in self.ROWS]
+        self.assertIn("<svg", dash.reach_over_time(rows))
+        self.assertIn("weeks", dash.weekly_bars(rows))
+
+    def test_a_week_with_only_one_format_still_renders(self):
+        svg = dash.weekly_bars(self.ROWS)
+        self.assertIn("none", svg, "a missing format needs a placeholder bar")
+
+    def test_the_page_never_gets_a_script_tag(self):
+        """The whole point of divs and inline SVG."""
+        self.assertNotIn("<script", dash.reach_over_time(self.ROWS))
+        self.assertNotIn("<script", dash.weekly_bars(self.ROWS))
+
+    def test_day_one_is_day_one_not_day_zero(self):
+        conn = sqlite3.connect(":memory:")
+        conn.row_factory = sqlite3.Row
+        conn.executescript(store.SCHEMA)
+        for _c, add, _b in store.MIGRATIONS + store.METRIC_MIGRATIONS:
+            conn.execute(add)
+        now = datetime.now(timezone.utc)
+        conn.execute(
+            "INSERT INTO posts (id, slides, caption, status, published_at)"
+            " VALUES ('g001','[]','','published',?)", (now.isoformat(),))
+        self.assertEqual(metrics.running(conn)["days"], 1)
+
+    def test_an_account_that_has_published_nothing_has_no_start_date(self):
+        conn = sqlite3.connect(":memory:")
+        conn.row_factory = sqlite3.Row
+        conn.executescript(store.SCHEMA)
+        for _c, add, _b in store.MIGRATIONS + store.METRIC_MIGRATIONS:
+            conn.execute(add)
+        self.assertIsNone(metrics.running(conn)["since"])
 
 
 class TrendSelection(unittest.TestCase):
