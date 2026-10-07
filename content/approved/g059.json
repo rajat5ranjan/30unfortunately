@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "Gurgaon woman spends 50% of salary on rent to live close to work: ‘Saving my peace’",
+      "context": "We pay a premium to live close to the office to save time, only to give that saved time right back to the employer.",
+      "angle": "The walk to work is shorter, but you still end up staring at the same glowing rectangle until midnight.",
+      "slides": [
+        "\"Bro, office ke paas room lene se life set ho gayi hai.\"",
+        "\"Yes, rent is ₹50,000.\"\n\"But my peace of mind is priceless.\"\n\"Subah bas utho aur nikal jao.\"\n\"I have time for gym, cooking, and reading.\"",
+        "You are currently eating cold Maggi at 11:45 PM.\n\nThe office laptop is open."
+      ],
+      "caption": "Ask the friend who moved to Cyber City to save time what they did with those three hours today.",
+      "trigger": "friends",
+      "structure": "dialogue",
+      "move": "the_banal_true_answer",
+      "target": "employer",
+      "satire_level": 4,
+      "hinglish": true,
+      "keywords": [
+        "cyber city gurgaon",
+        "work life balance",
+        "renting in bangalore"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQQmtwTmdPS3JXa3AwT0NVVVlUT05JUm1VQlozM2hBc1F6OGVGNENSaG5UWDVJVHBEelFxMlVOMW1MWldUTTFBNzJnUTRHNnNDQ3djbnVHOXVFQ3ZIc0haUFRMT3JwVE1iWFl0aUc4S1Q5Yi12bG5TUERRRy03U011akxOa2dIMmxzMDVUQlJ6SWlVeEdYbmJndUdhb09nM1B6cm5fZHNRVzdFQ0VWaDI2dNIBtwFBVV95cUxQTWFjUWxpTjBUQkt1LVVtSURVQXlRMlZsN0ZvQ05Zc1FVcmlMaDlaSUJwZnpObmxmZGItSjV3dUhKaGN5ajFIcXhONDZsUzkwN2VCQWR0cTNqZ1pGNTZGbm9EOWxUM283bVp1bXJYMW9abGxNQ2pRczR0LVZ0VkQzVVpCRF91MFQ5WkttSjNkenphZjhNdTFmV2JrWno3MURpTENxZWhJU0x5NzJldnUxczFwUVZvclU?oc=5",
+      "created_at": "2026-10-07",
+      "status": "approved",
+      "id": "g059",
+      "rank_score": 36,
+      "rank_verdict": "The multiple lines of dialogue in the first two slides feel like a script transcript rather than a sharp, deadpan observation."
+    }
+  ]
+}

@@ -1,0 +1,188 @@
+{
+  "generated_at": "20261007-112030",
+  "model": "gemini-3.5-flash",
+  "accepted": [
+    {
+      "trend": "Gurgaon woman spends 50% of salary on rent to live close to work: ‘Saving my peace’",
+      "context": "The transition of house-hunting priorities from your early twenties to your early thirties is a lesson in survival.",
+      "angle": "Prime location no longer means proximity to social life; it means proximity to survival infrastructure.",
+      "slides": [
+        "Your definition of 'prime location' has collapsed.",
+        "At 21:\nWalking distance to three bars, a metro station, and a momo stall. Split three ways.\n\nAt 30:\nWithin the delivery zone of an app that has fresh coriander at 6 AM.",
+        "And you still don't use the balcony."
+      ],
+      "caption": "Your college roommate is still living in the same flat. You are paying for a gated society gym you've seen twice.",
+      "trigger": "nostalgia",
+      "structure": "then_now",
+      "move": "the_turn_in_the_last_words",
+      "target": "self",
+      "satire_level": 3,
+      "hinglish": false,
+      "keywords": [
+        "urban house rent",
+        "quick commerce delivery",
+        "apartment hunting"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQQmtwTmdPS3JXa3AwT0NVVVlUT05JUm1VQlozM2hBc1F6OGVGNENSaG5UWDVJVHBEelFxMlVOMW1MWldUTTFBNzJnUTRHNnNDQ3djbnVHOXVFQ3ZIc0haUFRMT3JwVE1iWFl0aUc4S1Q5Yi12bG5TUERRRy03U011akxOa2dIMmxzMDVUQlJ6SWlVeEdYbmJndUdhb09nM1B6cm5fZHNRVzdFQ0VWaDI2dNIBtwFBVV95cUxQTWFjUWxpTjBUQkt1LVVtSURVQXlRMlZsN0ZvQ05Zc1FVcmlMaDlaSUJwZnpObmxmZGItSjV3dUhKaGN5ajFIcXhONDZsUzkwN2VCQWR0cTNqZ1pGNTZGbm9EOWxUM283bVp1bXJYMW9abGxNQ2pRczR0LVZ0VkQzVVpCRF91MFQ5WkttSjNkenphZjhNdTFmV2JrWno3MURpTENxZWhJU0x5NzJldnUxczFwUVZvclU?oc=5",
+      "created_at": "2026-10-07",
+      "status": "draft",
+      "_score": 57,
+      "_judge": "The hook functions as an abstract title card instead of launching directly into the concrete details of the joke.",
+      "_detail": {
+        "laugh": 4,
+        "share_trigger": 5,
+        "surprise": 4,
+        "specificity": 5,
+        "voice": 4,
+        "travels": 5
+      },
+      "_penalty": 6
+    },
+    {
+      "trend": "Gurgaon woman spends 50% of salary on rent to live close to work: ‘Saving my peace’",
+      "context": "We pay a premium to live close to the office to save time, only to give that saved time right back to the employer.",
+      "angle": "The walk to work is shorter, but you still end up staring at the same glowing rectangle until midnight.",
+      "slides": [
+        "\"Bro, office ke paas room lene se life set ho gayi hai.\"",
+        "\"Yes, rent is ₹50,000.\"\n\"But my peace of mind is priceless.\"\n\"Subah bas utho aur nikal jao.\"\n\"I have time for gym, cooking, and reading.\"",
+        "You are currently eating cold Maggi at 11:45 PM.\n\nThe office laptop is open."
+      ],
+      "caption": "Ask the friend who moved to Cyber City to save time what they did with those three hours today.",
+      "trigger": "friends",
+      "structure": "dialogue",
+      "move": "the_banal_true_answer",
+      "target": "employer",
+      "satire_level": 4,
+      "hinglish": true,
+      "keywords": [
+        "cyber city gurgaon",
+        "work life balance",
+        "renting in bangalore"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQQmtwTmdPS3JXa3AwT0NVVVlUT05JUm1VQlozM2hBc1F6OGVGNENSaG5UWDVJVHBEelFxMlVOMW1MWldUTTFBNzJnUTRHNnNDQ3djbnVHOXVFQ3ZIc0haUFRMT3JwVE1iWFl0aUc4S1Q5Yi12bG5TUERRRy03U011akxOa2dIMmxzMDVUQlJ6SWlVeEdYbmJndUdhb09nM1B6cm5fZHNRVzdFQ0VWaDI2dNIBtwFBVV95cUxQTWFjUWxpTjBUQkt1LVVtSURVQXlRMlZsN0ZvQ05Zc1FVcmlMaDlaSUJwZnpObmxmZGItSjV3dUhKaGN5ajFIcXhONDZsUzkwN2VCQWR0cTNqZ1pGNTZGbm9EOWxUM283bVp1bXJYMW9abGxNQ2pRczR0LVZ0VkQzVVpCRF91MFQ5WkttSjNkenphZjhNdTFmV2JrWno3MURpTENxZWhJU0x5NzJldnUxczFwUVZvclU?oc=5",
+      "created_at": "2026-10-07",
+      "status": "draft",
+      "_score": 36,
+      "_judge": "The multiple lines of dialogue in the first two slides feel like a script transcript rather than a sharp, deadpan observation.",
+      "_detail": {
+        "laugh": 3,
+        "share_trigger": 4,
+        "surprise": 2,
+        "specificity": 4,
+        "voice": 3,
+        "travels": 4
+      },
+      "_penalty": 11
+    }
+  ],
+  "rejected": [
+    {
+      "trend": "RBI repo rate hike to raise home loan EMIs, but housing demand likely to remain resilient",
+      "context": "Urban Indian millennials buying houses are facing immediate auto-debits that rise instantly, contrasted with stagnant salary structures.",
+      "angle": "The bank operates with algorithmic speed to take your money, while your employer works on geological time to adjust yours.",
+      "slides": [
+        "The bank adjusts your EMI in seconds. Your salary is on geological time.",
+        "RBI repo rate goes up:\nYour floating EMI rises before the news notification finishes loading.\n\nYour company has historic profits:\nAn email about office temperature and a peer evaluation form.",
+        "The math is simple.\n\nYou are paying for the house three times. The bank owns the balcony."
+      ],
+      "caption": "Send this to the colleague currently recalculating their home loan spreadsheet.",
+      "trigger": "money",
+      "structure": "juxtaposition",
+      "move": "flat_restatement",
+      "target": "bank",
+      "satire_level": 3,
+      "hinglish": false,
+      "keywords": [
+        "home loan emi",
+        "rbi repo rate",
+        "appraisal cycle"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNc0QxWWtXMFpITDBKVVJtVDlvZXhQN0ljM0szRko4VVpZY2J3azUyS2dRcjJENnRqWXBBOGRmSmRRbG4tSXJOaFVLYTcyZ3FvOEExdlQ2R0lxc1d2akdKS2Iwck0wT0tYd0trcURLWmFFVVpLUk1FYTUzcjZrSXdnYUwwWXktdVFyY3lFd0U3bWRZYkhORG1uY3FxeUtYZHN0R2ROc2h1aXNadFgyUV94Z1lTWC15eXRpMjBsMVNweXNwd09xNzAzRUV2NV_SAdABQVVfeXFMTllKWklWbjZBWDJuTVRXZ3EwZ0VvTlpNbFJhUTNEYV9VNU1RaE1zSnJGV2tIbzdNeEh3N2hYLUo1Z3JmRFZKbTN1WnBBQmZ0eVFZamJYZnpKdGhCb0U3RGtGd1R5RXY1b3ZaSlBzOUZlUmhEZVFDQWZ2Q3NVc3BWb2Q5YnBVallvUENjV0RDMG9zVTI4dGdPcFNHTVRxWlYwZEFhbXg4R2hscG5YN2RNSUFhd09BanJISnp1ek1uWUtpNU9oVzBEbl9Ga0Fta1N3LQ?oc=5",
+      "created_at": "2026-10-07",
+      "_gate_failures": [
+        "no concrete detail (no number, rupee figure or quoted speech) — too generic"
+      ]
+    },
+    {
+      "trend": "RBI repo rate hike to raise home loan EMIs, but housing demand likely to remain resilient",
+      "context": "Middle-class parents do not understand the predatory mechanics of modern high-interest 30-year home loans.",
+      "angle": "The generational gap is measured in how many extra decades your loan tenure automatically extends without you moving an inch.",
+      "slides": [
+        "\"Beta, bank manager se baat karke tenure badha lo.\"",
+        "Papa bought a three-bedroom flat in 1998.\nTenure: 15 years.\nHis biggest worry: the paint color.\n\nYou bought a 1.5 BHK in Noida in 2026.\nEMI: ₹78,000.\nTenure: Until the sun burns out.",
+        "But the developer promised a jogging track.\n\nIt is currently a puddle."
+      ],
+      "caption": "The generation gap is measured in years of compounding interest.",
+      "trigger": "parents",
+      "structure": "phone_call",
+      "move": "absurd_comparative",
+      "target": "bank",
+      "satire_level": 4,
+      "hinglish": true,
+      "keywords": [
+        "noida real estate",
+        "housing emi",
+        "generation gap"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNc0QxWWtXMFpITDBKVVJtVDlvZXhQN0ljM0szRko4VVpZY2J3azUyS2dRcjJENnRqWXBBOGRmSmRRbG4tSXJOaFVLYTcyZ3FvOEExdlQ2R0lxc1d2akdKS2Iwck0wT0tYd0trcURLWmFFVVpLUk1FYTUzcjZrSXdnYUwwWXktdVFyY3lFd0U3bWRZYkhORG1uY3FxeUtYZHN0R2ROc2h1aXNadFgyUV94Z1lTWC15eXRpMjBsMVNweXNwd09xNzAzRUV2NV_SAdABQVVfeXFMTllKWklWbjZBWDJuTVRXZ3EwZ0VvTlpNbFJhUTNEYV9VNU1RaE1zSnJGV2tIbzdNeEh3N2hYLUo1Z3JmRFZKbTN1WnBBQmZ0eVFZamJYZnpKdGhCb0U3RGtGd1R5RXY1b3ZaSlBzOUZlUmhEZVFDQWZ2Q3NVc3BWb2Q5YnBVallvUENjV0RDMG9zVTI4dGdPcFNHTVRxWlYwZEFhbXg4R2hscG5YN2RNSUFhd09BanJISnp1ek1uWUtpNU9oVzBEbl9Ga0Fta1N3LQ?oc=5",
+      "created_at": "2026-10-07",
+      "_gate_failures": [
+        "keywords are banned head terms, too broad to reach anybody from: 'generation gap'"
+      ]
+    },
+    {
+      "trend": "RBI repo rate hike to raise home loan EMIs, but housing demand likely to remain resilient",
+      "context": "Floating rate agreements are marketed as flexible financial instruments but function as one-way trapdoors.",
+      "angle": "Taking terms and conditions literally reveals you are essentially working to fund the loan's software updates.",
+      "slides": [
+        "The floating interest rate definition they left out of the loan booklet.",
+        "1. Floating means we float the rate up.\n2. If the RBI cuts rates, we will re-evaluate next autumn.\n3. Your tenure has automatically extended by 14 years.\n4. Your child will inherit the net banking portal password.",
+        "Congratulations on your asset."
+      ],
+      "caption": "Somebody you know is currently on year 28 of a 20-year loan.",
+      "trigger": "home",
+      "structure": "terms_and_conditions",
+      "move": "literalisation",
+      "target": "bank",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "home loan interest",
+        "floating rate emi",
+        "real estate investment"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNc0QxWWtXMFpITDBKVVJtVDlvZXhQN0ljM0szRko4VVpZY2J3azUyS2dRcjJENnRqWXBBOGRmSmRRbG4tSXJOaFVLYTcyZ3FvOEExdlQ2R0lxc1d2akdKS2Iwck0wT0tYd0trcURLWmFFVVpLUk1FYTUzcjZrSXdnYUwwWXktdVFyY3lFd0U3bWRZYkhORG1uY3FxeUtYZHN0R2ROc2h1aXNadFgyUV94Z1lTWC15eXRpMjBsMVNweXNwd09xNzAzRUV2NV_SAdABQVVfeXFMTllKWklWbjZBWDJuTVRXZ3EwZ0VvTlpNbFJhUTNEYV9VNU1RaE1zSnJGV2tIbzdNeEh3N2hYLUo1Z3JmRFZKbTN1WnBBQmZ0eVFZamJYZnpKdGhCb0U3RGtGd1R5RXY1b3ZaSlBzOUZlUmhEZVFDQWZ2Q3NVc3BWb2Q5YnBVallvUENjV0RDMG9zVTI4dGdPcFNHTVRxWlYwZEFhbXg4R2hscG5YN2RNSUFhd09BanJISnp1ek1uWUtpNU9oVzBEbl9Ga0Fta1N3LQ?oc=5",
+      "created_at": "2026-10-07",
+      "_gate_failures": [
+        "slide 2 is 213 chars (max 210) — cut lines, not the joke"
+      ]
+    },
+    {
+      "trend": "Gurgaon woman spends 50% of salary on rent to live close to work: ‘Saving my peace’",
+      "context": "Young professionals are paying exorbitant premiums to escape city commutes, leaving them with practically nothing for actual living.",
+      "angle": "You bought peace of mind, but the maintenance charges alone consumed your entire personality.",
+      "slides": [
+        "The monthly bill for protecting your peace in Gurgaon.",
+        "Gurgaon rent.\nGated community maintenance.\nPower backup charges.\nClubhouse fee.",
+        "Total left for your actual peace: ₹430."
+      ],
+      "caption": "Name the Gurgaon resident who lives in a gated society with three swimming pools but hasn't slept in six months.",
+      "trigger": "rent",
+      "structure": "receipt",
+      "move": "flat_restatement",
+      "target": "landlord",
+      "satire_level": 3,
+      "hinglish": false,
+      "keywords": [
+        "gurgaon flat rent",
+        "gated society maintenance",
+        "cost of living"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQQmtwTmdPS3JXa3AwT0NVVVlUT05JUm1VQlozM2hBc1F6OGVGNENSaG5UWDVJVHBEelFxMlVOMW1MWldUTTFBNzJnUTRHNnNDQ3djbnVHOXVFQ3ZIc0haUFRMT3JwVE1iWFl0aUc4S1Q5Yi12bG5TUERRRy03U011akxOa2dIMmxzMDVUQlJ6SWlVeEdYbmJndUdhb09nM1B6cm5fZHNRVzdFQ0VWaDI2dNIBtwFBVV95cUxQTWFjUWxpTjBUQkt1LVVtSURVQXlRMlZsN0ZvQ05Zc1FVcmlMaDlaSUJwZnpObmxmZGItSjV3dUhKaGN5ajFIcXhONDZsUzkwN2VCQWR0cTNqZ1pGNTZGbm9EOWxUM283bVp1bXJYMW9abGxNQ2pRczR0LVZ0VkQzVVpCRF91MFQ5WkttSjNkenphZjhNdTFmV2JrWno3MURpTENxZWhJU0x5NzJldnUxczFwUVZvclU?oc=5",
+      "created_at": "2026-10-07",
+      "_gate_failures": [
+        "landing carries a currency figure — that beat cannot travel; move the number into the escalation"
+      ]
+    }
+  ]
+}
