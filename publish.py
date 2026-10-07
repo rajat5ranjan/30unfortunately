@@ -406,17 +406,24 @@ def cmd_check(args: argparse.Namespace) -> int:
     # token lasts 60 days and can only be refreshed while alive. If
     # refresh-token.yml is dropped often enough, everything stops at once and
     # the fix itself stops working. Cheap to ask, so ask on every check.
-    try:
-        days = token_days_left(token)
+    days = token_days_left()
+    if days is None:
+        ok = False
+        print("token      issue date unrecorded  <-- CANNOT TELL")
+        _alert("Nothing records when the Instagram token was issued, so its "
+               "expiry cannot be checked. Run\n"
+               "  python3 publish.py refresh-token --write\n"
+               "which rotates it and writes content/token_rotated.txt.")
+    else:
         print("token      %d days left%s"
               % (days, "  <-- REFRESH IT" if days < 14 else ""))
         if days < 14:
             ok = False
-            _alert("The Instagram token expires in %d days. It can only be "
-                   "refreshed while it is still alive:\n"
-                   "  Actions -> refresh-token -> Run workflow" % days)
-    except GraphError as e:
-        print("token      expiry unknown — %s" % e)
+            _alert("The Instagram token expires in %d days, and it can only be "
+                   "refreshed while it is still alive. Locally:\n"
+                   "  python3 publish.py refresh-token --write\n"
+                   "then paste the value it prints into the IG_ACCESS_TOKEN "
+                   "repository secret." % days)
 
     conn = store.connect()
     c = store.counts(conn)
@@ -732,16 +739,47 @@ def cmd_ab(args: argparse.Namespace) -> int:
     return 0
 
 
-def token_days_left(token: str) -> int:
-    """Days until the long-lived token expires.
+TOKEN_LIFE_DAYS = 60
+TOKEN_MARK = os.path.join(ROOT, "content", "token_rotated.txt")
 
-    refresh_access_token both refreshes and reports; calling it is idempotent
-    and the returned token is only kept when we mean to rotate. Reading the
-    expiry is the useful half.
+
+def token_rotated_on() -> Optional[datetime]:
+    """When the token now in use was issued, as recorded by --write."""
+    try:
+        with open(TOKEN_MARK) as f:
+            return datetime.fromisoformat(f.read().strip()).replace(
+                tzinfo=timezone.utc)
+    except (IOError, ValueError):
+        return None
+
+
+def stamp_token_rotated() -> None:
+    with open(TOKEN_MARK, "w") as f:
+        f.write(datetime.now(timezone.utc).date().isoformat() + "\n")
+
+
+def token_days_left() -> Optional[int]:
+    """Days until the long-lived token expires, from the recorded issue date.
+
+    This used to call refresh_access_token and return its expires_in, on the
+    reasoning that refreshing is idempotent and reading the expiry is the
+    useful half. It is not idempotent: the call mints a NEW token string and
+    reports the lifetime of THAT, so the reading described a token which was
+    then discarded and `check` printed about sixty days every single time it
+    ran. The "REFRESH IT" alarm at fourteen days could never fire, which is
+    the one job the number had.
+
+    It also meant every publish run minted a token nobody installed.
+
+    So: no network, and the answer comes from the date the live token was
+    actually put in place. None means nothing has recorded one, which is
+    itself worth shouting about.
     """
-    res = _request("GET", "%s/refresh_access_token" % GRAPH,
-                   {"grant_type": "ig_refresh_token", "access_token": token})
-    return int(res.get("expires_in", 0)) // 86400
+    when = token_rotated_on()
+    if when is None:
+        return None
+    age = (datetime.now(timezone.utc) - when).days
+    return TOKEN_LIFE_DAYS - age
 
 
 def cmd_refresh_token(args: argparse.Namespace) -> int:
@@ -769,7 +807,13 @@ def cmd_refresh_token(args: argparse.Namespace) -> int:
             lines.append("IG_ACCESS_TOKEN=%s\n" % new)
         with open(path, "w") as f:
             f.writelines(lines)
-        print("written to .env")
+        stamp_token_rotated()
+        print("written to .env, and content/token_rotated.txt stamped %s"
+              % datetime.now(timezone.utc).date().isoformat())
+        print("\nNow paste this into the IG_ACCESS_TOKEN repository secret, or")
+        print("CI keeps using the old one and the stamp will be a lie:")
+        print("  https://github.com/%s/settings/secrets/actions"
+              % cfg("repo", "rajat5ranjan/30unfortunately"))
     else:
         print("\n%s\n\nStore this. Re-run with --write to update .env, or update the\n"
               "IG_ACCESS_TOKEN repository secret." % new)

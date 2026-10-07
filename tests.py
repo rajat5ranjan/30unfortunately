@@ -294,6 +294,59 @@ class Discoverability(unittest.TestCase):
         self.assertLessEqual(len(alt), 1000)
 
 
+class TokenExpiry(unittest.TestCase):
+    """The gauge used to call refresh, report the lifetime of the token it
+    minted, and throw that token away — so it read ~60 days forever and the
+    alarm at 14 days could never fire."""
+
+    def setUp(self):
+        self.real = publish.TOKEN_MARK
+        self.tmp = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                                ".token_mark_test")
+        publish.TOKEN_MARK = self.tmp
+
+    def tearDown(self):
+        publish.TOKEN_MARK = self.real
+        if os.path.exists(self.tmp):
+            os.remove(self.tmp)
+
+    def _stamp(self, days_ago):
+        when = (datetime.now(timezone.utc) - timedelta(days=days_ago)).date()
+        with open(self.tmp, "w") as f:
+            f.write(when.isoformat() + "\n")
+
+    def test_it_counts_down_from_the_recorded_date(self):
+        self._stamp(20)
+        self.assertEqual(publish.token_days_left(), 40)
+
+    def test_a_fresh_token_has_its_whole_life(self):
+        self._stamp(0)
+        self.assertEqual(publish.token_days_left(), publish.TOKEN_LIFE_DAYS)
+
+    def test_an_expired_token_goes_negative_rather_than_clamping(self):
+        """Clamping at zero would read the same as 'expires today'."""
+        self._stamp(70)
+        self.assertEqual(publish.token_days_left(), -10)
+
+    def test_the_alarm_can_actually_fire(self):
+        """The whole point: at 13 days the number is under the threshold."""
+        self._stamp(publish.TOKEN_LIFE_DAYS - 13)
+        self.assertLess(publish.token_days_left(), 14)
+
+    def test_no_record_is_not_silently_healthy(self):
+        self.assertIsNone(publish.token_days_left())
+
+    def test_an_unparseable_record_is_not_silently_healthy(self):
+        with open(self.tmp, "w") as f:
+            f.write("whenever\n")
+        self.assertIsNone(publish.token_days_left())
+
+    def test_the_committed_marker_is_readable(self):
+        """The real file, since CI reads it and a typo there is silent."""
+        publish.TOKEN_MARK = self.real
+        self.assertIsInstance(publish.token_days_left(), int)
+
+
 # brain.py needs PyYAML and google-genai, and publish.yml runs this file with
 # no pip install at all — that is why tests.py is stdlib-only. So these skip
 # where the dependency is absent rather than dragging it into the publish job.

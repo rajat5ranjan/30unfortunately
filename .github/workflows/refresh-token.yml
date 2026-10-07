@@ -1,11 +1,22 @@
 name: refresh-token
 
 # Instagram long-lived tokens last 60 days and can only be refreshed while
-# still alive. A 90-day experiment dies at day 60 without this. Runs every 3
-# weeks so two consecutive failures still leave time to fix it by hand.
+# still alive. A 90-day experiment dies at day 60 without this.
+#
+# This workflow used to do the rotation itself with `gh secret set`, which
+# needs a PAT. There is no PAT on this repo by choice, so the job hit its own
+# "GH_PAT is not set" guard and exited 1. It ran twice in its life, on
+# 2026-09-22 and 2026-10-01, and failed both times — nothing has ever rotated
+# the live token.
+#
+# So it does not try. It works out how long is left and asks for a rotation by
+# email, because the rotation needs a human either way.
 on:
   schedule:
-    - cron: "25 4 */21 * *"
+    # Every ten days. The window it has to land in is the last fortnight of a
+    # sixty-day life, and GitHub drops scheduled runs often enough that a
+    # three-weekly cron could miss the whole window with two drops.
+    - cron: "25 4 */10 * *"
   workflow_dispatch:
 
 permissions:
@@ -20,21 +31,56 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Refresh and rotate the secret
-        env:
-          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
-          GH_TOKEN: ${{ secrets.GH_PAT }}
+      # No Instagram call at all. The expiry is read from
+      # content/token_rotated.txt, which is the date the token in use was
+      # installed — the only thing that actually knows. Asking Instagram was
+      # what produced a permanent "about sixty days left": refresh_access_token
+      # mints a new token and reports ITS lifetime, so the answer described a
+      # token that was then thrown away.
+      - name: How long is left?
+        id: left
         run: |
           set -euo pipefail
-          NEW=$(python3 publish.py refresh-token --quiet)
-          # GitHub only redacts secrets it already knows, and this one is new.
-          # The repo is public, so an unmasked token in a log is a disclosure.
-          echo "::add-mask::$NEW"
-          if [ -z "${GH_TOKEN:-}" ]; then
-            echo "::error::Token refreshed but GH_PAT is not set, so the secret could not"
-            echo "::error::be rotated. Run 'python3 publish.py refresh-token --write' locally"
-            echo "::error::and update the IG_ACCESS_TOKEN secret by hand."
-            exit 1
+          D=$(python3 -c "import publish; print(publish.token_days_left() if publish.token_days_left() is not None else -1)")
+          echo "$D days left"
+          echo "days=$D" >> "$GITHUB_OUTPUT"
+          if [ "$D" -lt 0 ] || [ "$D" -lt 21 ]; then
+            echo "ask=yes" >> "$GITHUB_OUTPUT"
+          else
+            echo "ask=no" >> "$GITHUB_OUTPUT"
           fi
-          gh secret set IG_ACCESS_TOKEN --body "$NEW"
-          echo "IG_ACCESS_TOKEN rotated."
+
+      # The token itself is never minted here and never travels by email. The
+      # repo is public and this mail lands in an ordinary inbox; a credential
+      # does not belong in either. The refresh happens on the machine that is
+      # going to install it.
+      - name: Ask for a rotation
+        if: steps.left.outputs.ask == 'yes'
+        env:
+          NOTIFY_EMAIL: ${{ secrets.NOTIFY_EMAIL }}
+          NOTIFY_EMAIL_PASSWORD: ${{ secrets.NOTIFY_EMAIL_PASSWORD }}
+          NOTIFY_TO: ${{ secrets.NOTIFY_TO }}
+        run: |
+          set -euo pipefail
+          D="${{ steps.left.outputs.days }}"
+          if [ "$D" -lt 0 ]; then
+            SUBJ="30unfortunately — token expiry is unknown"
+            BODY="Nothing records when the Instagram token was issued."
+          else
+            SUBJ="30unfortunately — rotate the Instagram token ($D days left)"
+            BODY="The token expires in $D days and can only be refreshed while it is still alive."
+          fi
+          python3 notify.py send "$SUBJ" \
+            "$(printf '%s\n\n%s\n%s\n%s\n\n%s\n%s\n\n%s\n' \
+              "$BODY" \
+              "In the repo, on your machine:" \
+              "  python3 publish.py refresh-token --write" \
+              "It rotates the token, updates .env and stamps content/token_rotated.txt." \
+              "Then paste the value it prints into the repository secret:" \
+              "  https://github.com/${{ github.repository }}/settings/secrets/actions" \
+              "Commit content/token_rotated.txt afterwards, or this mail comes back.")
+
+      - name: Say so in the run
+        run: |
+          echo "### Instagram token" >> "$GITHUB_STEP_SUMMARY"
+          echo "${{ steps.left.outputs.days }} days left; rotation requested: ${{ steps.left.outputs.ask }}" >> "$GITHUB_STEP_SUMMARY"
