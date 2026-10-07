@@ -101,6 +101,29 @@ COUNTED = ("reach", "views", "likes", "comments", "saved", "shares",
            "total_interactions")
 
 
+def cumulative(conn: sqlite3.Connection) -> List[Dict[str, Any]]:
+    """Running total of reach and views, in publication order.
+
+    Built from the same rows and the same per-post figure that overview()
+    sums, so the last point on the chart equals the KPI above it. A chart
+    that disagrees with the number beside it is worse than no chart.
+
+    Lifetime reach per post rather than day-one: this answers "how much reach
+    has the account had", which is a total and not a comparison, and day-one
+    would under-report it by excluding everything published in the last
+    twelve hours.
+    """
+    out, reach, views = [], 0, 0
+    for r in store.published_with_metrics(conn):
+        if not r["published_at"]:
+            continue
+        reach += r["reach"] or 0
+        views += r["views"] or 0
+        out.append({"id": r["id"], "at": r["published_at"],
+                    "reach": reach, "views": views})
+    return out
+
+
 def running(conn: sqlite3.Connection) -> Dict[str, Any]:
     """How long the account has been live, from its first published post.
 

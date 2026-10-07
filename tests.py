@@ -334,6 +334,13 @@ class Charts(unittest.TestCase):
     ships a sheet with no numbers, so a crash is silent. These are the inputs
     that would cause one."""
 
+    CUM = [{"id": "g001", "at": "2026-09-17T14:40:00+00:00", "reach": 21,
+            "views": 47},
+           {"id": "g011", "at": "2026-09-20T15:59:00+00:00", "reach": 151,
+            "views": 182},
+           {"id": "g036", "at": "2026-09-28T05:15:00+00:00", "reach": 305,
+            "views": 353}]
+
     ROWS = [{"id": "g001", "format": "carousel", "reach": 21, "views": 47,
              "shares": 1, "likes": 4, "published_at": "2026-09-17T14:40:00+00:00"},
             {"id": "g011", "format": "reel", "reach": 130, "views": 135,
@@ -341,41 +348,73 @@ class Charts(unittest.TestCase):
             {"id": "g036", "format": "reel", "reach": 154, "views": 171,
              "shares": 0, "likes": 4, "published_at": "2026-09-28T05:15:00+00:00"}]
 
-    def test_every_point_lands_inside_the_viewbox(self):
-        svg = dash.reach_over_time(self.ROWS, w=760, h=150)
-        pts = re.search(r'class="line" points="(.*?)"', svg).group(1)
-        for pair in pts.split():
-            x, y = [float(v) for v in pair.split(",")]
-            self.assertTrue(0 <= x <= 760, x)
-            self.assertTrue(0 <= y <= 150, y)
-
     def test_the_svg_is_well_formed(self):
         for svg in re.findall(r'<svg.*?</svg>',
-                              dash.reach_over_time(self.ROWS), re.S):
+                              dash.totals_over_time(self.CUM), re.S):
             ET.fromstring(svg)
 
-    def test_a_single_post_does_not_divide_by_zero(self):
-        """len(vals) - 1 is the step denominator."""
-        svg = dash.reach_over_time(self.ROWS[:1])
-        self.assertIn("<svg", svg)
+    def test_both_series_are_drawn(self):
+        self.assertEqual(dash.totals_over_time(self.CUM).count("<polyline"), 2)
+
+    def test_every_point_lands_inside_the_viewbox(self):
+        svg = dash.totals_over_time(self.CUM, w=760, h=190)
+        for pts in re.findall(r'class="ln [^"]*" points="(.*?)"', svg):
+            for pair in pts.split():
+                x, y = [float(v) for v in pair.split(",")]
+                self.assertTrue(0 <= x <= 760, x)
+                self.assertTrue(0 <= y <= 190, y)
+
+    def test_both_series_carry_a_visible_label(self):
+        """The palette check flags both against this background, which makes
+        direct labels an obligation rather than a nicety."""
+        svg = dash.totals_over_time(self.CUM)
+        self.assertEqual(svg.count('class="dlab'), 2)
+        self.assertIn("reach", svg)
+        self.assertIn("views", svg)
+
+    def test_the_label_never_runs_off_the_right_edge(self):
+        svg = dash.totals_over_time(self.CUM, w=760, h=190)
+        for x in re.findall(r'class="dlab [^"]*" x="([\d.]+)"', svg):
+            self.assertLessEqual(float(x), 760 - 50)
+
+    def test_hover_targets_grow_when_points_are_sparse(self):
+        """Without JS there is no nearest-point layer, so the hit circle is
+        half the gap between points — capped, or a four-post account gets
+        saucers."""
+        wide = re.findall(r'class="hit [^"]*"[^>]*r="([\d.]+)"',
+                          dash.totals_over_time(self.CUM))
+        self.assertTrue(wide)
+        self.assertLessEqual(float(wide[0]), 12.0)
+        self.assertGreaterEqual(float(wide[0]), 6.0)
+
+    def test_one_point_is_not_a_line(self):
+        """len(cum) - 1 is the x denominator."""
+        self.assertIn("yet", dash.totals_over_time(self.CUM[:1]))
 
     def test_no_posts_says_so_rather_than_raising(self):
-        self.assertIn("yet", dash.reach_over_time([]))
+        self.assertIn("yet", dash.totals_over_time([]))
         self.assertEqual(dash.weekly_bars([]), "")
 
-    def test_all_zero_reach_does_not_divide_by_zero(self):
-        rows = [dict(r, reach=0) for r in self.ROWS]
-        self.assertIn("<svg", dash.reach_over_time(rows))
-        self.assertIn("weeks", dash.weekly_bars(rows))
+    def test_all_zero_does_not_divide_by_zero(self):
+        flat = [dict(c, reach=0, views=0) for c in self.CUM]
+        self.assertIn("<svg", dash.totals_over_time(flat))
+        self.assertIn("weeks", dash.weekly_bars(
+            [dict(r, reach=0) for r in self.ROWS]))
+
+    def test_the_axis_top_is_a_round_number(self):
+        self.assertEqual(dash._nice(1497), 2000)
+        self.assertEqual(dash._nice(991), 1000)
+        self.assertEqual(dash._nice(3), 10)
+        self.assertEqual(dash._nice(0), 10)
 
     def test_a_week_with_only_one_format_still_renders(self):
-        svg = dash.weekly_bars(self.ROWS)
-        self.assertIn("none", svg, "a missing format needs a placeholder bar")
+        self.assertIn("none", dash.weekly_bars(self.ROWS))
 
     def test_the_page_never_gets_a_script_tag(self):
-        """The whole point of divs and inline SVG."""
-        self.assertNotIn("<script", dash.reach_over_time(self.ROWS))
+        """Hover is a <title> per point precisely because there is no JS."""
+        self.assertNotIn("<script", dash.totals_over_time(self.CUM))
         self.assertNotIn("<script", dash.weekly_bars(self.ROWS))
+        self.assertIn("<title>", dash.totals_over_time(self.CUM))
 
     def test_day_one_is_day_one_not_day_zero(self):
         conn = sqlite3.connect(":memory:")
@@ -698,9 +737,14 @@ class Numbers(unittest.TestCase):
     def test_the_dashboard_survives_an_empty_database(self):
         """It is best-effort on the sheet, but it should not need to be."""
         html = dash.block(self._db([]))
-        self.assertIn("reach, first day", html)
+        self.assertIn("median first-day reach", html)
+        self.assertIn("total reach", html)
+        self.assertIn("total views", html)
         self.assertIn("Metrics have never been pulled", html)
         self.assertNotIn("smaller arm", html)
+        # The two charts have to degrade to a sentence, not an empty <svg>.
+        self.assertIn("Not enough published posts", html)
+        self.assertNotIn("<polyline", html)
 
     def test_stale_metrics_say_so(self):
         conn = self._db([("carousel", 10, 20, 0)])

@@ -746,6 +746,44 @@ def cmd_insights(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_posts(args: argparse.Namespace) -> int:
+    """Every published post with its numbers, for working out why one travelled.
+
+    This used to be a bar per post on the Pages dashboard. By post forty that
+    is a column nobody can read, and it was answering a question the page is
+    not for: the page says whether the account is working, this says which
+    post did what and alongside which choices.
+
+    Sorted by reach so the outliers are at the ends, which is where the
+    learning is — g036 reached 154 and g044 reached 3, and the difference is
+    not in the format column.
+    """
+    conn = store.connect()
+    rows = [r for r in store.published_with_metrics(conn) if r["published_at"]]
+    if not rows:
+        print("nothing published yet")
+        return 0
+    rows.sort(key=lambda r: -(r["reach"] or 0))
+    if args.format:
+        rows = [r for r in rows if (r["format"] or "carousel") == args.format]
+
+    print("%-6s %-8s %-10s %6s %6s %6s %5s %5s  %-8s %s"
+          % ("id", "format", "published", "reach", "views", "watch",
+             "likes", "sends", "target", "move"))
+    for r in rows:
+        w = r["avg_watch_ms"]
+        print("%-6s %-8s %-10s %6s %6s %6s %5s %5s  %-8s %s"
+              % (r["id"], (r["format"] or "?")[:8], r["published_at"][:10],
+                 r["reach"] or 0, r["views"] or 0,
+                 "%.1fs" % (w / 1000.0) if w else "\u2014",
+                 r["likes"] or 0, r["shares"] or 0,
+                 (r["target"] or "\u2014")[:8], (r["move"] or "\u2014")[:26]))
+    print("\n%d posts. Watch time is reels only, and is per play rather than"
+          % len(rows))
+    print("per person \u2014 see `ab` for why it is not a target.")
+    return 0
+
+
 def cmd_ab(args: argparse.Namespace) -> int:
     """Carousel versus reel, printed. The arithmetic lives in metrics.py."""
     r = metrics.compare(store.connect())
@@ -889,6 +927,11 @@ def main() -> None:
 
     sub.add_parser("due").set_defaults(fn=cmd_due)
     sub.add_parser("ab").set_defaults(fn=cmd_ab)
+
+    ps = sub.add_parser("posts")
+    ps.add_argument("--format", choices=("reel", "carousel"),
+                    help="only one arm")
+    ps.set_defaults(fn=cmd_posts)
 
     ins = sub.add_parser("insights")
     ins.add_argument("--limit", type=int, default=25,

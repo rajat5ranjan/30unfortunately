@@ -32,7 +32,7 @@ box-shadow:0 3px 12px rgba(21,20,15,.1);max-width:820px}
 .dash h2{font-size:12px;letter-spacing:1.3px;text-transform:uppercase;color:#9A9384;
 margin:30px 0 12px;font-weight:700}
 .dash h2:first-child{margin-top:0}
-.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
 .kpi{background:#F2EEE4;border-radius:10px;padding:13px 14px 12px}
 .kpi b{display:block;font-size:30px;line-height:1;letter-spacing:-1.5px}
 .kpi span{display:block;font-size:10.5px;letter-spacing:.5px;text-transform:uppercase;
@@ -42,12 +42,26 @@ color:#6E675A;margin-top:5px}
 .kpi em.down{color:#D8451F}
 .day{font-size:11.5px;letter-spacing:.4px;color:#6E675A;margin:14px 0 0}
 .day b{color:#15140F;letter-spacing:0}
-.chart{width:100%;height:150px;display:block;overflow:visible}
-.chart .area{fill:rgba(46,125,79,.13)}
-.chart .line{fill:none;stroke:#2E7D4F;stroke-width:2;stroke-linejoin:round;
-vector-effect:non-scaling-stroke}
-.chart .dreel{fill:#2E7D4F}
-.chart .dcar{fill:#C9A227}
+/* Series colours. Blue and violet are reach and views; the green and gold
+   below them are reel and carousel. Four colours on one card, checked as a
+   set against this background for colour-blind and normal-vision separation
+   rather than picked by eye. */
+.dash{--s1:#2a78d6;--s2:#4a3aa7}
+.chart2{width:100%;height:190px;display:block}
+.chart2 .grid line{stroke:#DED8CA;stroke-width:1}
+.chart2 .ylab{font-size:9.5px;fill:#9A9384;text-anchor:end}
+.chart2 .ln{fill:none;stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+.chart2 .ln.s1{stroke:var(--s1)}
+.chart2 .ln.s2{stroke:var(--s2)}
+.chart2 .hit{fill:transparent}
+.chart2 .end{stroke:#FBF9F4;stroke-width:2}
+.chart2 .end.s1{fill:var(--s1)}
+.chart2 .end.s2{fill:var(--s2)}
+.chart2 .dlab{font-size:10.5px;font-weight:700}
+.chart2 .dlab.s1{fill:var(--s1)}
+.chart2 .dlab.s2{fill:var(--s2)}
+.axis i.sw.s1{background:var(--s1)}
+.axis i.sw.s2{background:var(--s2)}
 .axis{display:flex;justify-content:space-between;font-size:10.5px;color:#9A9384;
 margin:5px 0 0}
 .axis i.sw{display:inline-block;width:9px;height:9px;border-radius:2px;
@@ -93,10 +107,12 @@ line-height:1.4}
 /* The weekly chart grows a column a week forever. On a phone the labels are
    the first thing that stops fitting, so they go at 7 weeks' width and the
    bars — which carry the shape — keep the room. */
+.kpis{grid-template-columns:repeat(2,1fr)}
+.chart2{height:168px}
 .weeks{gap:5px;height:96px}.weeks .bars{gap:2px}
 .weeks .wk span{font-size:0}
 .weeks .wk:first-child span,.weeks .wk:last-child span{font-size:9.5px}
-.chart{height:120px}}
+}
 """
 
 
@@ -129,61 +145,101 @@ def versus(cmp_: Dict[str, Any]) -> str:
     return '<div class="vs">%s</div>' % "".join(rows)
 
 
-def post_chart(rows: List[Dict[str, Any]]) -> str:
-    """Every post's day-one reach, newest first, longest bar = best ever."""
-    rows = list(reversed(rows))
-    top = max([r["reach"] for r in rows] + [1])
-    return '<div class="posts">%s</div>' % "".join(
-        '<div class="prow"><span>%s</span><div class="track">'
-        '<i class="%s" style="width:%.1f%%"></i></div><b>%s</b></div>'
-        % (escape(r["id"]), "reel" if r["format"] == "reel" else "car",
-           100.0 * r["reach"] / top, r["reach"])
-        for r in rows)
+
+def _nice(n: int) -> int:
+    """A round number at or above n, for the top of an axis."""
+    if n <= 10:
+        return 10
+    import math
+    mag = 10 ** int(math.log10(n))
+    for mult in (1, 2, 2.5, 5, 10):
+        if mult * mag >= n:
+            return int(mult * mag)
+    return int(10 * mag)
 
 
-def _pts(vals, w, h, pad=4):
-    """Evenly spaced points scaled to fit, as (x, y) in SVG coordinates."""
-    top = max(vals + [1])
-    if len(vals) == 1:
-        return [(w / 2.0, h - pad - (h - 2 * pad) * vals[0] / top)]
-    step = (w - 2 * pad) / float(len(vals) - 1)
-    return [(pad + i * step, h - pad - (h - 2 * pad) * v / top)
-            for i, v in enumerate(vals)]
+def totals_over_time(cum: List[Dict[str, Any]], w: int = 760,
+                     h: int = 190) -> str:
+    """Running total of reach and views since the first post.
 
+    Two series on ONE axis. They are the same unit and within 1.5x of each
+    other, so a shared scale is honest; a second y-axis would let the lines
+    be dragged into any relationship you wanted, which is why there is never
+    one here.
 
-def reach_over_time(rows: List[Dict[str, Any]], w: int = 760, h: int = 150) -> str:
-    """Day-one reach in publication order, as an area chart.
+    Every value is readable without hovering: the axis is labelled, both series
+    carry their final figure as a direct label, and `publish.py posts` is the
+    table view for the per-post numbers. The tooltips add the post id; they do
+    not gate anything.
 
-    Inline SVG rather than a chart library for the same reason the bars are
-    divs: the page is served from a public repo, read on a phone, and has no
-    script tag. An <svg> is markup — it costs one request, which is the one
-    already being made.
+    Views sits above reach by construction — reach counts people, views counts
+    plays, and one person can play a reel twice — so the gap between the lines
+    is repeat viewing and is worth being able to see.
 
-    Day-one reach, not lifetime, because a line of lifetime numbers slopes
-    upward forever and would read as growth no matter what happened.
+    Blue and violet, not the green and gold of the format chart below: those
+    two mean reel and carousel on this page, and a colour has to keep meaning
+    the same thing down the whole page. The pair was checked rather than
+    chosen by eye — all four colours on this page clear the colour-blind and
+    normal-vision separation floors against the card background as a set.
     """
-    if not rows:
-        return '<p class="caveat">Nothing has a first-day number yet.</p>'
-    vals = [r["reach"] for r in rows]
-    pts = _pts(vals, w, h)
-    line = " ".join("%.1f,%.1f" % p for p in pts)
-    area = "%.1f,%.1f %s %.1f,%.1f" % (pts[0][0], h, line, pts[-1][0], h)
-    top = max(vals)
-    dots = "".join(
-        '<circle cx="%.1f" cy="%.1f" r="2.6" class="%s"><title>%s: %d</title>'
-        '</circle>' % (x, y, "dreel" if r["format"] == "reel" else "dcar",
-                       escape(r["id"]), r["reach"])
-        for (x, y), r in zip(pts, rows))
-    return (
-        '<svg class="chart" viewBox="0 0 %d %d" preserveAspectRatio="none" '
-        'role="img" aria-label="First-day reach of every post in order of '
-        'publication. Highest %d.">'
-        '<polygon class="area" points="%s"/>'
-        '<polyline class="line" points="%s"/>%s</svg>'
-        '<p class="axis"><span>%s</span><span>peak %d</span><span>%s</span></p>'
-        % (w, h, top, area, line, dots,
-           escape(rows[0]["published_at"][:10]), top,
-           escape(rows[-1]["published_at"][:10])))
+    if len(cum) < 2:
+        return '<p class="caveat">Not enough published posts to draw a line yet.</p>'
+    top = _nice(max(c["views"] for c in cum))
+    padl, padb, padt = 46, 18, 10
+    iw, ih = w - padl - 8, h - padb - padt
+
+    def xy(i, v):
+        return (padl + iw * i / float(len(cum) - 1),
+                padt + ih - ih * v / float(top))
+
+    # Hover targets as wide as the spacing allows. A nearest-point layer would
+    # be better and needs JavaScript; half the gap between points is what is
+    # available without it, capped so a four-post account does not get
+    # saucer-sized targets.
+    hit = max(6.0, min(12.0, iw / float(len(cum) - 1) / 2.0))
+
+    grid, labels = [], []
+    for frac in (0, 0.5, 1.0):
+        v = top * frac
+        y = padt + ih - ih * frac
+        grid.append('<line x1="%d" y1="%.1f" x2="%d" y2="%.1f"/>'
+                    % (padl, y, w - 8, y))
+        labels.append('<text x="%d" y="%.1f" class="ylab">%s</text>'
+                      % (padl - 8, y + 3.5, "{:,}".format(int(v))))
+
+    out = ['<svg class="chart2" viewBox="0 0 %d %d" role="img" '
+           'aria-label="Running total of reach and views since the first post. '
+           'Reach ends at %s, views at %s." >'
+           % (w, h, "{:,}".format(cum[-1]["reach"]),
+              "{:,}".format(cum[-1]["views"])),
+           '<g class="grid">%s</g><g>%s</g>' % ("".join(grid), "".join(labels))]
+
+    for key, cls, label in (("views", "s2", "views"), ("reach", "s1", "reach")):
+        pts = [xy(i, c[key]) for i, c in enumerate(cum)]
+        out.append('<polyline class="ln %s" points="%s"/>'
+                   % (cls, " ".join("%.1f,%.1f" % q for q in pts)))
+        # Hover without a script tag: a <title> per point is the browser's own
+        # tooltip. A crosshair would need JavaScript and this page has none.
+        out.append("".join(
+            '<circle class="hit %s" cx="%.1f" cy="%.1f" r="%.1f"><title>%s'
+            '</title></circle>' % (cls, x, y, hit, "%s · %s %s" % (
+                escape(c["id"]), "{:,}".format(c[key]), label))
+            for (x, y), c in zip(pts, cum)))
+        lx, ly = pts[-1]
+        out.append('<circle class="end %s" cx="%.1f" cy="%.1f" r="3.4"/>'
+                   % (cls, lx, ly))
+        # Direct labels, not just a legend: the validator flags both series
+        # as under 3:1 against this background, which obliges visible labels.
+        out.append('<text class="dlab %s" x="%.1f" y="%.1f">%s</text>'
+                   % (cls, min(lx, w - 54), ly - 9,
+                      "%s %s" % ("{:,}".format(cum[-1][key]), label)))
+    out.append('</svg>')
+    return ("".join(out)
+            + '<p class="axis"><span><i class="sw s1"></i>reach — people</span>'
+              '<span><i class="sw s2"></i>views — plays</span>'
+              '<span>%s → %s</span></p>'
+              % (escape(cum[0]["at"][:10]), escape(cum[-1]["at"][:10])))
+
 
 
 def weekly_bars(rows: List[Dict[str, Any]]) -> str:
@@ -256,34 +312,6 @@ def todays_candidates(today: Optional[str] = None) -> str:
 
 
 
-def pin_these(one: List[Dict[str, Any]], n: int = 3) -> str:
-    """The three best posts by day-one reach, for the profile.
-
-    Pinning is app-only — there is no Graph API call for it, and there is no
-    way around that. But CHOOSING what to pin is a data question and the data
-    is right here: a stranger who taps the profile sees the grid before they
-    see anything else, and the grid should open with the three posts that
-    already proved they travel rather than whatever went out on Tuesday.
-
-    Day-one reach, not lifetime, or this is just a list of the oldest posts.
-    """
-    if len(one) < n:
-        return ('<p class="none">Not enough posts measured yet to say what '
-                'belongs on the profile.</p>')
-    best = sorted(one, key=lambda r: -r["reach"])[:n]
-    rows = "".join(
-        '<div class="prow"><span>%s</span><div class="track">'
-        '<i class="%s" style="width:%.1f%%"></i></div><b>%s</b></div>'
-        % (escape(r["id"]), "reel" if r["format"] == "reel" else "car",
-           100.0 * r["reach"] / best[0]["reach"], r["reach"])
-        for r in best)
-    return ('<div class="posts">%s</div>'
-            '<p class="none" style="margin-top:10px">Pin these three, in this '
-            'order. Instagram has no API for pinning, so it is three long '
-            'presses in the app &mdash; and it is the only thing on this page '
-            'that changes what a stranger sees before they have read '
-            'anything.</p>' % rows)
-
 
 def block(conn) -> str:
     """The whole dashboard: four numbers, one verdict, two lists."""
@@ -309,8 +337,16 @@ def block(conn) -> str:
     sends = o["shares"] / float(published) if published else 0
     best = max(one, key=lambda r: r["reach"]) if one else None
 
-    kpis = ('<div class="kpis">%s%s%s%s</div>'
-            % (kpi(_n(t["now"]), "reach, first day", note, cls),
+    # Six tiles, three across. Totals first because they answer "how big is
+    # this" in one glance; the medians under them answer "is it working",
+    # which is a different question and used to be the only one on the card.
+    kpis = ('<div class="kpis">%s%s%s%s%s%s</div>'
+            % (kpi("{:,}".format(o["reach"]), "total reach",
+                   "people, all time"),
+               kpi("{:,}".format(o["views"]), "total views",
+                   "%.1f per person reached" % (o["views"] / float(o["reach"]))
+                   if o["reach"] else ""),
+               kpi(_n(t["now"]), "median first-day reach", note, cls),
                kpi(_n(sends), "sends per post", "%d in total" % o["shares"]),
                kpi(published, "published", "%d queued" % counts.get("queued", 0)),
                kpi(best["reach"] if best else "\u2014", "best post",
@@ -354,18 +390,30 @@ def block(conn) -> str:
     else:
         watch_note = "No reel has reported watch time yet."
 
+    # What the per-post bar list used to say, in one line. The list itself is
+    # gone: a column per post is unreadable by post forty and nobody was
+    # reading it. Every number behind it is still in posts.db, and
+    # `publish.py posts` prints it per post when there is a reason to ask.
+    if one:
+        spread = sorted(one, key=lambda r: r["reach"])
+        insight = ("%d posts have a first-day number. Best %s reached %d, "
+                   "worst %s reached %d, median %s."
+                   % (len(one), spread[-1]["id"], spread[-1]["reach"],
+                      spread[0]["id"], spread[0]["reach"], _n(t["now"])))
+    else:
+        insight = "No post is old enough for a first-day number yet."
+
     return ('<section class="dash">%s%s%s'
+            '<h2>Reach and views, running total</h2>%s'
             '<h2>Which format travels</h2>'
             '<p class="headline">%s</p>%s<p class="caveat">%s</p>'
-            '<h2>First-day reach, in order</h2>%s'
-            '<h2>Weekly average, by format</h2>%s'
+            '<h2>Weekly average reach, by format</h2>%s'
+            '<h2>Per post</h2><p class="caveat">%s</p>'
             '<h2>How long reels are watched</h2>'
             '<p class="caveat">%s</p>'
-            '<h2>Pin these to the profile</h2>%s'
-            '<h2>Every post, first-day reach</h2>%s'
             '<h2>Today&rsquo;s candidates</h2>%s'
             '</section>'
-            % (kpis, day, when, escape(c["headline"]), versus(c),
-               escape(footnote), reach_over_time(one), weekly_bars(one),
-               escape(watch_note), pin_these(one), post_chart(one),
+            % (kpis, day, when, totals_over_time(metrics.cumulative(conn)),
+               escape(c["headline"]), versus(c), escape(footnote),
+               weekly_bars(one), escape(insight), escape(watch_note),
                todays_candidates()))
