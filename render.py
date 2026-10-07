@@ -346,8 +346,21 @@ def write_contact_sheet(posts: List[Dict[str, Any]], handle: str) -> None:
     the page worth deciding from; the buttons file a prefilled issue that
     command.yml runs. Nothing is sent from the browser: the repo is public.
     """
-    posts = all_known_posts() or posts
+    everything = all_known_posts() or posts
     status = queue_status()
+
+    # Only what can still be acted on. The sheet is the approval UI — the
+    # buttons on a published post do nothing, and by post seventy the three
+    # cards that matter were below fifty-seven that did not.
+    #
+    # Nothing is deleted: every PNG stays in docs/media, every number stays in
+    # posts.db, and `publish.py posts` prints reach, views and watch time per
+    # post. This is about what the page leads with, not about what is kept.
+    # Queued only, not "queued or unknown": the eleven seed posts from the
+    # first week have no database row and never will, so an unknown status is
+    # not a pending one.
+    posts = [p for p in everything if status.get(p.get("id")) == "queued"]
+    gone = len(everything) - len(posts)
     dash_css, dash_html = dashboard()
     cards = []
     for i, p in enumerate(posts):
@@ -369,15 +382,22 @@ def write_contact_sheet(posts: List[Dict[str, Any]], handle: str) -> None:
         'family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700&display=swap">'
         '<style>%s</style></head><body>'
         '<h1>Thirty Unfortunately</h1>'
-        '<p class="sub">%s &middot; %d posts rendered &middot; a button files a '
+        '<p class="sub">%s &middot; %d waiting &middot; a button files a '
         'one-tap issue and the workflow does the rest</p>'
         '%s'
         '<a class="nav" href="candidates.html">Today&rsquo;s candidates &rarr;</a>'
-        '<h2 class="sec">Everything rendered so far</h2>'
-        '<p class="sub">These files are what Meta pulls at publish time.</p>'
-        '<div class="grid">%s</div></body></html>'
+        '<h2 class="sec">Waiting to go out</h2>'
+        '<p class="sub">Only posts you can still stop or push. %s These files '
+        'are what Meta pulls at publish time.</p>'
+        '%s</body></html>'
         % (handle, SHEET_CSS + control.CSS + dash_css, handle, len(posts),
-           dash_html, "".join(cards)))
+           dash_html,
+           ("%d already published, skipped or unused are not listed — their "
+            "numbers are in the charts above, and `publish.py posts` prints "
+            "them one by one." % gone) if gone else "",
+           ('<div class="grid">%s</div>' % "".join(cards)) if cards else
+           '<p class="sub">Nothing is waiting. generate refills the queue when '
+           'it drops below six.</p>'))
     with open(os.path.join(ROOT, "docs", "index.html"), "w") as f:
         f.write(html)
 

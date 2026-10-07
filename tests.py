@@ -15,6 +15,7 @@ reached only when a real publish is in flight needs a stub and a test.
 import json
 import os
 import sys
+import io
 import re
 import sqlite3
 import xml.etree.ElementTree as ET
@@ -295,6 +296,75 @@ class Discoverability(unittest.TestCase):
     def test_alt_text_stays_under_the_api_limit(self):
         alt = publish.alt_text_for(self._row("x", ["rent"]), "w " * 900, 1, 3)
         self.assertLessEqual(len(alt), 1000)
+
+
+# render.py needs Pillow and publish.yml installs nothing, same reason as
+# brain.py above.
+try:
+    import render as _render
+except Exception:                      # pragma: no cover - depends on the job
+    _render = None
+
+
+@unittest.skipIf(_render is None, "render.py needs Pillow; publish.yml has none")
+class ContactSheet(unittest.TestCase):
+    """The sheet is the approval UI, so it lists what can still be acted on."""
+
+    SHEET = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                         "docs", "index.html")
+
+    def setUp(self):
+        """write_contact_sheet writes the real page. Put it back afterwards,
+        or running the tests silently replaces the live site with fixtures."""
+        with io.open(self.SHEET, encoding="utf-8") as f:
+            self._saved = f.read()
+
+    def tearDown(self):
+        with io.open(self.SHEET, "w", encoding="utf-8") as f:
+            f.write(self._saved)
+
+    def _sheet(self, status):
+        real_all, real_status, real_dash = (
+            _render.all_known_posts, _render.queue_status, _render.dashboard)
+        _render.all_known_posts = lambda: [
+            {"id": i, "slides": ["a", "b"]} for i in sorted(status)]
+        _render.queue_status = lambda: dict(
+            (k, v) for k, v in status.items() if v)
+        _render.dashboard = lambda: ("", "")
+        try:
+            _render.write_contact_sheet([], "@x")
+            with io.open(self.SHEET, encoding="utf-8") as f:
+                return f.read()
+        finally:
+            _render.all_known_posts = real_all
+            _render.queue_status = real_status
+            _render.dashboard = real_dash
+
+    def test_a_published_post_is_not_listed(self):
+        html = self._sheet({"g001": "published", "g002": "queued"})
+        self.assertIn("media/g002/", html)
+        self.assertNotIn("media/g001/", html)
+
+    def test_a_skipped_post_is_not_listed(self):
+        html = self._sheet({"g001": "skipped", "g002": "queued"})
+        self.assertNotIn("media/g001/", html)
+
+    def test_a_seed_with_no_database_row_is_not_pending(self):
+        """p002-p012 have no row and never will; unknown is not queued."""
+        html = self._sheet({"p002": None, "g002": "queued"})
+        self.assertNotIn("media/p002/", html)
+        self.assertIn("media/g002/", html)
+
+    def test_an_empty_queue_says_so_rather_than_listing_everything(self):
+        """The fallback used to be 'or everything', which dumped all 71."""
+        html = self._sheet({"g001": "published", "g002": "skipped"})
+        self.assertIn("Nothing is waiting", html)
+        self.assertNotIn("media/g001/", html)
+
+    def test_it_says_how_many_it_is_not_showing(self):
+        html = self._sheet({"g001": "published", "g002": "skipped",
+                            "g003": "queued"})
+        self.assertIn("2 already published", html)
 
 
 class TargetSpelling(unittest.TestCase):
