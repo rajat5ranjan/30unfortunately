@@ -82,6 +82,25 @@ METRIC_MIGRATIONS = [
 ]
 
 
+def normalise_target(t: Optional[str]) -> str:
+    """One spelling per target, so the mix arithmetic counts each one once.
+
+    gate_target in brain.py deliberately does not constrain the vocabulary —
+    it refuses a post that never chose a target and otherwise takes what it is
+    given. The cost of that turned up downstream rather than at the gate:
+    "wellness industry" and "the_wellness_industry" are the same target and
+    were counted as two, "the_wedding_industry" sorted nowhere near the
+    wedding industry, and "LinkedIn" away from "linkedin". The self cap and
+    the "aimed at" breakdown both divide by these counts.
+
+    Lowercase, underscores to spaces, collapse runs of space, drop a leading
+    "the". Not a whitelist: inventing a target the brand file never listed is
+    still allowed, it just has to be spelled one way.
+    """
+    t = " ".join((t or "").strip().lower().replace("_", " ").split())
+    return t[4:] if t.startswith("the ") else t
+
+
 def now() -> str:
     return datetime.now(timezone.utc).isoformat(timespec="seconds")
 
@@ -224,7 +243,8 @@ def enqueue(conn: sqlite3.Connection, post: Dict[str, Any]) -> bool:
         " move, satire_level, hinglish, keywords, source, status, queued_at)"
         " VALUES (?,?,?,?,?,?,?,?,?,?,?,'queued',?)",
         (post["id"], json.dumps(post["slides"], ensure_ascii=False), post["caption"],
-         post.get("trigger"), post.get("target") or "self", post.get("structure"),
+         post.get("trigger"), normalise_target(post.get("target")) or "self",
+         post.get("structure"),
          post.get("move"), post.get("satire_level"),
          int(bool(post.get("hinglish"))),
          json.dumps(post.get("keywords") or [], ensure_ascii=False),

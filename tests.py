@@ -297,6 +297,38 @@ class Discoverability(unittest.TestCase):
         self.assertLessEqual(len(alt), 1000)
 
 
+class TargetSpelling(unittest.TestCase):
+    """One spelling per target: the self cap divides by these counts."""
+
+    def test_the_two_spellings_of_the_wellness_industry_collapse(self):
+        self.assertEqual(store.normalise_target("the_wellness_industry"),
+                         store.normalise_target("wellness industry"))
+
+    def test_case_does_not_make_a_second_target(self):
+        self.assertEqual(store.normalise_target("LinkedIn"), "linkedin")
+
+    def test_a_leading_the_is_dropped(self):
+        self.assertEqual(store.normalise_target("the wedding industry"),
+                         "wedding industry")
+
+    def test_the_is_only_dropped_as_a_word(self):
+        """A target that merely starts with those letters keeps them."""
+        self.assertEqual(store.normalise_target("theatre"), "theatre")
+
+    def test_runs_of_whitespace_collapse(self):
+        self.assertEqual(store.normalise_target("  society   uncle "),
+                         "society uncle")
+
+    def test_nothing_stays_nothing(self):
+        """enqueue turns an empty target into 'self'; it must not become 'the'."""
+        self.assertEqual(store.normalise_target(None), "")
+        self.assertEqual(store.normalise_target("   "), "")
+
+    def test_a_target_the_brand_file_never_listed_is_still_allowed(self):
+        """Normalising is not a whitelist."""
+        self.assertEqual(store.normalise_target("Dog Walker"), "dog walker")
+
+
 class Charts(unittest.TestCase):
     """The dashboard is best-effort: render.py swallows any exception here and
     ships a sheet with no numbers, so a crash is silent. These are the inputs

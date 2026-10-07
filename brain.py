@@ -25,6 +25,7 @@ import yaml
 from html import escape as html_escape
 
 import control
+import store
 
 import envfile
 
@@ -62,6 +63,14 @@ def load_history() -> List[Dict[str, Any]]:
         with open(path) as f:
             blob = json.load(f)
             posts.extend(blob if isinstance(blob, list) else blob.get("posts", []))
+    # One spelling per target, here rather than at the gate: the files on disk
+    # are the record of what was approved and are not rewritten, so the
+    # collapsing happens every time they are read. Everything that divides by
+    # a target count — the self cap, the "aimed at" breakdown — reads through
+    # this function.
+    for p in posts:
+        if p.get("target"):
+            p["target"] = store.normalise_target(p["target"])
     return posts
 
 
