@@ -200,3 +200,27 @@ jobs:
               "  https://rajat5ranjan.github.io/30unfortunately/" \
               "Not signed in to GitHub on that device? The old way still works." \
               "  $HINT")"
+
+      # The run that broke on 2026-10-03 failed at "Render and queue", which
+      # skips every step after it — including the dry-queue alert, which is the
+      # only thing that would have said so. Fifteen runs failed in four days,
+      # the queue drained from 11 to 1, and the first anyone knew of it was
+      # looking. A step that only runs on failure cannot itself be skipped by
+      # one, so this is the alert of last resort: it says which step died and
+      # links the log, and it asks for nothing to be parsed.
+      - name: Say so if this run failed
+        if: failure()
+        env:
+          NOTIFY_EMAIL: ${{ secrets.NOTIFY_EMAIL }}
+          NOTIFY_EMAIL_PASSWORD: ${{ secrets.NOTIFY_EMAIL_PASSWORD }}
+          NOTIFY_TO: ${{ secrets.NOTIFY_TO }}
+        run: |
+          set +e
+          Q=$(python3 -c "import store; print(store.counts(store.connect()).get('queued', 0))" 2>/dev/null || echo "?")
+          python3 notify.py send \
+            "30unfortunately — generate FAILED ($Q queued)" \
+            "$(printf '%s\n\n%s\n%s\n\n%s\n' \
+              "generate did not finish. Nothing was committed, so the queue did not grow." \
+              "$Q posts are queued. Publishing spends 3 a day." \
+              "The run, and the step that died:" \
+              "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}")"
