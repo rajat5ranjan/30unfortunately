@@ -1,0 +1,251 @@
+{
+  "generated_at": "20261007-212317",
+  "model": "gemini-3.5-flash",
+  "accepted": [],
+  "rejected": [
+    {
+      "trend": "Gurugram woman spends over 50% salary on rent, shares why she wouldn't change it",
+      "context": "Urban salaried 30-year-olds are spending over half their hand-in income on living spaces they barely use.",
+      "angle": "Your rental apartment is basically a very premium storage unit you rent from a landlord to sleep in between commutes.",
+      "slides": [
+        "Fifty percent of your salary is a steep price for a storage unit.",
+        "Security deposit: three months. Brokerage: one month. Rent: ₹42,000. Time spent inside: 4 hours.",
+        "You are paying a premium to sleep next to a water purifier."
+      ],
+      "caption": "Send this to the friend who spent their entire appraisal on a balcony. 💸",
+      "trigger": "rent",
+      "structure": "receipt",
+      "move": "literalisation",
+      "target": "landlord",
+      "satire_level": 3,
+      "hinglish": false,
+      "keywords": [
+        "gurugram rent",
+        "security deposit",
+        "co living"
+      ],
+      "source": "gurugram-woman-rent-trend",
+      "created_at": "2026-10-07",
+      "_gate_failures": [
+        "source must be a URL or the literal string 'evergreen'"
+      ]
+    },
+    {
+      "trend": "Gurugram woman spends over 50% salary on rent, shares why she wouldn't change it",
+      "context": "Urban landlords impose hyper-specific domestic rules on adult tenants who are already financially independent.",
+      "angle": "Rental agreements are written like terms of a diplomatic peace treaty, except you have no negotiating leverage.",
+      "slides": [
+        "Your rent agreement has more clauses than a sovereign debt treaty.",
+        "No guests after 10 PM. No non-veg on Tuesdays. Ten percent automatic increase.",
+        "It is their house. It is your liability."
+      ],
+      "caption": "Somebody you know is currently explaining to a 60-year-old landlord why they need a microwave. 🔑",
+      "trigger": "rent",
+      "structure": "terms_and_conditions",
+      "move": "flat_restatement",
+      "target": "landlord",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "rental agreement",
+        "flat hunting",
+        "brokerage fee"
+      ],
+      "source": "gurugram-woman-rent-trend",
+      "created_at": "2026-10-07",
+      "_gate_failures": [
+        "source must be a URL or the literal string 'evergreen'"
+      ]
+    },
+    {
+      "trend": "Gurugram woman spends over 50% salary on rent, shares why she wouldn't change it",
+      "context": "The process of renting an apartment at thirty requires performing submissive domestic purity tests to strangers.",
+      "angle": "Getting a house requires running through a series of tactical personal falsehoods to convince a landlord you do not exist.",
+      "slides": [
+        "\"Haan uncle, party nahi karte hum.\"",
+        "\"No, we do not cook heavy meals.\" \"Corporate job, very stable.\" \"No, single cousin won't visit.\"",
+        "The deposit is gone."
+      ],
+      "caption": "Address them directly. You know who you are, and so does your house owner. 🏠",
+      "trigger": "rent",
+      "structure": "phone_call",
+      "move": "the_turn_in_the_last_words",
+      "target": "landlord",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "gurgaon flat",
+        "house owner",
+        "deposit refund"
+      ],
+      "source": "gurugram-woman-rent-trend",
+      "created_at": "2026-10-07",
+      "_gate_failures": [
+        "source must be a URL or the literal string 'evergreen'"
+      ]
+    },
+    {
+      "trend": "Bengaluru office park owners invest in metro links, flyovers and skywalks to ease employees' commute",
+      "context": "Private tech parks are stepping in to build basic urban transport systems because the municipality gave up decades ago.",
+      "angle": "Tech parks are slowly transforming into sovereign corporate states with private bridges to keep you from escaping the desk.",
+      "slides": [
+        "Your office now builds its own bridges.",
+        "Private shuttle to the metro. Private flyover to the gate. Private air purification in the lobby.",
+        "The road outside still belongs to 2008."
+      ],
+      "caption": "Name them and stop. Every IT corridor has one flyover built entirely out of corporate guilt. 🏢",
+      "trigger": "corporate",
+      "structure": "escalating_list",
+      "move": "flat_restatement",
+      "target": "employer",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "tech park",
+        "bangalore traffic",
+        "metro station"
+      ],
+      "source": "bangalore-office-metro-trend",
+      "created_at": "2026-10-07",
+      "_gate_failures": [
+        "source must be a URL or the literal string 'evergreen'"
+      ]
+    },
+    {
+      "trend": "Bengaluru office park owners invest in metro links, flyovers and skywalks to ease employees' commute",
+      "context": "The physical layout of corporate tech hubs has optimized the commute to keep employees moving smoothly toward their desks.",
+      "angle": "Corporate-sponsored infrastructure makes transition entirely seamless so you do not pause to wonder why you are going there.",
+      "slides": [
+        "The job description forgot to mention the transit logistics.",
+        "Must tolerate 90 minutes of yellow dust. Must navigate three private skywalks. Must log in from the feeder bus.",
+        "You are now shaped like the commute."
+      ],
+      "caption": "Send this to the person who measures their day in Metro stations. 🚇",
+      "trigger": "commute",
+      "structure": "job_description",
+      "move": "literalisation",
+      "target": "employer",
+      "satire_level": 3,
+      "hinglish": false,
+      "keywords": [
+        "outer ring road",
+        "commute time",
+        "office park"
+      ],
+      "source": "bangalore-office-metro-trend",
+      "created_at": "2026-10-07",
+      "_gate_failures": [
+        "source must be a URL or the literal string 'evergreen'"
+      ]
+    },
+    {
+      "trend": "Bengaluru office park owners invest in metro links, flyovers and skywalks to ease employees' commute",
+      "context": "Companies are building physical lanes to make in-office attendance easier, completely overriding the flexibility promises they made.",
+      "angle": "Management will spend crores on infrastructure to get you in the door for a meeting that is still an online call.",
+      "slides": [
+        "\"Aaj office mandatory hai kya?\"",
+        "HR: Great news! The private skywalk is now open. Tech Lead: Still stuck at Silk Board, flyover has water. Manager: Thoda jaldi nikal jaate.",
+        "We are still remote-first on paper."
+      ],
+      "caption": "Somebody you know has three maps open right now. 🗺️",
+      "trigger": "commute",
+      "structure": "group_chat",
+      "move": "the_turn_in_the_last_words",
+      "target": "HR",
+      "satire_level": 4,
+      "hinglish": true,
+      "keywords": [
+        "corporates rto",
+        "silk board",
+        "office commute"
+      ],
+      "source": "bangalore-office-metro-trend",
+      "created_at": "2026-10-07",
+      "_gate_failures": [
+        "source must be a URL or the literal string 'evergreen'"
+      ]
+    },
+    {
+      "trend": "Fewer than 1 in 4 people with diabetes in India sustain diet advice for six months, experts say",
+      "context": "Diet advice at thirty is less about health aspiration and more about paying to postpone physical breakdown.",
+      "angle": "Your metabolic health is a financial subscription that expires the minute you see a sweet shop.",
+      "slides": [
+        "The cost of pretending your metabolism still works.",
+        "Gluten-free atta: three packs. Doctor consultation: ₹1,200. Diet plan PDF: unread.",
+        "You bought a pack of sugar-free biscuits at midnight."
+      ],
+      "caption": "You know who you are, and so does your nutritionist. 🥗",
+      "trigger": "health",
+      "structure": "receipt",
+      "move": "flat_restatement",
+      "target": "self",
+      "satire_level": 3,
+      "hinglish": false,
+      "keywords": [
+        "diet plan",
+        "sugar free",
+        "health tracker"
+      ],
+      "source": "diabetes-diet-advice-trend",
+      "created_at": "2026-10-07",
+      "_gate_failures": [
+        "source must be a URL or the literal string 'evergreen'"
+      ]
+    },
+    {
+      "trend": "Fewer than 1 in 4 people with diabetes in India sustain diet advice for six months, experts say",
+      "context": "Indian parents monitor their adult children's diets with a surveillance system that is entirely manual and relentless.",
+      "angle": "Family health checks are the only continuous glucose monitoring devices that cannot be muted.",
+      "slides": [
+        "\"Beta, sweet toh nahi khaya na?\"",
+        "Did you check your sugar today? Only one roti for dinner. Ghar ke khaane se kuch nahi hota.",
+        "You ordered a cold coffee during the call."
+      ],
+      "caption": "Whose mother is this? 📞",
+      "trigger": "health",
+      "structure": "dialogue",
+      "move": "the_banal_true_answer",
+      "target": "relatives",
+      "satire_level": 4,
+      "hinglish": true,
+      "keywords": [
+        "health advice",
+        "family pressure",
+        "diet failure"
+      ],
+      "source": "diabetes-diet-advice-trend",
+      "created_at": "2026-10-07",
+      "_gate_failures": [
+        "keywords are banned head terms, too broad to reach anybody from: 'family pressure'",
+        "source must be a URL or the literal string 'evergreen'"
+      ]
+    },
+    {
+      "trend": "Fewer than 1 in 4 people with diabetes in India sustain diet advice for six months, experts say",
+      "context": "Diet and lifestyle recommendations for corporate thirty-year-olds require an amount of administrative effort they do not have.",
+      "angle": "The wellness industry sells diets designed for a full-time athlete to people who survive on executive calendars.",
+      "slides": [
+        "At twenty-five you ate whatever was cold.",
+        "At thirty, you track glucose spikes. You read the back of the digestive biscuit pack. You buy green tea.",
+        "You still haven't eaten."
+      ],
+      "caption": "Every group chat has one person who forwards the 5am health video. 🏃‍♂️",
+      "trigger": "health",
+      "structure": "then_now",
+      "move": "the_turn_in_the_last_words",
+      "target": "self",
+      "satire_level": 3,
+      "hinglish": false,
+      "keywords": [
+        "lifestyle change",
+        "metabolic health",
+        "health monitoring"
+      ],
+      "source": "diabetes-diet-advice-trend",
+      "created_at": "2026-10-07",
+      "_gate_failures": [
+        "source must be a URL or the literal string 'evergreen'"
+      ]
+    }
+  ]
+}
