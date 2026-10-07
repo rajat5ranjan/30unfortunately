@@ -68,6 +68,59 @@ HARD_BLOCK = [
     "bjp", "congress", "aap ", "election", "poll", "minister says", "opposition",
     "manifesto", "nsui", "abvp", "rally", "protest", "mla", "mp ", "cm ",
     "cancer", "hospitalised", "critical condition", "obituary", "passes away",
+    # "booked" is how Indian outlets write "charged", and it walked past the
+    # arrest/court/fir entries that were meant to catch exactly this.
+    "booked for", "booked under", "detained", "custody",
+    # "court" was blocked and "judge" was not, so a Detroit gun case reached
+    # the shortlist on the first run after the geography filter went in.
+    "judge", "judgement", "convicted", "sentenced", "indicted",
+    "gun", "pistol", "firearm", "shooting", "shot dead", "cop ", "police",
+]
+
+# Celebrity and fluff. Not harmful, just not about anything — a sixty-year-old
+# actor's abs is the opposite of this account's angle on the body, which is
+# that it is an invoice rather than an aspiration.
+FLUFF = [
+    "stuns fans", "stuns internet", "stuns with", "breaks the internet",
+    "fans react", "jaw-dropping", "wows fans", "sets internet on fire",
+    "you won't believe", "here's what happened", "goes viral after",
+    "actor", "actress", "bollywood", "box office", "web series",
+    "cricketer", "ipl ", "world cup",
+]
+
+# The feeds all say "India" in the query and Google News returns the rest of
+# the world anyway. On 2026-10-07 an East London landlord fined GBP 30,000 made
+# the top eight out of a hundred and sixty candidates, which is one of the
+# eight chances a run has to say something about being thirty in India.
+#
+# Blocked outright rather than down-weighted: there are 160 candidates for 12
+# slots, so the cost of dropping a relevant foreign story is nil and the cost
+# of keeping an irrelevant one is a whole slot.
+NOT_INDIA = [
+    "london", "britain", "british", "uk ", " u.k.", "england", "scotland",
+    "ireland", "wales", "europe", "european", "germany", "france", "spain",
+    "italy", "netherlands", "sweden", "norway",
+    "new york", "california", "texas", "florida", "chicago", "washington",
+    "canada", "canadian", "toronto", "australia", "australian", "sydney",
+    "melbourne", "new zealand", "japan", "japanese", "tokyo", "korea",
+    "china", "chinese", "beijing", "shanghai", "russia", "brazil",
+    "pakistan", "bangladesh", "sri lanka", "nepal",
+    "detroit", "boston", "seattle", "atlanta", "houston", "philadelphia",
+    "miami", "dallas", "denver", "phoenix", "san francisco", "los angeles",
+    "£", "€", "gbp", "eur ", "usd ",
+]
+
+# Press releases dressed as news. The account is about what things cost and who
+# is to blame; a sponsorship announcement has no victim and no number. "Signature
+# Packaged Drinking Water Takes Festival-Goers Closer to Nature at Ziro Festival"
+# was selected on 2026-10-07 and is not a thing anybody can be thirty about.
+PRESS_RELEASE = [
+    "in association with", "presented by", "powered by", "brand ambassador",
+    "unveils", "unveiled", "felicitat", "ranked among", "ranked no",
+    "wins award", "award for", "awarded to", "bags award",
+    "partners with", "collaborat", "signs mou", "signs pact", "ties up with",
+    "celebrates", "showcases", "to showcase", "festival-goers",
+    "launches new", "announces partnership", "inaugurat",
 ]
 
 # What this account is actually about. Each bucket carries a weight (how central
@@ -235,11 +288,97 @@ def parse_date(s: str) -> Optional[datetime]:
     return None
 
 
+# A positive requirement, because the blacklist above was losing an arms race.
+# Blocking "london" then "detroit" then "vance" is endless: the feeds return the
+# whole world and there is always one more proper noun. So a headline now has to
+# prove it is about India rather than merely fail to prove it is not.
+#
+# Costs a few real stories whose titles happen to carry no marker — "How much do
+# MPs earn" is about Indian MPs and reads as generic — and that is affordable at
+# 150 candidates for 12 slots. The reverse error is not: one foreign story is a
+# whole slot, and a run only has twelve.
+INDIA = [
+    "india", "indian", "bharat",
+    "rs", "rs.", "₹", "lakh", "crore", "rupee", "paisa", "gst", "upi",
+    "rbi", "sebi", "irdai", "nse", "bse", "sensex", "nifty", "epfo", "uidai",
+    "aadhaar", "pan card", "itr", "tds", "ppf", "nps", "sip",
+    "delhi", "mumbai", "bengaluru", "bangalore", "hyderabad", "chennai",
+    "kolkata", "pune", "ahmedabad", "gurgaon", "gurugram", "noida", "jaipur",
+    "lucknow", "chandigarh", "kochi", "indore", "surat", "nagpur", "bhopal",
+    "patna", "guwahati", "coimbatore", "vizag", "thane", "faridabad",
+    "ghaziabad", "navi mumbai", "whitefield", "koramangala", "indiranagar",
+    "sarjapur", "powai", "andheri", "bandra", "dwarka", "hsr layout",
+    "maharashtra", "karnataka", "tamil nadu", "telangana", "kerala",
+    "gujarat", "rajasthan", "punjab", "haryana", "bihar", "odisha",
+    "west bengal", "uttar pradesh", "madhya pradesh", "andhra", "assam",
+    "zomato", "swiggy", "blinkit", "zepto", "instamart", "dunzo", "ola",
+    "uber india", "rapido", "paytm", "phonepe", "razorpay", "cred",
+    "flipkart", "myntra", "nykaa", "meesho", "bigbasket", "dmart",
+    "infosys", "tcs", "wipro", "hcl", "tech mahindra", "cognizant",
+    "reliance", "jio", "airtel", "tata", "adani", "mahindra", "bajaj",
+    "hdfc", "icici", "sbi", "axis bank", "kotak", "lic",
+    "iit", "iim", "nit", "bits pilani", "cbse", "icse", "neet", "upsc",
+    "jee", "cat exam", "gate exam",
+    "shaadi", "beta", "aunty", "uncle", "sharma ji", "jugaad", "desi",
+    "hinglish", "metro city", "tier-2", "tier 2", "tier-3", "pg",
+    "chai", "paneer", "biryani", "dosa", "thali", "tiffin", "dabba",
+    "diwali", "holi", "navratri", "durga puja", "onam", "pongal", "raksha",
+    "karva chauth", "ganesh", "eid", "christmas in india",
+    "monsoon", "heatwave india",
+]
+
+
+def _marker_re(terms):
+    """Word-boundary match, because substrings lie.
+
+    The first version of this tested `m in title.lower()` with the markers
+    padded with spaces, and "rs " matched inside "stai(rs h)olding" — which
+    let a US story about Usha Vance through the India filter as though the
+    headline had mentioned rupees. Every short marker had the same hole: "pg",
+    "sip", "nit", "lic", "loo".
+
+    \b does not work against "₹" or "£", which are not word characters, so
+    those are matched literally.
+    """
+    word, raw = [], []
+    for t in terms:
+        (word if re.match(r"^[a-z0-9][a-z0-9 .\-]*$", t) else raw).append(t)
+    parts = [r"\b%s" % re.escape(w.strip()) +
+             (r"\b" if w.strip()[-1].isalnum() else "") for w in word]
+    parts += [re.escape(r) for r in raw]
+    return re.compile("|".join(parts))
+
+
+_INDIA_RE = _marker_re(INDIA)
+
+
+def about_india(title: str) -> bool:
+    return bool(_INDIA_RE.search(title.lower()))
+
+
 def blocked(title: str) -> Optional[str]:
+    """Why this headline cannot be used, or None.
+
+    The reason is returned rather than a bool because it is printed in the run
+    log and written to the candidates file, and "dropped 471" with no reasons
+    is how a selection that picks an East London landlord goes unnoticed for
+    three weeks.
+    """
     low = " %s " % title.lower()
     for term in HARD_BLOCK:
         if term in low:
             return term.strip()
+    for term in NOT_INDIA:
+        if term in low:
+            return "not India (%s)" % term.strip()
+    for term in PRESS_RELEASE:
+        if term in low:
+            return "press release (%s)" % term.strip()
+    for term in FLUFF:
+        if term in low:
+            return "fluff (%s)" % term.strip()
+    if not about_india(title):
+        return "no India marker"
     return None
 
 

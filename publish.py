@@ -50,6 +50,18 @@ TIMEOUT = 60
 MEDIA_METRICS = ["reach", "views", "likes", "comments", "saved", "shares",
                  "total_interactions"]
 
+# Reel-only, and asking for them on a carousel does not return null — it 400s
+# the WHOLE call: "The Media Insights API does not support the
+# ig_reels_avg_watch_time metric for this media product type." Appending these
+# to MEDIA_METRICS would therefore have stopped every carousel reporting
+# anything at all, silently, while looking like a one-line addition.
+#
+# Both arrive in milliseconds.
+REEL_METRICS = ["ig_reels_avg_watch_time", "ig_reels_video_view_total_time"]
+
+WATCH_COLUMN = {"ig_reels_avg_watch_time": "avg_watch_ms",
+                "ig_reels_video_view_total_time": "watch_total_ms"}
+
 
 # ------------------------------------------------------------------------ env
 def need(key: str) -> str:
@@ -703,13 +715,32 @@ def cmd_insights(args: argparse.Namespace) -> int:
         for item in res.get("data", []):
             series = item.get("values") or [{}]
             vals[item["name"]] = series[0].get("value")
+
+        # Watch time, in a second call, only for reels. A separate call rather
+        # than a longer metric list because the two cannot be mixed, and a
+        # failure here must not cost the numbers already in hand — reels are
+        # ~95% of output now, so this is the measurement that matters most and
+        # it is also the one most likely to change under us.
+        if (row["format"] or "carousel") == "reel":
+            try:
+                wr = get("%s/insights" % mid, token,
+                         metric=",".join(REEL_METRICS))
+                for item in wr.get("data", []):
+                    col = WATCH_COLUMN.get(item["name"])
+                    if col:
+                        vals[col] = (item.get("values") or [{}])[0].get("value")
+            except GraphError as e:
+                print("%-6s watch time unavailable — %s" % (row["id"], e))
+
         store.record_metrics(conn, mid, row["id"], vals)
 
         reach = vals.get("reach") or 0
         rate = lambda k: ("%.2f%%" % (100.0 * (vals.get(k) or 0) / reach)) if reach else "-"
-        print("%-6s reach %-7s shares %-5s (%s)  saves %-5s (%s)  likes %s"
+        watch = vals.get("avg_watch_ms")
+        print("%-6s reach %-7s shares %-5s (%s)  saves %-5s (%s)  likes %-4s%s"
               % (row["id"], reach, vals.get("shares"), rate("shares"),
-                 vals.get("saved"), rate("saved"), vals.get("likes")))
+                 vals.get("saved"), rate("saved"), vals.get("likes"),
+                 "" if watch is None else "  watched %.1fs" % (watch / 1000.0)))
     print("\nShares/reach and saves/reach are the primary metrics; per-post")
     print("profile_views was deprecated in Graph API v21.")
     return 0
@@ -734,8 +765,22 @@ def cmd_ab(args: argparse.Namespace) -> int:
         print(r["caveat"])
     print("\nShares per reach is the tiebreaker: reach says Instagram showed it")
     print("to more people, shares says they passed it on. Only the second one")
-    print("compounds. Reel watch time is not here because carousels cannot")
-    print("report it — the comparison only uses metrics both formats produce.")
+    print("compounds. Reel watch time is not in the comparison because")
+    print("carousels cannot report it — only metrics both formats produce.")
+
+    w = metrics.watch(store.connect())
+    if w["n"]:
+        print("\nReel watch time, %d reels: mean %.1fs, median %.1fs"
+              % (w["n"], w["mean"], w["median"]))
+        if w["corr_reach"] is not None:
+            print("Correlation with reach: %+.2f." % w["corr_reach"], end=" ")
+            if w["corr_reach"] < 0:
+                print("NEGATIVE — the reels watched longest\n"
+                      "reached fewest. avg_watch_time is per play, so a cold\n"
+                      "non-follower audience drags it down; a low number here\n"
+                      "can mean wide distribution. Do not optimise it yet.")
+            else:
+                print("")
     return 0
 
 

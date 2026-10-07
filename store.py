@@ -69,6 +69,19 @@ MIGRATIONS = [
 ]
 
 
+# The metrics table needs its own list: MIGRATIONS above is applied against
+# PRAGMA table_info(posts) and these are columns on a different table.
+#
+# Watch time is reel-only and arrives in MILLISECONDS, which the column names
+# say out loud — an "avg_watch_time" of 3803 reads as an hour if you assume
+# seconds, and the first number anybody saw here was 3803.
+METRIC_MIGRATIONS = [
+    ("avg_watch_ms", "ALTER TABLE metrics ADD COLUMN avg_watch_ms INTEGER", None),
+    ("watch_total_ms",
+     "ALTER TABLE metrics ADD COLUMN watch_total_ms INTEGER", None),
+]
+
+
 def now() -> str:
     return datetime.now(timezone.utc).isoformat(timespec="seconds")
 
@@ -140,6 +153,13 @@ def connect(write: bool = False) -> sqlite3.Connection:
             # row that predates `format` was a carousel, which is the A/B
             # control arm. Nobody can say retrospectively which move a post
             # ran, so those stay NULL and every reader has to handle it.
+            if backfill:
+                conn.execute(backfill)
+            conn.commit()
+    have = set(r["name"] for r in conn.execute("PRAGMA table_info(metrics)"))
+    for col, add, backfill in METRIC_MIGRATIONS:
+        if col not in have:
+            conn.execute(add)
             if backfill:
                 conn.execute(backfill)
             conn.commit()
@@ -304,7 +324,8 @@ def published_with_metrics(conn: sqlite3.Connection) -> List[sqlite3.Row]:
     """
     return conn.execute("""
         SELECT p.*, m.reach, m.views, m.likes, m.comments, m.saved, m.shares,
-               m.total_interactions, m.captured_at
+               m.total_interactions, m.avg_watch_ms, m.watch_total_ms,
+               m.captured_at
         FROM posts p
         LEFT JOIN (SELECT ig_media_id, MAX(captured_at) AS t FROM metrics
                    GROUP BY ig_media_id) last ON last.ig_media_id = p.ig_media_id
@@ -331,7 +352,7 @@ def published(conn: sqlite3.Connection) -> List[sqlite3.Row]:
 def record_metrics(conn: sqlite3.Connection, media_id: str, post_id: Optional[str],
                    values: Dict[str, Any]) -> None:
     cols = ("reach", "views", "likes", "comments", "saved", "shares",
-            "total_interactions")
+            "total_interactions", "avg_watch_ms", "watch_total_ms")
     conn.execute(
         "INSERT OR REPLACE INTO metrics (ig_media_id, post_id, captured_at, %s)"
         " VALUES (?,?,?,%s)" % (",".join(cols), ",".join("?" * len(cols))),

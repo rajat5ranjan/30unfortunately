@@ -101,6 +101,34 @@ COUNTED = ("reach", "views", "likes", "comments", "saved", "shares",
            "total_interactions")
 
 
+def watch(conn: sqlite3.Connection) -> Dict[str, Any]:
+    """Reel watch time, and whether it predicts anything.
+
+    Deliberately reports the correlation alongside the average, because the
+    average on its own invites the wrong conclusion. avg_watch_time is per
+    PLAY: a reel pushed to a cold non-follower audience collects fast swipes
+    and the mean falls, so a low number can mean wide distribution rather
+    than a bad reel. Measured over the first 21 reels the correlation with
+    reach was -0.39 — the opposite sign to the one you would assume.
+
+    So this is here to be watched over time, not to be optimised yet.
+    """
+    rows = [r for r in store.published_with_metrics(conn)
+            if (r["format"] or "") == "reel" and r["avg_watch_ms"] is not None]
+    if not rows:
+        return {"n": 0}
+    w = [r["avg_watch_ms"] / 1000.0 for r in rows]
+    reach = [r["reach"] or 0 for r in rows]
+    n = len(rows)
+    mean_w = sum(w) / n
+    mean_r = sum(reach) / n
+    num = sum((a - mean_w) * (b - mean_r) for a, b in zip(w, reach))
+    den = (sum((a - mean_w) ** 2 for a in w)
+           * sum((b - mean_r) ** 2 for b in reach)) ** 0.5
+    return {"n": n, "mean": mean_w, "median": sorted(w)[n // 2],
+            "corr_reach": (num / den) if den else None}
+
+
 def overview(conn: sqlite3.Connection) -> Dict[str, Any]:
     """One row of headline numbers, from each post's most recent capture.
 

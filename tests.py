@@ -28,6 +28,7 @@ import dash
 import metrics
 import publish
 import store
+import trend_agent
 
 
 class ImportsAreNotShadowed(unittest.TestCase):
@@ -294,6 +295,52 @@ class Discoverability(unittest.TestCase):
         self.assertLessEqual(len(alt), 1000)
 
 
+class TrendSelection(unittest.TestCase):
+    """Eight trends were picked from 160 candidates and two were usable."""
+
+    def test_a_foreign_story_is_dropped(self):
+        self.assertIsNotNone(trend_agent.blocked(
+            "East London landlord failed to address fire safety, fined GBP 30,000"))
+
+    def test_a_press_release_is_dropped(self):
+        self.assertIn("press release", trend_agent.blocked(
+            "Signature Water Takes Festival-Goers Closer to Nature at Ziro Festival"))
+
+    def test_celebrity_fluff_is_dropped(self):
+        self.assertIn("fluff", trend_agent.blocked(
+            "Ronit Roy, 60, stuns fans with six-pack abs and a chest workout"))
+
+    def test_booked_is_as_blocked_as_arrested(self):
+        """Indian outlets write 'booked'; the arrest and court terms missed it."""
+        self.assertIsNotNone(trend_agent.blocked(
+            "Bengaluru Zomato manager booked for telling staff to learn Hindi"))
+
+    def test_a_headline_with_no_india_marker_is_dropped(self):
+        self.assertEqual(trend_agent.blocked(
+            "Usha Vance nearly falls aircraft stairs holding newborn"),
+            "no India marker")
+
+    def test_rs_does_not_match_inside_stairs(self):
+        """The bug that let the line above through: "rs " in "stai(rs h)olding".
+
+        Every short marker had it - pg, sip, nit, lic.
+        """
+        self.assertFalse(trend_agent.about_india("stairs holding newborn"))
+        self.assertFalse(trend_agent.about_india("gossip about the upgrade"))
+        self.assertTrue(trend_agent.about_india("Water bottles for Rs 265 each"))
+
+    def test_the_stories_worth_keeping_survive(self):
+        for t in ("RBI repo rate hike to raise home loan EMIs",
+                  "Gurugram woman spends over 50% salary on rent",
+                  "Festive hiring grows 7% to 1.27 lakh jobs, led by quick commerce",
+                  "All On Rent: Water bottles for Rs 265 each, Rs 2.3 Lakh for ACs",
+                  "Karnataka liquor volumes flat in H1 as beer gets three cheers"):
+            self.assertIsNone(trend_agent.blocked(t), t)
+
+    def test_a_rupee_symbol_counts_though_it_is_not_a_word(self):
+        self.assertTrue(trend_agent.about_india("Rent is now ₹48,000 a month"))
+
+
 class TokenExpiry(unittest.TestCase):
     """The gauge used to call refresh, report the lifetime of the token it
     minted, and throw that token away — so it read ~60 days forever and the
@@ -470,7 +517,12 @@ class Numbers(unittest.TestCase):
         conn = sqlite3.connect(":memory:")
         conn.row_factory = sqlite3.Row
         conn.executescript(store.SCHEMA)
-        conn.execute("ALTER TABLE posts ADD COLUMN format TEXT")
+        # Both migration lists, rather than hand-adding the one column this
+        # fixture needs: every reader goes through published_with_metrics, so a
+        # column added to the real DB and not here fails nine tests at once
+        # with a bare "no such column".
+        for _col, add, _back in store.MIGRATIONS + store.METRIC_MIGRATIONS:
+            conn.execute(add)
         for i, row in enumerate(rows):
             fmt, reach, views, shares = row[:4]
             age = row[4] if len(row) > 4 else 20
