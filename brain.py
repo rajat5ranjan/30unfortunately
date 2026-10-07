@@ -179,6 +179,26 @@ def gate_keywords(post: Dict[str, Any], brand: Dict[str, Any]) -> List[str]:
     if bad:
         return ["keywords must be plain lowercase words a person would type, "
                 "no hash and no camel case: %s" % ", ".join(repr(b) for b in bad)]
+
+    # Reachability, not shape. A keyword becomes a hashtag, and a hashtag with
+    # ten million posts in it is a lottery this account does not win: forty-four
+    # posts in, saves were zero and shares were eight. Single words are where
+    # that happens — nineteen of the first ninety-three keywords were one word,
+    # and they were "yoga", "fitness", "health", "friends", "parenting".
+    disc = brand.get("discoverability", {})
+    floor = disc.get("min_keyword_words", 2)
+    thin = [k for k in kws
+            if len([w for w in re.split(r"[ -]+", (k or "").strip()) if w]) < floor]
+    if thin:
+        return ["keywords must be at least %d words — a one-word tag is a head "
+                "term this account cannot rank in: %s"
+                % (floor, ", ".join(repr(t) for t in thin))]
+
+    heads = set(disc.get("head_terms") or [])
+    hit = [k for k in kws if (k or "").strip().lower() in heads]
+    if hit:
+        return ["keywords are banned head terms, too broad to reach anybody "
+                "from: %s" % ", ".join(repr(h) for h in hit)]
     return []
 
 
@@ -250,6 +270,31 @@ now still even more most much many one two three all any some each every""".spli
 def is_imperative(hook: str) -> bool:
     w = re.sub(r"[^a-z\s]", " ", (hook or "").lower()).split()
     return bool(w) and w[0] in IMPERATIVES
+
+
+COUPLET_MAX_WORDS = 12
+
+
+def is_couplet(slides: List[str]) -> bool:
+    """Does the post land on two balanced short lines with a pause between?
+
+    The shape the old landing rule asked for by name, and 84% of the first
+    fifty-eight posts delivered: two sentences, both under a dozen words,
+    separated by a blank line, averaging 6.3 and 6.6 words. Correct every
+    time and identical every time, which is the whole problem — the account
+    reads as verse rather than as somebody talking.
+
+    Measured on the rendered slide rather than on the structure name, because
+    the structures that produce it have eight different names. Same lesson as
+    the parallel lists: name the shape, not the label.
+    """
+    last = (slides or [""])[-1] or ""
+    if "\n\n" not in last:
+        return False
+    parts = [x.strip() for x in last.split("\n\n") if x.strip()]
+    if len(parts) != 2:
+        return False
+    return all(len(x.split()) <= COUPLET_MAX_WORDS for x in parts)
 
 
 def _words(text: str) -> List[str]:
@@ -411,6 +456,8 @@ def build_system_prompt(brand: Dict[str, Any], history: List[Dict[str, Any]],
                    / max(len(history), 1))
     imp_share = (sum(1 for p in history if is_imperative((p.get("slides") or [""])[0]))
                  / max(len(history), 1))
+    couplet_share = (sum(1 for p in history if is_couplet(p.get("slides") or []))
+                     / max(len(history), 1))
 
     ex_blocks = []
     for p in examples:
@@ -438,7 +485,10 @@ def build_system_prompt(brand: Dict[str, Any], history: List[Dict[str, Any]],
           % (voice_share * 100, brand["structures"]["min_voice_share"] * 100)
         + "\n  hooks that open with a command: %.0f%% (cap %.0f%%)"
           % (imp_share * 100,
-             brand["slides"]["slide_1_is_a_HOOK"]["max_imperative_share"] * 100),
+             brand["slides"]["slide_1_is_a_HOOK"]["max_imperative_share"] * 100)
+        + "\n  posts landing on a two-line couplet: %.0f%% (cap %.0f%%)"
+          % (couplet_share * 100,
+             brand["slides"]["last_slide_is_the_LANDING"]["max_couplet_share"] * 100),
         "Return ONLY JSON matching the schema. No preamble, no markdown fence.",
     ])
 
@@ -667,6 +717,12 @@ def rank(posts: List[Dict[str, Any]], brand: Dict[str, Any],
     over_send = (sum(1 for p in recent if is_send_command(p.get("caption")))
                  > brand["slides"]["the_caption"]["max_command_share"]
                  * max(len(recent), 1))
+    # The landing shape, which the contract used to mandate outright. Same
+    # remedy again: a pull on the mix rather than a gate on the post, because
+    # a two-line couplet is a perfectly good ending and only wrong in bulk.
+    over_couplet = (sum(1 for p in recent if is_couplet(p.get("slides") or []))
+                    > brand["slides"]["last_slide_is_the_LANDING"]["max_couplet_share"]
+                    * max(len(recent), 1))
 
     for i, p in enumerate(posts, 1):
         sc = scores.get(i, {})
@@ -684,6 +740,8 @@ def rank(posts: List[Dict[str, Any]], brand: Dict[str, Any],
             penalty += 4
         if over_send and is_send_command(p.get("caption")):
             penalty += 3
+        if over_couplet and is_couplet(p.get("slides") or []):
+            penalty += 4
         if over_list and p.get("structure") in lists:
             penalty += 4
         if p.get("move") in recent_move:
@@ -778,6 +836,12 @@ def cmd_check(brand, cfg, record: bool = False):
              brand["slides"]["slide_1_is_a_HOOK"]["max_imperative_share"] * 100,
              "" if imps <= brand["slides"]["slide_1_is_a_HOOK"]["max_imperative_share"]
              else "  <-- one rhythm"))
+    cpl = sum(1 for p in history if is_couplet(p.get("slides") or [])) \
+        / max(len(history), 1)
+    cpl_cap = brand["slides"]["last_slide_is_the_LANDING"]["max_couplet_share"]
+    print("Landings that are a two-line couplet: %.0f%% (cap %.0f%%)%s"
+          % (cpl * 100, cpl_cap * 100,
+             "" if cpl <= cpl_cap else "  <-- reads as verse"))
 
     at_self = (aims.get("self", 0) + aims.get("untargeted", 0)) / max(len(history), 1)
     if at_self > brand["target"]["self_cap"]:

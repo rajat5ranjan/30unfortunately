@@ -11,7 +11,7 @@ publish.py — Instagram carousel publishing via the official Graph API.
     python3 publish.py ab                        carousel vs reel, so far
     python3 publish.py refresh-token             extend the 60-day token
 
-A post ships as a carousel or as a reel depending on the day (store.format_for)
+A post ships as a reel, or as the week's one carousel (store.format_for)
 — that is the reach experiment, and `ab` reads it out.
 
 A carousel is a three-step dance: a container per slide, a CAROUSEL container
@@ -433,7 +433,7 @@ def cmd_check(args: argparse.Namespace) -> int:
         print("window     %s — %s is %s" % (
             now.strftime("%H:%M"), w["name"],
             "already used today" if window_used(conn, w, now) else "OPEN"))
-    print("format     today ships as a %s" % store.format_for(now))
+    print("format     next ships as a %s" % store.format_for(conn, now))
 
     nxt = store.next_queued(conn)
     if nxt:
@@ -556,7 +556,7 @@ def cmd_next(args: argparse.Namespace) -> int:
     slides = json.loads(row["slides"])
     urls = slide_urls(row["id"], len(slides))
     caption = full_caption(row)
-    fmt = args.format or store.format_for(datetime.now(timezone.utc))
+    fmt = args.format or store.format_for(conn, datetime.now(timezone.utc))
 
     print("%s — %s, %d slides" % (row["id"], fmt, len(slides)))
     for u in urls:

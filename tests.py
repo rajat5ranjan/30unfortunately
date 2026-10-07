@@ -15,6 +15,7 @@ reached only when a real publish is in flight needs a stub and a test.
 import json
 import os
 import sys
+import sqlite3
 import unittest
 from datetime import datetime, timedelta, timezone
 
@@ -136,11 +137,50 @@ class Spacing(unittest.TestCase):
 
 
 class Formats(unittest.TestCase):
-    def test_alternates_by_day_not_by_post(self):
-        days = [store.format_for(datetime(2026, 9, d)) for d in range(1, 9)]
-        self.assertEqual(len(set(days)), 2)
-        for a, b in zip(days, days[1:]):
-            self.assertNotEqual(a, b, "consecutive days share a format")
+    """Reels, with one carousel a week. The experiment finished 21-21."""
+
+    def _conn(self, last_carousel):
+        conn = sqlite3.connect(":memory:")
+        conn.row_factory = sqlite3.Row
+        conn.executescript(store.SCHEMA)
+        for _col, add, _back in store.MIGRATIONS:
+            conn.execute(add)
+        if last_carousel:
+            conn.execute(
+                "INSERT INTO posts (id, slides, caption, status, format,"
+                " published_at) VALUES ('x','[]','c','published','carousel',?)",
+                (last_carousel,))
+        return conn
+
+    def test_a_carousel_comes_back_after_a_week(self):
+        now = datetime(2026, 10, 20, tzinfo=timezone.utc)
+        six = (now - timedelta(days=6)).isoformat()
+        seven = (now - timedelta(days=7)).isoformat()
+        self.assertEqual(store.format_for(self._conn(six), now), "reel")
+        self.assertEqual(store.format_for(self._conn(seven), now), "carousel")
+
+    def test_the_arm_never_reaches_zero(self):
+        """However long the gap, the next one is still a carousel."""
+        now = datetime(2026, 10, 20, tzinfo=timezone.utc)
+        old = (now - timedelta(days=40)).isoformat()
+        self.assertEqual(store.format_for(self._conn(old), now), "carousel")
+
+    def test_a_naive_timestamp_does_not_crash_the_publisher(self):
+        """Rows written before the format column carry no timezone."""
+        now = datetime(2026, 10, 20, tzinfo=timezone.utc)
+        naive = datetime(2026, 10, 1).isoformat()
+        self.assertEqual(store.format_for(self._conn(naive), now), "carousel")
+
+    def test_a_naive_now_does_not_crash_the_status_command(self):
+        """publish.py check works in local wall-clock time and passes it in."""
+        naive_now = datetime(2026, 10, 20)
+        stored = datetime(2026, 10, 1, tzinfo=timezone.utc).isoformat()
+        self.assertEqual(store.format_for(self._conn(stored), naive_now),
+                         "carousel")
+
+    def test_an_empty_history_starts_with_one(self):
+        now = datetime(2026, 10, 20, tzinfo=timezone.utc)
+        self.assertEqual(store.format_for(self._conn(None), now), "carousel")
 
     def test_urls(self):
         self.assertTrue(publish.reel_url("g005").endswith("/reels/g005.mp4"))
@@ -252,6 +292,76 @@ class Discoverability(unittest.TestCase):
     def test_alt_text_stays_under_the_api_limit(self):
         alt = publish.alt_text_for(self._row("x", ["rent"]), "w " * 900, 1, 3)
         self.assertLessEqual(len(alt), 1000)
+
+
+# brain.py needs PyYAML and google-genai, and publish.yml runs this file with
+# no pip install at all — that is why tests.py is stdlib-only. So these skip
+# where the dependency is absent rather than dragging it into the publish job.
+try:
+    import brain as _brain
+except Exception:                      # pragma: no cover - depends on the job
+    _brain = None
+
+
+@unittest.skipIf(_brain is None, "brain.py needs PyYAML; publish.yml has none")
+class LandingShape(unittest.TestCase):
+    """84% of the first 58 posts ended on the same two-line couplet."""
+
+    def test_the_shape_the_old_rule_asked_for_is_recognised(self):
+        self.assertTrue(_brain.is_couplet(
+            ["hook", "middle", "You are thirty-three.\n\nYou are buying a "
+                               "drawing of a building."]))
+
+    def test_one_sentence_is_not_a_couplet(self):
+        self.assertFalse(_brain.is_couplet(
+            ["hook", "middle", "You are now shaped like the problem."]))
+
+    def test_three_beats_are_not_a_couplet(self):
+        self.assertFalse(_brain.is_couplet(
+            ["hook", "middle", "Nobody called.\n\nNobody wrote.\n\nGone."]))
+
+    def test_a_long_second_line_is_not_a_couplet(self):
+        """The couplet is about balance; a run-on second line reads as speech."""
+        self.assertFalse(_brain.is_couplet(
+            ["hook", "middle", "You are thirty-three.\n\nSomewhere in a server "
+             "in Hyderabad there is a field with your name in it that nobody "
+             "has looked at since March."]))
+
+    def test_an_empty_post_does_not_crash_the_ranker(self):
+        self.assertFalse(_brain.is_couplet([]))
+        self.assertFalse(_brain.is_couplet([""]))
+
+
+@unittest.skipIf(_brain is None, "brain.py needs PyYAML; publish.yml has none")
+class KeywordsCanBeRankedIn(unittest.TestCase):
+    """A keyword becomes a hashtag, and #yoga is a lottery with 12 followers."""
+
+    def setUp(self):
+        self.brand = _brain.load_brand()
+
+    def test_two_word_terms_pass(self):
+        self.assertEqual(_brain.gate_keywords(
+            {"keywords": ["bengaluru rent", "rent deposit", "sharma ji"]},
+            self.brand), [])
+
+    def test_a_one_word_term_is_refused(self):
+        fails = _brain.gate_keywords(
+            {"keywords": ["yoga", "posture fix", "back pain"]}, self.brand)
+        self.assertTrue(fails and "yoga" in fails[0])
+
+    def test_a_hyphen_counts_as_two_words(self):
+        self.assertEqual(_brain.gate_keywords(
+            {"keywords": ["co-living", "flat rent", "broker scam"]},
+            self.brand), [])
+
+    def test_a_banned_head_term_is_refused_even_at_two_words(self):
+        fails = _brain.gate_keywords(
+            {"keywords": ["artificial intelligence", "flat rent", "broker scam"]},
+            self.brand)
+        self.assertTrue(fails and "artificial intelligence" in fails[0])
+
+    def test_a_post_predating_the_field_is_left_alone(self):
+        self.assertEqual(_brain.gate_keywords({}, self.brand), [])
 
 
 class IssueCommands(unittest.TestCase):

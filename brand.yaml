@@ -196,9 +196,43 @@ slides:
       Platform fee — taxed.
 
   last_slide_is_the_LANDING:
+    max_couplet_share: 0.4
     rule: |
-      Short. Flat. A blank line before the final sentence — the pause IS the joke.
-      End on a noun or a full stop, never on an explanation, never on a moral.
+      Short. Flat. End on a noun or a full stop, never on an explanation,
+      never on a moral.
+
+      VARY THE SHAPE. This rule used to read "a blank line before the final
+      sentence — the pause IS the joke", and the first fifty-eight posts took
+      it literally: 84% of them landed on exactly two sentences, 90% with a
+      blank line between them, the first averaging 6.3 words and the second
+      6.6. Two balanced short lines with a pause in the middle is a couplet,
+      and fifty-eight couplets in a row do not read as jokes. They read as
+      poetry — which is admired and not sent on.
+
+      So the pause is ONE landing, not the landing. Others, all of them legal:
+
+        one sentence, no pause:   "You are now shaped like the problem."
+        three beats:              "Nobody called. Nobody wrote. The deposit is gone."
+        one long sentence:        "Somewhere in a server in Hyderabad there is a
+                                   field with your name in it and a number
+                                   nobody has looked at since March."
+        a line of speech:         "Beta, adjust kar lo."
+        an exchange:              "\"Is it refundable?\"  \"It is educational.\""
+        a bare object:            "Rent: 48,000. Deposit: 2,00,000. Balcony: one."
+
+      Pick the shape the joke needs. If the previous few posts ended on a
+      two-line couplet, this one must not.
+
+      The last line must TURN, not restate. It has to bring in something the
+      post has not said yet — a new image, a new object, a new person. "Your
+      body is an invoice for your twenties. / You are paying it off in monthly
+      instalments." is two versions of one sentence; the second line is a gloss
+      on the first and the post ends flatter than it started. Compare "You are
+      thirty-two. / She still treats you like an unstable chemical." — the
+      chemical arrives from nowhere and is the entire joke.
+
+      The ban on explaining was written about morals. It applies just as hard
+      to a landing explaining itself.
 
       The last line must TURN, not restate. It has to bring in something the
       post has not said yet — a new image, a new object, a new person. "Your
@@ -215,9 +249,14 @@ slides:
       - "The post is still up."
       - "You are now shaped like the problem."
       - "Not one of them has a story."
+      - "Nobody called. Nobody wrote. The deposit is gone."
+      - "Thoda adjust kar lo."
     bad:
       - "Adulthood is truly a scam, isn't it? 😅"
       - "And that's why we need financial literacy."
+      # Correct in isolation, and the shape 84% of the account already uses.
+      # Rejected for being the fifty-ninth of its kind, not for being wrong.
+      - "You are thirty-three.\n\nYou are buying a drawing of a building."
 
 # -----------------------------------------------------------------------------
 # TARGET — who the joke is ON. The thing most often missing.
@@ -741,12 +780,53 @@ discoverability:
          same words. One artefact, two jobs, no cost to the joke.
       2. UP TO THREE HASHTAGS on their own line, which the hard bans already
          cap and which now have to be search terms rather than decoration.
+  min_keyword_words: 2
+  head_terms:
+    # Tags with millions of posts in them. An account with twelve followers
+    # cannot surface in any of these, so they are three wasted lines in the
+    # caption and the measurement says so: forty-four posts, zero saves,
+    # eight shares. Not a style objection — a reachability one.
+    - fitness
+    - health
+    - yoga
+    - parenting
+    - friends
+    - motivation
+    - lifestyle
+    - humor
+    - humour
+    - comedy
+    - memes
+    - relatable
+    - adulting
+    - india
+    - mentalhealth
+    - mental health
+    - artificial intelligence
+    - real estate
+    - career advice
+    - office humor
+    - family pressure
+    - middle class
+    - generation gap
   keywords: |
     Three plain terms per post, lowercase, no hash, no camel case. What a
     person would TYPE, not what the post is filed under: "co-living
-    bangalore" and "rent" over "#urbanlife" and "#millennialstruggles". At
-    least one should name the concrete thing in the post — the city, the app,
-    the object, the relative.
+    bangalore" and "rent deposit" over "#urbanlife" and "#millennialstruggles".
+    At least one should name the concrete thing in the post — the city, the
+    app, the object, the relative.
+
+    EVERY TERM IS AT LEAST TWO WORDS. The first thirty-one posts produced
+    ninety-three keywords and nineteen of them were a single word: "yoga",
+    "fitness", "health", "friends", "parenting", "refund". Those become
+    #yoga and #fitness, which have tens of millions of posts and into which
+    this account cannot rank at all — the tag is a lottery an account with
+    twelve followers does not win. "yoga injury" and "posture fix" can be
+    ranked in; "yoga" cannot. A hyphenated term counts as two ("co-living").
+
+    The head_terms list above is banned outright for the same reason, and it
+    is a list of what has actually been generated, not a theory. Extend it
+    when a new one appears.
   the_grid_is_a_search_result: |
     Slide 1 is the thumbnail for a carousel and the cover frame is the
     thumbnail for a reel, so the hook is doing SEO work as on-screen text
