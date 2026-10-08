@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "Gurugram woman spends over 50% salary on rent, shares why she wouldn't change it",
+      "context": "At thirty, the ambition to make a statement in the city degrades into a transaction of buying quietness at any cost.",
+      "angle": "The trajectory of adulthood in India is defined by the price of getting people to leave you alone.",
+      "slides": [
+        "At twenty-two, you wanted to own the city.",
+        "At 22: \"I will live in a penthouse.\"\nAt 26: \"I want a flat close to the metro.\"\nAt 30: \"I am paying ₹45,000 to hear myself think.\"",
+        "\"Beta, adjust kar lo.\"\n\nYour broker said the same thing."
+      ],
+      "caption": "Your flatmate knows exactly who this is, and so does the uncle on the third floor.",
+      "trigger": "home",
+      "structure": "then_now",
+      "move": "the_turn_in_the_last_words",
+      "target": "self",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "home loan",
+        "rental market",
+        "salary budget"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPTEVtY3hDdG1FSHpVeV90UmNiMlk4Y3dsaGl4T3RmOU5KUTl2WUpkZG5RYmhKWVZTRGxPd3Q1UHVoMmZRTGFDRGUtLVVoTl9Hdkk4VXJLbU1uVlNFbHNSX0NIWUhBdV9sQXozcWxCaDR5dG12UDlTNDNRODVRWldwbFBVZ0ZKem5JbllEN0E4NFNtbW51dHBKc1F5RVd1LVgtZWhuaWVEOE5VMnV6M0d1SjlfR0hxNlRzUmxMcGpQSy1XU3A1T3VYN3VqR0xJMEYzcmFCWFB1cVRWZ9IB3wFBVV_5cUxNMWo1Z3ZYR1pBVFhIOWZyTFF0NG02c3lPR014Mjk0alJyNkx0S1huUHdRRTJteXJUOFhHMzk0TjFPTFRlZk1Gd3BGUnBmaHhfODJjMkpKR0Z2aGtRamdYejNiUkl6UDRjaTg0SldkLTFJdy11bnlxZ3YwcnEya25NSnJHY3VxS2ZmYWVQYWpJV3hkU3dIS0JPckl6dzNYWWMxMXdHTnN6THM4SGxMbG1UM3B3bzc4NDZPd040blBfX2hqV2VDTUZ1NnM1SFdIZkplQzlpbTc3RjA3a2RWNk5j?oc=5",
+      "created_at": "2026-10-08",
+      "status": "approved",
+      "id": "g063",
+      "rank_score": 35,
+      "rank_verdict": "Slide one acts too much like an essay title or a table of contents, clearing its throat rather than hitting the reader with an immediate joke."
+    }
+  ]
+}

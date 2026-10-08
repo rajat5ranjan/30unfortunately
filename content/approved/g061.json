@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "Fewer than 1 in 4 people with diabetes in India sustain diet advice for six months, experts say",
+      "context": "The 30-year-old body is starting to report errors, but the lifestyle that caused them cannot be modified without collapsing the remaining joy.",
+      "angle": "Medical advice assumes you are a retired landlord with nothing to do but soak nuts.",
+      "slides": [
+        "Your doctor's diet chart assumes you are a retired landlord.",
+        "\"No white rice. No maida. No sugar. No dairy.\"\n\"Wake up at 5:00 AM. Soak five almonds.\"\n\"Walk for 45 minutes before the sun rises.\"\n\"Sleep by 10:00 PM.\"",
+        "The call at 10:30 PM:\n\n\"Client wants a quick sync.\"\n\nYou still haven't eaten."
+      ],
+      "caption": "Send this to the friend who currently has three types of organic millets expiring in their kitchen cabinet.",
+      "trigger": "health",
+      "structure": "dialogue",
+      "move": "flat_restatement",
+      "target": "wellness industry",
+      "satire_level": 4,
+      "hinglish": true,
+      "keywords": [
+        "diet chart",
+        "blood sugar",
+        "office work"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQV2pFNnZrNE5KRmtLTlVIamx4VUlOTU5WaUdmcXo2MHV4UkJ5Y2Q5SlpCOG5vYmNtenlpYTNnRTZKX2VOeXZva3dubUZmck1iN3Y1c2xqNWdoMF9aSEVSQ0tSd3lpM091a0NYdmtwc19YbEdQUmxrdGxMVDhmbFhSS1FCQ0haeXd1ZDR6eEV3MUJ3RDZ1SFJVcHRJbmg4TGN2OEZXN2U1TVR1U3AteHpCVllRcGwyQm0zUjFPdzlYRW56cGxw?oc=5",
+      "created_at": "2026-10-08",
+      "status": "approved",
+      "id": "g061",
+      "rank_score": 53,
+      "rank_verdict": "The post is highly polished and hits the corporate fatigue perfectly, though the escalation could use a localized brand or specific rupee value to ground its texture."
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "Fewer than 1 in 4 people with diabetes in India sustain diet advice for six months, experts say",
+      "context": "Indian parents are incapable of accepting a clinical diagnosis without passing moral judgment on your daily routine.",
+      "angle": "The family diagnoses your biological failures as character flaws caused by a lack of sunlight and early mornings.",
+      "slides": [
+        "Your mother has a different explanation for your HbA1c.",
+        "\"It is because of that phone.\"\n\"You are sleeping with the screen on.\"\n\"Try drinking warm water with lemon.\"\n\"Beta, your cousin Rohit runs five kilometers every morning.\"",
+        "Rohit is twenty-four.\n\nHe is currently on his third gap year."
+      ],
+      "caption": "Send this to the cousin whose morning routine is being used to humiliate you in the family group chat.",
+      "trigger": "health",
+      "structure": "phone_call",
+      "move": "the_turn_in_the_last_words",
+      "target": "parents",
+      "satire_level": 4,
+      "hinglish": true,
+      "keywords": [
+        "family advice",
+        "parent pressure",
+        "medical test"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQV2pFNnZrNE5KRmtLTlVIamx4VUlOTU5WaUdmcXo2MHV4UkJ5Y2Q5SlpCOG5vYmNtenlpYTNnRTZKX2VOeXZva3dubUZmck1iN3Y1c2xqNWdoMF9aSEVSQ0tSd3lpM091a0NYdmtwc19YbEdQUmxrdGxMVDhmbFhSS1FCQ0haeXd1ZDR6eEV3MUJ3RDZ1SFJVcHRJbmg4TGN2OEZXN2U1TVR1U3AteHpCVllRcGwyQm0zUjFPdzlYRW56cGxw?oc=5",
+      "created_at": "2026-10-08",
+      "status": "approved",
+      "id": "g060",
+      "rank_score": 61,
+      "rank_verdict": "The term 'gap year' feels slightly too Westernized and privileged for a typical middle-class mother's comparative weapon, even if the comedic landing is brilliant."
+    }
+  ]
+}

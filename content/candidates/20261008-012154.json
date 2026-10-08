@@ -1,0 +1,206 @@
+{
+  "generated_at": "20261008-012154",
+  "model": "gemini-3.5-flash",
+  "accepted": [
+    {
+      "trend": "Fewer than 1 in 4 people with diabetes in India sustain diet advice for six months, experts say",
+      "context": "Indian parents are incapable of accepting a clinical diagnosis without passing moral judgment on your daily routine.",
+      "angle": "The family diagnoses your biological failures as character flaws caused by a lack of sunlight and early mornings.",
+      "slides": [
+        "Your mother has a different explanation for your HbA1c.",
+        "\"It is because of that phone.\"\n\"You are sleeping with the screen on.\"\n\"Try drinking warm water with lemon.\"\n\"Beta, your cousin Rohit runs five kilometers every morning.\"",
+        "Rohit is twenty-four.\n\nHe is currently on his third gap year."
+      ],
+      "caption": "Send this to the cousin whose morning routine is being used to humiliate you in the family group chat.",
+      "trigger": "health",
+      "structure": "phone_call",
+      "move": "the_turn_in_the_last_words",
+      "target": "parents",
+      "satire_level": 4,
+      "hinglish": true,
+      "keywords": [
+        "family advice",
+        "parent pressure",
+        "medical test"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQV2pFNnZrNE5KRmtLTlVIamx4VUlOTU5WaUdmcXo2MHV4UkJ5Y2Q5SlpCOG5vYmNtenlpYTNnRTZKX2VOeXZva3dubUZmck1iN3Y1c2xqNWdoMF9aSEVSQ0tSd3lpM091a0NYdmtwc19YbEdQUmxrdGxMVDhmbFhSS1FCQ0haeXd1ZDR6eEV3MUJ3RDZ1SFJVcHRJbmg4TGN2OEZXN2U1TVR1U3AteHpCVllRcGwyQm0zUjFPdzlYRW56cGxw?oc=5",
+      "created_at": "2026-10-08",
+      "status": "draft",
+      "_score": 61,
+      "_judge": "The term 'gap year' feels slightly too Westernized and privileged for a typical middle-class mother's comparative weapon, even if the comedic landing is brilliant.",
+      "_detail": {
+        "laugh": 5,
+        "share_trigger": 5,
+        "surprise": 5,
+        "specificity": 5,
+        "voice": 5,
+        "travels": 4
+      },
+      "_penalty": 7
+    },
+    {
+      "trend": "Fewer than 1 in 4 people with diabetes in India sustain diet advice for six months, experts say",
+      "context": "The 30-year-old body is starting to report errors, but the lifestyle that caused them cannot be modified without collapsing the remaining joy.",
+      "angle": "Medical advice assumes you are a retired landlord with nothing to do but soak nuts.",
+      "slides": [
+        "Your doctor's diet chart assumes you are a retired landlord.",
+        "\"No white rice. No maida. No sugar. No dairy.\"\n\"Wake up at 5:00 AM. Soak five almonds.\"\n\"Walk for 45 minutes before the sun rises.\"\n\"Sleep by 10:00 PM.\"",
+        "The call at 10:30 PM:\n\n\"Client wants a quick sync.\"\n\nYou still haven't eaten."
+      ],
+      "caption": "Send this to the friend who currently has three types of organic millets expiring in their kitchen cabinet.",
+      "trigger": "health",
+      "structure": "dialogue",
+      "move": "flat_restatement",
+      "target": "wellness industry",
+      "satire_level": 4,
+      "hinglish": true,
+      "keywords": [
+        "diet chart",
+        "blood sugar",
+        "office work"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQV2pFNnZrNE5KRmtLTlVIamx4VUlOTU5WaUdmcXo2MHV4UkJ5Y2Q5SlpCOG5vYmNtenlpYTNnRTZKX2VOeXZva3dubUZmck1iN3Y1c2xqNWdoMF9aSEVSQ0tSd3lpM091a0NYdmtwc19YbEdQUmxrdGxMVDhmbFhSS1FCQ0haeXd1ZDR6eEV3MUJ3RDZ1SFJVcHRJbmg4TGN2OEZXN2U1TVR1U3AteHpCVllRcGwyQm0zUjFPdzlYRW56cGxw?oc=5",
+      "created_at": "2026-10-08",
+      "status": "draft",
+      "_score": 53,
+      "_judge": "The post is highly polished and hits the corporate fatigue perfectly, though the escalation could use a localized brand or specific rupee value to ground its texture.",
+      "_detail": {
+        "laugh": 4,
+        "share_trigger": 4,
+        "surprise": 4,
+        "specificity": 4,
+        "voice": 5,
+        "travels": 5
+      },
+      "_penalty": 7
+    },
+    {
+      "trend": "Gurugram woman spends over 50% salary on rent, shares why she wouldn't change it",
+      "context": "Urban rental pricing has ceased to represent shelter; it is now a security wall built against the collapsing municipality outside.",
+      "angle": "You aren't renting a bedroom. You are renting a temporary exemption from India's civil infrastructure.",
+      "slides": [
+        "You are not paying for a flat. You are paying for a buffer.",
+        "Gurugram rent: 52% of your salary.\nSecurity deposit: three months in advance.\nMaintenance fee: ₹8,500.",
+        "The view inside: a gated park with two trees.\nThe view outside the gate: three miles of standing water.\n\nYou are buying the wall."
+      ],
+      "caption": "Send this to the friend who defends their rent by telling you \"but the society has its own grocery delivery app.\"",
+      "trigger": "rent",
+      "structure": "juxtaposition",
+      "move": "flat_restatement",
+      "target": "landlord",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "gurugram rent",
+        "gated society",
+        "flat deposit"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPTEVtY3hDdG1FSHpVeV90UmNiMlk4Y3dsaGl4T3RmOU5KUTl2WUpkZG5RYmhKWVZTRGxPd3Q1UHVoMmZRTGFDRGUtLVVoTl9Hdkk4VXJLbU1uVlNFbHNSX0NIWUhBdV9sQXozcWxCaDR5dG12UDlTNDNRODVRWldwbFBVZ0ZKem5JbllEN0E4NFNtbW51dHBKc1F5RVd1LVgtZWhuaWVEOE5VMnV6M0d1SjlfR0hxNlRzUmxMcGpQSy1XU3A1T3VYN3VqR0xJMEYzcmFCWFB1cVRWZ9IB3wFBVV_5cUxNMWo1Z3ZYR1pBVFhIOWZyTFF0NG02c3lPR014Mjk0alJyNkx0S1huUHdRRTJteXJUOFhHMzk0TjFPTFRlZk1Gd3BGUnBmaHhfODJjMkpKR0Z2aGtRamdYejNiUkl6UDRjaTg0SldkLTFJdy11bnlxZ3YwcnEya25NSnJHY3VxS2ZmYWVQYWpJV3hkU3dIS0JPckl6dzNYWWMxMXdHTnN6THM4SGxMbG1UM3B3bzc4NDZPd040blBfX2hqV2VDTUZ1NnM1SFdIZkplQzlpbTc3RjA3a2RWNk5j?oc=5",
+      "created_at": "2026-10-08",
+      "status": "draft",
+      "_score": 48,
+      "_judge": "It is highly accurate and painful for anyone who has lived in NCR, but the final slide is more of a sad geographic observation than an unexpected comic turn.",
+      "_detail": {
+        "laugh": 3,
+        "share_trigger": 4,
+        "surprise": 3,
+        "specificity": 5,
+        "voice": 4,
+        "travels": 3
+      },
+      "_penalty": 3
+    },
+    {
+      "trend": "Gurugram woman spends over 50% salary on rent, shares why she wouldn't change it",
+      "context": "At thirty, the ambition to make a statement in the city degrades into a transaction of buying quietness at any cost.",
+      "angle": "The trajectory of adulthood in India is defined by the price of getting people to leave you alone.",
+      "slides": [
+        "At twenty-two, you wanted to own the city.",
+        "At 22: \"I will live in a penthouse.\"\nAt 26: \"I want a flat close to the metro.\"\nAt 30: \"I am paying ₹45,000 to hear myself think.\"",
+        "\"Beta, adjust kar lo.\"\n\nYour broker said the same thing."
+      ],
+      "caption": "Your flatmate knows exactly who this is, and so does the uncle on the third floor.",
+      "trigger": "home",
+      "structure": "then_now",
+      "move": "the_turn_in_the_last_words",
+      "target": "self",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "home loan",
+        "rental market",
+        "salary budget"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPTEVtY3hDdG1FSHpVeV90UmNiMlk4Y3dsaGl4T3RmOU5KUTl2WUpkZG5RYmhKWVZTRGxPd3Q1UHVoMmZRTGFDRGUtLVVoTl9Hdkk4VXJLbU1uVlNFbHNSX0NIWUhBdV9sQXozcWxCaDR5dG12UDlTNDNRODVRWldwbFBVZ0ZKem5JbllEN0E4NFNtbW51dHBKc1F5RVd1LVgtZWhuaWVEOE5VMnV6M0d1SjlfR0hxNlRzUmxMcGpQSy1XU3A1T3VYN3VqR0xJMEYzcmFCWFB1cVRWZ9IB3wFBVV_5cUxNMWo1Z3ZYR1pBVFhIOWZyTFF0NG02c3lPR014Mjk0alJyNkx0S1huUHdRRTJteXJUOFhHMzk0TjFPTFRlZk1Gd3BGUnBmaHhfODJjMkpKR0Z2aGtRamdYejNiUkl6UDRjaTg0SldkLTFJdy11bnlxZ3YwcnEya25NSnJHY3VxS2ZmYWVQYWpJV3hkU3dIS0JPckl6dzNYWWMxMXdHTnN6THM4SGxMbG1UM3B3bzc4NDZPd040blBfX2hqV2VDTUZ1NnM1SFdIZkplQzlpbTc3RjA3a2RWNk5j?oc=5",
+      "created_at": "2026-10-08",
+      "status": "draft",
+      "_score": 35,
+      "_judge": "Slide one acts too much like an essay title or a table of contents, clearing its throat rather than hitting the reader with an immediate joke.",
+      "_detail": {
+        "laugh": 3,
+        "share_trigger": 3,
+        "surprise": 3,
+        "specificity": 4,
+        "voice": 3,
+        "travels": 4
+      },
+      "_penalty": 11
+    }
+  ],
+  "rejected": [
+    {
+      "trend": "Fewer than 1 in 4 people with diabetes in India sustain diet advice for six months, experts say",
+      "context": "The market has developed a high-end solution to clinical alerts that only adds financial stress to your physiological one.",
+      "angle": "The cure for a physical crash is a series of monthly subscriptions that perform their own wallet biopsy.",
+      "slides": [
+        "You cannot afford the lifestyle your doctor prescribed.",
+        "Greek yogurt: two tubs\nOrganic seeds: one pack\nSugar-free tea: three cups\nAir fryer: zero uses",
+        "The test kit: ₹1,200.\n\nYour HbA1c is exactly the same."
+      ],
+      "caption": "Someone you know spent more on avocados this week than they did on rent in 2018.",
+      "trigger": "money",
+      "structure": "receipt",
+      "move": "absurd_comparative",
+      "target": "wellness industry",
+      "satire_level": 3,
+      "hinglish": false,
+      "keywords": [
+        "wellness industry",
+        "organic food",
+        "health test"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQV2pFNnZrNE5KRmtLTlVIamx4VUlOTU5WaUdmcXo2MHV4UkJ5Y2Q5SlpCOG5vYmNtenlpYTNnRTZKX2VOeXZva3dubUZmck1iN3Y1c2xqNWdo0_ZSEVSQ0tSd3lpM091a0NYdmtwc19YbEdQUmxrdGxMVDhmbFhSS1FCQ0haeXd1ZDR6eEV3MUJ3RDZ1SFJVcHRJbmg4TGN2OEZXN2U1TVR1U3AteHpCVllRcGwyQm0zUjFPdzlYRW56cGxw?oc=5",
+      "created_at": "2026-10-08",
+      "_gate_failures": [
+        "landing carries a currency figure — that beat cannot travel; move the number into the escalation"
+      ]
+    },
+    {
+      "trend": "Gurugram woman spends over 50% salary on rent, shares why she wouldn't change it",
+      "context": "The apps that promised to simplify flat hunting and co-living have successfully financialized basic survival into an automated monthly ledger.",
+      "angle": "The customer support bot handles water logs and broken lifts with the same language your HR department uses to delay raises.",
+      "slides": [
+        "Your co-living app has three ways of saying no.",
+        "\"Is the elevator working today?\"\n\"The technician is scheduled for Tuesday.\"\n\"The water is coming out brown.\"\n\"Please log a ticket in the community app.\"",
+        "The rent payment portal is down.\n\nA late fee of ₹500 has been added to your ledger."
+      ],
+      "caption": "Whose property management app is this?",
+      "trigger": "home",
+      "structure": "customer_support",
+      "move": "literalisation",
+      "target": "app",
+      "satire_level": 3,
+      "hinglish": false,
+      "keywords": [
+        "tenant support",
+        "co-living space",
+        "rental app"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPTEVtY3hDdG1FSHpVeV90UmNiMlk4Y3dsaGl4T3RmOU5KUTl2WUpkZG5RYmhKWVZTRGxPd3Q1UHVoMmZRTGFDRGUtLVVoTl9Hdkk4VXJLbU1uVlNFbHNSX0NIWUhBdV9sQXozcWxCaDR5dG12UDlTNDNRODVRWldwbFBVZ0ZKem5JbllEN0E4NFNtbW51dHBKc1F5RVd1LVgtZWhuaWVEOE5VMnV6M0d1SjlfR0hxNlRzUmxMcGpQSy1XU3A1T3VYN3VqR0xJMEYzcmFCWFB1cVRWZ9IB3wFBVV_5cUxNMWo1Z3ZYR1pBVFhIOWZyTFF0NG02c3lPR014Mjk0alJyNkx0S1huUHdRRTJteXJUOFhHMzk0TjFPTFRlZk1Gd3BGUnBmaHhfODJjMkpKR0Z2aGtRamdYejNiUkl6UDRjaTg0SldkLTFJdy11bnlxZ3YwcnEya25NSnJHY3VxS2ZmYWVQYWpJV3hkU3dIS0JPckl6dzNYWWMxMXdHTnN6THM4SGxMbG1UM3B3bzc4NDZPd040blBfX2hqV2VDTUZ1NnM1SFdIZkplQzlpbTc3RjA3a2RWNk5j?oc=5",
+      "created_at": "2026-10-08",
+      "_gate_failures": [
+        "landing carries a currency figure — that beat cannot travel; move the number into the escalation"
+      ]
+    }
+  ]
+}
