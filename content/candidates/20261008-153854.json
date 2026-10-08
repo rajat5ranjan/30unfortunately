@@ -1,0 +1,305 @@
+{
+  "generated_at": "20261008-153854",
+  "model": "gemini-3.5-flash",
+  "accepted": [
+    {
+      "trend": "\"This Is Hell\": Bengaluru Man Raises Traffic Concerns Over Nearly 2-Hour Office Commute",
+      "context": "Modern technology enables instant global connectivity, yet urban physical transit remains completely broken.",
+      "angle": "Crossing the street in Bengaluru takes longer than an international flight.",
+      "slides": [
+        "The app says your office is 8 kilometers away.",
+        "Time to fly to Dubai: 3 hours.\nTime to stream a movie: 2 hours.\nTime to get a passport: 7 days.\nTime to cross the flyover: 84 minutes.",
+        "You are not traveling.\n\nYou are aging in a steel box."
+      ],
+      "caption": "Whose coworker is this?",
+      "trigger": "commute",
+      "structure": "escalating_list",
+      "move": "absurd_comparative",
+      "target": "app",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "traffic delay",
+        "silk board",
+        "commute time"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPZHk1Y1B4MzNFbW1LLUJKdkY0d3NkY0RQWXRqVnRkT0xEa1k4VzQwa0lCNEYxWmFud0hrM283T1NqNHA4c1NDVnpvaW1UWmZ1RldFX014cThTcE9UYUNUY2lNcDhxSVZKUHlQbWY0RmFrTWo0em5ZcDQ2OGRpc2lZMUhnUElrMnE3T0pWMl9yd0Fuc2lNc3lyREtpeUJSQlpsSUlpQ3M1blB2ZnRrLWpEeGJKd0FaQ3YxV0lfakhpMNIBxwFBVV95cUxPd1lROHVlcks3TlJ6bW1oTUpnUVY0cDNxOUhqZmhVbzBVZkZGWE9UNTZnbGFtYzFiMkNMMWF0aFpOdmtkN2JHckctWk9pRnczRmhMb1pIR180WDJ6SlNZTU04cFhLZGlCMDlUdERDU3JCRmxFMEJGYmluMjNuSkd5ZmJZM2FvenA5X1ZmYkZBQWREMkl3cEF4TTFWaTRtQlgwU0xpeFRzYUoybnpreExtUmFDVnpWc2l0dXRnZFVGa0ZVekx2S1Jn?oc=5",
+      "created_at": "2026-10-08",
+      "status": "draft",
+      "_score": 56,
+      "_judge": "The list on slide two reads like a spreadsheet of comparisons, forcing the reader to do mental arithmetic rather than letting the joke land instantly.",
+      "_detail": {
+        "laugh": 4,
+        "share_trigger": 4,
+        "surprise": 4,
+        "specificity": 5,
+        "voice": 4,
+        "travels": 5
+      },
+      "_penalty": 4
+    },
+    {
+      "trend": "\"This Is Hell\": Bengaluru Man Raises Traffic Concerns Over Nearly 2-Hour Office Commute",
+      "context": "Our parents' generation had simple commutes and struggles to comprehend the logistical warfare of modern Indian IT corridors.",
+      "angle": "To people who worked in 1995, ten kilometers is a brief morning stroll.",
+      "slides": [
+        "\"Beta, office toh paas mein hi hai na?\"",
+        "\"It's only ten kilometers.\"\n\"Why do you look like you survived a war?\"\n\"Why is your laptop bag covered in mud?\"",
+        "They think you sit in an air-conditioned room.\n\nThey don't know about the service lane."
+      ],
+      "caption": "Your parents still think computer work is a restful sitting job.",
+      "trigger": "commute",
+      "structure": "phone_call",
+      "move": "the_turn_in_the_last_words",
+      "target": "parents",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "office traffic",
+        "family expectation",
+        "daily travel"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPZHk1Y1B4MzNFbW1LLUJKdkY0d3NkY0RQWXRqVnRkT0xEa1k4VzQwa0lCNEYxWmFud0hrM283T1NqNHA4c1NDVnpvaW1UWmZ1RldFX014cThTcE9UYUNUY2lNcDhxSVZKUHlQbWY0RmFrTWo0em5ZcDQ2OGRpc2lZMUhnUElrMnE3T0pWMl9yd0Fuc2lNc3lyREtpeUJSQlpsSUlpQ3M1blB2ZnRrLWpEeGJKd0FaQ3YxV0lfakhpMNIBxwFBVV95cUxPd1lROHVlcks3TlJ6bW1oTUpnUVY0cDNxOUhqZmhVbzBVZkZGWE9UNTZnbGFtYzFiMkNMMWF0aFpOdmtkN2JHckctWk9pRnczRmhMb1pIR180WDJ6SlNZTU04cFhLZGlCMDlUdERDU3JCRmxFMEJGYmluMjNuSkd5ZmJZM2FvenA5X1ZmYkZBQWREMkl3cEF4TTFWaTRtQlgwU0xpeFRzYUoybnpreExtUmFDVnpWc2l0dXRnZFVGa0ZVekx2S1Jn?oc=5",
+      "created_at": "2026-10-08",
+      "status": "draft",
+      "_score": 34,
+      "_judge": "The dialogue in the middle slide feels too staged and theatrical to pass as a reported real-life exchange.",
+      "_detail": {
+        "laugh": 3,
+        "share_trigger": 4,
+        "surprise": 4,
+        "specificity": 4,
+        "voice": 4,
+        "travels": 3
+      },
+      "_penalty": 17
+    },
+    {
+      "trend": "\"This Is Hell\": Bengaluru Man Raises Traffic Concerns Over Nearly 2-Hour Office Commute",
+      "context": "Tech companies have forced employees back to the office, converting leisure hours into brutal traffic time.",
+      "angle": "The commute is the actual job; the office work is just a desk-bound distraction.",
+      "slides": [
+        "Your company's updated job description for 2026.",
+        "Role: Senior Associate.\nLocation: Outer Ring Road.\nHours: 4 hours of staring at a brake light.\nKey responsibility: Thinking about lunch while crawling at 4 km/h.",
+        "They said you are returning to the culture.\n\nThey forgot to mention the dust."
+      ],
+      "caption": "Share this with the colleague who currently conducts your entire daily standup from a moving auto. 🛵",
+      "trigger": "commute",
+      "structure": "job_description",
+      "move": "literalisation",
+      "target": "employer",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "office commute",
+        "outer ring road",
+        "remote work promises"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPZHk1Y1B4MzNFbW1LLUJKdkY0d3NkY0RQWXRqVnRkT0xEa1k4VzQwa0lCNEYxWmFud0hrM283T1NqNHA4c1NDVnpvaW1UWmZ1RldFX014cThTcE9UYUNUY2lNcDhxSVZKUHlQbWY0RmFrTWo0em5ZcDQ2OGRpc2lZMUhnUElrMnE3T0pWMl9yd0Fuc2lNc3lyREtpeUJSQlpsSUlpQ3M1blB2ZnRrLWpEeGJKd0FaQ3YxV0lfakhpMNIBxwFBVV95cUxPd1lROHVlcks3TlJ6bW1oTUpnUVY0cDNxOUhqZmhVbzBVZkZGWE9UNTZnbGFtYzFiMkNMMWF0aFpOdmtkN2JHckctWk9pRnczRmhMb1pIR180WDJ6SlNZTU04cFhLZGlCMDlUdERDU3JCRmxFMEJGYmluMjNuSkd5ZmJZM2FvenA5X1ZmYkZBQWREMkl3cEF4TTFWaTRtQlgwU0xpeFRzYUoybnpreExtUmFDVnpWc2l0dXRnZFVGa0ZVekx2S1Jn?oc=5",
+      "created_at": "2026-10-08",
+      "status": "draft",
+      "_score": 33,
+      "_judge": "The opening slide is a classic, uninformative title card that announces a topic instead of delivering a hook that can stand alone.",
+      "_detail": {
+        "laugh": 2,
+        "share_trigger": 3,
+        "surprise": 2,
+        "specificity": 4,
+        "voice": 2,
+        "travels": 3
+      },
+      "_penalty": 4
+    },
+    {
+      "trend": "Karnataka liquor volumes flat in H1 as beer gets three cheers",
+      "context": "The 30-year-old body can no longer process hard spirits without severe, multi-day physiological consequences.",
+      "angle": "Switching to mild beer is not a lifestyle choice; it is a treaty signed under duress with your own liver.",
+      "slides": [
+        "At twenty-five, you bought whiskey to celebrate.",
+        "At thirty, you buy beer because your liver has a union.\n\nThree pegs of neat rum now require:\nOne day of planning.\nOne electrolyte packet.\nTwo business days of quiet recovery.",
+        "You didn't choose the lighter drink.\n\nIt was a court order."
+      ],
+      "caption": "Send this to the person who still suggests \"one quick shot\" at 11 PM. 🙄",
+      "trigger": "health",
+      "structure": "then_now",
+      "move": "absurd_comparative",
+      "target": "self",
+      "satire_level": 3,
+      "hinglish": false,
+      "keywords": [
+        "beer hangover",
+        "health recovery",
+        "adult drinking"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxOY1FNczVwamszQ2ZvTmdfZFAwdE9GU2JTT3pJc01rN3B5bTRjVDNDRFozeHp0eUdOQmlQeTlBY1NnMUowTUN0b0tmMERVeGFPQVI4c0wta3QwS1lIRnJJR3NrQ0tQVEJOclRxMXdFWTRRRDd1Zkg1MmN5MjlRU3R0TG1qS1h1RDJ5aXRfa2pmX1plajhRVWROOVc1RW9sNk1WZlpjOFVMVTdvdThWOS1RZ0E1S1FZWTR2cE5VcnhqaUpVZHRvNzVITW9oQUpNZVJlMlFfSEhzWEFpODdJS0RaYkxYdmlrdTZwWnfSAeMBQVVfeXFMUEdSa2NPZHpSOEVEbE53TVliS3R5UWVPMF9sczlCbk5MOU1nUmdmdGdfeHh5UDd4MlhFTUtxam1wUkVWOERhYW5QOFRnV0FQSlBvaXZNWmdzcjNzX0tzZlV4U094NkV0cXNGWEdWZ3RybW8tdmlBQ1dZS3NPbEM5dENydjZIVUJfQk1SaW4wRlIzNmVHTkpaQ0FfRWRlT0xFblZ6T01JcnNUY2dCQVRQSE1GMmozMGxTRW4ydFFESWtBdTNMbjRXZFhycWhQS21GdDE4UkJ2M2N5MW42XzF0NGRna3c?oc=5",
+      "created_at": "2026-10-08",
+      "status": "draft",
+      "_score": 29,
+      "_judge": "The final slide lands on a clunky corporate metaphor about a union and a court order rather than a flat, deadpan reality.",
+      "_detail": {
+        "laugh": 3,
+        "share_trigger": 3,
+        "surprise": 2,
+        "specificity": 4,
+        "voice": 3,
+        "travels": 4
+      },
+      "_penalty": 15
+    },
+    {
+      "trend": "Karnataka liquor volumes flat in H1 as beer gets three cheers",
+      "context": "Millennials now socialize over lower-alcohol options because they have work the next day and can't afford to be incapacitated.",
+      "angle": "A mild beer is the maximum risk your weekday schedule permits.",
+      "slides": [
+        "\"Ek beer hi toh pee hai.\"",
+        "\"Why are you sleeping at 9:30 PM?\"\n\"Did you run a marathon?\"\n\"No, I had one pint of mild lager.\"",
+        "The hangover is no longer a punishment.\n\nIt is the default setting."
+      ],
+      "caption": "Every friend group has one person who gets a migraine from looking at a wine list.",
+      "trigger": "health",
+      "structure": "dialogue",
+      "move": "the_banal_true_answer",
+      "target": "relatives",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "weekend recovery",
+        "mild beer",
+        "family conversation"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxOY1FNczVwamszQ2ZvTmdfZFAwdE9GU2JTT3pJc01rN3B5bTRjVDNDRFozeHp0eUdOQmlQeTlBY1NnMUowTUN0b0tmMERVeGFPQVI4c0wta3QwS1lIRnJJR3NrQ0tQVEJOclRxMXdFWTRRRDd1Zkg1MmN5MjlRU3R0TG1qS1h1RDJ5aXRfa2pmX1plajhRVWROOVc1RW9sNk1WZlpjOFVMVTdvdThWOS1RZ0E1S1FZWTR2cE5VcnhqaUpVZHRvNzVITW9oQUpNZVJlMlFfSEhzWEFpODdJS0RaYkxYdmlrdTZwWnfSAeMBQVVfeXFMUEdSa2NPZHpSOEVEbE53TVliS3R5UWVPMF9sczlCbk5MOU1nUmdmdGdfeHh5UDd4MlhFTUtxam1wUkVWOERhYW5QOFRnV0FQSlBvaXZNWmdzcjNzX0tzZlV4U094NkV0cXNGWEdWZ3RybW8tdmlBQ1dZS3NPbEM5dENydjZIVUJfQk1SaW4wRlIzNmVHTkpaQ0FfRWRlT0xFblZ6T01JcnNUY2dCQVRQSE1GMmozMGxTRW4ydFFESWtBdTNMbjRXZFhycWhQS21GdDE4UkJ2M2N5MW42XzF0NGRna3c?oc=5",
+      "created_at": "2026-10-08",
+      "status": "draft",
+      "_score": 22,
+      "_judge": "The final line does not turn to a new object or image, but simply explains and restates the premise we already understood from slide two.",
+      "_detail": {
+        "laugh": 2,
+        "share_trigger": 4,
+        "surprise": 2,
+        "specificity": 3,
+        "voice": 2,
+        "travels": 4
+      },
+      "_penalty": 18
+    },
+    {
+      "trend": "Woman says ‘don’t come’ to Bangalore if you earn less than Rs 1 lakh a month, cites high rent and property",
+      "context": "Finance influencers and viral threads tell people how to budget down to the last rupee, ignoring that simple survival is priced out.",
+      "angle": "The advice industry suggests the solution to high prices is to stop having physical needs.",
+      "slides": [
+        "Financial advice for your thirty-first year.",
+        "Don't buy the coffee.\nDon't take the cab.\nDon't live in the city.\nDon't have a body that requires food.",
+        "You followed every step.\n\nYou are still broke, but now you are also hungry."
+      ],
+      "caption": "This is for the friend who has three personal finance podcasts in their library and still borrows ₹500 before payday. 📉",
+      "trigger": "money",
+      "structure": "list_collapse",
+      "move": "the_turn_in_the_last_words",
+      "target": "the_advice_industry",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "financial planning",
+        "personal finance tips",
+        "cost of living india"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMiiAJBVV95cUxObzZKZUoxYTV3aFFwT1pEelRHMU5GSkZEUWVfcHhDREVmT1hpa0dnVmV5S2VXd08xZkoxTThjR1RORHFTVTVXLV9ESmZDZ2tPZzlCVURjN2ZnUHF4N2ExMWEyeUpCQVY2cGNWZUh3bmJKQnNzTUxGTndubE4yU1cycndmVy1zNHN5Ql9DYWhVeDRfQk5EQUE2RGhiY0tWSnNONzdkdzUwVnVNQ25sYzExMy1tLU5UZnJtWExiU2xWc1FLOWFKeDVuZ2ttZ3kydEZ2dFRZNGNiSVBiUG5BdVpvYW1VMENYQUxSUGdtbVBEMnpCcnZJNlZEclU2aUFydmFkYV9UNXRNVS3SAY4CQVVfeXFMTnNma2p3QmNjQmI4b05UOTdUQzh3MmN3ekZvcjZxSlZwSkFCeXpwVFNtcnppM25H_iXROWmhtWFFrVF8wTWpKXzB4WmRSeXRkX2xDY2NRZkRGdU51REVZWnE2LUpoRTFhSndXMlBCejNtbEZSeDRCVjdsTEhFYlZ2M3Y3MmplWHI4NDlaQV9vd1AtS3FFaTJCTW1xc0VfNFlIMldQVUlScVhLQVBrd0d0aV9hSG9fU3M2TzdVRGpqcUhmeG43TWg4RGNIX3V2SS03RUpQbkJ0TlNiNmhyUTFJRVk4NVVzWl9sc2YtYjVscThKRzE0b283Tk5RY1piSEU2NkpNSTI2V3RYLWRGS2ZB?oc=5",
+      "created_at": "2026-10-08",
+      "status": "draft",
+      "_score": 9,
+      "_judge": "This recycles a very tired, decade-old internet joke about coffee and avocado toast with zero local details or original comic observation.",
+      "_detail": {
+        "laugh": 1,
+        "share_trigger": 1,
+        "surprise": 1,
+        "specificity": 1,
+        "voice": 1,
+        "travels": 5
+      },
+      "_penalty": 13
+    }
+  ],
+  "rejected": [
+    {
+      "trend": "Karnataka liquor volumes flat in H1 as beer gets three cheers",
+      "context": "The hidden financial and medical cost of trying to enjoy a weekend evening in your thirties.",
+      "angle": "We spend more on surviving the drink than on buying the alcohol.",
+      "slides": [
+        "The actual cost of drinking three beers at thirty.",
+        "Light beer: ₹350\nAntacid pill: ₹12\nHydration drink: ₹60\nCab home at 10 PM: ₹450\nAnxiety at 3 AM: Free",
+        "Your twenties were funded by hope.\n\nYour thirties are funded by pharmaceuticals."
+      ],
+      "caption": "Somebody you know has an entire medical kit in their vanity bag for a Saturday dinner.",
+      "trigger": "health",
+      "structure": "receipt",
+      "move": "flat_restatement",
+      "target": "the_wellness_industry",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "party expenses",
+        "medical kit",
+        "weekend budget"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxOY1FNczVwamszQ2ZvTmdfZFAwdE9GU2JTT3pJc01rN3B5bTRjVDNDRFozeHp0eUdOQmlQeTlBY1NnMUowTUN0b0tmMERVeGFPQVI4c0wta3QwS1lIRnJJR3NrQ0tQVEJOclRxMXdFWTRRRDd1Zkg1MmN5MjlRU3R0TG1qS1h1RDJ5aXRfa2pmX1plajhRVWROOVc1RW9sNk1WZlpjOFVMVTdvdThWOS1RZ0E1S1FZWTR2cE5VcnhqaUpVZHRvNzVITW9oQUpNZVJl2lhMlFfSEhzWEFpODdJS0RaYkxYdmlrdTZwWnfSAeMBQVVfeXFMUEdSa2NPZHpSOEVEbE53TVliS3R5UWVPMF9sczlCbk5MOU1nUmdmdGdfeHh5UDd4MlhFTUtxam1wUkVWOERhYW5QOFRnV0FQSlBvaXZNWmdzcjNzX0tzZlV4U094NkV0cXNGWEdWZ3RybW8tdmlBQ1dZS3NPbEM5dENydjZIVUJfQk1SaW4wRlIzNmVHTkpaQ0FfRWRlT0xFblZ6T01JcnNUY2dCQVRQSE1GMmozMGxTRW4ydFFESWtBdTNMbjRXZFhycWhQS21GdDE4UkJ2M2N5MW42XzF0NGRna3c?oc=5",
+      "created_at": "2026-10-08",
+      "_gate_failures": [
+        "4 prices in one post (₹350, ₹12, ₹60, ₹450) — the reader has to do arithmetic to reach the joke. One figure, alone, does the work"
+      ]
+    },
+    {
+      "trend": "Woman says ‘don’t come’ to Bangalore if you earn less than Rs 1 lakh a month, cites high rent and property",
+      "context": "The skyrocketing cost of survival in major metros means salary hikes are instantly eaten by landlords.",
+      "angle": "We work eighty hours a week just to keep a landlord comfortable in another country.",
+      "slides": [
+        "The tenant agreement for surviving in the city.",
+        "Clause 1: Earn ₹1,00,000.\nClause 2: Pay ₹40,000 to a man who lives in Dubai.\nClause 3: Eat paneer only on Thursdays.\nClause 4: Do not lose your job.",
+        "You came here to build a career.\n\nYou ended up funding a second balcony for someone else."
+      ],
+      "caption": "Name the colleague who is currently paying half their salary to live in a gated society with a view of a lake.",
+      "trigger": "rent",
+      "structure": "terms_and_conditions",
+      "move": "literalisation",
+      "target": "landlord",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "bangalore rent",
+        "tenant agreement",
+        "gated society cost"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMiiAJBVV95cUxObzZKZUoxYTV3aFFwT1pEelRHMU5GSkZEUWVfcHhDREVmT1hpa0dnVmV5S2VXd08xZkoxTThjR1RORHFTVTVXLV9ESmZDZ2tPZzlCVURjN2ZnUHF4N2ExMWEyeUpCQVY2cGNWZUh3bmJKQnNzTUxGTndubE4yU1cycndmVy1zNHN5Ql9DYWhVeDRfQk5EQUE2RGhiY0tWSnNONzdkdzUwVnVNQ25sYzExMy1tLU5UZnJtWExiU2xWc1FLOWFKeDVuZ2ttZ3kydEZ2dFRZNGNiSVBiUG5BdVpvYW1VMENYQUxSUGdtbVBEMnpCcnZJNlZEclU2aUFydmFkYV9UNXRNVS3SAY4CQVVfeXFMTnNma2p3QmNjQmI4b05UOTdUQzh3MmN3ekZvcjZxSlZwSkFCeXpwVFNtcnppM25H_iXROWmhtWFFrVF8wTWpKXzB4WmRSeXRkX2xDY2NRZkRGdU51REVZWnE2LUpoRTFhSndXMlBCejNtbEZSeDRCVjdsTEhFYlZ2M3Y3MmplWHI4NDlaQV9vd1AtS3FFaTJCTW1xc0VfNFlIMldQVUlScVhLQVBrd0d0aV9hSG9fU3M2TzdVRGpqcUhmeG43TWg4RGNIX3V2SS03RUpQbkJ0TlNiNmhyUTFJRVk4NVVzWl9sc2YtYjVscThKRzE0b283Tk5RY1piSEU2NkpNSTI2V3RYLWRGS2ZB?oc=5",
+      "created_at": "2026-10-08",
+      "_gate_failures": [
+        "2 prices in one post (₹1,00,000, ₹40,000) — the reader has to do arithmetic to reach the joke. One figure, alone, does the work"
+      ]
+    },
+    {
+      "trend": "Woman says ‘don’t come’ to Bangalore if you earn less than Rs 1 lakh a month, cites high rent and property",
+      "context": "The absolute financial barrier to entering adulthood in a modern Indian metropolis.",
+      "angle": "The upfront cost of a flat is higher than the lifetime value of the job that got you here.",
+      "slides": [
+        "The price of entry has changed.",
+        "Rent deposit: ₹1,50,000.\nBrokerage: ₹45,000.\nAverage salary: ₹65,000.\nParents asking when you will buy a house: Priceless.",
+        "Nobody told you the city is a subscription service.\n\nAnd the fee just doubled."
+      ],
+      "caption": "Someone you know is currently negotiating a deposit refund like it is an international peace treaty.",
+      "trigger": "rent",
+      "structure": "receipt",
+      "move": "flat_restatement",
+      "target": "landlord",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "rent deposit",
+        "brokerage charges",
+        "middle class savings"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMiiAJBVV95cUxObzZKZUoxYTV3aFFwT1pEelRHMU5GSkZEUWVfcHhDREVmT1hpa0dnVmV5S2VXd08xZkoxTThjR1RORHFTVTVXLV9ESmZDZ2tPZzlCVURjN2ZnUHF4N2ExMWEyeUpCQVY2cGNWZUh3bmJKQnNzTUxGTndubE4yU1cycndmVy1zNHN5Ql9DYWhVeDRfQk5EQUE2RGhiY0tWSnNONzdkdzUwVnVNQ25sYzExMy1tLU5UZnJtWExiU2xWc1FLOWFKeDVuZ2ttZ3kydEZ2dFRZNGNiSVBiUG5BdVpvYW1VMENYQUxSUGdtbVBEMnpCcnZJNlZEclU2aUFydmFkYV9UNXRNVS3SAY4CQVVfeXFMTnNma2p3QmNjQmI4b05UOTdUQzh3MmN3ekZvcjZxSlZwSkFCeXpwVFNtcnppM25H_iXROWmhtWFFrVF8wTWpKXzB4WmRSeXRkX2xDY2NRZkRGdU51REVZWnE2LUpoRTFhSndXMlBCejNtbEZSeDRCVjdsTEhFYlZ2M3Y3MmplWHI4NDlaQV9vd1AtS3FFaTJCTW1xc0VfNFlIMldQVUlScVhLQVBrd0d0aV9hSG9fU3M2TzdVRGpqcUhmeG43TWg4RGNIX3V2SS03RUpQbkJ0TlNiNmhyUTFJRVk4NVVzWl9sc2YtYjVscThKRzE0b283Tk5RY1piSEU2NkpNSTI2V3RYLWRGS2ZB?oc=5",
+      "created_at": "2026-10-08",
+      "_gate_failures": [
+        "3 prices in one post (₹1,50,000, ₹45,000, ₹65,000) — the reader has to do arithmetic to reach the joke. One figure, alone, does the work"
+      ]
+    }
+  ]
+}

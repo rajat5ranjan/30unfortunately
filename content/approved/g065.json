@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "\"This Is Hell\": Bengaluru Man Raises Traffic Concerns Over Nearly 2-Hour Office Commute",
+      "context": "Our parents' generation had simple commutes and struggles to comprehend the logistical warfare of modern Indian IT corridors.",
+      "angle": "To people who worked in 1995, ten kilometers is a brief morning stroll.",
+      "slides": [
+        "\"Beta, office toh paas mein hi hai na?\"",
+        "\"It's only ten kilometers.\"\n\"Why do you look like you survived a war?\"\n\"Why is your laptop bag covered in mud?\"",
+        "They think you sit in an air-conditioned room.\n\nThey don't know about the service lane."
+      ],
+      "caption": "Your parents still think computer work is a restful sitting job.",
+      "trigger": "commute",
+      "structure": "phone_call",
+      "move": "the_turn_in_the_last_words",
+      "target": "parents",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "office traffic",
+        "family expectation",
+        "daily travel"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPZHk1Y1B4MzNFbW1LLUJKdkY0d3NkY0RQWXRqVnRkT0xEa1k4VzQwa0lCNEYxWmFud0hrM283T1NqNHA4c1NDVnpvaW1UWmZ1RldFX014cThTcE9UYUNUY2lNcDhxSVZKUHlQbWY0RmFrTWo0em5ZcDQ2OGRpc2lZMUhnUElrMnE3T0pWMl9yd0Fuc2lNc3lyREtpeUJSQlpsSUlpQ3M1blB2ZnRrLWpEeGJKd0FaQ3YxV0lfakhpMNIBxwFBVV95cUxPd1lROHVlcks3TlJ6bW1oTUpnUVY0cDNxOUhqZmhVbzBVZkZGWE9UNTZnbGFtYzFiMkNMMWF0aFpOdmtkN2JHckctWk9pRnczRmhMb1pIR180WDJ6SlNZTU04cFhLZGlCMDlUdERDU3JCRmxFMEJGYmluMjNuSkd5ZmJZM2FvenA5X1ZmYkZBQWREMkl3cEF4TTFWaTRtQlgwU0xpeFRzYUoybnpreExtUmFDVnpWc2l0dXRnZFVGa0ZVekx2S1Jn?oc=5",
+      "created_at": "2026-10-08",
+      "status": "approved",
+      "id": "g065",
+      "rank_score": 34,
+      "rank_verdict": "The dialogue in the middle slide feels too staged and theatrical to pass as a reported real-life exchange."
+    }
+  ]
+}

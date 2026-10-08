@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "Karnataka liquor volumes flat in H1 as beer gets three cheers",
+      "context": "Millennials now socialize over lower-alcohol options because they have work the next day and can't afford to be incapacitated.",
+      "angle": "A mild beer is the maximum risk your weekday schedule permits.",
+      "slides": [
+        "\"Ek beer hi toh pee hai.\"",
+        "\"Why are you sleeping at 9:30 PM?\"\n\"Did you run a marathon?\"\n\"No, I had one pint of mild lager.\"",
+        "The hangover is no longer a punishment.\n\nIt is the default setting."
+      ],
+      "caption": "Every friend group has one person who gets a migraine from looking at a wine list.",
+      "trigger": "health",
+      "structure": "dialogue",
+      "move": "the_banal_true_answer",
+      "target": "relatives",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "weekend recovery",
+        "mild beer",
+        "family conversation"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxOY1FNczVwamszQ2ZvTmdfZFAwdE9GU2JTT3pJc01rN3B5bTRjVDNDRFozeHp0eUdOQmlQeTlBY1NnMUowTUN0b0tmMERVeGFPQVI4c0wta3QwS1lIRnJJR3NrQ0tQVEJOclRxMXdFWTRRRDd1Zkg1MmN5MjlRU3R0TG1qS1h1RDJ5aXRfa2pmX1plajhRVWROOVc1RW9sNk1WZlpjOFVMVTdvdThWOS1RZ0E1S1FZWTR2cE5VcnhqaUpVZHRvNzVITW9oQUpNZVJlMlFfSEhzWEFpODdJS0RaYkxYdmlrdTZwWnfSAeMBQVVfeXFMUEdSa2NPZHpSOEVEbE53TVliS3R5UWVPMF9sczlCbk5MOU1nUmdmdGdfeHh5UDd4MlhFTUtxam1wUkVWOERhYW5QOFRnV0FQSlBvaXZNWmdzcjNzX0tzZlV4U094NkV0cXNGWEdWZ3RybW8tdmlBQ1dZS3NPbEM5dENydjZIVUJfQk1SaW4wRlIzNmVHTkpaQ0FfRWRlT0xFblZ6T01JcnNUY2dCQVRQSE1GMmozMGxTRW4ydFFESWtBdTNMbjRXZFhycWhQS21GdDE4UkJ2M2N5MW42XzF0NGRna3c?oc=5",
+      "created_at": "2026-10-08",
+      "status": "approved",
+      "id": "g068",
+      "rank_score": 22,
+      "rank_verdict": "The final line does not turn to a new object or image, but simply explains and restates the premise we already understood from slide two."
+    }
+  ]
+}

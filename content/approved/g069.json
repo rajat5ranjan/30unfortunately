@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "Woman says ‘don’t come’ to Bangalore if you earn less than Rs 1 lakh a month, cites high rent and property",
+      "context": "Finance influencers and viral threads tell people how to budget down to the last rupee, ignoring that simple survival is priced out.",
+      "angle": "The advice industry suggests the solution to high prices is to stop having physical needs.",
+      "slides": [
+        "Financial advice for your thirty-first year.",
+        "Don't buy the coffee.\nDon't take the cab.\nDon't live in the city.\nDon't have a body that requires food.",
+        "You followed every step.\n\nYou are still broke, but now you are also hungry."
+      ],
+      "caption": "This is for the friend who has three personal finance podcasts in their library and still borrows ₹500 before payday. 📉",
+      "trigger": "money",
+      "structure": "list_collapse",
+      "move": "the_turn_in_the_last_words",
+      "target": "the_advice_industry",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "financial planning",
+        "personal finance tips",
+        "cost of living india"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMiiAJBVV95cUxObzZKZUoxYTV3aFFwT1pEelRHMU5GSkZEUWVfcHhDREVmT1hpa0dnVmV5S2VXd08xZkoxTThjR1RORHFTVTVXLV9ESmZDZ2tPZzlCVURjN2ZnUHF4N2ExMWEyeUpCQVY2cGNWZUh3bmJKQnNzTUxGTndubE4yU1cycndmVy1zNHN5Ql9DYWhVeDRfQk5EQUE2RGhiY0tWSnNONzdkdzUwVnVNQ25sYzExMy1tLU5UZnJtWExiU2xWc1FLOWFKeDVuZ2ttZ3kydEZ2dFRZNGNiSVBiUG5BdVpvYW1VMENYQUxSUGdtbVBEMnpCcnZJNlZEclU2aUFydmFkYV9UNXRNVS3SAY4CQVVfeXFMTnNma2p3QmNjQmI4b05UOTdUQzh3MmN3ekZvcjZxSlZwSkFCeXpwVFNtcnppM25H_iXROWmhtWFFrVF8wTWpKXzB4WmRSeXRkX2xDY2NRZkRGdU51REVZWnE2LUpoRTFhSndXMlBCejNtbEZSeDRCVjdsTEhFYlZ2M3Y3MmplWHI4NDlaQV9vd1AtS3FFaTJCTW1xc0VfNFlIMldQVUlScVhLQVBrd0d0aV9hSG9fU3M2TzdVRGpqcUhmeG43TWg4RGNIX3V2SS03RUpQbkJ0TlNiNmhyUTFJRVk4NVVzWl9sc2YtYjVscThKRzE0b283Tk5RY1piSEU2NkpNSTI2V3RYLWRGS2ZB?oc=5",
+      "created_at": "2026-10-08",
+      "status": "approved",
+      "id": "g069",
+      "rank_score": 9,
+      "rank_verdict": "This recycles a very tired, decade-old internet joke about coffee and avocado toast with zero local details or original comic observation."
+    }
+  ]
+}

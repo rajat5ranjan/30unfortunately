@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "\"This Is Hell\": Bengaluru Man Raises Traffic Concerns Over Nearly 2-Hour Office Commute",
+      "context": "Modern technology enables instant global connectivity, yet urban physical transit remains completely broken.",
+      "angle": "Crossing the street in Bengaluru takes longer than an international flight.",
+      "slides": [
+        "The app says your office is 8 kilometers away.",
+        "Time to fly to Dubai: 3 hours.\nTime to stream a movie: 2 hours.\nTime to get a passport: 7 days.\nTime to cross the flyover: 84 minutes.",
+        "You are not traveling.\n\nYou are aging in a steel box."
+      ],
+      "caption": "Whose coworker is this?",
+      "trigger": "commute",
+      "structure": "escalating_list",
+      "move": "absurd_comparative",
+      "target": "app",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "traffic delay",
+        "silk board",
+        "commute time"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPZHk1Y1B4MzNFbW1LLUJKdkY0d3NkY0RQWXRqVnRkT0xEa1k4VzQwa0lCNEYxWmFud0hrM283T1NqNHA4c1NDVnpvaW1UWmZ1RldFX014cThTcE9UYUNUY2lNcDhxSVZKUHlQbWY0RmFrTWo0em5ZcDQ2OGRpc2lZMUhnUElrMnE3T0pWMl9yd0Fuc2lNc3lyREtpeUJSQlpsSUlpQ3M1blB2ZnRrLWpEeGJKd0FaQ3YxV0lfakhpMNIBxwFBVV95cUxPd1lROHVlcks3TlJ6bW1oTUpnUVY0cDNxOUhqZmhVbzBVZkZGWE9UNTZnbGFtYzFiMkNMMWF0aFpOdmtkN2JHckctWk9pRnczRmhMb1pIR180WDJ6SlNZTU04cFhLZGlCMDlUdERDU3JCRmxFMEJGYmluMjNuSkd5ZmJZM2FvenA5X1ZmYkZBQWREMkl3cEF4TTFWaTRtQlgwU0xpeFRzYUoybnpreExtUmFDVnpWc2l0dXRnZFVGa0ZVekx2S1Jn?oc=5",
+      "created_at": "2026-10-08",
+      "status": "approved",
+      "id": "g064",
+      "rank_score": 56,
+      "rank_verdict": "The list on slide two reads like a spreadsheet of comparisons, forcing the reader to do mental arithmetic rather than letting the joke land instantly."
+    }
+  ]
+}

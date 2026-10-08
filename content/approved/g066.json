@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "\"This Is Hell\": Bengaluru Man Raises Traffic Concerns Over Nearly 2-Hour Office Commute",
+      "context": "Tech companies have forced employees back to the office, converting leisure hours into brutal traffic time.",
+      "angle": "The commute is the actual job; the office work is just a desk-bound distraction.",
+      "slides": [
+        "Your company's updated job description for 2026.",
+        "Role: Senior Associate.\nLocation: Outer Ring Road.\nHours: 4 hours of staring at a brake light.\nKey responsibility: Thinking about lunch while crawling at 4 km/h.",
+        "They said you are returning to the culture.\n\nThey forgot to mention the dust."
+      ],
+      "caption": "Share this with the colleague who currently conducts your entire daily standup from a moving auto. 🛵",
+      "trigger": "commute",
+      "structure": "job_description",
+      "move": "literalisation",
+      "target": "employer",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "office commute",
+        "outer ring road",
+        "remote work promises"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPZHk1Y1B4MzNFbW1LLUJKdkY0d3NkY0RQWXRqVnRkT0xEa1k4VzQwa0lCNEYxWmFud0hrM283T1NqNHA4c1NDVnpvaW1UWmZ1RldFX014cThTcE9UYUNUY2lNcDhxSVZKUHlQbWY0RmFrTWo0em5ZcDQ2OGRpc2lZMUhnUElrMnE3T0pWMl9yd0Fuc2lNc3lyREtpeUJSQlpsSUlpQ3M1blB2ZnRrLWpEeGJKd0FaQ3YxV0lfakhpMNIBxwFBVV95cUxPd1lROHVlcks3TlJ6bW1oTUpnUVY0cDNxOUhqZmhVbzBVZkZGWE9UNTZnbGFtYzFiMkNMMWF0aFpOdmtkN2JHckctWk9pRnczRmhMb1pIR180WDJ6SlNZTU04cFhLZGlCMDlUdERDU3JCRmxFMEJGYmluMjNuSkd5ZmJZM2FvenA5X1ZmYkZBQWREMkl3cEF4TTFWaTRtQlgwU0xpeFRzYUoybnpreExtUmFDVnpWc2l0dXRnZFVGa0ZVekx2S1Jn?oc=5",
+      "created_at": "2026-10-08",
+      "status": "approved",
+      "id": "g066",
+      "rank_score": 33,
+      "rank_verdict": "The opening slide is a classic, uninformative title card that announces a topic instead of delivering a hook that can stand alone."
+    }
+  ]
+}
