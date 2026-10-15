@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "Delhi Metro new timings for Sunday: DMRC announces trains from 3:30 am for Delhi Half Marathon",
+      "context": "The gap between workplace energy levels and voluntary weekend suffering.",
+      "angle": "You cannot wake up at 7 AM for a call, but you will stand in dark fog at 4 AM for a metal medal.",
+      "slides": [
+        "Your manager cannot get you on a call before 10 AM.",
+        "Yet here you are.\nStanding on a platform.\nAt 3:30 AM in shorts.\nChecking your pulse rate on a ₹30,000 watch.",
+        "The race hasn't even started.\n\nYour lower back has already submitted its resignation."
+      ],
+      "caption": "Whose husband is currently stretching his hamstring against a metro pillar at 3:45 AM?",
+      "trigger": "body",
+      "structure": "then_now",
+      "move": "absurd_comparative",
+      "target": "self",
+      "satire_level": 3,
+      "hinglish": false,
+      "keywords": [
+        "metro timings",
+        "delhi metro",
+        "knee pain"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMigwJBVV95cUxNMWRXYmdTVWR3aWVoz...",
+      "created_at": "2026-10-15",
+      "status": "approved",
+      "id": "g073",
+      "rank_score": 33,
+      "rank_verdict": "The lower-back joke is predictable and lazy, failing to deliver a true turn."
+    }
+  ]
+}

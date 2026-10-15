@@ -1,0 +1,323 @@
+{
+  "generated_at": "20261015-230712",
+  "model": "gemini-3.5-flash",
+  "accepted": [
+    {
+      "trend": "India Inc Salary Hikes Seen At 9.1% In 2027 As Attrition Rises To 18%: Survey",
+      "context": "Line manager conversations during appraisal season.",
+      "angle": "The standard corporate script when delivering single-digit raises.",
+      "slides": [
+        "\"Beta, performance outstanding hai, but budget tight hai.\"",
+        "\"Company is in a consolidation phase.\"\n\"We are investing in long-term growth.\"\n\"Variable pay will reflect your effort.\"\n\"Thoda adjust kar lo.\"",
+        "The deck was projected on a 98-inch screen in Gurgaon."
+      ],
+      "caption": "Whose line manager is this?",
+      "trigger": "salary",
+      "structure": "phone_call",
+      "move": "the_institutional_frame",
+      "target": "employer",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "appraisal meeting",
+        "line manager",
+        "corporate salary"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNUnlMX3BnbV8ybmZxaTMwTGxkRUxKeGYzcmlXQ3JwMnJ6Qk8zQXZSWTkzX1hBdm1GZnk2bUwwSEFuZlJ5LUR5TVY5Zml0TE5nNC16UVRoMFhFSmQ0UHZPRnF0bC15WXdxU0YzakVsVTZmX0ZYRThUdHdLaEwycS02LTNPUGV3aXdBWlZ6eUotSk5rVnRVcVp5QVY2Z1lnRjJ6Q3prVV81cGpRZEg2aWFlY0YzQkZ2cEVlQ3c?oc=5",
+      "created_at": "2026-10-15",
+      "status": "draft",
+      "_score": 62,
+      "_judge": "Slide 1 puts the whole joke upfront without leaving an unpaid bill to force the swipe.",
+      "_detail": {
+        "laugh": 4,
+        "share_trigger": 5,
+        "surprise": 4,
+        "specificity": 4,
+        "voice": 5,
+        "travels": 4
+      },
+      "_penalty": -1
+    },
+    {
+      "trend": "India Inc Salary Hikes Seen At 9.1% In 2027 As Attrition Rises To 18%: Survey",
+      "context": "Corporate increment projections vs real-world expense escalation.",
+      "angle": "The appraisal projection is published two years in advance so you can start disappointing yourself early.",
+      "slides": [
+        "A survey says your 2027 salary hike will be 9.1%.",
+        "Rent increase — 12%.\nSchool fee increase — 15%.\nGrocery bill — 18%.\nHR email — \"market leading increment\".",
+        "The arithmetic was done in a room with free lunch."
+      ],
+      "caption": "Send this to the person currently writing their self-assessment bullet points.",
+      "trigger": "salary",
+      "structure": "escalating_list",
+      "move": "flat_restatement",
+      "target": "HR",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "salary hike",
+        "corporate appraisal",
+        "attrition rate"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNUnlMX3BnbV8ybmZxaTMwTGxkRUxKeGYzcmlXQ3JwMnJ6Qk8zQXZSWTkzX1hBdm1GZnk2bUwwSEFuZlJ5LUR5TVY5Zml0TE5nNC16UVRoMFhFSmQ0UHZPRnF0bC15WXdxU0YzakVsVTZmX0ZYRThUdHdLaEwycS02LTNPUGV3aXdBWlZ6eUotSk5rVnRVcVp5QVY2Z1lnRjJ6Q3prVV81cGpRZEg2aWFlY0YzQkZ2cEVlQ3c?oc=5",
+      "created_at": "2026-10-15",
+      "status": "draft",
+      "_score": 47,
+      "_judge": "The escalation slide devolves into a list of percentages rather than sharp narrative beats.",
+      "_detail": {
+        "laugh": 3,
+        "share_trigger": 4,
+        "surprise": 4,
+        "specificity": 4,
+        "voice": 4,
+        "travels": 5
+      },
+      "_penalty": 8
+    },
+    {
+      "trend": "India postpones UPI payment fee rollout until after Diwali festival",
+      "context": "Household financial management during festival months.",
+      "angle": "Navigating modern digital transaction rules with traditional wisdom.",
+      "slides": [
+        "\"Diwali tak QR code scan kar lo, baad mein charges lagenge.\"",
+        "Mummy: \"Sweets pe bhi tax hai?\"\nPapa: \"Sweets pe nahi, paise bhejne pe hai.\"\nMummy: \"Toh cash nikaal lo.\"\nATM fee after 5 withdrawals: ₹21.",
+        "The system thought of that three years ago."
+      ],
+      "caption": "You know who you are, and so does your banking app.",
+      "trigger": "upi",
+      "structure": "phone_call",
+      "move": "flat_restatement",
+      "target": "bank",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "diwali offer",
+        "qr code",
+        "upi payment"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOVUhPV1BqYlJQZS0teVdaT3NfQUkwOE1Da1RaOUhQVUQtejhldFJZdWpTV0dsNmJWbUNUeklWR0M5Z2pqRURKX1hIbHBHZEE2aXNYMnBveXJIeURzSnY4U3RCNHRuMFN6c3dxdkw3dS10dXhLNWdSdlU4X1RGbVg2a3RtNS1NTXkzdGRCYWRIdUttUjZrQ2Z3T19kLWFwaG43VTN1cVlsYkhXQXNuZnc?oc=5",
+      "created_at": "2026-10-15",
+      "status": "draft",
+      "_score": 47,
+      "_judge": "The middle dialogue is cluttered and kills the pacing before the landing.",
+      "_detail": {
+        "laugh": 3,
+        "share_trigger": 3,
+        "surprise": 3,
+        "specificity": 4,
+        "voice": 4,
+        "travels": 3
+      },
+      "_penalty": -1
+    },
+    {
+      "trend": "Delhi Metro new timings for Sunday: DMRC announces trains from 3:30 am for Delhi Half Marathon",
+      "context": "The gap between workplace energy levels and voluntary weekend suffering.",
+      "angle": "You cannot wake up at 7 AM for a call, but you will stand in dark fog at 4 AM for a metal medal.",
+      "slides": [
+        "Your manager cannot get you on a call before 10 AM.",
+        "Yet here you are.\nStanding on a platform.\nAt 3:30 AM in shorts.\nChecking your pulse rate on a ₹30,000 watch.",
+        "The race hasn't even started.\n\nYour lower back has already submitted its resignation."
+      ],
+      "caption": "Whose husband is currently stretching his hamstring against a metro pillar at 3:45 AM?",
+      "trigger": "body",
+      "structure": "then_now",
+      "move": "absurd_comparative",
+      "target": "self",
+      "satire_level": 3,
+      "hinglish": false,
+      "keywords": [
+        "metro timings",
+        "delhi metro",
+        "knee pain"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMigwJBVV95cUxNMWRXYmdTVWR3aWVoz...",
+      "created_at": "2026-10-15",
+      "status": "draft",
+      "_score": 33,
+      "_judge": "The lower-back joke is predictable and lazy, failing to deliver a true turn.",
+      "_detail": {
+        "laugh": 3,
+        "share_trigger": 4,
+        "surprise": 2,
+        "specificity": 4,
+        "voice": 4,
+        "travels": 5
+      },
+      "_penalty": 18
+    },
+    {
+      "trend": "India postpones UPI payment fee rollout until after Diwali festival",
+      "context": "Financial regulatory grace periods aligned with major spending seasons.",
+      "angle": "The fee delay is not generosity; it is timing the fee after you exhaust your savings.",
+      "slides": [
+        "The tax on your UPI transactions is postponed until after Diwali.",
+        "Buy sweet boxes — free transfer.\nSend festival bonus to maid — free transfer.\nPay gold advance — free transfer.\nNov 1 account balance — ₹432.",
+        "They gave you permission to empty your account first."
+      ],
+      "caption": "Every Indian family has one person currently tracking their UPI limit on Google Pay.",
+      "trigger": "upi",
+      "structure": "terms_and_conditions",
+      "move": "the_turn_in_the_last_words",
+      "target": "bank",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "upi charges",
+        "diwali shopping",
+        "bank transfer"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOVUhPV1BqYlJQZS0teVdaT3NfQUkwOE1Da1RaOUhQVUQtejhldFJZdWpTV0dsNmJWbUNUeklWR0M5Z2pqRURKX1hIbHBHZEE2aXNYMnBveXJIeURzSnY4U3RCNHRuMFN6c3dxdkw3dS10dXhLNWdSdlU4X1RGbVg2a3RtNS1NTXkzdGRCYWRIdUttUjZrQ2Z3T19kLWFwaG43VTN1cVlsYkhXQXNuZnc?oc=5",
+      "created_at": "2026-10-15",
+      "status": "draft",
+      "_score": 31,
+      "_judge": "The landing explains the joke instead of introducing a fresh, unexpected image.",
+      "_detail": {
+        "laugh": 2,
+        "share_trigger": 3,
+        "surprise": 3,
+        "specificity": 4,
+        "voice": 3,
+        "travels": 3
+      },
+      "_penalty": 10
+    },
+    {
+      "trend": "Delhi Metro new timings for Sunday: DMRC announces trains from 3:30 am for Delhi Half Marathon",
+      "context": "Urban 30-year-olds voluntarily waking up before dawn on a Sunday to punish their knees for sport.",
+      "angle": "The corporate spine needs an extreme athletic crisis to justify its weekly stiffness.",
+      "slides": [
+        "You set a 3:00 AM alarm on a Sunday for something you paid to do.",
+        "Registration fee paid.\nKnee support bought.\nElectrolyte gel packed.\nGel insoles fitted.",
+        "DMRC ran a train at 3:30 AM just for your posture crisis.\n\nYour physio is on holiday."
+      ],
+      "caption": "Somebody in your group chat is running 21km to avoid thinking about their appraisal.",
+      "trigger": "health",
+      "structure": "list_collapse",
+      "move": "flat_restatement",
+      "target": "wellness industry",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "delhi marathon",
+        "half marathon",
+        "running injury"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMigwJBVV95cUxNMWRXYmdTVWR3aWVoz...",
+      "created_at": "2026-10-15",
+      "status": "draft",
+      "_score": 30,
+      "_judge": "The landing lacks a sharp turn, settling into a flat observation rather than a punchline.",
+      "_detail": {
+        "laugh": 2,
+        "share_trigger": 3,
+        "surprise": 3,
+        "specificity": 4,
+        "voice": 4,
+        "travels": 4
+      },
+      "_penalty": 15
+    },
+    {
+      "trend": "Delhi Metro new timings for Sunday: DMRC announces trains from 3:30 am for Delhi Half Marathon",
+      "context": "Public infrastructure catering to amateur lifestyle sports.",
+      "angle": "Public transport runs earlier for wellness events than for morning shifts.",
+      "slides": [
+        "DMRC opens at 3:30 AM because corporate workers want to suffer on purpose.",
+        "Night shift call centre team — wait till 6 AM.\nHospital staff — take an auto.\nThirty-year-old running 21 km for Instagram — special train service.",
+        "Priority in the capital belongs to voluntary pain."
+      ],
+      "caption": "Every office has one person who posts their Strava map before breakfast.",
+      "trigger": "corporate",
+      "structure": "juxtaposition",
+      "move": "flat_restatement",
+      "target": "platform",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "delhi half marathon",
+        "strava run",
+        "morning commute"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMigwJBVV95cUxNMWRXYmdTVWR3aWVoz...",
+      "created_at": "2026-10-15",
+      "status": "draft",
+      "_score": 29,
+      "_judge": "Violates the core voice rule against moralising by turning an observation into social commentary.",
+      "_detail": {
+        "laugh": 1,
+        "share_trigger": 2,
+        "surprise": 2,
+        "specificity": 4,
+        "voice": 1,
+        "travels": 3
+      },
+      "_penalty": 0
+    },
+    {
+      "trend": "India Inc Salary Hikes Seen At 9.1% In 2027 As Attrition Rises To 18%: Survey",
+      "context": "Corporate tenure vs compensation growth.",
+      "angle": "Switching jobs stopped being career growth; it is now basic inflation defense.",
+      "slides": [
+        "Attrition reached 18% because staying at your desk costs money.",
+        "Internal appraisal — 8%.\nNotice period — 90 days.\nCounter offer — \"we value your contribution\".\nNotice period served — 30% jump elsewhere.",
+        "Loyalty is an expense item you cannot afford."
+      ],
+      "caption": "Somebody on your team updated their LinkedIn profile two hours ago.",
+      "trigger": "corporate",
+      "structure": "terms_and_conditions",
+      "move": "literalisation",
+      "target": "employer",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "job switch",
+        "notice period",
+        "corporate hr"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNUnlMX3BnbV8ybmZxaTMwTGxkRUxKeGYzcmlXQ3JwMnJ6Qk8zQXZSWTkzX1hBdm1GZnk2bUwwSEFuZlJ5LUR5TVY5Zml0TE5nNC16UVRoMFhFSmQ0UHZPRnF0bC15WXdxU0YzakVsVTZmX0ZYRThUdHdLaEwycS02LTNPUGV3aXdBWlZ6eUotSk5rVnRVcVp5QVY2Z1lnRjJ6Q3prVV81cGpRZEg2aWFlY0YzQkZ2cEVlQ3c?oc=5",
+      "created_at": "2026-10-15",
+      "status": "draft",
+      "_score": 24,
+      "_judge": "Reads like a tired LinkedIn corporate summary with zero comedy or surprise.",
+      "_detail": {
+        "laugh": 1,
+        "share_trigger": 2,
+        "surprise": 1,
+        "specificity": 3,
+        "voice": 2,
+        "travels": 5
+      },
+      "_penalty": 7
+    }
+  ],
+  "rejected": [
+    {
+      "trend": "India postpones UPI payment fee rollout until after Diwali festival",
+      "context": "Festive consumerism vs post-festival financial hangover.",
+      "angle": "Seasonal tax grace periods only protect the spending, never the recovery.",
+      "slides": [
+        "You are allowed to spend your entire festive budget for free.",
+        "Gifts for in-laws: zero fee.\nNew clothes on EMI: zero fee.\nSweet hampers for office: zero fee.\nPost-festival rent payment: subject to MDR.",
+        "The mercy ends exactly when the survival starts."
+      ],
+      "caption": "Send this to the cousin who offers to pay every group bill on UPI to collect reward scratch cards.",
+      "trigger": "upi",
+      "structure": "receipt",
+      "move": "absurd_comparative",
+      "target": "platform",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "festive spend",
+        "upi fee",
+        "credit card"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOVUhPV1BqYlJQZS0teVdaT3NfQUkwOE1Da1RaOUhQVUQtejhldFJZdWpTV0dsNmJWbUNUeklWR0M5Z2pqRURKX1hIbHBHZEE2aXNYMnBveXJIeURzSnY4U3RCNHRuMFN6c3dxdkw3dS10dXhLNWdSdlU4X1RGbVg2a3RtNS1NTXkzdGRCYWRIdUttUjZrQ2Z3T19kLWFwaG43VTN1cVlsYkhXQXNuZnc?oc=5",
+      "created_at": "2026-10-15",
+      "_gate_failures": [
+        "no concrete detail (no number, rupee figure or quoted speech) — too generic"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "India postpones UPI payment fee rollout until after Diwali festival",
+      "context": "Financial regulatory grace periods aligned with major spending seasons.",
+      "angle": "The fee delay is not generosity; it is timing the fee after you exhaust your savings.",
+      "slides": [
+        "The tax on your UPI transactions is postponed until after Diwali.",
+        "Buy sweet boxes — free transfer.\nSend festival bonus to maid — free transfer.\nPay gold advance — free transfer.\nNov 1 account balance — ₹432.",
+        "They gave you permission to empty your account first."
+      ],
+      "caption": "Every Indian family has one person currently tracking their UPI limit on Google Pay.",
+      "trigger": "upi",
+      "structure": "terms_and_conditions",
+      "move": "the_turn_in_the_last_words",
+      "target": "bank",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "upi charges",
+        "diwali shopping",
+        "bank transfer"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOVUhPV1BqYlJQZS0teVdaT3NfQUkwOE1Da1RaOUhQVUQtejhldFJZdWpTV0dsNmJWbUNUeklWR0M5Z2pqRURKX1hIbHBHZEE2aXNYMnBveXJIeURzSnY4U3RCNHRuMFN6c3dxdkw3dS10dXhLNWdSdlU4X1RGbVg2a3RtNS1NTXkzdGRCYWRIdUttUjZrQ2Z3T19kLWFwaG43VTN1cVlsYkhXQXNuZnc?oc=5",
+      "created_at": "2026-10-15",
+      "status": "approved",
+      "id": "g074",
+      "rank_score": 31,
+      "rank_verdict": "The landing explains the joke instead of introducing a fresh, unexpected image."
+    }
+  ]
+}

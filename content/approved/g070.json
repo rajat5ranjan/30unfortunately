@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "India Inc Salary Hikes Seen At 9.1% In 2027 As Attrition Rises To 18%: Survey",
+      "context": "Line manager conversations during appraisal season.",
+      "angle": "The standard corporate script when delivering single-digit raises.",
+      "slides": [
+        "\"Beta, performance outstanding hai, but budget tight hai.\"",
+        "\"Company is in a consolidation phase.\"\n\"We are investing in long-term growth.\"\n\"Variable pay will reflect your effort.\"\n\"Thoda adjust kar lo.\"",
+        "The deck was projected on a 98-inch screen in Gurgaon."
+      ],
+      "caption": "Whose line manager is this?",
+      "trigger": "salary",
+      "structure": "phone_call",
+      "move": "the_institutional_frame",
+      "target": "employer",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "appraisal meeting",
+        "line manager",
+        "corporate salary"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNUnlMX3BnbV8ybmZxaTMwTGxkRUxKeGYzcmlXQ3JwMnJ6Qk8zQXZSWTkzX1hBdm1GZnk2bUwwSEFuZlJ5LUR5TVY5Zml0TE5nNC16UVRoMFhFSmQ0UHZPRnF0bC15WXdxU0YzakVsVTZmX0ZYRThUdHdLaEwycS02LTNPUGV3aXdBWlZ6eUotSk5rVnRVcVp5QVY2Z1lnRjJ6Q3prVV81cGpRZEg2aWFlY0YzQkZ2cEVlQ3c?oc=5",
+      "created_at": "2026-10-15",
+      "status": "approved",
+      "id": "g070",
+      "rank_score": 62,
+      "rank_verdict": "Slide 1 puts the whole joke upfront without leaving an unpaid bill to force the swipe."
+    }
+  ]
+}

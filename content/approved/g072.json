@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "India postpones UPI payment fee rollout until after Diwali festival",
+      "context": "Household financial management during festival months.",
+      "angle": "Navigating modern digital transaction rules with traditional wisdom.",
+      "slides": [
+        "\"Diwali tak QR code scan kar lo, baad mein charges lagenge.\"",
+        "Mummy: \"Sweets pe bhi tax hai?\"\nPapa: \"Sweets pe nahi, paise bhejne pe hai.\"\nMummy: \"Toh cash nikaal lo.\"\nATM fee after 5 withdrawals: ₹21.",
+        "The system thought of that three years ago."
+      ],
+      "caption": "You know who you are, and so does your banking app.",
+      "trigger": "upi",
+      "structure": "phone_call",
+      "move": "flat_restatement",
+      "target": "bank",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "diwali offer",
+        "qr code",
+        "upi payment"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOVUhPV1BqYlJQZS0teVdaT3NfQUkwOE1Da1RaOUhQVUQtejhldFJZdWpTV0dsNmJWbUNUeklWR0M5Z2pqRURKX1hIbHBHZEE2aXNYMnBveXJIeURzSnY4U3RCNHRuMFN6c3dxdkw3dS10dXhLNWdSdlU4X1RGbVg2a3RtNS1NTXkzdGRCYWRIdUttUjZrQ2Z3T19kLWFwaG43VTN1cVlsYkhXQXNuZnc?oc=5",
+      "created_at": "2026-10-15",
+      "status": "approved",
+      "id": "g072",
+      "rank_score": 47,
+      "rank_verdict": "The middle dialogue is cluttered and kills the pacing before the landing."
+    }
+  ]
+}

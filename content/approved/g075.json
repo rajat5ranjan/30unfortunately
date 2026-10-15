@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "Delhi Metro new timings for Sunday: DMRC announces trains from 3:30 am for Delhi Half Marathon",
+      "context": "Urban 30-year-olds voluntarily waking up before dawn on a Sunday to punish their knees for sport.",
+      "angle": "The corporate spine needs an extreme athletic crisis to justify its weekly stiffness.",
+      "slides": [
+        "You set a 3:00 AM alarm on a Sunday for something you paid to do.",
+        "Registration fee paid.\nKnee support bought.\nElectrolyte gel packed.\nGel insoles fitted.",
+        "DMRC ran a train at 3:30 AM just for your posture crisis.\n\nYour physio is on holiday."
+      ],
+      "caption": "Somebody in your group chat is running 21km to avoid thinking about their appraisal.",
+      "trigger": "health",
+      "structure": "list_collapse",
+      "move": "flat_restatement",
+      "target": "wellness industry",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "delhi marathon",
+        "half marathon",
+        "running injury"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMigwJBVV95cUxNMWRXYmdTVWR3aWVoz...",
+      "created_at": "2026-10-15",
+      "status": "approved",
+      "id": "g075",
+      "rank_score": 30,
+      "rank_verdict": "The landing lacks a sharp turn, settling into a flat observation rather than a punchline."
+    }
+  ]
+}

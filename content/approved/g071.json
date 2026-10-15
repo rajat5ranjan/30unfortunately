@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "India Inc Salary Hikes Seen At 9.1% In 2027 As Attrition Rises To 18%: Survey",
+      "context": "Corporate increment projections vs real-world expense escalation.",
+      "angle": "The appraisal projection is published two years in advance so you can start disappointing yourself early.",
+      "slides": [
+        "A survey says your 2027 salary hike will be 9.1%.",
+        "Rent increase — 12%.\nSchool fee increase — 15%.\nGrocery bill — 18%.\nHR email — \"market leading increment\".",
+        "The arithmetic was done in a room with free lunch."
+      ],
+      "caption": "Send this to the person currently writing their self-assessment bullet points.",
+      "trigger": "salary",
+      "structure": "escalating_list",
+      "move": "flat_restatement",
+      "target": "HR",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "salary hike",
+        "corporate appraisal",
+        "attrition rate"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNUnlMX3BnbV8ybmZxaTMwTGxkRUxKeGYzcmlXQ3JwMnJ6Qk8zQXZSWTkzX1hBdm1GZnk2bUwwSEFuZlJ5LUR5TVY5Zml0TE5nNC16UVRoMFhFSmQ0UHZPRnF0bC15WXdxU0YzakVsVTZmX0ZYRThUdHdLaEwycS02LTNPUGV3aXdBWlZ6eUotSk5rVnRVcVp5QVY2Z1lnRjJ6Q3prVV81cGpRZEg2aWFlY0YzQkZ2cEVlQ3c?oc=5",
+      "created_at": "2026-10-15",
+      "status": "approved",
+      "id": "g071",
+      "rank_score": 47,
+      "rank_verdict": "The escalation slide devolves into a list of percentages rather than sharp narrative beats."
+    }
+  ]
+}
