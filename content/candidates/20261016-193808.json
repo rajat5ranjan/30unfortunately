@@ -1,0 +1,620 @@
+{
+  "generated_at": "20261016-193808",
+  "model": "gemini-3.5-flash",
+  "accepted": [
+    {
+      "trend": "Indian Diet Shift Exposes Hidden Genetic Cholesterol Risk",
+      "context": "Parents attribute genetic metabolic issues to outside food and offer immediate kitchen remedies.",
+      "angle": "Family members blame restaurant food for metabolic traits they directly passed down.",
+      "slides": [
+        "\"Ghar ka khana khate toh cholesterol nahi hota.\"",
+        "\"Doctor ne LDL level dekha?\"\n\"Yeh sab outer food se hota hai.\"\n\"Roj subah jeera paani piyo.\"\n\"Ghee toh shuddh hota hai.\"",
+        "Her lipid profile has been high since 1998."
+      ],
+      "caption": "Whose mother answers every blood report with warm water?",
+      "trigger": "parents",
+      "structure": "dialogue",
+      "move": "the_banal_true_answer",
+      "target": "parents",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "genetic cholesterol",
+        "blood report",
+        "home remedies"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQdjRlcmdTTnFMaWJFWGxuQzktdlZud2lsZncwMjRZc19rSkU2YTVIRW44bmEyZUZxNTRud0RrT2F4eThLZlg0cXdqZndwc0dLb3NQUVRabnd5T210LTdCQ3RTWXhCbFczNlR1ZUhiOUpzTE1xdG0xS3F0Wk9xZk5BN0huQVlTZER1OVpjWVlSa3E0UXFtb0YzcGFGWlFLTVpuZHN5Sk9sSnZySzlUY1A4VVJ1WGpMOXByLU5oN1ZZMDdVeS1FS2w2WEE1XzFydmxV0gHWAUFVX3lxTE1qWUswSm9UbXY4NTEyVHZZMktzOVl4TXItMVJkTTFGNU0tbXpOXzlMUnhjZHZsMEJ2UF8zYnZLQmYyOXZnVVNqaEZjM1c0bjRVN1FfZDN6ZHRRVGt5OFZBLUJoY01hSDV4eDhlM1BnSHB3WV95clQzdHJ5djZDVVlKWXdLTkRPaWlkQmlhM2l3NFVGaUlkenJ2U2lKV093MzBFbDNBcVl6RHVZd2RsY2hCOWt2NXN5U3ZqaENqR3JOMTlDYkxiYUNsUWxleEpXRjBsMDZ2bWc?oc=5",
+      "created_at": "2026-10-16",
+      "status": "draft",
+      "_score": 73,
+      "_judge": "Flawless execution with an unsparing twist landing.",
+      "_detail": {
+        "laugh": 5,
+        "share_trigger": 5,
+        "surprise": 5,
+        "specificity": 5,
+        "voice": 5,
+        "travels": 4
+      },
+      "_penalty": -5
+    },
+    {
+      "trend": "PNB Q2 profit rises 12.8% to Rs 5,532 crore; bank in no hurry to increase deposit rates",
+      "context": "Older generations trust public sector banks purely because they have physical counters.",
+      "angle": "Public bank loyalty relies on physical passbooks, not competitive interest calculations.",
+      "slides": [
+        "\"Sarkari bank mein safe rehta hai.\"",
+        "\"FD ka interest rate check kiya?\"\n\"Interest nahi, safety dekho.\"\n\"Inflation rate pata hai?\"\n\"Passbook entry karwa ke aao.\"",
+        "She has five passbooks wrapped in a plastic pouch."
+      ],
+      "caption": "Every family has one person who maintains physical bank passbooks.",
+      "trigger": "parents",
+      "structure": "dialogue",
+      "move": "the_banal_true_answer",
+      "target": "parents",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "sarkari bank",
+        "passbook update",
+        "fixed deposit interest"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxOYkVwU2EtQTBjODlYZnI1MVgyTnpvVlNpRjJkUENoOVNqOHh5RENON3JrM3ctVUJ0N2NjQ0RWNDA4YkI5Sl8xQ0VZLS1HN2o4LXQ2MUdNMjdMZjNEaWhUQ1ZXM0x4NDVMSHd0RlJyTzFQSVpqVWMxaERrSXBhX0Zld0RMbllBSHZleVc1NkFKRjRYVEYycThYRHh3MGNuSzUzZDVDVkw0V3BabDBnOEZ5LS1mQldrVF9Tc3RzJnI1P3B2S2pNZ2pOTlo0eHRIX0JuSWV6ZHVNUlV4bQ?oc=5",
+      "created_at": "2026-10-16",
+      "status": "draft",
+      "_score": 68,
+      "_judge": "Middle slide dialogue feels slightly repetitive before being saved by the excellent final image.",
+      "_detail": {
+        "laugh": 4,
+        "share_trigger": 5,
+        "surprise": 4,
+        "specificity": 5,
+        "voice": 5,
+        "travels": 4
+      },
+      "_penalty": -5
+    },
+    {
+      "trend": "World Spine Day 2026: Working professionals shouldn't ignore back pain",
+      "context": "Family members frame postural desk strain as a personal flaw best cured by home routines.",
+      "angle": "Relatives treat corporate spinal strain as a lack of daily stretching discipline.",
+      "slides": [
+        "\"Laptop pe baithne se spinal problem hota hai.\"",
+        "\"Physio ka ₹1,500 kyun diya?\"\n\"Subah thoda stretch karo.\"\n\"Sofa pe mat baitho.\"\n\"Zameen pe sone se thik ho jayega.\"",
+        "Your uncle demonstrates a yoga pose in the living room."
+      ],
+      "caption": "Whose family treats herniated discs as laziness?",
+      "trigger": "parents",
+      "structure": "dialogue",
+      "move": "the_banal_true_answer",
+      "target": "relatives",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "spinal pain",
+        "home physio",
+        "back relief"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMigAJBVV95cUxNOFExY21OdE9aSFhLdUVnSl96a2c1WC1qZFhWVjAtRlV5Xy1pdUdydEVNZ01lQm92bVgxM2FqNXpYT1ZJT05xaUszc3E0ZUVqOTVmMkpMeDhIcmEyZzNKMVR4S2ViMHZGYVIwVFNzdzZYaEVvUFI2SF_1anZkekJWRmc0TW43UE55elNzaUR1YnFUa1pvUkg3ZjdzcUZFcHIyRncxJnZ2X1k0aEZhaVpuM0RoREdYZlZRWWd6UmJzcW1pWlZvNWhicE0tNzk5cTZUN05QMXZTTWxRQXdxV0ctSHpHaWJfNnB4SWNqNlY4V1dKX3g0OGZZLVM0WDVOZkx40gGAAkFVX3lxTE04UTFjbU50T1pIWEt1RWdKX3prZzVYLWpkWFZWMC1GVXlfLWl1R3J0RU1nTWVCb3ZtWDEzYWo1elhPVklPTnFpSzNzcTRlRWo5NWYySkx4OEhyYTJnM0oxVHhLZWIwdkZhUjBUU3N3NlhoEVvUFI2SF_1anZkekJWRmc0TW43UE55elNzaUR1YnFUa1pvUkg3ZjdzcUZFcHIyRncxJnZ2X1k0aEZhaVpuM0RoREdYZlZRWWd6UmJzcW1pWlZvNWhicE0tNzk5cTZUN05QMXZTTWxRQXdxV0ctSHpHaWJfNnB4SWNqNlY4V1dKX3g0OGZZLVM0WDVOZkx4?oc=5",
+      "created_at": "2026-10-16",
+      "status": "draft",
+      "_score": 61,
+      "_judge": "The living room yoga pose landing is solid but a bit familiar for Indian family backache tropes.",
+      "_detail": {
+        "laugh": 4,
+        "share_trigger": 4,
+        "surprise": 3,
+        "specificity": 5,
+        "voice": 4,
+        "travels": 4
+      },
+      "_penalty": -5
+    },
+    {
+      "trend": "World Spine Day 2026: Working professionals shouldn't ignore back pain",
+      "context": "30-year-olds acquire specialized medical jargon to describe mundane physical strains.",
+      "angle": "Twenties conversations were about weekend trips; thirties conversations are about lower spine scans.",
+      "slides": [
+        "You now know the exact location of your L5 vertebra.",
+        "Age 22 — Pulled an all-nighter.\nAge 26 — Slept on a train floor.\nAge 30 — Sneezed while reaching for a water bottle.\nAge 31 — Five days bed rest.",
+        "The physiotherapist has saved your contact."
+      ],
+      "caption": "Somebody you know cannot sit on a low stool anymore.",
+      "trigger": "the_body_learning_new_words",
+      "structure": "then_now",
+      "move": "the_turn_in_the_last_words",
+      "target": "self",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "back pain fix",
+        "lumbar spine",
+        "posture corrector"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMigAJBVV95cUxNOFExY21OdE9aSFhLdUVnSl96a2c1WC1qZFhWVjAtRlV5Xy1pdUdydEVNZ01lQm92bVgxM2FqNXpYT1ZJT05xaUszc3E0ZUVqOTVmMkpMeDhIcmEyZzNKMVR4S2ViMHZGYVIwVFNzdzZYaEVvUFI2SF_1anZkekJWRmc0TW43UE55elNzaUR1YnFUa1pvUkg3ZjdzcUZFcHIyRncxJnZ2X1k0aEZhaVpuM0RoREdYZlZRWWd6UmJzcW1pWlZvNWhicE0tNzk5cTZUN05QMXZTTWxRQXdxV0ctSHpHaWJfNnB4SWNqNlY4V1dKX3g0OGZZLVM0WDVOZkx40gGAAkFVX3lxTE04UTFjbU50T1pIWEt1RWdKX3prZzVYLWpkWFZWMC1GVXlfLWl1R3J0RU1nTWVCb3ZtWDEzYWo1elhPVklPTnFpSzNzcTRlRWo5NWYySkx4OEhyYTJnM0oxVHhLZWIwdkZhUjBUU3N3NlhoEVvUFI2SF_1anZkekJWRmc0TW43UE55elNzaUR1YnFUa1pvUkg3ZjdzcUZFcHIyRncxJnZ2X1k0aEZhaVpuM0RoREdYZlZRWWd6UmJzcW1pWlZvNWhicE0tNzk5cTZUN05QMXZTTWxRQXdxV0ctSHpHaWJfNnB4SWNqNlY4V1dKX3g0OGZZLVM0WDVOZkx4?oc=5",
+      "created_at": "2026-10-16",
+      "status": "draft",
+      "_score": 57,
+      "_judge": "Sharply paced escalation that hits the age milestone beats perfectly.",
+      "_detail": {
+        "laugh": 5,
+        "share_trigger": 5,
+        "surprise": 4,
+        "specificity": 5,
+        "voice": 5,
+        "travels": 5
+      },
+      "_penalty": 11
+    },
+    {
+      "trend": "Furnishing a 1BHK Flat on Rent in Delhi Costs About ₹1,858",
+      "context": "Landlords strictly limit tenant modifications while charging market rates.",
+      "angle": "Renting a 1BHK turns flat living into living in an exhibit you cannot modify.",
+      "slides": [
+        "\"Deewar pe keel mat lagana.\"",
+        "\"Rent on 1st of every month.\"\n\"AC installation charges extra.\"\n\"Brokerage one month non-negotiable.\"\n\"Painting charges deducted from deposit.\"",
+        "The sofa bed belongs to a rental startup in Indiranagar."
+      ],
+      "caption": "Your landlord checks the wall plaster like an art appraiser.",
+      "trigger": "rent",
+      "structure": "dialogue",
+      "move": "literalisation",
+      "target": "landlord",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "brokerage fee",
+        "security deposit refund",
+        "rented 1bhk"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi7AJBVV95cUxNQ1NLMXllbHA4OVlsRTVKRm95dkE0dzZacmJKNkJHVkFzb3ZQTmxlSjhUSktIOEFuMURQTEdiRDVyaXdsQzA3Q2ZNTlA4Q2pieEs5ZXlPNkZiNUpuSzI5UW04QVZINFFkZHVzeUtNOEVralNxN05TZ1B5ZkVlaWZNS0pxX1QxWEY2bENORUtIWU83RUNHUUNhVXZHN2ZfUWpNNzJqU1J2bjFMWGkxZWdxMUdEdGJBOE95SjZpd1Q2V2RSV1JyOXdFeFdrNUl2QmllcHRISjd4ekduREtzY0hjaC1xMTNyRWloZENfMDVCNmQtQTJxaFZ1b1N0MFFJcUV2aldzSlBUNnBHM2xnSUt4cWxPYmtDM09oc2ZxMWdKcjA5c0d4aDgyRjB5N2YzdzBrZGllQmRrcmVuX29UdG85Y09iclJCMFVVQUpwbV91ak1WempHTGNOV1B2RG1uREF6Vk14SWRoS0w0S0pk?oc=5",
+      "created_at": "2026-10-16",
+      "status": "draft",
+      "_score": 54,
+      "_judge": "The escalation devolves into a laundry list of lease clauses rather than escalating tension.",
+      "_detail": {
+        "laugh": 3,
+        "share_trigger": 4,
+        "surprise": 3,
+        "specificity": 4,
+        "voice": 4,
+        "travels": 3
+      },
+      "_penalty": -5
+    },
+    {
+      "trend": "Indian Diet Shift Exposes Hidden Genetic Cholesterol Risk",
+      "context": "Corporate annual health checks highlight underlying risks created by modern sedentary routines.",
+      "angle": "Corporate wellness checkups document the slow bodily decay required to maintain office hours.",
+      "slides": [
+        "The annual health checkup is not a benefit.",
+        "Fasting blood sugar — borderline.\nSerum cholesterol — requires review.\nVitamin D — single digits.\nHR summary — \"Fit for desk duty\".",
+        "You are buying oats in five kilogram bags."
+      ],
+      "caption": "Somebody on your floor currently compares oats brands in the pantry.",
+      "trigger": "health",
+      "structure": "juxtaposition",
+      "move": "flat_restatement",
+      "target": "HR",
+      "satire_level": 3,
+      "hinglish": false,
+      "keywords": [
+        "annual health checkup",
+        "corporate wellness",
+        "vitamin d deficiency"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQdjRlcmdTTnFMaWJFWGxuQzktdlZud2lsZncwMjRZc19rSkU2YTVIRW44bmEyZUZxNTRud0RrT2F4eThLZlg0cXdqZndwc0dLb3NQUVRabnd5T210LTdCQ3RTWXhCbFczNlR1ZUhiOUpzTE1xdG0xS3F0Wk9xZk5BN0huQVlTZER1OVpjWVlSa3E0UXFtb0YzcGFGWlFLTVpuZHN5Sk9sSnZySzlUY1A4VVJ1WGpMOXByLU5oN1ZZMDdVeS1FS2w2WEE1XzFydmxV0gHWAUFVX3lxTE1qWUswSm9UbXY4NTEyVHZZMktzOVl4TXItMVJkTTFGNU0tbXpOXzlMUnhjZHZsMEJ2UF8zYnZLQmYyOXZnVVNqaEZjM1c0bjRVN1FfZDN6ZHRRVGt5OFZBLUJoY01hSDV4eDhlM1BnSHB3WV95clQzdHJ5djZDVVlKWXdLTkRPaWlkQmlhM2l3NFVGaUlkenJ2U2lKV093MzBFbDNBcVl6RHVZd2RsY2hCOWt2NXN5U3ZqaENqR3JOMTlDYkxiYUNsUWxleEpXRjBsMDZ2bWc?oc=5",
+      "created_at": "2026-10-16",
+      "status": "draft",
+      "_score": 44,
+      "_judge": "Slide 1 clears its throat with a generic declaration instead of dropping straight into the joke.",
+      "_detail": {
+        "laugh": 4,
+        "share_trigger": 4,
+        "surprise": 4,
+        "specificity": 4,
+        "voice": 4,
+        "travels": 4
+      },
+      "_penalty": 12
+    },
+    {
+      "trend": "Uber engineer claims he paid Rs 92 lakh in income tax before layoff during paternity leave",
+      "context": "Corporate parental leave benefits are marketed as empathy until financial metrics tighten.",
+      "angle": "Parental leave policies are structured as loyalty perks that self-destruct upon redemption.",
+      "slides": [
+        "The paternity benefit policy is five pages long.",
+        "Page 1: Unlimited parental bonding time.\nPage 2: Wellness stipend for baby monitor.\nPage 3: Peer appreciation portal.\nPage 5: Termination without cause effective immediately.",
+        "HR closed the ticket."
+      ],
+      "caption": "Every senior engineer in your office has this deck saved somewhere.",
+      "trigger": "corporate",
+      "structure": "job_description",
+      "move": "literalisation",
+      "target": "HR",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "parental leave",
+        "hr policies",
+        "tech layoffs"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMijAJBVV95cUxNcUkwV1JDcF9ITVZlRUlQanVRdGZQRVBpa2Q3aXladEx2RkJPaW5iNWx2dzVQVFZTN3NSMS1qR0lobHRXT1o0QkZOQy1WV0d0SjE3QjRNSDNBdkU0NkF1VG9vR0dCRERydERuUmhoMUlwT2FkbU9tRGlNMEJ6MGFZOGx0QUtVNVM0c05iXzB5aTJGcVZaNThKY09URmdUTjdiTnd4X1RKc1o3SERPVUs4MHgxS2dSYlBMdUNKdXRtcW1nazVQMHpla1_zYmFRN0RmVVdWX0xHZS15OGxoYnpBaTVoSUxRLXhqSDhmVG1XUUcwV3VUQTJPcWItcF9LZ1oxRDZobmtGalpCQ2Rs0gGSAkFVX3lxTE9EY3pwa0lLM3RlWDVzd09YVmxfSG1QQUtHejMyZHE1Zzk4Ml9LTEcyNEdKd1ptUHdobFZPaS1wck1tQTRReGRTeVpJVjExUjRFRHJTRjhJLXYyNEpkREdwNHd2NlRjN1_3NWVxakNjV3EzeUN3Nk9NUEdxZ3RMdkZXZW9BNGN3UUQ1emRfSWdNQmxRXzZtdThIV0NqT0NWVjVjeGk0Z21SdzNYQ010ai1DaVdzeXlfcXRaZkUtYkhSNWo3RXROQlljZmo5N0REVnRiMHB1Z05RQzRzX2hvbFM0ZTZuOUNWWGNfQ3kweXJtZWhvdWg0a212SUNrTF9DejZZWWp1SWZGZlVxcjBXdFlDaEE?oc=5",
+      "created_at": "2026-10-16",
+      "status": "draft",
+      "_score": 39,
+      "_judge": "Reads like corporate LinkedIn satire rather than a punchy, observational joke.",
+      "_detail": {
+        "laugh": 2,
+        "share_trigger": 3,
+        "surprise": 2,
+        "specificity": 3,
+        "voice": 4,
+        "travels": 5
+      },
+      "_penalty": 4
+    },
+    {
+      "trend": "World Spine Day 2026: Working professionals shouldn't ignore back pain",
+      "context": "Desk-bound office jobs cause chronic spine problems requiring ongoing ergonomic investments.",
+      "angle": "Spending money on posture gear only offsets the toll of ten-hour sitting days.",
+      "slides": [
+        "The ergonomic chair cost six weeks of effort.",
+        "L4-L5 disc — compressed.\nPhysiotherapist fee — ₹1,200 per session.\nHeating belt — plugged in.\nStanding desk — unused.",
+        "You were injured by sitting down."
+      ],
+      "caption": "Every corporate desk drawer has one pain relief spray.",
+      "trigger": "the_body_learning_new_words",
+      "structure": "juxtaposition",
+      "move": "absurd_comparative",
+      "target": "employer",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "lumbar support",
+        "ergonomic chair",
+        "physiotherapy session"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMigAJBVV95cUxNOFExY21OdE9aSFhLdUVnSl96a2c1WC1qZFhWVjAtRlV5Xy1pdUdydEVNZ01lQm92bVgxM2FqNXpYT1ZJT05xaUszc3E0ZUVqOTVmMkpMeDhIcmEyZzNKMVR4S2ViMHZGYVIwVFNzdzZYaEVvUFI2SF_1anZkekJWRmc0TW43UE55elNzaUR1YnFUa1pvUkg3ZjdzcUZFcHIyRncxJnZ2X1k0aEZhaVpuM0RoREdYZlZRWWd6UmJzcW1pWlZvNWhicE0tNzk5cTZUN05QMXZTTWxRQXdxV0ctSHpHaWJfNnB4SWNqNlY4V1dKX3g0OGZZLVM0WDVOZkx40gGAAkFVX3lxTE04UTFjbU50T1pIWEt1RWdKX3prZzVYLWpkWFZWMC1GVXlfLWl1R3J0RU1nTWVCb3ZtWDEzYWo1elhPVklPTnFpSzNzcTRlRWo5NWYySkx4OEhyYTJnM0oxVHhLZWIwdkZhUjBUU3N3NlhoEVvUFI2SF_1anZkekJWRmc0TW43UE55elNzaUR1YnFUa1pvUkg3ZjdzcUZFcHIyRncxJnZ2X1k0aEZhaVpuM0RoREdYZlZRWWd6UmJzcW1pWlZvNWhicE0tNzk5cTZUN05QMXZTTWxRQXdxV0ctSHpHaWJfNnB4SWNqNlY4V1dKX3g0OGZZLVM0WDVOZkx4?oc=5",
+      "created_at": "2026-10-16",
+      "status": "draft",
+      "_score": 38,
+      "_judge": "The landing sentence explains the pre-existing situation instead of introducing a fresh image or turn.",
+      "_detail": {
+        "laugh": 2,
+        "share_trigger": 3,
+        "surprise": 2,
+        "specificity": 4,
+        "voice": 3,
+        "travels": 4
+      },
+      "_penalty": 3
+    },
+    {
+      "trend": "Furnishing a 1BHK Flat on Rent in Delhi Costs About ₹1,858",
+      "context": "Urban migrants live in temporary furniture setups for years because buying permanent items feels like a risk.",
+      "angle": "Furnishing a rented flat is an agreement between temporary living and permanent lease clauses.",
+      "slides": [
+        "The flat is fully furnished except for stability.",
+        "Deposit paid — 3 months.\nCurtains installed — command strips.\nDesk rented — 11 month plan.\nNotice period — 60 days.",
+        "You have packed four cardboard boxes twice this year."
+      ],
+      "caption": "Somebody you know lives out of suitcases despite paying high rent.",
+      "trigger": "home",
+      "structure": "then_now",
+      "move": "the_turn_in_the_last_words",
+      "target": "landlord",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "1bhk rent delhi",
+        "security deposit",
+        "rental agreement"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi7AJBVV95cUxNQ1NLMXllbHA4OVlsRTVKRm95dkE0dzZacmJKNkJHVkFzb3ZQTmxlSjhUSktIOEFuMURQTEdiRDVyaXdsQzA3Q2ZNTlA4Q2pieEs5ZXlPNkZiNUpuSzI5UW04QVZINFFkZHVzeUtNOEVralNxN05TZ1B5ZkVlaWZNS0pxX1QxWEY2bENORUtIWU83RUNHUUNhVXZHN2ZfUWpNNzJqU1J2bjFMWGkxZWdxMUdEdGJBOE95SjZpd1Q2V2RSV1JyOXdFeFdrNUl2QmllcHRISjd4ekduREtzY0hjaC1xMTNyRWloZENfMDVCNmQtQTJxaFZ1b1N0MFFJcUV2aldzSlBUNnBHM2xnSUt4cWxPYmtDM09oc2ZxMWdKcjA5c0d4aDgyRjB5N2YzdzBrZGllQmRrcmVuX29UdG85Y09iclJCMFVVQUpwbV91ak1WempHTGNOV1B2RG1uREF6Vk14SWRoS0w0S0pk?oc=5",
+      "created_at": "2026-10-16",
+      "status": "draft",
+      "_score": 36,
+      "_judge": "Slide 1 opens with an abstract pun instead of a grounded, concrete hook.",
+      "_detail": {
+        "laugh": 3,
+        "share_trigger": 4,
+        "surprise": 3,
+        "specificity": 3,
+        "voice": 3,
+        "travels": 4
+      },
+      "_penalty": 11
+    },
+    {
+      "trend": "PNB Q2 profit rises 12.8% to Rs 5,532 crore; bank in no hurry to increase deposit rates",
+      "context": "Public bank IVR and customer support are designed to delay inquiries until you accept existing returns.",
+      "angle": "Bank customer service operates as a endurance test where the reward is 3% annual growth.",
+      "slides": [
+        "Press 1 to discuss your fixed deposit return.",
+        "To review interest rates — Press 1.\nTo complain about inflation — Press 2.\nTo speak to senior manager — Lunch break.\nTo accept current rate — Default.",
+        "Token number 42 was called three hours ago."
+      ],
+      "caption": "Your father still goes to the main branch in person.",
+      "trigger": "admin",
+      "structure": "customer_support",
+      "move": "the_institutional_frame",
+      "target": "bank",
+      "satire_level": 3,
+      "hinglish": false,
+      "keywords": [
+        "fixed deposit rate",
+        "bank interest",
+        "savings yield"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxOYkVwU2EtQTBjODlYZnI1MVgyTnpvVlNpRjJkUENoOVNqOHh5RENON3JrM3ctVUJ0N2NjQ0RWNDA4YkI5Sl8xQ0VZLS1HN2o4LXQ2MUdNMjdMZjNEaWhUQ1ZXM0x4NDVMSHd0RlJyTzFQSVpqVWMxaERrSXBhX0Zld0RMbllBSHZleVc1NkFKRjRYVEYycThYRHh3MGNuSzUzZDVDVkw0V3BabDBnOEZ5LS1mQldrVF9Tc3RzJnI1P3B2S2pNZ2pOTlo0eHRIX0JuSWV6ZHVNUlV4bQ?oc=5",
+      "created_at": "2026-10-16",
+      "status": "draft",
+      "_score": 34,
+      "_judge": "Built on tired customer care IVR cliches that offer zero novelty.",
+      "_detail": {
+        "laugh": 2,
+        "share_trigger": 2,
+        "surprise": 2,
+        "specificity": 3,
+        "voice": 3,
+        "travels": 4
+      },
+      "_penalty": 2
+    },
+    {
+      "trend": "Uber engineer claims he paid Rs 92 lakh in income tax before layoff during paternity leave",
+      "context": "High-earning IT professionals pay heavy taxes while receiving zero social safety net during personal leave.",
+      "angle": "Paying ₹92 lakh in taxes only to be laid off holding a newborn proves corporate loyalty is a fictional asset.",
+      "slides": [
+        "Paid ₹92 lakh in income tax.",
+        "Month 1 — HR sends infant onesie.\nMonth 3 — Income tax deducted at source.\nMonth 6 — Paternity leave approved.\nMonth 7 — Position eliminated due to macro environment.",
+        "You are holding the baby. The severance email is in promotions."
+      ],
+      "caption": "Somebody on your team is currently checking their leave balance.",
+      "trigger": "salary",
+      "structure": "terms_and_conditions",
+      "move": "flat_restatement",
+      "target": "employer",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "paternity leave",
+        "income tax deduction",
+        "severance pay"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMijAJBVV95cUxNcUkwV1JDcF9ITVZlRUlQanVRdGZQRVBpa2Q3aXladEx2RkJPaW5iNWx2dzVQVFZTN3NSMS1qR0lobHRXT1o0QkZOQy1WV0d0SjE3QjRNSDNBdkU0NkF1VG9vR0dCRERydERuUmhoMUlwT2FkbU9tRGlNMEJ6MGFZOGx0QUtVNVM0c05iXzB5aTJGcVZaNThKY09URmdUTjdiTnd4X1RKc1o3SERPVUs4MHgxS2dSYlBMdUNKdXRtcW1nazVQMHpla1_zYmFRN0RmVVdWX0xHZS15OGxoYnpBaTVoSUxRLXhqSDhmVG1XUUcwV3VUQTJPcWItcF9LZ1oxRDZobmtGalpCQ2Rs0gGSAkFVX3lxTE9EY3pwa0lLM3RlWDVzd09YVmxfSG1QQUtHejMyZHE1Zzk4Ml9LTEcyNEdKd1ptUHdobFZPaS1wck1tQTRReGRTeVpJVjExUjRFRHJTRjhJLXYyNEpkREdwNHd2NlRjN1_3NWVxakNjV3EzeUN3Nk9NUEdxZ3RMdkZXZW9BNGN3UUQ1emRfSWdNQmxRXzZtdThIV0NqT0NWVjVjeGk0Z21SdzNYQ010ai1DaVdzeXlfcXRaZkUtYkhSNWo3RXROQlljZmo5N0REVnRiMHB1Z05RQzRzX2hvbFM0ZTZuOUNWWGNfQ3kweXJtZWhvdWg0a212SUNrTF9DejZZWWp1SWZGZlVxcjBXdFlDaEE?oc=5",
+      "created_at": "2026-10-16",
+      "status": "draft",
+      "_score": 26,
+      "_judge": "The 92 lakh tax figure feels absurdly detached from the salaried persona, undermining the reality of the post.",
+      "_detail": {
+        "laugh": 2,
+        "share_trigger": 3,
+        "surprise": 3,
+        "specificity": 4,
+        "voice": 3,
+        "travels": 4
+      },
+      "_penalty": 17
+    },
+    {
+      "trend": "Furnishing a 1BHK Flat on Rent in Delhi Costs About ₹1,858",
+      "context": "Rental platform subscriptions turn basic furniture into recurring monthly expenses.",
+      "angle": "Renting furniture means monthly instalments on items you will leave behind when the landlord raises rent.",
+      "slides": [
+        "₹1,858 a month to rent a wooden chair.",
+        "Sofa rent — monthly.\nBed frame rent — monthly.\nWashing machine rent — monthly.\nBrokerage fee — non-refundable.",
+        "The landlord visits to inspect his walls."
+      ],
+      "caption": "Every rented flat in Gurgaon has this exact grey sofa.",
+      "trigger": "rent",
+      "structure": "receipt",
+      "move": "flat_restatement",
+      "target": "landlord",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "furniture rental",
+        "house rent delhi",
+        "rented apartment"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi7AJBVV95cUxNQ1NLMXllbHA4OVlsRTVKRm95dkE0dzZacmJKNkJHVkFzb3ZQTmxlSjhUSktIOEFuMURQTEdiRDVyaXdsQzA3Q2ZNTlA4Q2pieEs5ZXlPNkZiNUpuSzI5UW04QVZINFFkZHVzeUtNOEVralNxN05TZ1B5ZkVlaWZNS0pxX1QxWEY2bENORUtIWU83RUNHUUNhVXZHN2ZfUWpNNzJqU1J2bjFMWGkxZWdxMUdEdGJBOE95SjZpd1Q2V2RSV1JyOXdFeFdrNUl2QmllcHRISjd4ekduREtzY0hjaC1xMTNyRWloZENfMDVCNmQtQTJxaFZ1b1N0MFFJcUV2aldzSlBUNnBHM2xnSUt4cWxPYmtDM09oc2ZxMWdKcjA5c0d4aDgyRjB5N2YzdzBrZGllQmRrcmVuX29UdG85Y09iclJCMFVVQUpwbV91ak1WempHTGNOV1B2RG1uREF6Vk14SWRoS0w0S0pk?oc=5",
+      "created_at": "2026-10-16",
+      "status": "draft",
+      "_score": 26,
+      "_judge": "The escalation slide is just an itemized rental invoice rather than a comedy build.",
+      "_detail": {
+        "laugh": 2,
+        "share_trigger": 3,
+        "surprise": 2,
+        "specificity": 4,
+        "voice": 3,
+        "travels": 3
+      },
+      "_penalty": 13
+    },
+    {
+      "trend": "PNB Q2 profit rises 12.8% to Rs 5,532 crore; bank in no hurry to increase deposit rates",
+      "context": "Public sector banks record massive profits while keeping savings account yields far below real inflation.",
+      "angle": "Your fixed deposit is a low-interest loan you forced upon yourself for piece of mind.",
+      "slides": [
+        "The bank made ₹5,532 crore this quarter.",
+        "Your savings yield — 2.7%.\nInflation rate — 5.1%.\nPassbook printing fee — updated.\nSMS alert fee — deducted.",
+        "The branch manager recommends a mutual fund NFO."
+      ],
+      "caption": "Send this to the family member who still keeps everything in fixed deposits.",
+      "trigger": "bank",
+      "structure": "juxtaposition",
+      "move": "flat_restatement",
+      "target": "bank",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "fixed deposit",
+        "savings account",
+        "bank profit"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxOYkVwU2EtQTBjODlYZnI1MVgyTnpvVlNpRjJkUENoOVNqOHh5RENON3JrM3ctVUJ0N2NjQ0RWNDA4YkI5Sl8xQ0VZLS1HN2o4LXQ2MUdNMjdMZjNEaWhUQ1ZXM0x4NDVMSHd0RlJyTzFQSVpqVWMxaERrSXBhX0Zld0RMbllBSHZleVc1NkFKRjRYVEYycThYRHh3MGNuSzUzZDVDVkw0V3BabDBnOEZ5LS1mQldrVF9Tc3RzJnI1P3B2S2pNZ2pOTlo0eHRIX0JuSWV6ZHVNUlV4bQ?oc=5",
+      "created_at": "2026-10-16",
+      "status": "draft",
+      "_score": 24,
+      "_judge": "An accurate financial grievance report that forgets to be funny or surprising.",
+      "_detail": {
+        "laugh": 1,
+        "share_trigger": 2,
+        "surprise": 1,
+        "specificity": 5,
+        "voice": 2,
+        "travels": 4
+      },
+      "_penalty": 9
+    },
+    {
+      "trend": "UPI Merchant Charges Above ₹2,000, New MDR Rules After Diwali",
+      "context": "Digital payments were promoted as permanently free public infrastructure before surcharges arrived.",
+      "angle": "Digital payment convenience in India is free only until you stop carrying paper money.",
+      "slides": [
+        "UPI was free until you forgot how cash looks.",
+        "Scan QR code at tea stall — free.\nScan QR code at grocery store — free.\nTransaction crosses ₹2,000 — convenience fee.\nPlatform infrastructure adjustment fee — active.",
+        "The shopkeeper asks if you have change for 500."
+      ],
+      "caption": "Somebody you know hasn't carried paper currency since 2021.",
+      "trigger": "upi",
+      "structure": "escalating_list",
+      "move": "literalisation",
+      "target": "app",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "upi charges",
+        "merchant fee",
+        "digital payments"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5XRVRYamkxREVWdXV5UGFHNzBYVGNrcTRtZmFCVWpRdHk3d3NnQ01wdEZHTENjbmNHNm83TDdFNzIxVTJ5bXJjNllyYzVoUXB3UTc0YTVDR1U2Yk9fU3JTWHJobUo2RFU?oc=5",
+      "created_at": "2026-10-16",
+      "status": "draft",
+      "_score": 23,
+      "_judge": "The shopkeeper landing does not connect sharply to the digital platform fee premise.",
+      "_detail": {
+        "laugh": 2,
+        "share_trigger": 2,
+        "surprise": 2,
+        "specificity": 3,
+        "voice": 3,
+        "travels": 3
+      },
+      "_penalty": 11
+    }
+  ],
+  "rejected": [
+    {
+      "trend": "Uber engineer claims he paid Rs 92 lakh in income tax before layoff during paternity leave",
+      "context": "Indian parents equate high income tax payouts with permanent corporate status.",
+      "angle": "Relatives measure corporate success by tax brackets right up until the layoffs happen.",
+      "slides": [
+        "\"Itne tax mein toh ek flat aa jaata.\"",
+        "\"Beta, Uber is big company.\"\n\"Beta, tax paid means high salary.\"\n\"Beta, why you are at home on Tuesday?\"\n\"Beta, ask them to take back the onesie.\"",
+        "Mummy is calling a relative in Jaipur to explain restructuring."
+      ],
+      "caption": "Whose family measures corporate security by company logos?",
+      "trigger": "parents",
+      "structure": "dialogue",
+      "move": "the_turn_in_the_last_words",
+      "target": "relatives",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "family pressure",
+        "tech salary",
+        "tax bracket"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMijAJBVV95cUxNcUkwV1JDcF9ITVZlRUlQanVRdGZQRVBpa2Q3aXladEx2RkJPaW5iNWx2dzVQVFZTN3NSMS1qR0lobHRXT1o0QkZOQy1WV0d0SjE3QjRNSDNBdkU0NkF1VG9vR0dCRERydERuUmhoMUlwT2FkbU9tRGlNMEJ6MGFZOGx0QUtVNVM0c05iXzB5aTJGcVZaNThKY09URmdUTjdiTnd4X1RKc1o3SERPVUs4MHgxS2dSYlBMdUNKdXRtcW1nazVQMHpla1_zYmFRN0RmVVdWX0xHZS15OGxoYnpBaTVoSUxRLXhqSDhmVG1XUUcwV3VUQTJPcWItcF9LZ1oxRDZobmtGalpCQ2Rs0gGSAkFVX3lxTE9EY3pwa0lLM3RlWDVzd09YVmxfSG1QQUtHejMyZHE1Zzk4Ml9LTEcyNEdKd1ptUHdobFZPaS1wck1tQTRReGRTeVpJVjExUjRFRHJTRjhJLXYyNEpkREdwNHd2NlRjN1_3NWVxakNjV3EzeUN3Nk9NUEdxZ3RMdkZXZW9BNGN3UUQ1emRfSWdNQmxRXzZtdThIV0NqT0NWVjVjeGk0Z21SdzNYQ010ai1DaVdzeXlfcXRaZkUtYkhSNWo3RXROQlljZmo5N0REVnRiMHB1Z05RQzRzX2hvbFM0ZTZuOUNWWGNfQ3kweXJtZWhvdWg0a212SUNrTF9DejZZWWp1SWZGZlVxcjBXdFlDaEE?oc=5",
+      "created_at": "2026-10-16",
+      "_gate_failures": [
+        "keywords are banned head terms, too broad to reach anybody from: 'family pressure'"
+      ]
+    },
+    {
+      "trend": "UPI Merchant Charges Above ₹2,000, New MDR Rules After Diwali",
+      "context": "Terms and conditions for digital payment services quietly update after major festive shopping periods.",
+      "angle": "The free trial of cashless living ends right after Diwali.",
+      "slides": [
+        "Terms of service update effective after Diwali.",
+        "Clause 1: Cashless society is mandatory.\nClause 2: Transactions above ₹2,000 trigger merchant charge.\nClause 3: Merchant adds fee to final bill.\nClause 4: You pay anyway.",
+        "Your wallet contains two old metro cards and a salon coupon."
+      ],
+      "caption": "Send this to the person who splits ₹140 chai bills on UPI.",
+      "trigger": "admin",
+      "structure": "terms_and_conditions",
+      "move": "the_institutional_frame",
+      "target": "platform",
+      "satire_level": 3,
+      "hinglish": false,
+      "keywords": [
+        "digital India",
+        "merchant discount rate",
+        "payment app"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5XRVRYamkxREVWdXV5UGFHNzBYVGNrcTRtZmFCVWpRdHk3d3NnQ01wdEZHTENjbmNHNm83TDdFNzIxVTJ5bXJjNllyYzVoUXB3UTc0YTVDR1U2Yk9fU3JTWHJobUo2RFU?oc=5",
+      "created_at": "2026-10-16",
+      "_gate_failures": [
+        "keywords must be plain lowercase words a person would type, no hash and no camel case: 'digital India'"
+      ]
+    },
+    {
+      "trend": "UPI Merchant Charges Above ₹2,000, New MDR Rules After Diwali",
+      "context": "Friends splitting large dinner bills now calculate payment gateway thresholds at the table.",
+      "angle": "Splitting a restaurant check requires tax planning to dodge transaction caps.",
+      "slides": [
+        "\"Bro QR pe ₹2,000 se upar surcharge hai.\"",
+        "\"Tu ₹1,999 bhej de.\"\n\"Do baar ₹1,000 bhej doon?\"\n\"Bank account block ho jayega.\"\n\"Cash kiske paas hai?\"",
+        "Four adults are staring at one paper bill."
+      ],
+      "caption": "Whose group chat turns into a tax audit after every dinner?",
+      "trigger": "friends",
+      "structure": "group_chat",
+      "move": "absurd_comparative",
+      "target": "platform",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "bill splitting",
+        "upi transaction",
+        "group dinner bill"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5XRVRYamkxREVWdXV5UGFHNzBYVGNrcTRtZmFCVWpRdHk3d3NnQ01wdEZHTENjbmNHNm83TDdFNzIxVTJ5bXJjNllyYzVoUXB3UTc0YTVDR1U2Yk9fU3JTWHJobUo2RFU?oc=5",
+      "created_at": "2026-10-16",
+      "_gate_failures": [
+        "3 prices in one post (₹2,000, ₹1,999, ₹1,000) — the reader has to do arithmetic to reach the joke. One figure, alone, does the work"
+      ]
+    },
+    {
+      "trend": "Indian Diet Shift Exposes Hidden Genetic Cholesterol Risk",
+      "context": "30-year-olds discover elevated LDL levels during routine health checkups despite eating home food.",
+      "angle": "Genetics preserved survival mechanisms for ancient famines, which now react poorly to desk jobs.",
+      "slides": [
+        "The lipid profile came back with high scores.",
+        "Triglycerides — elevated.\nLDL cholesterol — ancestral.\nWeekly workout — scheduled.\nDietitian consultation — mandatory.",
+        "Your genetics prepared you for the Indus Valley, not Microsoft Teams."
+      ],
+      "caption": "Send this to the person who got their first lipid profile report this week.",
+      "trigger": "the_body_learning_new_words",
+      "structure": "receipt",
+      "move": "absurd_comparative",
+      "target": "wellness industry",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "lipid profile",
+        "cholesterol test",
+        "corporate wellness"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQdjRlcmdTTnFMaWJFWGxuQzktdlZud2lsZncwMjRZc19rSkU2YTVIRW44bmEyZUZxNTRud0RrT2F4eThLZlg0cXdqZndwc0dLb3NQUVRabnd5T210LTdCQ3RTWXhCbFczNlR1ZUhiOUpzTE1xdG0xS3F0Wk9xZk5BN0huQVlTZER1OVpjWVlSa3E0UXFtb0YzcGFGWlFLTVpuZHN5Sk9sSnZySzlUY1A4VVJ1WGpMOXByLU5oN1ZZMDdVeS1FS2w2WEE1XzFydmxV0gHWAUFVX3lxTE1qWUswSm9UbXY4NTEyVHZZMktzOVl4TXItMVJkTTFGNU0tbXpOXzlMUnhjZHZsMEJ2UF8zYnZLQmYyOXZnVVNqaEZjM1c0bjRVN1FfZDN6ZHRRVGt5OFZBLUJoY01hSDV4eDhlM1BnSHB3WV95clQzdHJ5djZDVVlKWXdLTkRPaWlkQmlhM2l3NFVGaUlkenJ2U2lKV093MzBFbDNBcVl6RHVZd2RsY2hCOWt2NXN5U3ZqaENqR3JOMTlDYkxiYUNsUWxleEpXRjBsMDZ2bWc?oc=5",
+      "created_at": "2026-10-16",
+      "_gate_failures": [
+        "no concrete detail (no number, rupee figure or quoted speech) — too generic"
+      ]
+    }
+  ]
+}

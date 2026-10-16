@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "Indian Diet Shift Exposes Hidden Genetic Cholesterol Risk",
+      "context": "Corporate annual health checks highlight underlying risks created by modern sedentary routines.",
+      "angle": "Corporate wellness checkups document the slow bodily decay required to maintain office hours.",
+      "slides": [
+        "The annual health checkup is not a benefit.",
+        "Fasting blood sugar — borderline.\nSerum cholesterol — requires review.\nVitamin D — single digits.\nHR summary — \"Fit for desk duty\".",
+        "You are buying oats in five kilogram bags."
+      ],
+      "caption": "Somebody on your floor currently compares oats brands in the pantry.",
+      "trigger": "health",
+      "structure": "juxtaposition",
+      "move": "flat_restatement",
+      "target": "HR",
+      "satire_level": 3,
+      "hinglish": false,
+      "keywords": [
+        "annual health checkup",
+        "corporate wellness",
+        "vitamin d deficiency"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQdjRlcmdTTnFMaWJFWGxuQzktdlZud2lsZncwMjRZc19rSkU2YTVIRW44bmEyZUZxNTRud0RrT2F4eThLZlg0cXdqZndwc0dLb3NQUVRabnd5T210LTdCQ3RTWXhCbFczNlR1ZUhiOUpzTE1xdG0xS3F0Wk9xZk5BN0huQVlTZER1OVpjWVlSa3E0UXFtb0YzcGFGWlFLTVpuZHN5Sk9sSnZySzlUY1A4VVJ1WGpMOXByLU5oN1ZZMDdVeS1FS2w2WEE1XzFydmxV0gHWAUFVX3lxTE1qWUswSm9UbXY4NTEyVHZZMktzOVl4TXItMVJkTTFGNU0tbXpOXzlMUnhjZHZsMEJ2UF8zYnZLQmYyOXZnVVNqaEZjM1c0bjRVN1FfZDN6ZHRRVGt5OFZBLUJoY01hSDV4eDhlM1BnSHB3WV95clQzdHJ5djZDVVlKWXdLTkRPaWlkQmlhM2l3NFVGaUlkenJ2U2lKV093MzBFbDNBcVl6RHVZd2RsY2hCOWt2NXN5U3ZqaENqR3JOMTlDYkxiYUNsUWxleEpXRjBsMDZ2bWc?oc=5",
+      "created_at": "2026-10-16",
+      "status": "approved",
+      "id": "g081",
+      "rank_score": 44,
+      "rank_verdict": "Slide 1 clears its throat with a generic declaration instead of dropping straight into the joke."
+    }
+  ]
+}

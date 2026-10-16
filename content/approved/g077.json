@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "PNB Q2 profit rises 12.8% to Rs 5,532 crore; bank in no hurry to increase deposit rates",
+      "context": "Older generations trust public sector banks purely because they have physical counters.",
+      "angle": "Public bank loyalty relies on physical passbooks, not competitive interest calculations.",
+      "slides": [
+        "\"Sarkari bank mein safe rehta hai.\"",
+        "\"FD ka interest rate check kiya?\"\n\"Interest nahi, safety dekho.\"\n\"Inflation rate pata hai?\"\n\"Passbook entry karwa ke aao.\"",
+        "She has five passbooks wrapped in a plastic pouch."
+      ],
+      "caption": "Every family has one person who maintains physical bank passbooks.",
+      "trigger": "parents",
+      "structure": "dialogue",
+      "move": "the_banal_true_answer",
+      "target": "parents",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "sarkari bank",
+        "passbook update",
+        "fixed deposit interest"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxOYkVwU2EtQTBjODlYZnI1MVgyTnpvVlNpRjJkUENoOVNqOHh5RENON3JrM3ctVUJ0N2NjQ0RWNDA4YkI5Sl8xQ0VZLS1HN2o4LXQ2MUdNMjdMZjNEaWhUQ1ZXM0x4NDVMSHd0RlJyTzFQSVpqVWMxaERrSXBhX0Zld0RMbllBSHZleVc1NkFKRjRYVEYycThYRHh3MGNuSzUzZDVDVkw0V3BabDBnOEZ5LS1mQldrVF9Tc3RzJnI1P3B2S2pNZ2pOTlo0eHRIX0JuSWV6ZHVNUlV4bQ?oc=5",
+      "created_at": "2026-10-16",
+      "status": "approved",
+      "id": "g077",
+      "rank_score": 68,
+      "rank_verdict": "Middle slide dialogue feels slightly repetitive before being saved by the excellent final image."
+    }
+  ]
+}

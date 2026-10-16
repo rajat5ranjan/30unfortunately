@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "Furnishing a 1BHK Flat on Rent in Delhi Costs About ₹1,858",
+      "context": "Landlords strictly limit tenant modifications while charging market rates.",
+      "angle": "Renting a 1BHK turns flat living into living in an exhibit you cannot modify.",
+      "slides": [
+        "\"Deewar pe keel mat lagana.\"",
+        "\"Rent on 1st of every month.\"\n\"AC installation charges extra.\"\n\"Brokerage one month non-negotiable.\"\n\"Painting charges deducted from deposit.\"",
+        "The sofa bed belongs to a rental startup in Indiranagar."
+      ],
+      "caption": "Your landlord checks the wall plaster like an art appraiser.",
+      "trigger": "rent",
+      "structure": "dialogue",
+      "move": "literalisation",
+      "target": "landlord",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "brokerage fee",
+        "security deposit refund",
+        "rented 1bhk"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi7AJBVV95cUxNQ1NLMXllbHA4OVlsRTVKRm95dkE0dzZacmJKNkJHVkFzb3ZQTmxlSjhUSktIOEFuMURQTEdiRDVyaXdsQzA3Q2ZNTlA4Q2pieEs5ZXlPNkZiNUpuSzI5UW04QVZINFFkZHVzeUtNOEVralNxN05TZ1B5ZkVlaWZNS0pxX1QxWEY2bENORUtIWU83RUNHUUNhVXZHN2ZfUWpNNzJqU1J2bjFMWGkxZWdxMUdEdGJBOE95SjZpd1Q2V2RSV1JyOXdFeFdrNUl2QmllcHRISjd4ekduREtzY0hjaC1xMTNyRWloZENfMDVCNmQtQTJxaFZ1b1N0MFFJcUV2aldzSlBUNnBHM2xnSUt4cWxPYmtDM09oc2ZxMWdKcjA5c0d4aDgyRjB5N2YzdzBrZGllQmRrcmVuX29UdG85Y09iclJCMFVVQUpwbV91ak1WempHTGNOV1B2RG1uREF6Vk14SWRoS0w0S0pk?oc=5",
+      "created_at": "2026-10-16",
+      "status": "approved",
+      "id": "g080",
+      "rank_score": 54,
+      "rank_verdict": "The escalation devolves into a laundry list of lease clauses rather than escalating tension."
+    }
+  ]
+}
