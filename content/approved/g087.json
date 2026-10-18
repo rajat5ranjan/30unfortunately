@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "Furniture rental in India: why young Indians are choosing to rent",
+      "context": "Urban millennials increasingly rent furniture due to career mobility and high housing costs.",
+      "angle": "Buying permanent furniture requires an optimism about staying in one pin code that nobody under 35 possesses.",
+      "slides": [
+        "\"Beta, teak wood sofa kyun nahi lete? Lifetime chalega.\"",
+        "\"Uncle, next month team restructuring hai.\"\n\"Landlord non-vegetarian food allow nahi karta.\"\n\"Deposit security deduct ho sakti hai.\"",
+        "A lifetime furniture purchase requires assuming you will live in the same sector until Tuesday."
+      ],
+      "caption": "Every family has an uncle who treats rented furniture as personal moral failure.",
+      "trigger": "home",
+      "structure": "dialogue",
+      "move": "the_banal_true_answer",
+      "target": "relatives",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "renting vs buying",
+        "furniture subscription india",
+        "relatives advice urban"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxQcWVEUmp0Qjluc3RqWnRLdG56SzZqYVpwR0VvV3lLWmZRaU81OWZ5MldQeHJFY0szZVlqaG9SZjVpbUplNGlTN1ZuSW9sZkdKNm96TWpUQmdaZGpHRkUyNjkwM044MmVLd0I2dUhITktVX2tiQVJ1LVRuaGZ6MnVxdkFZMURzOWdtNjJxMVFYbXJZeTlfOEU0MnhJdXJnTnk5QWVoTnczRU5WQURNeWtNaVJaaUhKZlNTVUJhTlRLcm9BNWJuQ0p5MDRaRktKSEZ5WG0zTWhrbkt3bG9WYmhCNdIB4AFBVV95cUxQcWVEUmp0Qjluc3RqWnRLdG56SzZqYVpwR0VvV3lLWmZRaU81OWZ5MldQeHJFY0szZVlqaG9SZjVpbUplNGlTN1ZuSW9sZkdKNm96TWpUQmdaZGpHRkUyNjkwM044MmVLd0I2dUhITktVX2tiQVJ1LVRuaGZ6MnVxdkFZMURzOWdtNjJxMVFYbXJZeTlfOEU0MnhJdXJnTnk5QWVoTnczRU5WQURNeWtNaVJaaUhKZlNTVUJhTlRLcm9BNWJuQ0p5MDRaRktKSEZ5WG0zTWhrbkt3bG9WYmhCNQ?oc=5",
+      "created_at": "2026-10-18",
+      "status": "approved",
+      "id": "g087",
+      "rank_score": 26,
+      "rank_verdict": "The landing explains the underlying premise instead of introducing a punchy new beat."
+    }
+  ]
+}

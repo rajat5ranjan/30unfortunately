@@ -1,0 +1,305 @@
+{
+  "generated_at": "20261018-123944",
+  "model": "gemini-3.5-flash",
+  "accepted": [
+    {
+      "trend": "Indian Techies Returning From US Face Tough Hiring Market And Lower Pay",
+      "context": "US tech returnees face domestic pay cuts and tight hiring markets in 2026.",
+      "angle": "The timeline you built in 2018 assumed the domestic market would wait for you.",
+      "slides": [
+        "In 2018 you left for San Jose to save for a 3BHK.",
+        "At 26: \"Five years in Dollars, then buy property in Gurgaon.\"\nAt 33: \"Six months in a managed stay, evaluating options.\"",
+        "The 3BHK now belongs to a 28-year-old who never left."
+      ],
+      "caption": "Every NRI group chat has one person quietly asking for internal transfer contacts.",
+      "trigger": "home",
+      "structure": "then_now",
+      "move": "absurd_comparative",
+      "target": "LinkedIn",
+      "satire_level": 3,
+      "hinglish": false,
+      "keywords": [
+        "nri return india",
+        "gurgaon flat price",
+        "tech layoff return"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMirwFBVV95cUxObGgyakk0em9DWEktU295ZXJ2SjVJcXNNRzltMGFHTE5IdlFPSnE2MF9rLUZwbFdkbm9zc0p6NnlfVzZuZDNiNXNMUzJvaU8yUEJRVlZrRDdtYlhLVWdqWTBaLUVVVV9fbThiSHYwZnNxWEw0SExNWTBsNHJqclVheklrSktERE5uZmxZQ2VYSVB4djZ5RnQyb2F1cEU1VGVJM2V1eENjaURtRE9OdGU4?oc=5",
+      "created_at": "2026-10-18",
+      "status": "draft",
+      "_score": 59,
+      "_judge": "The middle slide feels like a neat structural layout rather than an organic escalation.",
+      "_detail": {
+        "laugh": 4,
+        "share_trigger": 5,
+        "surprise": 4,
+        "specificity": 5,
+        "voice": 5,
+        "travels": 4
+      },
+      "_penalty": 4
+    },
+    {
+      "trend": "Furniture rental in India: why young Indians are choosing to rent",
+      "context": "Urban millennials increasingly rent furniture due to career mobility and high housing costs.",
+      "angle": "Terms of service on a rented mattress carry more legal gravity than your rental agreement.",
+      "slides": [
+        "Clause 14: Do not become emotionally attached to the mattress.",
+        "Stains will be penalised at current market rates.\nRelocation across city boundaries requires prior written consent.\nNormal wear and tear does not include working from home.",
+        "The company reserves the right to audit your living room at 48 hours notice.\n\nYou signed it at 11:40 PM."
+      ],
+      "caption": "You know who you are, and so does your furniture rental provider.",
+      "trigger": "admin",
+      "structure": "terms_and_conditions",
+      "move": "the_institutional_frame",
+      "target": "platform",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "rental app agreement",
+        "renting home furniture",
+        "co-living furniture rental"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxQcWVEUmp0Qjluc3RqWnRLdG56SzZqYVpwR0VvV3lLWmZRaU81OWZ5MldQeHJFY0szZVlqaG9SZjVpbUplNGlTN1ZuSW9sZkdKNm96TWpUQmdaZGpHRkUyNjkwM044MmVLd0I2dUhITktVX2tiQVJ1LVRuaGZ6MnVxdkFZMURzOWdtNjJxMVFYbXJZeTlfOEU0MnhJdXJnTnk5QWVoTnczRU5WQURNeWtNaVJaaUhKZlNTVUJhTlRLcm9BNWJuQ0p5MDRaRktKSEZ5WG0zTWhrbkt3bG9WYmhCNdIB4AFBVV95cUxQcWVEUmp0Qjluc3RqWnRLdG56SzZqYVpwR0VvV3lLWmZRaU81OWZ5MldQeHJFY0szZVlqaG9SZjVpbUplNGlTN1ZuSW9sZkdKNm96TWpUQmdaZGpHRkUyNjkwM044MmVLd0I2dUhITktVX2tiQVJ1LVRuaGZ6MnVxdkFZMURzOWdtNjJxMVFYbXJZeTlfOEU0MnhJdXJnTnk5QWVoTnczRU5WQURNeWtNaVJaaUhKZlNTVUJhTlRLcm9BNWJuQ0p5MDRaRktKSEZ5WG0zTWhrbkt3bG9WYmhCNQ?oc=5",
+      "created_at": "2026-10-18",
+      "status": "draft",
+      "_score": 46,
+      "_judge": "The premise strays into absurd fiction rather than hitting verifiable adult friction.",
+      "_detail": {
+        "laugh": 3,
+        "share_trigger": 3,
+        "surprise": 3,
+        "specificity": 4,
+        "voice": 3,
+        "travels": 4
+      },
+      "_penalty": 0
+    },
+    {
+      "trend": "Indian Techies Returning From US Face Tough Hiring Market And Lower Pay",
+      "context": "US tech returnees face domestic pay cuts and tight hiring markets in 2026.",
+      "angle": "The 2021 Dollar dream meets the 2026 domestic reality in a single recruiter call.",
+      "slides": [
+        "\"Sir, US experience ke hisaab se market rate thoda alag hai.\"",
+        "\"We have local candidates willing to work weekends.\"\n\"The hybrid policy is four days in office.\"\n\"Tax deduction at source will be 30%.\"",
+        "You converted your savings at 83.\n\nThe rent in Indiranagar converted at 120."
+      ],
+      "caption": "Somebody you know is currently explaining purchasing power parity to their recruiter.",
+      "trigger": "corporate",
+      "structure": "phone_call",
+      "move": "the_turn_in_the_last_words",
+      "target": "employer",
+      "satire_level": 4,
+      "hinglish": true,
+      "keywords": [
+        "techie salary cut",
+        "returning to india",
+        "bengaluru rent market"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMirwFBVV95cUxObGgyakk0em9DWEktU295ZXJ2SjVJcXNNRzltMGFHTE5IdlFPSnE2MF9rLUZwbFdkbm9zc0p6NnlfVzZuZDNiNXNMUzJvaU8yUEJRVlZrRDdtYlhLVWdqWTBaLUVVVV9fbThiSHYwZnNxWEw0SExNWTBsNHJqclVheklrSktERE5uZmxZQ2VYSVB4djZ5RnQyb2F1cEU1VGVJM2V1eENjaURtRE9OdGU4?oc=5",
+      "created_at": "2026-10-18",
+      "status": "draft",
+      "_score": 43,
+      "_judge": "The final slide lands on an arithmetic comparison rather than an unexpected turn.",
+      "_detail": {
+        "laugh": 2,
+        "share_trigger": 4,
+        "surprise": 3,
+        "specificity": 4,
+        "voice": 4,
+        "travels": 3
+      },
+      "_penalty": 3
+    },
+    {
+      "trend": "'It's A Humiliation Ritual': Bengaluru Tenant Reveals Difficulty In Getting Deposit Back",
+      "context": "Urban landlords extract disproportionate deductions from security deposits upon lease end.",
+      "angle": "Deductions from your rental deposit obey physical laws that operate only on handover day.",
+      "slides": [
+        "How your landlord calculates the condition of a flat after two years.",
+        "Scuff mark on bedroom door — structural damage.\nFaded kitchen laminate — tenant negligence.\nDust behind exhaust fan — hazardous condition.\nExisting leak from 2022 — \"was not there before you moved in\".",
+        "Nobody called. Nobody wrote. The deposit is gone."
+      ],
+      "caption": "Somebody you know spent three hours scrubbing balcony tiles with a toothbrush.",
+      "trigger": "admin",
+      "structure": "list_collapse",
+      "move": "absurd_comparative",
+      "target": "landlord",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "rental deposit bengaluru",
+        "flat exit inspection",
+        "house rental terms"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOb2RBRThfZ0tCak9oZVppRmNSZ2RmMG9nV0ZGY0U3blRrV2NmTkZuSDN3ZExDeVNWa3FRMkJMMTlxN2E3Szc5WS16Y1BDY1NuNEZ5eEdubDhKZzQ0Z3NBdGlvM2RyeHpSYjFqUVgwZzVRTzRibFVWMTZlYkdYbE9vOFZ0bTV5WWFVM19uV3l3eVJBMVY0WFQ0ZlNUZjVhWlFoeS1qTi1tV0laRTVkV1dkVUExMWFJY0dyRTNrcUtQc9IBxwFBVV95cUxOQnQ2MThpMi14UlVYU2xhUkduLVE5azVxUFpMUzNEdUZYd3VsX3NSNHoyS3NreHMxVlZjMDFPWGV1NzRTRmxJQ2NPX2tzeU9uR3IwcWxjTmd2dHdmU1RlVGJsRVBFQndFWlZBNjhiaTloNVlPVUVhWHlFcm9HcEVQT00xcTlQS3VQU3VQWkl0NjZhVnpHeU5LX2pCeDhsTjJwMWRIeUtQUnVjVVB4Ql9sN2hFdGtZME5pWnZtRFJoNTktNkdJM1Vj?oc=5",
+      "created_at": "2026-10-18",
+      "status": "draft",
+      "_score": 42,
+      "_judge": "Slide 1 is a forbidden title card that fails to deliver a self-contained joke.",
+      "_detail": {
+        "laugh": 3,
+        "share_trigger": 3,
+        "surprise": 2,
+        "specificity": 3,
+        "voice": 2,
+        "travels": 5
+      },
+      "_penalty": 0
+    },
+    {
+      "trend": "'It's A Humiliation Ritual': Bengaluru Tenant Reveals Difficulty In Getting Deposit Back",
+      "context": "Urban landlords extract disproportionate deductions from security deposits upon lease end.",
+      "angle": "Moving out of a rented flat is an exit interview where the employer owns the keys and the referee has no union.",
+      "slides": [
+        "\"Sir, fan ke upar thoda dust tha, isliye ₹10,000 cut kar raha hoon.\"",
+        "\"Wall paint double coat karna padega.\"\n\"Bathroom fittings standard replacement item hai.\"\n\"Ten months occupancy means full repaint charge.\"",
+        "You spent two years treating his property like a temple.\n\nHe treats your savings like a security buffer for his daughter's college fees."
+      ],
+      "caption": "Name the tenant currently taking timestamped videos of their empty kitchen at midnight.",
+      "trigger": "home",
+      "structure": "interview",
+      "move": "the_turn_in_the_last_words",
+      "target": "landlord",
+      "satire_level": 4,
+      "hinglish": true,
+      "keywords": [
+        "tenant deposit refund",
+        "bengaluru rent house",
+        "landlord tenant dispute"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOb2RBRThfZ0tCak9oZVppRmNSZ2RmMG9nV0ZGY0U3blRrV2NmTkZuSDN3ZExDeVNWa3FRMkJMMTlxN2E3Szc5WS16Y1BDY1NuNEZ5eEdubDhKZzQ0Z3NBdGlvM2RyeHpSYjFqUVgwZzVRTzRibFVWMTZlYkdYbE9vOFZ0bTV5WWFVM19uV3l3eVJBMVY0WFQ0ZlNUZjVhWlFoeS1qTi1tV0laRTVkV1dkVUExMWFJY0dyRTNrcUtQc9IBxwFBVV95cUxOQnQ2MThpMi14UlVYU2xhUkduLVE5azVxUFpMUzNEdUZYd3VsX3NSNHoyS3NreHMxVlZjMDFPWGV1NzRTRmxJQ2NPX2tzeU9uR3IwcWxjTmd2dHdmU1RlVGJsRVBFQndFWlZBNjhiaTloNVlPVUVhWHlFcm9HcEVQT00xcTlQS3VQU3VQWkl0NjZhVnpHeU5LX2pCeDhsTjJwMWRIeUtQUnVjVVB4Ql9sN2hFdGtZME5pWnZtRFJoNTktNkdJM1Vj?oc=5",
+      "created_at": "2026-10-18",
+      "status": "draft",
+      "_score": 41,
+      "_judge": "The final line moralises on the landlord's intent instead of ending on a cold, flat noun.",
+      "_detail": {
+        "laugh": 2,
+        "share_trigger": 4,
+        "surprise": 2,
+        "specificity": 4,
+        "voice": 3,
+        "travels": 4
+      },
+      "_penalty": 3
+    },
+    {
+      "trend": "Furniture rental in India: why young Indians are choosing to rent",
+      "context": "Urban millennials increasingly rent furniture due to career mobility and high housing costs.",
+      "angle": "Buying permanent furniture requires an optimism about staying in one pin code that nobody under 35 possesses.",
+      "slides": [
+        "\"Beta, teak wood sofa kyun nahi lete? Lifetime chalega.\"",
+        "\"Uncle, next month team restructuring hai.\"\n\"Landlord non-vegetarian food allow nahi karta.\"\n\"Deposit security deduct ho sakti hai.\"",
+        "A lifetime furniture purchase requires assuming you will live in the same sector until Tuesday."
+      ],
+      "caption": "Every family has an uncle who treats rented furniture as personal moral failure.",
+      "trigger": "home",
+      "structure": "dialogue",
+      "move": "the_banal_true_answer",
+      "target": "relatives",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "renting vs buying",
+        "furniture subscription india",
+        "relatives advice urban"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxQcWVEUmp0Qjluc3RqWnRLdG56SzZqYVpwR0VvV3lLWmZRaU81OWZ5MldQeHJFY0szZVlqaG9SZjVpbUplNGlTN1ZuSW9sZkdKNm96TWpUQmdaZGpHRkUyNjkwM044MmVLd0I2dUhITktVX2tiQVJ1LVRuaGZ6MnVxdkFZMURzOWdtNjJxMVFYbXJZeTlfOEU0MnhJdXJnTnk5QWVoTnczRU5WQURNeWtNaVJaaUhKZlNTVUJhTlRLcm9BNWJuQ0p5MDRaRktKSEZ5WG0zTWhrbkt3bG9WYmhCNdIB4AFBVV95cUxQcWVEUmp0Qjluc3RqWnRLdG56SzZqYVpwR0VvV3lLWmZRaU81OWZ5MldQeHJFY0szZVlqaG9SZjVpbUplNGlTN1ZuSW9sZkdKNm96TWpUQmdaZGpHRkUyNjkwM044MmVLd0I2dUhITktVX2tiQVJ1LVRuaGZ6MnVxdkFZMURzOWdtNjJxMVFYbXJZeTlfOEU0MnhJdXJnTnk5QWVoTnczRU5WQURNeWtNaVJaaUhKZlNTVUJhTlRLcm9BNWJuQ0p5MDRaRktKSEZ5WG0zTWhrbkt3bG9WYmhCNQ?oc=5",
+      "created_at": "2026-10-18",
+      "status": "draft",
+      "_score": 26,
+      "_judge": "The landing explains the underlying premise instead of introducing a punchy new beat.",
+      "_detail": {
+        "laugh": 3,
+        "share_trigger": 4,
+        "surprise": 3,
+        "specificity": 4,
+        "voice": 4,
+        "travels": 4
+      },
+      "_penalty": 25
+    }
+  ],
+  "rejected": [
+    {
+      "trend": "Indian Techies Returning From US Face Tough Hiring Market And Lower Pay",
+      "context": "US tech returnees face domestic pay cuts and tight hiring markets in 2026.",
+      "angle": "The Seattle resume meets the Whitefield salary cap.",
+      "slides": [
+        "Returning to India with six years of Seattle experience.",
+        "\"We value international exposure.\"\n\"We respect your career trajectory.\"\n\"We cannot match your last drawn.\"",
+        "Offered ₹28 LPA in outer Bengaluru.\n\nYour manager spent three years in California in 2012."
+      ],
+      "caption": "Send this to the cousin who still calculates coffee prices in USD.",
+      "trigger": "salary",
+      "structure": "job_description",
+      "move": "flat_restatement",
+      "target": "HR",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "us returnee salary",
+        "tech hiring india",
+        "bengaluru tech jobs"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMirwFBVV95cUxObGgyakk0em9DWEktU295ZXJ2SjVJcXNNRzltMGFHTE5IdlFPSnE2MF9rLUZwbFdkbm9zc0p6NnlfVzZuZDNiNXNMUzJvaU8yUEJRVlZrRDdtYlhLVWdqWTBaLUVVVV9fbThiSHYwZnNxWEw0SExNWTBsNHJqclVheklrSktERE5uZmxZQ2VYSVB4djZ5RnQyb2F1cEU1VGVJM2V1eENjaURtRE9OdGU4?oc=5",
+      "created_at": "2026-10-18",
+      "_gate_failures": [
+        "landing carries a currency figure — that beat cannot travel; move the number into the escalation"
+      ]
+    },
+    {
+      "trend": "Furniture rental in India: why young Indians are choosing to rent",
+      "context": "Urban millennials increasingly rent furniture due to career mobility and high housing costs.",
+      "angle": "Subscription living turns your living room into temporary corporate custody.",
+      "slides": [
+        "You are thirty-one and your sofa belongs to a startup.",
+        "The bed is on a twelve-month subscription.\nThe desk is on a six-month tenure.\nThe dining table arrives on Tuesday.\n\nNothing in the room has your name on it.",
+        "You pay ₹3,200 a month to sleep in temporary custody.\n\nThe delivery driver knows your notice period."
+      ],
+      "caption": "Whose living room can be packed into a single mini-truck in under twenty minutes?",
+      "trigger": "rent",
+      "structure": "receipt",
+      "move": "literalisation",
+      "target": "app",
+      "satire_level": 3,
+      "hinglish": false,
+      "keywords": [
+        "furniture rental app",
+        "renting sofa bed",
+        "urban rental lifestyle"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxQcWVEUmp0Qjluc3RqWnRLdG56SzZqYVpwR0VvV3lLWmZRaU81OWZ5MldQeHJFY0szZVlqaG9SZjVpbUplNGlTN1ZuSW9sZkdKNm96TWpUQmdaZGpHRkUyNjkwM044MmVLd0I2dUhITktVX2tiQVJ1LVRuaGZ6MnVxdkFZMURzOWdtNjJxMVFYbXJZeTlfOEU0MnhJdXJnTnk5QWVoTnczRU5WQURNeWtNaVJaaUhKZlNTVUJhTlRLcm9BNWJuQ0p5MDRaRktKSEZ5WG0zTWhrbkt3bG9WYmhCNdIB4AFBVV95cUxQcWVEUmp0Qjluc3RqWnRLdG56SzZqYVpwR0VvV3lLWmZRaU81OWZ5MldQeHJFY0szZVlqaG9SZjVpbUplNGlTN1ZuSW9sZkdKNm96TWpUQmdaZGpHRkUyNjkwM044MmVLd0I2dUhITktVX2tiQVJ1LVRuaGZ6MnVxdkFZMURzOWdtNjJxMVFYbXJZeTlfOEU0MnhJdXJnTnk5QWVoTnczRU5WQURNeWtNaVJaaUhKZlNTVUJhTlRLcm9BNWJuQ0p5MDRaRktKSEZ5WG0zTWhrbkt3bG9WYmhCNQ?oc=5",
+      "created_at": "2026-10-18",
+      "_gate_failures": [
+        "landing carries a currency figure — that beat cannot travel; move the number into the escalation"
+      ]
+    },
+    {
+      "trend": "'It's A Humiliation Ritual': Bengaluru Tenant Reveals Difficulty In Getting Deposit Back",
+      "context": "Urban landlords extract disproportionate deductions from security deposits upon lease end.",
+      "angle": "The landlord's maintenance painter charges higher daily rates than your lead software architect.",
+      "slides": [
+        "The landlord's painter charges more per day than your lead architect.",
+        "One coat of primer: mandatory.\nDeep cleaning of balcony: required.\nPolishing wooden doors you never touched: non-negotiable.",
+        "Deposit withheld: ₹1,80,000.\n\nHe sent the balance receipt via a WhatsApp view-once photo."
+      ],
+      "caption": "Someone you know is currently arguing about painting charges for a wall they never looked at.",
+      "trigger": "rent",
+      "structure": "terms_and_conditions",
+      "move": "flat_restatement",
+      "target": "landlord",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "bengaluru rental deposit",
+        "landlord deposit deduction",
+        "house rent agreement"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOb2RBRThfZ0tCak9oZVppRmNSZ2RmMG9nV0ZGY0U3blRrV2NmTkZuSDN3ZExDeVNWa3FRMkJMMTlxN2E3Szc5WS16Y1BDY1NuNEZ5eEdubDhKZzQ0Z3NBdGlvM2RyeHpSYjFqUVgwZzVRTzRibFVWMTZlYkdYbE9vOFZ0bTV5WWFVM19uV3l3eVJBMVY0WFQ0ZlNUZjVhWlFoeS1qTi1tV0laRTVkV1dkVUExMWFJY0dyRTNrcUtQc9IBxwFBVV95cUxOQnQ2MThpMi14UlVYU2xhUkduLVE5azVxUFpMUzNEdUZYd3VsX3NSNHoyS3NreHMxVlZjMDFPWGV1NzRTRmxJQ2NPX2tzeU9uR3IwcWxjTmd2dHdmU1RlVGJsRVBFQndFWlZBNjhiaTloNVlPVUVhWHlFcm9HcEVQT00xcTlQS3VQU3VQWkl0NjZhVnpHeU5LX2pCeDhsTjJwMWRIeUtQUnVjVVB4Ql9sN2hFdGtZME5pWnZtRFJoNTktNkdJM1Vj?oc=5",
+      "created_at": "2026-10-18",
+      "_gate_failures": [
+        "landing carries a currency figure — that beat cannot travel; move the number into the escalation"
+      ]
+    }
+  ]
+}

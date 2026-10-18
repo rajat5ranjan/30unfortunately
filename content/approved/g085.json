@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "'It's A Humiliation Ritual': Bengaluru Tenant Reveals Difficulty In Getting Deposit Back",
+      "context": "Urban landlords extract disproportionate deductions from security deposits upon lease end.",
+      "angle": "Deductions from your rental deposit obey physical laws that operate only on handover day.",
+      "slides": [
+        "How your landlord calculates the condition of a flat after two years.",
+        "Scuff mark on bedroom door — structural damage.\nFaded kitchen laminate — tenant negligence.\nDust behind exhaust fan — hazardous condition.\nExisting leak from 2022 — \"was not there before you moved in\".",
+        "Nobody called. Nobody wrote. The deposit is gone."
+      ],
+      "caption": "Somebody you know spent three hours scrubbing balcony tiles with a toothbrush.",
+      "trigger": "admin",
+      "structure": "list_collapse",
+      "move": "absurd_comparative",
+      "target": "landlord",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "rental deposit bengaluru",
+        "flat exit inspection",
+        "house rental terms"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOb2RBRThfZ0tCak9oZVppRmNSZ2RmMG9nV0ZGY0U3blRrV2NmTkZuSDN3ZExDeVNWa3FRMkJMMTlxN2E3Szc5WS16Y1BDY1NuNEZ5eEdubDhKZzQ0Z3NBdGlvM2RyeHpSYjFqUVgwZzVRTzRibFVWMTZlYkdYbE9vOFZ0bTV5WWFVM19uV3l3eVJBMVY0WFQ0ZlNUZjVhWlFoeS1qTi1tV0laRTVkV1dkVUExMWFJY0dyRTNrcUtQc9IBxwFBVV95cUxOQnQ2MThpMi14UlVYU2xhUkduLVE5azVxUFpMUzNEdUZYd3VsX3NSNHoyS3NreHMxVlZjMDFPWGV1NzRTRmxJQ2NPX2tzeU9uR3IwcWxjTmd2dHdmU1RlVGJsRVBFQndFWlZBNjhiaTloNVlPVUVhWHlFcm9HcEVQT00xcTlQS3VQU3VQWkl0NjZhVnpHeU5LX2pCeDhsTjJwMWRIeUtQUnVjVVB4Ql9sN2hFdGtZME5pWnZtRFJoNTktNkdJM1Vj?oc=5",
+      "created_at": "2026-10-18",
+      "status": "approved",
+      "id": "g085",
+      "rank_score": 42,
+      "rank_verdict": "Slide 1 is a forbidden title card that fails to deliver a self-contained joke."
+    }
+  ]
+}

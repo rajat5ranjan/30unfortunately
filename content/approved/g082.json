@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "Indian Techies Returning From US Face Tough Hiring Market And Lower Pay",
+      "context": "US tech returnees face domestic pay cuts and tight hiring markets in 2026.",
+      "angle": "The timeline you built in 2018 assumed the domestic market would wait for you.",
+      "slides": [
+        "In 2018 you left for San Jose to save for a 3BHK.",
+        "At 26: \"Five years in Dollars, then buy property in Gurgaon.\"\nAt 33: \"Six months in a managed stay, evaluating options.\"",
+        "The 3BHK now belongs to a 28-year-old who never left."
+      ],
+      "caption": "Every NRI group chat has one person quietly asking for internal transfer contacts.",
+      "trigger": "home",
+      "structure": "then_now",
+      "move": "absurd_comparative",
+      "target": "LinkedIn",
+      "satire_level": 3,
+      "hinglish": false,
+      "keywords": [
+        "nri return india",
+        "gurgaon flat price",
+        "tech layoff return"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMirwFBVV95cUxObGgyakk0em9DWEktU295ZXJ2SjVJcXNNRzltMGFHTE5IdlFPSnE2MF9rLUZwbFdkbm9zc0p6NnlfVzZuZDNiNXNMUzJvaU8yUEJRVlZrRDdtYlhLVWdqWTBaLUVVVV9fbThiSHYwZnNxWEw0SExNWTBsNHJqclVheklrSktERE5uZmxZQ2VYSVB4djZ5RnQyb2F1cEU1VGVJM2V1eENjaURtRE9OdGU4?oc=5",
+      "created_at": "2026-10-18",
+      "status": "approved",
+      "id": "g082",
+      "rank_score": 59,
+      "rank_verdict": "The middle slide feels like a neat structural layout rather than an organic escalation."
+    }
+  ]
+}

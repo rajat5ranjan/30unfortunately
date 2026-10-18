@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "'It's A Humiliation Ritual': Bengaluru Tenant Reveals Difficulty In Getting Deposit Back",
+      "context": "Urban landlords extract disproportionate deductions from security deposits upon lease end.",
+      "angle": "Moving out of a rented flat is an exit interview where the employer owns the keys and the referee has no union.",
+      "slides": [
+        "\"Sir, fan ke upar thoda dust tha, isliye ₹10,000 cut kar raha hoon.\"",
+        "\"Wall paint double coat karna padega.\"\n\"Bathroom fittings standard replacement item hai.\"\n\"Ten months occupancy means full repaint charge.\"",
+        "You spent two years treating his property like a temple.\n\nHe treats your savings like a security buffer for his daughter's college fees."
+      ],
+      "caption": "Name the tenant currently taking timestamped videos of their empty kitchen at midnight.",
+      "trigger": "home",
+      "structure": "interview",
+      "move": "the_turn_in_the_last_words",
+      "target": "landlord",
+      "satire_level": 4,
+      "hinglish": true,
+      "keywords": [
+        "tenant deposit refund",
+        "bengaluru rent house",
+        "landlord tenant dispute"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOb2RBRThfZ0tCak9oZVppRmNSZ2RmMG9nV0ZGY0U3blRrV2NmTkZuSDN3ZExDeVNWa3FRMkJMMTlxN2E3Szc5WS16Y1BDY1NuNEZ5eEdubDhKZzQ0Z3NBdGlvM2RyeHpSYjFqUVgwZzVRTzRibFVWMTZlYkdYbE9vOFZ0bTV5WWFVM19uV3l3eVJBMVY0WFQ0ZlNUZjVhWlFoeS1qTi1tV0laRTVkV1dkVUExMWFJY0dyRTNrcUtQc9IBxwFBVV95cUxOQnQ2MThpMi14UlVYU2xhUkduLVE5azVxUFpMUzNEdUZYd3VsX3NSNHoyS3NreHMxVlZjMDFPWGV1NzRTRmxJQ2NPX2tzeU9uR3IwcWxjTmd2dHdmU1RlVGJsRVBFQndFWlZBNjhiaTloNVlPVUVhWHlFcm9HcEVQT00xcTlQS3VQU3VQWkl0NjZhVnpHeU5LX2pCeDhsTjJwMWRIeUtQUnVjVVB4Ql9sN2hFdGtZME5pWnZtRFJoNTktNkdJM1Vj?oc=5",
+      "created_at": "2026-10-18",
+      "status": "approved",
+      "id": "g086",
+      "rank_score": 41,
+      "rank_verdict": "The final line moralises on the landlord's intent instead of ending on a cold, flat noun."
+    }
+  ]
+}

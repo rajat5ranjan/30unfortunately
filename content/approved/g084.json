@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "Indian Techies Returning From US Face Tough Hiring Market And Lower Pay",
+      "context": "US tech returnees face domestic pay cuts and tight hiring markets in 2026.",
+      "angle": "The 2021 Dollar dream meets the 2026 domestic reality in a single recruiter call.",
+      "slides": [
+        "\"Sir, US experience ke hisaab se market rate thoda alag hai.\"",
+        "\"We have local candidates willing to work weekends.\"\n\"The hybrid policy is four days in office.\"\n\"Tax deduction at source will be 30%.\"",
+        "You converted your savings at 83.\n\nThe rent in Indiranagar converted at 120."
+      ],
+      "caption": "Somebody you know is currently explaining purchasing power parity to their recruiter.",
+      "trigger": "corporate",
+      "structure": "phone_call",
+      "move": "the_turn_in_the_last_words",
+      "target": "employer",
+      "satire_level": 4,
+      "hinglish": true,
+      "keywords": [
+        "techie salary cut",
+        "returning to india",
+        "bengaluru rent market"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMirwFBVV95cUxObGgyakk0em9DWEktU295ZXJ2SjVJcXNNRzltMGFHTE5IdlFPSnE2MF9rLUZwbFdkbm9zc0p6NnlfVzZuZDNiNXNMUzJvaU8yUEJRVlZrRDdtYlhLVWdqWTBaLUVVVV9fbThiSHYwZnNxWEw0SExNWTBsNHJqclVheklrSktERE5uZmxZQ2VYSVB4djZ5RnQyb2F1cEU1VGVJM2V1eENjaURtRE9OdGU4?oc=5",
+      "created_at": "2026-10-18",
+      "status": "approved",
+      "id": "g084",
+      "rank_score": 43,
+      "rank_verdict": "The final slide lands on an arithmetic comparison rather than an unexpected turn."
+    }
+  ]
+}
