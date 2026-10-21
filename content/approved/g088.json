@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "FSSAI issues notices to Zepto, Bakelite, 2 supplement firms over expired food, misleading claims",
+      "context": "Urban 30-somethings rely heavily on quick commerce and health supplements for convenience.",
+      "angle": "Quick commerce promises extreme speed by eliminating the time spent checking if food is safe.",
+      "slides": [
+        "10-minute delivery includes the expiry date from last Tuesday.",
+        "Ticket #4092: Protein powder smells like damp cardboard.\nAgent reply: We apologize for the inconvenience.\nResolution: ₹12 refund added to app wallet.",
+        "Your gut flora is doing unpaid testing."
+      ],
+      "caption": "Somebody you know orders midnight oats from quick commerce three times a week. 📦",
+      "trigger": "the_body_learning_new_words",
+      "structure": "customer_support",
+      "move": "the_institutional_frame",
+      "target": "app",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "quick commerce",
+        "food safety",
+        "supplement audit"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMiyAFBVV_5...",
+      "created_at": "2026-10-21",
+      "status": "approved",
+      "id": "g088",
+      "rank_score": 57,
+      "rank_verdict": "Slide 1 is slightly wordy and could deliver the core punchline tighter."
+    }
+  ]
+}

@@ -1,0 +1,331 @@
+{
+  "generated_at": "20261021-201431",
+  "model": "gemini-3.5-flash",
+  "accepted": [
+    {
+      "trend": "FSSAI issues notices to Zepto, Bakelite, 2 supplement firms over expired food, misleading claims",
+      "context": "Urban 30-somethings rely heavily on quick commerce and health supplements for convenience.",
+      "angle": "Quick commerce promises extreme speed by eliminating the time spent checking if food is safe.",
+      "slides": [
+        "10-minute delivery includes the expiry date from last Tuesday.",
+        "Ticket #4092: Protein powder smells like damp cardboard.\nAgent reply: We apologize for the inconvenience.\nResolution: ₹12 refund added to app wallet.",
+        "Your gut flora is doing unpaid testing."
+      ],
+      "caption": "Somebody you know orders midnight oats from quick commerce three times a week. 📦",
+      "trigger": "the_body_learning_new_words",
+      "structure": "customer_support",
+      "move": "the_institutional_frame",
+      "target": "app",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "quick commerce",
+        "food safety",
+        "supplement audit"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMiyAFBVV_5...",
+      "created_at": "2026-10-21",
+      "status": "draft",
+      "_score": 57,
+      "_judge": "Slide 1 is slightly wordy and could deliver the core punchline tighter.",
+      "_detail": {
+        "laugh": 4,
+        "share_trigger": 4,
+        "surprise": 4,
+        "specificity": 5,
+        "voice": 5,
+        "travels": 4
+      },
+      "_penalty": 3
+    },
+    {
+      "trend": "‘Exposure doesn’t pay rent’: Bengaluru employee says city is unlivable for freshers earning under Rs...",
+      "context": "Young professionals moving to tech hubs face skyrocketing housing costs.",
+      "angle": "Tech hub real estate extracts the entire entry-level income before week one ends.",
+      "slides": [
+        "The flat listing said three minutes from the tech park.",
+        "\"Rent: ₹38,000.\"\n\"Deposit: six months.\"\n\"Brokerage: non-negotiable.\"\n\"Balcony: view of the water tanker.\"",
+        "The fresher is sleeping in the hall."
+      ],
+      "caption": "Every IT employee in Indiranagar knows this exact broker text. 🔑",
+      "trigger": "rent",
+      "structure": "whatsapp_forward",
+      "move": "the_turn_in_the_last_words",
+      "target": "landlord",
+      "satire_level": 4,
+      "hinglish": true,
+      "keywords": [
+        "bengaluru rent",
+        "house hunting",
+        "rental deposit"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi9gFBVV_5...",
+      "created_at": "2026-10-21",
+      "status": "draft",
+      "_score": 53,
+      "_judge": "Relies heavily on local Indian house-hunting context, limiting international travel.",
+      "_detail": {
+        "laugh": 4,
+        "share_trigger": 5,
+        "surprise": 4,
+        "specificity": 5,
+        "voice": 4,
+        "travels": 3
+      },
+      "_penalty": 6
+    },
+    {
+      "trend": "India Inc braces for muted salary hikes in 2027 as costs rise, hiring slows",
+      "context": "Corporate employees facing rising inflation expect annual appraisals to offset expenses.",
+      "angle": "The appraisal cycle has become a formal ceremony to announce that your real income is shrinking.",
+      "slides": [
+        "Your 2027 appraisal letter arrived five years early.",
+        "Role: Senior Systems Engineer\nOutput expected: 140%\nMarket adjustment: 1.2%\nExplanation: Global headwinds in Q3",
+        "The company printer used more paper announcing it."
+      ],
+      "caption": "Somebody in your team is already drafting their LinkedIn transition post. 📊",
+      "trigger": "corporate",
+      "structure": "job_description",
+      "move": "the_institutional_frame",
+      "target": "HR",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "salary hike",
+        "corporate appraisal",
+        "tech layoff"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMiuAFBVV_5...",
+      "created_at": "2026-10-21",
+      "status": "draft",
+      "_score": 42,
+      "_judge": "The landing punchline is a conventional corporate joke that lacks a sharp turn.",
+      "_detail": {
+        "laugh": 2,
+        "share_trigger": 4,
+        "surprise": 3,
+        "specificity": 4,
+        "voice": 4,
+        "travels": 4
+      },
+      "_penalty": 6
+    },
+    {
+      "trend": "India Inc braces for muted salary hikes in 2027 as costs rise, hiring slows",
+      "context": "Mid-level corporate workers undergo standard annual performance reviews that offer no financial upside.",
+      "angle": "The annual compensation review is an agreed script where both sides pretend a 2% hike is news.",
+      "slides": [
+        "\"What are your salary expectations for next year?\"",
+        "\"Matching inflation.\"\n\"We operate in a challenging market.\"\n\"Matching my rent increment.\"\n\"Thoda adjust kar lo.\"",
+        "You both smiled and signed the annexure."
+      ],
+      "caption": "Send this to the colleague who actually thought the variable pay was coming. 💼",
+      "trigger": "salary",
+      "structure": "interview",
+      "move": "the_banal_true_answer",
+      "target": "employer",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "appraisal discussion",
+        "salary expectation",
+        "office appraisal"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMiuAFBVV_5...",
+      "created_at": "2026-10-21",
+      "status": "draft",
+      "_score": 42,
+      "_judge": "Needs a specific brand or concrete rupee figure in the middle slide to ground the conversation.",
+      "_detail": {
+        "laugh": 3,
+        "share_trigger": 4,
+        "surprise": 3,
+        "specificity": 3,
+        "voice": 4,
+        "travels": 4
+      },
+      "_penalty": 7
+    },
+    {
+      "trend": "FSSAI issues notices to Zepto, Bakelite, 2 supplement firms over expired food, misleading claims",
+      "context": "Thirty-somethings taking health supplements face compromised quality controls.",
+      "angle": "Fitness after thirty is treating questionable chemical powders as vital maintenance.",
+      "slides": [
+        "\"Bhai, whey protein expired hai toh peena chahiye?\"",
+        "\"It is just protein powder.\"\n\"FSSAI sent a notice.\"\n\"Scoop aadha kar de.\"\n\"Lactose intolerant pehle se hoon.\"",
+        "He finished the tub anyway."
+      ],
+      "caption": "Whose gym buddy is still drinking the discounted chocolate whey? 🏋️",
+      "trigger": "health",
+      "structure": "phone_call",
+      "move": "absurd_comparative",
+      "target": "the_wellness_industry",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "whey protein",
+        "expired food",
+        "fitness supplement"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMiyAFBVV_5...",
+      "created_at": "2026-10-21",
+      "status": "draft",
+      "_score": 42,
+      "_judge": "Violates the non-negotiable voice rule by switching to third person in the landing.",
+      "_detail": {
+        "laugh": 3,
+        "share_trigger": 5,
+        "surprise": 3,
+        "specificity": 4,
+        "voice": 3,
+        "travels": 4
+      },
+      "_penalty": 10
+    },
+    {
+      "trend": "‘Exposure doesn’t pay rent’: Bengaluru employee says city is unlivable for freshers earning under Rs...",
+      "context": "Older relatives give outdated financial advice while urban living costs soar.",
+      "angle": "Family wisdom assumes living costs in tech hubs still operate on 1998 economics.",
+      "slides": [
+        "\"Aaj kal ke bachhe Bangalore mein savings kyun nahi karte?\"",
+        "\"Salary is fifty thousand.\"\n\"PG rent is thirty thousand.\"\n\"Auto driver asked ₹200 for one kilometre.\"\n\"Swiggy charge is forty rupees.\"",
+        "She suggested cooking at 5 am."
+      ],
+      "caption": "Every family WhatsApp group has an uncle offering this solution. 🏠",
+      "trigger": "the_timeline",
+      "structure": "two_aunties",
+      "move": "flat_restatement",
+      "target": "society uncle",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "bangalore living",
+        "fresher salary",
+        "living expense"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi9gFBVV_5...",
+      "created_at": "2026-10-21",
+      "status": "draft",
+      "_score": 41,
+      "_judge": "Violates the single-price rule by turning the middle slide into a ledger of amounts.",
+      "_detail": {
+        "laugh": 2,
+        "share_trigger": 3,
+        "surprise": 3,
+        "specificity": 5,
+        "voice": 3,
+        "travels": 2
+      },
+      "_penalty": 0
+    },
+    {
+      "trend": "FSSAI issues notices to Zepto, Bakelite, 2 supplement firms over expired food, misleading claims",
+      "context": "Dark stores prioritize rapid dispatch over basic warehouse inventory rotation.",
+      "angle": "The speed of instant delivery is financed directly by ignoring expiration dates.",
+      "slides": [
+        "Your ten-minute grocery order was packed during the pandemic.",
+        "Guaranteed delivery time: 8 minutes.\nQuality check duration: 0 seconds.\nReturn policy: upload three photos of the mold.",
+        "The rider was faster than the food inspector."
+      ],
+      "caption": "Your roommate still trusts dark store milk dates. 🥛",
+      "trigger": "the_advice_industry",
+      "structure": "terms_and_conditions",
+      "move": "flat_restatement",
+      "target": "platform",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "dark store",
+        "grocery delivery",
+        "expired inventory"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMiyAFBVV_5...",
+      "created_at": "2026-10-21",
+      "status": "draft",
+      "_score": 32,
+      "_judge": "Reads like an argumentative report rather than a deadpan scene from real life.",
+      "_detail": {
+        "laugh": 2,
+        "share_trigger": 2,
+        "surprise": 2,
+        "specificity": 3,
+        "voice": 3,
+        "travels": 4
+      },
+      "_penalty": 4
+    },
+    {
+      "trend": "‘Exposure doesn’t pay rent’: Bengaluru employee says city is unlivable for freshers earning under Rs...",
+      "context": "Freshers and early-career workers are offered corporate prestige instead of living wages.",
+      "angle": "'Career exposure' is a currency accepted everywhere except by people who own property.",
+      "slides": [
+        "The evolution of 'learning experience' in Indian tech.",
+        "At 21 it meant free coffee.\nAt 23 it meant working on weekends.\nAt 25 it meant no increment.\nAt 28 it means paying your own rent in HSR Layout.",
+        "Exposure does not clear the landlord's UPI request."
+      ],
+      "caption": "Send this to the founder who promised equity instead of a hike. 💸",
+      "trigger": "arithmetic_that_does_not_work",
+      "structure": "definition_drift",
+      "move": "literalisation",
+      "target": "employer",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "fresher pay",
+        "tech salary",
+        "startup culture"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi9gFBVV_5...",
+      "created_at": "2026-10-21",
+      "status": "draft",
+      "_score": 29,
+      "_judge": "Slide 1 is a banned title card and the landing restates a cliché.",
+      "_detail": {
+        "laugh": 1,
+        "share_trigger": 2,
+        "surprise": 1,
+        "specificity": 4,
+        "voice": 2,
+        "travels": 3
+      },
+      "_penalty": 0
+    },
+    {
+      "trend": "India Inc braces for muted salary hikes in 2027 as costs rise, hiring slows",
+      "context": "Salaries remain flat while urban living costs continue to compound.",
+      "angle": "Working harder for a sub-inflation hike means paying a fee to retain your desk.",
+      "slides": [
+        "Clause 4B of your employment contract.",
+        "Inflation rate: 6%\nAnnual appraisal: 3%\nWorkload increase: 25%\nCoffee machine status: out of order",
+        "You are paying the company to stay employed."
+      ],
+      "caption": "Every engineering lead you know has this exact math on a notepad. 🖊️",
+      "trigger": "arithmetic_that_does_not_work",
+      "structure": "terms_and_conditions",
+      "move": "literalisation",
+      "target": "employer",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "cost of living",
+        "annual appraisal",
+        "corporate increment"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMiuAFBVV_5...",
+      "created_at": "2026-10-21",
+      "status": "draft",
+      "_score": 27,
+      "_judge": "The landing merely restates the arithmetic from slide two instead of introducing a new image or turn.",
+      "_detail": {
+        "laugh": 1,
+        "share_trigger": 2,
+        "surprise": 1,
+        "specificity": 3,
+        "voice": 2,
+        "travels": 5
+      },
+      "_penalty": 4
+    }
+  ],
+  "rejected": []
+}

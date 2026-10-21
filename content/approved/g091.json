@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "India Inc braces for muted salary hikes in 2027 as costs rise, hiring slows",
+      "context": "Mid-level corporate workers undergo standard annual performance reviews that offer no financial upside.",
+      "angle": "The annual compensation review is an agreed script where both sides pretend a 2% hike is news.",
+      "slides": [
+        "\"What are your salary expectations for next year?\"",
+        "\"Matching inflation.\"\n\"We operate in a challenging market.\"\n\"Matching my rent increment.\"\n\"Thoda adjust kar lo.\"",
+        "You both smiled and signed the annexure."
+      ],
+      "caption": "Send this to the colleague who actually thought the variable pay was coming. 💼",
+      "trigger": "salary",
+      "structure": "interview",
+      "move": "the_banal_true_answer",
+      "target": "employer",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "appraisal discussion",
+        "salary expectation",
+        "office appraisal"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMiuAFBVV_5...",
+      "created_at": "2026-10-21",
+      "status": "approved",
+      "id": "g091",
+      "rank_score": 42,
+      "rank_verdict": "Needs a specific brand or concrete rupee figure in the middle slide to ground the conversation."
+    }
+  ]
+}

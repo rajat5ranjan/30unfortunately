@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "India Inc braces for muted salary hikes in 2027 as costs rise, hiring slows",
+      "context": "Corporate employees facing rising inflation expect annual appraisals to offset expenses.",
+      "angle": "The appraisal cycle has become a formal ceremony to announce that your real income is shrinking.",
+      "slides": [
+        "Your 2027 appraisal letter arrived five years early.",
+        "Role: Senior Systems Engineer\nOutput expected: 140%\nMarket adjustment: 1.2%\nExplanation: Global headwinds in Q3",
+        "The company printer used more paper announcing it."
+      ],
+      "caption": "Somebody in your team is already drafting their LinkedIn transition post. 📊",
+      "trigger": "corporate",
+      "structure": "job_description",
+      "move": "the_institutional_frame",
+      "target": "HR",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "salary hike",
+        "corporate appraisal",
+        "tech layoff"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMiuAFBVV_5...",
+      "created_at": "2026-10-21",
+      "status": "approved",
+      "id": "g090",
+      "rank_score": 42,
+      "rank_verdict": "The landing punchline is a conventional corporate joke that lacks a sharp turn."
+    }
+  ]
+}

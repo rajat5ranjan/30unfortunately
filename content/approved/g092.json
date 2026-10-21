@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "FSSAI issues notices to Zepto, Bakelite, 2 supplement firms over expired food, misleading claims",
+      "context": "Thirty-somethings taking health supplements face compromised quality controls.",
+      "angle": "Fitness after thirty is treating questionable chemical powders as vital maintenance.",
+      "slides": [
+        "\"Bhai, whey protein expired hai toh peena chahiye?\"",
+        "\"It is just protein powder.\"\n\"FSSAI sent a notice.\"\n\"Scoop aadha kar de.\"\n\"Lactose intolerant pehle se hoon.\"",
+        "He finished the tub anyway."
+      ],
+      "caption": "Whose gym buddy is still drinking the discounted chocolate whey? 🏋️",
+      "trigger": "health",
+      "structure": "phone_call",
+      "move": "absurd_comparative",
+      "target": "the_wellness_industry",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "whey protein",
+        "expired food",
+        "fitness supplement"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMiyAFBVV_5...",
+      "created_at": "2026-10-21",
+      "status": "approved",
+      "id": "g092",
+      "rank_score": 42,
+      "rank_verdict": "Violates the non-negotiable voice rule by switching to third person in the landing."
+    }
+  ]
+}

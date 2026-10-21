@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "‘Exposure doesn’t pay rent’: Bengaluru employee says city is unlivable for freshers earning under Rs...",
+      "context": "Young professionals moving to tech hubs face skyrocketing housing costs.",
+      "angle": "Tech hub real estate extracts the entire entry-level income before week one ends.",
+      "slides": [
+        "The flat listing said three minutes from the tech park.",
+        "\"Rent: ₹38,000.\"\n\"Deposit: six months.\"\n\"Brokerage: non-negotiable.\"\n\"Balcony: view of the water tanker.\"",
+        "The fresher is sleeping in the hall."
+      ],
+      "caption": "Every IT employee in Indiranagar knows this exact broker text. 🔑",
+      "trigger": "rent",
+      "structure": "whatsapp_forward",
+      "move": "the_turn_in_the_last_words",
+      "target": "landlord",
+      "satire_level": 4,
+      "hinglish": true,
+      "keywords": [
+        "bengaluru rent",
+        "house hunting",
+        "rental deposit"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi9gFBVV_5...",
+      "created_at": "2026-10-21",
+      "status": "approved",
+      "id": "g089",
+      "rank_score": 53,
+      "rank_verdict": "Relies heavily on local Indian house-hunting context, limiting international travel."
+    }
+  ]
+}

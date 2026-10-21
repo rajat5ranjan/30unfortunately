@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "‘Exposure doesn’t pay rent’: Bengaluru employee says city is unlivable for freshers earning under Rs...",
+      "context": "Older relatives give outdated financial advice while urban living costs soar.",
+      "angle": "Family wisdom assumes living costs in tech hubs still operate on 1998 economics.",
+      "slides": [
+        "\"Aaj kal ke bachhe Bangalore mein savings kyun nahi karte?\"",
+        "\"Salary is fifty thousand.\"\n\"PG rent is thirty thousand.\"\n\"Auto driver asked ₹200 for one kilometre.\"\n\"Swiggy charge is forty rupees.\"",
+        "She suggested cooking at 5 am."
+      ],
+      "caption": "Every family WhatsApp group has an uncle offering this solution. 🏠",
+      "trigger": "the_timeline",
+      "structure": "two_aunties",
+      "move": "flat_restatement",
+      "target": "society uncle",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "bangalore living",
+        "fresher salary",
+        "living expense"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi9gFBVV_5...",
+      "created_at": "2026-10-21",
+      "status": "approved",
+      "id": "g093",
+      "rank_score": 41,
+      "rank_verdict": "Violates the single-price rule by turning the middle slide into a ledger of amounts."
+    }
+  ]
+}
