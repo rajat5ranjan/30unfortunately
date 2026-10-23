@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "Gurgaon, Noida housing demand drops 8-9% as NCR property market cools",
+      "context": "Real estate developers frame an 8% drop in sales as market cooling after massive price surges.",
+      "angle": "The property market cooled by single digits, but the apartment still costs multi-crores in a flooded sector.",
+      "slides": [
+        "The property market cooled. The flat still costs ₹2 crore.",
+        "Sector 102 — basic unit.\nNo Metro station — near highway.\nBalcony view — waterlogging.\nMaintenance fee — high.\nBroker — 'Demand thoda slow hai.'",
+        "The price goes up next Tuesday."
+      ],
+      "caption": "Whose college friend spent their entire savings on a plasterboard balcony in Noida?",
+      "trigger": "rent",
+      "structure": "terms_and_conditions",
+      "move": "absurd_comparative",
+      "target": "landlord",
+      "satire_level": 4,
+      "hinglish": true,
+      "keywords": [
+        "noida property",
+        "gurgaon housing",
+        "real estate prices"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMixgJBVV95cUxNTmlFbjYtajBENXBoQlVlY2pzSzBnZ3BlcmhCcXNaUmpxZkNlOVZjNEo5QWk0dGFxb3BkeEM2MkZWbUxtVkxSUkZTYnpuUGxObkVRWVI5dWpETXVMdUJCcGx1RnlxTWtuZDFzMXVCV0hodEpObmgxUFFadzdYQnFTMEd6RTc1LWdEcVdCZXdIREZWVWN1bWZKUE96NGlzME5pVldTb25GNjBuLU5FdEVKaDZBRDR0THdkdVNhMndMS2o3WWRkTUpSWEYwTDNfT2VsamNPR1pmZ0I3RFN2UnlmRHpUOURtRWQ4OUVtYlR4NHRXRzY5RWZERWN4MXlFSXo1QVVVVG1PdHlFOFpSc21iYWo0NUlWejNReDJVNHhpU2VwMXFOemltdUk2a2huUk1lazV3X1ZpVDNCTDdSLVhiMTJKc0Uxd9IBywJBVV95cUxQX1FDX2JqV29xZVd5WGo3dVFxaG5oTDh0QjNCR00xTHJ4a29XVUhHUDgzLTY3eDQ5NkNkNVJJMXNENjgwVTA4M1FDU29feElmalNpVXhBdGZKSDBzRWJZaVV5ZnlRMElNeWstdVUwdnZ6ejBvSFlxU2JBVEV5dnUxTlNHNFJVUExuWFJLeG4xZmR1RjFGMXJNMkp1TVpycEVrZV9XQUtxR2xnSF9QVEpBdmZYWkVTM3VsSzVackxPbmlpUk13azc0Z1V3ei1PNUtLTmliZHBueF9DMTZzUHpQTEVFM3VxY1dnT3BBRlc0WG5ZTXZLMzhKLWtrMjVfc1p1bEdxdlZ6ZVlrZnFhMmlQUXhvSUZlbzllZHJkbFZfWWEwVTV4WWNjT0IxYU9kNkVZNUZXRV9qMDAzck50UjZjOGFRcFBnbHhQbTkw?oc=5",
+      "created_at": "2026-10-23",
+      "status": "approved",
+      "id": "g096",
+      "rank_score": 50,
+      "rank_verdict": "Relies too heavily on hyper-local NCR real estate specifics without landing a sharp enough laugh."
+    }
+  ]
+}

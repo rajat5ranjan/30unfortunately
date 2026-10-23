@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "India’s Business Activity Hits Four Month High in October, but Hiring Remains Flat",
+      "context": "Mid-career employees are handed junior support tasks because backfills were never approved.",
+      "angle": "Seven years of corporate experience means doing basic administrative firefighting with a senior title.",
+      "slides": [
+        "Seven years of experience. Still fixing calendar invites.",
+        "\"What is your core domain?\"\n\"Updating spreadsheet cell backgrounds.\"\n\"And your technical stack?\"\n\"Replying 'seen' on Slack.\"",
+        "You are listed as Senior Manager on LinkedIn."
+      ],
+      "caption": "Your desk neighbour has been sitting in front of a draft email since 11 AM.",
+      "trigger": "admin",
+      "structure": "interview",
+      "move": "the_banal_true_answer",
+      "target": "LinkedIn",
+      "satire_level": 3,
+      "hinglish": false,
+      "keywords": [
+        "senior manager",
+        "office admin",
+        "corporate routine"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPc3pES1VQTzI5V2FmOHIzVkVEdFJmd3d5bmRsRUxSSC1WaGE0N2pUYzJkX3M0MVNEYWd2OFVBOUF0UXpncjY0ckdqRFRqNXl1R2RZdUpiOHdOWGUwRWJhRVdXejZ5a2ltQVpFMU1OV1JVam5PdUQyaF9kZWpiaGxKNG4tS1NnYXpBdVBORU1GcndCQ0JlN0VucGZJODBpZzh5Nzh2QVhFZGlGOUhoaTZXT1JR?oc=5",
+      "created_at": "2026-10-23",
+      "status": "approved",
+      "id": "g097",
+      "rank_score": 49,
+      "rank_verdict": "The mock interview dialogue structure in slide two feels like a tired internet meme format."
+    }
+  ]
+}

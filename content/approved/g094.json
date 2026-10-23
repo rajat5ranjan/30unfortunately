@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "Gurgaon, Noida housing demand drops 8-9% as NCR property market cools",
+      "context": "30-year-olds are taking 30-year home loans while working on annual corporate contracts.",
+      "angle": "The mortgage tenure spans your entire remaining career, assuming zero disruptions for three decades.",
+      "slides": [
+        "The loan tenure is thirty years. Your job offer is for one.",
+        "Monthly EMI — ₹92,000.\nSociety maintenance — standard.\nClub membership — mandatory.\nParking spot — extra.",
+        "You are thirty-three.\n\nYou will be sixty-three when the lock changes."
+      ],
+      "caption": "There is one person in your group chat who talks about real estate appreciation at dinner.",
+      "trigger": "upi",
+      "structure": "receipt",
+      "move": "the_turn_in_the_last_words",
+      "target": "bank",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "home loan",
+        "apartment emi",
+        "property investment"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMixgJBVV95cUxNTmlFbjYtajBENXBoQlVlY2pzSzBnZ3BlcmhCcXNaUmpxZkNlOVZjNEo5QWk0dGFxb3BkeEM2MkZWbUxtVkxSUkZTYnpuUGxObkVRWVI5dWpETXVMdUJCcGx1RnlxTWtuZDFzMXVCV0hodEpObmgxUFFadzdYQnFTMEd6RTc1LWdEcVdCZXdIREZWVWN1bWZKUE96NGlzME5pVldTb25GNjBuLU5FdEVKaDZBRDR0THdkdVNhMndMS2o3WWRkTUpSWEYwTDNfT2VsamNPR1pmZ0I3RFN2UnlmRHpUOURtRWQ4OUVtYlR4NHRXRzY5RWZERWN4MXlFSXo1QVVVVG1PdHlFOFpSc21iYWo0NUlWejNReDJVNHhpU2VwMXFOemltdUk2a2huUk1lazV3X1ZpVDNCTDdSLVhiMTJKc0Uxd9IBywJBVV95cUxQX1FDX2JqV29xZVd5WGo3dVFxaG5oTDh0QjNCR00xTHJ4a29XVUhHUDgzLTY3eDQ5NkNkNVJJMXNENjgwVTA4M1FDU29feElmalNpVXhBdGZKSDBzRWJZaVV5ZnlRMElNeWstdVUwdnZ6ejBvSFlxU2JBVEV5dnUxTlNHNFJVUExuWFJLeG4xZmR1RjFGMXJNMkp1TVpycEVrZV9XQUtxR2xnSF9QVEpBdmZYWkVTM3VsSzVackxPbmlpUk13azc0Z1V3ei1PNUtLTmliZHBueF9DMTZzUHpQTEVFM3VxY1dnT3BBRlc0WG5ZTXZLMzhKLWtrMjVfc1p1bEdxdlZ6ZVlrZnFhMmlQUXhvSUZlbzllZHJkbFZfWWEwVTV4WWNjT0IxYU9kNkVZNUZXRV9qMDAzck50UjZjOGFRcFBnbHhQbTkw?oc=5",
+      "created_at": "2026-10-23",
+      "status": "approved",
+      "id": "g094",
+      "rank_score": 62,
+      "rank_verdict": "Slide two reads like an uninspired line-item receipt rather than an escalating comedy sequence."
+    }
+  ]
+}

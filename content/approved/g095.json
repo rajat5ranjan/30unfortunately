@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "India’s Business Activity Hits Four Month High in October, but Hiring Remains Flat",
+      "context": "Companies are driving record output by absorbing headcount loss into existing employees rather than hiring replacements.",
+      "angle": "Record business growth with zero hiring means you are doing three people's jobs for your 2021 salary.",
+      "slides": [
+        "Your team size dropped by forty percent. The targets stayed.",
+        "Q1 — manage two projects.\nQ2 — cover for the manager.\nQ3 — onboard the intern.\nQ4 — realize there is no intern.",
+        "The quarterly report calls this operational efficiency."
+      ],
+      "caption": "Somebody in your team is currently doing two resignations worth of work.",
+      "trigger": "corporate",
+      "structure": "job_description",
+      "move": "literalisation",
+      "target": "employer",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "hiring freeze",
+        "corporate workload",
+        "appraisal review"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPc3pES1VQTzI5V2FmOHIzVkVEdFJmd3d5bmRsRUxSSC1WaGE0N2pUYzJkX3M0MVNEYWd2OFVBOUF0UXpncjY0ckdqRFRqNXl1R2RZdUpiOHdOWGUwRWJhRVdXejZ5a2ltQVpFMU1OV1JVam5PdUQyaF9kZWpiaGxKNG4tS1NnYXpBdVBORU1GcndCQ0JlN0VucGZJODBpZzh5Nzh2QVhFZGlGOUhoaTZXT1JR?oc=5",
+      "created_at": "2026-10-23",
+      "status": "approved",
+      "id": "g095",
+      "rank_score": 50,
+      "rank_verdict": "It functions as an accurate corporate complaint rather than a laugh-out-loud joke."
+    }
+  ]
+}

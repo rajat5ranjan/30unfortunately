@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "India’s Business Activity Hits Four Month High in October, but Hiring Remains Flat",
+      "context": "Corporate leadership announces milestone growth publicly while freezing internal team budgets.",
+      "angle": "The company celebrates record expansion on LinkedIn while keeping your increment under review.",
+      "slides": [
+        "Record profits this quarter. Increment budget is still under review.",
+        "LinkedIn post — 'Record quarter!'\nTown hall — 'Macroeconomic headwinds.'\nManager — 'Thoda adjust kar lo.'\nHR — 'Band revision in Q4.'",
+        "The Q4 deck is already printed."
+      ],
+      "caption": "Send this to the colleague who prepared fifty slides for a two percent hike.",
+      "trigger": "salary",
+      "structure": "terms_and_conditions",
+      "move": "flat_restatement",
+      "target": "HR",
+      "satire_level": 4,
+      "hinglish": true,
+      "keywords": [
+        "corporate salary",
+        "appraisal cycle",
+        "workplace burnout"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPc3pES1VQTzI5V2FmOHIzVkVEdFJmd3d5bmRsRUxSSC1WaGE0N2pUYzJkX3M0MVNEYWd2OFVBOUF0UXpncjY0ckdqRFRqNXl1R2RZdUpiOHdOWGUwRWJhRVdXejZ5a2ltQVpFMU1OV1JVam5PdUQyaF9kZWpiaGxKNG4tS1NnYXpBdVBORU1GcndCQ0JlN0VucGZJODBpZzh5Nzh2QVhFZGlGOUhoaTZXT1JR?oc=5",
+      "created_at": "2026-10-23",
+      "status": "approved",
+      "id": "g098",
+      "rank_score": 44,
+      "rank_verdict": "The corporate hypocrisy trope is too familiar and lacks a punchy comedic turn."
+    }
+  ]
+}
