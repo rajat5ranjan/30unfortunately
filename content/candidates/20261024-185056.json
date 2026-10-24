@@ -1,0 +1,198 @@
+{
+  "generated_at": "20261024-185056",
+  "model": "gemini-3.5-flash",
+  "accepted": [
+    {
+      "trend": "Landlord withholds security deposit ‘till new tenant found’, Bengaluru man wins Rs 90,000",
+      "context": "Moving out requires you to do the operational work of a real estate agency just to extract your own money.",
+      "angle": "You become an unpaid property broker for the man who charged you for normal wear and tear.",
+      "slides": [
+        "\"Deposit tabhi milega jab naya banda aayega.\"",
+        "You cleaned the kitchen fan.\nYou replaced the bath fitting.\nYou interviewed four potential tenants on flatmates group.\nYou did his broker's job for three weeks.",
+        "He sent a thumbs-up emoji at 11 PM.\n\nThe money is still in his liquid fund."
+      ],
+      "caption": "Every tenant in Indiranagar knows this exact WhatsApp voice note.",
+      "trigger": "rent",
+      "structure": "list_collapse",
+      "move": "the_banal_true_answer",
+      "target": "landlord",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "bengaluru rent",
+        "flat deposit",
+        "house hunting"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQd1VMaER2cVhOUXBmcXA2bDFqTWhLWV9kWHhDUy1zTGhmclhYeEhydmVCTmNTNE1ES0NPRDc1cDVLYXdqZ3kzNUJ3X25QOFNUVVJCbXhNRm96ZFZvemhkdG44cHNNZ3ptU3pnYnp1RmFzUmltTGNSLTMzcTV1UzVSSHRBb1ZrT1hpRjk4RHFKRDMwdW5OX2FEN0haek8wQV95NHhtTk82SnlfT3ZwdGFwVWZtYS1uSk1rTDZMOdIBwwFBVV95cUxQazMyOHQ2ZUtyeHZWUENEeGtZX1Y0SXhMQTVVTGpUTUFYenJXY1lONHlfQkc1X29aQkxfOEpPZ09SY01FQU1PbDB4ek9Tdk5RcWZHemRhS284VnFiWEtuUGMzRFpJeTlFWkdKMGJpQnNybC1PQlBHRE1zb1dtUVd4RXotOUk5ZTIxY0Y1WlZNeDVVeW1DdGJXLWF0dVpPOE13M3NqekszZkhnajdFRzhtbVZZU1BhVnNWRHh4NWp5azR6TGs?oc=5",
+      "created_at": "2026-10-24",
+      "status": "draft",
+      "_score": 55,
+      "_judge": "The middle escalation reads a bit like a task list before the sharp landing rescues the post.",
+      "_detail": {
+        "laugh": 4,
+        "share_trigger": 5,
+        "surprise": 4,
+        "specificity": 4,
+        "voice": 5,
+        "travels": 4
+      },
+      "_penalty": 6
+    },
+    {
+      "trend": "Delhi's New P-10 Permit Rule: ₹15,000 Wedding Liquor Fee, Separate Approval for Every Hall",
+      "context": "Planning a wedding at 30 turns you into an unpaid liaison officer between older relatives and local bureaucrats.",
+      "angle": "Family expectations remain infinite while government compliance fees scale by the square foot.",
+      "slides": [
+        "\"Beta, ek baat batao.\"",
+        "\"P-10 permit apply kiya?\"\n\"Hall A ka alag hai ya Hall B ka combined?\"\n\"Sharma ji ke beta ko Scotch milegi na?\"\n\"Chachu is asking about dry day policy.\"",
+        "You wanted a quiet ceremony.\n\nYou are now a licensed excise contractor."
+      ],
+      "caption": "Send this to the cousin who became the official venue manager against his will.",
+      "trigger": "festivals",
+      "structure": "dialogue",
+      "move": "the_banal_true_answer",
+      "target": "relatives",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "wedding permit",
+        "delhi excise",
+        "marriage expenses"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOREJqMHAxeGRVdEJRckxJZXlfOGJFNXpaY2QtbHBBUEZOdmVLOUU2NFlTNVhMZHF4QUNOMy1PWjhtSGVqUzJmMERiV0o5M21GcEdyZmdkTzZjWEdzVy05bTBHUmVhWlMtaldiTFdmTW1xcGJGOFpBNjNMb3ZJOW5XWVZfVGFsZ01MazZkejF2MA?oc=5",
+      "created_at": "2026-10-24",
+      "status": "draft",
+      "_score": 46,
+      "_judge": "P-10 permit relies on Delhi-NCR excise bureaucracy, making the hook unnecessarily hyper-local.",
+      "_detail": {
+        "laugh": 3,
+        "share_trigger": 4,
+        "surprise": 3,
+        "specificity": 4,
+        "voice": 4,
+        "travels": 3
+      },
+      "_penalty": 3
+    },
+    {
+      "trend": "Delhi's New P-10 Permit Rule: ₹15,000 Wedding Liquor Fee, Separate Approval for Every Hall",
+      "context": "The administrative apparatus treats private family events as commercial venues subject to strict licensing.",
+      "angle": "Corporate compliance policies feel lax compared to the legal terms of drinking at your own wedding.",
+      "slides": [
+        "Terms and conditions for drinking at your own reception.",
+        "Clause 1: Pay ₹15,000 per hall prior to guest entry.\nClause 2: Separate license required if guests step onto the lawn.\nClause 3: Uncles dancing after 11 PM remain your personal liability.",
+        "Compliance rate: 100%.\n\nThe bride's father is still paying in cash."
+      ],
+      "caption": "Every family has one person who reads the excise T&Cs at 2 AM.",
+      "trigger": "admin",
+      "structure": "terms_and_conditions",
+      "move": "the_institutional_frame",
+      "target": "admin",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "wedding compliance",
+        "delhi permit",
+        "marriage tax"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOREJqMHAxeGRVdEJRckxJZXlfOGJFNXpaY2QtbHBBUEZOdmVLOUU2NFlTNVhMZHF4QUNOMy1PWjhtSGVqUzJmMERiV0o5M21GcEdyZmdkTzZjWEdzVy05bTBHUmVhWlMtaldiTFdmTW1xcGJGOFpBNjNMb3ZJOW5XWVZfVGFsZ01MazZkejF2MA?oc=5",
+      "created_at": "2026-10-24",
+      "status": "draft",
+      "_score": 28,
+      "_judge": "Slide 1 fails as a title card that clears its throat instead of delivering a real line.",
+      "_detail": {
+        "laugh": 2,
+        "share_trigger": 3,
+        "surprise": 2,
+        "specificity": 4,
+        "voice": 2,
+        "travels": 4
+      },
+      "_penalty": 11
+    }
+  ],
+  "rejected": [
+    {
+      "trend": "Delhi's New P-10 Permit Rule: ₹15,000 Wedding Liquor Fee, Separate Approval for Every Hall",
+      "context": "Urban Indian weddings in your thirties are no longer celebrations; they are multi-agency administrative audits.",
+      "angle": "The government charges a mandatory convenience fee on your family's inability to organize an event quietly.",
+      "slides": [
+        "₹15,000 to serve whiskey in a banquet hall you already paid ₹4 lakh to rent.",
+        "Permit fee — ₹15,000.\nHall approval — ₹5,000.\nExcise clearance — ₹2,500.\nAunty's opinion on the brand — free.",
+        "The government has monetized your father's hospitality.\n\nYou haven't even picked the card font."
+      ],
+      "caption": "Somebody you know is currently making an Excel sheet for ice cubes.",
+      "trigger": "admin",
+      "structure": "receipt",
+      "move": "flat_restatement",
+      "target": "the wedding industry",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "delhi wedding",
+        "liquor permit",
+        "banquet hall"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOREJqMHAxeGRVdEJRckxJZXlfOGJFNXpaY2QtbHBBUEZOdmVLOUU2NFlTNVhMZHF4QUNOMy1PWjhtSGVqUzJmMERiV0o5M21GcEdyZmdkTzZjWEdzVy05bTBHUmVhWlMtaldiTFdmTW1xcGJGOFpBNjNMb3ZJOW5XWVZfVGFsZ01MazZkejF2MA?oc=5",
+      "created_at": "2026-10-24",
+      "_gate_failures": [
+        "5 prices in one post (₹15,000, ₹4, ₹15,000, ₹5,000) — the reader has to do arithmetic to reach the joke. One figure, alone, does the work"
+      ]
+    },
+    {
+      "trend": "Landlord withholds security deposit ‘till new tenant found’, Bengaluru man wins Rs 90,000",
+      "context": "Renting in an IT hub means accepting that your deposit is an unsecured personal loan to an older property owner.",
+      "angle": "Landlords operate financial timelines where holding your capital indefinitely is standard risk management.",
+      "slides": [
+        "Deposit: ₹1,80,000. Refund date: when the cosmos aligns.",
+        "Month 1: \"Painting work in progress.\"\nMonth 2: \"Looking for family tenant only.\"\nMonth 3: \"Adjustment for wall scratch.\"\nMonth 4: \"Next tenant's token is delayed.\"",
+        "He bought a second SUV in July.\n\nYou are still tracking ₹90,000 on a Google Sheet."
+      ],
+      "caption": "Somebody in your group chat has been \"following up nicely\" since November.",
+      "trigger": "rent",
+      "structure": "escalating_list",
+      "move": "flat_restatement",
+      "target": "landlord",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "rent deposit",
+        "bengaluru landlord",
+        "security refund"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQd1VMaER2cVhOUXBmcXA2bDFqTWhLWV9kWHhDUy1zTGhmclhYeEhydmVCTmNTNE1ES0NPRDc1cDVLYXdqZ3kzNUJ3X25QOFNUVVJCbXhNRm96ZFZvemhkdG44cHNNZ3ptU3pnYnp1RmFzUmltTGNSLTMzcTV1UzVSSHRBb1ZrT1hpRjk4RHFKRDMwdW5OX2FEN0haek8wQV95NHhtTk82SnlfT3ZwdGFwVWZtYS1uSk1rTDZMOdIBwwFBVV95cUxQazMyOHQ2ZUtyeHZWUENEeGtZX1Y0SXhMQTVVTGpUTUFYenJXY1lONHlfQkc1X29aQkxfOEpPZ09SY01FQU1PbDB4ek9Tdk5RcWZHemRhS284VnFiWEtuUGMzRFpJeTlFWkdKMGJpQnNybC1PQlBHRE1zb1dtUVd4RXotOUk5ZTIxY0Y1WlZNeDVVeW1DdGJXLWF0dVpPOE13M3NqekszZkhnajdFRzhtbVZZU1BhVnNWRHh4NWp5azR6TGs?oc=5",
+      "created_at": "2026-10-24",
+      "_gate_failures": [
+        "landing carries a currency figure — that beat cannot travel; move the number into the escalation",
+        "2 prices in one post (₹1,80,000, ₹90,000) — the reader has to do arithmetic to reach the joke. One figure, alone, does the work"
+      ]
+    },
+    {
+      "trend": "Landlord withholds security deposit ‘till new tenant found’, Bengaluru man wins Rs 90,000",
+      "context": "Legal victories against landlords are famous because the standard lease agreement functions like a unilateral surrender.",
+      "angle": "Court rulings are the only place where the residential rental contract is forced to obey basic math.",
+      "slides": [
+        "Landlord-Tenant Settlement Terms (Updated 2026).",
+        "1. Tenant agrees deposit is non-refundable upon emotional attachment.\n2. Tenant shall act as unpaid leasing agent upon departure.\n3. Repainting fee equals price of fresh construction.",
+        "Court order: Refund ₹90,000 plus interest.\n\nLandlord response: \"Let's discuss on call.\""
+      ],
+      "caption": "Address this directly to anyone currently fighting over a ₹15,000 painting deduction.",
+      "trigger": "rent",
+      "structure": "terms_and_conditions",
+      "move": "the_institutional_frame",
+      "target": "landlord",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "lease agreement",
+        "tenant rights",
+        "bengaluru housing"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQd1VMaER2cVhOUXBmcXA2bDFqTWhLWV9kWHhDUy1zTGhmclhYeEhydmVCTmNTNE1ES0NPRDc1cDVLYXdqZ3kzNUJ3X25QOFNUVVJCbXhNRm96ZFZvemhkdG44cHNNZ3ptU3pnYnp1RmFzUmltTGNSLTMzcTV1UzVSSHRBb1ZrT1hpRjk4RHFKRDMwdW5OX2FEN0haek8wQV95NHhtTk82SnlfT3ZwdGFwVWZtYS1uSk1rTDZMOdIBwwFBVV95cUxQazMyOHQ2ZUtyeHZWUENEeGtZX1Y0SXhMQTVVTGpUTUFYenJXY1lONHlfQkc1X29aQkxfOEpPZ09SY01FQU1PbDB4ek9Tdk5RcWZHemRhS284VnFiWEtuUGMzRFpJeTlFWkdKMGJpQnNybC1PQlBHRE1zb1dtUVd4RXotOUk5ZTIxY0Y1WlZNeDVVeW1DdGJXLWF0dVpPOE13M3NqekszZkhnajdFRzhtbVZZU1BhVnNWRHh4NWp5azR6TGs?oc=5",
+      "created_at": "2026-10-24",
+      "_gate_failures": [
+        "landing carries a currency figure — that beat cannot travel; move the number into the escalation"
+      ]
+    }
+  ]
+}

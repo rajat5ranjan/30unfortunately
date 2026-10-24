@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "Delhi's New P-10 Permit Rule: ₹15,000 Wedding Liquor Fee, Separate Approval for Every Hall",
+      "context": "Planning a wedding at 30 turns you into an unpaid liaison officer between older relatives and local bureaucrats.",
+      "angle": "Family expectations remain infinite while government compliance fees scale by the square foot.",
+      "slides": [
+        "\"Beta, ek baat batao.\"",
+        "\"P-10 permit apply kiya?\"\n\"Hall A ka alag hai ya Hall B ka combined?\"\n\"Sharma ji ke beta ko Scotch milegi na?\"\n\"Chachu is asking about dry day policy.\"",
+        "You wanted a quiet ceremony.\n\nYou are now a licensed excise contractor."
+      ],
+      "caption": "Send this to the cousin who became the official venue manager against his will.",
+      "trigger": "festivals",
+      "structure": "dialogue",
+      "move": "the_banal_true_answer",
+      "target": "relatives",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "wedding permit",
+        "delhi excise",
+        "marriage expenses"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOREJqMHAxeGRVdEJRckxJZXlfOGJFNXpaY2QtbHBBUEZOdmVLOUU2NFlTNVhMZHF4QUNOMy1PWjhtSGVqUzJmMERiV0o5M21GcEdyZmdkTzZjWEdzVy05bTBHUmVhWlMtaldiTFdmTW1xcGJGOFpBNjNMb3ZJOW5XWVZfVGFsZ01MazZkejF2MA?oc=5",
+      "created_at": "2026-10-24",
+      "status": "approved",
+      "id": "g100",
+      "rank_score": 46,
+      "rank_verdict": "P-10 permit relies on Delhi-NCR excise bureaucracy, making the hook unnecessarily hyper-local."
+    }
+  ]
+}

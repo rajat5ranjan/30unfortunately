@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "Landlord withholds security deposit ‘till new tenant found’, Bengaluru man wins Rs 90,000",
+      "context": "Moving out requires you to do the operational work of a real estate agency just to extract your own money.",
+      "angle": "You become an unpaid property broker for the man who charged you for normal wear and tear.",
+      "slides": [
+        "\"Deposit tabhi milega jab naya banda aayega.\"",
+        "You cleaned the kitchen fan.\nYou replaced the bath fitting.\nYou interviewed four potential tenants on flatmates group.\nYou did his broker's job for three weeks.",
+        "He sent a thumbs-up emoji at 11 PM.\n\nThe money is still in his liquid fund."
+      ],
+      "caption": "Every tenant in Indiranagar knows this exact WhatsApp voice note.",
+      "trigger": "rent",
+      "structure": "list_collapse",
+      "move": "the_banal_true_answer",
+      "target": "landlord",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "bengaluru rent",
+        "flat deposit",
+        "house hunting"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQd1VMaER2cVhOUXBmcXA2bDFqTWhLWV9kWHhDUy1zTGhmclhYeEhydmVCTmNTNE1ES0NPRDc1cDVLYXdqZ3kzNUJ3X25QOFNUVVJCbXhNRm96ZFZvemhkdG44cHNNZ3ptU3pnYnp1RmFzUmltTGNSLTMzcTV1UzVSSHRBb1ZrT1hpRjk4RHFKRDMwdW5OX2FEN0haek8wQV95NHhtTk82SnlfT3ZwdGFwVWZtYS1uSk1rTDZMOdIBwwFBVV95cUxQazMyOHQ2ZUtyeHZWUENEeGtZX1Y0SXhMQTVVTGpUTUFYenJXY1lONHlfQkc1X29aQkxfOEpPZ09SY01FQU1PbDB4ek9Tdk5RcWZHemRhS284VnFiWEtuUGMzRFpJeTlFWkdKMGJpQnNybC1PQlBHRE1zb1dtUVd4RXotOUk5ZTIxY0Y1WlZNeDVVeW1DdGJXLWF0dVpPOE13M3NqekszZkhnajdFRzhtbVZZU1BhVnNWRHh4NWp5azR6TGs?oc=5",
+      "created_at": "2026-10-24",
+      "status": "approved",
+      "id": "g099",
+      "rank_score": 55,
+      "rank_verdict": "The middle escalation reads a bit like a task list before the sharp landing rescues the post."
+    }
+  ]
+}
