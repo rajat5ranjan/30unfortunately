@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "IBM India leases 2.83 lakh sq ft of office space in Bengaluru for ₹343 crore over 10 years",
+      "context": "Tech companies sign decade-long office leases while sending strict return-to-office memos.",
+      "angle": "The return-to-office mandate was never about spontaneous collaboration; it was about justifying a ten-year real estate deal.",
+      "slides": [
+        "Your company signed a ten-year lease for your desk.",
+        "2021: Remote work is our permanent future.\n2023: Three days in office builds team trust.\n2026: Badge swipe registered at 8:59 AM.",
+        "The desk was non-negotiable.\n\nYour commute was not included."
+      ],
+      "caption": "Send this to the colleague currently taking a Zoom call from an open-plan hallway.",
+      "trigger": "corporate",
+      "structure": "then_now",
+      "move": "flat_restatement",
+      "target": "employer",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "bengaluru office space",
+        "return to office mandate",
+        "corporate workplace culture"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxNd1Vfek81Z0tKVGtuckQ0aXRXWi1SV0dDLU5hcFFGcDlZSjhrM3l6SzllcGxlTHF0eENMNUwydm1sQXp3dEVsSktpRzJZdkdmQWpESV8zVFJiZFpmRno3bzJOZ1psYjZRQ2VodFlNLUJ2dkFPLXBFMEx4LVpZYnUzSjVmS2JtVkg2TWdDZFBfNGtqSlJnZzh1aEJIZUVwV2tuUW5oQ2V1cjZzNlg3UlNWbmdkUVRBY2FxcGszWjdITkc4M0lKSHg5ZUsxSFRoN0htWmp4bHdBQ3hCSG5qNU1tZDItNEJoTS1iRDE4QldR0gHuAUFVX3lxTE13VV96TzVnS0pUa25yRDRpdFdaLVJXR0MtTmFwUUZwOVlKOGszeXpLOWVwbGVMcXR4Q0w1TDJ2bWxBend0RWxKS2lHMll2R2ZBakRJXzNURbZF",
+      "created_at": "2026-10-25",
+      "status": "approved",
+      "id": "g106",
+      "rank_score": 32,
+      "rank_verdict": "The landing rests on a flat corporate restatement rather than a sharp turn or joke."
+    }
+  ]
+}

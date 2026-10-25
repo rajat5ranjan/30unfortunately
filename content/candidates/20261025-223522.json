@@ -1,0 +1,223 @@
+{
+  "generated_at": "20261025-223522",
+  "model": "gemini-3.5-flash",
+  "accepted": [
+    {
+      "trend": "Indian Wellness Trends 2026: Why Sleep and Recovery Deserve More Attention",
+      "context": "The body in your thirties requires complex setup just to avoid waking up injured.",
+      "angle": "Sleeping on the wrong pillow at thirty carries the recovery timeline of a traffic accident.",
+      "slides": [
+        "You slept for seven hours and injured your neck.",
+        "At 21: Slept on a bus floor, woke up fine.\nAt 26: Slept on a sofa, needed five minutes.\nAt 32: Slept at a slightly wrong angle, four days of physio.",
+        "Your mother says it is because you did not drink warm water."
+      ],
+      "caption": "Your group chat has at least one person who carries an ortho cushion to dinner.",
+      "trigger": "health",
+      "structure": "then_now",
+      "move": "absurd_comparative",
+      "target": "self",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "back pain remedies",
+        "physiotherapy consultation",
+        "cervical pillow review"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPUjNzMFc4S1BobnA0UWZVUy1QdlFaVk9Za1dIUkYxZ3l6NjRMOTQxeG1iVUwwLXJYNW5HUUFVaXhrTDM1MTdoX2hzQklsLUg2a1luQWE2WHZSUzhJVWxOenBUUDZmeWF1VFB0MVlmeVF2eld2d1ZmS2s3b1ZzbnN5OFdTcE1PLUZJRklHUzVxWTdjRW5iV0w2NnZBdzJHVEd5dDgySTFJcGdJZmFnblNlbE03R25QRkNqWlF4NkhtcmtSSVE",
+      "created_at": "2026-10-25",
+      "status": "draft",
+      "_score": 59,
+      "_judge": "Flawlessly executed turn on the landing that captures the exact tone of the account.",
+      "_detail": {
+        "laugh": 5,
+        "share_trigger": 5,
+        "surprise": 5,
+        "specificity": 4,
+        "voice": 5,
+        "travels": 4
+      },
+      "_penalty": 7
+    },
+    {
+      "trend": "IBM India leases 2.83 lakh sq ft of office space in Bengaluru for ₹343 crore over 10 years",
+      "context": "Employees are dragged back to offices for collaboration that happens on screen anyway.",
+      "angle": "Hundreds of crores spent on floor space just so you can sit under fluorescent lights and join a call with London.",
+      "slides": [
+        "₹343 crore to recreate your living room in Outer Ring Road.",
+        "2.8 lakh square feet of glass.\nFour biometric scanners.\nOne coffee machine out of milk.\nSix people sitting together in complete silence.",
+        "The London team is still on mute."
+      ],
+      "caption": "Somebody on your team has been in the phone booth since 10 AM.",
+      "trigger": "office",
+      "structure": "juxtaposition",
+      "move": "the_turn_in_the_last_words",
+      "target": "HR",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "tech park commute",
+        "office real estate",
+        "bengaluru traffic jam"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxNd1Vfek81Z0tKVGtuckQ0aXRXWi1SV0dDLU5hcFFGcDlZSjhrM3l6SzllcGxlTHF0eENMNUwydm1sQXp3dEVsSktpRzJZdkdmQWpESV8zVFJiZFpmRno3bzJOZ1psYjZRQ2VodFlNLUJ2dkFPLXBFMEx4LVpZYnUzSjVmS2JtVkg2TWdDZFBfNGtqSlJnZzh1aEJIZUVwV2tuUW5oQ2V1cjZzNlg3UlNWbmdkUVRBY2FxcGszWjdITkc4M0lKSHg5ZUsxSFRoN0htWmp4bHdBQ3hCSG5qNU1tZDItNEJoTS1iRDE4QldR0gHuAUFVX3lxTE13VV96TzVnS0pUa25yRDRpdFdaLVJXR0MtTmFwUUZwOVlKOGszeXpLOWVwbGVMcXR4Q0w1TDJ2bWxBend0RWxKS2lHMll2R2ZBakRJXzNURbZF",
+      "created_at": "2026-10-25",
+      "status": "draft",
+      "_score": 58,
+      "_judge": "Outer Ring Road in the hook load-bears slightly too much local trivia before the joke lands.",
+      "_detail": {
+        "laugh": 4,
+        "share_trigger": 4,
+        "surprise": 4,
+        "specificity": 5,
+        "voice": 4,
+        "travels": 4
+      },
+      "_penalty": 0
+    },
+    {
+      "trend": "IBM India leases 2.83 lakh sq ft of office space in Bengaluru for ₹343 crore over 10 years",
+      "context": "Corporate physical presence is tracked like primary school attendance.",
+      "angle": "The modern tech park is an adult daycare where presence is verified by turnstiles.",
+      "slides": [
+        "Your manager needs you in the office for your personal growth.",
+        "Log in at 9:00 AM.\nSwipe at turnstile.\nThoda alignment call in the cafeteria.\nHeadphones on till 6:00 PM.",
+        "By 2 PM you have spoken to two people.\nBoth said, 'Ek second screen share karta hoon.'"
+      ],
+      "caption": "Every team has one person who keeps their bag on the desk to mark attendance.",
+      "trigger": "corporate",
+      "structure": "job_description",
+      "move": "literalisation",
+      "target": "HR",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "hybrid work policy",
+        "corporate alignment call",
+        "employee badge swipe"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxNd1Vfek81Z0tKVGtuckQ0aXRXWi1SV0dDLU5hcFFGcDlZSjhrM3l6SzllcGxlTHF0eENMNUwydm1sQXp3dEVsSktpRzJZdkdmQWpESV8zVFJiZFpmRno3bzJOZ1psYjZRQ2VodFlNLUJ2dkFPLXBFMEx4LVpZYnUzSjVmS2JtVkg2TWdDZFBfNGtqSlJnZzh1aEJIZUVwV2tuUW5oQ2V1cjZzNlg3UlNWbmdkUVRBY2FxcGszWjdITkc4M0lKSHg5ZUsxSFRoN0htWmp4bHdBQ3hCSG5qNU1tZDItNEJoTS1iRDE4QldR0gHuAUFVX3lxTE13VV96TzVnS0pUa25yRDRpdFdaLVJXR0MtTmFwUUZwOVlKOGszeXpLOWVwbGVMcXR4Q0w1TDJ2bWxBend0RWxKS2lHMll2R2ZBakRJXzNURbZF",
+      "created_at": "2026-10-25",
+      "status": "draft",
+      "_score": 44,
+      "_judge": "The final line merely extends the middle slide's routine rather than landing on a distinct punchline.",
+      "_detail": {
+        "laugh": 3,
+        "share_trigger": 3,
+        "surprise": 3,
+        "specificity": 4,
+        "voice": 4,
+        "travels": 4
+      },
+      "_penalty": 4
+    },
+    {
+      "trend": "Indian Wellness Trends 2026: Why Sleep and Recovery Deserve More Attention",
+      "context": "Urban 30-year-olds buy sleep trackers and magnesium gummies to treat fatigue caused by work.",
+      "angle": "Sleep was free at twenty; at thirty it requires three gadgets and a daily performance dashboard.",
+      "slides": [
+        "Your smart ring gave your sleep a 62% performance score.",
+        "Magnesium glycinate at 10 PM.\nBlue light glasses on.\nNo water after 8 PM.\nOrtho pillow angled at 15 degrees.",
+        "You lie awake until 2 AM wondering why your recovery score is so low."
+      ],
+      "caption": "Somebody you know spent fifteen minutes analyzing their deep sleep chart this morning.",
+      "trigger": "health",
+      "structure": "escalating_list",
+      "move": "literalisation",
+      "target": "the wellness industry",
+      "satire_level": 3,
+      "hinglish": false,
+      "keywords": [
+        "sleep tracking app",
+        "recovery score data",
+        "wellness trend 2026"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPUjNzMFc4S1BobnA0UWZVUy1QdlFaVk9Za1dIUkYxZ3l6NjRMOTQxeG1iVUwwLXJYNW5HUUFVaXhrTDM1MTdoX2hzQklsLUg2a1luQWE2WHZSUzhJVWxOenBUUDZmeWF1VFB0MVlmeVF2eld2d1ZmS2s3b1ZzbnN5OFdTcE1PLUZJRklHUzVxWTdjRW5iV0w2NnZBdzJHVEd5dDgySTFJcGdJZmFnblNlbE03R25QRkNqWlF4NkhtcmtSSVE",
+      "created_at": "2026-10-25",
+      "status": "draft",
+      "_score": 39,
+      "_judge": "The landing explains the irony of sleep tracking instead of executing a new turn.",
+      "_detail": {
+        "laugh": 2,
+        "share_trigger": 3,
+        "surprise": 1,
+        "specificity": 5,
+        "voice": 3,
+        "travels": 5
+      },
+      "_penalty": 4
+    },
+    {
+      "trend": "IBM India leases 2.83 lakh sq ft of office space in Bengaluru for ₹343 crore over 10 years",
+      "context": "Tech companies sign decade-long office leases while sending strict return-to-office memos.",
+      "angle": "The return-to-office mandate was never about spontaneous collaboration; it was about justifying a ten-year real estate deal.",
+      "slides": [
+        "Your company signed a ten-year lease for your desk.",
+        "2021: Remote work is our permanent future.\n2023: Three days in office builds team trust.\n2026: Badge swipe registered at 8:59 AM.",
+        "The desk was non-negotiable.\n\nYour commute was not included."
+      ],
+      "caption": "Send this to the colleague currently taking a Zoom call from an open-plan hallway.",
+      "trigger": "corporate",
+      "structure": "then_now",
+      "move": "flat_restatement",
+      "target": "employer",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "bengaluru office space",
+        "return to office mandate",
+        "corporate workplace culture"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxNd1Vfek81Z0tKVGtuckQ0aXRXWi1SV0dDLU5hcFFGcDlZSjhrM3l6SzllcGxlTHF0eENMNUwydm1sQXp3dEVsSktpRzJZdkdmQWpESV8zVFJiZFpmRno3bzJOZ1psYjZRQ2VodFlNLUJ2dkFPLXBFMEx4LVpZYnUzSjVmS2JtVkg2TWdDZFBfNGtqSlJnZzh1aEJIZUVwV2tuUW5oQ2V1cjZzNlg3UlNWbmdkUVRBY2FxcGszWjdITkc4M0lKSHg5ZUsxSFRoN0htWmp4bHdBQ3hCSG5qNU1tZDItNEJoTS1iRDE4QldR0gHuAUFVX3lxTE13VV96TzVnS0pUa25yRDRpdFdaLVJXR0MtTmFwUUZwOVlKOGszeXpLOWVwbGVMcXR4Q0w1TDJ2bWxBend0RWxKS2lHMll2R2ZBakRJXzNURbZF",
+      "created_at": "2026-10-25",
+      "status": "draft",
+      "_score": 32,
+      "_judge": "The landing rests on a flat corporate restatement rather than a sharp turn or joke.",
+      "_detail": {
+        "laugh": 2,
+        "share_trigger": 3,
+        "surprise": 2,
+        "specificity": 4,
+        "voice": 3,
+        "travels": 5
+      },
+      "_penalty": 11
+    },
+    {
+      "trend": "Indian Wellness Trends 2026: Why Sleep and Recovery Deserve More Attention",
+      "context": "The wellness industry sells expensive night routines to people exhausted by 12-hour workdays.",
+      "angle": "The wellness fix for workplace burnout is selling you a silk eye mask and sleep coaching.",
+      "slides": [
+        "The wellness industry wants to optimise your 5 hours of sleep.",
+        "10:30 PM: Sleep hygiene webinar.\n11:00 PM: Melatonin spray under tongue.\n11:15 PM: Sound machine on forest rain.\n11:30 PM: Slack notification from boss.",
+        "The lavender mist was no match for Q3 deliverables."
+      ],
+      "caption": "Every office has someone selling blue light filter glasses to people working late shifts.",
+      "trigger": "health",
+      "structure": "terms_and_conditions",
+      "move": "the_institutional_frame",
+      "target": "the wellness industry",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "sleep hygiene tips",
+        "workplace burnout culture",
+        "corporate wellness program"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPUjNzMFc4S1BobnA0UWZVUy1QdlFaVk9Za1dIUkYxZ3l6NjRMOTQxeG1iVUwwLXJYNW5HUUFVaXhrTDM1MTdoX2hzQklsLUg2a1luQWE2WHZSUzhJVWxOenBUUDZmeWF1VFB0MVlmeVF2eld2d1ZmS2s3b1ZzbnN5OFdTcE1PLUZJRklHUzVxWTdjRW5iV0w2NnZBdzJHVEd5dDgySTFJcGdJZmFnblNlbE03R25QRkNqWlF4NkhtcmtSSVE",
+      "created_at": "2026-10-25",
+      "status": "draft",
+      "_score": 25,
+      "_judge": "Slide 1 reads like an essay topic title card rather than a personal hook.",
+      "_detail": {
+        "laugh": 3,
+        "share_trigger": 3,
+        "surprise": 2,
+        "specificity": 4,
+        "voice": 2,
+        "travels": 5
+      },
+      "_penalty": 19
+    }
+  ],
+  "rejected": []
+}

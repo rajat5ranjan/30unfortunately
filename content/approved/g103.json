@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "IBM India leases 2.83 lakh sq ft of office space in Bengaluru for ₹343 crore over 10 years",
+      "context": "Employees are dragged back to offices for collaboration that happens on screen anyway.",
+      "angle": "Hundreds of crores spent on floor space just so you can sit under fluorescent lights and join a call with London.",
+      "slides": [
+        "₹343 crore to recreate your living room in Outer Ring Road.",
+        "2.8 lakh square feet of glass.\nFour biometric scanners.\nOne coffee machine out of milk.\nSix people sitting together in complete silence.",
+        "The London team is still on mute."
+      ],
+      "caption": "Somebody on your team has been in the phone booth since 10 AM.",
+      "trigger": "office",
+      "structure": "juxtaposition",
+      "move": "the_turn_in_the_last_words",
+      "target": "HR",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "tech park commute",
+        "office real estate",
+        "bengaluru traffic jam"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxNd1Vfek81Z0tKVGtuckQ0aXRXWi1SV0dDLU5hcFFGcDlZSjhrM3l6SzllcGxlTHF0eENMNUwydm1sQXp3dEVsSktpRzJZdkdmQWpESV8zVFJiZFpmRno3bzJOZ1psYjZRQ2VodFlNLUJ2dkFPLXBFMEx4LVpZYnUzSjVmS2JtVkg2TWdDZFBfNGtqSlJnZzh1aEJIZUVwV2tuUW5oQ2V1cjZzNlg3UlNWbmdkUVRBY2FxcGszWjdITkc4M0lKSHg5ZUsxSFRoN0htWmp4bHdBQ3hCSG5qNU1tZDItNEJoTS1iRDE4QldR0gHuAUFVX3lxTE13VV96TzVnS0pUa25yRDRpdFdaLVJXR0MtTmFwUUZwOVlKOGszeXpLOWVwbGVMcXR4Q0w1TDJ2bWxBend0RWxKS2lHMll2R2ZBakRJXzNURbZF",
+      "created_at": "2026-10-25",
+      "status": "approved",
+      "id": "g103",
+      "rank_score": 58,
+      "rank_verdict": "Outer Ring Road in the hook load-bears slightly too much local trivia before the joke lands."
+    }
+  ]
+}

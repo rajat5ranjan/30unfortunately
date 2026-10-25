@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "IBM India leases 2.83 lakh sq ft of office space in Bengaluru for ₹343 crore over 10 years",
+      "context": "Corporate physical presence is tracked like primary school attendance.",
+      "angle": "The modern tech park is an adult daycare where presence is verified by turnstiles.",
+      "slides": [
+        "Your manager needs you in the office for your personal growth.",
+        "Log in at 9:00 AM.\nSwipe at turnstile.\nThoda alignment call in the cafeteria.\nHeadphones on till 6:00 PM.",
+        "By 2 PM you have spoken to two people.\nBoth said, 'Ek second screen share karta hoon.'"
+      ],
+      "caption": "Every team has one person who keeps their bag on the desk to mark attendance.",
+      "trigger": "corporate",
+      "structure": "job_description",
+      "move": "literalisation",
+      "target": "HR",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "hybrid work policy",
+        "corporate alignment call",
+        "employee badge swipe"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxNd1Vfek81Z0tKVGtuckQ0aXRXWi1SV0dDLU5hcFFGcDlZSjhrM3l6SzllcGxlTHF0eENMNUwydm1sQXp3dEVsSktpRzJZdkdmQWpESV8zVFJiZFpmRno3bzJOZ1psYjZRQ2VodFlNLUJ2dkFPLXBFMEx4LVpZYnUzSjVmS2JtVkg2TWdDZFBfNGtqSlJnZzh1aEJIZUVwV2tuUW5oQ2V1cjZzNlg3UlNWbmdkUVRBY2FxcGszWjdITkc4M0lKSHg5ZUsxSFRoN0htWmp4bHdBQ3hCSG5qNU1tZDItNEJoTS1iRDE4QldR0gHuAUFVX3lxTE13VV96TzVnS0pUa25yRDRpdFdaLVJXR0MtTmFwUUZwOVlKOGszeXpLOWVwbGVMcXR4Q0w1TDJ2bWxBend0RWxKS2lHMll2R2ZBakRJXzNURbZF",
+      "created_at": "2026-10-25",
+      "status": "approved",
+      "id": "g104",
+      "rank_score": 44,
+      "rank_verdict": "The final line merely extends the middle slide's routine rather than landing on a distinct punchline."
+    }
+  ]
+}

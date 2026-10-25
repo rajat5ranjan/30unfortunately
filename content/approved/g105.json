@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "Indian Wellness Trends 2026: Why Sleep and Recovery Deserve More Attention",
+      "context": "Urban 30-year-olds buy sleep trackers and magnesium gummies to treat fatigue caused by work.",
+      "angle": "Sleep was free at twenty; at thirty it requires three gadgets and a daily performance dashboard.",
+      "slides": [
+        "Your smart ring gave your sleep a 62% performance score.",
+        "Magnesium glycinate at 10 PM.\nBlue light glasses on.\nNo water after 8 PM.\nOrtho pillow angled at 15 degrees.",
+        "You lie awake until 2 AM wondering why your recovery score is so low."
+      ],
+      "caption": "Somebody you know spent fifteen minutes analyzing their deep sleep chart this morning.",
+      "trigger": "health",
+      "structure": "escalating_list",
+      "move": "literalisation",
+      "target": "the wellness industry",
+      "satire_level": 3,
+      "hinglish": false,
+      "keywords": [
+        "sleep tracking app",
+        "recovery score data",
+        "wellness trend 2026"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPUjNzMFc4S1BobnA0UWZVUy1QdlFaVk9Za1dIUkYxZ3l6NjRMOTQxeG1iVUwwLXJYNW5HUUFVaXhrTDM1MTdoX2hzQklsLUg2a1luQWE2WHZSUzhJVWxOenBUUDZmeWF1VFB0MVlmeVF2eld2d1ZmS2s3b1ZzbnN5OFdTcE1PLUZJRklHUzVxWTdjRW5iV0w2NnZBdzJHVEd5dDgySTFJcGdJZmFnblNlbE03R25QRkNqWlF4NkhtcmtSSVE",
+      "created_at": "2026-10-25",
+      "status": "approved",
+      "id": "g105",
+      "rank_score": 39,
+      "rank_verdict": "The landing explains the irony of sleep tracking instead of executing a new turn."
+    }
+  ]
+}

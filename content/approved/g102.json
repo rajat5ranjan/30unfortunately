@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "Indian Wellness Trends 2026: Why Sleep and Recovery Deserve More Attention",
+      "context": "The body in your thirties requires complex setup just to avoid waking up injured.",
+      "angle": "Sleeping on the wrong pillow at thirty carries the recovery timeline of a traffic accident.",
+      "slides": [
+        "You slept for seven hours and injured your neck.",
+        "At 21: Slept on a bus floor, woke up fine.\nAt 26: Slept on a sofa, needed five minutes.\nAt 32: Slept at a slightly wrong angle, four days of physio.",
+        "Your mother says it is because you did not drink warm water."
+      ],
+      "caption": "Your group chat has at least one person who carries an ortho cushion to dinner.",
+      "trigger": "health",
+      "structure": "then_now",
+      "move": "absurd_comparative",
+      "target": "self",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "back pain remedies",
+        "physiotherapy consultation",
+        "cervical pillow review"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPUjNzMFc4S1BobnA0UWZVUy1QdlFaVk9Za1dIUkYxZ3l6NjRMOTQxeG1iVUwwLXJYNW5HUUFVaXhrTDM1MTdoX2hzQklsLUg2a1luQWE2WHZSUzhJVWxOenBUUDZmeWF1VFB0MVlmeVF2eld2d1ZmS2s3b1ZzbnN5OFdTcE1PLUZJRklHUzVxWTdjRW5iV0w2NnZBdzJHVEd5dDgySTFJcGdJZmFnblNlbE03R25QRkNqWlF4NkhtcmtSSVE",
+      "created_at": "2026-10-25",
+      "status": "approved",
+      "id": "g102",
+      "rank_score": 59,
+      "rank_verdict": "Flawlessly executed turn on the landing that captures the exact tone of the account."
+    }
+  ]
+}
