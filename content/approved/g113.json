@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "India’s gross GST collections surge 13.9% YoY to Rs 1.94 lakh crore in June 2026",
+      "context": "Macroeconomic figures show double-digit growth while corporate increment budgets stay frozen.",
+      "angle": "The government's revenue grow at 14% while your employer claims macroeconomic headwinds.",
+      "slides": [
+        "Government tax collection went up 13.9% this year.",
+        "Your appraisal meeting lasted four minutes.\nThe deck showed five growth charts.\nYour manager mentioned macroeconomic headwinds.\nYou received 3.2%.",
+        "Thoda adjust kar lo."
+      ],
+      "caption": "Somebody in your team was told there is no budget for increments this quarter.",
+      "trigger": "salary",
+      "structure": "juxtaposition",
+      "move": "absurd_comparative",
+      "target": "employer",
+      "satire_level": 4,
+      "hinglish": true,
+      "keywords": [
+        "appraisal cycle",
+        "salary hike",
+        "corporate appraisal"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNaUdGY0EydEtjYk9LSXZrRlhJMDNRZ2g2MU1Wd1VOTDY1S2NJZTM4eWY2RGVPV3lHLVRUS0E1UWgzUGhxRmFmNDZ4VVNtSWZaZVNVNXREMHhFSjdjV2J1SUw2RUJmRDBrODFRUzFTTWhZcWplV1E3QkQtcEZsWDdHcnhyWG02Snhxbnp1UGZyRS1zV3NSVVBmNC1FWlFZWm5OanY5SjNvQQ?oc=5",
+      "created_at": "2026-10-29",
+      "status": "approved",
+      "id": "g113",
+      "rank_score": 42,
+      "rank_verdict": "Opens with a dry news bulletin title card instead of leading with the corporate raise absurdity."
+    }
+  ]
+}

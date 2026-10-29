@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "ResMed India opens its first flagship sleep health experience store in Kochi",
+      "context": "Late-night corporate communication destroys sleep hygiene regardless of medical equipment.",
+      "angle": "An expensive sleep tracking machine cannot protect you from midnight work notifications.",
+      "slides": [
+        "You bought a ₹40,000 device to fix your sleep architecture.",
+        "Deep sleep target: 2 hours.\nREMs measured: 4 cycles.\nSnore detection: active.\nSlack notification sound at 11:45 PM: unblocked.",
+        "Your manager is active on Teams."
+      ],
+      "caption": "You know who you are, and so does your physiotherapist.",
+      "trigger": "corporate",
+      "structure": "terms_and_conditions",
+      "move": "the_turn_in_the_last_words",
+      "target": "employer",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "sleep health",
+        "work stress",
+        "burnout recovery"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOYWtsSHFrell4T2RPYm13MXdNSUdndmZZaVVneDVOOUZDWjAtOG1INkdjYVVobHzdT3pZM0MtelJOQ2V1d2lFLVFDWkhEeDVwamliNGMxc0czTkxlcGY0XzVYY21pMVF2Ni0zRlhTQ3VlRVhDU2lCUzVmV2Z3V2RWVzJCc2pqTm1kQWtSdWp4d3g1eHlXTU85R2NLYWdQSHRISHlvVWpNY19CRFFldUY0VHp2VTRldERvdkFCWlk4NEFOajY3ZG4w?oc=5",
+      "created_at": "2026-10-29",
+      "status": "approved",
+      "id": "g111",
+      "rank_score": 51,
+      "rank_verdict": "Slide 2 devolves into a spec sheet log that forces the reader to digest metrics rather than escalating beats."
+    }
+  ]
+}

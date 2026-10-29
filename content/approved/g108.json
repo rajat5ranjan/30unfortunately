@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "ResMed India opens its first flagship sleep health experience store in Kochi",
+      "context": "Medicalised sleep solutions collide with traditional parental logic.",
+      "angle": "You research expensive sleep health clinics while your mother offers four free remedies.",
+      "slides": [
+        "\"Beta, do ghante se sone ki koshish kar rahe ho?\"",
+        "\"Chai band kar do.\"\n\"Phone doosre room mein rakho.\"\n\"Subah paanch baje utho, sab theek ho jayega.\"\n\"Machine khareedne ki kya zaroorat hai?\"",
+        "She has slept eight hours every night since 1984."
+      ],
+      "caption": "Whose mother is this?",
+      "trigger": "parents",
+      "structure": "phone_call",
+      "move": "flat_restatement",
+      "target": "relatives",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "insomnia fix",
+        "sleep schedule",
+        "deshi nuskhe"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOYWtsSHFrell4T2RPYm13MXdNSUdndmZZaVVneDVOOUZDWjAtOG1INkdjYVVobHzdT3pZM0MtelJOQ2V1d2lFLVFDWkhEeDVwamliNGMxc0czTkxlcGY0XzVYY21pMVF2Ni0zRlhTQ3VlRVhDU2lCUzVmV2Z3V2RWVzJCc2pqTm1kQWtSdWp4d3g1eHlXTU85R2NLYWdQSHRISHlvVWpNY19CRFFldUY0VHp2VTRldERvdkFCWlk4NEFOajY3ZG4w?oc=5",
+      "created_at": "2026-10-29",
+      "status": "approved",
+      "id": "g108",
+      "rank_score": 68,
+      "rank_verdict": "Dialogue runs through both slide 1 and slide 2 without enough narrative structure before the punchline."
+    }
+  ]
+}

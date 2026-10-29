@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "Tech Hiring in India 2026: Entry-level job roles slip to 4.3%; data engineering share nearly doubles",
+      "context": "Tech professionals must constantly re-skill every eighteen months to stay employed.",
+      "angle": "You rebrand your bio every two years only to receive the exact same advice your parents gave in 2010.",
+      "slides": [
+        "In 2021 you were an agile product strategist.",
+        "In 2023 you became a prompt engineer.\nIn 2025 you added cloud architect to your bio.\nToday you are enrolling in a ₹45,000 data engineering bootcamp.",
+        "\"Beta, computer course kar lo.\""
+      ],
+      "caption": "Every WhatsApp group has one cousin who resends coding bootcamp links at 11 PM.",
+      "trigger": "corporate",
+      "structure": "then_now",
+      "move": "the_banal_true_answer",
+      "target": "LinkedIn",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "coding bootcamp",
+        "tech career",
+        "resume update"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxPSktsaDR4MXhkZjRBVGRGUzRwWUhLVEJtYkRZenh3aC16MVZMMkJKVEI3MW9KcXJ0WHBCNlg0QnBWRF9yMEhPRGo1TGc3Ump3M3p5WlZycVZHRHB3OHZFVG5ET1VFUlBrS2pJVkNaZGp1djBiSi0tNTNTdkpSeUNxQkxTQUJBejFGYjRxWnhJZDA0OUY4MzJHbFFMemRNSlZxUmMyd0ZINHJYY2xId1ZKeEVpclhWc25jeFdYNVhpSkJpTXo4X2k3N0dTcVVVdlp4RWY1Qm5oZmlNNVF4ZEtTNFBVQmoxUXpZRUHSAe8BQVVfeXFMTlktU1pUdGpNdy1kRXJpV2hDTkJDQkVEakFOdVZCOGtYRWlZSUN3Ymp5bUdwcWZweHVER0E0R0lPMDBTTzk4eWxyQWdLbkc0d0FldFZqckF0bXhoVUN1S09tNnVOejJ5em1rZWJzYmlkQ2VPNGw5Z1gwNFBsLTZCSTZZUjVDRmpySEpBTFliOTJUeVJzRVVGaUc0YjlvbktBSVVIdFI5ejdfYlFVc1A4Q3lVRFcxR2podzFFLVJzR2d1UExzNDdidERGN0dVTHhsbHl0bkFERWZPb3dWUkQ4p5jZkWkgOENTQ0hiV1k?oc=5",
+      "created_at": "2026-10-29",
+      "status": "approved",
+      "id": "g109",
+      "rank_score": 53,
+      "rank_verdict": "Slide 2 stacks too many job titles in the exact same format before the killer landing line saves it."
+    }
+  ]
+}

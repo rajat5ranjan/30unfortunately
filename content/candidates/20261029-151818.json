@@ -1,0 +1,323 @@
+{
+  "generated_at": "20261029-151818",
+  "model": "gemini-3.5-flash",
+  "accepted": [
+    {
+      "trend": "ResMed India opens its first flagship sleep health experience store in Kochi",
+      "context": "Medicalised sleep solutions collide with traditional parental logic.",
+      "angle": "You research expensive sleep health clinics while your mother offers four free remedies.",
+      "slides": [
+        "\"Beta, do ghante se sone ki koshish kar rahe ho?\"",
+        "\"Chai band kar do.\"\n\"Phone doosre room mein rakho.\"\n\"Subah paanch baje utho, sab theek ho jayega.\"\n\"Machine khareedne ki kya zaroorat hai?\"",
+        "She has slept eight hours every night since 1984."
+      ],
+      "caption": "Whose mother is this?",
+      "trigger": "parents",
+      "structure": "phone_call",
+      "move": "flat_restatement",
+      "target": "relatives",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "insomnia fix",
+        "sleep schedule",
+        "deshi nuskhe"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOYWtsSHFrell4T2RPYm13MXdNSUdndmZZaVVneDVOOUZDWjAtOG1INkdjYVVobHzdT3pZM0MtelJOQ2V1d2lFLVFDWkhEeDVwamliNGMxc0czTkxlcGY0XzVYY21pMVF2Ni0zRlhTQ3VlRVhDU2lCUzVmV2Z3V2RWVzJCc2pqTm1kQWtSdWp4d3g1eHlXTU85R2NLYWdQSHRISHlvVWpNY19CRFFldUY0VHp2VTRldERvdkFCWlk4NEFOajY3ZG4w?oc=5",
+      "created_at": "2026-10-29",
+      "status": "draft",
+      "_score": 68,
+      "_judge": "Dialogue runs through both slide 1 and slide 2 without enough narrative structure before the punchline.",
+      "_detail": {
+        "laugh": 5,
+        "share_trigger": 5,
+        "surprise": 5,
+        "specificity": 4,
+        "voice": 5,
+        "travels": 4
+      },
+      "_penalty": -2
+    },
+    {
+      "trend": "Tech Hiring in India 2026: Entry-level job roles slip to 4.3%; data engineering share nearly doubles",
+      "context": "Tech professionals must constantly re-skill every eighteen months to stay employed.",
+      "angle": "You rebrand your bio every two years only to receive the exact same advice your parents gave in 2010.",
+      "slides": [
+        "In 2021 you were an agile product strategist.",
+        "In 2023 you became a prompt engineer.\nIn 2025 you added cloud architect to your bio.\nToday you are enrolling in a ₹45,000 data engineering bootcamp.",
+        "\"Beta, computer course kar lo.\""
+      ],
+      "caption": "Every WhatsApp group has one cousin who resends coding bootcamp links at 11 PM.",
+      "trigger": "corporate",
+      "structure": "then_now",
+      "move": "the_banal_true_answer",
+      "target": "LinkedIn",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "coding bootcamp",
+        "tech career",
+        "resume update"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxPSktsaDR4MXhkZjRBVGRGUzRwWUhLVEJtYkRZenh3aC16MVZMMkJKVEI3MW9KcXJ0WHBCNlg0QnBWRF9yMEhPRGo1TGc3Ump3M3p5WlZycVZHRHB3OHZFVG5ET1VFUlBrS2pJVkNaZGp1djBiSi0tNTNTdkpSeUNxQkxTQUJBejFGYjRxWnhJZDA0OUY4MzJHbFFMemRNSlZxUmMyd0ZINHJYY2xId1ZKeEVpclhWc25jeFdYNVhpSkJpTXo4X2k3N0dTcVVVdlp4RWY1Qm5oZmlNNVF4ZEtTNFBVQmoxUXpZRUHSAe8BQVVfeXFMTlktU1pUdGpNdy1kRXJpV2hDTkJDQkVEakFOdVZCOGtYRWlZSUN3Ymp5bUdwcWZweHVER0E0R0lPMDBTTzk4eWxyQWdLbkc0d0FldFZqckF0bXhoVUN1S09tNnVOejJ5em1rZWJzYmlkQ2VPNGw5Z1gwNFBsLTZCSTZZUjVDRmpySEpBTFliOTJUeVJzRVVGaUc0YjlvbktBSVVIdFI5ejdfYlFVc1A4Q3lVRFcxR2podzFFLVJzR2d1UExzNDdidERGN0dVTHhsbHl0bkFERWZPb3dWUkQ4p5jZkWkgOENTQ0hiV1k?oc=5",
+      "created_at": "2026-10-29",
+      "status": "draft",
+      "_score": 53,
+      "_judge": "Slide 2 stacks too many job titles in the exact same format before the killer landing line saves it.",
+      "_detail": {
+        "laugh": 5,
+        "share_trigger": 5,
+        "surprise": 5,
+        "specificity": 5,
+        "voice": 5,
+        "travels": 4
+      },
+      "_penalty": 15
+    },
+    {
+      "trend": "ResMed India opens its first flagship sleep health experience store in Kochi",
+      "context": "Basic biological functions like sleeping have become monetised retail experiences.",
+      "angle": "You can spend a fortune on sleep gadgets but your brain still overthinks for free.",
+      "slides": [
+        "They opened a flagship retail store to sell you sleep.",
+        "Sleep score tracker on your wrist.\nWeighted blanket in your cart.\nMagnesium glycinate on order.\n₹40,000 machine next to the bed.",
+        "Your brain turns on at 2:00 AM for free."
+      ],
+      "caption": "Somebody you know has four sleep tracking apps installed and still wakes up tired.",
+      "trigger": "health",
+      "structure": "receipt",
+      "move": "absurd_comparative",
+      "target": "the wellness industry",
+      "satire_level": 3,
+      "hinglish": false,
+      "keywords": [
+        "sleep tracking",
+        "sleep apnea",
+        "wellness store"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOYWtsSHFrell4T2RPYm13MXdNSUdndmZZaVVneDVOOUZDWjAtOG1INkdjYVVobHzdT3pZM0MtelJOQ2V1d2lFLVFDWkhEeDVwamliNGMxc0czTkxlcGY0XzVYY21pMVF2Ni0zRlhTQ3VlRVhDU2lCUzVmV2Z3V2RWVzJCc2pqTm1kQWtSdWp4d3g1eHlXTU85R2NLYWdQSHRISHlvVWpNY19CRFFldUY0VHp2VTRldERvdkFCWlk4NEFOajY3ZG4w?oc=5",
+      "created_at": "2026-10-29",
+      "status": "draft",
+      "_score": 52,
+      "_judge": "The hook clears its throat about a retail store instead of hitting directly with the sleep item madness.",
+      "_detail": {
+        "laugh": 4,
+        "share_trigger": 4,
+        "surprise": 4,
+        "specificity": 5,
+        "voice": 5,
+        "travels": 5
+      },
+      "_penalty": 10
+    },
+    {
+      "trend": "ResMed India opens its first flagship sleep health experience store in Kochi",
+      "context": "Late-night corporate communication destroys sleep hygiene regardless of medical equipment.",
+      "angle": "An expensive sleep tracking machine cannot protect you from midnight work notifications.",
+      "slides": [
+        "You bought a ₹40,000 device to fix your sleep architecture.",
+        "Deep sleep target: 2 hours.\nREMs measured: 4 cycles.\nSnore detection: active.\nSlack notification sound at 11:45 PM: unblocked.",
+        "Your manager is active on Teams."
+      ],
+      "caption": "You know who you are, and so does your physiotherapist.",
+      "trigger": "corporate",
+      "structure": "terms_and_conditions",
+      "move": "the_turn_in_the_last_words",
+      "target": "employer",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "sleep health",
+        "work stress",
+        "burnout recovery"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOYWtsSHFrell4T2RPYm13MXdNSUdndmZZaVVneDVOOUZDWjAtOG1INkdjYVVobHzdT3pZM0MtelJOQ2V1d2lFLVFDWkhEeDVwamliNGMxc0czTkxlcGY0XzVYY21pMVF2Ni0zRlhTQ3VlRVhDU2lCUzVmV2Z3V2RWVzJCc2pqTm1kQWtSdWp4d3g1eHlXTU85R2NLYWdQSHRISHlvVWpNY19CRFFldUY0VHp2VTRldERvdkFCWlk4NEFOajY3ZG4w?oc=5",
+      "created_at": "2026-10-29",
+      "status": "draft",
+      "_score": 51,
+      "_judge": "Slide 2 devolves into a spec sheet log that forces the reader to digest metrics rather than escalating beats.",
+      "_detail": {
+        "laugh": 4,
+        "share_trigger": 5,
+        "surprise": 4,
+        "specificity": 5,
+        "voice": 5,
+        "travels": 5
+      },
+      "_penalty": 14
+    },
+    {
+      "trend": "India’s gross GST collections surge 13.9% YoY to Rs 1.94 lakh crore in June 2026",
+      "context": "Formal tax reporting tracks every transaction except urban housing rent.",
+      "angle": "The entire economy runs on digital receipts while your landlord demands untraceable cash.",
+      "slides": [
+        "The state collected ₹1.94 lakh crore in thirty days.",
+        "TDS deducted at source.\nGST on maintenance charges.\nBrokerage for renewing your own lease.\nAdvance deposit sitting in an index fund.",
+        "Your landlord accepts cash only."
+      ],
+      "caption": "Every family has one uncle who asks if your rent receipt has a PAN number attached.",
+      "trigger": "rent",
+      "structure": "receipt",
+      "move": "the_turn_in_the_last_words",
+      "target": "landlord",
+      "satire_level": 3,
+      "hinglish": false,
+      "keywords": [
+        "rent receipt",
+        "house deposit",
+        "landlord rent"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNaUdGY0EydEtjYk9LSXZrRlhJMDNRZ2g2MU1Wd1VOTDY1S2NJZTM4eWY2RGVPV3lHLVRUS0E1UWgzUGhxRmFmNDZ4VVNtSWZaZVNVNXREMHhFSjdjV2J1SUw2RUJmRDBrODFRUzFTTWhZcWplV1E3QkQtcEZsWDdHcnhyWG02Snhxbnp1UGZyRS1zV3NSVVBmNC1FWlFZWm5OanY5SjNvQQ?oc=5",
+      "created_at": "2026-10-29",
+      "status": "draft",
+      "_score": 47,
+      "_judge": "Heavy reliance on Indian tax jargon burdens the middle slide before reaching a very strong landing.",
+      "_detail": {
+        "laugh": 4,
+        "share_trigger": 4,
+        "surprise": 4,
+        "specificity": 5,
+        "voice": 4,
+        "travels": 2
+      },
+      "_penalty": 7
+    },
+    {
+      "trend": "India’s gross GST collections surge 13.9% YoY to Rs 1.94 lakh crore in June 2026",
+      "context": "Macroeconomic figures show double-digit growth while corporate increment budgets stay frozen.",
+      "angle": "The government's revenue grow at 14% while your employer claims macroeconomic headwinds.",
+      "slides": [
+        "Government tax collection went up 13.9% this year.",
+        "Your appraisal meeting lasted four minutes.\nThe deck showed five growth charts.\nYour manager mentioned macroeconomic headwinds.\nYou received 3.2%.",
+        "Thoda adjust kar lo."
+      ],
+      "caption": "Somebody in your team was told there is no budget for increments this quarter.",
+      "trigger": "salary",
+      "structure": "juxtaposition",
+      "move": "absurd_comparative",
+      "target": "employer",
+      "satire_level": 4,
+      "hinglish": true,
+      "keywords": [
+        "appraisal cycle",
+        "salary hike",
+        "corporate appraisal"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNaUdGY0EydEtjYk9LSXZrRlhJMDNRZ2g2MU1Wd1VOTDY1S2NJZTM4eWY2RGVPV3lHLVRUS0E1UWgzUGhxRmFmNDZ4VVNtSWZaZVNVNXREMHhFSjdjV2J1SUw2RUJmRDBrODFRUzFTTWhZcWplV1E3QkQtcEZsWDdHcnhyWG02Snhxbnp1UGZyRS1zV3NSVVBmNC1FWlFZWm5OanY5SjNvQQ?oc=5",
+      "created_at": "2026-10-29",
+      "status": "draft",
+      "_score": 42,
+      "_judge": "Opens with a dry news bulletin title card instead of leading with the corporate raise absurdity.",
+      "_detail": {
+        "laugh": 3,
+        "share_trigger": 4,
+        "surprise": 3,
+        "specificity": 4,
+        "voice": 4,
+        "travels": 3
+      },
+      "_penalty": 7
+    },
+    {
+      "trend": "Tech Hiring in India 2026: Entry-level job roles slip to 4.3%; data engineering share nearly doubles",
+      "context": "Entry-level tech jobs have evaporated, shifting all work onto mid-level engineers.",
+      "angle": "Entry-level positions disappeared so mid-level staff now do the entry-level work and train AI.",
+      "slides": [
+        "Freshers are no longer required in IT.",
+        "Entry level role: 4.3% of total hiring.\nMinimum experience required: four years.\nData engineering certification: mandatory.\nPrevious CTC: irrelevant.",
+        "You now train the software that replaces you."
+      ],
+      "caption": "The senior engineer on your team who has been updating their LinkedIn headline since Tuesday.",
+      "trigger": "corporate",
+      "structure": "job_description",
+      "move": "literalisation",
+      "target": "HR",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "tech hiring",
+        "data engineering",
+        "entry level job"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxPSktsaDR4MXhkZjRBVGRGUzRwWUhLVEJtYkRZenh3aC16MVZMMkJKVEI3MW9KcXJ0WHBCNlg0QnBWRF9yMEhPRGo1TGc3Ump3M3p5WlZycVZHRHB3OHZFVG5ET1VFUlBrS2pJVkNaZGp1djBiSi0tNTNTdkpSeUNxQkxTQUJBejFGYjRxWnhJZDA0OUY4MzJHbFFMemRNSlZxUmMyd0ZINHJYY2xId1ZKeEVpclhWc25jeFdYNVhpSkJpTXo4X2k3N0dTcVVVdlp4RWY1Qm5oZmlNNVF4ZEtTNFBVQmoxUXpZRUHSAe8BQVVfeXFMTlktU1pUdGpNdy1kRXJpV2hDTkJDQkVEakFOdVZCOGtYRWlZSUN3Ymp5bUdwcWZweHVER0E0R0lPMDBTTzk4eWxyQWdLbkc0d0FldFZqckF0bXhoVUN1S09tNnVOejJ5em1rZWJzYmlkQ2VPNGw5Z1gwNFBsLTZCSTZZUjVDRmpySEpBTFliOTJUeVJzRVVGaUc0YjlvbktBSVVIdFI5ejdfYlFVc1A4Q3lVRFcxR2podzFFLVJzR2d1UExzNDdidERGN0dVTHhsbHl0bkFERWZPb3dWUkQ4p5jZkWkgOENTQ0hiV1k?oc=5",
+      "created_at": "2026-10-29",
+      "status": "draft",
+      "_score": 24,
+      "_judge": "Reads like an accurate and sad LinkedIn comment thread rather than a post with an unexpected turn.",
+      "_detail": {
+        "laugh": 2,
+        "share_trigger": 3,
+        "surprise": 2,
+        "specificity": 3,
+        "voice": 3,
+        "travels": 5
+      },
+      "_penalty": 17
+    },
+    {
+      "trend": "India’s gross GST collections surge 13.9% YoY to Rs 1.94 lakh crore in June 2026",
+      "context": "Indirect taxes hit record highs through micro-fees while individual wallets shrink.",
+      "angle": "Every step of ordering dinner is taxed separately before the food even arrives.",
+      "slides": [
+        "The tax department had a record June.",
+        "18% on your coffee.\n18% on your internet.\n₹5 platform fee on the bill.\nHandling charge for paying the platform fee.",
+        "You are funding the entire ecosystem."
+      ],
+      "caption": "Send this to the person who calculates the split on every dinner bill down to the paisa.",
+      "trigger": "upi",
+      "structure": "escalating_list",
+      "move": "flat_restatement",
+      "target": "platform",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "gst collection",
+        "platform fee",
+        "swiggy bill"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNaUdGY0EydEtjYk9LSXZrRlhJMDNRZ2g2MU1Wd1VOTDY1S2NJZTM4eWY2RGVPV3lHLVRUS0E1UWgzUGhxRmFmNDZ4VVNtSWZaZVNVNXREMHhFSjdjV2J1SUw2RUJmRDBrODFRUzFTTWhZcWplV1E3QkQtcEZsWDdHcnhyWG02Snhxbnp1UGZyRS1zV3NSVVBmNC1FWlFZWm5OanY5SjNvQQ?oc=5",
+      "created_at": "2026-10-29",
+      "status": "draft",
+      "_score": 18,
+      "_judge": "Slide 1 reads like a government tax memo and the landing explains the premise instead of delivering a joke.",
+      "_detail": {
+        "laugh": 1,
+        "share_trigger": 2,
+        "surprise": 1,
+        "specificity": 3,
+        "voice": 2,
+        "travels": 4
+      },
+      "_penalty": 11
+    }
+  ],
+  "rejected": [
+    {
+      "trend": "Tech Hiring in India 2026: Entry-level job roles slip to 4.3%; data engineering share nearly doubles",
+      "context": "Corporate hiring freezes freeze junior roles while keeping targets identical.",
+      "angle": "When company hiring stops, your job description simply swallows three other jobs.",
+      "slides": [
+        "Your team headcount was reduced by three people in January.",
+        "Ticket status: closed.\nReplacement request: denied.\nJunior onboarding budget: reallocated.\nDaily pipeline build: assigned to you.",
+        "You are now three engineers."
+      ],
+      "caption": "Your colleague who hasn't closed their laptop before 9 PM since February.",
+      "trigger": "corporate",
+      "structure": "customer_support",
+      "move": "the_institutional_frame",
+      "target": "employer",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "layoff severance",
+        "workload automation",
+        "software engineer"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxPSktsaDR4MXhkZjRBVGRGUzRwWUhLVEJtYkRZenh3aC16MVZMMkJKVEI3MW9KcXJ0WHBCNlg0QnBWRF9yMEhPRGo1TGc3Ump3M3p5WlZycVZHRHB3OHZFVG5ET1VFUlBrS2pJVkNaZGp1djBiSi0tNTNTdkpSeUNxQkxTQUJBejFGYjRxWnhJZDA0OUY4MzJHbFFMemRNSlZxUmMyd0ZINHJYY2xId1ZKeEVpclhWc25jeFdYNVhpSkJpTXo4X2k3N0dTcVVVdlp4RWY1Qm5oZmlNNVF4ZEtTNFBVQmoxUXpZRUHSAe8BQVVfeXFMTlktU1pUdGpNdy1kRXJpV2hDTkJDQkVEakFOdVZCOGtYRWlZSUN3Ymp5bUdwcWZweHVER0E0R0lPMDBTTzk4eWxyQWdLbkc0d0FldFZqckF0bXhoVUN1S09tNnVOejJ5em1rZWJzYmlkQ2VPNGw5Z1gwNFBsLTZCSTZZUjVDRmpySEpBTFliOTJUeVJzRVVGaUc0YjlvbktBSVVIdFI5ejdfYlFVc1A4Q3lVRFcxR2podzFFLVJzR2d1UExzNDdidERGN0dVTHhsbHl0bkFERWZPb3dWUkQ4p5jZkWkgOENTQ0hiV1k?oc=5",
+      "created_at": "2026-10-29",
+      "_gate_failures": [
+        "no concrete detail (no number, rupee figure or quoted speech) — too generic"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "India’s gross GST collections surge 13.9% YoY to Rs 1.94 lakh crore in June 2026",
+      "context": "Formal tax reporting tracks every transaction except urban housing rent.",
+      "angle": "The entire economy runs on digital receipts while your landlord demands untraceable cash.",
+      "slides": [
+        "The state collected ₹1.94 lakh crore in thirty days.",
+        "TDS deducted at source.\nGST on maintenance charges.\nBrokerage for renewing your own lease.\nAdvance deposit sitting in an index fund.",
+        "Your landlord accepts cash only."
+      ],
+      "caption": "Every family has one uncle who asks if your rent receipt has a PAN number attached.",
+      "trigger": "rent",
+      "structure": "receipt",
+      "move": "the_turn_in_the_last_words",
+      "target": "landlord",
+      "satire_level": 3,
+      "hinglish": false,
+      "keywords": [
+        "rent receipt",
+        "house deposit",
+        "landlord rent"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNaUdGY0EydEtjYk9LSXZrRlhJMDNRZ2g2MU1Wd1VOTDY1S2NJZTM4eWY2RGVPV3lHLVRUS0E1UWgzUGhxRmFmNDZ4VVNtSWZaZVNVNXREMHhFSjdjV2J1SUw2RUJmRDBrODFRUzFTTWhZcWplV1E3QkQtcEZsWDdHcnhyWG02Snhxbnp1UGZyRS1zV3NSVVBmNC1FWlFZWm5OanY5SjNvQQ?oc=5",
+      "created_at": "2026-10-29",
+      "status": "approved",
+      "id": "g112",
+      "rank_score": 47,
+      "rank_verdict": "Heavy reliance on Indian tax jargon burdens the middle slide before reaching a very strong landing."
+    }
+  ]
+}
