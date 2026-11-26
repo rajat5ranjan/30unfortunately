@@ -141,7 +141,7 @@ class Spacing(unittest.TestCase):
 
 
 class Formats(unittest.TestCase):
-    """Reels, with one carousel a week. The experiment finished 21-21."""
+    """Reels only, since 2026-11-26. Carousels lost 21-21 and then 25-67."""
 
     def _conn(self, last_carousel):
         conn = sqlite3.connect(":memory:")
@@ -156,35 +156,21 @@ class Formats(unittest.TestCase):
                 (last_carousel,))
         return conn
 
-    def test_a_carousel_comes_back_after_a_week(self):
-        now = datetime(2026, 10, 20, tzinfo=timezone.utc)
-        six = (now - timedelta(days=6)).isoformat()
-        seven = (now - timedelta(days=7)).isoformat()
-        self.assertEqual(store.format_for(self._conn(six), now), "reel")
-        self.assertEqual(store.format_for(self._conn(seven), now), "carousel")
+    def test_no_carousel_however_long_since_the_last(self):
+        now = datetime(2026, 11, 26, tzinfo=timezone.utc)
+        for gap in (0, 7, 40):
+            last = (now - timedelta(days=gap)).isoformat()
+            self.assertEqual(store.format_for(self._conn(last), now), "reel")
 
-    def test_the_arm_never_reaches_zero(self):
-        """However long the gap, the next one is still a carousel."""
-        now = datetime(2026, 10, 20, tzinfo=timezone.utc)
-        old = (now - timedelta(days=40)).isoformat()
-        self.assertEqual(store.format_for(self._conn(old), now), "carousel")
-
-    def test_a_naive_timestamp_does_not_crash_the_publisher(self):
-        """Rows written before the format column carry no timezone."""
-        now = datetime(2026, 10, 20, tzinfo=timezone.utc)
-        naive = datetime(2026, 10, 1).isoformat()
-        self.assertEqual(store.format_for(self._conn(naive), now), "carousel")
+    def test_an_empty_history_is_a_reel_too(self):
+        now = datetime(2026, 11, 26, tzinfo=timezone.utc)
+        self.assertEqual(store.format_for(self._conn(None), now), "reel")
 
     def test_a_naive_now_does_not_crash_the_status_command(self):
         """publish.py check works in local wall-clock time and passes it in."""
-        naive_now = datetime(2026, 10, 20)
         stored = datetime(2026, 10, 1, tzinfo=timezone.utc).isoformat()
-        self.assertEqual(store.format_for(self._conn(stored), naive_now),
-                         "carousel")
-
-    def test_an_empty_history_starts_with_one(self):
-        now = datetime(2026, 10, 20, tzinfo=timezone.utc)
-        self.assertEqual(store.format_for(self._conn(None), now), "carousel")
+        self.assertEqual(store.format_for(self._conn(stored), datetime(2026, 11, 26)),
+                         "reel")
 
     def test_urls(self):
         self.assertTrue(publish.reel_url("g005").endswith("/reels/g005.mp4"))

@@ -11,8 +11,8 @@ publish.py — Instagram carousel publishing via the official Graph API.
     python3 publish.py ab                        carousel vs reel, so far
     python3 publish.py refresh-token             extend the 60-day token
 
-A post ships as a reel, or as the week's one carousel (store.format_for)
-— that is the reach experiment, and `ab` reads it out.
+Every post ships as a reel (store.format_for). The carousel-vs-reel
+experiment is over; `ab` still reads out the history.
 
 A carousel is a three-step dance: a container per slide, a CAROUSEL container
 holding their ids, then media_publish. A reel is one container and a longer
@@ -595,11 +595,13 @@ def cmd_next(args: argparse.Namespace) -> int:
 
     if fmt == "reel" and not (url_is_live(reel_url(row["id"]))
                               and url_is_live(cover_url(row["id"]))):
-        # Ship the carousel rather than skip the slot, and record what actually
-        # went out. The split drifts; a missing post would be worse, and an
-        # arm labelled with what it was meant to be would be worse still.
-        print("reel asset is not on the release yet — publishing as a carousel")
-        fmt = "carousel"
+        # This used to ship the carousel instead. Carousels are gone, and a
+        # carousel in a reel slot is the format that reached a third as far.
+        # Leave the row queued: assets.yml backfills the reel every two hours
+        # and the next poll inside a window publishes it.
+        _alert("%s is due but its reel or cover is not on the release yet. "
+               "Not publishing; it stays queued for the next poll." % row["id"])
+        sys.exit("reel asset is not on the release yet — not publishing")
     store.set_format(conn, row["id"], fmt)
 
     try:

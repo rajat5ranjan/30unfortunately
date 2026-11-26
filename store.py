@@ -185,47 +185,19 @@ def connect(write: bool = False) -> sqlite3.Connection:
     return conn
 
 
-CAROUSEL_EVERY_DAYS = 7
-
-
 def format_for(conn: sqlite3.Connection, when: "datetime") -> str:
-    """Which format the next post ships as: reels, and one carousel a week.
+    """Which format the next post ships as. Reels, always.
 
-    The experiment is over. At 21 posts each, reels reached 5.0x further with a
-    90% interval of 2.0x-6.2x, and the gap was still widening: by the week of
-    29 Sep a carousel reached about six people and a reel about forty-seven.
-    Day-parity alternation spent half of every day's three slots on that, which
-    is the single largest reach cost in the system.
+    The A/B finished at 21 posts each: reels reached 5.0x further (90% interval
+    2.0x-6.2x). The one-carousel-a-week insurance arm ran to 2026-11-01 and
+    told us nothing new: 25 carousels, median reach 8, against 19 for 67
+    reels. Dropped 2026-11-26. `publish.py next --format carousel` still
+    works by hand if the platform's treatment ever needs re-checking.
 
-    One a week rather than none, because the result describes how Instagram
-    treated this account in September 2026 and not a law. A carousel every
-    seventh day is about 5% of the slots — enough to notice if the treatment
-    changes, cheap enough to be worth the insurance.
-
-    Keyed to elapsed days since the last carousel, not to a weekday. GitHub
-    drops scheduled runs routinely, so "carousel on Mondays" would skip the
-    carousel entirely on any week whose Monday polls were dropped, and the arm
-    would reach zero without anything saying so.
+    The arguments stay so the callers, and anything that wants a schedule
+    back later, do not have to change.
     """
-    last = conn.execute(
-        "SELECT MAX(published_at) FROM posts"
-        " WHERE status='published' AND format='carousel'").fetchone()[0]
-    if not last:
-        return "carousel"
-    try:
-        then = datetime.fromisoformat(last.replace("Z", "+00:00"))
-    except (ValueError, AttributeError):
-        return "reel"
-    # Both ends get normalised, and neither can be assumed. publish.py reads
-    # this from two places: `next` passes an aware UTC now, and `check` passes
-    # a naive local one because every window comparison it does is in local
-    # wall-clock time. Subtracting one from the other is a TypeError, which is
-    # a crashed status command rather than a wrong format.
-    if then.tzinfo is None:
-        then = then.replace(tzinfo=timezone.utc)
-    if when.tzinfo is None:
-        when = when.replace(tzinfo=timezone.utc)
-    return "carousel" if (when - then).days >= CAROUSEL_EVERY_DAYS else "reel"
+    return "reel"
 
 
 def set_format(conn: sqlite3.Connection, post_id: str, fmt: str) -> None:

@@ -1,7 +1,6 @@
 # Thirty Unfortunately
 
-An autonomous Instagram content agent. Three posts a day — reels, with one
-carousel a week — satirising Indian adulthood, generated from live trends,
+An autonomous Instagram content agent. Three posts a day — reels — satirising Indian adulthood, generated from live trends,
 rendered locally, published via the official Meta API.
 
 **Account:** [@30unfortunately](https://instagram.com/30unfortunately) ·
@@ -154,11 +153,11 @@ posts each, reels reached **5.0x** further with a 90% interval of 2.0x-6.2x,
 and the gap was widening: in the week of 29 Sep a carousel reached about six
 people and a reel about forty-seven.
 
-So it is reels now, with **one carousel every seven days** — about 5% of the
-slots, kept because the result describes how Instagram treated this account in
-September 2026 and not a law. Keyed to days since the last carousel rather
-than to a weekday: GitHub drops scheduled runs, and "carousel on Mondays"
-would take the arm to zero in any week whose Monday polls were dropped.
+So it is reels now, and only reels. A one-carousel-a-week arm ran until
+2026-11-01 as insurance and changed nothing (25 carousels, median reach 8,
+against 19 across 67 reels); it was dropped on 2026-11-26. If a reel's video
+is not on the Release yet, the post stays queued for the next poll instead of
+going out as a carousel. `publish.py next --format carousel` still works by hand.
 
 `publish.py ab` reads it out: medians rather than means, because reach is
 violently right-skewed and one post catching Explore would move a mean and tell
