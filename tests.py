@@ -316,7 +316,7 @@ class ContactSheet(unittest.TestCase):
             {"id": i, "slides": ["a", "b"]} for i in sorted(status)]
         _render.queue_status = lambda: dict(
             (k, v) for k, v in status.items() if v)
-        _render.dashboard = lambda: ("", "")
+        _render.dashboard = lambda: ("", "", "")
         try:
             _render.write_contact_sheet([], "@x")
             with io.open(self.SHEET, encoding="utf-8") as f:
@@ -630,6 +630,54 @@ class LandingShape(unittest.TestCase):
         self.assertFalse(_brain.is_couplet([""]))
 
 
+class Phases(unittest.TestCase):
+    """v1 vs v2 split on relaunch_date, first-day numbers per side."""
+
+    def setUp(self):
+        import metrics
+        self.m = metrics
+        self.conn = sqlite3.connect(":memory:")
+        self.conn.row_factory = sqlite3.Row
+        import store as st
+        self.conn.executescript(st.SCHEMA)
+        have = set(r["name"] for r in self.conn.execute("PRAGMA table_info(posts)"))
+        for col, add, _ in st.MIGRATIONS:
+            if col not in have:
+                self.conn.execute(add)
+        have = set(r["name"] for r in self.conn.execute("PRAGMA table_info(metrics)"))
+        for col, add, _ in getattr(st, "METRIC_MIGRATIONS", []):
+            if col not in have:
+                self.conn.execute(add)
+
+    def add(self, pid, pub, reach, shares=0, fmt="reel"):
+        self.conn.execute("INSERT INTO posts (id, slides, caption, status, published_at, "
+                          "ig_media_id, format) VALUES (?, '[]', '', 'published', ?, ?, ?)",
+                          (pid, pub, "m" + pid, fmt))
+        cap = (datetime.fromisoformat(pub) + timedelta(hours=20)).isoformat()
+        self.conn.execute("INSERT INTO metrics (ig_media_id, post_id, captured_at, reach, "
+                          "views, likes, shares, saved) VALUES (?,?,?,?,?,?,?,0)",
+                          ("m" + pid, pid, cap, reach, reach, 1, shares))
+
+    def test_split_and_medians(self):
+        self.add("g001", "2026-09-17T08:00:00+00:00", 10, fmt="carousel")
+        self.add("g002", "2026-09-18T08:00:00+00:00", 30)
+        self.add("g003", "2026-11-01T08:00:00+00:00", 20, shares=1)
+        self.add("g114", "2026-11-26T08:00:00+00:00", 50, shares=2)
+        ph = self.m.phases(self.conn, split="2026-11-26")
+        self.assertEqual(ph["v1"]["posts"], 3)
+        self.assertEqual(ph["v2"]["posts"], 1)
+        self.assertEqual(ph["v1"]["day1_median"], 20)
+        self.assertEqual(ph["v2"]["day1_median"], 50)
+        self.assertEqual(ph["v1"]["carousels"], 1)
+        self.assertEqual(ph["gap_days"], 24)
+        self.assertEqual(ph["v2"]["shares"], 2)
+
+    def test_nothing_published(self):
+        ph = self.m.phases(self.conn, split="2026-11-26")
+        self.assertEqual(ph["v1"]["posts"], 0)
+        self.assertIsNone(ph["v2"]["day1_median"])
+
+
 @unittest.skipIf(_brain is None, "brain.py needs PyYAML; publish.yml has none")
 class StyleChooser(unittest.TestCase):
     """The judge scores how well each shape fits; code picks, nudged by the mix."""
@@ -896,7 +944,7 @@ class Numbers(unittest.TestCase):
         self.assertIn("median first-day reach", html)
         self.assertIn("total reach", html)
         self.assertIn("total views", html)
-        self.assertIn("Metrics have never been pulled", html)
+        self.assertIn("Metrics have never been pulled", dash.v2_block(self._db([])))
         self.assertNotIn("smaller arm", html)
         # The two charts have to degrade to a sentence, not an empty <svg>.
         self.assertIn("Not enough published posts", html)
@@ -908,11 +956,11 @@ class Numbers(unittest.TestCase):
                      ((datetime.now(timezone.utc)
                        - timedelta(hours=dash.STALE_HOURS + 2)).isoformat(),))
         conn.commit()
-        self.assertIn("Older than it should be", dash.block(conn))
+        self.assertIn("Older than it should be", dash.v2_block(conn))
         conn.execute("UPDATE metrics SET captured_at = ?",
                      (datetime.now(timezone.utc).isoformat(),))
         conn.commit()
-        self.assertNotIn("Older than it should be", dash.block(conn))
+        self.assertNotIn("Older than it should be", dash.v2_block(conn))
 
 
 class Soundtrack(unittest.TestCase):

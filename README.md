@@ -169,6 +169,19 @@ this sample size a t-test's assumptions are not met. Shares per reach is the
 tiebreaker — reach says Instagram showed it to more people, shares says they
 passed it on, and only the second one compounds.
 
+### v1 and v2
+
+`config.json` `relaunch_date` (2026-11-26) splits the account in two. v1 is
+the 70-day test: 92 posts from 17 Sep to 1 Nov, a 24-day pause, a median of
+12 people reached per post on day one, 3.4s median watch, 8 shares in total.
+v2 is everything since: reels only, five reel styles chosen by the judge,
+funny-first tone, and markets, company drama and traffic as topics.
+`metrics.phases` compares the two on first-day numbers (lifetime totals for
+scale only), `publish.py phases` prints it, the metrics job writes it to its
+summary, and the Pages dashboard leads with it — v2 and the comparison on
+top, the v1 record under the queue. Followers are recorded on every metrics
+pull from v2 on (table `account`); v1 has no follower history.
+
 ### Reel styles: card, tweet, chat, notify, comments
 
 Since 2026-11-26 every generated post is written several ways: the text-card

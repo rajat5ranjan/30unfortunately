@@ -54,6 +54,8 @@
   "_note_audio": "Synthesised in audio.py from the same plan() that draws the frames, so the keystroke ticks cannot drift off the typing. Sines only, every envelope a raised cosine, nothing below ~170 Hz that a phone speaker would swallow. Set false and encode() goes back to muxing silence — the stream stays either way, because a reel with no audio stream has historically been rejected outright.",
   "reel_outro_seconds": 3.5,
   "_note_outro": "The mark animation plays at the END. It used to open every reel and it was 23-24%% of the runtime of the three that published — the first 23%%, which is the window Instagram uses to decide whether to show the reel to anybody else. Frame 0 is the hook now. Shorter too: a sign-off has less work to do than an introduction.",
+  "relaunch_date": "2026-11-26",
+  "_note_relaunch": "v2 starts here: reels only, five reel styles chosen by the judge, funny-first tone, markets/company drama/traffic as topics. Everything before is v1, the 70-day test (17 Sep - 1 Nov posting, nothing 2-25 Nov). metrics.phases compares the two; the Pages dashboard leads with it.",
   "reel_styles": {
     "chat": 2,
     "tweet": 2,

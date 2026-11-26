@@ -8,6 +8,8 @@ callers only choose whether to print it or draw it.
 
 stdlib only — publish.py imports it and that job has no install step.
 """
+import json
+import os
 import sqlite3
 from datetime import datetime, timezone
 from typing import Any, Dict, List, Optional, Tuple
@@ -15,6 +17,17 @@ from typing import Any, Dict, List, Optional, Tuple
 import store
 
 ARMS = ("carousel", "reel")
+
+
+def relaunch() -> str:
+    """The day v2 began (config `relaunch_date`): reels only, five reel styles,
+    funny-first tone, news topics. Everything before it is v1, the 70-day test."""
+    try:
+        with open(os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                               "config.json")) as f:
+            return json.load(f).get("relaunch_date", "2026-11-26")
+    except Exception:
+        return "2026-11-26"
 
 # Below this many posts in the smaller arm, a median is mostly noise. Stated
 # once here so the printer and the page carry the same warning.
@@ -232,7 +245,7 @@ STYLES = ("card", "tweet", "chat", "notify", "comments")
 
 
 def by_style(conn: sqlite3.Connection,
-             since: str = "2026-11-26") -> Dict[str, Dict[str, Any]]:
+             since: Optional[str] = None) -> Dict[str, Dict[str, Any]]:
     """Card vs tweet vs chat, reels only, day-one numbers, since styles began.
 
     Same discipline as compare(): day-one reach so ages match, medians because
@@ -240,6 +253,7 @@ def by_style(conn: sqlite3.Connection,
     Watch time is in here because it is the thing the new styles exist to fix
     — the card's median was 3.4s.
     """
+    since = since or relaunch()
     rows = [r for r in day_one(conn)
             if r["format"] == "reel" and (r["published_at"] or "") >= since]
     out = {}
@@ -254,6 +268,64 @@ def by_style(conn: sqlite3.Connection,
                   if reach else None,
                   "likes_per_1k": (1000.0 * sum(r["likes"] for r in g) / reach)
                   if reach else None}
+    return out
+
+
+def _segment(rows: List[sqlite3.Row], first: List[Dict[str, Any]],
+             start: Optional[datetime], end: datetime) -> Dict[str, Any]:
+    """Every number the two versions are compared on, for one version."""
+    n = len(rows)
+    days = max(1, (end - start).days + 1) if start else 0
+    d1 = [r["reach"] for r in first]
+    d1_reach = sum(d1)
+    reels = [r for r in rows if (r["format"] or "carousel") == "reel"]
+    watch = [r["avg_watch_ms"] / 1000.0 for r in reels if r["avg_watch_ms"] is not None]
+    tot = dict((k, sum((r[k] or 0) for r in rows)) for k in COUNTED)
+    best = max(first, key=lambda r: r["reach"]) if first else None
+    return {
+        "posts": n, "days": days, "per_day": (n / float(days)) if days else None,
+        "start": start, "end": end,
+        "reels": len(reels), "carousels": n - len(reels),
+        "with_day_one": len(first),
+        "day1_median": median(d1), "day1_mean": (d1_reach / float(len(d1))) if d1 else None,
+        "best": (best["id"], best["reach"]) if best else None,
+        "watch_median": median(watch), "watch_mean": (sum(watch) / len(watch)) if watch else None,
+        "reach": tot["reach"], "views": tot["views"], "shares": tot["shares"],
+        "saved": tot["saved"], "likes": tot["likes"], "comments": tot["comments"],
+        "shares_per_post": (tot["shares"] / float(n)) if n else None,
+        "saves_per_post": (tot["saved"] / float(n)) if n else None,
+        "likes_per_1k": (1000.0 * sum(r["likes"] for r in first) / d1_reach) if d1_reach else None,
+        "shares_per_1k": (1000.0 * sum(r["shares"] for r in first) / d1_reach) if d1_reach else None,
+    }
+
+
+def phases(conn: sqlite3.Connection, split: Optional[str] = None) -> Dict[str, Any]:
+    """v1 (the 70-day test) against v2 (since the relaunch), on the same numbers.
+
+    First-day figures are the fair comparison — a v2 post a day old cannot be
+    compared with a v1 post's two-month lifetime total — so medians of day-one
+    reach lead, and lifetime totals are shown for scale only. Followers come
+    from the account table, which only exists from the relaunch onwards.
+    """
+    split = split or relaunch()
+    now = datetime.now(timezone.utc)
+    rows = [r for r in store.published_with_metrics(conn) if r["published_at"]]
+    first = day_one(conn)
+    v1 = [r for r in rows if r["published_at"] < split]
+    v2 = [r for r in rows if r["published_at"] >= split]
+    s_dt = _dt(split + "T00:00:00+00:00")
+    v1_end = _dt(v1[-1]["published_at"]) if v1 else s_dt
+    out = {
+        "split": split,
+        "v1": _segment(v1, [r for r in first if r["published_at"] < split],
+                       _dt(v1[0]["published_at"]) if v1 else None, v1_end),
+        "v2": _segment(v2, [r for r in first if r["published_at"] >= split],
+                       s_dt, now),
+        "gap_days": max(0, (s_dt - v1_end).days) if v1 else 0,
+    }
+    acc = store.account_history(conn) if hasattr(store, "account_history") else []
+    out["followers"] = {"first": (acc[0]["captured_at"], acc[0]["followers"]) if acc else None,
+                        "last": (acc[-1]["captured_at"], acc[-1]["followers"]) if acc else None}
     return out
 
 

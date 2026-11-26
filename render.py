@@ -336,7 +336,7 @@ def queue_status() -> Dict[str, str]:
         return {}
 
 
-def dashboard() -> Tuple[str, str]:
+def dashboard() -> Tuple[str, str, str]:
     """(css, html) for the numbers at the top — best-effort, like the buttons.
 
     Everything below it is a file on disk; this is the only part that needs the
@@ -345,10 +345,12 @@ def dashboard() -> Tuple[str, str]:
     try:
         import dash
         import store
-        return dash.CSS, dash.block(store.connect())
+        conn = store.connect()
+        # v2 leads; the 70-day test sits under the queue as the baseline
+        return dash.CSS, dash.v2_block(conn), dash.block(conn)
     except Exception as e:
         print("contact sheet: no dashboard (%s)" % e)
-        return "", ""
+        return "", "", ""
 
 
 def release_url(name: str) -> str:
@@ -431,7 +433,7 @@ def write_contact_sheet(posts: List[Dict[str, Any]], handle: str) -> None:
     # not a pending one.
     posts = [p for p in everything if status.get(p.get("id")) == "queued"]
     gone = len(everything) - len(posts)
-    dash_css, dash_html = dashboard()
+    dash_css, dash_html, dash_old = dashboard()
     # Posting order, so the first card is the one that ships next.
     order = list(status)
     posts.sort(key=lambda p: order.index(p["id"]) if p.get("id") in order else 1e9)
@@ -457,22 +459,24 @@ def write_contact_sheet(posts: List[Dict[str, Any]], handle: str) -> None:
         '<style>%s</style></head><body>'
         '<h1>Thirty Unfortunately</h1>'
         '<p class="sub">%s &middot; %d waiting &middot; reels only since '
-        '26 Nov 2026 (card, tweet and chat) &middot; a button files a '
+        '26 Nov 2026 (tweet, chat, notifications, comments, card) &middot; a button files a '
         'one-tap issue and the workflow does the rest</p>'
         '%s'
         '<a class="nav" href="candidates.html">Today&rsquo;s candidates &rarr;</a>'
         '<h2 class="sec">Waiting to go out</h2>'
         '<p class="sub">In posting order: the first one ships next. Tap a reel '
         'to play it. %s These are the files Meta pulls at publish time.</p>'
-        '%s</body></html>'
+        '%s'
+        '<h2 class="sec" style="margin-top:44px">Before the new start</h2>%s'
+        '</body></html>'
         % (handle, SHEET_CSS + control.CSS + dash_css, handle, len(posts),
            dash_html,
            ("%d already published, skipped or unused are not listed — their "
-            "numbers are in the charts above, and `publish.py posts` prints "
-            "them one by one." % gone) if gone else "",
+            "numbers are in the comparison above and the charts below, and "
+            "`publish.py posts` prints them one by one." % gone) if gone else "",
            ('<div class="grid">%s</div>' % "".join(cards)) if cards else
            '<p class="sub">Nothing is waiting. generate refills the queue when '
-           'it drops below six.</p>'))
+           'it drops below six.</p>', dash_old))
     with open(os.path.join(ROOT, "docs", "index.html"), "w") as f:
         f.write(html)
 

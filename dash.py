@@ -32,6 +32,23 @@ box-shadow:0 3px 12px rgba(21,20,15,.1);max-width:820px}
 .dash h2{font-size:12px;letter-spacing:1.3px;text-transform:uppercase;color:#9A9384;
 margin:30px 0 12px;font-weight:700}
 .dash h2:first-child{margin-top:0}
+.era{display:inline-block;font:700 11px/1 'Bricolage Grotesque',system-ui,sans-serif;
+letter-spacing:.8px;text-transform:uppercase;padding:7px 11px;border-radius:999px;
+background:#D8451F;color:#FBF9F4;margin:0 0 12px}
+.era.old{background:#15140F}
+.lede{font-size:15px;line-height:1.5;margin:0 0 6px;color:#15140F}
+.changes{margin:8px 0 0;padding-left:18px;font-size:13px;line-height:1.55;color:#3E3A31}
+.cmp{width:100%;border-collapse:collapse;font-size:13px}
+.cmp th{font-size:10.5px;letter-spacing:.6px;text-transform:uppercase;color:#9A9384;
+text-align:right;padding:0 0 8px;font-weight:700}
+.cmp th:first-child{text-align:left}
+.cmp td{padding:8px 0;border-top:1px solid #ECE7DB;text-align:right;
+font-variant-numeric:tabular-nums}
+.cmp td:first-child{text-align:left;color:#3E3A31}
+.cmp td.v2{font-weight:700;color:#15140F}
+.cmp td small{display:block;font-size:10.5px;color:#9A9384;font-weight:400}
+.cmp tr.lead td{font-size:15px}
+.dash.archive{background:#F6F3EC}
 .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
 .kpi{background:#F2EEE4;border-radius:10px;padding:13px 14px 12px}
 .kpi b{display:block;font-size:30px;line-height:1;letter-spacing:-1.5px}
@@ -143,6 +160,120 @@ def versus(cmp_: Dict[str, Any]) -> str:
                     '</div><b>%s</b></div>'
                     % (arm, cmp_["n"][arm], kind, 100.0 * v / top, _n(v)))
     return '<div class="vs">%s</div>' % "".join(rows)
+
+
+# ------------------------------------------------------------- v1 vs v2
+def _pct(v) -> str:
+    return "\u2014" if v is None else "%.1f" % v
+
+
+def comparison(ph: Dict[str, Any]) -> str:
+    """The two versions side by side, first-day numbers leading."""
+    a, b = ph["v1"], ph["v2"]
+    wait = ("" if b["with_day_one"] else
+            "<small>from 12h after a post</small>")
+
+    def row(label, va, vb, note="", lead=False):
+        return ('<tr%s><td>%s%s</td><td>%s</td><td class="v2">%s</td></tr>'
+                % (' class="lead"' if lead else "", escape(label),
+                   "<small>%s</small>" % escape(note) if note else "", va, vb))
+    best = lambda x: ("%s &middot; %d" % x["best"]) if x["best"] else "\u2014"
+    fol = ph["followers"]
+    rows = [
+        row("Median first-day reach", _n(a["day1_median"]), _n(b["day1_median"]) + wait,
+            "people per post, at 24h — the fair comparison", lead=True),
+        row("Average first-day reach", _n(a["day1_mean"]), _n(b["day1_mean"])),
+        row("Best post, first day", best(a), best(b)),
+        row("Median watch time (reels)", "%ss" % _n(a["watch_median"]),
+            ("%ss" % _n(b["watch_median"])) if b["watch_median"] is not None else "\u2014",
+            "of a ~20s reel"),
+        row("Shares per 1,000 reached", _pct(a["shares_per_1k"]), _pct(b["shares_per_1k"]),
+            "the number that compounds"),
+        row("Likes per 1,000 reached", _pct(a["likes_per_1k"]), _pct(b["likes_per_1k"])),
+        row("Shares per post", "%.2f" % (a["shares_per_post"] or 0),
+            "%.2f" % (b["shares_per_post"] or 0) if b["posts"] else "\u2014"),
+        row("Saves per post", "%.2f" % (a["saves_per_post"] or 0),
+            "%.2f" % (b["saves_per_post"] or 0) if b["posts"] else "\u2014"),
+        row("Posts", "%d in %d days" % (a["posts"], a["days"]),
+            "%d in %d day%s" % (b["posts"], b["days"], "" if b["days"] == 1 else "s")),
+        row("Format", "%d reels, %d carousels" % (a["reels"], a["carousels"]),
+            "%d reels" % b["reels"]),
+        row("Reach / views, lifetime", "{:,} / {:,}".format(a["reach"], a["views"]),
+            "{:,} / {:,}".format(b["reach"], b["views"]),
+            "totals for scale; v2 posts are younger"),
+        row("Followers", "not tracked",
+            ("%s" % fol["last"][1]) + ((" <small>%+d since %s</small>"
+                                         % (fol["last"][1] - fol["first"][1],
+                                            fol["first"][0][:10]))
+                                        if fol["first"] and fol["last"][1] is not None
+                                        and fol["first"][1] is not None
+                                        and fol["first"][0] != fol["last"][0] else "")
+            if fol["last"] and fol["last"][1] is not None else "from the next metrics pull"),
+    ]
+    return ('<table class="cmp"><tr><th></th><th>v1 &middot; the test</th>'
+            '<th>v2 &middot; since %s</th></tr>%s</table>'
+            % (datetime.strptime(ph["split"], "%Y-%m-%d").strftime("%-d %b"), "".join(rows)))
+
+
+V2_CHANGES = [
+    "Reels only. Carousels reached 2.8&times; less and are retired.",
+    "Five reel styles — tweet, family chat, lock-screen notifications, comment "
+    "section and the text card. The judge scores how well each joke fits each "
+    "shape and the best fit ships.",
+    "Funny first, satire second. The judge weighs the laugh most and marks down "
+    "anything bitter.",
+    "Fresh topics on top of the old ones: the stock market, big-company drama, "
+    "city traffic — pulled from the last 72 hours of news.",
+    "Every reel ends on the 30 sign-off, and the punchline is never cut.",
+]
+
+
+def v2_block(conn) -> str:
+    """The top of the page: the new start, compared against the test."""
+    ph = metrics.phases(conn)
+    b = ph["v2"]
+    day = max(1, (datetime.now(timezone.utc).date()
+                  - datetime.strptime(ph["split"], "%Y-%m-%d").date()).days + 1)
+    o = metrics.overview(conn)
+    stale = metrics.hours_since(o["captured"]) > STALE_HOURS
+    when = ('<p class="when stale">Metrics have never been pulled.</p>'
+            if o["captured"] is None else
+            '<p class="when%s">Metrics pulled %s, %s%s</p>'
+            % (" stale" if stale else "", o["captured"].strftime("%-d %b %H:%M UTC"),
+               metrics.ago(o["captured"]), ". Older than it should be." if stale else ""))
+    return ('<section class="dash"><span class="era">v2 &middot; day %d</span>'
+            '<p class="lede">A new start on %s. %d posted so far; the first 70 days '
+            'were the test, and the numbers below are what this version has to beat.</p>'
+            '<ul class="changes">%s</ul>%s'
+            '<h2>v1 vs v2</h2>%s'
+            '<h2>Which reel style travels</h2>%s'
+            '<h2>Today&rsquo;s candidates</h2>%s'
+            '</section>'
+            % (day, datetime.strptime(ph["split"], "%Y-%m-%d").strftime("%-d %B %Y"),
+               b["posts"], "".join("<li>%s</li>" % c for c in V2_CHANGES), when,
+               comparison(ph), styles(conn), todays_candidates()))
+
+
+def v1_summary(ph: Dict[str, Any]) -> str:
+    """What the 70-day test gave, in sentences, from the same numbers."""
+    a = ph["v1"]
+    if not a["posts"] or not a["start"]:
+        return '<p class="lede">Nothing was published before the relaunch.</p>'
+    return ('<p class="lede">%d posts from %s to %s (%.1f a day), then nothing for '
+            '%d days. They reached <b>{:,}</b> people and were played <b>{:,}</b> '
+            'times — a median of <b>%s</b> people per post on day one. %s, but '
+            'a reel was '
+            'watched for %ss of ~20 on average and the whole run earned %d shares '
+            'and %d save%s. When posting stopped, reach went to zero.</p>'
+            '<p class="caveat">What it taught: the formats were not stopping the '
+            'scroll, the jokes leaned sharp rather than funny, and with no new '
+            'posts there is no reach at all. v2 is built on those three.</p>'
+            % (a["posts"], a["start"].strftime("%-d %b"), a["end"].strftime("%-d %b"),
+               a["per_day"] or 0, ph["gap_days"], _n(a["day1_median"]),
+               escape(ph.get("ab_headline") or "reels reached further than carousels").capitalize(),
+               _n(a["watch_mean"]), a["shares"], a["saved"],
+               "" if a["saved"] == 1 else "s")
+            ).format(a["reach"], a["views"])
 
 
 STYLE_MIN = 5   # per style, before a median means anything
@@ -381,17 +512,23 @@ def block(conn) -> str:
     # Six tiles, three across. Totals first because they answer "how big is
     # this" in one glance; the medians under them answer "is it working",
     # which is a different question and used to be the only one on the card.
+    # v1 only (2026-11-26): this card is now the record of the test, and an
+    # all-time total would quietly fold v2 into it.
+    ph = metrics.phases(conn)
+    v1 = ph["v1"]
     kpis = ('<div class="kpis">%s%s%s%s%s%s</div>'
-            % (kpi("{:,}".format(o["reach"]), "total reach",
-                   "people, all time"),
-               kpi("{:,}".format(o["views"]), "total views",
-                   "%.1f per person reached" % (o["views"] / float(o["reach"]))
-                   if o["reach"] else ""),
-               kpi(_n(t["now"]), "median first-day reach", note, cls),
-               kpi(_n(sends), "sends per post", "%d in total" % o["shares"]),
-               kpi(published, "published", "%d queued" % counts.get("queued", 0)),
-               kpi(best["reach"] if best else "\u2014", "best post",
-                   "%s, a %s" % (best["id"], best["format"]) if best else "")))
+            % (kpi("{:,}".format(v1["reach"]), "total reach", "people, v1"),
+               kpi("{:,}".format(v1["views"]), "total views",
+                   "%.1f per person reached" % (v1["views"] / float(v1["reach"]))
+                   if v1["reach"] else ""),
+               kpi(_n(v1["day1_median"]), "median first-day reach",
+                   "average %s" % _n(v1["day1_mean"])),
+               kpi("%.2f" % (v1["shares_per_post"] or 0), "sends per post",
+                   "%d in total" % v1["shares"]),
+               kpi(v1["posts"], "published", "%d reels, %d carousels"
+                   % (v1["reels"], v1["carousels"])),
+               kpi(v1["best"][1] if v1["best"] else "\u2014", "best post",
+                   v1["best"][0] if v1["best"] else "")))
 
     stale = metrics.hours_since(o["captured"]) > STALE_HOURS
     if o["captured"] is None:
@@ -410,13 +547,15 @@ def block(conn) -> str:
                     _n((rates["carousel"] or 0) * 100),
                     _n((rates["reel"] or 0) * 100),
                     "nothing has been saved yet." if not o["saved"] else
-                    "%d posts have been saved." % o["saved"]))
+                    "%d post%s been saved." % (o["saved"],
+                                               " has" if o["saved"] == 1 else "s have")))
 
     run = metrics.running(conn)
-    day = ('<p class="day">Day <b>%d</b> &middot; started %s &middot; '
-           '%d published, %.1f a day</p>'
-           % (run["days"], run["since"].strftime("%-d %B %Y"), published,
-              published / float(run["days"]))) if run["since"] else ""
+    day = ('<p class="day">Ran <b>%s &ndash; %s</b> &middot; %d published in %d '
+           'days, %.1f a day &middot; then a %d-day pause</p>'
+           % (v1["start"].strftime("%-d %b"), v1["end"].strftime("%-d %b %Y"),
+              v1["posts"], v1["days"], v1["per_day"] or 0,
+              ph["gap_days"])) if v1["start"] else ""
 
     w = metrics.watch(conn)
     if w["n"]:
@@ -444,20 +583,20 @@ def block(conn) -> str:
     else:
         insight = "No post is old enough for a first-day number yet."
 
-    return ('<section class="dash">%s%s%s'
+    when = ""   # shown once, at the top
+    ph["ab_headline"] = c["headline"].rstrip(".").lower()
+    return ('<section class="dash archive"><span class="era old">v1 &middot; the '
+            'first 70 days</span>%s%s%s%s'
             '<h2>Reach and views, running total</h2>%s'
-            '<h2>Which reel style travels</h2>%s'
             '<h2>Reels vs carousels, before carousels were retired</h2>'
             '<p class="headline">%s</p>%s<p class="caveat">%s</p>'
             '<h2>Weekly average reach, by format</h2>%s'
             '<h2>Per post</h2><p class="caveat">%s</p>'
             '<h2>How long reels are watched</h2>'
             '<p class="caveat">%s</p>'
-            '<h2>Today&rsquo;s candidates</h2>%s'
             '</section>'
-            % (kpis, day, when, totals_over_time(metrics.cumulative(conn)),
-               styles(conn), escape(c["headline"]), versus(c),
+            % (v1_summary(ph), kpis, day, when, totals_over_time(metrics.cumulative(conn)),
+               escape(c["headline"]), versus(c),
                escape(footnote + " Carousels stopped on 26 Nov 2026; every "
                       "post since is a reel."),
-               weekly_bars(one), escape(insight), escape(watch_note),
-               todays_candidates()))
+               weekly_bars(one), escape(insight), escape(watch_note)))

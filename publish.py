@@ -9,7 +9,8 @@ publish.py — Instagram carousel publishing via the official Graph API.
     python3 publish.py insights                  pull metrics for published posts
     python3 publish.py due                       is a publish slot open right now?
     python3 publish.py ab                        carousel vs reel, so far
-    python3 publish.py styles                    card vs tweet vs chat reels
+    python3 publish.py styles                    reel style vs reel style (v2)
+    python3 publish.py phases                    v1 (the 70-day test) vs v2
     python3 publish.py refresh-token             extend the 60-day token
 
 Every post ships as a reel (store.format_for). The carousel-vs-reel
@@ -744,6 +745,16 @@ def cmd_insights(args: argparse.Namespace) -> int:
               % (row["id"], reach, vals.get("shares"), rate("shares"),
                  vals.get("saved"), rate("saved"), vals.get("likes"),
                  "" if watch is None else "  watched %.1fs" % (watch / 1000.0)))
+    # Followers, once per pull: the one account-level number that says whether
+    # any of the above is turning into an audience. Best-effort — a failure
+    # here must not cost the per-post numbers already recorded.
+    try:
+        me = get("me", token, fields="followers_count,follows_count,media_count")
+        store.record_account(conn, me)
+        print("\naccount: %s followers, %s posts" % (me.get("followers_count"),
+                                                    me.get("media_count")))
+    except GraphError as e:
+        print("\naccount numbers unavailable — %s" % e)
     print("\nShares/reach and saves/reach are the primary metrics; per-post")
     print("profile_views was deprecated in Graph API v21.")
     return 0
@@ -803,6 +814,38 @@ def cmd_styles(args: argparse.Namespace) -> int:
     low = min(v["n"] for v in r.values())
     if low < 10:
         print("\nToo early: the smallest arm has %d posts. Read this at 30 each." % low)
+    return 0
+
+
+def cmd_phases(args: argparse.Namespace) -> int:
+    """v1 (the 70-day test) against v2 (since relaunch_date). metrics.phases."""
+    ph = metrics.phases(store.connect())
+    a, b = ph["v1"], ph["v2"]
+
+    def f(v, fmt):
+        return "-" if v is None else fmt % v
+    print("%-30s %16s %16s" % ("", "v1 (test)", "v2 (since %s)" % ph["split"][5:]))
+    for label, key, fmt in (("posts", "posts", "%d"), ("days", "days", "%d"),
+                            ("posts per day", "per_day", "%.1f"),
+                            ("median first-day reach", "day1_median", "%.0f"),
+                            ("average first-day reach", "day1_mean", "%.1f"),
+                            ("median watch (s)", "watch_median", "%.1f"),
+                            ("shares per 1k reached", "shares_per_1k", "%.1f"),
+                            ("likes per 1k reached", "likes_per_1k", "%.0f"),
+                            ("shares per post", "shares_per_post", "%.2f"),
+                            ("saves per post", "saves_per_post", "%.2f"),
+                            ("reach, lifetime", "reach", "%d"),
+                            ("views, lifetime", "views", "%d")):
+        print("%-30s %16s %16s" % (label, f(a[key], fmt), f(b[key], fmt)))
+    fol = ph["followers"]
+    print("%-30s %16s %16s" % ("followers", "not tracked",
+                               fol["last"][1] if fol["last"] else "-"))
+    print("\nv1 ran %s to %s, then %d days with nothing posted."
+          % (a["start"].strftime("%d %b") if a["start"] else "-",
+             a["end"].strftime("%d %b"), ph["gap_days"]))
+    if b["with_day_one"] < 10:
+        print("Too early for v2: %d post(s) have a first-day number. Read at ~30."
+              % b["with_day_one"])
     return 0
 
 
@@ -950,6 +993,7 @@ def main() -> None:
     sub.add_parser("due").set_defaults(fn=cmd_due)
     sub.add_parser("ab").set_defaults(fn=cmd_ab)
     sub.add_parser("styles").set_defaults(fn=cmd_styles)
+    sub.add_parser("phases").set_defaults(fn=cmd_phases)
 
     ps = sub.add_parser("posts")
     ps.add_argument("--format", choices=("reel", "carousel"),

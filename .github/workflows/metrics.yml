@@ -50,6 +50,7 @@ jobs:
       - name: What the numbers say
         run: |
           python3 publish.py ab | tee -a "$GITHUB_STEP_SUMMARY"
+          python3 publish.py phases | tee -a "$GITHUB_STEP_SUMMARY"
           python3 publish.py styles | tee -a "$GITHUB_STEP_SUMMARY"
 
       - name: Commit

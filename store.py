@@ -47,6 +47,15 @@ CREATE TABLE IF NOT EXISTS metrics (
     PRIMARY KEY (ig_media_id, captured_at)
 );
 CREATE INDEX IF NOT EXISTS idx_posts_status ON posts(status);
+-- Account-level numbers, one row per metrics pull. Added 2026-11-26 with the
+-- relaunch: the first 70 days had no follower history at all, so "did the new
+-- version grow the account" had nothing to be measured against.
+CREATE TABLE IF NOT EXISTS account (
+    captured_at  TEXT PRIMARY KEY,
+    followers    INTEGER,
+    follows      INTEGER,
+    media_count  INTEGER
+);
 """
 
 # CREATE TABLE IF NOT EXISTS cannot add a column to a table that already exists,
@@ -354,6 +363,18 @@ def record_metrics(conn: sqlite3.Connection, media_id: str, post_id: Optional[st
         " VALUES (?,?,?,%s)" % (",".join(cols), ",".join("?" * len(cols))),
         tuple([media_id, post_id, now()] + [values.get(c) for c in cols]))
     conn.commit()
+
+
+def record_account(conn: sqlite3.Connection, values: Dict[str, Any]) -> None:
+    conn.execute("INSERT OR REPLACE INTO account (captured_at, followers, follows, "
+                 "media_count) VALUES (?,?,?,?)",
+                 (now(), values.get("followers_count"), values.get("follows_count"),
+                  values.get("media_count")))
+    conn.commit()
+
+
+def account_history(conn: sqlite3.Connection) -> List[sqlite3.Row]:
+    return conn.execute("SELECT * FROM account ORDER BY captured_at").fetchall()
 
 
 def counts(conn: sqlite3.Connection) -> Dict[str, int]:
