@@ -288,7 +288,7 @@ def outro_frames(n_frames: int) -> List[Image.Image]:
     cx, cy = W / 2.0, H * 0.46
     end_x, end_y = MARGIN_X, MARK_TOP
     pf = load_font(64, "Bold")
-    hf = load_font(34, "Medium")
+    hf = load_font(44, "Bold")
     frames = []
     for i in range(n_frames):
         t = i / max(1, n_frames - 1)
@@ -326,11 +326,11 @@ def outro_frames(n_frames: int) -> List[Image.Image]:
             a = min(1.0, (t - 0.18) / 0.05) * min(1.0, (0.78 - t) / 0.05)
             ld.text((cx - pf.getlength(lab) / 2, cy + HERO_H * 0.62), lab,
                     font=pf, fill=render._hex_rgba(accent, a))
-        if t > 0.86:                      # the handle, last thing on screen
-            a = _ease(min(1.0, (t - 0.86) / 0.08))
+        if t > 0.78:                      # the handle, readable, not a ghost:
+            a = _ease(min(1.0, (t - 0.78) / 0.08))   # it is the follow
             ld.text((cx - hf.getlength("@30unfortunately") / 2,
                      cy + HERO_H * 0.62 + 96), "@30unfortunately",
-                    font=hf, fill=render._hex_rgba(INK, a * 0.55))
+                    font=hf, fill=render._hex_rgba(RED, a * 0.95))
         img.alpha_composite(layer)
 
         # the counter hands over to the name, in the same place on screen

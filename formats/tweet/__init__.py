@@ -16,7 +16,7 @@ from typing import Any, Dict, List, Tuple
 from PIL import Image, ImageDraw
 
 from formats.common import (H, SAFE_BOTTOM, SAFE_TOP, W, back, brand_avatar, clean,
-                            ease, heart, load_font, loop_frames, read_secs, score,
+                            ease, heart, load_font, read_secs, score, signed_off,
                             tw, wrap)
 
 FIELDS = {"tweet": {"setup": "str, <= 120 chars", "punch": "str, <= 140 chars"}}
@@ -195,7 +195,7 @@ def build(post: Dict[str, Any], handle: str, fps: int
 
     t_punch = min(2.4, max(0.9, read_secs(setup, 20.0))) if punch else 0.0
     t_like = t_punch + (read_secs(punch, 16.0) if punch else 1.2)
-    duration = min(9.5, max(5.5, t_like + 1.6))
+    content = max(5.0, t_like + 1.4)     # no cap: the punch and the like always land
     loop = 0.35
 
     def draw(t: float, like: bool = True) -> Image.Image:
@@ -207,14 +207,14 @@ def build(post: Dict[str, Any], handle: str, fps: int
                 spr.putalpha(psprite.split()[3].point(lambda v: int(v * k)))
             img.alpha_composite(spr, (X0, int(punch_y + (1 - k) * 26)))
         d = ImageDraw.Draw(img)
-        _meta(d, L, n["views"] * (0.97 + 0.03 * t / duration))
+        _meta(d, L, n["views"] * (0.97 + 0.03 * min(1.0, t / content)))
         liked = min(1.0, (t - t_like) / 0.25) if (like and t >= t_like) else 0.0
         tap = (t - t_like) / 0.45 if (like and t >= t_like) else 0.0
         _row(img, L, n, liked, tap)
         return img
 
-    frames = loop_frames(draw, duration, fps, loop)
+    frames, duration, outro_at = signed_off(draw, content, fps, loop)
     pops = ([(t_punch, 1318.5)] if punch else []) + [(t_like, 1760.0)]
-    sc = score([b for b in (t_punch, t_like) if b], duration, loop, pops)
+    sc = score([b for b in (t_punch, t_like) if b], duration, loop, pops, outro_at)
     cover = draw(t_like - 0.05, like=False).convert("RGB")
     return frames, sc, cover

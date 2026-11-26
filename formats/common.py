@@ -116,12 +116,14 @@ def soft_shadow(sprite: Image.Image, blur: int = 24, alpha: int = 70,
 
 
 def score(beats: List[float], duration: float, loop: float,
-          pops: List[Tuple[float, float]]) -> Dict[str, Any]:
-    """A timing plan in the shape audio.render() reads: one pad chord per beat."""
-    edges = [0.0] + sorted(b for b in beats if 0.05 < b < duration - 0.05) + [duration]
+          pops: List[Tuple[float, float]],
+          outro_start: float = None) -> Dict[str, Any]:
+    """A timing plan in the shape audio.render() reads: one pad chord per beat,
+    and the outro chord under the sign-off when there is one."""
+    end = outro_start if outro_start is not None else max(0.1, duration - 0.6)
+    edges = [0.0] + sorted(b for b in beats if 0.05 < b < end - 0.05) + [end]
     slides = [{"start": a, "dur": b - a, "type_dur": 0.0, "keys": 0}
               for a, b in zip(edges, edges[1:]) if b - a > 0.05]
-    end = max(0.1, duration - 0.6)
     return {"slides": slides, "outro": {"start": end, "dur": duration - end},
             "duration": duration, "loop": loop, "pops": pops}
 
@@ -137,6 +139,41 @@ def loop_frames(draw, duration: float, fps: int, loop: float) -> List[Image.Imag
             f = Image.blend(f, first, ease((t - (duration - loop)) / loop))
         out.append(f)
     return out
+
+
+HANDOFF_S = 0.3
+
+
+def signed_off(draw, content_secs: float, fps: int,
+               loop: float) -> Tuple[List[Image.Image], float, float]:
+    """The content, then the account's sign-off, then a seamless loop.
+
+    Every reel ends the same way — the 30 mark charging and draining to 30%,
+    then the name and @30unfortunately (reel.outro_frames, shared with the
+    text cards). The chat format shipped without it on 2026-11-26 and the
+    first one also hit a hard length cap that cut its punchline off before
+    it was sent. So: content runs as long as it needs, the sign-off follows,
+    and only the sign-off's tail fades into frame 0.
+
+    Returns (frames, total seconds, second the sign-off starts).
+    """
+    import reel
+    first = draw(0.0).convert("RGB")
+    frames = [first] + [draw(i / float(fps)).convert("RGB")
+                        for i in range(1, int(content_secs * fps))]
+    outro = [f.convert("RGB") for f in reel.outro_frames(int(reel.OUTRO_S * fps))]
+    n = int(HANDOFF_S * fps)
+    last = frames[-1]
+    for i in range(n):           # hand over from the last frame into the sign-off
+        frames.append(Image.blend(last, outro[0], ease((i + 1) / float(n))))
+    outro_start = len(frames) / float(fps)
+    nl = int(loop * fps)
+    for i, f in enumerate(outro):
+        k = i - (len(outro) - nl)
+        if k >= 0:               # and out of it, back into frame 0
+            f = Image.blend(f, first, ease((k + 1) / float(nl)))
+        frames.append(f)
+    return frames, len(frames) / float(fps), outro_start
 
 
 def bezier(p0, p1, p2, n: int = 16):

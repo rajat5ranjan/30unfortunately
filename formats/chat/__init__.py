@@ -20,8 +20,8 @@ from typing import Any, Dict, List, Optional, Tuple
 from PIL import Image, ImageDraw
 
 from formats.common import (H, SAFE_BOTTOM, W, back, clean, ease, initials_avatar,
-                            load_font, loop_frames, paste_scaled, read_secs,
-                            score, tw, wrap)
+                            load_font, paste_scaled, read_secs,
+                            score, signed_off, tw, wrap)
 
 FIELDS = {"chat": {"title": "str", "group": "bool?",
                    "messages": "list[{from, text, kind?}] 3-7 items"}}
@@ -46,6 +46,7 @@ THREAD_TOP = STATUS_H + HEAD_H + 34
 BAR_H = 112
 BAR_Y = H - SAFE_BOTTOM - BAR_H - 6
 TYPE_CPS = 26.0
+MAX_CONTENT_S = 17.0   # beyond this the thread is paced faster, never cut
 
 
 def _is_me(sender: str) -> bool:
@@ -314,20 +315,27 @@ def build(post: Dict[str, Any], handle: str, fps: int
         prev = m["from"]
 
     # timing: typing (theirs: "is typing…"; yours: the input bar), then landing
-    events = []        # (typing_start, land)
-    t = 0.0
-    for i, m in enumerate(msgs):
-        if i > 0:
-            t += read_secs(msgs[i - 1]["text"] if msgs[i - 1]["kind"] != "voice"
-                           else "a voice note", 22.0)
-        if _is_me(m["from"]):
-            dur = min(1.3, max(0.45, len(m["text"]) / TYPE_CPS))
-        else:
-            dur = 0.45 if i == 0 else 0.5
-        events.append((t, t + dur))
-        t += dur
-    last = msgs[-1]
-    duration = min(14.0, t + read_secs(last["text"], 15.0) + 1.2)
+    # Never truncated. The first chat that shipped hit a 14s cap while the
+    # punchline was still being typed, and the reel looped before it was sent.
+    # A long thread is read a little faster instead; the last message always
+    # lands and is held long enough to read twice.
+    def timeline(speed: float):
+        ev, t = [], 0.0
+        for i, m in enumerate(msgs):
+            if i > 0:
+                t += read_secs(msgs[i - 1]["text"] if msgs[i - 1]["kind"] != "voice"
+                               else "a voice note", 22.0 * speed)
+            if _is_me(m["from"]):
+                dur = min(1.3, max(0.45, len(m["text"]) / (TYPE_CPS * speed)))
+            else:
+                dur = 0.45 if i == 0 else 0.5
+            ev.append((t, t + dur))
+            t += dur
+        return ev, t + max(2.4, read_secs(msgs[-1]["text"], 13.0))
+    for speed in (1.0, 1.15, 1.3, 1.45, 1.6):
+        events, content = timeline(speed)
+        if content <= MAX_CONTENT_S:
+            break
     loop = 0.4
 
     # layout and scrolling
@@ -417,12 +425,12 @@ def build(post: Dict[str, Any], handle: str, fps: int
                fill="#9C9384", anchor="ra")
         return frame
 
-    frames = loop_frames(draw, duration, fps, loop)
+    frames, duration, outro_at = signed_off(draw, content, fps, loop)
 
     lands = [e[1] for e in events]
     pops = [(e[1], 1174.7 if _is_me(m["from"]) else 880.0)
             for e, m in zip(events, msgs)]
-    sc = score(lands, duration, loop, pops)
+    sc = score(lands, duration, loop, pops, outro_at)
     # your messages click as they are typed into the input bar
     sc["typing"] = [(s, e - s - 0.12, len(m["text"]))
                     for (s, e), m in zip(events, msgs) if _is_me(m["from"])]

@@ -20,6 +20,10 @@ on:
         description: "Re-render and re-upload every queued reel, not just the missing ones (use after the renderer changes)"
         type: boolean
         default: false
+      ids:
+        description: "Or only these post ids, comma-separated, whatever their status (e.g. g114,g115)"
+        type: string
+        default: ""
 
 permissions:
   contents: write        # release assets
@@ -39,8 +43,10 @@ jobs:
       # Cheap first: one HEAD request per queued post, no rendering.
       - name: What is missing?
         id: gap
+        env:
+          IDS: ${{ inputs.ids }}
         run: |
-          if [ "${{ inputs.rebuild }}" = "true" ]; then
+          if [ -n "$IDS" ] || [ "${{ inputs.rebuild }}" = "true" ]; then
             echo "rebuilding everything by hand"
             echo "go=yes" >> "$GITHUB_OUTPUT"
           elif python3 tools/ensure_reels.py --check; then
@@ -56,7 +62,11 @@ jobs:
         if: steps.gap.outputs.go == 'yes'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Through the environment, never interpolated into the shell line:
+          # ensure_reels validates it as [a-z][0-9]{3} ids before any use.
+          IDS: ${{ inputs.ids }}
         run: |
           python3 tools/ensure_reels.py \
             ${{ inputs.rebuild == true && '--rebuild' || '' }} \
+            --ids "${IDS:-}" \
             | tee -a "$GITHUB_STEP_SUMMARY"

@@ -18,6 +18,7 @@ anything already on the Release is left alone.
 import argparse
 import json
 import os
+import re
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -46,12 +47,24 @@ def main() -> int:
                     help="include published posts, not just the queue")
     ap.add_argument("--rebuild", action="store_true",
                     help="re-render and re-upload even where a reel exists")
+    ap.add_argument("--ids", default="",
+                    help="comma-separated post ids to re-render whatever their "
+                         "status (implies --rebuild) — for posts held back "
+                         "while the renderer was fixed")
     args = ap.parse_args()
 
     conn = store.connect()
     rows = list(store.queued(conn))
     if args.all:
         rows += list(store.published(conn))
+    ids = [x.strip() for x in args.ids.split(",") if x.strip()]
+    if ids:
+        bad = [x for x in ids if not re.match(r"^[a-z][0-9]{3}$", x)]
+        if bad:
+            sys.exit("not post ids: %s" % ", ".join(bad))
+        rows = [r for r in (conn.execute("SELECT * FROM posts WHERE id = ?", (x,)).fetchone()
+                            for x in ids) if r]
+        args.rebuild = True
 
     missing = []
     for row in rows:
