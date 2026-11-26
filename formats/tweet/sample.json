@@ -1,0 +1,8 @@
+{
+ "id": "sample-tweet",
+ "style": "tweet",
+ "tweet": {
+  "setup": "My parents think I have a desk job.",
+  "punch": "I have a 2 hour 10 minute commute with a desk at the end of it."
+ }
+}

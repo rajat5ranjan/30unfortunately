@@ -1,0 +1,35 @@
+{
+ "id": "sample-chat",
+ "style": "chat",
+ "chat": {
+  "title": "Sharma Parivaar",
+  "messages": [
+   {
+    "from": "Mummy",
+    "kind": "forwarded",
+    "text": "Good morning. Garam paani at 6 AM cures 47 diseases."
+   },
+   {
+    "from": "Papa",
+    "text": "Beta, office toh paas mein hi hai na? Kal raat 10 baje bhi online the"
+   },
+   {
+    "from": "You",
+    "text": "Traffic tha papa. 10 km, 2 ghante"
+   },
+   {
+    "from": "Mausi",
+    "text": "Sharma ji ka Rohan bhi wahi company mein hai. Ghar se kaam karta hai."
+   },
+   {
+    "from": "Papa",
+    "kind": "deleted",
+    "text": ""
+   },
+   {
+    "from": "You",
+    "text": "Rohan is my manager."
+   }
+  ]
+ }
+}

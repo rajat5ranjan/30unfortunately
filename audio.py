@@ -98,6 +98,7 @@ PHRASE_A = ((1, 2), (2, 1), (3, 1), (4, 3), (None, 1), (3, 2), (2, 2))
 PHRASE_B = ((4, 2), (3, 1), (2, 1), (1, 3), (None, 1), (0, 2), (1, 2))
 FORM = (PHRASE_A, PHRASE_A, PHRASE_B, PHRASE_A)
 PLUCK_GAIN = 0.030     # well under the keys. This is the volume knob.
+POP_GAIN = 0.060       # formats/ message pops: over the bed, under a voice
 PLUCK_TAU = 0.30
 PLUCK_ATK = 0.006
 ROOT_GAIN = 0.011      # a low note on the first beat of each phrase, for floor
@@ -304,6 +305,17 @@ def render(score: dict) -> bytes:
                 _pluck(buf, at, scale[deg], PLUCK_GAIN * level * vel, tau)
             at += beats * BEAT
         ph += 1
+
+    # Message pops for the chat and tweet formats (formats/): one short, bright
+    # pluck where a bubble lands, so the sound marks the beat the eye is on.
+    for at, hz in score.get("pops", ()):
+        _pluck(buf, at, hz, POP_GAIN, 0.09)
+    # ...and keystrokes where the chat format types into its input bar:
+    # (start, seconds, characters), same KEY_EVERY thinning as the cards.
+    for start, secs, chars in score.get("typing", ()):
+        for k in range(0, int(chars), KEY_EVERY):
+            _key(buf, start + secs * (k / float(max(1, chars))), n)
+            n += 1
 
     _room(buf)
     _seam(buf, float(score.get("loop", 0.0)))

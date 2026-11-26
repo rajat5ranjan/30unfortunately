@@ -517,6 +517,9 @@ def encode(frames: List[Image.Image], out: str,
 
 def render_reel(post: Dict[str, Any], handle: str, stills_only: bool = False,
                 preview: bool = False) -> Optional[str]:
+    style = post.get("style") or "card"
+    if style != "card":
+        return _render_styled(post, handle, style, stills_only, preview)
     sc = plan(post)
     frames = build_frames(post, handle, sc)
     pid = post["id"]
@@ -549,6 +552,33 @@ def render_reel(post: Dict[str, Any], handle: str, stills_only: bool = False,
     print("%s -> %s  %.1fs  %.1f MB  (%s, + cover)"
           % (pid, os.path.relpath(out, ROOT), len(frames) / float(FPS), mb,
              "sound" if AUDIO else "silent"))
+    return out
+
+
+def _render_styled(post: Dict[str, Any], handle: str, style: str,
+                   stills_only: bool, preview: bool) -> Optional[str]:
+    """A reel from formats/<style>/, through the same encoder and outputs."""
+    import formats
+    frames, sc, cover = formats.get(style).build(post, handle, FPS)
+    pid = post["id"]
+    if preview:
+        pid = "%s-%s" % (pid, datetime.now().strftime("%H%M%S"))
+    if stills_only:
+        d = os.path.join(OUT, pid)
+        os.makedirs(d, exist_ok=True)
+        for n, f in enumerate([0, len(frames) // 3, 2 * len(frames) // 3,
+                               len(frames) - 1], 1):
+            frames[f].save(os.path.join(d, "storyboard-%d.png" % n))
+        cover.save(os.path.join(d, "cover.png"))
+        print("%s storyboard: %s (%d frames, %.1fs)"
+              % (pid, os.path.relpath(d, ROOT), len(frames), len(frames) / float(FPS)))
+        return None
+    out = os.path.join(OUT, "%s.mp4" % pid)
+    encode(frames, out, audio.render(sc) if AUDIO else None)
+    cover.save(os.path.join(OUT, "%s-cover.jpg" % pid), quality=92, optimize=True)
+    print("%s -> %s  %.1fs  %.1f MB  (%s reel, + cover)"
+          % (pid, os.path.relpath(out, ROOT), len(frames) / float(FPS),
+             os.path.getsize(out) / 1e6, style))
     return out
 
 
