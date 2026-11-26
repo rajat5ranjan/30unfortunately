@@ -1,0 +1,15 @@
+{
+ "id": "sample-comments",
+ "style": "comments",
+ "comments": {
+  "source": "Office Updates",
+  "post": "From Monday, everyone works from office 5 days a week. For collaboration.",
+  "items": [
+   {"user": "priya.k_94", "text": "Collaboration matlab ab Zoom call office ki desk se karenge"},
+   {"user": "rahul_codes", "text": "My team is in 4 countries. I will collaborate with the chair."},
+   {"user": "ankit.verma", "text": "Bhai same. Mera manager bhi WFH karega Goa se", "reply": true},
+   {"user": "sneha_30", "text": "Kya cab ka paisa bhi collaboration se aayega?"},
+   {"user": "the.real.deepak", "text": "Finally. 2 ghante traffic mein main apne aap se collaborate karunga."}
+  ]
+ }
+}

@@ -631,6 +631,106 @@ class LandingShape(unittest.TestCase):
 
 
 @unittest.skipIf(_brain is None, "brain.py needs PyYAML; publish.yml has none")
+class StyleChooser(unittest.TestCase):
+    """The judge scores how well each shape fits; code picks, nudged by the mix."""
+
+    CFG = {"reel_styles": {"chat": 2, "tweet": 2, "notify": 2, "comments": 2, "card": 1}}
+
+    def setUp(self):
+        import tempfile
+        self.dir = tempfile.mkdtemp()
+
+    def approved(self, *styles):
+        for i, st in enumerate(styles, 1):
+            with open(os.path.join(self.dir, "g%03d.json" % i), "w") as f:
+                json.dump({"posts": [{"id": "g%03d" % i, "style": st}]}, f)
+
+    def post(self, fit, *shapes):
+        p = {"slides": ["a", "b"], "style_fit": fit}
+        for sh in shapes:
+            p[sh] = {"x": 1}
+        return p
+
+    def pick(self, post):
+        return _brain.pick_style(post, self.CFG, approved_dir=self.dir)
+
+    def test_a_clearly_better_shape_wins_even_when_it_is_ahead(self):
+        self.approved("notify", "notify", "notify")
+        self.assertEqual(self.pick(self.post({"notify": 5, "chat": 3}, "notify", "chat")),
+                         "notify")
+
+    def test_near_equals_go_to_the_style_the_mix_is_short_of(self):
+        self.approved("chat", "chat", "chat", "tweet")
+        self.assertEqual(self.pick(self.post({"chat": 4, "comments": 4}, "chat", "comments")),
+                         "comments")
+
+    def test_a_forced_shape_is_never_used(self):
+        self.assertEqual(self.pick(self.post({"chat": 2, "card": 3}, "chat")), "card")
+
+    def test_no_judge_scores_falls_back_to_rotation(self):
+        self.approved("tweet", "chat")
+        self.assertIn(self.pick(self.post({}, "tweet", "chat", "notify")), ("notify",))
+
+    def test_only_the_card_without_renditions(self):
+        self.assertEqual(self.pick(self.post({"chat": 5})), "card")
+
+    def test_a_zero_weight_retires_a_style(self):
+        cfg = {"reel_styles": {"chat": 0, "card": 1}}
+        self.assertEqual(_brain.pick_style(self.post({"chat": 5}, "chat"), cfg,
+                                           approved_dir=self.dir), "card")
+
+
+@unittest.skipIf(_brain is None, "brain.py needs PyYAML; publish.yml has none")
+class NewRenditionsAreVetted(unittest.TestCase):
+    def setUp(self):
+        self.brand = _brain.load_brand()
+
+    def test_the_contract_examples_pass(self):
+        R = self.brand["renditions"]
+        p = {"notify": json.loads(json.dumps(R["notify"]["example"])),
+             "comments": json.loads(json.dumps(R["comments"]["example"]))}
+        self.assertEqual(_brain.vet_renditions(p, self.brand), [])
+        self.assertIn("notify", p)
+        self.assertIn("comments", p)
+
+    def test_too_few_notifications_is_dropped(self):
+        p = {"notify": {"items": [{"app": "bank", "title": "Salary", "text": "Rs 1"}]}}
+        notes = _brain.vet_renditions(p, self.brand)
+        self.assertNotIn("notify", p)
+        self.assertTrue(notes and notes[0].startswith("notify dropped"))
+
+    def test_an_unknown_app_becomes_messages(self):
+        items = [{"app": "WhatsApp", "title": "Mummy", "text": "Beta khana kha liya?"}] * 3
+        p = {"notify": {"items": [dict(i) for i in items]}}
+        _brain.vet_renditions(p, self.brand)
+        self.assertEqual(p["notify"]["items"][0]["app"], "messages")
+
+    def test_a_long_comment_is_dropped(self):
+        p = {"comments": {"source": "Office Updates", "post": "WFO from Monday.",
+                          "items": [{"user": "a", "text": "ok"}, {"user": "b", "text": "ok"},
+                                    {"user": "c", "text": "x " * 80}]}}
+        _brain.vet_renditions(p, self.brand)
+        self.assertNotIn("comments", p)
+
+
+@unittest.skipIf(_brain is None, "brain.py needs PyYAML; publish.yml has none")
+class NewFormatsRender(unittest.TestCase):
+    """The samples build: frames, a score with an outro, a full-size cover."""
+
+    def test_samples_build(self):
+        try:
+            import formats
+        except Exception as e:                # pragma: no cover
+            self.skipTest("formats need Pillow: %s" % e)
+        for name in ("notify", "comments"):
+            frames, sc, cover = formats.get(name).build(formats.sample(name),
+                                                         "@30unfortunately", 6)
+            self.assertEqual(cover.size, (1080, 1920))
+            self.assertGreater(sc["outro"]["start"], 5.0)
+            self.assertAlmostEqual(len(frames) / 6.0, sc["duration"], places=1)
+
+
+@unittest.skipIf(_brain is None, "brain.py needs PyYAML; publish.yml has none")
 class KeywordsCanBeRankedIn(unittest.TestCase):
     """A keyword becomes a hashtag, and #yoga is a lottery with 12 followers."""
 

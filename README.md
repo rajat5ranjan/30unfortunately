@@ -169,14 +169,19 @@ this sample size a t-test's assumptions are not met. Shares per reach is the
 tiebreaker — reach says Instagram showed it to more people, shares says they
 passed it on, and only the second one compounds.
 
-### Reel styles: card, tweet, chat
+### Reel styles: card, tweet, chat, notify, comments
 
-Since 2026-11-26 every generated post is written three ways — the text-card
-slides, a `tweet` (setup, then a punchline about two seconds in) and a `chat`
-(a family/landlord/office thread, messages arriving one by one). Each approved
-post ships as ONE of them, chosen in rotation by `brain.pick_style` with the
-weights in `config.json` `reel_styles`, so the three are compared on the same
-stream of jokes. `publish.py styles` reads it out; read it at ~30 posts each.
+Since 2026-11-26 every generated post is written several ways: the text-card
+slides, a `tweet` (setup, then a punchline about two seconds in), and where the
+joke suits it a `chat` (a family/landlord/office thread), `notify` (lock-screen
+notifications, the last one the punchline) and `comments` (a post from an
+invented page and its comment section). Each approved post ships as ONE of
+them. The judge scores how well the joke fits each shape (1-5, `style_fit`);
+`brain.pick_style` takes the best fit, nudged toward the `reel_styles` weights
+in `config.json` so every style keeps getting posts to measure, and writes its
+reason to `style_why`. A shape scored under 3 is never used; the card is the
+control and the fallback. `publish.py styles` reads the comparison out; read
+it at ~30 posts each.
 
 Each type lives in its own folder under `formats/` with a `sample.json`:
 `.venv/bin/python -m formats --sample chat` previews one. See `formats/README.md`.

@@ -788,18 +788,18 @@ def cmd_posts(args: argparse.Namespace) -> int:
 
 
 def cmd_styles(args: argparse.Namespace) -> int:
-    """Card vs tweet vs chat since 2026-11-26. Arithmetic in metrics.by_style."""
+    """Reel style vs reel style since 2026-11-26. Arithmetic in metrics.by_style."""
     r = metrics.by_style(store.connect())
+    names = list(metrics.STYLES)
 
     def f(v, fmt):
         return "-" if v is None else fmt % v
-    print("%-22s %8s %8s %8s" % ("day-one, reels", "card", "tweet", "chat"))
+    print("%-22s" % "day-one, reels" + "".join("%10s" % n for n in names))
     for label, key, fmt in (("posts", "n", "%d"), ("median reach", "reach", "%.0f"),
                             ("median watch (s)", "watch_s", "%.1f"),
                             ("shares per 1k reach", "shares_per_1k", "%.1f"),
                             ("likes per 1k reach", "likes_per_1k", "%.0f")):
-        print("%-22s %8s %8s %8s" % (label, f(r["card"][key], fmt),
-                                     f(r["tweet"][key], fmt), f(r["chat"][key], fmt)))
+        print("%-22s" % label + "".join("%10s" % f(r[n][key], fmt) for n in names))
     low = min(v["n"] for v in r.values())
     if low < 10:
         print("\nToo early: the smallest arm has %d posts. Read this at 30 each." % low)

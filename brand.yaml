@@ -966,7 +966,80 @@ renditions:
         - {from: Mausi, text: "Sharma ji ka Rohan bhi wahi company mein hai. Ghar se kaam karta hai."}
         - {from: Papa, kind: deleted, text: ""}
         - {from: You, text: "Rohan is my manager."}
-  never: No emoji in either (the renderer cannot draw them). No real names, brands, apps or companies.
+  notify:
+    min_items: 3
+    max_items: 6
+    max_title_chars: 30
+    max_text_chars: 100
+    apps: [bank, upi, messages, family, mail, work, calendar, reminder, news, delivery, food, health, landlord, system]
+    what: The story told as lock-screen notifications, arriving one at a time. Money, family, work, rent — the phone tells it.
+    items: |
+      3 to 6, OLDEST FIRST. Each is {app, title, text, time}. `app` is one of
+      the list above and only picks the icon colour — never write an app or
+      bank name anywhere. `title` is the sender or the alert as the phone shows
+      it: "Salary credited", "Mummy", "Landlord Ji", "EMI due tomorrow",
+      "HR - Priya", "Low balance". `text` is the body, max 100 characters,
+      written the way that sender writes: a bank in flat system English with
+      the rupee figure, Mummy in Hinglish, HR in corporate English. `time` is
+      optional and short ("1 Dec", "9:02 AM", "2 days ago") — use it when the
+      story spans days, e.g. salary on the 1st, balance on the 3rd.
+    hook: |
+      The FIRST notification must already promise a story: a salary credit, a
+      rent reminder, a "we need to talk" from the manager. Never filler.
+    landing: |
+      The LAST notification is the punchline and stays on top of the stack. It
+      follows every rule in slides.last_slide_is_the_LANDING: it reinterprets
+      the ones before it and the surprise is in its last words. Usually a cold
+      system message that says the quiet part ("Your balance is Rs 212"), or a
+      family message that misses the whole point. It must be something a phone
+      would really show — never narration, never a sentence no app would send.
+    no_forcing: If the joke is not a sequence of things happening TO someone, leave `notify` out.
+    example:
+      time: "9:41"
+      date: Monday, 1 December
+      items:
+        - {app: bank, title: Salary credited, text: "Rs 84,000 credited to A/c XX4471. Have a great month!", time: 1 Dec}
+        - {app: upi, title: Payment successful, text: "Rs 32,000 paid to Landlord Ji", time: 1 Dec}
+        - {app: reminder, title: EMI due tomorrow, text: "Car loan EMI Rs 18,400. Please keep balance.", time: 2 Dec}
+        - {app: family, title: Mummy, text: "Beta Diwali pe sone ka kuch le lena. Rate gir gaya hai.", time: 3 Dec}
+        - {app: bank, title: Low balance, text: "Your balance is Rs 212. Salary day: 28 days away."}
+  comments:
+    min_items: 3
+    max_items: 6
+    max_post_chars: 140
+    max_comment_chars: 110
+    what: A short post from an invented page, then its comment section, one comment at a time.
+    source: |
+      The page that posted it, invented and generic: "Office Updates",
+      "Bengaluru Rent Watch", "Desi Finance Tips", "City News Daily", "HR
+      Announcements". Never a real company, news outlet, brand or person.
+    post: |
+      Max 140 characters. The thing people are reacting to — an announcement,
+      a headline, a piece of advice — in the voice of whoever posted it,
+      played straight. On screen from the first frame, so it is the hook: the
+      reader must already see what is wrong with it.
+    items: |
+      3 to 6 comments, each {user, text, reply}. `user` is an invented
+      lowercase handle ("priya.k_94", "rahul_codes", "sneha_30"). `text` max
+      110 characters, Hinglish or simple English, the way people actually
+      comment: short, sarcastic, specific. `reply: true` makes it a reply to
+      the comment before it — use at most two. Each comment should be its own
+      small joke; build them so each one tops the last.
+    landing: |
+      The LAST comment is the punchline. It gets the most likes and the like
+      is tapped on it, so it must be the best line in the post. Every rule in
+      slides.last_slide_is_the_LANDING applies: it reinterprets the post, and
+      the surprise is in its last words. A comment nobody could top.
+    no_forcing: If the joke is not something people would pile onto in the comments, leave `comments` out.
+    example:
+      source: Office Updates
+      post: "From Monday, everyone works from office 5 days a week. For collaboration."
+      items:
+        - {user: priya.k_94, text: "Collaboration matlab ab Zoom call office ki desk se karenge"}
+        - {user: rahul_codes, text: "My team is in 4 countries. I will collaborate with the chair."}
+        - {user: ankit.verma, text: "Bhai same. Mera manager bhi WFH karega Goa se", reply: true}
+        - {user: the.real.deepak, text: "Finally. 2 ghante traffic mein main apne aap se collaborate karunga."}
+  never: No emoji in any rendition (the renderer cannot draw them). No real names, brands, apps, banks, news outlets or companies.
 
 output_schema:
   trend: What is happening. One sentence.
@@ -1001,5 +1074,7 @@ output_schema:
   source: URL, or the literal string "evergreen".
   tweet: "{setup, punch} — see renditions.tweet. Always present."
   chat: "{title, messages: [{from, text, kind}]} — see renditions.chat. Leave out only if the joke has no conversation in it."
+  notify: "{time, date, items: [{app, title, text, time}]} — see renditions.notify. Leave out unless the joke is a sequence of things happening to someone."
+  comments: "{source, post, items: [{user, text, reply}]} — see renditions.comments. Leave out unless people would pile onto it in the comments."
 
 few_shot_examples: content/seed_posts.json   # the twelve approved posts

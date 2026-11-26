@@ -159,7 +159,7 @@ def styles(conn) -> str:
     got = metrics.by_style(conn)
     top = max([g["reach"] or 0 for g in got.values()] + [1])
     rows = []
-    for name in ("chat", "tweet", "card"):
+    for name in ("chat", "tweet", "notify", "comments", "card"):
         g = got.get(name) or {"n": 0, "reach": None, "watch_s": None,
                               "shares_per_1k": None}
         rows.append('<div class="vsrow"><span>%s (%d)</span>'
@@ -169,11 +169,11 @@ def styles(conn) -> str:
     have = min(g["n"] for g in got.values()) if got else 0
     total = sum(g["n"] for g in got.values()) if got else 0
     watch = ", ".join("%s %ss" % (k, _n(got[k]["watch_s"]))
-                      for k in ("chat", "tweet", "card")
+                      for k in ("chat", "tweet", "notify", "comments", "card")
                       if got.get(k) and got[k]["watch_s"] is not None)
     if total == 0:
         note = ("Nothing published in the new styles yet. Every reel now goes "
-                "out as a chat, a tweet or a text card, picked in turn; the "
+                "out as a chat, a tweet, notifications, comments or a text card; the "
                 "bars fill in from the first one.")
     elif have < STYLE_MIN:
         note = ("Too early to call: %d published so far, and a style needs %d "

@@ -495,6 +495,9 @@ def run_gates(post: Dict[str, Any], brand: Dict[str, Any], history: List[Dict[st
 # renditions of the same joke (brand.yaml `renditions`); one that breaks its own
 # rules is dropped, not the post, so a clumsy chat can never cost a good joke.
 SPECIAL_KINDS = ("forwarded", "deleted", "voice")
+NOTIFY_APPS = ("bank", "upi", "messages", "family", "mail", "work", "calendar",
+               "reminder", "news", "delivery", "food", "health", "landlord", "system")
+STYLES = ("card", "tweet", "chat", "notify", "comments")
 ME_NAMES = {"you", "me", "main", "mai", "self"}
 
 
@@ -570,34 +573,140 @@ def vet_renditions(post: Dict[str, Any], brand: Dict[str, Any]) -> List[str]:
         if why:
             post.pop("chat", None)
             notes.append("chat dropped: " + "; ".join(sorted(set(why))))
+
+    n = post.get("notify")
+    if n is not None:
+        why, N = [], R["notify"]
+        items = n.get("items") if isinstance(n, dict) else None
+        if not isinstance(items, list):
+            why.append("no items")
+            items = []
+        if items and not N["min_items"] <= len(items) <= N["max_items"]:
+            why.append("%d items (need %d-%d)" % (len(items), N["min_items"], N["max_items"]))
+        for it in items:
+            it["app"] = (it.get("app") or "messages").strip().lower()
+            if it["app"] not in NOTIFY_APPS:
+                it["app"] = "messages"
+            title, text = (it.get("title") or "").strip(), (it.get("text") or "").strip()
+            it["title"], it["text"] = title, text
+            if not title or not text:
+                why.append("an item without title or text")
+            if len(title) > N["max_title_chars"]:
+                why.append("a %d-char title (max %d)" % (len(title), N["max_title_chars"]))
+            if len(text) > N["max_text_chars"]:
+                why.append("a %d-char item (max %d)" % (len(text), N["max_text_chars"]))
+            if EMOJI.search(title + text):
+                why.append("emoji")
+            why += ["banned: '%s'" % w for w in _banned_in(title + " " + text, brand)]
+            why += plain_language_issues(text, brand, long_words=False)
+        if why:
+            post.pop("notify", None)
+            notes.append("notify dropped: " + "; ".join(sorted(set(why))))
+
+    c = post.get("comments")
+    if c is not None:
+        why, C = [], R["comments"]
+        items = c.get("items") if isinstance(c, dict) else None
+        if not isinstance(items, list):
+            why.append("no items")
+            items = []
+        if items and not C["min_items"] <= len(items) <= C["max_items"]:
+            why.append("%d comments (need %d-%d)" % (len(items), C["min_items"], C["max_items"]))
+        if isinstance(c, dict):
+            body = (c.get("post") or "").strip()
+            c["post"] = body
+            if not body or not (c.get("source") or "").strip():
+                why.append("no post or no source")
+            if len(body) > C["max_post_chars"]:
+                why.append("post %d chars (max %d)" % (len(body), C["max_post_chars"]))
+            why += plain_language_issues(body, brand, long_words=False)
+            texts = [body]
+        else:
+            texts = []
+        if sum(1 for it in items if it.get("reply")) > 2:
+            why.append("more than two replies")
+        for it in items:
+            text = (it.get("text") or "").strip()
+            it["text"] = text
+            if not text or not (it.get("user") or "").strip():
+                why.append("a comment without user or text")
+            if len(text) > C["max_comment_chars"]:
+                why.append("a %d-char comment (max %d)" % (len(text), C["max_comment_chars"]))
+            why += plain_language_issues(text, brand, long_words=False)
+            texts.append(text)
+        joined = " ".join(texts)
+        if EMOJI.search(joined):
+            why.append("emoji")
+        why += ["banned: '%s'" % w for w in _banned_in(joined, brand)]
+        if why:
+            post.pop("comments", None)
+            notes.append("comments dropped: " + "; ".join(sorted(set(why))))
     return notes
 
 
 def available_styles(post: Dict[str, Any]) -> List[str]:
-    return ["card"] + [s for s in ("tweet", "chat") if post.get(s)]
+    return ["card"] + [s for s in STYLES[1:] if post.get(s)]
 
 
-def pick_style(post: Dict[str, Any], cfg: Dict[str, Any],
-               approved_dir: str = None) -> str:
-    """The reel style this post ships as: whichever is furthest behind its share.
+STYLE_WINDOW = 30        # recent styled posts the mix is measured over
+STYLE_BALANCE = 5.0      # fit points per unit of share behind target
+STYLE_MIN_FIT = 3        # a new shape must be at least as good as the card
+STYLE_PRIOR = 10         # pseudo-posts at the target mix, so three posts in a
+                         # row of one style read as "a bit ahead", not "100%"
 
-    Counted over approved posts that carry a style, i.e. since 2026-11-26, so
-    the comparison runs on the same stream of jokes. Weights in config
-    `reel_styles`; a weight of 0 retires a style. Ties go chat, tweet, card —
-    the new ones first, because the card already has 90 posts of history.
-    """
-    mix = cfg.get("reel_styles") or {"chat": 1, "tweet": 1, "card": 1}
-    counts = dict((k, 0) for k in mix)
+
+def style_counts(approved_dir: str = None) -> Dict[str, int]:
+    """Styles of the last STYLE_WINDOW approved posts that carry one."""
+    rows = []
     for path in glob.glob(os.path.join(approved_dir or APPROVED_DIR, "*.json")):
         with open(path) as f:
             for p in json.load(f).get("posts", []):
-                if p.get("style") in counts:
-                    counts[p["style"]] += 1
-    order = ["chat", "tweet", "card"]
-    options = [s for s in available_styles(post) if mix.get(s, 0) > 0] or ["card"]
-    return min(options, key=lambda s: (counts.get(s, 0) / float(mix.get(s, 1) or 1),
-                                       order.index(s) if s in order else 9))
+                if p.get("style"):
+                    rows.append((p.get("id", ""), p["style"]))
+    counts = dict((st, 0) for st in STYLES)
+    for _, st in sorted(rows)[-STYLE_WINDOW:]:
+        counts[st] = counts.get(st, 0) + 1
+    return counts
 
+
+def pick_style(post: Dict[str, Any], cfg: Dict[str, Any],
+               approved_dir: str = None, explain: bool = False):
+    """The reel style this post ships as. The judge says what fits; code decides.
+
+    Each candidate style scores its fit (the judge's 1-5 for this joke in that
+    shape, `style_fit`; 3 when the judge said nothing) plus a pull toward the
+    target mix in config `reel_styles`: STYLE_BALANCE points per unit of share
+    the style is behind its weight over the last STYLE_WINDOW posts. So a
+    clearly better shape wins, and between near-equals the one the account is
+    short of wins — which keeps every style getting posts to measure.
+
+    A tweet/chat/notify/comments rendition the judge scored under
+    STYLE_MIN_FIT is not used: a forced shape is worse than the plain card.
+    The card is always allowed; it is the control and the fallback. A weight of
+    0 retires a style. Ties go chat, notify, comments, tweet, card.
+    """
+    mix = cfg.get("reel_styles") or {"chat": 1, "tweet": 1, "card": 1}
+    fit = post.get("style_fit") or {}
+    counts = style_counts(approved_dir)
+    total = float(sum(counts.values()))
+    wsum = float(sum(w for w in mix.values() if w > 0) or 1)
+    order = ["chat", "notify", "comments", "tweet", "card"]
+    options = [st for st in available_styles(post) if mix.get(st, 0) > 0
+               and (st == "card" or fit.get(st, 3) >= STYLE_MIN_FIT)] or ["card"]
+
+    def value(st: str) -> float:
+        target = mix.get(st, 0) / wsum
+        share = (counts.get(st, 0) + STYLE_PRIOR * target) / (total + STYLE_PRIOR)
+        return fit.get(st, 3) + STYLE_BALANCE * (target - share)
+
+    best = max(options, key=lambda st: (round(value(st), 6),
+                                        -(order.index(st) if st in order else 9)))
+    if not explain:
+        return best
+    why = "fit %s, %d of last %d" % (fit.get(best, "-"), counts.get(best, 0), int(total)) \
+        + ("; over " + ", ".join("%s %.1f" % (st, value(st)) for st in options if st != best)
+           if len(options) > 1 else "; only option")
+    return best, why
 
 # ----------------------------------------------------------------------- prompt
 # Everything here is sent to the writer. A section added to brand.yaml and not
@@ -712,6 +821,8 @@ RANK_SCHEMA = {
         "lands": {"type": "integer"},
         "plain": {"type": "integer"},
         "best_landing": {"type": "integer"},
+        "fit": {"type": "object", "properties": dict(
+            (st, {"type": "integer"}) for st in STYLES)},
         "verdict": {"type": "string"},
     }, "required": ["index", "laugh", "share_trigger", "specificity", "surprise",
                     "voice", "travels", "lands", "plain", "best_landing",
@@ -775,6 +886,27 @@ RESPONSE_SCHEMA = {
                                          "text", "forwarded", "deleted", "voice"]}},
                                      "required": ["from", "text"]}}},
                     "required": ["title", "messages"]},
+                "notify": {"type": "object", "properties": {
+                    "time": {"type": "string"},
+                    "date": {"type": "string"},
+                    "items": {"type": "array", "minItems": 3, "maxItems": 6,
+                              "items": {"type": "object", "properties": {
+                                  "app": {"type": "string", "enum": list(NOTIFY_APPS)},
+                                  "title": {"type": "string"},
+                                  "text": {"type": "string"},
+                                  "time": {"type": "string"}},
+                                  "required": ["app", "title", "text"]}}},
+                    "required": ["items"]},
+                "comments": {"type": "object", "properties": {
+                    "source": {"type": "string"},
+                    "post": {"type": "string"},
+                    "items": {"type": "array", "minItems": 3, "maxItems": 6,
+                              "items": {"type": "object", "properties": {
+                                  "user": {"type": "string"},
+                                  "text": {"type": "string"},
+                                  "reply": {"type": "boolean"}},
+                                  "required": ["user", "text"]}}},
+                    "required": ["source", "post", "items"]},
             }, "required": ["trend", "context", "angle", "landing_options", "slides",
                             "caption", "trigger", "target", "structure", "move",
                             "satire_level", "hinglish", "keywords", "source",
@@ -782,7 +914,8 @@ RESPONSE_SCHEMA = {
                 "propertyOrdering": ["trend", "context", "angle", "landing_options",
                                      "slides", "caption", "trigger", "target",
                                      "structure", "move", "satire_level", "hinglish",
-                                     "keywords", "source", "tweet", "chat"]},
+                                     "keywords", "source", "tweet", "chat", "notify",
+                                     "comments"]},
         },
     },
     "required": ["posts"],
@@ -916,6 +1049,19 @@ Score each 1-5 on:
                  a friend. 1 = literary, abstract, a metaphor to decode, or
                  corporate words in the narration (inside quotes is fine).
 
+  fit            Each post also lists its RENDITIONS: the same joke as a text
+                 card (always), and some of: a tweet, a chat thread, lock-screen
+                 notifications, a comment section. For EACH rendition it has,
+                 score 1-5: would this joke be funnier in this shape than as
+                 plain text? 5 = the shape is part of the joke (a balance of
+                 Rs 212 as the last notification; a reply that wins the comment
+                 section; a family member answering the wrong question).
+                 1 = forced: messages nobody would send, notifications no phone
+                 would show, comments that are the narrator in disguise, or a
+                 landing that got weaker in the move. card is the baseline, 3,
+                 unless the text itself is unusually strong or weak. Leave out
+                 the renditions a post does not have.
+
 Use the full range. If everything scores 4 you have not done the job.
 verdict: one blunt sentence on the single biggest weakness.
 """
@@ -944,12 +1090,38 @@ def landing_choices(post: Dict[str, Any]) -> List[str]:
     return out
 
 
+def renditions_text(p: Dict[str, Any]) -> List[str]:
+    """Each rendition a post has, one line each, as the judge reads them."""
+    out = ["card: " + " / ".join(p.get("slides") or []).replace("\n", " ")]
+    t = p.get("tweet")
+    if isinstance(t, dict):
+        out.append("tweet: %s / %s" % (t.get("setup", ""), t.get("punch", "")))
+    c = p.get("chat")
+    if isinstance(c, dict):
+        out.append("chat (%s): " % c.get("title", "") + " / ".join(
+            "%s: %s" % (m.get("from", ""), m.get("text", "") or "[%s]" % m.get("kind"))
+            for m in c.get("messages", [])))
+    n = p.get("notify")
+    if isinstance(n, dict):
+        out.append("notify: " + " / ".join(
+            "[%s] %s: %s" % (it.get("app", ""), it.get("title", ""), it.get("text", ""))
+            for it in n.get("items", [])))
+    cm = p.get("comments")
+    if isinstance(cm, dict):
+        out.append("comments (%s posted: %s): " % (cm.get("source", ""), cm.get("post", ""))
+                   + " / ".join("%s%s: %s" % ("  reply " if it.get("reply") else "",
+                                              it.get("user", ""), it.get("text", ""))
+                                for it in cm.get("items", [])))
+    return out
+
+
 def _judge_entry(i: int, p: Dict[str, Any]) -> str:
     opts = landing_choices(p)
-    return ("%d. %s\n   LANDING OPTIONS: %s"
+    return ("%d. %s\n   LANDING OPTIONS: %s\n   RENDITIONS:\n%s"
             % (i, " / ".join(p["slides"]).replace("\n", " "),
                "  ".join("(%s) %s" % (chr(97 + k), o.replace("\n", " "))
-                         for k, o in enumerate(opts))))
+                         for k, o in enumerate(opts)),
+               "\n".join("     - " + r for r in renditions_text(p))))
 
 
 def apply_best_landing(post: Dict[str, Any], choice: Optional[int],
@@ -1065,6 +1237,9 @@ def rank(posts: List[Dict[str, Any]], brand: Dict[str, Any],
         p["_score"] = base - penalty
         p["_judge"] = sc.get("verdict", "")
         p["_detail"] = dict((k, sc.get(k)) for k in RANK_WEIGHTS)
+        fit = sc.get("fit") or {}
+        p["_fit"] = dict((st, int(fit[st])) for st in available_styles(p)
+                         if isinstance(fit.get(st), (int, float)) and fit[st])
         p["_penalty"] = penalty
     return sorted(posts, key=lambda p: -p["_score"])
 
@@ -1201,17 +1376,18 @@ def cmd_approve(pick: int, cfg) -> int:
     post["status"] = "approved"
     post["rank_score"] = post.pop("_score", None)
     post["rank_verdict"] = post.pop("_judge", "")
+    post["style_fit"] = post.pop("_fit", None) or {}
     for k in ("_detail", "_penalty", "_rendition_notes"):
         post.pop(k, None)
-    post["style"] = pick_style(post, cfg)
+    post["style"], post["style_why"] = pick_style(post, cfg, explain=True)
 
     os.makedirs(APPROVED_DIR, exist_ok=True)
     out = os.path.join(APPROVED_DIR, "%s.json" % post["id"])
     with open(out, "w") as f:
         json.dump({"handle": "@30unfortunately", "posts": [post]}, f,
                   indent=2, ensure_ascii=False)
-    print("approved %s -> %s  (%s reel)" % (post["id"], os.path.relpath(out, ROOT),
-                                             post["style"]))
+    print("approved %s -> %s  (%s reel: %s)" % (post["id"], os.path.relpath(out, ROOT),
+                                                 post["style"], post["style_why"]))
     print("  %s" % post["slides"][0])
     return 0
 

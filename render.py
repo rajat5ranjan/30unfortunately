@@ -391,6 +391,20 @@ def script_html(p: Dict[str, Any], style: str) -> str:
             rows.append('<p><span class="who">%s:</span> %s</p>'
                         % (escape(m.get("from", "")), escape(text)))
         return '<div class="script">%s</div>' % "".join(rows)
+    if style == "notify" and isinstance(p.get("notify"), dict):
+        return '<div class="script">%s</div>' % "".join(
+            '<p><span class="who">%s:</span> %s</p>'
+            % (escape(it.get("title", "")), escape(it.get("text", "")))
+            for it in p["notify"].get("items", []))
+    if style == "comments" and isinstance(p.get("comments"), dict):
+        c = p["comments"]
+        rows = ['<p><span class="who">%s:</span> %s</p>'
+                % (escape(c.get("source", "")), escape(c.get("post", "")))]
+        rows += ['<p>%s<span class="who">%s:</span> %s</p>'
+                 % ("&nbsp;&nbsp;&#8627; " if it.get("reply") else "",
+                    escape(it.get("user", "")), escape(it.get("text", "")))
+                 for it in c.get("items", [])]
+        return '<div class="script">%s</div>' % "".join(rows)
     return '<div class="script">%s</div>' % "".join(
         "<p>%s</p>" % escape(x).replace("\n", "<br>") for x in p.get("slides", []))
 

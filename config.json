@@ -56,7 +56,9 @@
   "reel_styles": {
     "chat": 2,
     "tweet": 2,
+    "notify": 2,
+    "comments": 2,
     "card": 1
   },
-  "_note_styles": "Which reel each approved post ships as (brain.pick_style): whichever style is furthest behind its weight, counted since 2026-11-26. card is the control — the text card with 90 posts of history. Set a weight to 0 to retire a style. 2:2:1 since 2026-11-26 evening: chat and tweet are the formats being tested, card is the control and the fallback when a post has no usable tweet or chat version. `publish.py styles` reads the comparison out."
+  "_note_styles": "Which reel each approved post ships as (brain.pick_style): whichever style is furthest behind its weight, counted since 2026-11-26. card is the control — the text card with 90 posts of history. Set a weight to 0 to retire a style. Since 2026-11-26 evening: chat, tweet, notify and comments 2 each, card 1 (the control and the fallback). The weights set the target mix only; the judge's per-post fit score (style_fit) decides between shapes, and the mix breaks near-ties (brain.pick_style). `publish.py styles` reads the comparison out."
 }

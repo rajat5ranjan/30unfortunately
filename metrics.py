@@ -228,7 +228,7 @@ def day_one(conn: sqlite3.Connection) -> List[Dict[str, Any]]:
     return out
 
 
-STYLES = ("card", "tweet", "chat")
+STYLES = ("card", "tweet", "chat", "notify", "comments")
 
 
 def by_style(conn: sqlite3.Connection,

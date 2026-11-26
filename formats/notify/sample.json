@@ -1,0 +1,16 @@
+{
+ "id": "sample-notify",
+ "style": "notify",
+ "notify": {
+  "time": "9:41",
+  "date": "Monday, 1 December",
+  "items": [
+   {"app": "bank", "title": "Salary credited", "text": "Rs 84,000 credited to A/c XX4471. Have a great month!", "time": "1 Dec"},
+   {"app": "landlord", "title": "Landlord Ji", "text": "Rent bhej dena beta. Aur maintenance alag se.", "time": "1 Dec"},
+   {"app": "upi", "title": "Payment successful", "text": "Rs 32,000 paid to Landlord Ji", "time": "1 Dec"},
+   {"app": "reminder", "title": "EMI due tomorrow", "text": "Car loan EMI Rs 18,400. Please keep balance.", "time": "2 Dec"},
+   {"app": "family", "title": "Mummy", "text": "Beta Diwali pe sone ka kuch le lena. Rate gir gaya hai.", "time": "3 Dec"},
+   {"app": "bank", "title": "Low balance", "text": "Your balance is Rs 212. Salary day: 28 days away."}
+  ]
+ }
+}

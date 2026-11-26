@@ -25,7 +25,7 @@ from types import ModuleType
 from typing import Any, Dict, List
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-REELS = ("card", "tweet", "chat")
+REELS = ("card", "tweet", "chat", "notify", "comments")
 ALL = REELS + ("carousel",)
 
 
