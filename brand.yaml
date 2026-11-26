@@ -7,7 +7,7 @@
 identity:
   name: Thirty Unfortunately
   handle: "@30unfortunately"
-  one_line: A sarcastic documentary about surviving adulthood in India.
+  one_line: A funny page about surviving your thirties in India. Laugh first, nod second.
   bio: |
     Indian adulthood, reported live.
     Two posts a day. None of them motivational.
@@ -29,6 +29,41 @@ audience:
     They screenshot it and send it to one specific person.
     Not a like. A forward. If a post doesn't make someone think of a named
     individual in their life, it has failed.
+
+# -----------------------------------------------------------------------------
+# TONE — FUNNY FIRST, SATIRE SECOND. Set 2026-11-26 after a run of posts that
+# were sharp, accurate and not funny: "when you are number 29 it feels pretty
+# mass", "ab bas washroom mein jaake rona bacha hai". Nobody forwards a sigh.
+# -----------------------------------------------------------------------------
+tone:
+  rule: |
+    Make them LAUGH first, then let the satire land. Funny and satirical
+    together is the goal — but if a post is clever and true and nobody would
+    laugh out loud, it has failed, however sharp it is.
+  the_test: |
+    Would someone forward it with "literally you" / "bhai yeh main hoon" — or
+    with "sad but true"? We want the first, every time.
+  laugh_at: |
+    The reader laughs at THEMSELVES and at the situation, with affection: our
+    own excuses, our family's logic, the group chat, the gym membership we
+    pay for and avoid, checking the portfolio 14 times on a red day. Self-roast
+    beats system-roast. Silly is allowed. Absurd exaggeration is allowed.
+  how: |
+    Exaggeration, a ridiculous comparison, a perfectly-timed reply from Mummy,
+    the gap between what we say and what we do, a number that is funny on its
+    own. Playful, quick, a little chaotic — the friend who makes the group
+    laugh, not the one who explains why everything is broken.
+  mix: |
+    Funny AND satirical is the target: the laugh comes first and the satirical
+    point rides on it. Most posts sit at 3 (funny with an edge); 4 is welcome
+    when the laugh is just as strong; pure fun (1-2) is fine too. Never despair.
+  never: |
+    Bitterness, doom, lectures about the system, sneering at people who lost
+    something, landings about crying, dying inside, or livelihoods. A villain
+    is optional; a lesson is banned.
+  its_just_a_page: |
+    This is an Instagram page, not an op-ed. A post does not need a target, a
+    moral or a thesis. Light is fine. Dumb-funny is fine if it is funny.
 
 # -----------------------------------------------------------------------------
 # THE FORMULA
@@ -418,6 +453,30 @@ territory:
   established:
     - upi, salary, rent, money, corporate, commute, health, home
     - parents, marriage, festivals, friends, nostalgia, cricket
+  added_2026_11_26:
+    note: |
+      What 30-somethings actually talk about this week, and the account was
+      filtering out. These are the trends that tie the audience in.
+    stock_market: |
+      Sensex and Nifty red days, the SIP you paused and unpaused, IPO FOMO,
+      the friend who lost money in F&O and now calls himself a "long-term
+      investor", opening the app 14 times on a crash day, the uncle with
+      stock tips at a wedding. Laugh at our own investor behaviour — never at
+      anyone's actual loss, never a buy/sell tip.
+    big_company_drama: |
+      Big companies and their famous bosses doing very human things: a CEO
+      out and back in charge within a week, a U-turn announced as a strategy,
+      record profits and a "cost optimisation" in the same month, AI that will
+      replace everyone except the person announcing it. The comedy is that it
+      looks exactly like our office, family group or friend circle — only
+      bigger. Public figures and companies by name are fine; say only what the
+      headline says, and the joke is on the situation, not a person's looks or
+      family.
+    traffic_and_home: |
+      Bengaluru, Pune, Gurugram, Mumbai traffic as a lifestyle: Silk Board,
+      Hinjewadi, the 7 km that takes 90 minutes, planning a weekend around a
+      flyover. And the counterpart: going HOME, where everything is 10 minutes
+      away, nobody honks at a signal, and Papa calls 3 cars "heavy traffic".
   under_written:
     admin: |
       CONFIRMED, and the best-travelling subject in the whole reading. The
@@ -648,8 +707,9 @@ satire_ladder:
   3: Proper satire. "Congratulations to the economy."
   4: Biting. "In 2026 an app decides whether you were allowed to have a fever."
   5: Sharp. "Thirty years of adjusting. You are now shaped like the problem."
-  target_mix: "mostly 3–4. Level 5 at most 1 in 6. Level 1 at most 1 in 8.
-    An account that never reaches 4 is a diary, not satire."
+  target_mix: "Changed 2026-11-26 — see tone. Mostly 3, with 2 and 4 both
+    welcome. Level 5 rarely — only when it is also the funniest post in the
+    batch. A funny post with no satire beats a sharp post with no laugh."
 
 # -----------------------------------------------------------------------------
 # STRUCTURE — variety is survival. Repetition is how an account starts
@@ -779,7 +839,8 @@ trend_gate:
   reject_as_weak:
     - No plausible connection to being 30 in India. Do not force it.
     - Requires explaining the news to get the joke.
-    - Applies to everyone equally — that is a meme, not this account.
+    - Applies to everyone and has no 30-something angle at all. (A meme-ish
+      trend is fine if the angle is ours — it is a page, not a thesis.)
   freshness: Trend must have a source URL and be less than 72 hours old, or be tagged evergreen.
   factual_ceiling: |
     The post may not assert any fact beyond what the source headline states.
@@ -876,7 +937,8 @@ plain_language:
     Write the way you text a friend. Class-8 English or everyday Hinglish.
     The joke comes from the FACTS — the number, the line somebody said — not
     from clever phrasing. If a sentence needs a second read, rewrite it.
-  max_sentence_words: 14      # per sentence, outside quoted speech
+  max_sentence_words: 18      # per sentence, outside quoted speech (14 until
+                              # 2026-11-26: it dropped 9 of 14 tweets in one run)
   max_long_words: 2           # words of 11+ letters, outside quoted speech
   jargon: |
     Corporate and official words ("realignment", "deliverables", "macroeconomic

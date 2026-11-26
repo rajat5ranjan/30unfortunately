@@ -49,11 +49,16 @@ NOT_A_TREND = [
     # advertorials score well on triggers and are pure marketing
     "legacy of", "premium housing", "unveils", "launches", "partners with",
     "announces partnership", "success story", "leading provider", "awarded",
-    # B2B, investor and analyst copy: matches triggers, speaks to nobody here
+    # B2B, investor and analyst copy: matches triggers, speaks to nobody here.
+    # 2026-11-26: the market itself is no longer filtered — Sensex days, IPO
+    # mania and company drama are what 30-somethings talk about. What stays
+    # out is the analyst layer: price targets, ratings, basis points.
     "initiates", "target price", "grade-a", "occupiers", "commercial space",
-    "bps", "q1 results", "q2 results", "earnings", "ipo", "stock", "shares rise",
-    "shares fall", "brokerage firm", "analysts", "valuation", "funding round",
-    "crore revenue", "market cap", "survey finds", "report says",
+    "bps", "brokerage firm", "stocks to buy", "buy or sell", "multibagger",
+    "share price target", "technical view", "stocks to watch", "survey finds",
+    # gambling and affiliate spam rides the market and UPI feeds
+    "bets", "betting", "casino", "satta", " guide", "payment methods",
+    "report says",
 ]
 
 HARD_BLOCK = [
@@ -63,7 +68,7 @@ HARD_BLOCK = [
     "flood", "earthquake", "cyclone", "landslide", "disaster", "toll",
     "riot", "clash", "communal", "terror", "militant", "attack", "war",
     "arrest", "court", "jailed", "fir ", "probe", "raid", "scam accused",
-    "hc ", "high court", "supreme court", "tribunal", "verdict", "plea",
+    "hc ", "hc:", "high court", "supreme court", "tribunal", "verdict", "plea",
     "petition", "summons", "bail", "chargesheet", "sets aside", "restrains",
     "bjp", "congress", "aap ", "election", "poll", "minister says", "opposition",
     "manifesto", "nsui", "abvp", "rally", "protest", "mla", "mp ", "cm ",
@@ -120,7 +125,7 @@ PRESS_RELEASE = [
     "wins award", "award for", "awarded to", "bags award",
     "partners with", "collaborat", "signs mou", "signs pact", "ties up with",
     "celebrates", "showcases", "to showcase", "festival-goers",
-    "launches new", "announces partnership", "inaugurat",
+    "launches new", "announces partnership", "inaugurat", "appoints new",
 ]
 
 # What this account is actually about. Each bucket carries a weight (how central
@@ -179,10 +184,42 @@ TRIGGERS = {
                   "property price", "real estate", "maid", "domestic help",
                   "electricity bill", "water supply", "power cut"],
     },
+    "markets": {
+        "weight": 3,
+        "angle": "Everyone is a long-term investor until the first red day. Laugh at "
+                 "our own investor behaviour — the app opened 14 times, the SIP paused "
+                 "and unpaused — never at anyone's real loss, never a tip.",
+        "words": ["sensex", "nifty", "stock market", "stocks", "share market",
+                  "ipo", "f&o", "futures and options", "mutual fund", "sip",
+                  "demat", "crypto", "bitcoin", "market crash", "bull run",
+                  "bear market", "portfolio", "zerodha", "groww", "dalal street",
+                  "listing gains", "retail investors"],
+    },
+    "companies": {
+        "weight": 3,
+        "angle": "Big companies and famous bosses behave exactly like our office, "
+                 "our family group and our friend circle — just with more zeroes. "
+                 "A CEO out and back in a week; your leave approval takes longer.",
+        "words": ["ceo", "chairman", "founder", "ousted", "reinstated",
+                  "steps down", "resigns", "returns as", "layoff", "layoffs",
+                  "job cuts", "restructuring", "record profit", "big tech",
+                  "nvidia", "openai", "chatgpt", "google", "microsoft", "apple",
+                  "meta", "amazon", "tesla", "infosys", "tcs", "wipro",
+                  "artificial intelligence", "ai"],
+    },
+    "traffic": {
+        "weight": 3,
+        "angle": "City traffic is a lifestyle: you plan the weekend around one "
+                 "flyover. Back home everything is 10 minutes away and Papa calls "
+                 "three cars a jam.",
+        "words": ["traffic", "commute", "jam", "silk board", "flyover",
+                  "gridlock", "peak hour",
+                  "road work", "potholes", "waterlogging", "travel time"],
+    },
     "city": {
         "weight": 2,
         "angle": "Infrastructure is permitted to fail. You are not.",
-        "words": ["traffic", "commute", "metro", "pollution", "aqi", "air quality",
+        "words": ["metro", "pollution", "aqi", "air quality", "toll plaza",
                   "waterlogging", "potholes", "cab fare", "auto fare", "ola",
                   "uber", "rapido", "irctc", "flight fare", "airline", "train delay",
                   "toll", "fuel price", "petrol"],
@@ -232,6 +269,11 @@ FEEDS = [
     # family, and the costs that arrive with it
     "https://news.google.com/rss/search?q=%22school+fees%22+OR+daycare+OR+creche+OR+%22school+admission%22+India+parents+when:7d&hl=en-IN&gl=IN&ceid=IN:en",
     "https://news.google.com/rss/search?q=parenting+OR+newborn+OR+maternity+OR+paternity+India+cost+when:7d&hl=en-IN&gl=IN&ceid=IN:en",
+
+    # added 2026-11-26: what 30-somethings actually talk about this week
+    "https://news.google.com/rss/search?q=Sensex+OR+Nifty+OR+%22stock+market%22+OR+IPO+OR+%22mutual+fund%22+OR+SIP+India+when:2d&hl=en-IN&gl=IN&ceid=IN:en",
+    "https://news.google.com/rss/search?q=CEO+OR+layoffs+OR+%22big+tech%22+OR+Nvidia+OR+OpenAI+OR+Infosys+OR+TCS+when:3d&hl=en-IN&gl=IN&ceid=IN:en",
+    "https://news.google.com/rss/search?q=%22Bengaluru+traffic%22+OR+%22Pune+traffic%22+OR+%22Gurugram+traffic%22+OR+%22Mumbai+traffic%22+OR+%22Silk+Board%22+OR+Hinjewadi+when:3d&hl=en-IN&gl=IN&ceid=IN:en",
 
     # daily friction
     "https://news.google.com/rss/search?q=Swiggy+OR+Zomato+OR+Blinkit+OR+Zepto+OR+%22platform+fee%22+India+when:3d&hl=en-IN&gl=IN&ceid=IN:en",
@@ -308,6 +350,8 @@ INDIA = [
     "patna", "guwahati", "coimbatore", "vizag", "thane", "faridabad",
     "ghaziabad", "navi mumbai", "whitefield", "koramangala", "indiranagar",
     "sarjapur", "powai", "andheri", "bandra", "dwarka", "hsr layout",
+    "silk board", "hinjewadi", "hebbal", "outer ring road", "electronic city",
+    "marathahalli", "kharadi", "wakad", "cyber hub", "golf course road",
     "maharashtra", "karnataka", "tamil nadu", "telangana", "kerala",
     "gujarat", "rajasthan", "punjab", "haryana", "bihar", "odisha",
     "west bengal", "uttar pradesh", "madhya pradesh", "andhra", "assam",
@@ -356,6 +400,24 @@ def about_india(title: str) -> bool:
     return bool(_INDIA_RE.search(title.lower()))
 
 
+# Global company drama travels: a CEO out and back in a week reads the same in
+# Bengaluru as in California. A headline naming one of these skips the India
+# filters (the hard block still applies).
+GLOBAL_COMPANIES = [
+    "nvidia", "openai", "chatgpt", "google", "alphabet", "microsoft", "apple",
+    "meta", "amazon", "tesla", "spacex", "netflix", "intel", "samsung", "x.com",
+    "elon musk", "jensen huang", "sam altman", "sundar pichai", "satya nadella",
+    "mark zuckerberg", "tim cook", "jeff bezos", "big tech", "silicon valley",
+]   # names only: "CEO" or "layoffs" alone would let every foreign story through
+_GLOBAL_RE = _marker_re(GLOBAL_COMPANIES)
+
+# "crash" and "collapse" are blocked as accidents, but a market crash is a joke
+# this account wants. Allowed only next to a market word.
+MARKET_WORDS = _marker_re(["sensex", "nifty", "stock market", "stocks", "market",
+                           "shares", "ipo", "crypto", "bitcoin", "portfolio"])
+MARKET_OK = {"crash", "collapse"}
+
+
 def blocked(title: str) -> Optional[str]:
     """Why this headline cannot be used, or None.
 
@@ -365,10 +427,12 @@ def blocked(title: str) -> Optional[str]:
     three weeks.
     """
     low = " %s " % title.lower()
+    market = bool(MARKET_WORDS.search(low))
     for term in HARD_BLOCK:
-        if term in low:
+        if term in low and not (market and term.strip() in MARKET_OK):
             return term.strip()
-    for term in NOT_INDIA:
+    global_co = bool(_GLOBAL_RE.search(low))
+    for term in ([] if global_co else NOT_INDIA):
         if term in low:
             return "not India (%s)" % term.strip()
     for term in PRESS_RELEASE:
@@ -377,7 +441,7 @@ def blocked(title: str) -> Optional[str]:
     for term in FLUFF:
         if term in low:
             return "fluff (%s)" % term.strip()
-    if not about_india(title):
+    if not about_india(title) and not global_co:
         return "no India marker"
     return None
 
@@ -491,6 +555,19 @@ def main() -> None:
                      "_published": dt.isoformat() if dt else None})
 
     kept.sort(key=lambda x: -x["_score"])
+
+    # Reserved buckets (config trend_reserve): the best story from each goes to
+    # the front of the line. Single-subject headlines ("Silk Board jam, 2 hours")
+    # score 3 and lose every slot to headlines that touch two subjects, and
+    # traffic, the market and company drama are exactly what the account was
+    # told to cover on 2026-11-26. Same dedup and caps apply below.
+    reserve = cfg.get("trend_reserve", [])
+    front = []
+    for b in reserve:
+        best = next((c for c in kept if b in c["_buckets"] and c not in front), None)
+        if best:
+            front.append(best)
+    kept = front + [c for c in kept if c not in front]
 
     # One story reaches us under several publishers' headlines. Without this the
     # agent hands the content agent five ways of saying the same thing.

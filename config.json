@@ -24,6 +24,7 @@
   "trend_count": 12,
   "trend_min_score": 3,
   "trend_max_per_bucket": 3,
+  "trend_reserve": ["markets", "companies", "traffic"],
   "reels_base_url": "https://github.com/rajat5ranjan/30unfortunately/releases/download/reels",
   "reel_chars_per_second": 15.0,
   "reel_text_fade_seconds": 0.45,

@@ -29,7 +29,7 @@
     "2 prices in one post (\u20b91000, \u20b91000) \u2014 the reader has to do arithmetic to reach the joke. One figure, alone, does the work"
   ],
   "g018": [
-    "a 19-word sentence (max 14): 'You have to explain why forty percent of\u2026'"
+    "a 19-word sentence (max 18): 'You have to explain why forty percent of\u2026'"
   ],
   "g030": [
     "keywords must be at least 2 words \u2014 a one-word tag is a head term this account cannot rank in: 'orthopaedic', 'physio'"
@@ -85,12 +85,6 @@
   ],
   "g064": [
     "landing is the stock 'You are not X. You are Y.' \u2014 states the theme instead of landing a joke"
-  ],
-  "g075": [
-    "a 15-word sentence (max 14): 'You set a 3:00 AM alarm on a\u2026'"
-  ],
-  "g087": [
-    "a 15-word sentence (max 14): 'A lifetime furniture purchase requires assuming you will\u2026'"
   ],
   "g092": [
     "landing ends on filler 'anyway' \u2014 the funniest word goes last"

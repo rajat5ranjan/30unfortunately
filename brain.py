@@ -714,7 +714,7 @@ def pick_style(post: Dict[str, Any], cfg: Dict[str, Any],
 # a rule — `target` and `travels` both shipped that way, and `territory` nearly
 # did. NOT_A_RULE names the sections that are deliberately withheld, so the
 # check below can tell an omission from a decision.
-CONTRACT_SECTIONS = ("identity", "audience", "formula", "slides", "target", "voice",
+CONTRACT_SECTIONS = ("identity", "audience", "tone", "formula", "slides", "target", "voice",
                      "hinglish", "travels", "territory", "reply_moves",
                      "satire_ladder", "structures", "hard_bans",
                      "discoverability", "plain_language", "renditions",
@@ -734,12 +734,13 @@ def check_contract_is_whole(brand: Dict[str, Any]) -> List[str]:
 def build_system_prompt(brand: Dict[str, Any], history: List[Dict[str, Any]],
                         cfg: Dict[str, Any]) -> str:
     # The examples set the register harder than any rule does, so pick the
-    # ones that sound like the account should now: Hinglish first, then the
-    # plainest (fewest big words, shortest sentences). Stable sort, so ties
-    # keep their order.
+    # ones that sound like the account should now: Hinglish first, then not
+    # biting (satire 4-5 made the account bitter — see brand.yaml tone), then
+    # the plainest. Stable sort, so ties keep their order.
     def _plainness(p):
         issues = plain_language_issues("\n".join(p.get("slides") or []), brand)
-        return (0 if p.get("hinglish") else 1, len(issues))
+        return (0 if p.get("hinglish") else 1,
+                1 if (p.get("satire_level") or 3) >= 4 else 0, len(issues))
     examples = sorted(history, key=_plainness)[: cfg["few_shot_count"]]
     shares, _ = structure_report(history, brand["structures"]["max_share_of_output"],
                                  cfg["structure_enforce_from"])
@@ -820,12 +821,13 @@ RANK_SCHEMA = {
         "travels": {"type": "integer"},
         "lands": {"type": "integer"},
         "plain": {"type": "integer"},
+        "playful": {"type": "integer"},
         "best_landing": {"type": "integer"},
         "fit": {"type": "object", "properties": dict(
             (st, {"type": "integer"}) for st in STYLES)},
         "verdict": {"type": "string"},
     }, "required": ["index", "laugh", "share_trigger", "specificity", "surprise",
-                    "voice", "travels", "lands", "plain", "best_landing",
+                    "voice", "travels", "lands", "plain", "playful", "best_landing",
                     "verdict"]}}},
     "required": ["scores"],
 }
@@ -833,8 +835,10 @@ RANK_SCHEMA = {
 # Weights. share_trigger dominates because the stated goal of the account is a
 # forward, not a like. These are guesses until there is performance data:
 # at n>=30 published posts, refit them against shares/reach.
-RANK_WEIGHTS = {"laugh": 3, "share_trigger": 3, "surprise": 2, "specificity": 2,
-                "voice": 2, "travels": 2, "lands": 4, "plain": 3}
+# 2026-11-26: laugh 3 -> 5 and `playful` added. Posts had become sharp and
+# bitter rather than funny; the account is funny first, satirical second.
+RANK_WEIGHTS = {"laugh": 5, "share_trigger": 3, "surprise": 2, "specificity": 2,
+                "voice": 2, "travels": 2, "lands": 4, "plain": 3, "playful": 3}
 
 
 RESPONSE_SCHEMA = {
@@ -1043,6 +1047,13 @@ Score each 1-5 on:
                  1 = an abrupt, oblique or literary ending that is not a joke.
                  This is the axis the account fails most, so be strict.
 
+  playful        Funny AND satirical, in that order. 5 = the reader laughs at
+                 themselves or the situation first, and the satirical point
+                 lands on top of the laugh. 3 = sharp and true, a smile at best.
+                 1 = bitter, bleak or a lecture: despair, doom, sneering at
+                 people who lost something, a landing that makes you sigh.
+                 Satire is welcome; bitterness is not.
+
   plain          Could a tired 30-year-old read it in one go, on a phone, on the
                  metro? Everyday Hinglish or very simple English, short lines,
                  the joke carried by facts and speech. 5 = reads like a text from
@@ -1234,6 +1245,9 @@ def rank(posts: List[Dict[str, Any]], brand: Dict[str, Any],
             penalty += 4
         if p.get("move") in recent_move:
             penalty += 3 * recent_move.count(p.get("move"))
+        # tone: a 5 is allowed but has to be the funniest thing in the batch
+        if (p.get("satire_level") or 0) >= 5:
+            penalty += 4
         p["_score"] = base - penalty
         p["_judge"] = sc.get("verdict", "")
         p["_detail"] = dict((k, sc.get(k)) for k in RANK_WEIGHTS)
@@ -1423,6 +1437,10 @@ def cmd_summary() -> int:
 
 
 CAND_CSS = """
+details.spare{margin-top:30px}
+details.spare summary{cursor:pointer;font-size:13px;color:#6E675A;font-weight:700;
+padding:10px 0;list-style:revert}
+details.spare .grid{margin-top:14px;opacity:.75}
 *{box-sizing:border-box}body{margin:0;background:#E7E2D6;color:#15140F;padding:40px;
 font-family:'Bricolage Grotesque',system-ui,sans-serif}
 h1{font-size:32px;letter-spacing:-1px;margin:0 0 4px}
@@ -1487,7 +1505,7 @@ def cmd_html() -> int:
     except Exception:
         pass
 
-    cards = []
+    cards, spare = [], []
     for i, p in enumerate(acc, 1):
         last = len(p["slides"]) - 1
         slides = "".join(
@@ -1498,7 +1516,7 @@ def cmd_html() -> int:
         badge = ('<span class="id">%s &middot; %s</span>'
                  % (pid, status.get(pid, "approved")) if pid else
                  '<span class="id off">not approved</span>')
-        cards.append(
+        (cards if pid else spare).append(
             '<div class="c"><div class="n"><span class="num">%d</span>'
             '<span class="tag">%s &middot; %s &middot; SATIRE %s%s</span>%s</div>'
             '<div class="slides">%s</div>'
@@ -1527,7 +1545,7 @@ def cmd_html() -> int:
            'ranked best first &middot; nothing here needs approving. %s%s'
            '&nbsp;&middot;&nbsp; '
            '<a class="back" href="./">the dashboard &amp; everything published &rarr;</a></p>'
-           '<div class="grid">%s</div></body></html>'
+           '<div class="grid">%s</div>%s</body></html>'
            % (CAND_CSS + control.CSS,
               "Today&rsquo;s candidates" if today else "The latest candidates",
               _stamp(blob.get("generated_at", "")),
@@ -1536,7 +1554,14 @@ def cmd_html() -> int:
               ('%d still to go out — the buttons below file a one-tap issue and '
                'the workflow does the rest. ' % len(stoppable)) if stoppable else
               'Nothing from this run is still waiting to go out. ',
-              "".join(cards)))
+              "".join(cards),
+              # The ones the run did not pick are a log, not a to-do list:
+              # they are never posted and the next run replaces them. Folded
+              # away so the page leads with what is actually going out.
+              ('<details class="spare"><summary>%d more passed the gates but were '
+               'not picked &mdash; never posted, replaced on the next run</summary>'
+               '<div class="grid">%s</div></details>' % (len(spare), "".join(spare)))
+              if spare else ""))
 
     out = os.path.join(ROOT, "docs", "candidates.html")
     with open(out, "w") as f:
