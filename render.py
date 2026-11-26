@@ -369,9 +369,10 @@ def write_contact_sheet(posts: List[Dict[str, Any]], handle: str) -> None:
                        for n in range(len(p["slides"])))
         cards.append(
             '<div class="post"><div class="strip">%s</div>'
-            '<div class="meta"><b>%s</b> &middot; %s &middot; satire %s%s<br>%s</div>'
+            '<div class="meta"><b>%s</b> &middot; <b>%s reel</b> &middot; %s &middot; satire %s%s<br>%s</div>'
             '%s</div>'
-            % (imgs, pid, p.get("structure", ""), p.get("satire_level", ""),
+            % (imgs, pid, p.get("style") or "card", p.get("structure", ""),
+               p.get("satire_level", ""),
                " &middot; hinglish" if p.get("hinglish") else "",
                p.get("angle", ""), control.bar(pid, status.get(pid))))
     html = (

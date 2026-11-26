@@ -9,6 +9,7 @@ publish.py — Instagram carousel publishing via the official Graph API.
     python3 publish.py insights                  pull metrics for published posts
     python3 publish.py due                       is a publish slot open right now?
     python3 publish.py ab                        carousel vs reel, so far
+    python3 publish.py styles                    card vs tweet vs chat reels
     python3 publish.py refresh-token             extend the 60-day token
 
 Every post ships as a reel (store.format_for). The carousel-vs-reel
@@ -786,6 +787,25 @@ def cmd_posts(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_styles(args: argparse.Namespace) -> int:
+    """Card vs tweet vs chat since 2026-11-26. Arithmetic in metrics.by_style."""
+    r = metrics.by_style(store.connect())
+
+    def f(v, fmt):
+        return "-" if v is None else fmt % v
+    print("%-22s %8s %8s %8s" % ("day-one, reels", "card", "tweet", "chat"))
+    for label, key, fmt in (("posts", "n", "%d"), ("median reach", "reach", "%.0f"),
+                            ("median watch (s)", "watch_s", "%.1f"),
+                            ("shares per 1k reach", "shares_per_1k", "%.1f"),
+                            ("likes per 1k reach", "likes_per_1k", "%.0f")):
+        print("%-22s %8s %8s %8s" % (label, f(r["card"][key], fmt),
+                                     f(r["tweet"][key], fmt), f(r["chat"][key], fmt)))
+    low = min(v["n"] for v in r.values())
+    if low < 10:
+        print("\nToo early: the smallest arm has %d posts. Read this at 30 each." % low)
+    return 0
+
+
 def cmd_ab(args: argparse.Namespace) -> int:
     """Carousel versus reel, printed. The arithmetic lives in metrics.py."""
     r = metrics.compare(store.connect())
@@ -929,6 +949,7 @@ def main() -> None:
 
     sub.add_parser("due").set_defaults(fn=cmd_due)
     sub.add_parser("ab").set_defaults(fn=cmd_ab)
+    sub.add_parser("styles").set_defaults(fn=cmd_styles)
 
     ps = sub.add_parser("posts")
     ps.add_argument("--format", choices=("reel", "carousel"),

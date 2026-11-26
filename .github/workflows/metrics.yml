@@ -48,7 +48,9 @@ jobs:
           python3 brain.py --html
 
       - name: What the numbers say
-        run: python3 publish.py ab | tee -a "$GITHUB_STEP_SUMMARY"
+        run: |
+          python3 publish.py ab | tee -a "$GITHUB_STEP_SUMMARY"
+          python3 publish.py styles | tee -a "$GITHUB_STEP_SUMMARY"
 
       - name: Commit
         run: |

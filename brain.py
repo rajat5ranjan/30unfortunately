@@ -336,6 +336,66 @@ def gate_landing_turns(post: Dict[str, Any], brand: Dict[str, Any]) -> List[str]
     return []
 
 
+LANDING_FILLER = {"anyway", "anyways", "still", "again", "just", "too", "either",
+                  "though", "somehow", "apparently"}
+STOCK_LANDING = re.compile(r"\byou are not\b[^.]*\.\s*you are\b", re.I | re.S)
+
+
+def gate_landing_lands(post: Dict[str, Any], brand: Dict[str, Any]) -> List[str]:
+    """The two mechanical tells of a landing that is not a punchline.
+
+    The surprise belongs in the last words, so a landing ending on filler has
+    buried it ("He finished the tub anyway."). And "You are not X. You are Y."
+    is the account's stock template for stating a theme — the research on LLM
+    humour says models converge on a few such shapes and stop being funny.
+    Everything subtler (does it reinterpret, does it connect) is the judge's
+    `lands` score, because a regex cannot see it. Added 2026-11-26.
+    """
+    slides = post.get("slides") or []
+    if not slides:
+        return []
+    fails = []
+    words = re.findall(r"[A-Za-z']+", slides[-1].lower())
+    if words and words[-1] in LANDING_FILLER:
+        fails.append("landing ends on filler '%s' — the funniest word goes last"
+                     % words[-1])
+    if STOCK_LANDING.search(slides[-1]):
+        fails.append("landing is the stock 'You are not X. You are Y.' — states "
+                     "the theme instead of landing a joke")
+    return fails
+
+
+QUOTED = re.compile(r'"[^"]*"|\u201c[^\u201d]*\u201d')
+
+
+def plain_language_issues(text: str, brand: Dict[str, Any],
+                          long_words: bool = True) -> List[str]:
+    """Too-long sentences and big words, measured OUTSIDE quoted speech.
+
+    Quotes are exempt on purpose: a manager saying "structural realignment" is
+    the joke; the narration saying it is the account sounding like the manager.
+    """
+    rules = brand["plain_language"]
+    narration = QUOTED.sub(" ", text)
+    out = []
+    for sent in re.split(r"[.!?\n]+", narration):
+        n = len(sent.split())
+        if n > rules["max_sentence_words"]:
+            out.append("a %d-word sentence (max %d): '%s'"
+                       % (n, rules["max_sentence_words"], " ".join(sent.split()[:8]) + "…"))
+    if long_words:
+        big = [w for w in re.findall(r"[A-Za-z]+", narration) if len(w) >= 11]
+        if len(big) > rules["max_long_words"]:
+            out.append("%d big words outside quotes (%s) — say it simply"
+                       % (len(big), ", ".join(big[:4])))
+    return out
+
+
+def gate_plain_language(post: Dict[str, Any], brand: Dict[str, Any]) -> List[str]:
+    """Hinglish or very simple English — the owner's rule of 2026-11-26."""
+    return plain_language_issues("\n".join(post.get("slides") or []), brand)
+
+
 def gate_target(post: Dict[str, Any], brand: Dict[str, Any]) -> List[str]:
     """Who the joke is on. Not the value of it — only that it was decided.
 
@@ -420,12 +480,123 @@ def run_gates(post: Dict[str, Any], brand: Dict[str, Any], history: List[Dict[st
               cfg: Dict[str, Any]) -> List[str]:
     return (gate_hard_bans(post, brand) + gate_shape(post, brand)
             + gate_target(post, brand) + gate_travels(post, brand)
-            + gate_landing_turns(post, brand) + gate_one_price(post, brand)
+            + gate_landing_turns(post, brand) + gate_landing_lands(post, brand)
+            + gate_plain_language(post, brand)
+            + gate_one_price(post, brand)
             + gate_hook_is_not_a_title_card(post, brand)
             + gate_currency_is_real(post, brand)
             + gate_move_is_declared(post, brand)
             + gate_keywords(post, brand)
             + gate_source(post) + gate_novelty(post, history, cfg["novelty_threshold"]))
+
+
+# ------------------------------------------------------------------- renditions
+# A post is always shippable as the text card. The tweet and the chat are extra
+# renditions of the same joke (brand.yaml `renditions`); one that breaks its own
+# rules is dropped, not the post, so a clumsy chat can never cost a good joke.
+SPECIAL_KINDS = ("forwarded", "deleted", "voice")
+ME_NAMES = {"you", "me", "main", "mai", "self"}
+
+
+def _banned_in(text: str, brand: Dict[str, Any]) -> List[str]:
+    low = text.lower()
+    words = list(brand["hard_bans"]["phrases"]) + list(brand["hard_bans"].get("slang") or [])
+    return [w for w in words if w.lower() in low]
+
+
+def vet_renditions(post: Dict[str, Any], brand: Dict[str, Any]) -> List[str]:
+    """Check the tweet and chat renditions; drop any that fail. Returns notes."""
+    notes = []
+    R = brand["renditions"]
+
+    t = post.get("tweet")
+    if t is not None:
+        why = []
+        if not isinstance(t, dict):
+            why.append("not an object")
+        else:
+            setup, punch = (t.get("setup") or "").strip(), (t.get("punch") or "").strip()
+            t["setup"], t["punch"] = setup, punch
+            if not setup or not punch:
+                why.append("setup or punch missing")
+            if len(setup) > R["tweet"]["max_setup_chars"]:
+                why.append("setup %d chars (max %d)" % (len(setup), R["tweet"]["max_setup_chars"]))
+            if len(punch) > R["tweet"]["max_punch_chars"]:
+                why.append("punch %d chars (max %d)" % (len(punch), R["tweet"]["max_punch_chars"]))
+            if punch.endswith("?"):
+                why.append("punch ends on a question")
+            why += plain_language_issues(setup + "\n" + punch, brand)
+            if EMOJI.search(setup + punch):
+                why.append("emoji")
+            why += ["banned: '%s'" % w for w in _banned_in(setup + " " + punch, brand)]
+        if why:
+            post.pop("tweet", None)
+            notes.append("tweet dropped: " + "; ".join(why))
+
+    c = post.get("chat")
+    if c is not None:
+        why = []
+        msgs = c.get("messages") if isinstance(c, dict) else None
+        if not isinstance(msgs, list):
+            why.append("no messages")
+            msgs = []
+        lo, hi = R["chat"]["min_messages"], R["chat"]["max_messages"]
+        if msgs and not lo <= len(msgs) <= hi:
+            why.append("%d messages (need %d-%d)" % (len(msgs), lo, hi))
+        if isinstance(c, dict) and not (c.get("title") or "").strip():
+            why.append("no title")
+        specials = 0
+        for m in msgs:
+            kind = (m.get("kind") or "text").lower()
+            m["kind"] = kind if kind in ("text",) + SPECIAL_KINDS else "text"
+            specials += m["kind"] in SPECIAL_KINDS
+            if (m.get("from") or "").strip().lower() in ME_NAMES:
+                m["from"] = "You"
+            text = (m.get("text") or "").strip()
+            m["text"] = text
+            if not text and m["kind"] != "deleted":
+                why.append("an empty message")
+            if len(text) > R["chat"]["max_message_chars"]:
+                why.append("a %d-char message (max %d)" % (len(text), R["chat"]["max_message_chars"]))
+            if EMOJI.search(text):
+                why.append("emoji")
+            why += ["banned: '%s'" % w for w in _banned_in(text, brand)]
+            if m.get("kind") == "text":
+                why += plain_language_issues(text, brand, long_words=False)
+        if specials > 1:
+            why.append("%d special kinds (max 1)" % specials)
+        if msgs and msgs[-1]["kind"] == "deleted":
+            why.append("ends on a deleted message")
+        if why:
+            post.pop("chat", None)
+            notes.append("chat dropped: " + "; ".join(sorted(set(why))))
+    return notes
+
+
+def available_styles(post: Dict[str, Any]) -> List[str]:
+    return ["card"] + [s for s in ("tweet", "chat") if post.get(s)]
+
+
+def pick_style(post: Dict[str, Any], cfg: Dict[str, Any],
+               approved_dir: str = None) -> str:
+    """The reel style this post ships as: whichever is furthest behind its share.
+
+    Counted over approved posts that carry a style, i.e. since 2026-11-26, so
+    the comparison runs on the same stream of jokes. Weights in config
+    `reel_styles`; a weight of 0 retires a style. Ties go chat, tweet, card —
+    the new ones first, because the card already has 90 posts of history.
+    """
+    mix = cfg.get("reel_styles") or {"chat": 1, "tweet": 1, "card": 1}
+    counts = dict((k, 0) for k in mix)
+    for path in glob.glob(os.path.join(approved_dir or APPROVED_DIR, "*.json")):
+        with open(path) as f:
+            for p in json.load(f).get("posts", []):
+                if p.get("style") in counts:
+                    counts[p["style"]] += 1
+    order = ["chat", "tweet", "card"]
+    options = [s for s in available_styles(post) if mix.get(s, 0) > 0] or ["card"]
+    return min(options, key=lambda s: (counts.get(s, 0) / float(mix.get(s, 1) or 1),
+                                       order.index(s) if s in order else 9))
 
 
 # ----------------------------------------------------------------------- prompt
@@ -437,7 +608,8 @@ def run_gates(post: Dict[str, Any], brand: Dict[str, Any], history: List[Dict[st
 CONTRACT_SECTIONS = ("identity", "audience", "formula", "slides", "target", "voice",
                      "hinglish", "travels", "territory", "reply_moves",
                      "satire_ladder", "structures", "hard_bans",
-                     "discoverability", "output_schema")
+                     "discoverability", "plain_language", "renditions",
+                     "output_schema")
 NOT_A_RULE = ("trend_gate",           # applied to trends before the writer runs
               "few_shot_examples")    # a path, and the examples are sent separately
 
@@ -452,7 +624,14 @@ def check_contract_is_whole(brand: Dict[str, Any]) -> List[str]:
 
 def build_system_prompt(brand: Dict[str, Any], history: List[Dict[str, Any]],
                         cfg: Dict[str, Any]) -> str:
-    examples = history[: cfg["few_shot_count"]]
+    # The examples set the register harder than any rule does, so pick the
+    # ones that sound like the account should now: Hinglish first, then the
+    # plainest (fewest big words, shortest sentences). Stable sort, so ties
+    # keep their order.
+    def _plainness(p):
+        issues = plain_language_issues("\n".join(p.get("slides") or []), brand)
+        return (0 if p.get("hinglish") else 1, len(issues))
+    examples = sorted(history, key=_plainness)[: cfg["few_shot_count"]]
     shares, _ = structure_report(history, brand["structures"]["max_share_of_output"],
                                  cfg["structure_enforce_from"])
     hinglish_share = (sum(1 for p in history if p.get("hinglish")) / max(len(history), 1))
@@ -530,9 +709,13 @@ RANK_SCHEMA = {
         "surprise": {"type": "integer"},
         "voice": {"type": "integer"},
         "travels": {"type": "integer"},
+        "lands": {"type": "integer"},
+        "plain": {"type": "integer"},
+        "best_landing": {"type": "integer"},
         "verdict": {"type": "string"},
     }, "required": ["index", "laugh", "share_trigger", "specificity", "surprise",
-                    "voice", "travels", "verdict"]}}},
+                    "voice", "travels", "lands", "plain", "best_landing",
+                    "verdict"]}}},
     "required": ["scores"],
 }
 
@@ -540,7 +723,7 @@ RANK_SCHEMA = {
 # forward, not a like. These are guesses until there is performance data:
 # at n>=30 published posts, refit them against shares/reach.
 RANK_WEIGHTS = {"laugh": 3, "share_trigger": 3, "surprise": 2, "specificity": 2,
-                "voice": 2, "travels": 2}
+                "voice": 2, "travels": 2, "lands": 4, "plain": 3}
 
 
 RESPONSE_SCHEMA = {
@@ -558,6 +741,15 @@ RESPONSE_SCHEMA = {
                 "trend": {"type": "string"},
                 "context": {"type": "string"},
                 "angle": {"type": "string"},
+                # Before the slides on purpose (propertyOrdering below): the
+                # punchline is found first and the slides are built toward it.
+                "landing_options": {"type": "array", "minItems": 4, "maxItems": 6,
+                                    "items": {"type": "object", "properties": {
+                                        "line": {"type": "string"},
+                                        "mechanism": {"type": "string", "enum": [
+                                            "reinterpretation", "callback", "escalation",
+                                            "deadpan_response", "rule_of_three_break"]}},
+                                        "required": ["line", "mechanism"]}},
                 "slides": {"type": "array", "items": {"type": "string"},
                            "minItems": 2, "maxItems": 3},
                 "caption": {"type": "string"},
@@ -570,9 +762,27 @@ RESPONSE_SCHEMA = {
                 "keywords": {"type": "array", "items": {"type": "string"},
                              "minItems": 3, "maxItems": 3},
                 "source": {"type": "string"},
-            }, "required": ["trend", "context", "angle", "slides", "caption",
-                            "trigger", "target", "structure", "move",
-                            "satire_level", "hinglish", "keywords", "source"]},
+                "tweet": {"type": "object", "properties": {
+                    "setup": {"type": "string"}, "punch": {"type": "string"}},
+                    "required": ["setup", "punch"]},
+                "chat": {"type": "object", "properties": {
+                    "title": {"type": "string"},
+                    "messages": {"type": "array", "minItems": 3, "maxItems": 7,
+                                 "items": {"type": "object", "properties": {
+                                     "from": {"type": "string"},
+                                     "text": {"type": "string"},
+                                     "kind": {"type": "string", "enum": [
+                                         "text", "forwarded", "deleted", "voice"]}},
+                                     "required": ["from", "text"]}}},
+                    "required": ["title", "messages"]},
+            }, "required": ["trend", "context", "angle", "landing_options", "slides",
+                            "caption", "trigger", "target", "structure", "move",
+                            "satire_level", "hinglish", "keywords", "source",
+                            "tweet"],
+                "propertyOrdering": ["trend", "context", "angle", "landing_options",
+                                     "slides", "caption", "trigger", "target",
+                                     "structure", "move", "satire_level", "hinglish",
+                                     "keywords", "source", "tweet", "chat"]},
         },
     },
     "required": ["posts"],
@@ -649,6 +859,26 @@ Score each 1-5 on:
   voice          Deadpan, second person, ends on a noun, explains nothing.
                  1 = it winks at the reader or moralises.
 
+  lands          Does the ending actually land as a punchline? Each post lists
+                 LANDING OPTIONS (a, b, c, ...). First choose the best one —
+                 that is best_landing, 1 for (a), 2 for (b) and so on — then
+                 score lands for THAT option. Run these checks on it:
+                   - Can you say "the setup seemed to be X, the landing reveals Y"?
+                   - Is the surprise in its last one to three words?
+                   - Does it hook onto a word, number or person already shown?
+                   - Could a reader have guessed it from slide 1? (bad)
+                   - Does it explain, summarise, moralise or state the theme? (bad)
+                   - Would it work as the last line of a different post? (bad)
+                 5 = all pass, and it is funnier than the best middle line.
+                 1 = an abrupt, oblique or literary ending that is not a joke.
+                 This is the axis the account fails most, so be strict.
+
+  plain          Could a tired 30-year-old read it in one go, on a phone, on the
+                 metro? Everyday Hinglish or very simple English, short lines,
+                 the joke carried by facts and speech. 5 = reads like a text from
+                 a friend. 1 = literary, abstract, a metaphor to decode, or
+                 corporate words in the narration (inside quotes is fine).
+
 Use the full range. If everything scores 4 you have not done the job.
 verdict: one blunt sentence on the single biggest weakness.
 """
@@ -667,6 +897,45 @@ def is_send_command(caption: Optional[str]) -> bool:
     return bool(SEND_COMMAND.match(caption or ""))
 
 
+def landing_choices(post: Dict[str, Any]) -> List[str]:
+    """The writer's landing first, then the other options it wrote, deduplicated."""
+    out = [(post.get("slides") or [""])[-1]]
+    for o in post.get("landing_options") or []:
+        line = (o.get("line") if isinstance(o, dict) else str(o) or "").strip()
+        if line and line not in out:
+            out.append(line)
+    return out
+
+
+def _judge_entry(i: int, p: Dict[str, Any]) -> str:
+    opts = landing_choices(p)
+    return ("%d. %s\n   LANDING OPTIONS: %s"
+            % (i, " / ".join(p["slides"]).replace("\n", " "),
+               "  ".join("(%s) %s" % (chr(97 + k), o.replace("\n", " "))
+                         for k, o in enumerate(opts))))
+
+
+def apply_best_landing(post: Dict[str, Any], choice: Optional[int],
+                       brand: Dict[str, Any], history: List[Dict[str, Any]],
+                       cfg: Dict[str, Any]) -> Optional[str]:
+    """Swap in the judge's pick for the last slide if it still passes every gate.
+
+    Generate many, keep one: the Onion pitches hundreds of headlines to print a
+    handful, and the humour-generation papers do the same with candidates and a
+    ranker. The writer picks first; the judge, who did not write them, can
+    overrule it. Returns the replaced line, or None if nothing changed.
+    """
+    opts = landing_choices(post)
+    if not choice or not 1 <= choice <= len(opts) or choice == 1:
+        return None
+    trial = dict(post, slides=list(post["slides"][:-1]) + [opts[choice - 1]])
+    if run_gates(trial, brand, history, cfg):
+        return None
+    old = post["slides"][-1]
+    post["slides"] = trial["slides"]
+    return old
+
+
 def rank(posts: List[Dict[str, Any]], brand: Dict[str, Any],
          history: List[Dict[str, Any]], cfg: Dict[str, Any]) -> List[Dict[str, Any]]:
     """Score, then penalise repetition. Returns posts sorted best-first.
@@ -674,9 +943,7 @@ def rank(posts: List[Dict[str, Any]], brand: Dict[str, Any],
     The judge is a second, separate call: asking the writer to grade its own
     work in the same breath produces uniformly high marks.
     """
-    listing = "\n\n".join(
-        "%d. %s" % (i, " / ".join(p["slides"]).replace("\n", " "))
-        for i, p in enumerate(posts, 1))
+    listing = "\n\n".join(_judge_entry(i, p) for i, p in enumerate(posts, 1))
     system = RANK_PROMPT + "\n\nACCOUNT:\n" + yaml.safe_dump(
         {k: brand[k] for k in ("identity", "audience", "voice", "slides", "travels")},
         sort_keys=False, allow_unicode=True, width=100)
@@ -735,6 +1002,9 @@ def rank(posts: List[Dict[str, Any]], brand: Dict[str, Any],
 
     for i, p in enumerate(posts, 1):
         sc = scores.get(i, {})
+        swapped = apply_best_landing(p, sc.get("best_landing"), brand, history, cfg)
+        if swapped:
+            p["landing_replaced"] = swapped
         base = sum(RANK_WEIGHTS[k] * sc.get(k, 3) for k in RANK_WEIGHTS)
         penalty = 0
         if p.get("structure") in recent_struct:
@@ -894,15 +1164,17 @@ def cmd_approve(pick: int, cfg) -> int:
     post["status"] = "approved"
     post["rank_score"] = post.pop("_score", None)
     post["rank_verdict"] = post.pop("_judge", "")
-    for k in ("_detail", "_penalty"):
+    for k in ("_detail", "_penalty", "_rendition_notes"):
         post.pop(k, None)
+    post["style"] = pick_style(post, cfg)
 
     os.makedirs(APPROVED_DIR, exist_ok=True)
     out = os.path.join(APPROVED_DIR, "%s.json" % post["id"])
     with open(out, "w") as f:
         json.dump({"handle": "@30unfortunately", "posts": [post]}, f,
                   indent=2, ensure_ascii=False)
-    print("approved %s -> %s" % (post["id"], os.path.relpath(out, ROOT)))
+    print("approved %s -> %s  (%s reel)" % (post["id"], os.path.relpath(out, ROOT),
+                                             post["style"]))
     print("  %s" % post["slides"][0])
     return 0
 
@@ -1146,6 +1418,9 @@ def main():
             rejected.append(p)
         else:
             p["status"] = "draft"
+            notes = vet_renditions(p, brand)
+            if notes:
+                p["_rendition_notes"] = notes
             accepted.append(p)
 
     if accepted:
@@ -1156,6 +1431,9 @@ def main():
                                                  p["slides"][0][:52]))
             if p.get("_judge"):
                 print("       %s" % p["_judge"][:96])
+            print("       styles: %s%s" % (", ".join(available_styles(p)),
+                                          "  (" + "; ".join(p["_rendition_notes"]) + ")"
+                                          if p.get("_rendition_notes") else ""))
 
     os.makedirs(CANDIDATE_DIR, exist_ok=True)
     stamp = datetime.now(timezone.utc).strftime("%Y%m%d-%H%M%S")

@@ -66,6 +66,10 @@ MIGRATIONS = [
     # publish.py builds the hashtags and the alt text out of them.
     ("move", "ALTER TABLE posts ADD COLUMN move TEXT", None),
     ("keywords", "ALTER TABLE posts ADD COLUMN keywords TEXT", None),
+    # Which reel was drawn: card, tweet or chat (formats/). Everything before
+    # 2026-11-26 was a card, which is what the backfill says.
+    ("style", "ALTER TABLE posts ADD COLUMN style TEXT",
+     "UPDATE posts SET style='card' WHERE style IS NULL"),
 ]
 
 
@@ -212,15 +216,15 @@ def enqueue(conn: sqlite3.Connection, post: Dict[str, Any]) -> bool:
         return False
     conn.execute(
         "INSERT INTO posts (id, slides, caption, trigger, target, structure,"
-        " move, satire_level, hinglish, keywords, source, status, queued_at)"
-        " VALUES (?,?,?,?,?,?,?,?,?,?,?,'queued',?)",
+        " move, satire_level, hinglish, keywords, source, style, status, queued_at)"
+        " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,'queued',?)",
         (post["id"], json.dumps(post["slides"], ensure_ascii=False), post["caption"],
          post.get("trigger"), normalise_target(post.get("target")) or "self",
          post.get("structure"),
          post.get("move"), post.get("satire_level"),
          int(bool(post.get("hinglish"))),
          json.dumps(post.get("keywords") or [], ensure_ascii=False),
-         post.get("source"), now()))
+         post.get("source"), post.get("style") or "card", now()))
     conn.commit()
     return True
 

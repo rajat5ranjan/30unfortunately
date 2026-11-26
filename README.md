@@ -38,6 +38,7 @@ brand.yaml              the content contract — identity, voice, gates. The pro
 brain.py                trends → prompt → LLM → gates → candidates
 render.py               posts → 1080×1350 PNGs + contact sheet
 reel.py                 the same posts → 1080×1920 H.264, animated
+formats/                one folder per reel type: card, tweet, chat (+ retired carousel)
 publish.py              queue → containers → publish → insights
 store.py                SQLite: the queue and the metrics history
 config.json             model, thresholds, font, Pages base URL
@@ -167,6 +168,23 @@ than a p-value, because at
 this sample size a t-test's assumptions are not met. Shares per reach is the
 tiebreaker — reach says Instagram showed it to more people, shares says they
 passed it on, and only the second one compounds.
+
+### Reel styles: card, tweet, chat
+
+Since 2026-11-26 every generated post is written three ways — the text-card
+slides, a `tweet` (setup, then a punchline about two seconds in) and a `chat`
+(a family/landlord/office thread, messages arriving one by one). Each approved
+post ships as ONE of them, chosen in rotation by `brain.pick_style` with the
+weights in `config.json` `reel_styles`, so the three are compared on the same
+stream of jokes. `publish.py styles` reads it out; read it at ~30 posts each.
+
+Each type lives in its own folder under `formats/` with a `sample.json`:
+`.venv/bin/python -m formats --sample chat` previews one. See `formats/README.md`.
+
+The writer now drafts 4-6 `landing_options` before the slides, and the judge
+picks the one that actually lands (`lands`, weighted highest) — the fix for
+endings that stopped instead of landing. See `slides.last_slide_is_the_LANDING`
+in `brand.yaml`.
 
 ### The reel
 

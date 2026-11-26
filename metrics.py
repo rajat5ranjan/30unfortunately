@@ -220,9 +220,40 @@ def day_one(conn: sqlite3.Connection) -> List[Dict[str, Any]]:
         if pick is None:
             continue
         out.append({"id": r["id"], "format": r["format"] or "carousel",
+                    "style": (r["style"] if "style" in r.keys() else None) or "card",
+                    "watch_ms": pick["avg_watch_ms"] if "avg_watch_ms" in pick.keys() else None,
                     "reach": pick["reach"] or 0, "views": pick["views"] or 0,
                     "shares": pick["shares"] or 0, "likes": pick["likes"] or 0,
                     "published_at": r["published_at"]})
+    return out
+
+
+STYLES = ("card", "tweet", "chat")
+
+
+def by_style(conn: sqlite3.Connection,
+             since: str = "2026-11-26") -> Dict[str, Dict[str, Any]]:
+    """Card vs tweet vs chat, reels only, day-one numbers, since styles began.
+
+    Same discipline as compare(): day-one reach so ages match, medians because
+    reach is right-skewed, and shares per reach as the number that compounds.
+    Watch time is in here because it is the thing the new styles exist to fix
+    — the card's median was 3.4s.
+    """
+    rows = [r for r in day_one(conn)
+            if r["format"] == "reel" and (r["published_at"] or "") >= since]
+    out = {}
+    for s in STYLES:
+        g = [r for r in rows if r["style"] == s]
+        reach = sum(r["reach"] for r in g)
+        out[s] = {"n": len(g),
+                  "reach": median([r["reach"] for r in g]),
+                  "watch_s": median([r["watch_ms"] / 1000.0 for r in g
+                                     if r.get("watch_ms") is not None]),
+                  "shares_per_1k": (1000.0 * sum(r["shares"] for r in g) / reach)
+                  if reach else None,
+                  "likes_per_1k": (1000.0 * sum(r["likes"] for r in g) / reach)
+                  if reach else None}
     return out
 
 

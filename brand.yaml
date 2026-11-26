@@ -223,28 +223,44 @@ slides:
       Pick the shape the joke needs. If the previous few posts ended on a
       two-line couplet, this one must not.
 
-      The last line must TURN, not restate. It has to bring in something the
-      post has not said yet — a new image, a new object, a new person. "Your
-      body is an invoice for your twenties. / You are paying it off in monthly
-      instalments." is two versions of one sentence; the second line is a gloss
-      on the first and the post ends flatter than it started. Compare "You are
-      thirty-two. / She still treats you like an unstable chemical." — the
-      chemical arrives from nowhere and is the entire joke.
+      THE LANDING IS THE PUNCHLINE. Rewritten 2026-11-26, because too many
+      posts ended abruptly — an oblique, literary last line that reads like the
+      end of a short story rather than the end of a joke. The old wording said
+      "bring in something new"; read literally, that produced printers and
+      steel boxes from nowhere. What a punchline actually does:
 
-      The ban on explaining was written about morals. It applies just as hard
-      to a landing explaining itself.
+        1. REINTERPRET. The landing makes the reader see the setup differently:
+           "it looked like X, it was really Y". If you cannot finish the
+           sentence "the setup seemed to be ___, the landing reveals ___", it
+           is not a punchline yet.
+        2. CONNECT. Anything new in the landing must hook onto a word, number
+           or person already on the slides. A callback to the hook is the
+           strongest ending this account has: "Your contract says 8 hours of
+           work. It forgot the 4 hours of tarmac." ... "Your company counts the
+           desk hours. / The road owns the rest." — it finishes the arithmetic
+           the hook started. An object with no link to the setup is a
+           non-sequitur, not a turn.
+        3. TOP IT. If the middle slide already got the laugh, the landing must
+           be the next, worse step of the same pattern — never a summary of it,
+           never the theme said out loud.
+        4. FUNNIEST WORD LAST. The surprise sits in the final one to three
+           words. "After five withdrawals: ₹21." not "₹21 is charged after five
+           withdrawals." Never end on filler: anyway, still, again, just, too.
+        5. NO COMMENTARY. If the line could caption a different post, or it
+           comments on the joke instead of being it ("The system thought of
+           that"), cut it. No morals, no themes, no "you are not X, you are Y".
+        6. NOT PREDICTABLE. If a reader could guess the last line from slide 1,
+           the joke has no turn. Surprising, then obvious in hindsight.
+        7. SHORT. Twelve words or fewer is the default; a long landing must
+           earn every word.
 
-      The last line must TURN, not restate. It has to bring in something the
-      post has not said yet — a new image, a new object, a new person. "Your
-      body is an invoice for your twenties. / You are paying it off in monthly
-      instalments." is two versions of one sentence; the second line is a gloss
-      on the first and the post ends flatter than it started. Compare "You are
-      thirty-two. / She still treats you like an unstable chemical." — the
-      chemical arrives from nowhere and is the entire joke.
+      Work in this order: find the punchline FIRST — write landing_options
+      before the slides, four to six different ones, each with its mechanism
+      — then build the hook and middle so they set it up, and put the
+      strongest option on the last slide, word for word.
 
-      The ban on explaining was written about morals. It applies just as hard
-      to a landing explaining itself.
     good:
+      - "Your company counts the desk hours.\n\nThe road owns the rest."   # callback that finishes the hook's sum
       - "You still haven't eaten."
       - "The post is still up."
       - "You are now shaped like the problem."
@@ -257,6 +273,12 @@ slides:
       # Correct in isolation, and the shape 84% of the account already uses.
       # Rejected for being the fifty-ninth of its kind, not for being wrong.
       - "You are thirty-three.\n\nYou are buying a drawing of a building."
+      # The abrupt endings that prompted the 2026-11-26 rewrite, and why:
+      - "The system thought of that three years ago."   # commentary on the joke; vague last words
+      - "You both smiled and signed the annexure."      # the outcome slide 1 predicts; reinterprets nothing
+      - "He finished the tub anyway."                   # predictable, and ends on filler
+      - "The company printer used more paper announcing it."  # new object with no link to the setup
+      - "You are not traveling.\n\nYou are aging in a steel box."  # states the theme after the joke peaked
 
 # -----------------------------------------------------------------------------
 # TARGET — who the joke is ON. The thing most often missing.
@@ -305,19 +327,26 @@ voice:
 # HINGLISH — the single biggest differentiator. Get this wrong and it's generic.
 # -----------------------------------------------------------------------------
 hinglish:
-  target_ratio: 1 in 3 posts (30–40%)
+  target_ratio: most posts — 6 in 10 or more (raised 2026-11-26 from 1 in 3)
   where_it_comes_from: |
-    Not from a quota. Hinglish lives in speech, and this rule and the structure
-    mix used to be in direct conflict: the rule said "only in reported speech"
-    while eleven of twelve structures had nobody speaking. Write the voices and
-    the ratio arrives on its own. If you are reaching for a Hindi word in a
-    narrated sentence to hit a number, the post needed a person in it instead.
+    Hinglish is how this audience talks and texts, so it is the default voice
+    now, not a seasoning for quotes. Narration may be Hinglish too — the way a
+    30-year-old in Delhi, Mumbai or Bengaluru types on WhatsApp: English nouns,
+    Hindi glue, short lines. "Salary aayi. 4 minute mein rent, EMI aur SIP le
+    gaye." When a post is in English, it is very simple English (see
+    plain_language). Changed 2026-11-26: the owner asked for Hinglish or very
+    simple English and nothing in between.
   rule: |
-    Code-switch only where a real person would actually switch — reported
-    speech from family, a phrase with no English equivalent, an instruction
-    that is always given in Hindi. Never sprinkle Hindi words into an English
-    sentence for flavour. Never translate. Never italicise. Never explain.
+    Roman script only — never Devanagari, the renderer cannot draw it. Everyday
+    Hindi, the words used at home, never shuddh or formal Hindi. Mix the way
+    people actually mix: "Office 10 km hai. Pahunchne mein 2 ghante." Never
+    translate, never gloss in brackets, never italicise, never explain. The
+    numbers and the English nouns should carry the joke far enough that a
+    reader with little Hindi still gets it.
   natural:
+    - "Salary aayi. 4 minute mein chali gayi."
+    - "Office 10 km hai. Pahunchne mein 2 ghante."
+    - "Landlord ne deposit se ₹10,000 kaat liye. Fan pe dust tha."
     - "Settle ho ja."
     - "Thoda adjust kar lo."
     - "Khana kha liya?"
@@ -837,11 +866,118 @@ discoverability:
 # -----------------------------------------------------------------------------
 # OUTPUT
 # -----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
+# PLAIN LANGUAGE — added 2026-11-26. The owner's note: "not too complex
+# statements". The account had drifted literary: abstract metaphors and
+# corporate words in the narration, which read as clever and are not sent on.
+# -----------------------------------------------------------------------------
+plain_language:
+  rule: |
+    Write the way you text a friend. Class-8 English or everyday Hinglish.
+    The joke comes from the FACTS — the number, the line somebody said — not
+    from clever phrasing. If a sentence needs a second read, rewrite it.
+  max_sentence_words: 14      # per sentence, outside quoted speech
+  max_long_words: 2           # words of 11+ letters, outside quoted speech
+  jargon: |
+    Corporate and official words ("realignment", "deliverables", "macroeconomic
+    headwinds") only INSIDE quotes, when a manager or HR is saying them — then
+    the jargon is the joke. Never in the narration.
+  no_decoding: |
+    No metaphor the reader has to decode. "Your body is an invoice for your
+    twenties" makes the reader work; "Back pain at 31. Physio ₹1,500 a visit."
+    does not. Say the thing.
+  before_after:
+    - before: "Your employer announced a structural realignment."
+      after: "Company ne bola: budget nahi hai. Same week, new office opened."
+    - before: "You are aging in a steel box."
+      after: "84 minutes. Same flyover. Every day."
+    - before: "Your bank statement is a conflict of interest."
+      after: "Salary: 1st. Rent, EMI, SIP: also 1st."
+
+# -----------------------------------------------------------------------------
+# RENDITIONS — the same joke, drawn three ways. Added 2026-11-26.
+# The slides are the text-card reel. `tweet` and `chat` are the same post as a
+# post from the account and as a phone chat; the publisher picks ONE per post,
+# in rotation, so the three can be compared on the same jokes. The median reel
+# was watched for 3.4s of ~20: these exist to win the first second.
+# -----------------------------------------------------------------------------
+renditions:
+  rule: |
+    Same joke, same angle, same target. Not a new idea per rendition — the
+    same idea in the shape a person would actually meet it in. Write every
+    rendition as if it were the only one, because it will be.
+  tweet:
+    max_setup_chars: 120
+    max_punch_chars: 140
+    what: One post from this account, as it would look in the app everyone screenshots.
+    voice: |
+      First person is allowed HERE ("I", "my parents", "my manager"): it is the
+      account speaking as a 30-year-old, which is how these posts read. Still
+      deadpan, still specific, still never explaining the joke.
+    setup: |
+      Max 120 characters. On screen from the first frame, so it must already be
+      funny or already be tense — the reader decides in a second whether the
+      next line is worth waiting for. Not a title, not a question.
+    punch: |
+      Max 140 characters. The punchline, under every rule in
+      slides.last_slide_is_the_LANDING — reinterpret the setup, funniest word
+      last, no commentary. The turn. It arrives about two seconds later and
+      lands alone. No hashtags, no emoji, no "lol", no question mark, no
+      quotation marks around the whole thing.
+    example:
+      setup: My parents think I have a desk job.
+      punch: I have a 2 hour 10 minute commute with a desk at the end of it.
+  chat:
+    min_messages: 3
+    max_messages: 7
+    max_message_chars: 110
+    what: A phone chat thread, messages arriving one by one. Family groups, flat groups, landlords, managers.
+    title: |
+      The name as it is saved in the phone: "Sharma Parivaar", "Flat 302 (No Fighting)",
+      "Landlord Ji", "Team Phoenix - Official", "Mummy". Invented. Never a real
+      person, company, brand or app.
+    messages: |
+      3 to 7. `from` is a role-name (Mummy, Papa, Mausi, Bua, Chachu, Landlord Ji,
+      Rakesh Sir, HR - Priya) or exactly "You" for the reader. Max 110 characters
+      each, typed the way that person types: Mummy in Hinglish with "beta",
+      the manager in corporate English, the landlord with "ji". Short real-chat
+      typing is allowed here and only here.
+    hook: |
+      The FIRST message is the hook. Someone is shown typing for half a second
+      and then it lands — it has to work alone, instantly.
+    landing: |
+      The LAST message is the landing: usually You, deadpan, or a reply that
+      turns the whole thread. Nothing after it. It must be a message somebody
+      would actually send — never narration — and it follows every rule in
+      slides.last_slide_is_the_LANDING: it reinterprets the thread, and the
+      surprise is in its last words.
+    kinds: |
+      Optional `kind` per message. "forwarded" for the good-morning-forward
+      genre. "deleted" when someone deleting a message IS the joke (text empty).
+      "voice" when an absurdly long voice note is the joke (text is its
+      duration, e.g. "4:32"). At most one special kind per chat. Default "text".
+    no_forcing: If the joke has no conversation in it, leave `chat` out rather than force one.
+    example:
+      title: Sharma Parivaar
+      messages:
+        - {from: Mummy, kind: forwarded, text: "Good morning. Garam paani at 6 AM cures 47 diseases."}
+        - {from: Papa, text: "Beta, office toh paas mein hi hai na? Kal raat 10 baje bhi online the"}
+        - {from: You, text: "Traffic tha papa. 10 km, 2 ghante"}
+        - {from: Mausi, text: "Sharma ji ka Rohan bhi wahi company mein hai. Ghar se kaam karta hai."}
+        - {from: Papa, kind: deleted, text: ""}
+        - {from: You, text: "Rohan is my manager."}
+  never: No emoji in either (the renderer cannot draw them). No real names, brands, apps or companies.
+
 output_schema:
   trend: What is happening. One sentence.
   context: Why it lands on this audience specifically. One sentence.
   angle: The absurdity underneath. One sentence. This is the actual creative work.
-  slides: Array of 2–3 strings. Newlines allowed inside a slide.
+  landing_options: |
+    Write this BEFORE the slides. 4–6 different candidate last lines, each
+    {line, mechanism}: mechanism is one of reinterpretation, callback,
+    escalation, deadpan_response, rule_of_three_break. Different mechanisms,
+    not one line reworded. The strongest becomes the last slide, verbatim.
+  slides: Array of 2–3 strings. Newlines allowed inside a slide. The last one is one of landing_options.
   caption: |
     One or two lines. Emoji allowed here and nowhere else. Give the reader
     somebody to send it to, named by what they do rather than "tag a friend
@@ -863,5 +999,7 @@ output_schema:
     They never appear in the caption as prose — they become the hashtags and
     the alt text.
   source: URL, or the literal string "evergreen".
+  tweet: "{setup, punch} — see renditions.tweet. Always present."
+  chat: "{title, messages: [{from, text, kind}]} — see renditions.chat. Leave out only if the joke has no conversation in it."
 
 few_shot_examples: content/seed_posts.json   # the twelve approved posts
