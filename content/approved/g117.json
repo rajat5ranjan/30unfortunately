@@ -1,0 +1,78 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "₹500 coffee, ₹25,000 fitness, ₹40,000 rent: Is Gen Z really spending too much?",
+      "context": "Parents forward articles criticising gym expenses without realising that at 30, fitness is spinal maintenance for a 10-hour desk job.",
+      "angle": "What finance articles and parents call vanity fitness spending is actually basic mechanical upkeep for a sitting job.",
+      "landing_options": [
+        {
+          "line": "\"Papa, yeh shauk nahi hai. Reedh ki haddi ki EMI hai.\"",
+          "mechanism": "reinterpretation"
+        },
+        {
+          "line": "30 ke baad gym shauk nahi, garam patti ka substitute hai.",
+          "mechanism": "escalation"
+        },
+        {
+          "line": "Paidal chalne ke liye pehle footpath toh ho.",
+          "mechanism": "deadpan_response"
+        },
+        {
+          "line": "Aapka gym nahi, aapki sitting job ka repair bill hai.",
+          "mechanism": "callback"
+        }
+      ],
+      "slides": [
+        "Subah 7 baje Papa ne article bheja: \"Gym pe paisa barbaad.\"",
+        "Forward: \"Aajkal ke bachche fitness pe ₹25,000 uda rahe hain. Hamare time mein subah daudte the.\"",
+        "\"Papa, yeh shauk nahi hai. Reedh ki haddi ki EMI hai.\""
+      ],
+      "caption": "Send this to the friend whose parents think physiotherapy is a rich-people hobby.",
+      "trigger": "health",
+      "target": "parents",
+      "structure": "whatsapp_forward",
+      "move": "the_turn_in_the_last_words",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "gym membership cost",
+        "indian parents whatsapp",
+        "back pain thirties"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQbmhKZWREeVNjNVFId0NuX1lVOW13cE1faUNZWEp5Tnd5Vnp6YnRldDh4aHJrc05SR3dMcm1hSGZZUlNTRno1WE1BZ3AxYkhiUk1jLWFmZVdCOTd0b0ZoeXM4ZGM4R0JnX2JoZlB4VkNnZUdBdHFBVzd0WXFVeTIzNlhfbmxBMEI1aVljd3FUTGdOeTh2NlAxdE1IcUhSWExXMVlsWGZqZGFDelg2WTBGTGFqbDh0V1EySHpMMTZUX0hZeTNQaDFpZ1liM3ZQaknSAdQBQVVfeXFMTm9lOGhwWHlFMEUyRVhwdnEwVzZiR2Z5RWlkNGZ6R0hqZXhxeVgzSGVOU2d2RmJjbFRKZGNTYWpIWVlFOGtzTGpOQV91MkpOc1g5QVdhZS1XaEVmcHhQNTUwQnlGX2x0SmtwTDczVnVTbWt6VWdTQkVOUTVwaTdEdy1kVUNmM0J1U2YtWlRXSUJpOWt3NnJWUHNQV2phYlV5eVF6bGFsdy1aa2JLTXptaXFUZ3RiTm5RTmg4X3dsTEo3c0tadnVkNTM2YTFKb2g0WEJtVnA?oc=5",
+      "chat": {
+        "title": "Papa",
+        "messages": [
+          {
+            "from": "Papa",
+            "text": "Dekho aajkal ke bachche ₹25,000 gym mein uda rahe hain. Subah park mein chala karo.",
+            "kind": "forwarded"
+          },
+          {
+            "from": "You",
+            "text": "Papa office ke baad 9 baje park mein sirf kutte hote hain",
+            "kind": "text"
+          },
+          {
+            "from": "Papa",
+            "text": "Phir bhi, paise bachao. Yeh body shody mein kuch nahi rakha.",
+            "kind": "text"
+          },
+          {
+            "from": "You",
+            "text": "Papa body nahi bana raha, kamar sidhi rakhne ki kisht bhar raha hoon.",
+            "kind": "text"
+          }
+        ]
+      },
+      "created_at": "2026-11-26",
+      "model": "gemini-4-hydrogen",
+      "status": "approved",
+      "id": "g117",
+      "rank_score": 81,
+      "rank_verdict": "It relies on a first-person comeback to Dad rather than the account's second-person voice, and the 'not X, it is Y' frame is familiar.",
+      "style": "chat"
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "A Bengaluru landlord has allegedly refused to rent a flat to Shark Tank India Season 5 contestant Aaditya Aanand because he runs a startup instead of earning a regular salary.",
+      "context": "30-year-olds who quit stable corporate jobs to start businesses discover that Indian housing still treats entrepreneurship as unemployment.",
+      "angle": "A Bengaluru landlord runs tougher due diligence on a founder than any venture investor ever did.",
+      "landing_options": [
+        {
+          "line": "Pitch deck rakho. Kal Form 16 leke aana.",
+          "mechanism": "callback"
+        },
+        {
+          "line": "Investor maan gaya. Aunty ka broker nahi maana.",
+          "mechanism": "deadpan_response"
+        },
+        {
+          "line": "40 logon ko salary dete ho. Pehle apni dikhao.",
+          "mechanism": "escalation"
+        },
+        {
+          "line": "Company aapki hai, isliye flat nahi milega.",
+          "mechanism": "reinterpretation"
+        }
+      ],
+      "slides": [
+        "Investor ne 10 minute mein haan bola. Landlord ne mana kar diya.",
+        "\"40 logon ko salary deta hoon.\"\n\"Acha. Aapka Offer Letter?\"\n\"Main founder hoon.\"\n\"Toh kisi senior se sign karwao.\"",
+        "Pitch deck rakho. Kal Form 16 leke aana."
+      ],
+      "caption": "That one friend who left a stable corporate job to build something and now cannot rent a 2BHK.",
+      "trigger": "home",
+      "target": "landlord",
+      "structure": "interview",
+      "move": "the_institutional_frame",
+      "satire_level": 4,
+      "hinglish": true,
+      "keywords": [
+        "bengaluru flat rent",
+        "startup founder housing",
+        "landlord tenant india"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFB5ZENfdEg4dXotOVhxZkstcnpzV1ZZa0N2bUpDOUM5LXJOeDVTTXludFh0UTU2ZWQtNzdOa1ZUNnZZcUNJa011Tm5DWnF2OXE4SGc?oc=5",
+      "tweet": {
+        "setup": "Investor took 10 minutes to fund my startup. My Bengaluru landlord took 2 minutes to reject my tenant application.",
+        "punch": "He asked for an offer letter signed by my manager."
+      },
+      "chat": {
+        "title": "Broker - Indiranagar",
+        "messages": [
+          {
+            "from": "Broker",
+            "text": "Sir owner ko aapka company profile samajh nahi aaya",
+            "kind": "text"
+          },
+          {
+            "from": "You",
+            "text": "Bhai TV pe aaya tha pichle mahine. Funding mili hai.",
+            "kind": "text"
+          },
+          {
+            "from": "Broker",
+            "text": "Owner bol rahe hain koi MNC ka payslip hai toh bhejo",
+            "kind": "text"
+          },
+          {
+            "from": "You",
+            "text": "Main hi boss hoon bhai, khud ko payslip kaise doon",
+            "kind": "text"
+          },
+          {
+            "from": "Broker",
+            "text": "Sir toh 2BHK mushkil hai, unko stable salary chahiye",
+            "kind": "text"
+          }
+        ]
+      },
+      "created_at": "2026-11-26",
+      "model": "gemini-4-hydrogen",
+      "status": "approved",
+      "id": "g115",
+      "rank_score": 82,
+      "rank_verdict": "Slide 2's dialogue with the broker is funnier than the landing, and putting Form 16 in the final line hurts global legibility.",
+      "style": "chat"
+    }
+  ]
+}

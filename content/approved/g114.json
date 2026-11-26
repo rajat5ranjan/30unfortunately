@@ -1,0 +1,57 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "West Bengal announces government school admission guidelines for 2027; lottery system to continue",
+      "context": "Having survived college cutoffs and job interviews in their twenties, parents in their early thirties are back to sweating over lucky draws just to get a toddler into school.",
+      "angle": "School nursery admission is the only lottery in India where winning immediately unlocks ten years of fixed fees.",
+      "landing_options": [
+        {
+          "line": "Pehli lottery hai jisme jeetne pe bhi paise jaate hain.",
+          "mechanism": "reinterpretation"
+        },
+        {
+          "line": "Bachche ko ABCD nahi aati, par luck test ho raha hai.",
+          "mechanism": "callback"
+        },
+        {
+          "line": "Aapne itni taiyaari khud ke interview ke liye nahi ki thi.",
+          "mechanism": "deadpan_response"
+        },
+        {
+          "line": "32 saal ke log toddler ke liye dua maang rahe hain.",
+          "mechanism": "escalation"
+        }
+      ],
+      "slides": [
+        "32 ki umar mein aapka naya lucky draw: nursery admission.",
+        "22 mein: college cutoff ki tension.\n26 mein: appraisal ki tension.\n30 mein: landlord ki tension.\n32 mein: 3 saal ke bachche ka lottery ticket.",
+        "Pehli lottery hai jisme jeetne pe bhi paise jaate hain."
+      ],
+      "caption": "Send this to the friend who woke up at 5 AM just to fill out a nursery form.",
+      "trigger": "the_timeline",
+      "target": "school",
+      "structure": "list_collapse",
+      "move": "flat_restatement",
+      "satire_level": 4,
+      "hinglish": true,
+      "keywords": [
+        "school admission lottery",
+        "nursery admission india",
+        "parenting in thirties"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxQVXpHYzNIX0dhT2VWLUtLZHoxTVBxTzlRV3JyT3JIOUk2NnVpX2phVks0R1RKd2UzQS12eWF2aGJhQjk3d0txeGpYcmpzLXNWbkROQmVxZFYwUUlGMEo3NXNGVkkzNEEycFhaN1hNTXpUeXNGQzNsZGQtWktTVllaU2syQTA3Yy0yZnczQW1BQnJ6MGJpN3B4UGZNN0lPYUF6bkJtWGFxb0sycDZJR09vNWY2N3h5Nkk2X2pvVlM0aDF2YlFHZ09fZWR6WGw0QlNURjM4MFZUTlFrdmg3U2xzMmZhWGJNMzBDWk1jd0pjaw?oc=5",
+      "tweet": {
+        "setup": "Spent my twenties stressed about entrance exams and my thirties stressed about school lotteries.",
+        "punch": "It is the only lottery where winning costs you your annual bonus."
+      },
+      "created_at": "2026-11-26",
+      "model": "gemini-4-hydrogen",
+      "status": "approved",
+      "id": "g114",
+      "rank_score": 89,
+      "rank_verdict": "The middle slide repeats 'ki tension' four times like a template, though the lottery-loss punchline is the sharpest in the batch.",
+      "style": "tweet"
+    }
+  ]
+}

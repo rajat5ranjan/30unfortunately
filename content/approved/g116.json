@@ -1,0 +1,78 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "Google Dismisses Mass Layoff Rumours In India, Says Only 30 Cloud Roles Cut: \"Totally Inaccurate\"",
+      "context": "Every time management sends a reassuring memo dismissing layoff rumours, the next calendar invite from HR triggers instant panic.",
+      "angle": "A manager assuring you the layoff news is exaggerated is the clearest warning sign to start backing up your laptop.",
+      "landing_options": [
+        {
+          "line": "Kal 9 baje se pehle resume update kar lena.",
+          "mechanism": "deadpan_response"
+        },
+        {
+          "line": "\"Quick sync\" ke aage kabhi acchi khabar nahi aati.",
+          "mechanism": "reinterpretation"
+        },
+        {
+          "line": "30 mein 31wa naam kisi ka bhi ho sakta hai.",
+          "mechanism": "callback"
+        },
+        {
+          "line": "Jab manager bole tension mat lo, tabhi payslip download karte hain.",
+          "mechanism": "escalation"
+        }
+      ],
+      "slides": [
+        "Manager ne bola: \"Tension mat lo, layoff rumours fake hain.\"",
+        "Voice note (0:47):\n\"Haan woh news mein jo aa raha hai na, woh bas 30 log the. Apne team mein kuch nahi hai. Waise kal 9 baje ek quick sync rakha hai HR ke saath.\"",
+        "Kal 9 baje se pehle resume update kar lena."
+      ],
+      "caption": "Send this to the teammate who immediately starts downloading payslips when HR sends a calendar invite.",
+      "trigger": "corporate",
+      "target": "employer",
+      "structure": "voice_note",
+      "move": "the_banal_true_answer",
+      "satire_level": 4,
+      "hinglish": true,
+      "keywords": [
+        "hr quick sync",
+        "layoff rumours india",
+        "corporate anxiety work"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQcmFDTmpGVXJqVmZEdlAzYkVvc0NJN2xjNHBpeDRDbmtoRTB0dUZiQk8xNl9Ya0NfUXA5dl9RVl90M3ZtajhYdW9aaTVxUFlJTEtpNS1sSkRSUlJwbFBVV2tOTm1qRnBldnFWTVV0Z2VfWThOUFFYSm5nNFpraVpPMVBOUlU4Q2ItUWY2TEdlVGV6Q3JFLWJoemYwMUwyeFE3d2twbWc0d01hS0ZTdmxTRGtTWko4cFBMMjBETmh2WnlqcVRWd3MxRDlkSdIB0wFBVV95cUxOeEp5NDlLbzQzLVlvN3ZLdXJ4WXJhNGppNDlWWDdSNW53RjFNU1BuUHRPeUlLaUhfSWVuNmlEa0t4Yi13aV9wME1oT1R1emw4MHhDYVlFNDJrQ2p3MWdvZFVlOVNXU3BQajFraWdocWtUR2dGckxnVHlqS2t5OVdobU5mUjRxeVMzcHBwZFYyZlE4T0JIMG1EckE0Z2ZzQ19jUXVfdG5YdWozejNPQ2o3RXBfZXNEa3YzZU9ZUGR4OGpZTFJCZTlyTXZWejZ1U1g0dlp3?oc=5",
+      "chat": {
+        "title": "Work Bestie",
+        "messages": [
+          {
+            "from": "You",
+            "text": "News dekha? 30 log nikale hain apne India office mein.",
+            "kind": "text"
+          },
+          {
+            "from": "Ananya",
+            "text": "0:47",
+            "kind": "voice"
+          },
+          {
+            "from": "Ananya",
+            "text": "Haan manager ne bola rumours fake hain. Par kal 9 AM HR sync bheja hai.",
+            "kind": "text"
+          },
+          {
+            "from": "You",
+            "text": "Personal laptop mein saare payslips save kar le abhi.",
+            "kind": "text"
+          }
+        ]
+      },
+      "created_at": "2026-11-26",
+      "model": "gemini-4-hydrogen",
+      "status": "approved",
+      "id": "g116",
+      "rank_score": 82,
+      "rank_verdict": "Mentioning a 9am quick sync with HR in slide 2 already delivers the punchline, making the resume line an expected follow-up.",
+      "style": "card"
+    }
+  ]
+}

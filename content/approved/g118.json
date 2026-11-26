@@ -1,0 +1,53 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "₹500 coffee, ₹25,000 fitness, ₹40,000 rent: Is Gen Z really spending too much?",
+      "context": "30-year-olds earning urban salaries keep getting lectured by financial columns about minor treats while housing costs eat half their income.",
+      "angle": "Personal finance articles blame a ₹500 coffee for wealth inequality while ignoring that landlords demand a year of rent upfront.",
+      "landing_options": [
+        {
+          "line": "The coffee guy did not ask for eleven months deposit.",
+          "mechanism": "callback"
+        },
+        {
+          "line": "Clearly, it was the cold brew.",
+          "mechanism": "reinterpretation"
+        },
+        {
+          "line": "Skip four thousand coffees and you own a bathroom.",
+          "mechanism": "escalation"
+        },
+        {
+          "line": "They never write an article about the landlord.",
+          "mechanism": "deadpan_response"
+        }
+      ],
+      "slides": [
+        "An article blamed your ₹500 coffee for why you cannot buy a house.",
+        "Rent takes half your salary.\nSunlight costs extra.\nThe flat deposit needs a personal loan.",
+        "The coffee guy did not ask for eleven months deposit."
+      ],
+      "caption": "For anyone who has ever been lectured on iced lattes by someone who bought land in 1994.",
+      "trigger": "money",
+      "target": "marketing",
+      "structure": "juxtaposition",
+      "move": "flat_restatement",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "coffee spending myth",
+        "urban rent india",
+        "personal finance advice"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQbmhKZWREeVNjNVFId0NuX1lVOW13cE1faUNZWEp5Tnd5Vnp6YnRldDh4aHJrc05SR3dMcm1hSGZZUlNTRno1WE1BZ3AxYkhiUk1jLWFmZVdCOTd0b0ZoeXM4ZGM4R0JnX2JoZlB4VkNnZUdBdHFBVzd0WXFVeTIzNlhfbmxBMEI1aVljd3FUTGdOeTh2NlAxdE1IcUhSWExXMVlsWGZqZGFDelg2WTBGTGFqbDh0V1EySHpMMTZUX0hZeTNQaDFpZ1liM3ZQaknSAdQBQVVfeXFMTm9lOGhwWHlFMEUyRVhwdnEwVzZiR2Z5RWlkNGZ6R0hqZXhxeVgzSGVOU2d2RmJjbFRKZGNTYWpIWVlFOGtzTGpOQV91MkpOc1g5QVdhZS1XaEVmcHhQNTUwQnlGX2x0SmtwTDczVnVTbWt6VWdTQkVOUTVwaTdEdy1kVUNmM0J1U2YtWlRXSUJpOWt3NnJWUHNQV2phYlV5eVF6bGFsdy1aa2JLTXptaXFUZ3RiTm5RTmg4X3dsTEo3c0tadnVkNTM2YTFKb2g0WEJtVnA?oc=5",
+      "created_at": "2026-11-26",
+      "model": "gemini-4-hydrogen",
+      "status": "approved",
+      "id": "g118",
+      "rank_score": 79,
+      "rank_verdict": "The coffee-versus-house premise is a tired internet trope even if the eleven-month deposit detail saves the ending.",
+      "style": "card"
+    }
+  ]
+}

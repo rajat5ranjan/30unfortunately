@@ -1,0 +1,53 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "India’s top 8 office markets may need 260 m sq-ft of additional space: Study",
+      "context": "Five years after companies bragged about permanent remote flexibility on social media, those promises have been quietly replaced by new office leases.",
+      "angle": "The permanent remote work revolution lasted exactly until the next real estate lease was signed.",
+      "landing_options": [
+        {
+          "line": "2021 wali \"remote forever\" post abhi bhi pinned hai.",
+          "mechanism": "callback"
+        },
+        {
+          "line": "Pahadon se wapas flyover pe aa gaye.",
+          "mechanism": "reinterpretation"
+        },
+        {
+          "line": "Woh \"forever\" sirf lockdown tak ke liye tha.",
+          "mechanism": "deadpan_response"
+        },
+        {
+          "line": "Ab bas \"optional\" ka matlab Tuesday se Friday hai.",
+          "mechanism": "escalation"
+        }
+      ],
+      "slides": [
+        "2021 mein sabne likha tha: \"Remote work is the future.\"",
+        "2021: \"Work from hills.\"\n2023: \"Hybrid try karte hain.\"\n2024: \"Tuesday Thursday compulsory.\"\n2026: \"Naya tower ban raha hai, sab wapas aao.\"",
+        "2021 wali \"remote forever\" post abhi bhi pinned hai."
+      ],
+      "caption": "Send this to the friend who actually bought a flat in Goa in 2021.",
+      "trigger": "commute",
+      "target": "employer",
+      "structure": "list_collapse",
+      "move": "flat_restatement",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "work from home",
+        "return to office india",
+        "bengaluru traffic commute"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPZUJOX2Q4TjZ4VlBSM3A2a2g0SkZsRjdzLXlrWkhSZkZtTERvZERyTFp1bUlQaXNrYXc1Wm05SVlUNlhabHFvNHhPcEpmSU51bWhsVjJVcUxMZHA0eW95VFNSSlB3MHRKaUVCZmRsUWhCLXpkMHYyLW05RDdXd202ekd0bC1MWGdjaklfT1NJU3prRW9sdUN1T05mM08zaDFqRmpoWm9TT3RBTndmd1ZpdmpFZEdmeHNkZmtZeVhn?oc=5",
+      "created_at": "2026-11-26",
+      "model": "gemini-4-hydrogen",
+      "status": "approved",
+      "id": "g119",
+      "rank_score": 77,
+      "rank_verdict": "Clean timeline and callback, but the 'return to office after 2021 promises' premise is well-worn territory.",
+      "style": "card"
+    }
+  ]
+}

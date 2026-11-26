@@ -1,0 +1,1351 @@
+{
+  "generated_at": "20261126-132406",
+  "model": "gemini-4-hydrogen",
+  "accepted": [
+    {
+      "trend": "West Bengal announces government school admission guidelines for 2027; lottery system to continue",
+      "context": "Having survived college cutoffs and job interviews in their twenties, parents in their early thirties are back to sweating over lucky draws just to get a toddler into school.",
+      "angle": "School nursery admission is the only lottery in India where winning immediately unlocks ten years of fixed fees.",
+      "landing_options": [
+        {
+          "line": "Pehli lottery hai jisme jeetne pe bhi paise jaate hain.",
+          "mechanism": "reinterpretation"
+        },
+        {
+          "line": "Bachche ko ABCD nahi aati, par luck test ho raha hai.",
+          "mechanism": "callback"
+        },
+        {
+          "line": "Aapne itni taiyaari khud ke interview ke liye nahi ki thi.",
+          "mechanism": "deadpan_response"
+        },
+        {
+          "line": "32 saal ke log toddler ke liye dua maang rahe hain.",
+          "mechanism": "escalation"
+        }
+      ],
+      "slides": [
+        "32 ki umar mein aapka naya lucky draw: nursery admission.",
+        "22 mein: college cutoff ki tension.\n26 mein: appraisal ki tension.\n30 mein: landlord ki tension.\n32 mein: 3 saal ke bachche ka lottery ticket.",
+        "Pehli lottery hai jisme jeetne pe bhi paise jaate hain."
+      ],
+      "caption": "Send this to the friend who woke up at 5 AM just to fill out a nursery form.",
+      "trigger": "the_timeline",
+      "target": "school",
+      "structure": "list_collapse",
+      "move": "flat_restatement",
+      "satire_level": 4,
+      "hinglish": true,
+      "keywords": [
+        "school admission lottery",
+        "nursery admission india",
+        "parenting in thirties"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxQVXpHYzNIX0dhT2VWLUtLZHoxTVBxTzlRV3JyT3JIOUk2NnVpX2phVks0R1RKd2UzQS12eWF2aGJhQjk3d0txeGpYcmpzLXNWbkROQmVxZFYwUUlGMEo3NXNGVkkzNEEycFhaN1hNTXpUeXNGQzNsZGQtWktTVllaU2syQTA3Yy0yZnczQW1BQnJ6MGJpN3B4UGZNN0lPYUF6bkJtWGFxb0sycDZJR09vNWY2N3h5Nkk2X2pvVlM0aDF2YlFHZ09fZWR6WGw0QlNURjM4MFZUTlFrdmg3U2xzMmZhWGJNMzBDWk1jd0pjaw?oc=5",
+      "tweet": {
+        "setup": "Spent my twenties stressed about entrance exams and my thirties stressed about school lotteries.",
+        "punch": "It is the only lottery where winning costs you your annual bonus."
+      },
+      "created_at": "2026-11-26",
+      "model": "gemini-4-hydrogen",
+      "status": "draft",
+      "_score": 89,
+      "_judge": "The middle slide repeats 'ki tension' four times like a template, though the lottery-loss punchline is the sharpest in the batch.",
+      "_detail": {
+        "laugh": 4,
+        "share_trigger": 5,
+        "surprise": 4,
+        "specificity": 4,
+        "voice": 4,
+        "travels": 5,
+        "lands": 5,
+        "plain": 5
+      },
+      "_penalty": 7
+    },
+    {
+      "trend": "A Bengaluru landlord has allegedly refused to rent a flat to Shark Tank India Season 5 contestant Aaditya Aanand because he runs a startup instead of earning a regular salary.",
+      "context": "30-year-olds who quit stable corporate jobs to start businesses discover that Indian housing still treats entrepreneurship as unemployment.",
+      "angle": "A Bengaluru landlord runs tougher due diligence on a founder than any venture investor ever did.",
+      "landing_options": [
+        {
+          "line": "Pitch deck rakho. Kal Form 16 leke aana.",
+          "mechanism": "callback"
+        },
+        {
+          "line": "Investor maan gaya. Aunty ka broker nahi maana.",
+          "mechanism": "deadpan_response"
+        },
+        {
+          "line": "40 logon ko salary dete ho. Pehle apni dikhao.",
+          "mechanism": "escalation"
+        },
+        {
+          "line": "Company aapki hai, isliye flat nahi milega.",
+          "mechanism": "reinterpretation"
+        }
+      ],
+      "slides": [
+        "Investor ne 10 minute mein haan bola. Landlord ne mana kar diya.",
+        "\"40 logon ko salary deta hoon.\"\n\"Acha. Aapka Offer Letter?\"\n\"Main founder hoon.\"\n\"Toh kisi senior se sign karwao.\"",
+        "Pitch deck rakho. Kal Form 16 leke aana."
+      ],
+      "caption": "That one friend who left a stable corporate job to build something and now cannot rent a 2BHK.",
+      "trigger": "home",
+      "target": "landlord",
+      "structure": "interview",
+      "move": "the_institutional_frame",
+      "satire_level": 4,
+      "hinglish": true,
+      "keywords": [
+        "bengaluru flat rent",
+        "startup founder housing",
+        "landlord tenant india"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFB5ZENfdEg4dXotOVhxZkstcnpzV1ZZa0N2bUpDOUM5LXJOeDVTTXludFh0UTU2ZWQtNzdOa1ZUNnZZcUNJa011Tm5DWnF2OXE4SGc?oc=5",
+      "tweet": {
+        "setup": "Investor took 10 minutes to fund my startup. My Bengaluru landlord took 2 minutes to reject my tenant application.",
+        "punch": "He asked for an offer letter signed by my manager."
+      },
+      "chat": {
+        "title": "Broker - Indiranagar",
+        "messages": [
+          {
+            "from": "Broker",
+            "text": "Sir owner ko aapka company profile samajh nahi aaya",
+            "kind": "text"
+          },
+          {
+            "from": "You",
+            "text": "Bhai TV pe aaya tha pichle mahine. Funding mili hai.",
+            "kind": "text"
+          },
+          {
+            "from": "Broker",
+            "text": "Owner bol rahe hain koi MNC ka payslip hai toh bhejo",
+            "kind": "text"
+          },
+          {
+            "from": "You",
+            "text": "Main hi boss hoon bhai, khud ko payslip kaise doon",
+            "kind": "text"
+          },
+          {
+            "from": "Broker",
+            "text": "Sir toh 2BHK mushkil hai, unko stable salary chahiye",
+            "kind": "text"
+          }
+        ]
+      },
+      "created_at": "2026-11-26",
+      "model": "gemini-4-hydrogen",
+      "status": "draft",
+      "_score": 82,
+      "_judge": "Slide 2's dialogue with the broker is funnier than the landing, and putting Form 16 in the final line hurts global legibility.",
+      "_detail": {
+        "laugh": 4,
+        "share_trigger": 4,
+        "surprise": 3,
+        "specificity": 4,
+        "voice": 3,
+        "travels": 3,
+        "lands": 3,
+        "plain": 5
+      },
+      "_penalty": -5
+    },
+    {
+      "trend": "Google Dismisses Mass Layoff Rumours In India, Says Only 30 Cloud Roles Cut: \"Totally Inaccurate\"",
+      "context": "Every time management sends a reassuring memo dismissing layoff rumours, the next calendar invite from HR triggers instant panic.",
+      "angle": "A manager assuring you the layoff news is exaggerated is the clearest warning sign to start backing up your laptop.",
+      "landing_options": [
+        {
+          "line": "Kal 9 baje se pehle resume update kar lena.",
+          "mechanism": "deadpan_response"
+        },
+        {
+          "line": "\"Quick sync\" ke aage kabhi acchi khabar nahi aati.",
+          "mechanism": "reinterpretation"
+        },
+        {
+          "line": "30 mein 31wa naam kisi ka bhi ho sakta hai.",
+          "mechanism": "callback"
+        },
+        {
+          "line": "Jab manager bole tension mat lo, tabhi payslip download karte hain.",
+          "mechanism": "escalation"
+        }
+      ],
+      "slides": [
+        "Manager ne bola: \"Tension mat lo, layoff rumours fake hain.\"",
+        "Voice note (0:47):\n\"Haan woh news mein jo aa raha hai na, woh bas 30 log the. Apne team mein kuch nahi hai. Waise kal 9 baje ek quick sync rakha hai HR ke saath.\"",
+        "Kal 9 baje se pehle resume update kar lena."
+      ],
+      "caption": "Send this to the teammate who immediately starts downloading payslips when HR sends a calendar invite.",
+      "trigger": "corporate",
+      "target": "employer",
+      "structure": "voice_note",
+      "move": "the_banal_true_answer",
+      "satire_level": 4,
+      "hinglish": true,
+      "keywords": [
+        "hr quick sync",
+        "layoff rumours india",
+        "corporate anxiety work"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQcmFDTmpGVXJqVmZEdlAzYkVvc0NJN2xjNHBpeDRDbmtoRTB0dUZiQk8xNl9Ya0NfUXA5dl9RVl90M3ZtajhYdW9aaTVxUFlJTEtpNS1sSkRSUlJwbFBVV2tOTm1qRnBldnFWTVV0Z2VfWThOUFFYSm5nNFpraVpPMVBOUlU4Q2ItUWY2TEdlVGV6Q3JFLWJoemYwMUwyeFE3d2twbWc0d01hS0ZTdmxTRGtTWko4cFBMMjBETmh2WnlqcVRWd3MxRDlkSdIB0wFBVV95cUxOeEp5NDlLbzQzLVlvN3ZLdXJ4WXJhNGppNDlWWDdSNW53RjFNU1BuUHRPeUlLaUhfSWVuNmlEa0t4Yi13aV9wME1oT1R1emw4MHhDYVlFNDJrQ2p3MWdvZFVlOVNXU3BQajFraWdocWtUR2dGckxnVHlqS2t5OVdobU5mUjRxeVMzcHBwZFYyZlE4T0JIMG1EckE0Z2ZzQ19jUXVfdG5YdWozejNPQ2o3RXBfZXNEa3YzZU9ZUGR4OGpZTFJCZTlyTXZWejZ1U1g0dlp3?oc=5",
+      "chat": {
+        "title": "Work Bestie",
+        "messages": [
+          {
+            "from": "You",
+            "text": "News dekha? 30 log nikale hain apne India office mein.",
+            "kind": "text"
+          },
+          {
+            "from": "Ananya",
+            "text": "0:47",
+            "kind": "voice"
+          },
+          {
+            "from": "Ananya",
+            "text": "Haan manager ne bola rumours fake hain. Par kal 9 AM HR sync bheja hai.",
+            "kind": "text"
+          },
+          {
+            "from": "You",
+            "text": "Personal laptop mein saare payslips save kar le abhi.",
+            "kind": "text"
+          }
+        ]
+      },
+      "created_at": "2026-11-26",
+      "model": "gemini-4-hydrogen",
+      "status": "draft",
+      "_rendition_notes": [
+        "tweet dropped: a 16-word sentence (max 14): 'My manager just told us the layoff news…'"
+      ],
+      "_score": 82,
+      "_judge": "Mentioning a 9am quick sync with HR in slide 2 already delivers the punchline, making the resume line an expected follow-up.",
+      "_detail": {
+        "laugh": 4,
+        "share_trigger": 4,
+        "surprise": 3,
+        "specificity": 4,
+        "voice": 4,
+        "travels": 5,
+        "lands": 3,
+        "plain": 5
+      },
+      "_penalty": 1
+    },
+    {
+      "trend": "₹500 coffee, ₹25,000 fitness, ₹40,000 rent: Is Gen Z really spending too much?",
+      "context": "Parents forward articles criticising gym expenses without realising that at 30, fitness is spinal maintenance for a 10-hour desk job.",
+      "angle": "What finance articles and parents call vanity fitness spending is actually basic mechanical upkeep for a sitting job.",
+      "landing_options": [
+        {
+          "line": "\"Papa, yeh shauk nahi hai. Reedh ki haddi ki EMI hai.\"",
+          "mechanism": "reinterpretation"
+        },
+        {
+          "line": "30 ke baad gym shauk nahi, garam patti ka substitute hai.",
+          "mechanism": "escalation"
+        },
+        {
+          "line": "Paidal chalne ke liye pehle footpath toh ho.",
+          "mechanism": "deadpan_response"
+        },
+        {
+          "line": "Aapka gym nahi, aapki sitting job ka repair bill hai.",
+          "mechanism": "callback"
+        }
+      ],
+      "slides": [
+        "Subah 7 baje Papa ne article bheja: \"Gym pe paisa barbaad.\"",
+        "Forward: \"Aajkal ke bachche fitness pe ₹25,000 uda rahe hain. Hamare time mein subah daudte the.\"",
+        "\"Papa, yeh shauk nahi hai. Reedh ki haddi ki EMI hai.\""
+      ],
+      "caption": "Send this to the friend whose parents think physiotherapy is a rich-people hobby.",
+      "trigger": "health",
+      "target": "parents",
+      "structure": "whatsapp_forward",
+      "move": "the_turn_in_the_last_words",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "gym membership cost",
+        "indian parents whatsapp",
+        "back pain thirties"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQbmhKZWREeVNjNVFId0NuX1lVOW13cE1faUNZWEp5Tnd5Vnp6YnRldDh4aHJrc05SR3dMcm1hSGZZUlNTRno1WE1BZ3AxYkhiUk1jLWFmZVdCOTd0b0ZoeXM4ZGM4R0JnX2JoZlB4VkNnZUdBdHFBVzd0WXFVeTIzNlhfbmxBMEI1aVljd3FUTGdOeTh2NlAxdE1IcUhSWExXMVlsWGZqZGFDelg2WTBGTGFqbDh0V1EySHpMMTZUX0hZeTNQaDFpZ1liM3ZQaknSAdQBQVVfeXFMTm9lOGhwWHlFMEUyRVhwdnEwVzZiR2Z5RWlkNGZ6R0hqZXhxeVgzSGVOU2d2RmJjbFRKZGNTYWpIWVlFOGtzTGpOQV91MkpOc1g5QVdhZS1XaEVmcHhQNTUwQnlGX2x0SmtwTDczVnVTbWt6VWdTQkVOUTVwaTdEdy1kVUNmM0J1U2YtWlRXSUJpOWt3NnJWUHNQV2phYlV5eVF6bGFsdy1aa2JLTXptaXFUZ3RiTm5RTmg4X3dsTEo3c0tadnVkNTM2YTFKb2g0WEJtVnA?oc=5",
+      "chat": {
+        "title": "Papa",
+        "messages": [
+          {
+            "from": "Papa",
+            "text": "Dekho aajkal ke bachche ₹25,000 gym mein uda rahe hain. Subah park mein chala karo.",
+            "kind": "forwarded"
+          },
+          {
+            "from": "You",
+            "text": "Papa office ke baad 9 baje park mein sirf kutte hote hain",
+            "kind": "text"
+          },
+          {
+            "from": "Papa",
+            "text": "Phir bhi, paise bachao. Yeh body shody mein kuch nahi rakha.",
+            "kind": "text"
+          },
+          {
+            "from": "You",
+            "text": "Papa body nahi bana raha, kamar sidhi rakhne ki kisht bhar raha hoon.",
+            "kind": "text"
+          }
+        ]
+      },
+      "created_at": "2026-11-26",
+      "model": "gemini-4-hydrogen",
+      "status": "draft",
+      "_rendition_notes": [
+        "tweet dropped: a 16-word sentence (max 14): 'Had to explain I am not building abs,…'"
+      ],
+      "_score": 81,
+      "_judge": "It relies on a first-person comeback to Dad rather than the account's second-person voice, and the 'not X, it is Y' frame is familiar.",
+      "_detail": {
+        "laugh": 4,
+        "share_trigger": 4,
+        "surprise": 4,
+        "specificity": 4,
+        "voice": 3,
+        "travels": 4,
+        "lands": 4,
+        "plain": 5
+      },
+      "_penalty": 4
+    },
+    {
+      "trend": "₹500 coffee, ₹25,000 fitness, ₹40,000 rent: Is Gen Z really spending too much?",
+      "context": "30-year-olds earning urban salaries keep getting lectured by financial columns about minor treats while housing costs eat half their income.",
+      "angle": "Personal finance articles blame a ₹500 coffee for wealth inequality while ignoring that landlords demand a year of rent upfront.",
+      "landing_options": [
+        {
+          "line": "The coffee guy did not ask for eleven months deposit.",
+          "mechanism": "callback"
+        },
+        {
+          "line": "Clearly, it was the cold brew.",
+          "mechanism": "reinterpretation"
+        },
+        {
+          "line": "Skip four thousand coffees and you own a bathroom.",
+          "mechanism": "escalation"
+        },
+        {
+          "line": "They never write an article about the landlord.",
+          "mechanism": "deadpan_response"
+        }
+      ],
+      "slides": [
+        "An article blamed your ₹500 coffee for why you cannot buy a house.",
+        "Rent takes half your salary.\nSunlight costs extra.\nThe flat deposit needs a personal loan.",
+        "The coffee guy did not ask for eleven months deposit."
+      ],
+      "caption": "For anyone who has ever been lectured on iced lattes by someone who bought land in 1994.",
+      "trigger": "money",
+      "target": "marketing",
+      "structure": "juxtaposition",
+      "move": "flat_restatement",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "coffee spending myth",
+        "urban rent india",
+        "personal finance advice"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQbmhKZWREeVNjNVFId0NuX1lVOW13cE1faUNZWEp5Tnd5Vnp6YnRldDh4aHJrc05SR3dMcm1hSGZZUlNTRno1WE1BZ3AxYkhiUk1jLWFmZVdCOTd0b0ZoeXM4ZGM4R0JnX2JoZlB4VkNnZUdBdHFBVzd0WXFVeTIzNlhfbmxBMEI1aVljd3FUTGdOeTh2NlAxdE1IcUhSWExXMVlsWGZqZGFDelg2WTBGTGFqbDh0V1EySHpMMTZUX0hZeTNQaDFpZ1liM3ZQaknSAdQBQVVfeXFMTm9lOGhwWHlFMEUyRVhwdnEwVzZiR2Z5RWlkNGZ6R0hqZXhxeVgzSGVOU2d2RmJjbFRKZGNTYWpIWVlFOGtzTGpOQV91MkpOc1g5QVdhZS1XaEVmcHhQNTUwQnlGX2x0SmtwTDczVnVTbWt6VWdTQkVOUTVwaTdEdy1kVUNmM0J1U2YtWlRXSUJpOWt3NnJWUHNQV2phYlV5eVF6bGFsdy1aa2JLTXptaXFUZ3RiTm5RTmg4X3dsTEo3c0tadnVkNTM2YTFKb2g0WEJtVnA?oc=5",
+      "created_at": "2026-11-26",
+      "model": "gemini-4-hydrogen",
+      "status": "draft",
+      "_rendition_notes": [
+        "tweet dropped: a 17-word sentence (max 14): 'A finance column just blamed my ₹500 coffee…'"
+      ],
+      "_score": 79,
+      "_judge": "The coffee-versus-house premise is a tired internet trope even if the eleven-month deposit detail saves the ending.",
+      "_detail": {
+        "laugh": 3,
+        "share_trigger": 4,
+        "surprise": 3,
+        "specificity": 4,
+        "voice": 5,
+        "travels": 5,
+        "lands": 4,
+        "plain": 5
+      },
+      "_penalty": 7
+    },
+    {
+      "trend": "India’s top 8 office markets may need 260 m sq-ft of additional space: Study",
+      "context": "Five years after companies bragged about permanent remote flexibility on social media, those promises have been quietly replaced by new office leases.",
+      "angle": "The permanent remote work revolution lasted exactly until the next real estate lease was signed.",
+      "landing_options": [
+        {
+          "line": "2021 wali \"remote forever\" post abhi bhi pinned hai.",
+          "mechanism": "callback"
+        },
+        {
+          "line": "Pahadon se wapas flyover pe aa gaye.",
+          "mechanism": "reinterpretation"
+        },
+        {
+          "line": "Woh \"forever\" sirf lockdown tak ke liye tha.",
+          "mechanism": "deadpan_response"
+        },
+        {
+          "line": "Ab bas \"optional\" ka matlab Tuesday se Friday hai.",
+          "mechanism": "escalation"
+        }
+      ],
+      "slides": [
+        "2021 mein sabne likha tha: \"Remote work is the future.\"",
+        "2021: \"Work from hills.\"\n2023: \"Hybrid try karte hain.\"\n2024: \"Tuesday Thursday compulsory.\"\n2026: \"Naya tower ban raha hai, sab wapas aao.\"",
+        "2021 wali \"remote forever\" post abhi bhi pinned hai."
+      ],
+      "caption": "Send this to the friend who actually bought a flat in Goa in 2021.",
+      "trigger": "commute",
+      "target": "employer",
+      "structure": "list_collapse",
+      "move": "flat_restatement",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "work from home",
+        "return to office india",
+        "bengaluru traffic commute"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPZUJOX2Q4TjZ4VlBSM3A2a2g0SkZsRjdzLXlrWkhSZkZtTERvZERyTFp1bUlQaXNrYXc1Wm05SVlUNlhabHFvNHhPcEpmSU51bWhsVjJVcUxMZHA0eW95VFNSSlB3MHRKaUVCZmRsUWhCLXpkMHYyLW05RDdXd202ekd0bC1MWGdjaklfT1NJU3prRW9sdUN1T05mM08zaDFqRmpoWm9TT3RBTndmd1ZpdmpFZEdmeHNkZmtZeVhn?oc=5",
+      "created_at": "2026-11-26",
+      "model": "gemini-4-hydrogen",
+      "status": "draft",
+      "_rendition_notes": [
+        "tweet dropped: a 16-word sentence (max 14): 'In 2021 my company said remote work was…'"
+      ],
+      "_score": 77,
+      "_judge": "Clean timeline and callback, but the 'return to office after 2021 promises' premise is well-worn territory.",
+      "_detail": {
+        "laugh": 3,
+        "share_trigger": 4,
+        "surprise": 3,
+        "specificity": 4,
+        "voice": 4,
+        "travels": 5,
+        "lands": 4,
+        "plain": 5
+      },
+      "_penalty": 7
+    },
+    {
+      "trend": "West Bengal announces government school admission guidelines for 2027; lottery system to continue",
+      "context": "Urban parents spend months preparing documents, verifying address radiuses, and paying non-refundable application fees only to have a random draw reject a three-year-old.",
+      "angle": "Getting a toddler into nursery now runs on the exact administrative uncertainty of booking a Tatkal train ticket.",
+      "landing_options": [
+        {
+          "line": "Your kid is three and already waitlisted.",
+          "mechanism": "escalation"
+        },
+        {
+          "line": "Nobody failed. A random number generator just said no.",
+          "mechanism": "deadpan_response"
+        },
+        {
+          "line": "They call it education. It runs like a raffle.",
+          "mechanism": "reinterpretation"
+        },
+        {
+          "line": "Fourteen forms, zero guarantees, and one lottery slip.",
+          "mechanism": "callback"
+        }
+      ],
+      "slides": [
+        "School admission in India now uses the same system as Tatkal tickets.",
+        "Parent: \"We filled 14 forms.\"\nOffice: \"Good, wait for the lottery.\"\nParent: \"Is there an interview?\"\nOffice: \"No, just luck and a ₹500 form fee.\"",
+        "Your kid is three and already waitlisted."
+      ],
+      "caption": "For every parent refreshing a school portal like it is a concert queue.",
+      "trigger": "admin",
+      "target": "school",
+      "structure": "customer_support",
+      "move": "the_institutional_frame",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "school admission process",
+        "nursery lottery system",
+        "indian school fees"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxQVXpHYzNIX0dhT2VWLUtLZHoxTVBxTzlRV3JyT3JIOUk2NnVpX2phVks0R1RKd2UzQS12eWF2aGJhQjk3d0txeGpYcmpzLXNWbkROQmVxZFYwUUlGMEo3NXNGVkkzNEEycFhaN1hNTXpUeXNGQzNsZGQtWktTVllaU2syQTA3Yy0yZnczQW1BQnJ6MGJpN3B4UGZNN0lPYUF6bkJtWGFxb0sycDZJR09vNWY2N3h5Nkk2X2pvVlM0aDF2YlFHZ09fZWR6WGw0QlNURjM4MFZUTlFrdmg3U2xzMmZhWGJNMzBDWk1jd0pjaw?oc=5",
+      "tweet": {
+        "setup": "Getting a 3-year-old into school in India now works on a literal lottery system.",
+        "punch": "My kid cannot tie his shoes yet and he is already waitlisted."
+      },
+      "chat": {
+        "title": "Nursery Admission Desk",
+        "messages": [
+          {
+            "from": "You",
+            "text": "We submitted the birth certificate and address proof last week.",
+            "kind": "text"
+          },
+          {
+            "from": "Helpdesk",
+            "text": "Received. Your ward is entered into the 2027 draw.",
+            "kind": "text"
+          },
+          {
+            "from": "You",
+            "text": "When is the interaction or assessment?",
+            "kind": "text"
+          },
+          {
+            "from": "Helpdesk",
+            "text": "No assessment. Please pray before Friday 11 AM.",
+            "kind": "text"
+          }
+        ]
+      },
+      "created_at": "2026-11-26",
+      "model": "gemini-4-hydrogen",
+      "status": "draft",
+      "_score": 77,
+      "_judge": "Dropping 'Tatkal' in slide 1 telegraphs the 'waitlisted' punchline early and adds unnecessary local trivia.",
+      "_detail": {
+        "laugh": 3,
+        "share_trigger": 4,
+        "surprise": 3,
+        "specificity": 4,
+        "voice": 4,
+        "travels": 3,
+        "lands": 3,
+        "plain": 5
+      },
+      "_penalty": -1
+    },
+    {
+      "trend": "West Bengal announces government school admission guidelines for 2027; lottery system to continue",
+      "context": "When nursery lottery guidelines drop, calm mid-thirty professionals instantly revert to anxious teenagers comparing marks and distance rules in parent chats.",
+      "angle": "School lottery season turns thirty-four-year-old parents right back into stressed board-exam students.",
+      "landing_options": [
+        {
+          "line": "34 saal ke log phir se result ke din mandir ja rahe hain.",
+          "mechanism": "reinterpretation"
+        },
+        {
+          "line": "Baccha abhi bolna seekh raha hai, par form 9 bhar chuka hai.",
+          "mechanism": "callback"
+        },
+        {
+          "line": "Agla lottery iske college ke time niklega.",
+          "mechanism": "escalation"
+        },
+        {
+          "line": "Itni tension toh apni shaadi mein bhi nahi li thi.",
+          "mechanism": "deadpan_response"
+        }
+      ],
+      "slides": [
+        "School lottery ke din parents ka WhatsApp group UPSC coaching ban jata hai.",
+        "Amit: \"4 school mein form bhara hai.\"\nPooja: \"Humne 9 mein. Distance criteria check kiya?\"\nAmit: \"Haan, 3 km ke andar hai.\"\nPooja: \"Best of luck, result Friday ko hai.\"",
+        "34 saal ke log phir se result ke din mandir ja rahe hain."
+      ],
+      "caption": "Send this to the friend whose entire personality this month is school distance radius.",
+      "trigger": "the_timeline",
+      "target": "school",
+      "structure": "group_chat",
+      "move": "absurd_comparative",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "school admission radius",
+        "parents whatsapp group",
+        "nursery admission dates"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxQVXpHYzNIX0dhT2VWLUtLZHoxTVBxTzlRV3JyT3JIOUk2NnVpX2phVks0R1RKd2UzQS12eWF2aGJhQjk3d0txeGpYcmpzLXNWbkROQmVxZFYwUUlGMEo3NXNGVkkzNEEycFhaN1hNTXpUeXNGQzNsZGQtWktTVllaU2syQTA3Yy0yZnczQW1BQnJ6MGJpN3B4UGZNN0lPYUF6bkJtWGFxb0sycDZJR09vNWY2N3h5Nkk2X2pvVlM0aDF2YlFHZ09fZWR6WGw0QlNURjM4MFZUTlFrdmg3U2xzMmZhWGJNMzBDWk1jd0pjaw?oc=5",
+      "tweet": {
+        "setup": "The 2027 school admission lottery guidelines just dropped and the parents group is panicking.",
+        "punch": "Thirty-four-year-olds are praying outside temples for a nursery result."
+      },
+      "chat": {
+        "title": "2027 Nursery Batch Parents",
+        "messages": [
+          {
+            "from": "Amit",
+            "text": "Guys 2027 guidelines aa gayi. Sabne form bhar diya?",
+            "kind": "text"
+          },
+          {
+            "from": "Pooja",
+            "text": "Humne 9 schools mein daala hai. Google Maps se 3 km check kiya na?",
+            "kind": "text"
+          },
+          {
+            "from": "Amit",
+            "text": "Haan, rent agreement bhi update karwaya paas wali colony ka.",
+            "kind": "text"
+          },
+          {
+            "from": "Pooja",
+            "text": "Good luck bhai, result Friday ko hai.",
+            "kind": "text"
+          },
+          {
+            "from": "You",
+            "text": "Subah 6 baje mandir ja raha hoon, kisi ko prasad chahiye toh batana.",
+            "kind": "text"
+          }
+        ]
+      },
+      "created_at": "2026-11-26",
+      "model": "gemini-4-hydrogen",
+      "status": "draft",
+      "_score": 77,
+      "_judge": "Third-person '34 saal ke log' keeps the reader at arm's length instead of using second person, and UPSC already signals result-day panic.",
+      "_detail": {
+        "laugh": 3,
+        "share_trigger": 4,
+        "surprise": 3,
+        "specificity": 4,
+        "voice": 3,
+        "travels": 3,
+        "lands": 4,
+        "plain": 5
+      },
+      "_penalty": 1
+    },
+    {
+      "trend": "Google Dismisses Mass Layoff Rumours In India, Says Only 30 Cloud Roles Cut: \"Totally Inaccurate\"",
+      "context": "Salaried tech workers watch companies publicly minimise layoffs as tiny headcount adjustments while thirty households suddenly lose rent money.",
+      "angle": "Tech PR teams treat thirty people losing their livelihoods as too small a number to qualify as real news.",
+      "landing_options": [
+        {
+          "line": "When you are number 29, it feels pretty mass.",
+          "mechanism": "callback"
+        },
+        {
+          "line": "Thirty families is a rounding error in Q2.",
+          "mechanism": "escalation"
+        },
+        {
+          "line": "Your badge stops working either way.",
+          "mechanism": "deadpan_response"
+        },
+        {
+          "line": "Good news for everyone except the 30.",
+          "mechanism": "reinterpretation"
+        }
+      ],
+      "slides": [
+        "A tech giant just called firing 30 people \"totally inaccurate rumours.\"",
+        "PR statement: \"No mass layoffs.\"\nActual update: \"Only 30 roles impacted.\"\nTranslation: \"Not enough to hurt the stock price.\"",
+        "When you are number 29, it feels pretty mass."
+      ],
+      "caption": "For anyone who has survived a targeted role realignment all-hands call.",
+      "trigger": "corporate",
+      "target": "HR",
+      "structure": "customer_support",
+      "move": "literalisation",
+      "satire_level": 5,
+      "hinglish": false,
+      "keywords": [
+        "tech layoffs india",
+        "corporate pr speak",
+        "job security tech"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQcmFDTmpGVXJqVmZEdlAzYkVvc0NJN2xjNHBpeDRDbmtoRTB0dUZiQk8xNl9Ya0NfUXA5dl9RVl90M3ZtajhYdW9aaTVxUFlJTEtpNS1sSkRSUlJwbFBVV2tOTm1qRnBldnFWTVV0Z2VfWThOUFFYSm5nNFpraVpPMVBOUlU4Q2ItUWY2TEdlVGV6Q3JFLWJoemYwMUwyeFE3d2twbWc0d01hS0ZTdmxTRGtTWko4cFBMMjBETmh2WnlqcVRWd3MxRDlkSdIB0wFBVV95cUxOeEp5NDlLbzQzLVlvN3ZLdXJ4WXJhNGppNDlWWDdSNW53RjFNU1BuUHRPeUlLaUhfSWVuNmlEa0t4Yi13aV9wME1oT1R1emw4MHhDYVlFNDJrQ2p3MWdvZFVlOVNXU3BQajFraWdocWtUR2dGckxnVHlqS2t5OVdobU5mUjRxeVMzcHBwZFYyZlE4T0JIMG1EckE0Z2ZzQ19jUXVfdG5YdWozejNPQ2o3RXBfZXNEa3YzZU9ZUGR4OGpZTFJCZTlyTXZWejZ1U1g0dlp3?oc=5",
+      "tweet": {
+        "setup": "A company just denied mass layoffs by clarifying that they only fired 30 people.",
+        "punch": "Pretty sure if you are number 29 it still feels like a mass layoff."
+      },
+      "created_at": "2026-11-26",
+      "model": "gemini-4-hydrogen",
+      "status": "draft",
+      "_score": 74,
+      "_judge": "Adding 'Translation:' in slide 2 spells out the corporate spin before the landing can deliver the turn.",
+      "_detail": {
+        "laugh": 3,
+        "share_trigger": 3,
+        "surprise": 3,
+        "specificity": 3,
+        "voice": 4,
+        "travels": 5,
+        "lands": 4,
+        "plain": 4
+      },
+      "_penalty": 2
+    },
+    {
+      "trend": "Gurugram Bans Smoking, Tobacco Use at Public Places and Parks With Immediate Effect",
+      "context": "For corporate employees in Gurugram, the roadside tea stall cigarette break was the only informal buffer between back-to-back client calls.",
+      "angle": "Banning smoking outside corporate buildings removes the only unofficial coping mechanism keeping middle managers employed.",
+      "landing_options": [
+        {
+          "line": "Ab bas washroom mein jaake rona bacha hai.",
+          "mechanism": "deadpan_response"
+        },
+        {
+          "line": "Woh smoking break nahi tha. Woh HR se bachne ka time tha.",
+          "mechanism": "callback"
+        },
+        {
+          "line": "Adha corporate India bina sutta ke resign kar dega.",
+          "mechanism": "escalation"
+        },
+        {
+          "line": "Tapri band hui toh chai wale ne therapy start kar di.",
+          "mechanism": "reinterpretation"
+        }
+      ],
+      "slides": [
+        "Gurugram smoking ban ke baad office ke neeche wale tapri pe sannata hai.",
+        "Vikram: \"4 baje neeche chal rahe ho?\"\nArjun: \"Ban lag gaya bhai, fine kat raha hai.\"\nVikram: \"Toh ab manager ki call ke baad kya karenge?\"\nArjun: \"Deep breathing.\"",
+        "Ab bas washroom mein jaake rona bacha hai."
+      ],
+      "caption": "That one teammate who used to solve half the sprint blockers at the tea stall downstairs.",
+      "trigger": "corporate",
+      "target": "HR",
+      "structure": "group_chat",
+      "move": "the_turn_in_the_last_words",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "gurugram office life",
+        "smoking ban fine",
+        "corporate chai break"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOSlFEbXBJOEozbkxkZDZHN3hST3p0Y2pMYUxySG9PNW5xTWFaNE0ycnhTMGx6aW1sZEE4a19KbHU5VUhkM3NlMU1Ta2VzbEhfVmdHUGUyYmpRUVFfUFBKZ3dSSGkxeDZzWkhaMUNiWC1JWVhJZUV6a1lSRmpCdXBfcElCU09LbHVMZlVHSnV1YUdiRUFDeDNacXVMZFVhaFI0dmpPWS1keG9KYU1GUTRtNDgySXBMUXluQ05la2plZmF1NW04?oc=5",
+      "chat": {
+        "title": "Tapri Squad (Sector 29)",
+        "messages": [
+          {
+            "from": "Vikram",
+            "text": "4 baje neeche chal rahe ho? Client call khatam.",
+            "kind": "text"
+          },
+          {
+            "from": "Arjun",
+            "text": "Mat aa bhai, public smoking ban ho gayi aaj se. Fine kat raha hai.",
+            "kind": "text"
+          },
+          {
+            "from": "Vikram",
+            "text": "Phir ab 4 baje kya karenge?",
+            "kind": "text"
+          },
+          {
+            "from": "Arjun",
+            "text": "Office mein baith ke deep breathing kar.",
+            "kind": "text"
+          },
+          {
+            "from": "You",
+            "text": "Washroom mein jaake rona bhi free hai.",
+            "kind": "text"
+          }
+        ]
+      },
+      "created_at": "2026-11-26",
+      "model": "gemini-4-hydrogen",
+      "status": "draft",
+      "_rendition_notes": [
+        "tweet dropped: a 15-word sentence (max 14): 'Nobody even smoked for the nicotine, we just…'"
+      ],
+      "_score": 73,
+      "_judge": "Arjun's 'Deep breathing' line in slide 2 lands harder than the bathroom-crying ending, which feels tacked on.",
+      "_detail": {
+        "laugh": 4,
+        "share_trigger": 4,
+        "surprise": 3,
+        "specificity": 3,
+        "voice": 3,
+        "travels": 4,
+        "lands": 3,
+        "plain": 5
+      },
+      "_penalty": 4
+    },
+    {
+      "trend": "India’s top 8 office markets may need 260 m sq-ft of additional space: Study",
+      "context": "HR sells mandatory office days as spontaneous collaboration while everyone sits alone on a mostly empty floor with headphones on.",
+      "angle": "Mandatory return-to-office is sold as teamwork when the actual requirement is just swiping your ID badge at the turnstile.",
+      "landing_options": [
+        {
+          "line": "Bas badge swipe hona chahiye. Baaki sab online hi hai.",
+          "mechanism": "deadpan_response"
+        },
+        {
+          "line": "Culture building ka matlab khali floor pe lunch karna hai.",
+          "mechanism": "reinterpretation"
+        },
+        {
+          "line": "2 ghante traffic mein aake bhi camera off rakhna hai.",
+          "mechanism": "escalation"
+        },
+        {
+          "line": "Office aana zaroori hai. Baat karna zaroori nahi.",
+          "mechanism": "callback"
+        }
+      ],
+      "slides": [
+        "HR ne bola \"collaboration\" ke liye office khul raha hai.",
+        "Rohan: \"Bhai aaj office mein kaun aaya hai?\"\nNeha: \"Koi nahi, bas main aur AC.\"\nRohan: \"Standup call?\"\nNeha: \"Video pe hai, sab ghar se hain.\"",
+        "Bas badge swipe hona chahiye. Baaki sab online hi hai."
+      ],
+      "caption": "Every office team group chat at 10:15 AM on a mandatory Tuesday.",
+      "trigger": "corporate",
+      "target": "HR",
+      "structure": "group_chat",
+      "move": "the_banal_true_answer",
+      "satire_level": 4,
+      "hinglish": true,
+      "keywords": [
+        "office culture india",
+        "mandatory office attendance",
+        "hybrid work jokes"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPZUJOX2Q4TjZ4VlBSM3A2a2g0SkZsRjdzLXlrWkhSZkZtTERvZERyTFp1bUlQaXNrYXc1Wm05SVlUNlhabHFvNHhPcEpmSU51bWhsVjJVcUxMZHA0eW95VFNSSlB3MHRKaUVCZmRsUWhCLXpkMHYyLW05RDdXd202ekd0bC1MWGdjaklfT1NJU3prRW9sdUN1T05mM08zaDFqRmpoWm9TT3RBTndmd1ZpdmpFZEdmeHNkZmtZeVhn?oc=5",
+      "chat": {
+        "title": "Team Phoenix - Mandatory WFO",
+        "messages": [
+          {
+            "from": "Rohan",
+            "text": "Bhai aaj office mein kaun aaya hai?",
+            "kind": "text"
+          },
+          {
+            "from": "Neha",
+            "text": "Main aur security guard. Floor pura khali hai.",
+            "kind": "text"
+          },
+          {
+            "from": "Rohan",
+            "text": "Manager aaya?",
+            "kind": "text"
+          },
+          {
+            "from": "Neha",
+            "text": "Unka work from home hai aaj. Standup link bhej rahe hain.",
+            "kind": "text"
+          },
+          {
+            "from": "You",
+            "text": "Maine 2 ghante traffic mein lagaye sirf badge swipe karne ke liye.",
+            "kind": "text"
+          }
+        ]
+      },
+      "created_at": "2026-11-26",
+      "model": "gemini-4-hydrogen",
+      "status": "draft",
+      "_rendition_notes": [
+        "tweet dropped: a 17-word sentence (max 14): 'I commuted 90 minutes today to join a…'"
+      ],
+      "_score": 69,
+      "_judge": "Putting 'collaboration' in quotation marks gives the joke away in slide 1, leaving the landing to merely summarize the middle.",
+      "_detail": {
+        "laugh": 3,
+        "share_trigger": 4,
+        "surprise": 2,
+        "specificity": 3,
+        "voice": 3,
+        "travels": 5,
+        "lands": 2,
+        "plain": 5
+      },
+      "_penalty": 1
+    },
+    {
+      "trend": "Gurugram Bans Smoking, Tobacco Use at Public Places and Parks With Immediate Effect",
+      "context": "Even in your thirties living hundreds of kilometres away, your mother reads local municipal bans in your city as personal warnings aimed directly at you.",
+      "angle": "Your parents monitor municipal fines in your work city faster than the local police do.",
+      "landing_options": [
+        {
+          "line": "Police se pehle mummy ne challan kaat diya.",
+          "mechanism": "callback"
+        },
+        {
+          "line": "Tumhare 30 saal ki izzat ek tapri ke bharose thi.",
+          "mechanism": "reinterpretation"
+        },
+        {
+          "line": "Unhone news sirf tumhe check karne ke liye padhi thi.",
+          "mechanism": "deadpan_response"
+        },
+        {
+          "line": "Agle mahine ghar mein breathalyzer lagne wala hai.",
+          "mechanism": "escalation"
+        }
+      ],
+      "slides": [
+        "Gurugram mein smoking ban hui. Pehli call ghar se aayi.",
+        "\"News dekha? Gurugram mein fine lag raha hai.\"\n\"Haan mummy.\"\n\"Main toh bol rahi thi, woh park ke bahar khade mat hona.\"\n\"Mummy main office mein hoon.\"",
+        "Police se pehle mummy ne challan kaat diya."
+      ],
+      "caption": "Your mother already knows every local municipal rule in the city you moved to.",
+      "trigger": "parents",
+      "target": "parents",
+      "structure": "phone_call",
+      "move": "the_banal_true_answer",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "indian mom call",
+        "gurugram news today",
+        "living away parents"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOSlFEbXBJOEozbkxkZDZHN3hST3p0Y2pMYUxySG9PNW5xTWFaNE0ycnhTMGx6aW1sZEE4a19KbHU5VUhkM3NlMU1Ta2VzbEhfVmdHUGUyYmpRUVFfUFBKZ3dSSGkxeDZzWkhaMUNiWC1JWVhJZUV6a1lSRmpCdXBfcElCU09LbHVMZlVHSnV1YUdiRUFDeDNacXVMZFVhaFI0dmpPWS1keG9KYU1GUTRtNDgySXBMUXluQ05la2plZmF1NW04?oc=5",
+      "chat": {
+        "title": "Mummy",
+        "messages": [
+          {
+            "from": "Mummy",
+            "text": "Beta news dekha? Gurugram mein fine lag raha hai aaj se.",
+            "kind": "text"
+          },
+          {
+            "from": "You",
+            "text": "Haan mummy dekha. Main toh office mein hoon.",
+            "kind": "text"
+          },
+          {
+            "from": "Mummy",
+            "text": "Park ke paas khade mat hona shaam ko. Chacha bol rahe the checking chal rahi hai.",
+            "kind": "text"
+          },
+          {
+            "from": "You",
+            "text": "Mummy main park sirf Sunday ko jaata hoon, woh bhi sone ke liye.",
+            "kind": "text"
+          }
+        ]
+      },
+      "created_at": "2026-11-26",
+      "model": "gemini-4-hydrogen",
+      "status": "draft",
+      "_rendition_notes": [
+        "tweet dropped: a 15-word sentence (max 14): 'Gurugram banned smoking in public places this morning…'; a 18-word sentence (max 14): 'I have lived alone for 8 years and…'"
+      ],
+      "_score": 67,
+      "_judge": "Relatable mom interrogation, but ending on a mild pun about Mummy cutting a challan softens the punch.",
+      "_detail": {
+        "laugh": 3,
+        "share_trigger": 3,
+        "surprise": 3,
+        "specificity": 3,
+        "voice": 3,
+        "travels": 3,
+        "lands": 3,
+        "plain": 5
+      },
+      "_penalty": 2
+    },
+    {
+      "trend": "India’s top 8 office markets may need 260 m sq-ft of additional space: Study",
+      "context": "Employees who spent five years proving remote work functions smoothly are now forced back into traffic to justify commercial real estate.",
+      "angle": "Companies are building 260 million sq ft of new glass towers solely so employees can sit inside them and take video calls.",
+      "landing_options": [
+        {
+          "line": "260 million sq ft, and zero empty meeting rooms.",
+          "mechanism": "callback"
+        },
+        {
+          "line": "Your home Wi-Fi was fine. The building needed a tenant.",
+          "mechanism": "reinterpretation"
+        },
+        {
+          "line": "The 2021 remote forever post is still pinned online.",
+          "mechanism": "deadpan_response"
+        },
+        {
+          "line": "All that space, just so your manager can see you wear pants.",
+          "mechanism": "escalation"
+        }
+      ],
+      "slides": [
+        "Companies need 260 million sq ft of offices just for video calls.",
+        "Location: 90 minutes away.\nDress code: formal.\nRequirement: sit in a glass tower.\nDaily task: join video calls with people in Pune.",
+        "260 million sq ft, and zero empty meeting rooms."
+      ],
+      "caption": "Forward this to the colleague who commutes two hours just to wear headphones all day.",
+      "trigger": "corporate",
+      "target": "employer",
+      "structure": "job_description",
+      "move": "literalisation",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "return to office",
+        "corporate office space",
+        "work from home"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPZUJOX2Q4TjZ4VlBSM3A2a2g0SkZsRjdzLXlrWkhSZkZtTERvZERyTFp1bUlQaXNrYXc1Wm05SVlUNlhabHFvNHhPcEpmSU51bWhsVjJVcUxMZHA0eW95VFNSSlB3MHRKaUVCZmRsUWhCLXpkMHYyLW05RDdXd202ekd0bC1MWGdjaklfT1NJU3prRW9sdUN1T05mM08zaDFqRmpoWm9TT3RBTndmd1ZpdmpFZEdmeHNkZmtZeVhn?oc=5",
+      "created_at": "2026-11-26",
+      "model": "gemini-4-hydrogen",
+      "status": "draft",
+      "_rendition_notes": [
+        "tweet dropped: a 17-word sentence (max 14): 'India needs 260 million sq ft of new…'"
+      ],
+      "_score": 65,
+      "_judge": "Missing second-person framing makes it read like a dry LinkedIn statistic rather than a personal rant.",
+      "_detail": {
+        "laugh": 3,
+        "share_trigger": 3,
+        "surprise": 3,
+        "specificity": 4,
+        "voice": 3,
+        "travels": 5,
+        "lands": 3,
+        "plain": 4
+      },
+      "_penalty": 7
+    },
+    {
+      "trend": "A Bengaluru landlord has allegedly refused to rent a flat to Shark Tank India Season 5 contestant Aaditya Aanand because he runs a startup instead of earning a regular salary.",
+      "context": "Startup culture is celebrated on television while neighbourhood housing societies still view anyone without an MNC ID card as a flight risk.",
+      "angle": "Television investors and RWA uncles operate on two completely incompatible definitions of financial stability.",
+      "landing_options": [
+        {
+          "line": "Ab seedha RWA uncle se funding maangni padegi.",
+          "mechanism": "escalation"
+        },
+        {
+          "line": "TV pe valuation mili. Flat pe bharosa nahi mila.",
+          "mechanism": "callback"
+        },
+        {
+          "line": "Company chal rahi hai, par tenant unstable hai.",
+          "mechanism": "reinterpretation"
+        },
+        {
+          "line": "Startup hai, isliye society mein entry band hai.",
+          "mechanism": "deadpan_response"
+        }
+      ],
+      "slides": [
+        "TV pe funding mil gayi. Bengaluru mein 2BHK nahi mila.",
+        "Owner: \"Beta permanent naukri hai?\"\nBroker: \"Sir, apna startup hai.\"\nOwner: \"Startup matlab ghar se kaam?\"\nBroker: \"Office bhi hai.\"\nOwner: \"Phir bhi risk hai.\"",
+        "Ab seedha RWA uncle se funding maangni padegi."
+      ],
+      "caption": "Send this to the friend who traded MNC security for founder life and now lives with cousins.",
+      "trigger": "home",
+      "target": "landlord",
+      "structure": "group_chat",
+      "move": "flat_restatement",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "startup founder rent",
+        "bengaluru landlord rules",
+        "tenant screening india"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFB5ZENfdEg4dXotOVhxZkstcnpzV1ZZa0N2bUpDOUM5LXJOeDVTTXludFh0UTU2ZWQtNzdOa1ZUNnZZcUNJa011Tm5DWnF2OXE4SGc?oc=5",
+      "chat": {
+        "title": "Flat 402 Owners",
+        "messages": [
+          {
+            "from": "Broker",
+            "text": "Sir yeh tenant Shark Tank pe aaye the, apni company chalate hain",
+            "kind": "text"
+          },
+          {
+            "from": "Owner Uncle",
+            "text": "Serial mein kaam karte hain? Actors ko nahi dena",
+            "kind": "text"
+          },
+          {
+            "from": "Broker",
+            "text": "Nahi sir startup founder hain, 40 log kaam karte hain",
+            "kind": "text"
+          },
+          {
+            "from": "Owner Uncle",
+            "text": "Salary har mahine aati hai ya dhandha hai?",
+            "kind": "text"
+          },
+          {
+            "from": "You",
+            "text": "Uncle main hi salary deta hoon sabko.",
+            "kind": "text"
+          },
+          {
+            "from": "Owner Uncle",
+            "text": "Beta koi stable naukri wale ko dhoondh lenge",
+            "kind": "text"
+          }
+        ]
+      },
+      "created_at": "2026-11-26",
+      "model": "gemini-4-hydrogen",
+      "status": "draft",
+      "_rendition_notes": [
+        "tweet dropped: a 18-word sentence (max 14): 'I went on national television, got funded, hired…'"
+      ],
+      "_score": 63,
+      "_judge": "RWA uncle appears out of nowhere in the landing with no setup, and the voice lacks second-person directness.",
+      "_detail": {
+        "laugh": 3,
+        "share_trigger": 3,
+        "surprise": 3,
+        "specificity": 3,
+        "voice": 2,
+        "travels": 2,
+        "lands": 2,
+        "plain": 5
+      },
+      "_penalty": -2
+    },
+    {
+      "trend": "Gurugram Bans Smoking, Tobacco Use at Public Places and Parks With Immediate Effect",
+      "context": "Millennials working in Gurugram already breathe toxic winter smog every day, making a public smoking ban feel surreal.",
+      "angle": "Banning cigarettes in public parks in Gurugram ignores the fact that breathing the ambient air already counts as smoking.",
+      "landing_options": [
+        {
+          "line": "Fine bachane ke liye bas gahri saans le lo.",
+          "mechanism": "deadpan_response"
+        },
+        {
+          "line": "Yahan lungs kharab karne ke liye lighter ki zaroorat nahi hai.",
+          "mechanism": "reinterpretation"
+        },
+        {
+          "line": "Ek sutta band hua, baaki poora shehar abhi bhi jal raha hai.",
+          "mechanism": "callback"
+        },
+        {
+          "line": "Ab sirf office ke andar baith ke stress lena allowed hai.",
+          "mechanism": "escalation"
+        }
+      ],
+      "slides": [
+        "Gurugram ne public mein smoking ban kar di. Hawa pehle se AQI 400 hai.",
+        "Cigarette peene pe fine hai.\nPar subah 9 baje bina mask ke walk karna free hai.\nDhoop dikhti nahi, par park mein smoke mana hai.",
+        "Fine bachane ke liye bas gahri saans le lo."
+      ],
+      "caption": "Send this to your friend in Gurugram who takes fresh air breaks on the office balcony.",
+      "trigger": "health",
+      "target": "employer",
+      "structure": "juxtaposition",
+      "move": "absurd_comparative",
+      "satire_level": 5,
+      "hinglish": true,
+      "keywords": [
+        "gurugram smoking ban",
+        "delhi ncr pollution",
+        "gurgaon air quality"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOSlFEbXBJOEozbkxkZDZHN3hST3p0Y2pMYUxySG9PNW5xTWFaNE0ycnhTMGx6aW1sZEE4a19KbHU5VUhkM3NlMU1Ta2VzbEhfVmdHUGUyYmpRUVFfUFBKZ3dSSGkxeDZzWkhaMUNiWC1JWVhJZUV6a1lSRmpCdXBfcElCU09LbHVMZlVHSnV1YUdiRUFDeDNacXVMZFVhaFI0dmpPWS1keG9KYU1GUTRtNDgySXBMUXluQ05la2plZmF1NW04?oc=5",
+      "tweet": {
+        "setup": "Gurugram just banned smoking in public parks to protect citizens from bad air.",
+        "punch": "To save the fine, you can just take a deep breath outside."
+      },
+      "created_at": "2026-11-26",
+      "model": "gemini-4-hydrogen",
+      "status": "draft",
+      "_score": 63,
+      "_judge": "Slide 1 already puts the smoking ban next to AQI 400, so the rest of the post only repeats the same irony.",
+      "_detail": {
+        "laugh": 3,
+        "share_trigger": 4,
+        "surprise": 2,
+        "specificity": 4,
+        "voice": 4,
+        "travels": 4,
+        "lands": 3,
+        "plain": 5
+      },
+      "_penalty": 13
+    },
+    {
+      "trend": "₹500 coffee, ₹25,000 fitness, ₹40,000 rent: Is Gen Z really spending too much?",
+      "context": "Spending articles lump 30-year-olds in with reckless college kids even though the actual budget goes entirely to rent, groceries, and sleep.",
+      "angle": "Media critiques of young urban spending mistake basic survival costs for reckless luxury.",
+      "landing_options": [
+        {
+          "line": "The only luxury purchase this month was a memory foam pillow.",
+          "mechanism": "deadpan_response"
+        },
+        {
+          "line": "All that money, and your biggest thrill is an early night.",
+          "mechanism": "reinterpretation"
+        },
+        {
+          "line": "Nobody is partying. Half the bill is just rent and curd.",
+          "mechanism": "callback"
+        },
+        {
+          "line": "Your wild Friday night now ends before 10 PM.",
+          "mechanism": "escalation"
+        }
+      ],
+      "slides": [
+        "The news thinks you are 22 and blowing money on weekend trips.",
+        "1BHK rent: ₹40,000.\nMilk and curd: doubled.\nElectricity bill: two ACs.\nFriday night: asleep by 10.",
+        "The only luxury purchase this month was a memory foam pillow."
+      ],
+      "caption": "You know the friend who gets called extravagant just for buying good olive oil and a decent mattress.",
+      "trigger": "the_advice_industry",
+      "target": "marketing",
+      "structure": "receipt",
+      "move": "absurd_comparative",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "lifestyle inflation india",
+        "monthly expenses thirties",
+        "city rent cost"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQbmhKZWREeVNjNVFId0NuX1lVOW13cE1faUNZWEp5Tnd5Vnp6YnRldDh4aHJrc05SR3dMcm1hSGZZUlNTRno1WE1BZ3AxYkhiUk1jLWFmZVdCOTd0b0ZoeXM4ZGM4R0JnX2JoZlB4VkNnZUdBdHFBVzd0WXFVeTIzNlhfbmxBMEI1aVljd3FUTGdOeTh2NlAxdE1IcUhSWExXMVlsWGZqZGFDelg2WTBGTGFqbDh0V1EySHpMMTZUX0hZeTNQaDFpZ1liM3ZQaknSAdQBQVVfeXFMTm9lOGhwWHlFMEUyRVhwdnEwVzZiR2Z5RWlkNGZ6R0hqZXhxeVgzSGVOU2d2RmJjbFRKZGNTYWpIWVlFOGtzTGpOQV91MkpOc1g5QVdhZS1XaEVmcHhQNTUwQnlGX2x0SmtwTDczVnVTbWt6VWdTQkVOUTVwaTdEdy1kVUNmM0J1U2YtWlRXSUJpOWt3NnJWUHNQV2phYlV5eVF6bGFsdy1aa2JLTXptaXFUZ3RiTm5RTmg4X3dsTEo3c0tadnVkNTM2YTFKb2g0WEJtVnA?oc=5",
+      "tweet": {
+        "setup": "Business articles keep lecturing me about Gen Z luxury spending.",
+        "punch": "My biggest splurge at 31 was an orthopedic pillow and unflavoured whey."
+      },
+      "created_at": "2026-11-26",
+      "model": "gemini-4-hydrogen",
+      "status": "draft",
+      "_score": 61,
+      "_judge": "Slide 2 reads like an itemized expense list rather than an escalation, and the pillow payoff gets a wry nod rather than a laugh.",
+      "_detail": {
+        "laugh": 3,
+        "share_trigger": 3,
+        "surprise": 3,
+        "specificity": 4,
+        "voice": 4,
+        "travels": 4,
+        "lands": 4,
+        "plain": 5
+      },
+      "_penalty": 18
+    },
+    {
+      "trend": "Google Dismisses Mass Layoff Rumours In India, Says Only 30 Cloud Roles Cut: \"Totally Inaccurate\"",
+      "context": "Corporate HR has invented softer and softer euphemisms for firing employees, yet the bank still treats a missed payment identically.",
+      "angle": "Companies now spend more effort softening the verb for firing you than paying your severance.",
+      "landing_options": [
+        {
+          "line": "Optimise hone ke baad bhi EMI khud deni padti hai.",
+          "mechanism": "escalation"
+        },
+        {
+          "line": "Sab badal gaya. Bas agle mahine ka rent same hai.",
+          "mechanism": "reinterpretation"
+        },
+        {
+          "line": "English jitni polite hoti hai, mail utna hi bura hota hai.",
+          "mechanism": "deadpan_response"
+        },
+        {
+          "line": "30 log nikal gaye, par kisi ko nikala nahi gaya.",
+          "mechanism": "callback"
+        }
+      ],
+      "slides": [
+        "Company ne 30 logon ko nikala. Par \"nikalna\" word kisi ne use nahi kiya.",
+        "2018: \"Fired.\"\n2021: \"Laid off.\"\n2024: \"Role impacted.\"\n2026: \"Only 30 Cloud roles optimised.\"",
+        "Optimise hone ke baad bhi EMI khud deni padti hai."
+      ],
+      "caption": "Everybody knows one HR person who can turn bad news into a three-paragraph motivational post.",
+      "trigger": "corporate",
+      "target": "HR",
+      "structure": "definition_drift",
+      "move": "the_institutional_frame",
+      "satire_level": 4,
+      "hinglish": true,
+      "keywords": [
+        "corporate jargon india",
+        "tech layoffs news",
+        "hr email language"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQcmFDTmpGVXJqVmZEdlAzYkVvc0NJN2xjNHBpeDRDbmtoRTB0dUZiQk8xNl9Ya0NfUXA5dl9RVl90M3ZtajhYdW9aaTVxUFlJTEtpNS1sSkRSUlJwbFBVV2tOTm1qRnBldnFWTVV0Z2VfWThOUFFYSm5nNFpraVpPMVBOUlU4Q2ItUWY2TEdlVGV6Q3JFLWJoemYwMUwyeFE3d2twbWc0d01hS0ZTdmxTRGtTWko4cFBMMjBETmh2WnlqcVRWd3MxRDlkSdIB0wFBVV95cUxOeEp5NDlLbzQzLVlvN3ZLdXJ4WXJhNGppNDlWWDdSNW53RjFNU1BuUHRPeUlLaUhfSWVuNmlEa0t4Yi13aV9wME1oT1R1emw4MHhDYVlFNDJrQ2p3MWdvZFVlOVNXU3BQajFraWdocWtUR2dGckxnVHlqS2t5OVdobU5mUjRxeVMzcHBwZFYyZlE4T0JIMG1EckE0Z2ZzQ19jUXVfdG5YdWozejNPQ2o3RXBfZXNEa3YzZU9ZUGR4OGpZTFJCZTlyTXZWejZ1U1g0dlp3?oc=5",
+      "tweet": {
+        "setup": "Companies never fire anyone anymore. They just optimise 30 roles for future alignment.",
+        "punch": "Crazy how the bank still calls it a missed EMI."
+      },
+      "created_at": "2026-11-26",
+      "model": "gemini-4-hydrogen",
+      "status": "draft",
+      "_score": 57,
+      "_judge": "The corporate-euphemism setup is familiar, and connecting 'optimised' to still paying your own EMI feels forced.",
+      "_detail": {
+        "laugh": 2,
+        "share_trigger": 3,
+        "surprise": 2,
+        "specificity": 4,
+        "voice": 3,
+        "travels": 4,
+        "lands": 2,
+        "plain": 5
+      },
+      "_penalty": 7
+    },
+    {
+      "trend": "A Bengaluru landlord has allegedly refused to rent a flat to Shark Tank India Season 5 contestant Aaditya Aanand because he runs a startup instead of earning a regular salary.",
+      "context": "Indian relatives and landlords share the exact same checklist where having employees of your own still ranks below working for a giant outsourcer.",
+      "angle": "Becoming the boss of twenty people still leaves you below an entry-level salaried clerk in the rental and marriage market.",
+      "landing_options": [
+        {
+          "line": "Maalik ban gaye, par kirayedaar banne ki aukaat nahi hui.",
+          "mechanism": "reinterpretation"
+        },
+        {
+          "line": "Shaadi aur flat dono mein ek hi rule hai. Pakki naukri.",
+          "mechanism": "callback"
+        },
+        {
+          "line": "Desh ko jobs do, par landlord ko MNC ka ID card dikhao.",
+          "mechanism": "escalation"
+        },
+        {
+          "line": "Sab theek hai, bas har mahine ek tareekh ko salary aani chahiye.",
+          "mechanism": "deadpan_response"
+        }
+      ],
+      "slides": [
+        "Company ka maalik banna aasaan hai. Kirayedaar banna mushkil.",
+        "\"Ladka apna startup chalata hai.\"\n\"Matlab koi naukri nahi mili?\"\n\"Nahi behen, 20 log rakhe hain.\"\n\"Wohi toh. Flat aur rishta dono mushkil hain.\"",
+        "Desh ko jobs do, par landlord ko MNC ka ID card dikhao."
+      ],
+      "caption": "Every relative who still thinks government job or MNC is the only real employment.",
+      "trigger": "relatives",
+      "target": "landlord",
+      "structure": "two_aunties",
+      "move": "the_banal_true_answer",
+      "satire_level": 4,
+      "hinglish": true,
+      "keywords": [
+        "startup vs job",
+        "indian landlord mindset",
+        "renting flat india"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFB5ZENfdEg4dXotOVhxZkstcnpzV1ZZa0N2bUpDOUM5LXJOeDVTTXludFh0UTU2ZWQtNzdOa1ZUNnZZcUNJa011Tm5DWnF2OXE4SGc?oc=5",
+      "created_at": "2026-11-26",
+      "model": "gemini-4-hydrogen",
+      "status": "draft",
+      "_rendition_notes": [
+        "tweet dropped: a 18-word sentence (max 14): 'You can build a profitable business at 30…'"
+      ],
+      "landing_replaced": "Maalik ban gaye, par kirayedaar banne ki aukaat nahi hui.",
+      "_score": 54,
+      "_judge": "Slide 1 states the entire premise upfront so there is no turn left, and none of the landings do more than restate the contrast.",
+      "_detail": {
+        "laugh": 2,
+        "share_trigger": 2,
+        "surprise": 2,
+        "specificity": 3,
+        "voice": 2,
+        "travels": 3,
+        "lands": 2,
+        "plain": 4
+      },
+      "_penalty": -2
+    }
+  ],
+  "rejected": []
+}
