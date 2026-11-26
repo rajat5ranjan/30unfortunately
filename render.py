@@ -302,6 +302,43 @@ margin:0 0 14px;font-weight:700}
 """
 
 
+NAV_CSS = """
+body{padding:0}
+header.top{position:sticky;top:0;z-index:10;background:#E7E2D6;
+border-bottom:1px solid #D6D0C2;padding:14px 40px 0}
+.brand b{font-size:22px;letter-spacing:-.6px}
+.brand span{font-size:12px;color:#6E675A;margin-left:10px}
+header.top nav{display:flex;gap:4px;margin-top:10px;overflow-x:auto;
+-webkit-overflow-scrolling:touch;scrollbar-width:none}
+header.top nav::-webkit-scrollbar{display:none}
+header.top nav a{white-space:nowrap;text-decoration:none;font-size:13px;font-weight:700;
+color:#6E675A;padding:9px 12px 11px;border-bottom:3px solid transparent}
+header.top nav a.on{color:#15140F;border-bottom-color:#D8451F}
+header.top nav a.out{margin-left:auto;color:#D8451F}
+main{padding:28px 40px 60px}
+.js .tab{display:none}.js .tab.on{display:block}
+.tab{margin-bottom:40px}
+@media(max-width:520px){header.top{padding:12px 14px 0}main{padding:20px 14px 50px}
+.brand span{display:block;margin:2px 0 0}.kpis{grid-template-columns:repeat(2,1fr)}}
+"""
+
+NAV_JS = """
+(function(){
+  var d=document.documentElement; d.className+=' js';
+  var tabs=[].slice.call(document.querySelectorAll('.tab'));
+  var links=[].slice.call(document.querySelectorAll('nav a[data-tab]'));
+  function show(){
+    var id=(location.hash||'#overview').slice(1);
+    if(!document.getElementById(id)||!/tab/.test(document.getElementById(id).className)) id='overview';
+    tabs.forEach(function(t){t.classList.toggle('on',t.id===id);});
+    links.forEach(function(a){a.classList.toggle('on',a.getAttribute('data-tab')===id);});
+    window.scrollTo(0,0);
+  }
+  window.addEventListener('hashchange',show); show();
+})();
+"""
+
+
 def all_known_posts() -> List[Dict[str, Any]]:
     """Every post with rendered slides — seeds plus approved — newest first.
 
@@ -336,7 +373,7 @@ def queue_status() -> Dict[str, str]:
         return {}
 
 
-def dashboard() -> Tuple[str, str, str]:
+def dashboard() -> Dict[str, str]:
     """(css, html) for the numbers at the top — best-effort, like the buttons.
 
     Everything below it is a file on disk; this is the only part that needs the
@@ -346,11 +383,12 @@ def dashboard() -> Tuple[str, str, str]:
         import dash
         import store
         conn = store.connect()
-        # v2 leads; the 70-day test sits under the queue as the baseline
-        return dash.CSS, dash.v2_block(conn), dash.block(conn)
+        return {"css": dash.CSS, "overview": dash.overview_tab(conn),
+                "compare": dash.compare_tab(conn), "v1": dash.block(conn),
+                "candidates": dash.todays_candidates()}
     except Exception as e:
         print("contact sheet: no dashboard (%s)" % e)
-        return "", "", ""
+        return {}
 
 
 def release_url(name: str) -> str:
@@ -433,7 +471,7 @@ def write_contact_sheet(posts: List[Dict[str, Any]], handle: str) -> None:
     # not a pending one.
     posts = [p for p in everything if status.get(p.get("id")) == "queued"]
     gone = len(everything) - len(posts)
-    dash_css, dash_html, dash_old = dashboard()
+    tabs = dashboard()
     # Posting order, so the first card is the one that ships next.
     order = list(status)
     posts.sort(key=lambda p: order.index(p["id"]) if p.get("id") in order else 1e9)
@@ -450,33 +488,41 @@ def write_contact_sheet(posts: List[Dict[str, Any]], handle: str) -> None:
                " &middot; hinglish" if p.get("hinglish") else "",
                escape(p.get("angle", "")), script_html(p, style),
                control.bar(pid, status.get(pid))))
+    queue = (
+        '<p class="sub">In posting order: the first one ships next. Tap a reel to '
+        'play it. %s</p>%s'
+        % (("%d already published, skipped or unused are not listed &mdash; "
+            "`publish.py posts` prints them one by one." % gone) if gone else "",
+           ('<div class="grid">%s</div>' % "".join(cards)) if cards else
+           '<p class="sub">Nothing is waiting. generate refills the queue when it '
+           'drops below six.</p>'))
+    if tabs.get("candidates"):
+        queue += ('<section class="dash" style="margin-top:30px"><h2>Today&rsquo;s '
+                  'candidates</h2>%s</section>' % tabs["candidates"])
+    # One page, four tabs. Plain anchors, so it still reads top to bottom
+    # with JavaScript off; with it on, the hash picks the one tab shown.
+    nav = [("overview", "Overview"), ("queue", "Queue &middot; %d" % len(posts)),
+           ("compare", "v1 vs v2"), ("v1", "The test (v1)")]
     html = (
         '<!doctype html><html lang="en"><head><meta charset="utf-8">'
         '<meta name="viewport" content="width=device-width,initial-scale=1">'
-        '<title>%s — contact sheet</title>'
+        '<title>%s — dashboard</title>'
         '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?'
         'family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700&display=swap">'
         '<style>%s</style></head><body>'
-        '<h1>Thirty Unfortunately</h1>'
-        '<p class="sub">%s &middot; %d waiting &middot; reels only since '
-        '26 Nov 2026 (tweet, chat, notifications, comments, card) &middot; a button files a '
-        'one-tap issue and the workflow does the rest</p>'
-        '%s'
-        '<a class="nav" href="candidates.html">Today&rsquo;s candidates &rarr;</a>'
-        '<h2 class="sec">Waiting to go out</h2>'
-        '<p class="sub">In posting order: the first one ships next. Tap a reel '
-        'to play it. %s These are the files Meta pulls at publish time.</p>'
-        '%s'
-        '<h2 class="sec" style="margin-top:44px">Before the new start</h2>%s'
-        '</body></html>'
-        % (handle, SHEET_CSS + control.CSS + dash_css, handle, len(posts),
-           dash_html,
-           ("%d already published, skipped or unused are not listed — their "
-            "numbers are in the comparison above and the charts below, and "
-            "`publish.py posts` prints them one by one." % gone) if gone else "",
-           ('<div class="grid">%s</div>' % "".join(cards)) if cards else
-           '<p class="sub">Nothing is waiting. generate refills the queue when '
-           'it drops below six.</p>', dash_old))
+        '<header class="top"><div class="brand"><b>Thirty Unfortunately</b>'
+        '<span>%s</span></div><nav>%s'
+        '<a href="candidates.html" class="out">Candidates &#8599;</a></nav></header>'
+        '<main>'
+        '<section class="tab" id="overview">%s</section>'
+        '<section class="tab" id="queue"><h2 class="sec">Waiting to go out</h2>%s</section>'
+        '<section class="tab" id="compare">%s</section>'
+        '<section class="tab" id="v1">%s</section>'
+        '</main><script>%s</script></body></html>'
+        % (handle, SHEET_CSS + control.CSS + tabs.get("css", "") + NAV_CSS, handle,
+           "".join('<a href="#%s" data-tab="%s">%s</a>' % (k, k, v) for k, v in nav),
+           tabs.get("overview", '<p class="sub">No numbers yet.</p>'), queue,
+           tabs.get("compare", ""), tabs.get("v1", ""), NAV_JS))
     with open(os.path.join(ROOT, "docs", "index.html"), "w") as f:
         f.write(html)
 

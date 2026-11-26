@@ -114,7 +114,8 @@ COUNTED = ("reach", "views", "likes", "comments", "saved", "shares",
            "total_interactions")
 
 
-def cumulative(conn: sqlite3.Connection) -> List[Dict[str, Any]]:
+def cumulative(conn: sqlite3.Connection, since: Optional[str] = None,
+               until: Optional[str] = None) -> List[Dict[str, Any]]:
     """Running total of reach and views, in publication order.
 
     Built from the same rows and the same per-post figure that overview()
@@ -129,6 +130,8 @@ def cumulative(conn: sqlite3.Connection) -> List[Dict[str, Any]]:
     out, reach, views = [], 0, 0
     for r in store.published_with_metrics(conn):
         if not r["published_at"]:
+            continue
+        if (since and r["published_at"] < since) or (until and r["published_at"] >= until):
             continue
         reach += r["reach"] or 0
         views += r["views"] or 0

@@ -14,7 +14,7 @@ import json
 import os
 from datetime import datetime, timedelta, timezone
 from html import escape
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Tuple
 
 import metrics
 import store
@@ -49,6 +49,13 @@ font-variant-numeric:tabular-nums}
 .cmp td small{display:block;font-size:10.5px;color:#9A9384;font-weight:400}
 .cmp tr.lead td{font-size:15px}
 .dash.archive{background:#F6F3EC}
+details.learn{margin-top:26px;border-top:1px solid #ECE7DB;padding-top:14px}
+details.learn summary{cursor:pointer;font-size:12px;letter-spacing:1.1px;
+text-transform:uppercase;color:#6E675A;font-weight:700}
+.cmp.lt td{text-align:left;vertical-align:top;padding-right:12px;font-size:12.5px;line-height:1.45}
+.cmp.lt th{text-align:left}
+.chart2 .bar.reel{fill:#2E7D4F}.chart2 .bar.car{fill:#C9A227}
+.chart2 .base{stroke:#15140F;stroke-width:1.2;stroke-dasharray:4 4}
 .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
 .kpi{background:#F2EEE4;border-radius:10px;padding:13px 14px 12px}
 .kpi b{display:block;font-size:30px;line-height:1;letter-spacing:-1.5px}
@@ -215,43 +222,148 @@ def comparison(ph: Dict[str, Any]) -> str:
             % (datetime.strptime(ph["split"], "%Y-%m-%d").strftime("%-d %b"), "".join(rows)))
 
 
-V2_CHANGES = [
-    "Reels only. Carousels reached 2.8&times; less and are retired.",
-    "Five reel styles — tweet, family chat, lock-screen notifications, comment "
-    "section and the text card. The judge scores how well each joke fits each "
-    "shape and the best fit ships.",
-    "Funny first, satire second. The judge weighs the laugh most and marks down "
-    "anything bitter.",
-    "Fresh topics on top of the old ones: the stock market, big-company drama, "
-    "city traffic — pulled from the last 72 hours of news.",
-    "Every reel ends on the 30 sign-off, and the punchline is never cut.",
+LEARNINGS = [
+    ("Carousels reached 2.8&times; less than reels.", "Reels only."),
+    ("A reel was watched for 3.4s of ~20: the text card was not stopping the scroll.",
+     "Five reel styles — tweet, family chat, lock-screen notifications, comment "
+     "section, text card. The judge scores how well each joke fits each shape and "
+     "the best fit ships."),
+    ("8 shares in 92 posts: the jokes were sharp and true, not funny enough to send.",
+     "Funny first, satire second. The judge weighs the laugh most and marks down "
+     "anything bitter."),
+    ("The topics were money, family and the body, every time.",
+     "Fresh topics on top: the stock market, big-company drama, city traffic — "
+     "from the last 72 hours of news."),
+    ("The first chat reel cut its punchline and had no sign-off.",
+     "Every reel lands its ending, then the 30 sign-off."),
+    ("Posting stopped on 1 Nov and reach went to zero within days.",
+     "The queue refills itself; no reach without posts."),
 ]
 
 
-def v2_block(conn) -> str:
-    """The top of the page: the new start, compared against the test."""
-    ph = metrics.phases(conn)
-    b = ph["v2"]
-    day = max(1, (datetime.now(timezone.utc).date()
-                  - datetime.strptime(ph["split"], "%Y-%m-%d").date()).days + 1)
-    o = metrics.overview(conn)
+def learnings() -> str:
+    return ('<details class="learn"><summary>Learnings from the test, and what v2 '
+            'changed</summary><table class="cmp lt"><tr><th>v1 taught</th>'
+            '<th>so v2</th></tr>%s</table></details>'
+            % "".join('<tr><td>%s</td><td class="v2">%s</td></tr>' % (a, b)
+                      for a, b in LEARNINGS))
+
+
+def _vs(now, then, higher_is_better=True) -> Tuple[str, str]:
+    """The note under a v2 tile: the v1 figure, coloured by which side wins."""
+    if now is None or then is None:
+        return "", ""
+    better = now > then if higher_is_better else now < then
+    return ("up" if better else ("down" if now != then else ""),
+            "▲" if now > then else ("▼" if now < then else "="))
+
+
+def post_bars(rows: List[Dict[str, Any]], baseline: Optional[float],
+              w: int = 760, h: int = 170) -> str:
+    """First-day reach per v2 post, against the v1 median as a dashed line."""
+    if not rows:
+        return ('<p class="caveat">A bar per post appears once it is 12 hours old. '
+                'The dashed line will be v1&rsquo;s median, %s.</p>' % _n(baseline))
+    top = _nice(max([r["reach"] for r in rows] + [baseline or 0, 1]))
+    padl, padb, padt = 34, 22, 8
+    iw, ih = w - padl - 6, h - padb - padt
+    bw = min(46.0, iw / float(len(rows)) * 0.7)
+    step = iw / float(len(rows))
+    out = ['<svg class="chart2" viewBox="0 0 %d %d" role="img" '
+           'aria-label="first-day reach per post">' % (w, h)]
+    for k in range(3):
+        v = top * k / 2.0
+        y = padt + ih - ih * v / top
+        out.append('<g class="grid"><line x1="%d" x2="%d" y1="%.1f" y2="%.1f"/></g>'
+                   '<text class="ylab" x="%d" y="%.1f">%s</text>'
+                   % (padl, w - 6, y, y, padl - 6, y + 3, _n(v)))
+    for i, r in enumerate(rows):
+        x = padl + step * i + (step - bw) / 2
+        bh = ih * r["reach"] / float(top)
+        cls = "reel" if baseline is None or r["reach"] >= baseline else "car"
+        out.append('<rect class="bar %s" x="%.1f" y="%.1f" width="%.1f" height="%.1f" '
+                   'rx="3"><title>%s · %s · %d reached</title></rect>'
+                   '<text class="ylab" x="%.1f" y="%d" style="text-anchor:middle">%s</text>'
+                   % (cls, x, padt + ih - bh, bw, max(bh, 1), r["id"], r.get("style", ""),
+                      r["reach"], x + bw / 2, h - 6, r["id"]))
+    if baseline:
+        y = padt + ih - ih * baseline / top
+        out.append('<line class="base" x1="%d" x2="%d" y1="%.1f" y2="%.1f"/>'
+                   '<text class="ylab" x="%d" y="%.1f" style="text-anchor:end">'
+                   'v1 median %s</text>' % (padl, w - 6, y, y, w - 8, y - 4, _n(baseline)))
+    out.append("</svg>")
+    return "".join(out)
+
+
+def _when(o) -> str:
     stale = metrics.hours_since(o["captured"]) > STALE_HOURS
-    when = ('<p class="when stale">Metrics have never been pulled.</p>'
-            if o["captured"] is None else
-            '<p class="when%s">Metrics pulled %s, %s%s</p>'
+    if o["captured"] is None:
+        return '<p class="when stale">Metrics have never been pulled.</p>'
+    return ('<p class="when%s">Metrics pulled %s, %s%s</p>'
             % (" stale" if stale else "", o["captured"].strftime("%-d %b %H:%M UTC"),
                metrics.ago(o["captured"]), ". Older than it should be." if stale else ""))
+
+
+def overview_tab(conn) -> str:
+    """v2 at a glance: six numbers against v1, three charts, learnings folded."""
+    ph = metrics.phases(conn)
+    a, b = ph["v1"], ph["v2"]
+    day = max(1, (datetime.now(timezone.utc).date()
+                  - datetime.strptime(ph["split"], "%Y-%m-%d").date()).days + 1)
+    fol = ph["followers"]
+    f_now = fol["last"][1] if fol["last"] else None
+    f_gain = (f_now - fol["first"][1]) if (fol["first"] and f_now is not None
+                                           and fol["first"][1] is not None) else None
+
+    def tile(value, label, then_txt, now_v=None, then_v=None, hib=True):
+        cls, arrow = _vs(now_v, then_v, hib)
+        return kpi(value, label, ("%s v1 %s" % (arrow, then_txt)).strip(), cls)
+    tiles = ('<div class="kpis">%s%s%s%s%s%s</div>' % (
+        tile(_n(b["day1_median"]), "median first-day reach", _n(a["day1_median"]),
+             b["day1_median"], a["day1_median"]),
+        tile(("%ss" % _n(b["watch_median"])) if b["watch_median"] is not None else "\u2014",
+             "median watch", "%ss" % _n(a["watch_median"]),
+             b["watch_median"], a["watch_median"]),
+        tile(_pct(b["shares_per_1k"]), "shares per 1k reached", _pct(a["shares_per_1k"]),
+             b["shares_per_1k"], a["shares_per_1k"]),
+        tile(b["posts"], "posts", "%.1f a day" % (a["per_day"] or 0)),
+        tile("{:,}".format(b["reach"]), "people reached",
+             "{:,} in %d days".format(a["reach"]) % a["days"]),
+        kpi(f_now if f_now is not None else "\u2014", "followers",
+            ("%+d since %s" % (f_gain, fol["first"][0][5:10])) if f_gain is not None
+            else "tracked from the next pull", "up" if (f_gain or 0) > 0 else "")))
+    first = [r for r in metrics.day_one(conn) if r["published_at"] >= ph["split"]]
+    o = metrics.overview(conn)
     return ('<section class="dash"><span class="era">v2 &middot; day %d</span>'
-            '<p class="lede">A new start on %s. %d posted so far; the first 70 days '
-            'were the test, and the numbers below are what this version has to beat.</p>'
-            '<ul class="changes">%s</ul>%s'
-            '<h2>v1 vs v2</h2>%s'
+            '<p class="lede">New start on %s. Every number is v2; the small line '
+            'under it is what the 70-day test did.</p>%s%s'
+            '<h2>First-day reach, per post</h2>%s'
+            '<h2>Reach and views, running total (v2)</h2>%s'
             '<h2>Which reel style travels</h2>%s'
-            '<h2>Today&rsquo;s candidates</h2>%s'
-            '</section>'
-            % (day, datetime.strptime(ph["split"], "%Y-%m-%d").strftime("%-d %B %Y"),
-               b["posts"], "".join("<li>%s</li>" % c for c in V2_CHANGES), when,
-               comparison(ph), styles(conn), todays_candidates()))
+            '%s</section>'
+            % (day, datetime.strptime(ph["split"], "%Y-%m-%d").strftime("%-d %b %Y"),
+               tiles, _when(o), post_bars(first, a["day1_median"]),
+               running_v2(metrics.cumulative(conn, since=ph["split"])),
+               styles(conn), learnings()))
+
+
+def running_v2(cum: List[Dict[str, Any]]) -> str:
+    if not cum or not cum[-1]["views"]:
+        return ('<p class="caveat">The line starts with the first metrics pull after '
+                'a v2 post is published.</p>')
+    return totals_over_time(cum)
+
+
+def compare_tab(conn) -> str:
+    ph = metrics.phases(conn)
+    return ('<section class="dash"><h2>v1 vs v2, side by side</h2>%s'
+            '<p class="caveat">First-day numbers are the fair comparison: a v2 post a '
+            'day old cannot be set against a v1 post&rsquo;s two-month total. Read it '
+            'properly at ~30 v2 posts; before that one good post moves everything.</p>'
+            '%s</section>' % (comparison(ph), learnings()))
+
+
+v2_block = overview_tab   # the name the tests and older callers use
 
 
 def v1_summary(ph: Dict[str, Any]) -> str:
@@ -595,7 +707,7 @@ def block(conn) -> str:
             '<h2>How long reels are watched</h2>'
             '<p class="caveat">%s</p>'
             '</section>'
-            % (v1_summary(ph), kpis, day, when, totals_over_time(metrics.cumulative(conn)),
+            % (v1_summary(ph), kpis, day, when, totals_over_time(metrics.cumulative(conn, until=ph["split"])),
                escape(c["headline"]), versus(c),
                escape(footnote + " Carousels stopped on 26 Nov 2026; every "
                       "post since is a reel."),

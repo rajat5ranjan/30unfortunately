@@ -316,7 +316,7 @@ class ContactSheet(unittest.TestCase):
             {"id": i, "slides": ["a", "b"]} for i in sorted(status)]
         _render.queue_status = lambda: dict(
             (k, v) for k, v in status.items() if v)
-        _render.dashboard = lambda: ("", "", "")
+        _render.dashboard = lambda: {}
         try:
             _render.write_contact_sheet([], "@x")
             with io.open(self.SHEET, encoding="utf-8") as f:
