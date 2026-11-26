@@ -71,8 +71,8 @@ margin-right:5px;vertical-align:-1px}
 height:100%}
 .weeks .bars{display:flex;gap:3px;align-items:flex-end;height:100%}
 .weeks .bars i{flex:1;border-radius:3px 3px 0 0;min-height:2px}
-.weeks .bars i.reel{background:#2E7D4F}
-.weeks .bars i.car{background:#C9A227}
+.weeks .bars i.reel,.axis i.sw.reel{background:#2E7D4F}
+.weeks .bars i.car,.axis i.sw.car{background:#C9A227}
 .weeks .bars i.none{background:#E6E1D5;height:2px}
 .weeks .wk span{font-size:10px;color:#9A9384;text-align:center;margin-top:6px}
 .when{font-size:11.5px;color:#9A9384;margin:12px 0 0}
@@ -144,6 +144,47 @@ def versus(cmp_: Dict[str, Any]) -> str:
                     % (arm, cmp_["n"][arm], kind, 100.0 * v / top, _n(v)))
     return '<div class="vs">%s</div>' % "".join(rows)
 
+
+STYLE_MIN = 5   # per style, before a median means anything
+
+
+def styles(conn) -> str:
+    """Card vs tweet vs chat — the question the next month of posting answers.
+
+    Day-one numbers from metrics.by_style, which only counts reels published
+    since the styles began on 26 Nov. Drawn as the same bars as the format
+    comparison above, and labelled as too early until every style has
+    STYLE_MIN posts, because two posts per style is a coin toss.
+    """
+    got = metrics.by_style(conn)
+    top = max([g["reach"] or 0 for g in got.values()] + [1])
+    rows = []
+    for name in ("chat", "tweet", "card"):
+        g = got.get(name) or {"n": 0, "reach": None, "watch_s": None,
+                              "shares_per_1k": None}
+        rows.append('<div class="vsrow"><span>%s (%d)</span>'
+                    '<div class="track"><i class="reel" style="width:%.1f%%"></i>'
+                    '</div><b>%s</b></div>'
+                    % (name, g["n"], 100.0 * (g["reach"] or 0) / top, _n(g["reach"])))
+    have = min(g["n"] for g in got.values()) if got else 0
+    total = sum(g["n"] for g in got.values()) if got else 0
+    watch = ", ".join("%s %ss" % (k, _n(got[k]["watch_s"]))
+                      for k in ("chat", "tweet", "card")
+                      if got.get(k) and got[k]["watch_s"] is not None)
+    if total == 0:
+        note = ("Nothing published in the new styles yet. Every reel now goes "
+                "out as a chat, a tweet or a text card, picked in turn; the "
+                "bars fill in from the first one.")
+    elif have < STYLE_MIN:
+        note = ("Too early to call: %d published so far, and a style needs %d "
+                "before its median means anything.%s"
+                % (total, STYLE_MIN, " Median watch time: %s." % watch if watch else ""))
+    else:
+        best = max(got, key=lambda k: got[k]["reach"] or 0)
+        note = ("%s reels reach furthest so far.%s"
+                % (best.capitalize(), " Median watch time: %s." % watch if watch else ""))
+    return ('<div class="vs">%s</div><p class="caveat">%s Median day-one reach '
+            'per style, since 26 Nov.</p>' % ("".join(rows), escape(note)))
 
 
 def _nice(n: int) -> int:
@@ -405,7 +446,8 @@ def block(conn) -> str:
 
     return ('<section class="dash">%s%s%s'
             '<h2>Reach and views, running total</h2>%s'
-            '<h2>Which format travels</h2>'
+            '<h2>Which reel style travels</h2>%s'
+            '<h2>Reels vs carousels, before carousels were retired</h2>'
             '<p class="headline">%s</p>%s<p class="caveat">%s</p>'
             '<h2>Weekly average reach, by format</h2>%s'
             '<h2>Per post</h2><p class="caveat">%s</p>'
@@ -414,6 +456,8 @@ def block(conn) -> str:
             '<h2>Today&rsquo;s candidates</h2>%s'
             '</section>'
             % (kpis, day, when, totals_over_time(metrics.cumulative(conn)),
-               escape(c["headline"]), versus(c), escape(footnote),
+               styles(conn), escape(c["headline"]), versus(c),
+               escape(footnote + " Carousels stopped on 26 Nov 2026; every "
+                      "post since is a reel."),
                weekly_bars(one), escape(insight), escape(watch_note),
                todays_candidates()))

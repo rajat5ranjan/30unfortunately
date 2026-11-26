@@ -18,6 +18,7 @@ import glob
 import json
 import os
 import sys
+from html import escape
 from typing import Any, Dict, List, Optional, Tuple
 
 from PIL import Image, ImageDraw, ImageFont
@@ -278,7 +279,16 @@ SHEET_CSS = """
 font-family:'Bricolage Grotesque',system-ui,sans-serif;padding:40px}
 h1{font-size:30px;letter-spacing:-1px;margin:0 0 4px}
 p.sub{margin:0 0 28px;color:#5E5849;font-size:14px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:26px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:26px}
+.reel{position:relative;aspect-ratio:9/16;background:#15140F;border-radius:9px;overflow:hidden}
+.reel video,.reel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.tag{position:absolute;top:10px;left:10px;z-index:2;font:700 11px/1 'Bricolage Grotesque',system-ui,sans-serif;
+letter-spacing:.7px;text-transform:uppercase;background:#FBF9F4;color:#15140F;padding:6px 9px;border-radius:999px}
+.tag.next{left:auto;right:10px;background:#D8451F;color:#FBF9F4}
+.script{font-size:13px;line-height:1.45;margin:12px 0 0;color:#15140F}
+.script .who{font-weight:700;color:#6E675A}
+.script p{margin:0 0 6px}
+.dl{font-size:11px;color:#6E675A}
 .post{background:#FBF9F4;border-radius:12px;padding:14px;box-shadow:0 3px 12px rgba(21,20,15,.1)}
 .strip{display:flex;gap:7px;overflow-x:auto}
 .strip img{width:31%;flex-shrink:0;border-radius:4px;display:block}
@@ -310,7 +320,8 @@ def all_known_posts() -> List[Dict[str, Any]]:
 
 
 def queue_status() -> Dict[str, str]:
-    """id -> status, so the sheet can offer the right button per post.
+    """id -> status, so the sheet can offer the right button per post. Keys
+    come in posting order (the order publish.py next takes them).
 
     Best-effort: this is the only thing on the page that needs the database, and
     a sheet without buttons is still a useful sheet.
@@ -318,7 +329,8 @@ def queue_status() -> Dict[str, str]:
     try:
         import store
         return dict((r["id"], r["status"])
-                    for r in store.connect().execute("SELECT id, status FROM posts"))
+                    for r in store.connect().execute(
+                        "SELECT id, status FROM posts ORDER BY queued_at, id"))
     except Exception as e:
         print("contact sheet: no queue status (%s)" % e)
         return {}
@@ -337,6 +349,50 @@ def dashboard() -> Tuple[str, str]:
     except Exception as e:
         print("contact sheet: no dashboard (%s)" % e)
         return "", ""
+
+
+def release_url(name: str) -> str:
+    return "https://github.com/%s/releases/download/reels/%s" % (control.repo(), name)
+
+
+def reel_preview(pid: str, style: str, first: bool = False) -> str:
+    """The reel that will actually ship, not the slides it was written as.
+
+    Since 26 Nov every post goes out as a reel and two of the three styles
+    (tweet, chat) look nothing like the slide PNGs, so the sheet shows the
+    rendered cover from the release and plays the mp4 on tap. preload=none:
+    six reels on one page would otherwise pull ~30 MB on a phone.
+    """
+    return ('<div class="reel"><span class="tag">%s reel</span>%s'
+            '<video controls playsinline preload="none" poster="%s" src="%s">'
+            '</video></div>'
+            '<p class="dl"><a href="%s">open the mp4</a></p>'
+            % (escape(style), '<span class="tag next">next up</span>' if first else "",
+               release_url("%s-cover.jpg" % pid), release_url("%s.mp4" % pid),
+               release_url("%s.mp4" % pid)))
+
+
+def script_html(p: Dict[str, Any], style: str) -> str:
+    """What the reel says, readable without pressing play."""
+    if style == "tweet" and isinstance(p.get("tweet"), dict):
+        t = p["tweet"]
+        lines = [escape(t.get("setup", "")), "<b>%s</b>" % escape(t.get("punch", ""))]
+        return '<div class="script">%s</div>' % "".join(
+            "<p>%s</p>" % x for x in lines if x and x != "<b></b>")
+    if style == "chat" and isinstance(p.get("chat"), dict):
+        c = p["chat"]
+        rows = ['<p class="who">%s</p>' % escape(c.get("title", ""))] if c.get("title") else []
+        for m in c.get("messages", []):
+            text = m.get("text", "")
+            if m.get("kind") == "voice":
+                text = "[voice note %s]" % text
+            elif m.get("kind") == "deleted":
+                text = "[deleted]"
+            rows.append('<p><span class="who">%s:</span> %s</p>'
+                        % (escape(m.get("from", "")), escape(text)))
+        return '<div class="script">%s</div>' % "".join(rows)
+    return '<div class="script">%s</div>' % "".join(
+        "<p>%s</p>" % escape(x).replace("\n", "<br>") for x in p.get("slides", []))
 
 
 def write_contact_sheet(posts: List[Dict[str, Any]], handle: str) -> None:
@@ -362,19 +418,22 @@ def write_contact_sheet(posts: List[Dict[str, Any]], handle: str) -> None:
     posts = [p for p in everything if status.get(p.get("id")) == "queued"]
     gone = len(everything) - len(posts)
     dash_css, dash_html = dashboard()
+    # Posting order, so the first card is the one that ships next.
+    order = list(status)
+    posts.sort(key=lambda p: order.index(p["id"]) if p.get("id") in order else 1e9)
     cards = []
     for i, p in enumerate(posts):
         pid = p.get("id") or "c%03d" % (i + 1)
-        imgs = "".join('<img src="media/%s/%d.png" alt="slide %d">' % (pid, n + 1, n + 1)
-                       for n in range(len(p["slides"])))
+        style = p.get("style") or "card"
         cards.append(
-            '<div class="post"><div class="strip">%s</div>'
-            '<div class="meta"><b>%s</b> &middot; <b>%s reel</b> &middot; %s &middot; satire %s%s<br>%s</div>'
-            '%s</div>'
-            % (imgs, pid, p.get("style") or "card", p.get("structure", ""),
+            '<div class="post">%s'
+            '<div class="meta"><b>%s</b> &middot; %s &middot; satire %s%s<br>%s</div>'
+            '%s%s</div>'
+            % (reel_preview(pid, style, first=(i == 0)), pid, p.get("structure", ""),
                p.get("satire_level", ""),
                " &middot; hinglish" if p.get("hinglish") else "",
-               p.get("angle", ""), control.bar(pid, status.get(pid))))
+               escape(p.get("angle", "")), script_html(p, style),
+               control.bar(pid, status.get(pid))))
     html = (
         '<!doctype html><html lang="en"><head><meta charset="utf-8">'
         '<meta name="viewport" content="width=device-width,initial-scale=1">'
@@ -383,13 +442,14 @@ def write_contact_sheet(posts: List[Dict[str, Any]], handle: str) -> None:
         'family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700&display=swap">'
         '<style>%s</style></head><body>'
         '<h1>Thirty Unfortunately</h1>'
-        '<p class="sub">%s &middot; %d waiting &middot; a button files a '
+        '<p class="sub">%s &middot; %d waiting &middot; reels only since '
+        '26 Nov 2026 (card, tweet and chat) &middot; a button files a '
         'one-tap issue and the workflow does the rest</p>'
         '%s'
         '<a class="nav" href="candidates.html">Today&rsquo;s candidates &rarr;</a>'
         '<h2 class="sec">Waiting to go out</h2>'
-        '<p class="sub">Only posts you can still stop or push. %s These files '
-        'are what Meta pulls at publish time.</p>'
+        '<p class="sub">In posting order: the first one ships next. Tap a reel '
+        'to play it. %s These are the files Meta pulls at publish time.</p>'
         '%s</body></html>'
         % (handle, SHEET_CSS + control.CSS + dash_css, handle, len(posts),
            dash_html,

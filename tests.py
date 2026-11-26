@@ -328,24 +328,24 @@ class ContactSheet(unittest.TestCase):
 
     def test_a_published_post_is_not_listed(self):
         html = self._sheet({"g001": "published", "g002": "queued"})
-        self.assertIn("media/g002/", html)
-        self.assertNotIn("media/g001/", html)
+        self.assertIn("reels/g002.mp4", html)
+        self.assertNotIn("reels/g001.mp4", html)
 
     def test_a_skipped_post_is_not_listed(self):
         html = self._sheet({"g001": "skipped", "g002": "queued"})
-        self.assertNotIn("media/g001/", html)
+        self.assertNotIn("reels/g001.mp4", html)
 
     def test_a_seed_with_no_database_row_is_not_pending(self):
         """p002-p012 have no row and never will; unknown is not queued."""
         html = self._sheet({"p002": None, "g002": "queued"})
         self.assertNotIn("media/p002/", html)
-        self.assertIn("media/g002/", html)
+        self.assertIn("reels/g002.mp4", html)
 
     def test_an_empty_queue_says_so_rather_than_listing_everything(self):
         """The fallback used to be 'or everything', which dumped all 71."""
         html = self._sheet({"g001": "published", "g002": "skipped"})
         self.assertIn("Nothing is waiting", html)
-        self.assertNotIn("media/g001/", html)
+        self.assertNotIn("reels/g001.mp4", html)
 
     def test_it_says_how_many_it_is_not_showing(self):
         html = self._sheet({"g001": "published", "g002": "skipped",
