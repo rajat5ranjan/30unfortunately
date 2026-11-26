@@ -790,8 +790,32 @@ RESPONSE_SCHEMA = {
 
 
 # ------------------------------------------------------------------------ model
+# Which model actually answered the last call_model(). The writer and the judge
+# can each land on the fallback, and a post written by the fallback has to be
+# labelled as such or the style comparison quietly mixes two writers.
+LAST_MODEL = None  # type: Optional[str]
+
+
+def _transient(e: Exception) -> bool:
+    code = getattr(e, "code", None) or getattr(e, "status_code", None)
+    text = str(e)
+    return code in (429, 500, 503, 504) or any(
+        k in text for k in ("UNAVAILABLE", "RESOURCE_EXHAUSTED", "DEADLINE_EXCEEDED"))
+
+
 def call_model(system: str, user: str, cfg: Dict[str, Any],
                schema: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+    """One structured call: the pinned model first, then `fallback_models`.
+
+    503 (overloaded), 504 (deadline) and 429 (quota) are routine on the free
+    tier. The pinned model gets the full back-off; only if every attempt on it
+    is transient does a fallback get a shorter one. On 2026-11-26 gemini-3.5-
+    flash answered nothing all afternoon and every generate run died with the
+    queue empty — a weaker writer beats no posts, and the judge still ranks
+    what it writes. A non-transient error (bad schema, bad key) stops at once:
+    trying another model would only hide it.
+    """
+    global LAST_MODEL
     key = os.environ.get("GEMINI_API_KEY")
     if not key:
         sys.exit("GEMINI_API_KEY is not set. Put it in .env and export it, or use --dry-run.")
@@ -809,26 +833,39 @@ def call_model(system: str, user: str, cfg: Dict[str, Any],
         response_schema=schema or RESPONSE_SCHEMA,
     )
 
-    # 503 (overloaded) and 429 (quota) are routine on the free tier. A twice-daily
-    # job must ride them out rather than dying, so back off and retry.
-    attempts = cfg.get("retry_attempts", 4)
+    models = [cfg["model"]] + [m for m in cfg.get("fallback_models") or []
+                               if m != cfg["model"]]
     delay = cfg.get("retry_base_seconds", 20)
-    for attempt in range(1, attempts + 1):
-        try:
-            resp = client.models.generate_content(
-                model=cfg["model"], contents=user, config=conf)
-            return json.loads(resp.text)
-        except Exception as e:
-            code = getattr(e, "code", None) or getattr(e, "status_code", None)
-            transient = code in (429, 500, 503) or "UNAVAILABLE" in str(e) or \
-                "RESOURCE_EXHAUSTED" in str(e)
-            if not transient or attempt == attempts:
-                sys.exit("Gemini call failed (%s): %s"
-                         % (code or "error", str(e).split("\n")[0][:300]))
-            wait = delay * (2 ** (attempt - 1))
-            print("  %s — retrying in %ds (attempt %d/%d)"
-                  % (code or "transient error", wait, attempt, attempts))
-            time.sleep(wait)
+    last = None
+    for i, model in enumerate(models):
+        attempts = cfg.get("retry_attempts", 4) if i == 0 else \
+            cfg.get("fallback_retry_attempts", 2)
+        for attempt in range(1, attempts + 1):
+            try:
+                resp = client.models.generate_content(
+                    model=model, contents=user, config=conf)
+                LAST_MODEL = model
+                if i:
+                    print("  answered by FALLBACK %s (%s unavailable)"
+                          % (model, cfg["model"]))
+                return json.loads(resp.text)
+            except Exception as e:
+                code = getattr(e, "code", None) or getattr(e, "status_code", None)
+                if not _transient(e):
+                    sys.exit("Gemini call failed on %s (%s): %s"
+                             % (model, code or "error", str(e).split("\n")[0][:300]))
+                last = "%s on %s" % (code or "transient error", model)
+                if attempt == attempts:
+                    break
+                wait = delay * (2 ** (attempt - 1))
+                print("  %s — retrying in %ds (attempt %d/%d)"
+                      % (last, wait, attempt, attempts))
+                time.sleep(wait)
+        if i + 1 < len(models):
+            print("  %s gave up after %d attempts — trying %s"
+                  % (model, attempts, models[i + 1]))
+    sys.exit("Gemini call failed on every model (%s): last was %s"
+             % (", ".join(models), last))
 
 
 # ------------------------------------------------------------------------- main
@@ -1405,6 +1442,7 @@ def main():
 
     print("Generating from %d trends via %s ..." % (len(trends), cfg["model"]))
     result = call_model(system, user, cfg)
+    writer = LAST_MODEL or cfg["model"]
 
     for d in result.get("discarded", []):
         print("  discarded: %s\n      %s" % (d["trend"][:70], d["reason"]))
@@ -1413,6 +1451,7 @@ def main():
     for p in result.get("posts", []):
         fails = run_gates(p, brand, history + accepted, cfg)
         p["created_at"] = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+        p["model"] = writer
         if fails:
             p["_gate_failures"] = fails
             rejected.append(p)
@@ -1439,7 +1478,7 @@ def main():
     stamp = datetime.now(timezone.utc).strftime("%Y%m%d-%H%M%S")
     out = os.path.join(CANDIDATE_DIR, "%s.json" % stamp)
     with open(out, "w") as f:
-        json.dump({"generated_at": stamp, "model": cfg["model"],
+        json.dump({"generated_at": stamp, "model": writer,
                    "accepted": accepted, "rejected": rejected}, f,
                   indent=2, ensure_ascii=False)
 
