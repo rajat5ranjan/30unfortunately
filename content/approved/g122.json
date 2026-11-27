@@ -1,0 +1,93 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "Who is Rakesh Ranjan? Former Zomato CEO appointed Uber India and South Asia chief, to take charge from January 4, 2027",
+      "context": "Thirty-year-olds rely on the same two apps for late-night dinner and getting home safely, and now the same executive has run both.",
+      "angle": "Your 11 PM hunger and your 11 PM commute have been consolidated under one management philosophy.",
+      "landing_options": [
+        {
+          "line": "Ab biryani aur auto dono ek hi aadmi cancel karega.",
+          "mechanism": "callback"
+        },
+        {
+          "line": "11 baje ke baad dono mana kar dete hain.",
+          "mechanism": "reinterpretation"
+        },
+        {
+          "line": "Pehle plate thandi hoti thi. Ab cab.",
+          "mechanism": "escalation"
+        },
+        {
+          "line": "Dono apps mein ab same surge ka logic chalega.",
+          "mechanism": "deadpan_response"
+        }
+      ],
+      "slides": [
+        "Zomato ke ex-CEO ab Uber India chalayenge. Same phone, same aadmi.",
+        "Mummy ne link bheja: \"Beta, inko bolna raat ko surge kam rakhein.\"\n\"Mummy, main delivery nahi karwata unse.\"\n\"Toh kya hua, pehle khaana laate the, ab ghar chhodenge.\"",
+        "Ab biryani aur auto dono ek hi aadmi cancel karega."
+      ],
+      "caption": "Whose mother thinks knowing the CEO's name gets you zero surge pricing",
+      "trigger": "app",
+      "target": "app",
+      "structure": "whatsapp_forward",
+      "move": "literalisation",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "cab surge",
+        "food delivery",
+        "midnight commute"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNZUdTTHhoVHRIMWZpdkZuZlUxVDk4RU9GY0N6bWNJZzk0R01HT2pnVzc0cVBHcERYV1RtbFp0NWNCZ1VMNW1VM0s2SkdKa2pVekxYbmlrRDM4blVxS3ZqLXlRUnpWbWJqWFpXQzJZdmpXdWZ6U0c3VUREbUs1ZnluWTZwZndfX3ZpLWlDOE84Y0w2YWFlU0RCMlNSckl2UUVpWkZMMlp2TGJ0b2VSMDlsQ05kR0hBUkQyQ1BDZXJoS2VtcnlZ?oc=5",
+      "tweet": {
+        "setup": "The former boss of my food delivery app is now going to run my cab app.",
+        "punch": "Now one man controls whether I reach home or eat dinner at midnight."
+      },
+      "chat": {
+        "title": "Mummy",
+        "messages": [
+          {
+            "from": "Mummy",
+            "text": "Beta yeh news dekhi? Khaana wali company ka boss ab taxi wali mein gaya hai",
+            "kind": "forwarded"
+          },
+          {
+            "from": "You",
+            "text": "Haan mummy, padha maine",
+            "kind": "text"
+          },
+          {
+            "from": "Mummy",
+            "text": "Acha hai na, ab tumhe raat ko cab sasti milegi",
+            "kind": "text"
+          },
+          {
+            "from": "You",
+            "text": "Mummy unko nahi pata main kaun hoon",
+            "kind": "text"
+          },
+          {
+            "from": "Mummy",
+            "text": "Phir bhi complaint daal dena ki biryani aur auto dono mehenge hain",
+            "kind": "text"
+          }
+        ]
+      },
+      "created_at": "2026-11-27",
+      "model": "gemini-4-hydrogen",
+      "status": "approved",
+      "id": "g122",
+      "rank_score": 103,
+      "rank_verdict": "Slide 2 sets up Mummy complaining about surge pricing, so Slide 3 jumping to cancellations feels slightly disconnected from the middle beat and relies heavily on local news.",
+      "style_fit": {
+        "card": 3,
+        "tweet": 3,
+        "chat": 4
+      },
+      "style": "chat",
+      "style_why": "fit 4, 2 of last 8; over card 2.4, tweet 2.9"
+    }
+  ]
+}

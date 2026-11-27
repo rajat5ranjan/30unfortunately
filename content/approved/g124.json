@@ -1,0 +1,89 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "India VIX Ends Flat at 17.68 as Sensex Rallies 1,500 Points",
+      "context": "Every friend group has someone who panics on a red day, pauses their SIP, and watches the market jump 1,500 points the very next morning.",
+      "angle": "Long-term investing discipline lasts right up until one red candle, and resumes right at the market peak.",
+      "landing_options": [
+        {
+          "line": "Usne crash pe becha. Ab rally pe wapas khareedega.",
+          "mechanism": "callback"
+        },
+        {
+          "line": "Kal woh Warren Buffett tha. Aaj woh password reset kar raha hai.",
+          "mechanism": "reinterpretation"
+        },
+        {
+          "line": "Ab woh phir shuru karega. Bilkul top pe.",
+          "mechanism": "escalation"
+        },
+        {
+          "line": "1,500 point baad sab phir se finance expert hain.",
+          "mechanism": "deadpan_response"
+        }
+      ],
+      "slides": [
+        "Kal raat jis dost ne SIP band kiya tha, aaj Sensex 1,500 point upar hai.",
+        "\"Haan bhai, dekh liya TV pe.\"\n\"Nahi, main toh waise bhi safety ke liye FD kar raha tha.\"\n\"Haan, aaj hi app khol ke unpause karne wala hoon.\"",
+        "Kal woh Warren Buffett tha. Aaj woh password reset kar raha hai."
+      ],
+      "caption": "Send this to the friend who pauses their SIP on every red day and unpauses at the peak 📉",
+      "trigger": "stock_market",
+      "target": "self",
+      "structure": "phone_call",
+      "move": "the_turn_in_the_last_words",
+      "satire_level": 2,
+      "hinglish": true,
+      "keywords": [
+        "sensex rally",
+        "sip investment",
+        "stock market"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPUHRRMTNPTHFFRXBCaThKbmllY0sxNVZNRFI0WW9hVVZjdGRoTzFnbGtSaXJxbmttTjBuUlh5dFZ0VGE0SXlwSXV2b3B6RVRTYVRyckowc0RKZk9lMzg3OWgxMXozTUdTbmh6c1R6Vmd3azV4NUxrdV8tQjBNakRnclhDOFR1SE1Na1cxeW5UMFk3UnJGNFU0R2lQRXZ2dDRsbW8tbDhRZzhfdmw5?oc=5",
+      "tweet": {
+        "setup": "My friend panicked yesterday, paused his monthly investment, and lectured me on capital safety.",
+        "punch": "The market jumped 1,500 points today so he is back to buying the top."
+      },
+      "chat": {
+        "title": "Boys Investment Club",
+        "messages": [
+          {
+            "from": "Manish",
+            "text": "Guys, paused all mutual funds last night. Market is too risky.",
+            "kind": "text"
+          },
+          {
+            "from": "You",
+            "text": "Market is up 1,500 points right now",
+            "kind": "text"
+          },
+          {
+            "from": "Manish",
+            "text": "Haan dekh liya, app crash ho raha hai, unpause nahi ho raha",
+            "kind": "text"
+          },
+          {
+            "from": "Saurabh",
+            "text": "Buy high sell low king is back",
+            "kind": "text"
+          }
+        ]
+      },
+      "created_at": "2026-11-27",
+      "model": "gemini-4-hydrogen",
+      "status": "approved",
+      "landing_replaced": "Usne crash pe becha. Ab rally pe wapas khareedega.",
+      "id": "g124",
+      "rank_score": 98,
+      "rank_verdict": "Highly sendable to that one panicked investor friend, though the card tells a predictable story while the group chat captures the actual comedy.",
+      "style_fit": {
+        "card": 3,
+        "tweet": 3,
+        "chat": 4
+      },
+      "style": "chat",
+      "style_why": "fit 4, 3 of last 10; over card 2.5, tweet 2.8"
+    }
+  ]
+}

@@ -1,66 +1,78 @@
 {
   "_note": "written by trend_agent.py — do not hand-edit",
-  "pulled_at": "2026-11-26",
+  "pulled_at": "2026-11-27",
   "trends": [
     {
-      "trend": "A Bengaluru landlord has allegedly refused to rent a flat to Shark Tank India Season 5 contestant Aaditya Aanand because he runs a startup instead of earning a regular salary. In a post on X, Aanand said he and his wife were looking for a house when the lan",
-      "source": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFB5ZENfdEg4dXotOVhxZkstcnpzV1ZZa0N2bUpDOUM5LXJOeDVTTXludFh0UTU2ZWQtNzdOa1ZUNnZZcUNJa011Tm5DWnF2OXE4SGc?oc=5",
-      "note": "money, work, home (angle: Everything that was free acquires a business model. Every raise is absorbed before it arrives.)",
-      "_published": "2026-11-26T12:25:26+00:00"
+      "trend": "IT stocks surge 3.6% as Nifty edges up; rupee slips to 92.44",
+      "source": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNSnBMVE9pXzFZXzJjcDY1UGVkc3lQb3R2REk2VC01dG1HcFpWZ0tpR3YxS3lyLTdqSGVvX3pDa3pVc3Y5RXVnTGN5NkZGQWQwRF9Ic0RIcTg4Zkg5Z0xpU3oxSHRpSHkxVG1maXd2SkZaWDZHV29MVW42bl9IZTlLRjVFTllIeERlVHRTcnB0cG1fSXRyNUhaVmg5aHJNR1VjNU1uWFJIVDRrWVRoYjFpdVVabzE1Zw?oc=5",
+      "note": "money, markets, consume (angle: Everything that was free acquires a business model. Every raise is absorbed before it arrives.)",
+      "_published": "2026-11-26T12:50:54+00:00"
     },
     {
       "trend": "Who is Rakesh Ranjan? Former Zomato CEO appointed Uber India and South Asia chief, to take charge from January 4, 2027",
       "source": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNZUdTTHhoVHRIMWZpdkZuZlUxVDk4RU9GY0N6bWNJZzk0R01HT2pnVzc0cVBHcERYV1RtbFp0NWNCZ1VMNW1VM0s2SkdKa2pVekxYbmlrRDM4blVxS3ZqLXlRUnpWbWJqWFpXQzJZdmpXdWZ6U0c3VUREbUs1ZnluWTZwZndfX3ZpLWlDOE84Y0w2YWFlU0RCMlNSckl2UUVpWkZMMlp2TGJ0b2VSMDlsQ05kR0hBUkQyQ1BDZXJoS2VtcnlZ?oc=5",
-      "note": "money, city, consume (angle: Everything that was free acquires a business model. Every raise is absorbed before it arrives.)",
+      "note": "money, companies, city, consume (angle: Everything that was free acquires a business model. Every raise is absorbed before it arrives.)",
       "_published": "2026-11-26T06:23:32+00:00"
     },
     {
-      "trend": "Rajabets Payment Methods India 2026: UPI, Crypto & Bank Deposit Guide",
-      "source": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE9ZNDdZN3hocElUSU13QmtTRk1XQ1NTMUhWejRSMTBkTlFOeURiNTVocXF4anB5WWJlN3FkcFJ1Q0ozZjVzQ0h0MVpHazBjUUdqbDk4V3o3aHJoN19nZkRYNGxsSkc4Zw?oc=5",
-      "note": "money, home (angle: Everything that was free acquires a business model. Every raise is absorbed before it arrives.)",
-      "_published": "2026-11-24T13:47:03+00:00"
+      "trend": "As office leasing surges, India Inc reassesses the commute to work",
+      "source": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxOWTRXaV9HS01MQWpsQzBVUlFmTGhZTGpjbkI5VHNidU8yUXhKblRnclF1dFp5d3BtcENjWndkOWhKeS1QWXFZMUt1N25Kd0VGeEdiV01VLW1ZdmpjQXctbXRhNS0tVUFOOVV5SGlPWURqX1Z2QTE3YnRHWG0wb3dVQmkxWldyQ09rOWc5Q0RPaW1aWTdtcHN0MXQ3ck5EYXpKcDNWVFpYVmNGRWpaVndEc2szR2ZIODd5eHZwUHpGVS1TSXlFNWMtdmt6MXBsYTd3TFVr?oc=5",
+      "note": "work, traffic (angle: The promises made in 2021 are being quietly withdrawn, and the old posts are still up.)",
+      "_published": "2026-11-26T02:16:50+00:00"
     },
     {
-      "trend": "₹500 coffee, ₹25,000 fitness, ₹40,000 rent: Is Gen Z really spending too much?",
-      "source": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQbmhKZWREeVNjNVFId0NuX1lVOW13cE1faUNZWEp5Tnd5Vnp6YnRldDh4aHJrc05SR3dMcm1hSGZZUlNTRno1WE1BZ3AxYkhiUk1jLWFmZVdCOTd0b0ZoeXM4ZGM4R0JnX2JoZlB4VkNnZUdBdHFBVzd0WXFVeTIzNlhfbmxBMEI1aVljd3FUTGdOeTh2NlAxdE1IcUhSWExXMVlsWGZqZGFDelg2WTBGTGFqbDh0V1EySHpMMTZUX0hZeTNQaDFpZ1liM3ZQaknSAdQBQVVfeXFMTm9lOGhwWHlFMEUyRVhwdnEwVzZiR2Z5RWlkNGZ6R0hqZXhxeVgzSGVOU2d2RmJjbFRKZGNTYWpIWVlFOGtzTGpOQV91MkpOc1g5QVdhZS1XaEVmcHhQNTUwQnlGX2x0SmtwTDczVnVTbWt6VWdTQkVOUTVwaTdEdy1kVUNmM0J1U2YtWlRXSUJpOWt3NnJWUHNQV2phYlV5eVF6bGFsdy1aa2JLTXptaXFUZ3RiTm5RTmg4X3dsTEo3c0tadnVkNTM2YTFKb2g0WEJtVnA?oc=5",
-      "note": "body, home (angle: The body at 30 is an invoice for the twenties. The gym is not aspiration, it is a repayment plan. Nothing here is motivational.)",
-      "_published": "2026-11-25T23:30:10+00:00"
+      "trend": "Fallout From U.S. Remote Access Rules: Nvidia B300 Sells at 5-7x Premium on China's Black Market",
+      "source": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBuNHVHc2d5ZmZhLURhMUtORUZfeV9JYVlXQmJQWV80Ni1KM29fN2h6TEpUYWZHUlNqQ2FZdUs0V1Q1MzlmQ3VvWUlHa3BlY3NTRGZHVThGT25UeVkxVHhLNTV2b3A2eWQ4YUhTWDU1T09Bc2Vhbnc?oc=5",
+      "note": "money, work, companies (angle: Everything that was free acquires a business model. Every raise is absorbed before it arrives.)",
+      "_published": "2026-11-26T20:35:00+00:00"
     },
     {
-      "trend": "India’s top 8 office markets may need 260 m sq-ft of additional space: Study",
-      "source": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPZUJOX2Q4TjZ4VlBSM3A2a2g0SkZsRjdzLXlrWkhSZkZtTERvZERyTFp1bUlQaXNrYXc1Wm05SVlUNlhabHFvNHhPcEpmSU51bWhsVjJVcUxMZHA0eW95VFNSSlB3MHRKaUVCZmRsUWhCLXpkMHYyLW05RDdXd202ekd0bC1MWGdjaklfT1NJU3prRW9sdUN1T05mM08zaDFqRmpoWm9TT3RBTndmd1ZpdmpFZEdmeHNkZmtZeVhn?oc=5",
-      "note": "work (angle: The promises made in 2021 are being quietly withdrawn, and the old posts are still up.)",
-      "_published": "2026-11-26T08:09:18+00:00"
+      "trend": "India’s Alcobev Industry Gears Up for Festive and Wedding Season as Premium Liquor Demand Rises",
+      "source": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNRTZOVDFMVm5xWW1TZGZta3dqb3VOZkd5T1FfOVVsMC1VQWhfMlhSMS0zbk0tdFQ1ck5vdVFHVjc5blM1RlNDRk5RWVFpSjdWc0pod3Z2bnBVRDQyQlk5ejRfRktFb2U2Y0dxNjhoeXpZWWVHTUdodWhMTkFiN3k2UV9Bb3cyUTh4VFZ2UFFoMUFhRUdPWndxS3BXUWZJUS1zUXpTY21JWno1ZXAt?oc=5",
+      "note": "body, money, relations (angle: The body at 30 is an invoice for the twenties. The gym is not aspiration, it is a repayment plan. Nothing here is motivational.)",
+      "_published": "2026-11-24T07:39:22+00:00"
     },
     {
-      "trend": "Google Dismisses Mass Layoff Rumours In India, Says Only 30 Cloud Roles Cut: \"Totally Inaccurate\"",
-      "source": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQcmFDTmpGVXJqVmZEdlAzYkVvc0NJN2xjNHBpeDRDbmtoRTB0dUZiQk8xNl9Ya0NfUXA5dl9RVl90M3ZtajhYdW9aaTVxUFlJTEtpNS1sSkRSUlJwbFBVV2tOTm1qRnBldnFWTVV0Z2VfWThOUFFYSm5nNFpraVpPMVBOUlU4Q2ItUWY2TEdlVGV6Q3JFLWJoemYwMUwyeFE3d2twbWc0d01hS0ZTdmxTRGtTWko4cFBMMjBETmh2WnlqcVRWd3MxRDlkSdIB0wFBVV95cUxOeEp5NDlLbzQzLVlvN3ZLdXJ4WXJhNGppNDlWWDdSNW53RjFNU1BuUHRPeUlLaUhfSWVuNmlEa0t4Yi13aV9wME1oT1R1emw4MHhDYVlFNDJrQ2p3MWdvZFVlOVNXU3BQajFraWdocWtUR2dGckxnVHlqS2t5OVdobU5mUjRxeVMzcHBwZFYyZlE4T0JIMG1EckE0Z2ZzQ19jUXVfdG5YdWozejNPQ2o3RXBfZXNEa3YzZU9ZUGR4OGpZTFJCZTlyTXZWejZ1U1g0dlp3?oc=5",
-      "note": "work (angle: The promises made in 2021 are being quietly withdrawn, and the old posts are still up.)",
-      "_published": "2026-11-24T06:27:35+00:00"
+      "trend": "Kroger announces 3,000 job cuts, Bengaluru operations linked to layoff drive",
+      "source": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNcUgtOEhBQ25CLXdTR1c4cEp3ME5lVzJXSnJUaWdkTlpnSU5ESVN1V0c2WUR0amg0bnFhcS1mSW5qTVZSVDF6c3VIZHVfRUVSOGZSS0VDRTVOeHd2TVBnNEJsd2xDa0RuOW5XSEFIUmM3czJSd2FSUUpJZXBBWjZad0VTdVJLNjdWMjhQSk9xcFk3WDFzdTZQSTRRWURNbzRKUkxpTENMeEpyQlB3LWtYUmJzcTBMSE11OWNHT2RYSUJ2dHBFY1BGazNXdkxoaGZ5bjUxVlRqa9IB3AFBVV95cUxOa21oUURaeXVkRlVCejZNdGtBZmdyb1QtalY4VmNoNG02ajlOWGtJVG80SzBWTkxreWZXVDkyeWlkZzNxdkh5di1nYUx4cmpjZjdPWjBXbXUyRUhEenJaU3ZENkJZbHdxaXpua19SZFA3QXVZbDNtMjBQaEhOd3BpSVVnekU2OUZLX2o0RGp0OFZiRzlJbDVxTWRTWUFUNmk2WUNUa1U1TV9uTVRkNkxJUTBnbnFVaV9TSmtxNHROeFo3MzRsSWZ1ZDZsR2FYc2VHUUlqcS1hUUFZMEEy?oc=5",
+      "note": "work, companies (angle: The promises made in 2021 are being quietly withdrawn, and the old posts are still up.)",
+      "_published": "2026-11-26T16:34:31+00:00"
     },
     {
-      "trend": "Tech Layoffs: Google, Microsoft campus hiring plans under scrutiny as India job fears resurface",
-      "source": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxPbThDSlJlSktENGcyenpadEhvYzRvY0NtTjFpang5bm5NZmZIay1KeHBadERvUEtZLTFFUEh3MGdyS1FFeE5TSTAzUi1SSm1aTkhZTTVQQkdGVVpOLXRic2IxYnV2NTlvODVIcEJ0RUdKYS00amxNVTlyQlh0UXh4aS02OE5QdmxKTnM1SW9RRzFfS1BuVTEwMi1uNmdIalI0c1ZGUmJKajFjSVEtUDhvX1BqYW1xMncyV3BOZVJQNml5UXNEazY3dE9zYXhBWmZ4U19sZG1Zc3NXUE00cmtfeFMxUmE4WkdrQk5CWEpTa9IB7wFBVV95cUxPbThDSlJlSktENGcyenpadEhvYzRvY0NtTjFpang5bm5NZmZIay1KeHBadERvUEtZLTFFUEh3MGdyS1FFeE5TSTAzUi1SSm1aTkhZTTVQQkdGVVpOLXRic2IxYnV2NTlvODVIcEJ0RUdKYS00amxNVTlyQlh0UXh4aS02OE5QdmxKTnM1SW9RRzFfS1BuVTEwMi1uNmdIalI0c1ZGUmJKajFjSVEtUDhvX1BqYW1xMncyV3BOZVJQNml5UXNEazY3dE9zYXhBWmZ4U19sZG1Zc3NXUE00cmtfeFMxUmE4WkdrQk5CWEpTaw?oc=5",
-      "note": "work (angle: The promises made in 2021 are being quietly withdrawn, and the old posts are still up.)",
-      "_published": "2026-11-25T05:31:01+00:00"
+      "trend": "Google responds to mass layoff reports in India: Here’s what the company has to say",
+      "source": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxPNFZ3a2VqTDlsRmozbU5hNHMxRU9XeUVqc3pQWnk0emdWT0Y0Z3kzVlZNR3UwMVhicEM0V3phQmdnblYxSzhmLXRxVFh5bFFrdkZsNDBwUjVhWFlneUEtRmtZWlVRSGRQMHRCTzg4Q0ppanlLdmNPc0hHSzUxYjF5MVNncTA4RHB4X3poYkYtX1JTLXVYa0VYT0JXZm9SYndoQVBfS2hfRDRRbzdIZmd2bDFVXzJMRHlXY01GaUxaQUdoUmNBZWRLZkhLQ2dYa0owbmV0NDNvUlBlLXFnT1lIb0lPdmxhUGxL0gHuAUFVX3lxTE1JNGt6cWQzbERVRHVSOWdJQ2lYY2padndub01McS1WVUZhUllaMUg4bGdvQXFXbUZjSm5VdFNLekxxdll1cHhoVW00b0dxSkxWOEpuWXBSWFN0dExsVzMwanl0Y3lKN2tlWXEzLTdvSkRaRWFsT25hM2gxYmR1ZFZXcnRSNktsTUtLVDg2WTJzbTRoc1hjRTJqSklBZWNIVzdGalcwUURmVnlNdXJzdllYQzR4UWI1YXBuQzlGa290TzREb3RTVmw0SHA4ZTEzbEVGSjdWcnZWRDVneTdicEpwWWdGNGlSRU94LS15bUE?oc=5",
+      "note": "work, companies (angle: The promises made in 2021 are being quietly withdrawn, and the old posts are still up.)",
+      "_published": "2026-11-24T12:48:20+00:00"
     },
     {
-      "trend": "Gurugram Bans Smoking, Tobacco Use at Public Places and Parks With Immediate Effect",
-      "source": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOSlFEbXBJOEozbkxkZDZHN3hST3p0Y2pMYUxySG9PNW5xTWFaNE0ycnhTMGx6aW1sZEE4a19KbHU5VUhkM3NlMU1Ta2VzbEhfVmdHUGUyYmpRUVFfUFBKZ3dSSGkxeDZzWkhaMUNiWC1JWVhJZUV6a1lSRmpCdXBfcElCU09LbHVMZlVHSnV1YUdiRUFDeDNacXVMZFVhaFI0dmpPWS1keG9KYU1GUTRtNDgySXBMUXluQ05la2plZmF1NW04?oc=5",
-      "note": "body (angle: The body at 30 is an invoice for the twenties. The gym is not aspiration, it is a repayment plan. Nothing here is motivational.)",
-      "_published": "2026-11-25T04:53:55+00:00"
+      "trend": "Bengaluru founder moves to Chennai, reports better productivity: ‘Parents are here, rent is half",
+      "source": "https://news.google.com/rss/articles/CBMi9gJBVV95cUxQRFpLZmFrVlZVV0l6MHdzb2VpekFtMHZjZWJycGxHODBWVF9zbXgtemx0UEdUY3BNcFVuV2RFZlFOcl93Q0JZSml1WVp5N0x5aEtHWVhqbEd0WU9hRHJ3OExzMFpXekdSM3B3MzNTcXQ3MTcwSC1rbUZYaDlhRzJCZVR2MkRZTHY5YUpncVJlN0ZPR2I5MlA3VUtCdzFzcEZpMThNUlcxbkw0WTBvWmJscjNWUi1HVzZkbktSejNqWTdobGduX2wtTGFVM2dHeGU3NmNGVUxkcjFRbzR5V1lBT3VZVExCbjktVVpwYkE5OFE5TkJsRXNMRldLem9fbm1OalA5bmVsc0xFU3huWE9rTUxuRWpvX3cybGo1cUpCUnVIX0daTWFQMVZ4OG9aXzdfekFYbzlLSlFRclMwNG1meTI3VmR3VTZyckpyMGJ6bmFzM0ZXWVZ0NTkzRklzSkhjVHJ5eTRna0t3MjBtNWlKeFh5d2N2QdIB9gJBVV95cUxQRFpLZmFrVlZVV0l6MHdzb2VpekFtMHZjZWJycGxHODBWVF9zbXgtemx0UEdUY3BNcFVuV2RFZlFOcl93Q0JZSml1WVp5N0x5aEtHWVhqbEd0WU9hRHJ3OExzMFpXekdSM3B3MzNTcXQ3MTcwSC1rbUZYaDlhRzJCZVR2MkRZTHY5YUpncVJlN0ZPR2I5MlA3VUtCdzFzcEZpMThNUlcxbkw0WTBvWmJscjNWUi1HVzZkbktSejNqWTdobGduX2wtTGFVM2dHeGU3NmNGVUxkcjFRbzR5V1lBT3VZVExCbjktVVpwYkE5OFE5TkJsRXNMRldLem9fbm1OalA5bmVsc0xFU3huWE9rTUxuRWpvX3cybGo1cUpCUnVIX0daTWFQMVZ4OG9aXzdfekFYbzlLSlFRclMwNG1meTI3VmR3VTZyckpyMGJ6bmFzM0ZXWVZ0NTkzRklzSkhjVHJ5eTRna0t3MjBtNWlKeFh5d2N2QQ?oc=5",
+      "note": "home, companies (angle: Renting stopped being temporary. The landlord runs a faster compensation cycle than the employer.)",
+      "_published": "2026-11-24T11:33:48+00:00"
     },
     {
-      "trend": "AsiaOne apologises for using Hindu temple image in Little India liquor offences story",
-      "source": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPZzdtRFZuYU5lRGtTbWhsSTNUQmcxb0FseGEyYXZJT0R4bjBkMVRrRjZuYWNFSTVzcmlpUlhpb1RmTHlFVExZZVVSSUIwSE9kdUxiUDBFYkNmVW1idjFJMU9qbDRHTjZLalpiS2ZrZ0lobUVOelRSUlp3b3RWZkI2QmJpeVFyWlJFZ1JYZUx6XzhvU2ROVXUxNXZKTjJUMTQ1WWN2X2hjTHBzaEwtUkdHRUFaRVpvY0J6dE1ZMEVLSXBHcnhXbE5iNUdhMA?oc=5",
-      "note": "body (angle: The body at 30 is an invoice for the twenties. The gym is not aspiration, it is a repayment plan. Nothing here is motivational.)",
-      "_published": "2026-11-25T09:22:23+00:00"
+      "trend": "Wipro, TCS, Infosys push Nifty IT to 33,000 mark",
+      "source": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPQVd1aHZ2UUZNbThlVGo3Sy1EcnFJeEtuMWkweTVScHRWTkxYQ0hkSjRGa0VGbTNhUndaZzZlTFpOOFlmU2pCbnhybXJHRTl4ZzRNemRnWVk1ZjBrclZINGRNOGNHVFVzbDByZ3gzMlk0aDFKdHhnQktoNlc0UVhKM1dpNmlPb0lDdEpnYlE1ZE5vVFhw?oc=5",
+      "note": "markets, companies (angle: Everyone is a long-term investor until the first red day. Laugh at our own investor behaviour — the app opened 14 times, the SIP paused and unpaused — never at anyone's real loss, never a tip.)",
+      "_published": "2026-11-26T06:50:14+00:00"
     },
     {
-      "trend": "West Bengal announces government school admission guidelines for 2027; lottery system to continue",
-      "source": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxQVXpHYzNIX0dhT2VWLUtLZHoxTVBxTzlRV3JyT3JIOUk2NnVpX2phVks0R1RKd2UzQS12eWF2aGJhQjk3d0txeGpYcmpzLXNWbkROQmVxZFYwUUlGMEo3NXNGVkkzNEEycFhaN1hNTXpUeXNGQzNsZGQtWktTVllaU2syQTA3Yy0yZnczQW1BQnJ6MGJpN3B4UGZNN0lPYUF6bkJtWGFxb0sycDZJR09vNWY2N3h5Nkk2X2pvVlM0aDF2YlFHZ09fZWR6WGw0QlNURjM4MFZUTlFrdmg3U2xzMmZhWGJNMzBDWk1jd0pjaw?oc=5",
-      "note": "family (angle: A child converts every abstract adult cost into a dated line item. The satire is the arithmetic, never the child.)",
-      "_published": "2026-11-25T12:38:00+00:00"
+      "trend": "Rift with Walmart over IPO plan, Flipkart CEO quits",
+      "source": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxNQ0p3TmZuZ2xjV3ZQLTc3TS1JNW9rcW9SVTFsY2xXeG5FOEJlLVB5bDVoQmZHRktqclhaMGhJQkpMNlZnZS0zYXVPdHN2V2l5aVRPTFZsWjh2N01CbzV5TGlVRGktYlFWUWt2blZRMHRMNUc1azQ2bVp4eHhWd1JnYTRhT1NBY3FScVNkckQ3cEpoeExJT2tBU3YwMjlaSkt0RWwzeHRoaGdqYkx2WVBfcTlmNVUyV21SYmo1REpGeVpmMXlqYnNrOFhWWTNzVUlfbGfSAdcBQVVfeXFMTWJBbzgzNXNUaG9qSjItSmRuRzZvTGhyUEdtMWpkQjNNd2hlbXFCdzU5TnYxMzR2VjFRQzNZb05USDlxV010UC0tSk5xMVNkTnpSX1BfNXVPMm5qZ3ItRUxvbDNfaDlGUjloMzVuMTZENE42NG5oWFJISWt5dnVIWkVMd1JWbW5GakpkWHhZVmJiODNqOUxzQ2xyZVROcWRpNnA3VDVfc2tia1ZId1JWMGVsVlJyMVB5RDdnQWdpcmR5Z0VfNHdMM0hmZFlmY1EtRHVtQ0cycU0?oc=5",
+      "note": "markets, companies (angle: Everyone is a long-term investor until the first red day. Laugh at our own investor behaviour — the app opened 14 times, the SIP paused and unpaused — never at anyone's real loss, never a tip.)",
+      "_published": "2026-11-26T04:24:00+00:00"
+    },
+    {
+      "trend": "A 26/11 lesson, an answer at sea, and now Rs 3,412-cr IPO in sight. Sagar Defence founder tells the story",
+      "source": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxPaDJsMFpBdlhfZHRxek1HandJWkZMTFhHY2M4bmQ2bE5RQk1mbThJLUh3NnJRa3pVTlJUcTFNRDhSajVkZXVYUVVudl9BQnpHbVBCTmF1by1tbEI0anJIbkJLRkxsdlYxclFuY0otX3ZYaDhxNnY3OS1qOVRlN0JoaXpkME5jcV8xMzJFN1RhTDBqbVpydlRHNTRON3lLUkh6ekc4M09RNXNGcHZPekg1cHVKdkw2UjZsN3E1aG5ZcWFCUS1nRVNKRFhIakI0d0MxOHdOS9IB2gFBVV95cUxNNXAtLWZUVmk2dlJMWjZ5dS1PanlaeFRjVWNuLUk4QWNCNVJPaUNGaGdUMnFUQTNULTlmQnBLanloTVh6b0RFLUpwTlpHQmNyYmJTb21HRnVXQTFyczBkbzM3Ry1TOHEyeVR2NkdxM3R4NndMaUxsa2kwamZTQWpGSjZkU01YQnJUbUJTTUVfQlljUFp2RC1YYW1rOHhXUkdyc21sMm1Cek1DVTVJdV9BR0gtYVA0NGNrRFl1WkV5Sjg0aDNSUFpfaTFKcmpXRUFjeVlydnBDS0VsUQ?oc=5",
+      "note": "markets, companies (angle: Everyone is a long-term investor until the first red day. Laugh at our own investor behaviour — the app opened 14 times, the SIP paused and unpaused — never at anyone's real loss, never a tip.)",
+      "_published": "2026-11-26T09:15:45+00:00"
+    },
+    {
+      "trend": "India VIX Ends Flat at 17.68 as Sensex Rallies 1,500 Points",
+      "source": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPUHRRMTNPTHFFRXBCaThKbmllY0sxNVZNRFI0WW9hVVZjdGRoTzFnbGtSaXJxbmttTjBuUlh5dFZ0VGE0SXlwSXV2b3B6RVRTYVRyckowc0RKZk9lMzg3OWgxMXozTUdTbmh6c1R6Vmd3azV4NUxrdV8tQjBNakRnclhDOFR1SE1Na1cxeW5UMFk3UnJGNFU0R2lQRXZ2dDRsbW8tbDhRZzhfdmw5?oc=5",
+      "note": "home, markets (angle: Renting stopped being temporary. The landlord runs a faster compensation cycle than the employer.)",
+      "_published": "2026-11-25T10:18:32+00:00"
     }
   ]
 }

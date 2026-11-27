@@ -1,0 +1,87 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "India VIX Ends Flat at 17.68 as Sensex Rallies 1,500 Points",
+      "context": "Broad market rallies turn the headlines green while your own specific stock picks barely nudge upward.",
+      "angle": "Finance headlines celebrate a giant market rally that leaves your portfolio still waiting in the red.",
+      "landing_options": [
+        {
+          "line": "The market recovered. Your picks are still thinking about it.",
+          "mechanism": "deadpan_response"
+        },
+        {
+          "line": "Green arrow on the screen. Red number on your account.",
+          "mechanism": "reinterpretation"
+        },
+        {
+          "line": "You celebrated a 0.6% gain like a bonus.",
+          "mechanism": "callback"
+        },
+        {
+          "line": "At 3:30 PM you closed the app and went back to work.",
+          "mechanism": "rule_of_three_break"
+        }
+      ],
+      "slides": [
+        "Sensex jumped 1,500 points and your portfolio moved from -11% to -10.4%.",
+        "\"Market rally\": everybody else's shares went up.\n\"Long-term investor\": you bought it in 2024 and cannot sell at a loss.\n\"Flat volatility\": you still opened the app 14 times before lunch.",
+        "The market recovered. Your picks are still thinking about it."
+      ],
+      "caption": "Somebody you know refreshed their trading app fourteen times today to celebrate going from -11% to -10% 📲",
+      "trigger": "stock_market",
+      "target": "marketing",
+      "structure": "definition_drift",
+      "move": "literalisation",
+      "satire_level": 3,
+      "hinglish": false,
+      "keywords": [
+        "sensex today",
+        "portfolio loss",
+        "investing app"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPUHRRMTNPTHFFRXBCaThKbmllY0sxNVZNRFI0WW9hVVZjdGRoTzFnbGtSaXJxbmttTjBuUlh5dFZ0VGE0SXlwSXV2b3B6RVRTYVRyckowc0RKZk9lMzg3OWgxMXozTUdTbmh6c1R6Vmd3azV4NUxrdV8tQjBNakRnclhDOFR1SE1Na1cxeW5UMFk3UnJGNFU0R2lQRXZ2dDRsbW8tbDhRZzhfdmw5?oc=5",
+      "tweet": {
+        "setup": "The stock market jumped 1,500 points today.",
+        "punch": "My portfolio heroically recovered from minus 11 percent to minus 10.4 percent."
+      },
+      "notify": {
+        "time": "3:32",
+        "date": "Friday, 24 April",
+        "items": [
+          {
+            "app": "news",
+            "title": "Market Rally",
+            "text": "Benchmark index surges 1,500 points in historic session.",
+            "time": "11:15 AM"
+          },
+          {
+            "app": "bank",
+            "title": "Portfolio Alert",
+            "text": "Your holdings are up 0.6% today. Total return: -10.4%.",
+            "time": "1:40 PM"
+          },
+          {
+            "app": "reminder",
+            "title": "Screen Time",
+            "text": "You opened your investing app 14 times in 3 hours.",
+            "time": "3:32 PM"
+          }
+        ]
+      },
+      "created_at": "2026-11-27",
+      "model": "gemini-4-hydrogen",
+      "status": "approved",
+      "id": "g123",
+      "rank_score": 103,
+      "rank_verdict": "Slide 1's percentage jump and Slide 2's definitions are genuinely funny, leaving Slide 3 feeling slightly softer than the setup.",
+      "style_fit": {
+        "card": 4,
+        "tweet": 4,
+        "notify": 3
+      },
+      "style": "tweet",
+      "style_why": "fit 4, 2 of last 9; over card 3.5, notify 3.5"
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "India’s Alcobev Industry Gears Up for Festive and Wedding Season as Premium Liquor Demand Rises",
+      "context": "At thirty, buying expensive liquor has nothing to do with status and everything to do with preventing a two-day hangover.",
+      "angle": "What the alcohol industry calls premiumisation is actually just thirty-year-olds buying medical insurance for tomorrow morning.",
+      "landing_options": [
+        {
+          "line": "Bottle mehengi thi. Sab 10:45 pe so gaye.",
+          "mechanism": "reinterpretation"
+        },
+        {
+          "line": "Sabne ek glass piya aur sabko neend aa gayi.",
+          "mechanism": "deadpan_response"
+        },
+        {
+          "line": "Hangover ab 2 din chalta hai, jaise bank ka server.",
+          "mechanism": "escalation"
+        },
+        {
+          "line": "Kal subah sabko physio ke paas jaana hai.",
+          "mechanism": "rule_of_three_break"
+        }
+      ],
+      "slides": [
+        "30 pe \"premium alcohol\" shauk nahi, medical insurance hai.",
+        "22 pe: sasti rum, plastic glass, subah 9 baje class.\n30 pe: ₹5,500 ki single malt, side table pe Electral.\nEk peg ke baad sab apni knee pain discuss kar rahe hain.",
+        "Bottle mehengi thi. Sab 10:45 pe so gaye."
+      ],
+      "caption": "Send this to the friend who brings ORS packets to a Saturday house party 🥃",
+      "trigger": "friends",
+      "target": "self",
+      "structure": "list_collapse",
+      "move": "absurd_comparative",
+      "satire_level": 2,
+      "hinglish": true,
+      "keywords": [
+        "house party",
+        "hangover recovery",
+        "thirties weekend"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNRTZOVDFMVm5xWW1TZGZta3dqb3VOZkd5T1FfOVVsMC1VQWhfMlhSMS0zbk0tdFQ1ck5vdVFHVjc5blM1RlNDRk5RWVFpSjdWc0pod3Z2bnBVRDQyQlk5ejRfRktFb2U2Y0dxNjhoeXpZWWVHTUdodWhMTkFiN3k2UV9Bb3cyUTh4VFZ2UFFoMUFhRUdPWndxS3BXUWZJUS1zUXpTY21JWno1ZXAt?oc=5",
+      "tweet": {
+        "setup": "Liquor brands say 30-year-olds are driving demand for expensive single malts.",
+        "punch": "I am not flexing. I just cannot survive cheap rum on a Sunday anymore."
+      },
+      "chat": {
+        "title": "Flat 302 (No Fighting)",
+        "messages": [
+          {
+            "from": "Kabir",
+            "text": "Saturday scene? Getting a good single malt this time",
+            "kind": "text"
+          },
+          {
+            "from": "You",
+            "text": "Nice. Should I get soda and lemon?",
+            "kind": "text"
+          },
+          {
+            "from": "Kabir",
+            "text": "Get 4 packs of ORS and warm water. Nobody is drinking past 10:30.",
+            "kind": "text"
+          },
+          {
+            "from": "Ananya",
+            "text": "True, I have physio at 9 AM",
+            "kind": "text"
+          }
+        ]
+      },
+      "created_at": "2026-11-27",
+      "model": "gemini-4-hydrogen",
+      "status": "approved",
+      "id": "g125",
+      "rank_score": 97,
+      "rank_verdict": "The middle details nail thirties drinking comedy, though Slide 1 leans on a corny aphorism instead of a deadpan setup.",
+      "style_fit": {
+        "card": 4,
+        "tweet": 2,
+        "chat": 4
+      },
+      "style": "chat",
+      "style_why": "fit 4, 4 of last 11; over card 3.6"
+    }
+  ]
+}

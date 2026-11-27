@@ -1,0 +1,88 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "Wipro, TCS, Infosys push Nifty IT to 33,000 mark",
+      "context": "One green day in IT stocks turns a colleague who put four thousand rupees into shares into a self-appointed market guru.",
+      "angle": "Investing four thousand rupees in a single green candle makes your desk neighbour act like he runs the boardroom.",
+      "landing_options": [
+        {
+          "line": "By 4 PM his profit barely covered two samosas.",
+          "mechanism": "callback"
+        },
+        {
+          "line": "At 3:31 PM he went back to fixing a client spreadsheet.",
+          "mechanism": "reinterpretation"
+        },
+        {
+          "line": "He has been checking the app like it is a newborn baby.",
+          "mechanism": "escalation"
+        },
+        {
+          "line": "He owns four shares and acts like he signs the layoffs.",
+          "mechanism": "rule_of_three_break"
+        }
+      ],
+      "slides": [
+        "Your friend bought 4 shares of an IT giant and now walks like a board member.",
+        "2:15 voice note from his desk:\n\"Bro Nifty IT hit 33,000, software is back, I might hold till retirement, wait let me refresh...\"\nHe invested ₹4,200 on Tuesday.",
+        "By 4 PM his profit barely covered two samosas."
+      ],
+      "caption": "Every office bay has one guy checking charts every ten minutes on a four-thousand-rupee position 📊",
+      "trigger": "stock_market",
+      "target": "self",
+      "structure": "voice_note",
+      "move": "absurd_comparative",
+      "satire_level": 2,
+      "hinglish": false,
+      "keywords": [
+        "retail investor",
+        "it stocks",
+        "office friend"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPQVd1aHZ2UUZNbThlVGo3Sy1EcnFJeEtuMWkweTVScHRWTkxYQ0hkSjRGa0VGbTNhUndaZzZlTFpOOFlmU2pCbnhybXJHRTl4ZzRNemRnWVk1ZjBrclZINGRNOGNHVFVzbDByZ3gzMlk0aDFKdHhnQktoNlc0UVhKM1dpNmlPb0lDdEpnYlE1ZE5vVFhw?oc=5",
+      "tweet": {
+        "setup": "My colleague bought four tech shares yesterday and now talks like a fund manager.",
+        "punch": "His total profit by market close paid for two canteen samosas."
+      },
+      "chat": {
+        "title": "Chai Sutta Break",
+        "messages": [
+          {
+            "from": "Varun",
+            "text": "IT index crossing 33k bro. Told you I timed the bottom.",
+            "kind": "text"
+          },
+          {
+            "from": "You",
+            "text": "Nice, kitna lagaya tha?",
+            "kind": "text"
+          },
+          {
+            "from": "Varun",
+            "text": "4,200. Thinking of retiring at 40 now.",
+            "kind": "text"
+          },
+          {
+            "from": "You",
+            "text": "Tera profit 68 rupaye hai. Chai pila de.",
+            "kind": "text"
+          }
+        ]
+      },
+      "created_at": "2026-11-27",
+      "model": "gemini-4-hydrogen",
+      "status": "approved",
+      "id": "g121",
+      "rank_score": 114,
+      "rank_verdict": "Sharp, affectionate character roast with great numbers, weakened only slightly by slipping into past tense at the end.",
+      "style_fit": {
+        "card": 4,
+        "tweet": 4,
+        "chat": 4
+      },
+      "style": "tweet",
+      "style_why": "fit 4, 1 of last 7; over card 3.3, chat 3.9"
+    }
+  ]
+}

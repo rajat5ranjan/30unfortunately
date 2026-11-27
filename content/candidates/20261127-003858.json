@@ -1,0 +1,1961 @@
+{
+  "generated_at": "20261127-003858",
+  "model": "gemini-4-hydrogen",
+  "accepted": [
+    {
+      "trend": "India’s Alcobev Industry Gears Up for Festive and Wedding Season as Premium Liquor Demand Rises",
+      "context": "Wedding bartenders spend twenty minutes smoking rosemary and pouring artisanal foam while older relatives just want whisky and tap water.",
+      "angle": "The wedding industry charges per guest for theatrical smoke and foam that nobody actually wants to drink.",
+      "landing_options": [
+        {
+          "line": "Your uncle asked for whisky with plain water and broke the theme.",
+          "mechanism": "rule_of_three_break"
+        },
+        {
+          "line": "You waited twenty minutes for smoky ice.",
+          "mechanism": "reinterpretation"
+        },
+        {
+          "line": "The glass has foam on top and regret at the bottom.",
+          "mechanism": "escalation"
+        },
+        {
+          "line": "Half the drink was smoke. The other half was rosemary.",
+          "mechanism": "callback"
+        }
+      ],
+      "slides": [
+        "The wedding invite says \"Curated Craft Cocktail Experience.\"",
+        "It is a man lighting cinnamon on fire for 14 minutes.\nHe puts a sprig of grass on ice.\n₹1,800 per guest for the bar package, and the tonic water is warm.",
+        "Your uncle asked for whisky with plain water and broke the theme."
+      ],
+      "caption": "Somebody in your family will always order \"neat with two cubes\" at a molecular mixology counter 🍸",
+      "trigger": "festivals",
+      "target": "the wedding industry",
+      "structure": "wedding_invite",
+      "move": "literalisation",
+      "satire_level": 3,
+      "hinglish": false,
+      "keywords": [
+        "wedding cocktails",
+        "indian weddings",
+        "festive party"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNRTZOVDFMVm5xWW1TZGZta3dqb3VOZkd5T1FfOVVsMC1VQWhfMlhSMS0zbk0tdFQ1ck5vdVFHVjc5blM1RlNDRk5RWVFpSjdWc0pod3Z2bnBVRDQyQlk5ejRfRktFb2U2Y0dxNjhoeXpZWWVHTUdodWhMTkFiN3k2UV9Bb3cyUTh4VFZ2UFFoMUFhRUdPWndxS3BXUWZJUS1zUXpTY21JWno1ZXAt?oc=5",
+      "tweet": {
+        "setup": "Wedding invites now promise a curated craft cocktail experience.",
+        "punch": "You wait 18 minutes for a guy to burn a cinnamon stick over warm tonic."
+      },
+      "comments": {
+        "source": "Desi Wedding Planners",
+        "post": "Curated mixology bars with smoked botanicals are the biggest wedding trend this season.",
+        "items": [
+          {
+            "user": "ananya_m",
+            "text": "Bro I just wanted one drink before the baraat left"
+          },
+          {
+            "user": "dev.sharma",
+            "text": "Waiting 20 minutes to be handed a glass full of rosemary leaves"
+          },
+          {
+            "user": "tanvi_k",
+            "text": "My chachu asked for whisky soda and the bartender looked hurt",
+            "reply": true
+          },
+          {
+            "user": "siddharth.92",
+            "text": "Five thousand rupees a plate and the ice melts before the smoke clears."
+          }
+        ]
+      },
+      "created_at": "2026-11-27",
+      "model": "gemini-4-hydrogen",
+      "status": "draft",
+      "_score": 114,
+      "_judge": "Tight and universally funny, though Slide 2 describes the bar in general terms instead of keeping the reader's own point of view consistent.",
+      "_detail": {
+        "laugh": 4,
+        "share_trigger": 4,
+        "surprise": 4,
+        "specificity": 5,
+        "voice": 4,
+        "travels": 5,
+        "lands": 4,
+        "plain": 5,
+        "playful": 5
+      },
+      "_fit": {
+        "card": 4,
+        "tweet": 3,
+        "comments": 4
+      },
+      "_penalty": 0
+    },
+    {
+      "trend": "Wipro, TCS, Infosys push Nifty IT to 33,000 mark",
+      "context": "One green day in IT stocks turns a colleague who put four thousand rupees into shares into a self-appointed market guru.",
+      "angle": "Investing four thousand rupees in a single green candle makes your desk neighbour act like he runs the boardroom.",
+      "landing_options": [
+        {
+          "line": "By 4 PM his profit barely covered two samosas.",
+          "mechanism": "callback"
+        },
+        {
+          "line": "At 3:31 PM he went back to fixing a client spreadsheet.",
+          "mechanism": "reinterpretation"
+        },
+        {
+          "line": "He has been checking the app like it is a newborn baby.",
+          "mechanism": "escalation"
+        },
+        {
+          "line": "He owns four shares and acts like he signs the layoffs.",
+          "mechanism": "rule_of_three_break"
+        }
+      ],
+      "slides": [
+        "Your friend bought 4 shares of an IT giant and now walks like a board member.",
+        "2:15 voice note from his desk:\n\"Bro Nifty IT hit 33,000, software is back, I might hold till retirement, wait let me refresh...\"\nHe invested ₹4,200 on Tuesday.",
+        "By 4 PM his profit barely covered two samosas."
+      ],
+      "caption": "Every office bay has one guy checking charts every ten minutes on a four-thousand-rupee position 📊",
+      "trigger": "stock_market",
+      "target": "self",
+      "structure": "voice_note",
+      "move": "absurd_comparative",
+      "satire_level": 2,
+      "hinglish": false,
+      "keywords": [
+        "retail investor",
+        "it stocks",
+        "office friend"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPQVd1aHZ2UUZNbThlVGo3Sy1EcnFJeEtuMWkweTVScHRWTkxYQ0hkSjRGa0VGbTNhUndaZzZlTFpOOFlmU2pCbnhybXJHRTl4ZzRNemRnWVk1ZjBrclZINGRNOGNHVFVzbDByZ3gzMlk0aDFKdHhnQktoNlc0UVhKM1dpNmlPb0lDdEpnYlE1ZE5vVFhw?oc=5",
+      "tweet": {
+        "setup": "My colleague bought four tech shares yesterday and now talks like a fund manager.",
+        "punch": "His total profit by market close paid for two canteen samosas."
+      },
+      "chat": {
+        "title": "Chai Sutta Break",
+        "messages": [
+          {
+            "from": "Varun",
+            "text": "IT index crossing 33k bro. Told you I timed the bottom.",
+            "kind": "text"
+          },
+          {
+            "from": "You",
+            "text": "Nice, kitna lagaya tha?",
+            "kind": "text"
+          },
+          {
+            "from": "Varun",
+            "text": "4,200. Thinking of retiring at 40 now.",
+            "kind": "text"
+          },
+          {
+            "from": "You",
+            "text": "Tera profit 68 rupaye hai. Chai pila de.",
+            "kind": "text"
+          }
+        ]
+      },
+      "created_at": "2026-11-27",
+      "model": "gemini-4-hydrogen",
+      "status": "draft",
+      "_score": 114,
+      "_judge": "Sharp, affectionate character roast with great numbers, weakened only slightly by slipping into past tense at the end.",
+      "_detail": {
+        "laugh": 4,
+        "share_trigger": 5,
+        "surprise": 3,
+        "specificity": 5,
+        "voice": 3,
+        "travels": 5,
+        "lands": 4,
+        "plain": 5,
+        "playful": 5
+      },
+      "_fit": {
+        "card": 4,
+        "tweet": 4,
+        "chat": 4
+      },
+      "_penalty": -1
+    },
+    {
+      "trend": "Who is Rakesh Ranjan? Former Zomato CEO appointed Uber India and South Asia chief, to take charge from January 4, 2027",
+      "context": "Thirty-year-olds rely on the same two apps for late-night dinner and getting home safely, and now the same executive has run both.",
+      "angle": "Your 11 PM hunger and your 11 PM commute have been consolidated under one management philosophy.",
+      "landing_options": [
+        {
+          "line": "Ab biryani aur auto dono ek hi aadmi cancel karega.",
+          "mechanism": "callback"
+        },
+        {
+          "line": "11 baje ke baad dono mana kar dete hain.",
+          "mechanism": "reinterpretation"
+        },
+        {
+          "line": "Pehle plate thandi hoti thi. Ab cab.",
+          "mechanism": "escalation"
+        },
+        {
+          "line": "Dono apps mein ab same surge ka logic chalega.",
+          "mechanism": "deadpan_response"
+        }
+      ],
+      "slides": [
+        "Zomato ke ex-CEO ab Uber India chalayenge. Same phone, same aadmi.",
+        "Mummy ne link bheja: \"Beta, inko bolna raat ko surge kam rakhein.\"\n\"Mummy, main delivery nahi karwata unse.\"\n\"Toh kya hua, pehle khaana laate the, ab ghar chhodenge.\"",
+        "Ab biryani aur auto dono ek hi aadmi cancel karega."
+      ],
+      "caption": "Whose mother thinks knowing the CEO's name gets you zero surge pricing",
+      "trigger": "app",
+      "target": "app",
+      "structure": "whatsapp_forward",
+      "move": "literalisation",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "cab surge",
+        "food delivery",
+        "midnight commute"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNZUdTTHhoVHRIMWZpdkZuZlUxVDk4RU9GY0N6bWNJZzk0R01HT2pnVzc0cVBHcERYV1RtbFp0NWNCZ1VMNW1VM0s2SkdKa2pVekxYbmlrRDM4blVxS3ZqLXlRUnpWbWJqWFpXQzJZdmpXdWZ6U0c3VUREbUs1ZnluWTZwZndfX3ZpLWlDOE84Y0w2YWFlU0RCMlNSckl2UUVpWkZMMlp2TGJ0b2VSMDlsQ05kR0hBUkQyQ1BDZXJoS2VtcnlZ?oc=5",
+      "tweet": {
+        "setup": "The former boss of my food delivery app is now going to run my cab app.",
+        "punch": "Now one man controls whether I reach home or eat dinner at midnight."
+      },
+      "chat": {
+        "title": "Mummy",
+        "messages": [
+          {
+            "from": "Mummy",
+            "text": "Beta yeh news dekhi? Khaana wali company ka boss ab taxi wali mein gaya hai",
+            "kind": "forwarded"
+          },
+          {
+            "from": "You",
+            "text": "Haan mummy, padha maine",
+            "kind": "text"
+          },
+          {
+            "from": "Mummy",
+            "text": "Acha hai na, ab tumhe raat ko cab sasti milegi",
+            "kind": "text"
+          },
+          {
+            "from": "You",
+            "text": "Mummy unko nahi pata main kaun hoon",
+            "kind": "text"
+          },
+          {
+            "from": "Mummy",
+            "text": "Phir bhi complaint daal dena ki biryani aur auto dono mehenge hain",
+            "kind": "text"
+          }
+        ]
+      },
+      "created_at": "2026-11-27",
+      "model": "gemini-4-hydrogen",
+      "status": "draft",
+      "_score": 103,
+      "_judge": "Slide 2 sets up Mummy complaining about surge pricing, so Slide 3 jumping to cancellations feels slightly disconnected from the middle beat and relies heavily on local news.",
+      "_detail": {
+        "laugh": 4,
+        "share_trigger": 4,
+        "surprise": 4,
+        "specificity": 4,
+        "voice": 2,
+        "travels": 2,
+        "lands": 4,
+        "plain": 5,
+        "playful": 5
+      },
+      "_fit": {
+        "card": 3,
+        "tweet": 3,
+        "chat": 4
+      },
+      "_penalty": -1
+    },
+    {
+      "trend": "India VIX Ends Flat at 17.68 as Sensex Rallies 1,500 Points",
+      "context": "Broad market rallies turn the headlines green while your own specific stock picks barely nudge upward.",
+      "angle": "Finance headlines celebrate a giant market rally that leaves your portfolio still waiting in the red.",
+      "landing_options": [
+        {
+          "line": "The market recovered. Your picks are still thinking about it.",
+          "mechanism": "deadpan_response"
+        },
+        {
+          "line": "Green arrow on the screen. Red number on your account.",
+          "mechanism": "reinterpretation"
+        },
+        {
+          "line": "You celebrated a 0.6% gain like a bonus.",
+          "mechanism": "callback"
+        },
+        {
+          "line": "At 3:30 PM you closed the app and went back to work.",
+          "mechanism": "rule_of_three_break"
+        }
+      ],
+      "slides": [
+        "Sensex jumped 1,500 points and your portfolio moved from -11% to -10.4%.",
+        "\"Market rally\": everybody else's shares went up.\n\"Long-term investor\": you bought it in 2024 and cannot sell at a loss.\n\"Flat volatility\": you still opened the app 14 times before lunch.",
+        "The market recovered. Your picks are still thinking about it."
+      ],
+      "caption": "Somebody you know refreshed their trading app fourteen times today to celebrate going from -11% to -10% 📲",
+      "trigger": "stock_market",
+      "target": "marketing",
+      "structure": "definition_drift",
+      "move": "literalisation",
+      "satire_level": 3,
+      "hinglish": false,
+      "keywords": [
+        "sensex today",
+        "portfolio loss",
+        "investing app"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPUHRRMTNPTHFFRXBCaThKbmllY0sxNVZNRFI0WW9hVVZjdGRoTzFnbGtSaXJxbmttTjBuUlh5dFZ0VGE0SXlwSXV2b3B6RVRTYVRyckowc0RKZk9lMzg3OWgxMXozTUdTbmh6c1R6Vmd3azV4NUxrdV8tQjBNakRnclhDOFR1SE1Na1cxeW5UMFk3UnJGNFU0R2lQRXZ2dDRsbW8tbDhRZzhfdmw5?oc=5",
+      "tweet": {
+        "setup": "The stock market jumped 1,500 points today.",
+        "punch": "My portfolio heroically recovered from minus 11 percent to minus 10.4 percent."
+      },
+      "notify": {
+        "time": "3:32",
+        "date": "Friday, 24 April",
+        "items": [
+          {
+            "app": "news",
+            "title": "Market Rally",
+            "text": "Benchmark index surges 1,500 points in historic session.",
+            "time": "11:15 AM"
+          },
+          {
+            "app": "bank",
+            "title": "Portfolio Alert",
+            "text": "Your holdings are up 0.6% today. Total return: -10.4%.",
+            "time": "1:40 PM"
+          },
+          {
+            "app": "reminder",
+            "title": "Screen Time",
+            "text": "You opened your investing app 14 times in 3 hours.",
+            "time": "3:32 PM"
+          }
+        ]
+      },
+      "created_at": "2026-11-27",
+      "model": "gemini-4-hydrogen",
+      "status": "draft",
+      "_score": 103,
+      "_judge": "Slide 1's percentage jump and Slide 2's definitions are genuinely funny, leaving Slide 3 feeling slightly softer than the setup.",
+      "_detail": {
+        "laugh": 4,
+        "share_trigger": 4,
+        "surprise": 3,
+        "specificity": 4,
+        "voice": 4,
+        "travels": 5,
+        "lands": 3,
+        "plain": 4,
+        "playful": 5
+      },
+      "_fit": {
+        "card": 4,
+        "tweet": 4,
+        "notify": 3
+      },
+      "_penalty": 0
+    },
+    {
+      "trend": "India VIX Ends Flat at 17.68 as Sensex Rallies 1,500 Points",
+      "context": "Every friend group has someone who panics on a red day, pauses their SIP, and watches the market jump 1,500 points the very next morning.",
+      "angle": "Long-term investing discipline lasts right up until one red candle, and resumes right at the market peak.",
+      "landing_options": [
+        {
+          "line": "Usne crash pe becha. Ab rally pe wapas khareedega.",
+          "mechanism": "callback"
+        },
+        {
+          "line": "Kal woh Warren Buffett tha. Aaj woh password reset kar raha hai.",
+          "mechanism": "reinterpretation"
+        },
+        {
+          "line": "Ab woh phir shuru karega. Bilkul top pe.",
+          "mechanism": "escalation"
+        },
+        {
+          "line": "1,500 point baad sab phir se finance expert hain.",
+          "mechanism": "deadpan_response"
+        }
+      ],
+      "slides": [
+        "Kal raat jis dost ne SIP band kiya tha, aaj Sensex 1,500 point upar hai.",
+        "\"Haan bhai, dekh liya TV pe.\"\n\"Nahi, main toh waise bhi safety ke liye FD kar raha tha.\"\n\"Haan, aaj hi app khol ke unpause karne wala hoon.\"",
+        "Kal woh Warren Buffett tha. Aaj woh password reset kar raha hai."
+      ],
+      "caption": "Send this to the friend who pauses their SIP on every red day and unpauses at the peak 📉",
+      "trigger": "stock_market",
+      "target": "self",
+      "structure": "phone_call",
+      "move": "the_turn_in_the_last_words",
+      "satire_level": 2,
+      "hinglish": true,
+      "keywords": [
+        "sensex rally",
+        "sip investment",
+        "stock market"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPUHRRMTNPTHFFRXBCaThKbmllY0sxNVZNRFI0WW9hVVZjdGRoTzFnbGtSaXJxbmttTjBuUlh5dFZ0VGE0SXlwSXV2b3B6RVRTYVRyckowc0RKZk9lMzg3OWgxMXozTUdTbmh6c1R6Vmd3azV4NUxrdV8tQjBNakRnclhDOFR1SE1Na1cxeW5UMFk3UnJGNFU0R2lQRXZ2dDRsbW8tbDhRZzhfdmw5?oc=5",
+      "tweet": {
+        "setup": "My friend panicked yesterday, paused his monthly investment, and lectured me on capital safety.",
+        "punch": "The market jumped 1,500 points today so he is back to buying the top."
+      },
+      "chat": {
+        "title": "Boys Investment Club",
+        "messages": [
+          {
+            "from": "Manish",
+            "text": "Guys, paused all mutual funds last night. Market is too risky.",
+            "kind": "text"
+          },
+          {
+            "from": "You",
+            "text": "Market is up 1,500 points right now",
+            "kind": "text"
+          },
+          {
+            "from": "Manish",
+            "text": "Haan dekh liya, app crash ho raha hai, unpause nahi ho raha",
+            "kind": "text"
+          },
+          {
+            "from": "Saurabh",
+            "text": "Buy high sell low king is back",
+            "kind": "text"
+          }
+        ]
+      },
+      "created_at": "2026-11-27",
+      "model": "gemini-4-hydrogen",
+      "status": "draft",
+      "landing_replaced": "Usne crash pe becha. Ab rally pe wapas khareedega.",
+      "_score": 98,
+      "_judge": "Highly sendable to that one panicked investor friend, though the card tells a predictable story while the group chat captures the actual comedy.",
+      "_detail": {
+        "laugh": 3,
+        "share_trigger": 5,
+        "surprise": 2,
+        "specificity": 4,
+        "voice": 2,
+        "travels": 4,
+        "lands": 3,
+        "plain": 5,
+        "playful": 5
+      },
+      "_fit": {
+        "card": 3,
+        "tweet": 3,
+        "chat": 4
+      },
+      "_penalty": -2
+    },
+    {
+      "trend": "India’s Alcobev Industry Gears Up for Festive and Wedding Season as Premium Liquor Demand Rises",
+      "context": "At thirty, buying expensive liquor has nothing to do with status and everything to do with preventing a two-day hangover.",
+      "angle": "What the alcohol industry calls premiumisation is actually just thirty-year-olds buying medical insurance for tomorrow morning.",
+      "landing_options": [
+        {
+          "line": "Bottle mehengi thi. Sab 10:45 pe so gaye.",
+          "mechanism": "reinterpretation"
+        },
+        {
+          "line": "Sabne ek glass piya aur sabko neend aa gayi.",
+          "mechanism": "deadpan_response"
+        },
+        {
+          "line": "Hangover ab 2 din chalta hai, jaise bank ka server.",
+          "mechanism": "escalation"
+        },
+        {
+          "line": "Kal subah sabko physio ke paas jaana hai.",
+          "mechanism": "rule_of_three_break"
+        }
+      ],
+      "slides": [
+        "30 pe \"premium alcohol\" shauk nahi, medical insurance hai.",
+        "22 pe: sasti rum, plastic glass, subah 9 baje class.\n30 pe: ₹5,500 ki single malt, side table pe Electral.\nEk peg ke baad sab apni knee pain discuss kar rahe hain.",
+        "Bottle mehengi thi. Sab 10:45 pe so gaye."
+      ],
+      "caption": "Send this to the friend who brings ORS packets to a Saturday house party 🥃",
+      "trigger": "friends",
+      "target": "self",
+      "structure": "list_collapse",
+      "move": "absurd_comparative",
+      "satire_level": 2,
+      "hinglish": true,
+      "keywords": [
+        "house party",
+        "hangover recovery",
+        "thirties weekend"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNRTZOVDFMVm5xWW1TZGZta3dqb3VOZkd5T1FfOVVsMC1VQWhfMlhSMS0zbk0tdFQ1ck5vdVFHVjc5blM1RlNDRk5RWVFpSjdWc0pod3Z2bnBVRDQyQlk5ejRfRktFb2U2Y0dxNjhoeXpZWWVHTUdodWhMTkFiN3k2UV9Bb3cyUTh4VFZ2UFFoMUFhRUdPWndxS3BXUWZJUS1zUXpTY21JWno1ZXAt?oc=5",
+      "tweet": {
+        "setup": "Liquor brands say 30-year-olds are driving demand for expensive single malts.",
+        "punch": "I am not flexing. I just cannot survive cheap rum on a Sunday anymore."
+      },
+      "chat": {
+        "title": "Flat 302 (No Fighting)",
+        "messages": [
+          {
+            "from": "Kabir",
+            "text": "Saturday scene? Getting a good single malt this time",
+            "kind": "text"
+          },
+          {
+            "from": "You",
+            "text": "Nice. Should I get soda and lemon?",
+            "kind": "text"
+          },
+          {
+            "from": "Kabir",
+            "text": "Get 4 packs of ORS and warm water. Nobody is drinking past 10:30.",
+            "kind": "text"
+          },
+          {
+            "from": "Ananya",
+            "text": "True, I have physio at 9 AM",
+            "kind": "text"
+          }
+        ]
+      },
+      "created_at": "2026-11-27",
+      "model": "gemini-4-hydrogen",
+      "status": "draft",
+      "_score": 97,
+      "_judge": "The middle details nail thirties drinking comedy, though Slide 1 leans on a corny aphorism instead of a deadpan setup.",
+      "_detail": {
+        "laugh": 4,
+        "share_trigger": 5,
+        "surprise": 3,
+        "specificity": 5,
+        "voice": 2,
+        "travels": 4,
+        "lands": 3,
+        "plain": 5,
+        "playful": 5
+      },
+      "_fit": {
+        "card": 4,
+        "tweet": 2,
+        "chat": 4
+      },
+      "_penalty": 8
+    },
+    {
+      "trend": "India VIX Ends Flat at 17.68 as Sensex Rallies 1,500 Points",
+      "context": "Every green market day brings out finance reels and older relatives lecturing you about not investing a lakh ten years ago.",
+      "angle": "Everybody turns into an expert on 2016 compounding when your main assets in 2016 were a metro card and borrowed money.",
+      "landing_options": [
+        {
+          "line": "2016 mein kisi ne bataya nahi. 2026 mein sab guru hain.",
+          "mechanism": "callback"
+        },
+        {
+          "line": "Tab itna paisa tha hi nahi ki doob sake.",
+          "mechanism": "reinterpretation"
+        },
+        {
+          "line": "2016 mein sabse bada asset ek metro card tha.",
+          "mechanism": "rule_of_three_break"
+        },
+        {
+          "line": "Aaj sab compounding samjha rahe hain. Tab kisi ne ₹500 bhi nahi diye.",
+          "mechanism": "deadpan_response"
+        }
+      ],
+      "slides": [
+        "Sensex 1,500 upar gaya aur sabko 2016 yaad aa gaya.",
+        "Finance reel: \"If you put ₹1 lakh in 2016...\"\nMamaji: \"Maine toh tabhi bola tha share le lo.\"\nOffice senior: \"Compounding ka magic dekho.\"",
+        "2016 mein sabse bada asset ek metro card tha."
+      ],
+      "caption": "Every family WhatsApp group has an uncle calculating 2016 returns he never actually bought 📊",
+      "trigger": "arithmetic_that_does_not_work",
+      "target": "relatives",
+      "structure": "escalating_list",
+      "move": "the_banal_true_answer",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "compounding myth",
+        "finance advice",
+        "sensex jump"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPUHRRMTNPTHFFRXBCaThKbmllY0sxNVZNRFI0WW9hVVZjdGRoTzFnbGtSaXJxbmttTjBuUlh5dFZ0VGE0SXlwSXV2b3B6RVRTYVRyckowc0RKZk9lMzg3OWgxMXozTUdTbmh6c1R6Vmd3azV4NUxrdV8tQjBNakRnclhDOFR1SE1Na1cxeW5UMFk3UnJGNFU0R2lQRXZ2dDRsbW8tbDhRZzhfdmw5?oc=5",
+      "tweet": {
+        "setup": "Every finance reel today starts with 'If you had invested 1 lakh in 2016.'",
+        "punch": "In 2016 my net worth was a metro card and two unpaid canteen bills."
+      },
+      "created_at": "2026-11-27",
+      "model": "gemini-4-hydrogen",
+      "status": "draft",
+      "_rendition_notes": [
+        "comments dropped: a 20-word sentence (max 18): 'If you had invested just Rs 1 lakh…'"
+      ],
+      "landing_replaced": "2016 mein kisi ne bataya nahi. 2026 mein sab guru hain.",
+      "_score": 97,
+      "_judge": "The card's default ending is flat cynicism, whereas option (c)'s metro card and the tweet's canteen-bills twist actually deliver a punchline.",
+      "_detail": {
+        "laugh": 3,
+        "share_trigger": 4,
+        "surprise": 4,
+        "specificity": 4,
+        "voice": 3,
+        "travels": 4,
+        "lands": 4,
+        "plain": 5,
+        "playful": 4
+      },
+      "_fit": {
+        "card": 3,
+        "tweet": 4
+      },
+      "_penalty": 3
+    },
+    {
+      "trend": "India’s Alcobev Industry Gears Up for Festive and Wedding Season as Premium Liquor Demand Rises",
+      "context": "Families spend lakhs on an imported wedding bar, while relatives track every single trip anyone under 35 makes toward the counter.",
+      "angle": "You cannot drink comfortably at an expensive Indian wedding bar because the aunties are running an unofficial audit.",
+      "landing_options": [
+        {
+          "line": "Tumne sirf jeera soda liya tha. Phir bhi naam aa gaya.",
+          "mechanism": "callback"
+        },
+        {
+          "line": "Bar imported tha. Gossip bilkul local.",
+          "mechanism": "reinterpretation"
+        },
+        {
+          "line": "Agle din sabke WhatsApp pe photo aayegi.",
+          "mechanism": "escalation"
+        },
+        {
+          "line": "Menu mein Scotch tha, par nazar sabki glass pe thi.",
+          "mechanism": "deadpan_response"
+        }
+      ],
+      "slides": [
+        "Shaadi mein ₹15 lakh ka premium bar laga hai. Aunty log entry register chala rahi hain.",
+        "\"Dekho, woh Sharma ji ka beta teesri baar gaya.\"\n\"Arre, appraisal kam mila hoga, isliye pi raha hai.\"\n\"Aur bahu ke mama ne toh bottle hi gaadi mein rakh li.\"",
+        "Tumne sirf jeera soda liya tha. Phir bhi naam aa gaya."
+      ],
+      "caption": "Every family wedding has one surveillance table positioned directly opposite the bar 👀",
+      "trigger": "festivals",
+      "target": "relatives",
+      "structure": "two_aunties",
+      "move": "the_banal_true_answer",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "indian wedding",
+        "aunty gossip",
+        "wedding bar"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNRTZOVDFMVm5xWW1TZGZta3dqb3VOZkd5T1FfOVVsMC1VQWhfMlhSMS0zbk0tdFQ1ck5vdVFHVjc5blM1RlNDRk5RWVFpSjdWc0pod3Z2bnBVRDQyQlk5ejRfRktFb2U2Y0dxNjhoeXpZWWVHTUdodWhMTkFiN3k2UV9Bb3cyUTh4VFZ2UFFoMUFhRUdPWndxS3BXUWZJUS1zUXpTY21JWno1ZXAt?oc=5",
+      "tweet": {
+        "setup": "Indian weddings now spend lakhs on imported Scotch and curated cocktail bars.",
+        "punch": "My aunt still stares at my glass like I am holding state secrets."
+      },
+      "chat": {
+        "title": "Cousins Only",
+        "messages": [
+          {
+            "from": "Riya",
+            "text": "Did you see Bua standing next to the bartender all night",
+            "kind": "text"
+          },
+          {
+            "from": "Karan",
+            "text": "Bro she counted how many times I asked for ice",
+            "kind": "text"
+          },
+          {
+            "from": "You",
+            "text": "I literally drank jeera masala soda and she told Papa I was tipsy",
+            "kind": "text"
+          },
+          {
+            "from": "Riya",
+            "text": "Next wedding we drink in the parking lot like 2015",
+            "kind": "text"
+          }
+        ]
+      },
+      "created_at": "2026-11-27",
+      "model": "gemini-4-hydrogen",
+      "status": "draft",
+      "_score": 94,
+      "_judge": "The aunties' dialogue in Slide 2 is sharper than the ending, where the last line lands slightly muted compared to the cousins chat version.",
+      "_detail": {
+        "laugh": 3,
+        "share_trigger": 4,
+        "surprise": 3,
+        "specificity": 4,
+        "voice": 3,
+        "travels": 3,
+        "lands": 3,
+        "plain": 5,
+        "playful": 4
+      },
+      "_fit": {
+        "card": 3,
+        "tweet": 2,
+        "chat": 4
+      },
+      "_penalty": -2
+    },
+    {
+      "trend": "Wipro, TCS, Infosys push Nifty IT to 33,000 mark",
+      "context": "Whenever IT stocks surge on TV news, relatives assume you are sitting on a pile of company shares and buying a flat.",
+      "angle": "Relatives treat every IT stock rally as proof that you personally own half the business park.",
+      "landing_options": [
+        {
+          "line": "\"Chachu, mere paas sirf ek ID card aur back pain hai.\"",
+          "mechanism": "deadpan_response"
+        },
+        {
+          "line": "\"Company ki value badhi hai. Mera lunch box wahi hai.\"",
+          "mechanism": "reinterpretation"
+        },
+        {
+          "line": "\"Stock unka badha hai. Mera sirf BP.\"",
+          "mechanism": "callback"
+        },
+        {
+          "line": "\"Mausi, main bench pe hoon.\"",
+          "mechanism": "rule_of_three_break"
+        }
+      ],
+      "slides": [
+        "Nifty IT 33,000 gaya aur family group mein tumhare shares poochhe ja rahe hain.",
+        "Chachu: \"Beta, tumhari company toh rocket ban gayi!\"\nBua: \"Is baar Diwali pe naya flat pakka?\"\nMausi: \"Kitne ESOPs hain tumhare paas?\"",
+        "\"Chachu, mere paas sirf ek ID card aur back pain hai.\""
+      ],
+      "caption": "Forward this to the cousin whose relatives think working in IT means owning IT stocks 💼",
+      "trigger": "stock_market",
+      "target": "relatives",
+      "structure": "group_chat",
+      "move": "the_banal_true_answer",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "family whatsapp",
+        "it employee",
+        "stock rally"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPQVd1aHZ2UUZNbThlVGo3Sy1EcnFJeEtuMWkweTVScHRWTkxYQ0hkSjRGa0VGbTNhUndaZzZlTFpOOFlmU2pCbnhybXJHRTl4ZzRNemRnWVk1ZjBrclZINGRNOGNHVFVzbDByZ3gzMlk0aDFKdHhnQktoNlc0UVhKM1dpNmlPb0lDdEpnYlE1ZE5vVFhw?oc=5",
+      "tweet": {
+        "setup": "Software stocks rallied today and my uncle called asking how many shares I got.",
+        "punch": "I own zero shares, one lanyard, and chronic lower back pain."
+      },
+      "chat": {
+        "title": "Sharma Parivaar",
+        "messages": [
+          {
+            "from": "Chachu",
+            "text": "TV pe dekha IT company rocket ban gayi! Badhai ho beta",
+            "kind": "text"
+          },
+          {
+            "from": "Bua",
+            "text": "Is Diwali pe naya flat le rahe ho na?",
+            "kind": "text"
+          },
+          {
+            "from": "Mausi",
+            "text": "Company ne bonus mein shares diye honge",
+            "kind": "text"
+          },
+          {
+            "from": "You",
+            "text": "Chachu mere paas sirf ek ID card aur back pain hai.",
+            "kind": "text"
+          }
+        ]
+      },
+      "created_at": "2026-11-27",
+      "model": "gemini-4-hydrogen",
+      "status": "draft",
+      "_score": 94,
+      "_judge": "Relatable family-group dynamic, but the ID card and back pain punchline is a fairly well-worn corporate meme.",
+      "_detail": {
+        "laugh": 3,
+        "share_trigger": 4,
+        "surprise": 3,
+        "specificity": 4,
+        "voice": 2,
+        "travels": 4,
+        "lands": 3,
+        "plain": 5,
+        "playful": 4
+      },
+      "_fit": {
+        "card": 3,
+        "tweet": 4,
+        "chat": 4
+      },
+      "_penalty": -2
+    },
+    {
+      "trend": "Rift with Walmart over IPO plan, Flipkart CEO quits",
+      "context": "Boardroom exits make headlines, while the customer is still trapped in a support bot loop over an undelivered ₹399 extension board.",
+      "angle": "Executive drama happens at the top while automated chat support tells you your four-day-late parcel is great news.",
+      "landing_options": [
+        {
+          "line": "CEO nikal gaya. Tumhara parcel abhi bhi \"out for delivery\" hai.",
+          "mechanism": "callback"
+        },
+        {
+          "line": "Top pe boardroom ladai hai. Neeche sirf \"Sorry for the inconvenience\" hai.",
+          "mechanism": "reinterpretation"
+        },
+        {
+          "line": "Bot ko khud nahi pata kal office khulega ya nahi.",
+          "mechanism": "rule_of_three_break"
+        },
+        {
+          "line": "Company ke future se zyada tension tumhe apne charger ki hai.",
+          "mechanism": "deadpan_response"
+        }
+      ],
+      "slides": [
+        "Flipkart ka CEO badal gaya. ₹399 ka extension board aaj aayega ya nahi?",
+        "Chat bot: \"Hi! Main aapki kya madad kar sakta hoon?\"\nYou: \"Order 4 din se Hubli mein atka hai.\"\nChat bot: \"Great news! Your order is on the way.\"",
+        "CEO nikal gaya. Tumhara parcel abhi bhi \"out for delivery\" hai."
+      ],
+      "caption": "Every shopping app has a chatbot celebrating a package that has not moved since Tuesday 📦",
+      "trigger": "big_company_drama",
+      "target": "app",
+      "structure": "customer_support",
+      "move": "the_question_with_one_answer",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "online shopping",
+        "delivery delay",
+        "customer support"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxNQ0p3TmZuZ2xjV3ZQLTc3TS1JNW9rcW9SVTFsY2xXeG5FOEJlLVB5bDVoQmZHRktqclhaMGhJQkpMNlZnZS0zYXVPdHN2V2l5aVRPTFZsWjh2N01CbzV5TGlVRGktYlFWUWt2blZRMHRMNUc1azQ2bVp4eHhWd1JnYTRhT1NBY3FScVNkckQ3cEpoeExJT2tBU3YwMjlaSkt0RWwzeHRoaGdqYkx2WVBfcTlmNVUyV21SYmo1REpGeVpmMXlqYnNrOFhWWTNzVUlfbGfSAdcBQVVfeXFMTWJBbzgzNXNUaG9qSjItSmRuRzZvTGhyUEdtMWpkQjNNd2hlbXFCdzU5TnYxMzR2VjFRQzNZb05USDlxV010UC0tSk5xMVNkTnpSX1BfNXVPMm5qZ3ItRUxvbDNfaDlGUjloMzVuMTZENE42NG5oWFJISWt5dnVIWkVMd1JWbW5GakpkWHhZVmJiODNqOUxzQ2xyZVROcWRpNnA3VDVfc2tia1ZId1JWMGVsVlJyMVB5RDdnQWdpcmR5Z0VfNHdMM0hmZFlmY1EtRHVtQ0cycU0?oc=5",
+      "tweet": {
+        "setup": "A major shopping app CEO just resigned over a billion-dollar IPO fight.",
+        "punch": "Cool, their support bot still says my 4-day-late extension board is arriving today."
+      },
+      "notify": {
+        "time": "6:10",
+        "date": "Thursday, 23 April",
+        "items": [
+          {
+            "app": "delivery",
+            "title": "Order shipped",
+            "text": "Your extension board has left the warehouse.",
+            "time": "Monday"
+          },
+          {
+            "app": "delivery",
+            "title": "Delayed in transit",
+            "text": "Your package is taking longer than expected.",
+            "time": "Wednesday"
+          },
+          {
+            "app": "news",
+            "title": "Breaking News",
+            "text": "E-commerce giant CEO quits following boardroom clash.",
+            "time": "5:30 PM"
+          },
+          {
+            "app": "delivery",
+            "title": "Out for delivery",
+            "text": "Great news! Your order will arrive before 11 PM today.",
+            "time": "6:10 PM"
+          }
+        ]
+      },
+      "created_at": "2026-11-27",
+      "model": "gemini-4-hydrogen",
+      "status": "draft",
+      "_score": 92,
+      "_judge": "Slide 1 already gives away the entire premise, so the landing simply restates what the hook told you.",
+      "_detail": {
+        "laugh": 3,
+        "share_trigger": 3,
+        "surprise": 2,
+        "specificity": 5,
+        "voice": 3,
+        "travels": 4,
+        "lands": 2,
+        "plain": 5,
+        "playful": 4
+      },
+      "_fit": {
+        "card": 3,
+        "tweet": 3,
+        "notify": 4
+      },
+      "_penalty": -5
+    },
+    {
+      "trend": "Bengaluru founder moves to Chennai, reports better productivity: ‘Parents are here, rent is half",
+      "context": "Founders rediscover living with parents as a productivity hack on LinkedIn, giving Indian parents ammunition for the family group.",
+      "angle": "Moving home for free home-cooked food and half rent gets rebranded as founder discipline on LinkedIn.",
+      "landing_options": [
+        {
+          "line": "Productivity ka matlab tha mummy ne tiffin pack kar diya.",
+          "mechanism": "escalation"
+        },
+        {
+          "line": "Founder ne \"support system\" likha. Papa ne \"nikamma\" padha.",
+          "mechanism": "reinterpretation"
+        },
+        {
+          "line": "Usne rent bachaya. Tumne azaadi.",
+          "mechanism": "deadpan_response"
+        },
+        {
+          "line": "Kal se ghar aa ja. Room saaf kara diya hai.",
+          "mechanism": "callback"
+        }
+      ],
+      "slides": [
+        "Bengaluru founder ne post daala: \"Moved back to parents, productivity doubled.\"",
+        "Papa ne screenshot bheja.\n\"Dekho, yeh bhi CEO hai aur ghar pe rehta hai.\"\n\"Yahan rent zero hai aur mummy subah 8 baje chai de deti hain.\"",
+        "Productivity ka matlab tha mummy ne tiffin pack kar diya."
+      ],
+      "caption": "Send this to the friend whose parents quote LinkedIn founders to make them move back home 📱",
+      "trigger": "home",
+      "target": "LinkedIn",
+      "structure": "whatsapp_forward",
+      "move": "the_banal_true_answer",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "bengaluru rent",
+        "living with parents",
+        "founder linkedin"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi9gJBVV95cUxQRFpLZmFrVlZVV0l6MHdzb2VpekFtMHZjZWJycGxHODBWVF9zbXgtemx0UEdUY3BNcFVuV2RFZlFOcl93Q0JZSml1WVp5N0x5aEtHWVhqbEd0WU9hRHJ3OExzMFpXekdSM3B3MzNTcXQ3MTcwSC1rbUZYaDlhRzJCZVR2MkRZTHY5YUpncVJlN0ZPR2I5MlA3VUtCdzFzcEZpMThNUlcxbkw0WTBvWmJscjNWUi1HVzZkbktSejNqWTdobGduX2wtTGFVM2dHeGU3NmNGVUxkcjFRbzR5V1lBT3VZVExCbjktVVpwYkE5OFE5TkJsRXNMRldLem9fbm1OalA5bmVsc0xFU3huWE9rTUxuRWpvX3cybGo1cUpCUnVIX0daTWFQMVZ4OG9aXzdfekFYbzlLSlFRclMwNG1meTI3VmR3VTZyckpyMGJ6bmFzM0ZXWVZ0NTkzRklzSkhjVHJ5eTRna0t3MjBtNWlKeFh5d2N2QdIB9gJBVV95cUxQRFpLZmFrVlZVV0l6MHdzb2VpekFtMHZjZWJycGxHODBWVF9zbXgtemx0UEdUY3BNcFVuV2RFZlFOcl93Q0JZSml1WVp5N0x5aEtHWVhqbEd0WU9hRHJ3OExzMFpXekdSM3B3MzNTcXQ3MTcwSC1rbUZYaDlhRzJCZVR2MkRZTHY5YUpncVJlN0ZPR2I5MlA3VUtCdzFzcEZpMThNUlcxbkw0WTBvWmJscjNWUi1HVzZkbktSejNqWTdobGduX2wtTGFVM2dHeGU3NmNGVUxkcjFRbzR5V1lBT3VZVExCbjktVVpwYkE5OFE5TkJsRXNMRldLem9fbm1OalA5bmVsc0xFU3huWE9rTUxuRWpvX3cybGo1cUpCUnVIX0daTWFQMVZ4OG9aXzdfekFYbzlLSlFRclMwNG1meTI3VmR3VTZyckpyMGJ6bmFzM0ZXWVZ0NTkzRklzSkhjVHJ5eTRna0t3MjBtNWlKeFh5d2N2QQ?oc=5",
+      "tweet": {
+        "setup": "A startup founder posted that moving back with parents doubled his productivity.",
+        "punch": "That is just called having someone else wash your tiffin box."
+      },
+      "chat": {
+        "title": "Papa",
+        "messages": [
+          {
+            "from": "Papa",
+            "text": "Founder ka article padha? Chennai shift ho gaya parents ke paas",
+            "kind": "forwarded"
+          },
+          {
+            "from": "You",
+            "text": "Haan papa, unka office bhi wahin hai",
+            "kind": "text"
+          },
+          {
+            "from": "Papa",
+            "text": "Tumhara bhi remote hi hai. Yahan rent nahi lagega aur subah chai milegi.",
+            "kind": "text"
+          },
+          {
+            "from": "You",
+            "text": "Papa mera 10 baje tak meeting hota hai",
+            "kind": "text"
+          },
+          {
+            "from": "Papa",
+            "text": "Toh 9 baje khaana kha ke baithna.",
+            "kind": "text"
+          }
+        ]
+      },
+      "created_at": "2026-11-27",
+      "model": "gemini-4-hydrogen",
+      "status": "draft",
+      "_score": 90,
+      "_judge": "The card ends on the most obvious joke to make about that founder post, whereas the Papa chat rendition captures the real parental trap.",
+      "_detail": {
+        "laugh": 3,
+        "share_trigger": 4,
+        "surprise": 3,
+        "specificity": 4,
+        "voice": 2,
+        "travels": 4,
+        "lands": 3,
+        "plain": 5,
+        "playful": 4
+      },
+      "_fit": {
+        "card": 3,
+        "tweet": 3,
+        "chat": 4
+      },
+      "_penalty": 2
+    },
+    {
+      "trend": "Rift with Walmart over IPO plan, Flipkart CEO quits",
+      "context": "Billion-dollar boardroom rifts read word-for-word like an Indian joint family dispute over dividing property.",
+      "angle": "Boardroom disagreements over an IPO sound identical to two uncles arguing over the family shop.",
+      "landing_options": [
+        {
+          "line": "Farq itna hai ki yahan WhatsApp ki jagah press release aati hai.",
+          "mechanism": "callback"
+        },
+        {
+          "line": "Dono taraf se statement aaya: \"Mutual respect hai.\"",
+          "mechanism": "deadpan_response"
+        },
+        {
+          "line": "Bas is kalesh mein shaadi ke card ki jagah IPO tha.",
+          "mechanism": "reinterpretation"
+        },
+        {
+          "line": "Diwali pe dono phir ek hi stage pe photo khichwayenge.",
+          "mechanism": "escalation"
+        }
+      ],
+      "slides": [
+        "Flipkart aur Walmart ka jhagda bilkul chacha-tau ke batware jaisa lag raha hai.",
+        "\"Bade bhaiya chahte the dukan abhi market mein jaaye.\"\n\"Bahar wale uncle bole: abhi nahi, agle saal.\"\n\"Bas chhote sahab ne chabi desk pe rakhi aur nikal gaye.\"",
+        "Farq itna hai ki yahan WhatsApp ki jagah press release aati hai."
+      ],
+      "caption": "Send this to the friend who follows corporate boardroom news like family gossip 🫖",
+      "trigger": "big_company_drama",
+      "target": "relatives",
+      "structure": "two_aunties",
+      "move": "absurd_comparative",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "startup news",
+        "joint family",
+        "corporate drama"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxNQ0p3TmZuZ2xjV3ZQLTc3TS1JNW9rcW9SVTFsY2xXeG5FOEJlLVB5bDVoQmZHRktqclhaMGhJQkpMNlZnZS0zYXVPdHN2V2l5aVRPTFZsWjh2N01CbzV5TGlVRGktYlFWUWt2blZRMHRMNUc1azQ2bVp4eHhWd1JnYTRhT1NBY3FScVNkckQ3cEpoeExJT2tBU3YwMjlaSkt0RWwzeHRoaGdqYkx2WVBfcTlmNVUyV21SYmo1REpGeVpmMXlqYnNrOFhWWTNzVUlfbGfSAdcBQVVfeXFMTWJBbzgzNXNUaG9qSjItSmRuRzZvTGhyUEdtMWpkQjNNd2hlbXFCdzU5TnYxMzR2VjFRQzNZb05USDlxV010UC0tSk5xMVNkTnpSX1BfNXVPMm5qZ3ItRUxvbDNfaDlGUjloMzVuMTZENE42NG5oWFJISWt5dnVIWkVMd1JWbW5GakpkWHhZVmJiODNqOUxzQ2xyZVROcWRpNnA3VDVfc2tia1ZId1JWMGVsVlJyMVB5RDdnQWdpcmR5Z0VfNHdMM0hmZFlmY1EtRHVtQ0cycU0?oc=5",
+      "tweet": {
+        "setup": "Reading about a billionaire CEO quitting after a fight with the parent company.",
+        "punch": "It is literally a joint family property dispute with a PR agency."
+      },
+      "chat": {
+        "title": "Chai Group",
+        "messages": [
+          {
+            "from": "Akash",
+            "text": "Bhai dekh liya? Shopping app CEO quit over fight with US owners",
+            "kind": "text"
+          },
+          {
+            "from": "You",
+            "text": "Haan, bilkul chacha tau wala kalesh lag raha hai",
+            "kind": "text"
+          },
+          {
+            "from": "Akash",
+            "text": "Chabi desk pe rakh ke nikal gaye bhai",
+            "kind": "text"
+          },
+          {
+            "from": "You",
+            "text": "Bas ab dono side se 'mutual respect' wala message aayega",
+            "kind": "text"
+          }
+        ]
+      },
+      "created_at": "2026-11-27",
+      "model": "gemini-4-hydrogen",
+      "status": "draft",
+      "_score": 90,
+      "_judge": "Once Slide 1 announces the chacha-tau simile, Slides 2 and 3 merely illustrate it politely without delivering a real comedic turn.",
+      "_detail": {
+        "laugh": 3,
+        "share_trigger": 3,
+        "surprise": 3,
+        "specificity": 4,
+        "voice": 2,
+        "travels": 2,
+        "lands": 3,
+        "plain": 4,
+        "playful": 5
+      },
+      "_fit": {
+        "card": 3,
+        "tweet": 4,
+        "chat": 2
+      },
+      "_penalty": -5
+    },
+    {
+      "trend": "Rift with Walmart over IPO plan, Flipkart CEO quits",
+      "context": "Even a mega-company CEO quitting over disagreements with the US parent company feels identical to a 9 PM call rejecting your deck.",
+      "angle": "Corporate politics with global headquarters looks exactly the same at the top as it does at mid-level, only the severance is better.",
+      "landing_options": [
+        {
+          "line": "He just had better severance than a farewell cake.",
+          "mechanism": "rule_of_three_break"
+        },
+        {
+          "line": "The resignation mail used the exact same template as yours.",
+          "mechanism": "reinterpretation"
+        },
+        {
+          "line": "Different CTC. Same 9 PM calendar invite.",
+          "mechanism": "callback"
+        },
+        {
+          "line": "Even at the top, somebody abroad still rejects your plan.",
+          "mechanism": "escalation"
+        }
+      ],
+      "slides": [
+        "Even the Flipkart CEO quit over a fight with the US head office.",
+        "Clause 1: India team builds the plan for ten years.\nClause 2: US team joins a 9 PM call to ask for one small change.\nClause 3: Everybody smiles on LinkedIn and says \"pursuing new opportunities.\"",
+        "He just had better severance than a farewell cake."
+      ],
+      "caption": "Somebody on your team has a US manager who calls 9 PM meetings \"quick syncs\" 🕘",
+      "trigger": "big_company_drama",
+      "target": "employer",
+      "structure": "terms_and_conditions",
+      "move": "the_institutional_frame",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "corporate resignation",
+        "us parent company",
+        "indian startup"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxNQ0p3TmZuZ2xjV3ZQLTc3TS1JNW9rcW9SVTFsY2xXeG5FOEJlLVB5bDVoQmZHRktqclhaMGhJQkpMNlZnZS0zYXVPdHN2V2l5aVRPTFZsWjh2N01CbzV5TGlVRGktYlFWUWt2blZRMHRMNUc1azQ2bVp4eHhWd1JnYTRhT1NBY3FScVNkckQ3cEpoeExJT2tBU3YwMjlaSkt0RWwzeHRoaGdqYkx2WVBfcTlmNVUyV21SYmo1REpGeVpmMXlqYnNrOFhWWTNzVUlfbGfSAdcBQVVfeXFMTWJBbzgzNXNUaG9qSjItSmRuRzZvTGhyUEdtMWpkQjNNd2hlbXFCdzU5TnYxMzR2VjFRQzNZb05USDlxV010UC0tSk5xMVNkTnpSX1BfNXVPMm5qZ3ItRUxvbDNfaDlGUjloMzVuMTZENE42NG5oWFJISWt5dnVIWkVMd1JWbW5GakpkWHhZVmJiODNqOUxzQ2xyZVROcWRpNnA3VDVfc2tia1ZId1JWMGVsVlJyMVB5RDdnQWdpcmR5Z0VfNHdMM0hmZFlmY1EtRHVtQ0cycU0?oc=5",
+      "tweet": {
+        "setup": "Even a massive startup CEO just quit after clashing with the US parent company.",
+        "punch": "Makes me feel better about my deck getting rejected on a 9 PM call."
+      },
+      "comments": {
+        "source": "Startup Buzz India",
+        "post": "E-commerce CEO steps down following disagreements with US parent over IPO timeline.",
+        "items": [
+          {
+            "user": "aditya_pm",
+            "text": "Even CEOs cannot survive a 9 PM alignment call with US leadership"
+          },
+          {
+            "user": "nisha.hr",
+            "text": "Wait for the LinkedIn post thanking everyone for the incredible journey"
+          },
+          {
+            "user": "rohit_ux",
+            "text": "Difference is he got a buyout, I got a soggy chocolate pastry",
+            "reply": true
+          },
+          {
+            "user": "varun.s",
+            "text": "India builds the slides, US moves the deadline."
+          }
+        ]
+      },
+      "created_at": "2026-11-27",
+      "model": "gemini-4-hydrogen",
+      "status": "draft",
+      "_score": 83,
+      "_judge": "Good insight into US-HQ versus India-team dynamics, but the Clause formatting feels stiff and comparing severance to a cake reads clumsily.",
+      "_detail": {
+        "laugh": 3,
+        "share_trigger": 4,
+        "surprise": 3,
+        "specificity": 4,
+        "voice": 2,
+        "travels": 4,
+        "lands": 3,
+        "plain": 3,
+        "playful": 4
+      },
+      "_fit": {
+        "card": 3,
+        "tweet": 3,
+        "comments": 4
+      },
+      "_penalty": 3
+    },
+    {
+      "trend": "Bengaluru founder moves to Chennai, reports better productivity: ‘Parents are here, rent is half",
+      "context": "Living near parents sounds relaxing and affordable until Sunday morning starts at 7:15 AM with unannounced inspections.",
+      "angle": "Proximity to parents eliminates your broker headache and replaces it with an unscheduled morning audit.",
+      "landing_options": [
+        {
+          "line": "Unke paas duplicate key hai. Productivity ab 100% hai.",
+          "mechanism": "callback"
+        },
+        {
+          "line": "Woh chai leke gate pe khadi hain.",
+          "mechanism": "escalation"
+        },
+        {
+          "line": "Rent aadha ho gaya. Sunday khatam.",
+          "mechanism": "reinterpretation"
+        },
+        {
+          "line": "Doorbell 7:15 pe baji thi. Tumne 7:16 pe uthaya.",
+          "mechanism": "deadpan_response"
+        }
+      ],
+      "slides": [
+        "\"Parents are nearby\" sounds peaceful until Sunday morning 7:15 AM.",
+        "\"Haan mummy, uth gaya.\"\n\"Nahi, balcony ka paudha nahi sukha.\"\n\"Haan, woh founder ka article padh liya. Nahi, main Chennai shift nahi ho raha.\"",
+        "Unke paas duplicate key hai. Productivity ab 100% hai."
+      ],
+      "caption": "Whose mother treats Sunday 7:15 AM as standard business hours 🔑",
+      "trigger": "parents",
+      "target": "parents",
+      "structure": "phone_call",
+      "move": "absurd_comparative",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "sunday morning",
+        "parents visit",
+        "chennai rent"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi9gJBVV95cUxQRFpLZmFrVlZVV0l6MHdzb2VpekFtMHZjZWJycGxHODBWVF9zbXgtemx0UEdUY3BNcFVuV2RFZlFOcl93Q0JZSml1WVp5N0x5aEtHWVhqbEd0WU9hRHJ3OExzMFpXekdSM3B3MzNTcXQ3MTcwSC1rbUZYaDlhRzJCZVR2MkRZTHY5YUpncVJlN0ZPR2I5MlA3VUtCdzFzcEZpMThNUlcxbkw0WTBvWmJscjNWUi1HVzZkbktSejNqWTdobGduX2wtTGFVM2dHeGU3NmNGVUxkcjFRbzR5V1lBT3VZVExCbjktVVpwYkE5OFE5TkJsRXNMRldLem9fbm1OalA5bmVsc0xFU3huWE9rTUxuRWpvX3cybGo1cUpCUnVIX0daTWFQMVZ4OG9aXzdfekFYbzlLSlFRclMwNG1meTI3VmR3VTZyckpyMGJ6bmFzM0ZXWVZ0NTkzRklzSkhjVHJ5eTRna0t3MjBtNWlKeFh5d2N2QdIB9gJBVV95cUxQRFpLZmFrVlZVV0l6MHdzb2VpekFtMHZjZWJycGxHODBWVF9zbXgtemx0UEdUY3BNcFVuV2RFZlFOcl93Q0JZSml1WVp5N0x5aEtHWVhqbEd0WU9hRHJ3OExzMFpXekdSM3B3MzNTcXQ3MTcwSC1rbUZYaDlhRzJCZVR2MkRZTHY5YUpncVJlN0ZPR2I5MlA3VUtCdzFzcEZpMThNUlcxbkw0WTBvWmJscjNWUi1HVzZkbktSejNqWTdobGduX2wtTGFVM2dHeGU3NmNGVUxkcjFRbzR5V1lBT3VZVExCbjktVVpwYkE5OFE5TkJsRXNMRldLem9fbm1OalA5bmVsc0xFU3huWE9rTUxuRWpvX3cybGo1cUpCUnVIX0daTWFQMVZ4OG9aXzdfekFYbzlLSlFRclMwNG1meTI3VmR3VTZyckpyMGJ6bmFzM0ZXWVZ0NTkzRklzSkhjVHJ5eTRna0t3MjBtNWlKeFh5d2N2QQ?oc=5",
+      "tweet": {
+        "setup": "Living ten minutes from your parents saves half your rent.",
+        "punch": "It also means your Sunday begins at 7:15 AM with an unscheduled fridge audit."
+      },
+      "chat": {
+        "title": "Mummy",
+        "messages": [
+          {
+            "from": "Mummy",
+            "text": "Gate kholo, upma laayi hoon. Aur fridge ka dhaniya check karna hai.",
+            "kind": "text"
+          },
+          {
+            "from": "You",
+            "text": "Mummy 7:15 AM ho rahe hain. Sunday hai.",
+            "kind": "text"
+          },
+          {
+            "from": "Mummy",
+            "text": "Subah jaldi uthne se productivity badhti hai. Bahaar aao.",
+            "kind": "text"
+          }
+        ]
+      },
+      "created_at": "2026-11-27",
+      "model": "gemini-4-hydrogen",
+      "status": "draft",
+      "_score": 78,
+      "_judge": "The card shoehorns in an in-joke callback to the previous post and breaks POV, while the tweet's fridge audit has the actual punchline.",
+      "_detail": {
+        "laugh": 2,
+        "share_trigger": 3,
+        "surprise": 2,
+        "specificity": 4,
+        "voice": 2,
+        "travels": 3,
+        "lands": 2,
+        "plain": 4,
+        "playful": 4
+      },
+      "_fit": {
+        "card": 2,
+        "tweet": 4,
+        "chat": 4
+      },
+      "_penalty": -5
+    },
+    {
+      "trend": "Who is Rakesh Ranjan? Former Zomato CEO appointed Uber India and South Asia chief, to take charge from January 4, 2027",
+      "context": "Salaried thirty-year-olds get rejected for asking for a 60-day notice period while top executives get an eight-month runway.",
+      "angle": "Notice periods are treated as a personal flaw for regular employees and a strategic transition for CEOs.",
+      "landing_options": [
+        {
+          "line": "\"Unka role strategic hai. Aap Monday se aao.\"",
+          "mechanism": "deadpan_response"
+        },
+        {
+          "line": "\"CEO ka notice period sabbatical hai. Tumhara red flag.\"",
+          "mechanism": "reinterpretation"
+        },
+        {
+          "line": "\"Woh 2027 mein aayenge. Tumhare offer pe expiry Friday ki hai.\"",
+          "mechanism": "callback"
+        },
+        {
+          "line": "\"HR ne bola: exceptions top pe banti hain, Excel pe nahi.\"",
+          "mechanism": "rule_of_three_break"
+        }
+      ],
+      "slides": [
+        "Naye Uber India CEO ko 8 mahine ka notice period mila hai.",
+        "\"Aapki joining date?\"\n\"Sir, 90 days notice hai.\"\n\"Sorry, we need an immediate joiner.\"\n\"Par boss toh January 2027 mein aa rahe hain.\"",
+        "\"Unka role strategic hai. Aap Monday se aao.\""
+      ],
+      "caption": "Every HR team has two calendars and only one of them includes January 2027 📅",
+      "trigger": "corporate",
+      "target": "HR",
+      "structure": "interview",
+      "move": "flat_restatement",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "notice period",
+        "immediate joiner",
+        "corporate hiring"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNZUdTTHhoVHRIMWZpdkZuZlUxVDk4RU9GY0N6bWNJZzk0R01HT2pnVzc0cVBHcERYV1RtbFp0NWNCZ1VMNW1VM0s2SkdKa2pVekxYbmlrRDM4blVxS3ZqLXlRUnpWbWJqWFpXQzJZdmpXdWZ6U0c3VUREbUs1ZnluWTZwZndfX3ZpLWlDOE84Y0w2YWFlU0RCMlNSckl2UUVpWkZMMlp2TGJ0b2VSMDlsQ05kR0hBUkQyQ1BDZXJoS2VtcnlZ?oc=5",
+      "tweet": {
+        "setup": "Got rejected because my 90-day notice period is too long for urgent business needs.",
+        "punch": "The guy running the whole cab company is joining in January 2027."
+      },
+      "chat": {
+        "title": "HR - Priya",
+        "messages": [
+          {
+            "from": "HR - Priya",
+            "text": "Hi, we loved your profile. Can you join by next Monday?",
+            "kind": "text"
+          },
+          {
+            "from": "You",
+            "text": "I have a 60 day notice period, can try for 45",
+            "kind": "text"
+          },
+          {
+            "from": "HR - Priya",
+            "text": "Sorry, leadership wants immediate impact. We cannot wait 6 weeks.",
+            "kind": "text"
+          },
+          {
+            "from": "You",
+            "text": "Just saw your new India head is joining in January 2027",
+            "kind": "text"
+          },
+          {
+            "from": "HR - Priya",
+            "text": "That is strategic alignment. Please confirm Monday joining.",
+            "kind": "text"
+          }
+        ]
+      },
+      "created_at": "2026-11-27",
+      "model": "gemini-4-hydrogen",
+      "status": "draft",
+      "_score": 76,
+      "_judge": "The joke is standard HR hypocrisy dressed in a topical headline, and you can see the punchline coming from slide 1.",
+      "_detail": {
+        "laugh": 3,
+        "share_trigger": 4,
+        "surprise": 3,
+        "specificity": 4,
+        "voice": 2,
+        "travels": 3,
+        "lands": 3,
+        "plain": 4,
+        "playful": 4
+      },
+      "_fit": {
+        "card": 3,
+        "tweet": 4,
+        "chat": 4
+      },
+      "_penalty": 11
+    },
+    {
+      "trend": "As office leasing surges, India Inc reassesses the commute to work",
+      "context": "Managers demand strict 9:30 AM floor presence while recording voice notes from the back seat of a cab stuck in traffic.",
+      "angle": "The person lecturing the team about showing up for synergy is delivering the speech from a standstill junction.",
+      "landing_options": [
+        {
+          "line": "Voice note ke end mein auto wale ne bhi \"synergy\" sun liya.",
+          "mechanism": "escalation"
+        },
+        {
+          "line": "Unka mic traffic mein tha. Tumhari attendance desk pe.",
+          "mechanism": "callback"
+        },
+        {
+          "line": "Woh khud airport ja rahe the. Tum 9:30 pe desk pe the.",
+          "mechanism": "deadpan_response"
+        },
+        {
+          "line": "11 baje woh khud flyover pe the.",
+          "mechanism": "reinterpretation"
+        }
+      ],
+      "slides": [
+        "Manager ka 3 minute ka voice note aaya hai traffic se.",
+        "\"Hey, just stepping out... sorry horn... we need everyone on floor by 9:30... bhaiya left mat lo... synergy tabhi banti hai jab... sir aage badho na...\"",
+        "Voice note ke end mein auto wale ne bhi \"synergy\" sun liya."
+      ],
+      "caption": "You know exactly which manager sends 3-minute voice notes over traffic horns 🎙️",
+      "trigger": "commute",
+      "target": "employer",
+      "structure": "voice_note",
+      "move": "the_turn_in_the_last_words",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "manager voice note",
+        "morning traffic",
+        "work from office"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxOWTRXaV9HS01MQWpsQzBVUlFmTGhZTGpjbkI5VHNidU8yUXhKblRnclF1dFp5d3BtcENjWndkOWhKeS1QWXFZMUt1N25Kd0VGeEdiV01VLW1ZdmpjQXctbXRhNS0tVUFOOVV5SGlPWURqX1Z2QTE3YnRHWG0wb3dVQmkxWldyQ09rOWc5Q0RPaW1aWTdtcHN0MXQ3ck5EYXpKcDNWVFpYVmNGRWpaVndEc2szR2ZIODd5eHZwUHpGVS1TSXlFNWMtdmt6MXBsYTd3TFVr?oc=5",
+      "tweet": {
+        "setup": "My boss sent a 3-minute voice note lecturing us on punctuality and floor synergy.",
+        "punch": "He got cut off twice because his cab driver argued with an auto."
+      },
+      "chat": {
+        "title": "Rakesh Sir",
+        "messages": [
+          {
+            "from": "Rakesh Sir",
+            "text": "3:42",
+            "kind": "voice"
+          },
+          {
+            "from": "Rakesh Sir",
+            "text": "Ignore the honking. Mainpoint is 9:30 sharp from tomorrow",
+            "kind": "text"
+          },
+          {
+            "from": "You",
+            "text": "Noted sir. Where are you joining the 10 AM call from?",
+            "kind": "text"
+          },
+          {
+            "from": "Rakesh Sir",
+            "text": "Still on the flyover, will dial in from the cab.",
+            "kind": "text"
+          }
+        ]
+      },
+      "created_at": "2026-11-27",
+      "model": "gemini-4-hydrogen",
+      "status": "draft",
+      "_score": 75,
+      "_judge": "Slide 2's interrupted voice note gets all the laughs, leaving Slide 3 with nowhere to go except a weak callback that the chat rendition actually fixes.",
+      "_detail": {
+        "laugh": 3,
+        "share_trigger": 4,
+        "surprise": 1,
+        "specificity": 4,
+        "voice": 2,
+        "travels": 4,
+        "lands": 1,
+        "plain": 5,
+        "playful": 4
+      },
+      "_fit": {
+        "card": 3,
+        "tweet": 2,
+        "chat": 4
+      },
+      "_penalty": 5
+    },
+    {
+      "trend": "As office leasing surges, India Inc reassesses the commute to work",
+      "context": "Real estate near IT parks is priced out of reach for thirty-year-olds, forcing long highway commutes for mandatory in-person culture.",
+      "angle": "Companies celebrate building an in-person culture when nobody on the team can afford to live in the same pin code as the office.",
+      "landing_options": [
+        {
+          "line": "In-person ka matlab tha signal pe milna.",
+          "mechanism": "rule_of_three_break"
+        },
+        {
+          "line": "Building vibrant hai. Rasta nahi.",
+          "mechanism": "reinterpretation"
+        },
+        {
+          "line": "Culture 8 baje shuru hota hai. Tum highway pe ho.",
+          "mechanism": "callback"
+        },
+        {
+          "line": "Tumhara din flyover pe shuru aur flyover pe khatam hota hai.",
+          "mechanism": "escalation"
+        }
+      ],
+      "slides": [
+        "Company ne 5 lakh sq ft naya office liya hai. Tumhara flat 18 km door hai.",
+        "Office ke paas 1 BHK: ₹42,000.\nJahan rent affordable hai, wahan se cab subah 7 baje nikalni padti hai.\nNewsletter mein likha hai: \"Building a vibrant in-person culture.\"",
+        "In-person ka matlab tha signal pe milna."
+      ],
+      "caption": "Every city has a flyover where half your office meets before reaching the gate 🚗",
+      "trigger": "traffic_and_home",
+      "target": "landlord",
+      "structure": "juxtaposition",
+      "move": "flat_restatement",
+      "satire_level": 3,
+      "hinglish": true,
+      "keywords": [
+        "office rent",
+        "long commute",
+        "corporate culture"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxOWTRXaV9HS01MQWpsQzBVUlFmTGhZTGpjbkI5VHNidU8yUXhKblRnclF1dFp5d3BtcENjWndkOWhKeS1QWXFZMUt1N25Kd0VGeEdiV01VLW1ZdmpjQXctbXRhNS0tVUFOOVV5SGlPWURqX1Z2QTE3YnRHWG0wb3dVQmkxWldyQ09rOWc5Q0RPaW1aWTdtcHN0MXQ3ck5EYXpKcDNWVFpYVmNGRWpaVndEc2szR2ZIODd5eHZwUHpGVS1TSXlFNWMtdmt6MXBsYTd3TFVr?oc=5",
+      "tweet": {
+        "setup": "My company leased a massive glass campus to build in-person culture.",
+        "punch": "We mostly bond while stuck behind the same water tanker at 9 AM."
+      },
+      "comments": {
+        "source": "City Corporate Watch",
+        "post": "Major employers sign record office leases this quarter to boost in-person collaboration.",
+        "items": [
+          {
+            "user": "arjun_blr",
+            "text": "1 BHK next to the tech park costs more than my car EMI"
+          },
+          {
+            "user": "neha.design",
+            "text": "We collaborate on WhatsApp about whose cab reached first"
+          },
+          {
+            "user": "rohit_mba",
+            "text": "My manager lives 800 metres away and asks why we look tired",
+            "reply": true
+          },
+          {
+            "user": "kiran_93",
+            "text": "At this point the flyover has better attendance than the office."
+          }
+        ]
+      },
+      "created_at": "2026-11-27",
+      "model": "gemini-4-hydrogen",
+      "status": "draft",
+      "_score": 67,
+      "_judge": "It reads as an accurate, weary commute complaint rather than a laugh, while the tweet's water-tanker detail carries more comic life than the card's landing.",
+      "_detail": {
+        "laugh": 2,
+        "share_trigger": 3,
+        "surprise": 3,
+        "specificity": 4,
+        "voice": 3,
+        "travels": 4,
+        "lands": 3,
+        "plain": 4,
+        "playful": 3
+      },
+      "_fit": {
+        "card": 3,
+        "tweet": 4,
+        "comments": 3
+      },
+      "_penalty": 13
+    },
+    {
+      "trend": "Who is Rakesh Ranjan? Former Zomato CEO appointed Uber India and South Asia chief, to take charge from January 4, 2027",
+      "context": "Every evening outside home becomes a chain of platform fees and surge charges owned by the same corporate circle.",
+      "angle": "Going out for one meal is just paying two verticals of the same business model.",
+      "landing_options": [
+        {
+          "line": "You did not go out. You funded a merger.",
+          "mechanism": "reinterpretation"
+        },
+        {
+          "line": "Same boss. Two invoices.",
+          "mechanism": "callback"
+        },
+        {
+          "line": "He gets you there and feeds you when you give up.",
+          "mechanism": "escalation"
+        },
+        {
+          "line": "Surge at the gate. Packaging charge at the door.",
+          "mechanism": "rule_of_three_break"
+        }
+      ],
+      "slides": [
+        "Your Saturday night now has one regional head.",
+        "Cab to dinner: ₹480.\nDriver cancel wait: 11 minutes.\nGive up and order khichdi at home: platform fee, rain fee, packaging fee.",
+        "Same boss. Two invoices."
+      ],
+      "caption": "Somebody you know pays surge pricing to cancel plans and then pays platform fees to stay in bed 🛋️",
+      "trigger": "upi",
+      "target": "platform",
+      "structure": "receipt",
+      "move": "the_turn_in_the_last_words",
+      "satire_level": 3,
+      "hinglish": false,
+      "keywords": [
+        "weekend spending",
+        "platform fee",
+        "city commute"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNZUdTTHhoVHRIMWZpdkZuZlUxVDk4RU9GY0N6bWNJZzk0R01HT2pnVzc0cVBHcERYV1RtbFp0NWNCZ1VMNW1VM0s2SkdKa2pVekxYbmlrRDM4blVxS3ZqLXlRUnpWbWJqWFpXQzJZdmpXdWZ6U0c3VUREbUs1ZnluWTZwZndfX3ZpLWlDOE84Y0w2YWFlU0RCMlNSckl2UUVpWkZMMlp2TGJ0b2VSMDlsQ05kR0hBUkQyQ1BDZXJoS2VtcnlZ?oc=5",
+      "tweet": {
+        "setup": "Paid surge pricing for a cab to dinner, got cancelled twice, stayed home and ordered food.",
+        "punch": "Turns out the same executive gets my money either way."
+      },
+      "notify": {
+        "time": "10:42",
+        "date": "Saturday, 18 April",
+        "items": [
+          {
+            "app": "delivery",
+            "title": "Ride cancelled",
+            "text": "Your driver cancelled after 9 minutes. Searching again.",
+            "time": "9:15 PM"
+          },
+          {
+            "app": "upi",
+            "title": "Payment successful",
+            "text": "Rs 480 paid for cab ride in peak surge.",
+            "time": "9:40 PM"
+          },
+          {
+            "app": "food",
+            "title": "Order confirmed",
+            "text": "Packaging fee and platform fee added to your late-night meal.",
+            "time": "10:15 PM"
+          },
+          {
+            "app": "bank",
+            "title": "Account debited",
+            "text": "Rs 642 spent tonight across food and cab apps.",
+            "time": "10:42 PM"
+          }
+        ]
+      },
+      "created_at": "2026-11-27",
+      "model": "gemini-4-hydrogen",
+      "status": "draft",
+      "landing_replaced": "You did not go out. You funded a merger.",
+      "_score": 63,
+      "_judge": "Calling an executive job hop a merger makes little logical sense, turning the post into a fee complaint with a flat summary instead of a punchline.",
+      "_detail": {
+        "laugh": 2,
+        "share_trigger": 2,
+        "surprise": 2,
+        "specificity": 4,
+        "voice": 3,
+        "travels": 3,
+        "lands": 2,
+        "plain": 3,
+        "playful": 3
+      },
+      "_fit": {
+        "card": 3,
+        "tweet": 3,
+        "notify": 2
+      },
+      "_penalty": 3
+    },
+    {
+      "trend": "As office leasing surges, India Inc reassesses the commute to work",
+      "context": "Companies sign giant office leases first and send out commute surveys afterward as a formality.",
+      "angle": "Leadership asks employees about their two-hour commute only to announce mandatory office attendance.",
+      "landing_options": [
+        {
+          "line": "Survey lene ke liye bhi office bulaya tha.",
+          "mechanism": "escalation"
+        },
+        {
+          "line": "Study ka matlab tha attendance check karna.",
+          "mechanism": "reinterpretation"
+        },
+        {
+          "line": "Unhone study kar liya. Rasta wahi hai.",
+          "mechanism": "deadpan_response"
+        },
+        {
+          "line": "Office building khali thi. Tum nahi.",
+          "mechanism": "callback"
+        }
+      ],
+      "slides": [
+        "HR ne mail bheja: \"We are studying your commute patterns.\"",
+        "Rohan: \"Silk Board pe 2 ghante.\"\nSneha: \"Hinjewadi mein auto wale ne bhagwan maana hai.\"\nAnkit: \"Metro 3 baar change hoti hai.\"\nHR: \"Great feedback! Mandatory office from Monday.\"",
+        "Survey lene ke liye bhi office bulaya tha."
+      ],
+      "caption": "Forward this to the colleague who actually wrote three honest paragraphs in the anonymous HR survey",
+      "trigger": "commute",
+      "target": "employer",
+      "structure": "group_chat",
+      "move": "the_banal_true_answer",
+      "satire_level": 4,
+      "hinglish": true,
+      "keywords": [
+        "office commute",
+        "return to office",
+        "bengaluru traffic"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxOWTRXaV9HS01MQWpsQzBVUlFmTGhZTGpjbkI5VHNidU8yUXhKblRnclF1dFp5d3BtcENjWndkOWhKeS1QWXFZMUt1N25Kd0VGeEdiV01VLW1ZdmpjQXctbXRhNS0tVUFOOVV5SGlPWURqX1Z2QTE3YnRHWG0wb3dVQmkxWldyQ09rOWc5Q0RPaW1aWTdtcHN0MXQ3ck5EYXpKcDNWVFpYVmNGRWpaVndEc2szR2ZIODd5eHZwUHpGVS1TSXlFNWMtdmt6MXBsYTd3TFVr?oc=5",
+      "tweet": {
+        "setup": "Our company sent a long survey asking how painful our daily traffic commute has become.",
+        "punch": "They used the data to make five days in office mandatory."
+      },
+      "chat": {
+        "title": "Team Alpha - Unofficial",
+        "messages": [
+          {
+            "from": "Rohan",
+            "text": "HR sent commute survey. Sab sach likh do",
+            "kind": "text"
+          },
+          {
+            "from": "Sneha",
+            "text": "Wrote 95 mins one way with 2 metro changes",
+            "kind": "text"
+          },
+          {
+            "from": "Ankit",
+            "text": "Same, told them cab costs half my food budget",
+            "kind": "text"
+          },
+          {
+            "from": "You",
+            "text": "Just got the townhall invite. Topic: Welcome Back To Office Mondays.",
+            "kind": "text"
+          }
+        ]
+      },
+      "comments": {
+        "source": "Office Updates",
+        "post": "Leadership has completed its six-week review of employee commute times and office space.",
+        "items": [
+          {
+            "user": "priya.k_94",
+            "text": "Conclusion: traffic is your problem, parking is also your problem"
+          },
+          {
+            "user": "rahul_codes",
+            "text": "They leased 4 floors first and asked about traffic second"
+          },
+          {
+            "user": "sneha_30",
+            "text": "Wait did they even read my 400 word rant on ring road",
+            "reply": true
+          },
+          {
+            "user": "vikram.ops",
+            "text": "They read it. That is why coffee machine is now on floor 9."
+          }
+        ]
+      },
+      "created_at": "2026-11-27",
+      "model": "gemini-4-hydrogen",
+      "status": "draft",
+      "_score": 58,
+      "_judge": "The punchline about being called to the office to take the survey directly contradicts Slide 1 saying HR sent an email.",
+      "_detail": {
+        "laugh": 2,
+        "share_trigger": 3,
+        "surprise": 2,
+        "specificity": 4,
+        "voice": 1,
+        "travels": 2,
+        "lands": 1,
+        "plain": 4,
+        "playful": 2
+      },
+      "_fit": {
+        "card": 2,
+        "tweet": 3,
+        "chat": 3,
+        "comments": 4
+      },
+      "_penalty": 1
+    },
+    {
+      "trend": "Wipro, TCS, Infosys push Nifty IT to 33,000 mark",
+      "context": "IT giants rally thousands of crores on the stock market in the same month employees receive partial variable pay emails.",
+      "angle": "Stock market wealth and employee appraisal letters live in completely separate universes at the same company.",
+      "landing_options": [
+        {
+          "line": "Shareholders ko dividend mila. Tumko \"great team effort\" mail.",
+          "mechanism": "deadpan_response"
+        },
+        {
+          "line": "Company rally kar rahi hai. Tum bus stop pe khade ho.",
+          "mechanism": "reinterpretation"
+        },
+        {
+          "line": "Investor khush hain. Tumhare paas sirf mug hai.",
+          "mechanism": "callback"
+        },
+        {
+          "line": "Index 33,000 pe hai. Tumhara increment 3.5% pe.",
+          "mechanism": "escalation"
+        }
+      ],
+      "slides": [
+        "Wipro, TCS, Infosys ne market ko 33,000 paar kara diya.",
+        "Stock upar: 3.6%.\nMarket value: hazaaron crore upar.\nTumhara appraisal email: \"Due to macroeconomic headwinds, variable payout is 65%.\"",
+        "Shareholders ko dividend mila. Tumko \"great team effort\" mail."
+      ],
+      "caption": "Every IT employee watching their company stock hit record highs right after a 4% appraisal 📈",
+      "trigger": "salary",
+      "target": "employer",
+      "structure": "juxtaposition",
+      "move": "flat_restatement",
+      "satire_level": 4,
+      "hinglish": true,
+      "keywords": [
+        "it appraisal",
+        "nifty it",
+        "variable pay"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPQVd1aHZ2UUZNbThlVGo3Sy1EcnFJeEtuMWkweTVScHRWTkxYQ0hkSjRGa0VGbTNhUndaZzZlTFpOOFlmU2pCbnhybXJHRTl4ZzRNemRnWVk1ZjBrclZINGRNOGNHVFVzbDByZ3gzMlk0aDFKdHhnQktoNlc0UVhKM1dpNmlPb0lDdEpnYlE1ZE5vVFhw?oc=5",
+      "tweet": {
+        "setup": "My company added thousands of crores in stock market value this afternoon.",
+        "punch": "My appraisal email still blamed global headwinds for a 4% raise."
+      },
+      "notify": {
+        "time": "4:15",
+        "date": "Tuesday, 21 April",
+        "items": [
+          {
+            "app": "news",
+            "title": "Market Alert",
+            "text": "Major software stocks surge 3.6% to hit new milestone.",
+            "time": "3:30 PM"
+          },
+          {
+            "app": "mail",
+            "title": "HR - Annual Cycle",
+            "text": "Due to macroeconomic headwinds, variable pay is capped at 65%.",
+            "time": "4:02 PM"
+          },
+          {
+            "app": "work",
+            "title": "Townhall Reminder",
+            "text": "CEO celebrates record quarter! Join with coffee at 4:30 PM.",
+            "time": "4:15 PM"
+          }
+        ]
+      },
+      "comments": {
+        "source": "IT Memes Daily",
+        "post": "Big software companies push the index past 33,000 in strong Tuesday rally.",
+        "items": [
+          {
+            "user": "amit_java",
+            "text": "Investors got a rally, I got a branded water bottle"
+          },
+          {
+            "user": "pooja.qa",
+            "text": "Sir macroeconomic headwinds sirf hamare hike ke time aate hain"
+          },
+          {
+            "user": "rahul_sre",
+            "text": "Wait till they announce free samosas to celebrate",
+            "reply": true
+          },
+          {
+            "user": "nikhil_09",
+            "text": "33,000 points for shareholders, 3.5% hike for the people fixing prod."
+          }
+        ]
+      },
+      "created_at": "2026-11-27",
+      "model": "gemini-4-hydrogen",
+      "status": "draft",
+      "_score": 54,
+      "_judge": "Pure corporate cynicism with zero surprise, though stacking the market alert above HR's payout mail makes the irony bite harder.",
+      "_detail": {
+        "laugh": 2,
+        "share_trigger": 3,
+        "surprise": 1,
+        "specificity": 4,
+        "voice": 3,
+        "travels": 3,
+        "lands": 2,
+        "plain": 4,
+        "playful": 2
+      },
+      "_fit": {
+        "card": 3,
+        "tweet": 3,
+        "notify": 4,
+        "comments": 3
+      },
+      "_penalty": 13
+    }
+  ],
+  "rejected": [
+    {
+      "trend": "Bengaluru founder moves to Chennai, reports better productivity: ‘Parents are here, rent is half",
+      "context": "Rent in tech hubs eats so much salary that simply moving to a cheaper city near family feels like a promotion.",
+      "angle": "Leaving an expensive rental market cuts your costs in half, but the trade is living under full parental supervision.",
+      "landing_options": [
+        {
+          "line": "You traded one landlord for two full-time auditors.",
+          "mechanism": "rule_of_three_break"
+        },
+        {
+          "line": "Rent went down by half. Curfew went back to nine.",
+          "mechanism": "reinterpretation"
+        },
+        {
+          "line": "Your deposit is back. Your privacy is not.",
+          "mechanism": "callback"
+        },
+        {
+          "line": "Compensation: extra savings, paid in daily questions.",
+          "mechanism": "escalation"
+        }
+      ],
+      "slides": [
+        "Moving out of Bengaluru is now a 50% salary hike.",
+        "Old role: pay ₹42,000 for one damp wall and a broker who ghosts you.\nNew role: Chennai flat at half price, filter coffee, zero water tanker.\nRequirement: explain to your parents why you are still awake at 10 PM.",
+        "You traded one landlord for two full-time auditors."
+      ],
+      "caption": "Somebody you know saved ₹20,000 on rent and lost all rights to order pizza after 9 PM 🍕",
+      "trigger": "rent",
+      "target": "landlord",
+      "structure": "job_description",
+      "move": "the_institutional_frame",
+      "satire_level": 4,
+      "hinglish": false,
+      "keywords": [
+        "bengaluru chennai",
+        "rent savings",
+        "living at home"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMi9gJBVV95cUxQRFpLZmFrVlZVV0l6MHdzb2VpekFtMHZjZWJycGxHODBWVF9zbXgtemx0UEdUY3BNcFVuV2RFZlFOcl93Q0JZSml1WVp5N0x5aEtHWVhqbEd0WU9hRHJ3OExzMFpXekdSM3B3MzNTcXQ3MTcwSC1rbUZYaDlhRzJCZVR2MkRZTHY5YUpncVJlN0ZPR2I5MlA3VUtCdzFzcEZpMThNUlcxbkw0WTBvWmJscjNWUi1HVzZkbktSejNqWTdobGduX2wtTGFVM2dHeGU3NmNGVUxkcjFRbzR5V1lBT3VZVExCbjktVVpwYkE5OFE5TkJsRXNMRldLem9fbm1OalA5bmVsc0xFU3huWE9rTUxuRWpvX3cybGo1cUpCUnVIX0daTWFQMVZ4OG9aXzdfekFYbzlLSlFRclMwNG1meTI3VmR3VTZyckpyMGJ6bmFzM0ZXWVZ0NTkzRklzSkhjVHJ5eTRna0t3MjBtNWlKeFh5d2N2QdIB9gJBVV95cUxQRFpLZmFrVlZVV0l6MHdzb2VpekFtMHZjZWJycGxHODBWVF9zbXgtemx0UEdUY3BNcFVuV2RFZlFOcl93Q0JZSml1WVp5N0x5aEtHWVhqbEd0WU9hRHJ3OExzMFpXekdSM3B3MzNTcXQ3MTcwSC1rbUZYaDlhRzJCZVR2MkRZTHY5YUpncVJlN0ZPR2I5MlA3VUtCdzFzcEZpMThNUlcxbkw0WTBvWmJscjNWUi1HVzZkbktSejNqWTdobGduX2wtTGFVM2dHeGU3NmNGVUxkcjFRbzR5V1lBT3VZVExCbjktVVpwYkE5OFE5TkJsRXNMRldLem9fbm1OalA5bmVsc0xFU3huWE9rTUxuRWpvX3cybGo1cUpCUnVIX0daTWFQMVZ4OG9aXzdfekFYbzlLSlFRclMwNG1meTI3VmR3VTZyckpyMGJ6bmFzM0ZXWVZ0NTkzRklzSkhjVHJ5eTRna0t3MjBtNWlKeFh5d2N2QQ?oc=5",
+      "tweet": {
+        "setup": "Moving cities cut my rent in half and put me ten minutes from my parents.",
+        "punch": "I no longer have a landlord, I now have two full-time auditors."
+      },
+      "comments": {
+        "source": "Tech City Debates",
+        "post": "Moving from expensive tech hubs to cheaper cities near family doubles monthly savings.",
+        "items": [
+          {
+            "user": "karthik_dev",
+            "text": "Rent is half, deposit is back, zero water tanker drama"
+          },
+          {
+            "user": "meera.iyer",
+            "text": "Great until your mum asks why you blinked loudly at 10:30 PM"
+          },
+          {
+            "user": "rohan_blr",
+            "text": "Paid 11 months deposit to avoid that question, worth it",
+            "reply": true
+          },
+          {
+            "user": "shreya.pm",
+            "text": "In one city you lose money to brokers, in the other you lose privacy."
+          }
+        ]
+      },
+      "created_at": "2026-11-27",
+      "model": "gemini-4-hydrogen",
+      "_gate_failures": [
+        "slide 2 is 211 chars (max 210) — cut lines, not the joke"
+      ]
+    }
+  ]
+}

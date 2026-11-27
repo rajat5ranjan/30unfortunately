@@ -1,0 +1,86 @@
+{
+  "handle": "@30unfortunately",
+  "posts": [
+    {
+      "trend": "India’s Alcobev Industry Gears Up for Festive and Wedding Season as Premium Liquor Demand Rises",
+      "context": "Wedding bartenders spend twenty minutes smoking rosemary and pouring artisanal foam while older relatives just want whisky and tap water.",
+      "angle": "The wedding industry charges per guest for theatrical smoke and foam that nobody actually wants to drink.",
+      "landing_options": [
+        {
+          "line": "Your uncle asked for whisky with plain water and broke the theme.",
+          "mechanism": "rule_of_three_break"
+        },
+        {
+          "line": "You waited twenty minutes for smoky ice.",
+          "mechanism": "reinterpretation"
+        },
+        {
+          "line": "The glass has foam on top and regret at the bottom.",
+          "mechanism": "escalation"
+        },
+        {
+          "line": "Half the drink was smoke. The other half was rosemary.",
+          "mechanism": "callback"
+        }
+      ],
+      "slides": [
+        "The wedding invite says \"Curated Craft Cocktail Experience.\"",
+        "It is a man lighting cinnamon on fire for 14 minutes.\nHe puts a sprig of grass on ice.\n₹1,800 per guest for the bar package, and the tonic water is warm.",
+        "Your uncle asked for whisky with plain water and broke the theme."
+      ],
+      "caption": "Somebody in your family will always order \"neat with two cubes\" at a molecular mixology counter 🍸",
+      "trigger": "festivals",
+      "target": "the wedding industry",
+      "structure": "wedding_invite",
+      "move": "literalisation",
+      "satire_level": 3,
+      "hinglish": false,
+      "keywords": [
+        "wedding cocktails",
+        "indian weddings",
+        "festive party"
+      ],
+      "source": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNRTZOVDFMVm5xWW1TZGZta3dqb3VOZkd5T1FfOVVsMC1VQWhfMlhSMS0zbk0tdFQ1ck5vdVFHVjc5blM1RlNDRk5RWVFpSjdWc0pod3Z2bnBVRDQyQlk5ejRfRktFb2U2Y0dxNjhoeXpZWWVHTUdodWhMTkFiN3k2UV9Bb3cyUTh4VFZ2UFFoMUFhRUdPWndxS3BXUWZJUS1zUXpTY21JWno1ZXAt?oc=5",
+      "tweet": {
+        "setup": "Wedding invites now promise a curated craft cocktail experience.",
+        "punch": "You wait 18 minutes for a guy to burn a cinnamon stick over warm tonic."
+      },
+      "comments": {
+        "source": "Desi Wedding Planners",
+        "post": "Curated mixology bars with smoked botanicals are the biggest wedding trend this season.",
+        "items": [
+          {
+            "user": "ananya_m",
+            "text": "Bro I just wanted one drink before the baraat left"
+          },
+          {
+            "user": "dev.sharma",
+            "text": "Waiting 20 minutes to be handed a glass full of rosemary leaves"
+          },
+          {
+            "user": "tanvi_k",
+            "text": "My chachu asked for whisky soda and the bartender looked hurt",
+            "reply": true
+          },
+          {
+            "user": "siddharth.92",
+            "text": "Five thousand rupees a plate and the ice melts before the smoke clears."
+          }
+        ]
+      },
+      "created_at": "2026-11-27",
+      "model": "gemini-4-hydrogen",
+      "status": "approved",
+      "id": "g120",
+      "rank_score": 114,
+      "rank_verdict": "Tight and universally funny, though Slide 2 describes the bar in general terms instead of keeping the reader's own point of view consistent.",
+      "style_fit": {
+        "card": 4,
+        "tweet": 3,
+        "comments": 4
+      },
+      "style": "comments",
+      "style_why": "fit 4, 0 of last 6; over card 3.3, tweet 3.1"
+    }
+  ]
+}
